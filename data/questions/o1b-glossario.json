@@ -1,0 +1,365 @@
+[
+  {
+    "id": "gl-001",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Che cos'è un virus informatico?",
+    "options": [
+      "Un programma malevolo che si attacca a un file o programma legittimo e si diffonde quando questo viene eseguito",
+      "Un dispositivo hardware che filtra il traffico di rete",
+      "Una tecnica per cifrare i dati memorizzati su disco",
+      "Un protocollo sicuro per navigare in Internet"
+    ],
+    "correct": [0],
+    "explanation": "Un virus è un tipo di malware che si lega a un file o programma legittimo e si diffonde quando l'host infetto viene eseguito, richiedendo quindi l'azione dell'utente per propagarsi.",
+    "why_wrong": {
+      "1": "Quello descritto è un firewall, non un virus.",
+      "2": "La cifratura dei dati è una tecnica di protezione, non un malware.",
+      "3": "Un protocollo sicuro (come HTTPS) serve a proteggere la navigazione, non a infettare il sistema."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-002",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual è la caratteristica distintiva di un worm?",
+    "options": [
+      "Si auto-replica e si diffonde autonomamente in rete senza bisogno di un file host o dell'intervento dell'utente",
+      "Ha sempre bisogno di allegarsi a un file host per potersi replicare",
+      "Cifra i file della vittima e chiede il pagamento di un riscatto",
+      "Si presenta come software legittimo per ingannare l'utente e farsi installare"
+    ],
+    "correct": [0],
+    "explanation": "Il worm è un malware che si auto-replica e si propaga da solo attraverso la rete, senza necessità di un file host o di un'azione dell'utente. Questo lo distingue dal virus.",
+    "why_wrong": {
+      "1": "Questa è la caratteristica del virus, non del worm: il worm si replica autonomamente.",
+      "2": "Cifrare i file e chiedere un riscatto è il comportamento tipico del ransomware.",
+      "3": "Mascherarsi da software legittimo è la caratteristica del trojan."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-003",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Che cos'è un trojan (cavallo di Troia)?",
+    "options": [
+      "Un malware che si maschera da software legittimo o utile per indurre l'utente a installarlo",
+      "Un malware che si auto-replica e si diffonde in rete senza intervento dell'utente",
+      "Un firewall di nuova generazione per il controllo del traffico",
+      "Un sistema che rileva le intrusioni sulla rete"
+    ],
+    "correct": [0],
+    "explanation": "Il trojan si nasconde dietro l'apparenza di un programma legittimo o utile per ingannare l'utente e convincerlo a eseguirlo, aprendo così la porta ad attività malevole.",
+    "why_wrong": {
+      "1": "L'auto-replica autonoma è la caratteristica del worm.",
+      "2": "Un firewall è un controllo di sicurezza difensivo, non un malware.",
+      "3": "Il rilevamento delle intrusioni è compito di un IDS, non di un trojan."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-004",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Che cosa fa tipicamente un ransomware?",
+    "options": [
+      "Cifra i file della vittima e chiede il pagamento di un riscatto per ripristinarli",
+      "Mostra pubblicità indesiderata all'interno delle applicazioni",
+      "Verifica l'identità degli utenti tramite dati biometrici",
+      "Crea un tunnel cifrato per proteggere le comunicazioni"
+    ],
+    "correct": [0],
+    "explanation": "Il ransomware cifra i dati della vittima rendendoli inaccessibili e richiede il pagamento di un riscatto (spesso in criptovaluta) in cambio della chiave di decifratura.",
+    "why_wrong": {
+      "1": "La visualizzazione di pubblicità indesiderata è tipica dell'adware.",
+      "2": "La verifica dell'identità tramite caratteristiche fisiche è la biometria, non un malware.",
+      "3": "Creare un tunnel cifrato è la funzione di una VPN."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-005",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Che cos'è un rootkit?",
+    "options": [
+      "Un malware progettato per ottenere accesso privilegiato e nascondere la propria presenza e quella di altri processi malevoli nel sistema",
+      "Un software che mostra automaticamente banner pubblicitari",
+      "Un attacco che satura la banda di un server con traffico eccessivo",
+      "Un token usa e getta per l'autenticazione a due fattori"
+    ],
+    "correct": [0],
+    "explanation": "Il rootkit è un malware che ottiene privilegi elevati sul sistema e maschera la propria presenza, insieme a quella di altri componenti malevoli, per sfuggire ai controlli di sicurezza e mantenere l'accesso.",
+    "why_wrong": {
+      "1": "La visualizzazione di banner pubblicitari è caratteristica dell'adware.",
+      "2": "La saturazione della banda descrive un attacco DDoS, non un rootkit.",
+      "3": "Un token di autenticazione è un elemento di controllo accessi, non un malware."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-006",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Che cos'è una vulnerabilità zero-day?",
+    "options": [
+      "Una vulnerabilità non ancora nota o priva di patch, che gli attaccanti possono sfruttare prima che venga corretta",
+      "Una vulnerabilità già corretta da tempo tramite una patch ufficiale",
+      "Un tipo di antivirus gratuito preinstallato",
+      "Una password temporanea valida per un solo accesso"
+    ],
+    "correct": [0],
+    "explanation": "Una zero-day è una vulnerabilità per la quale non esiste ancora una patch nota o disponibile: gli attaccanti possono sfruttarla prima che il fornitore la corregga, lasciando i difensori con 'zero giorni' per reagire.",
+    "why_wrong": {
+      "1": "Se esiste già una patch, la vulnerabilità non è più una zero-day.",
+      "2": "Una zero-day non è un software antivirus, ma una debolezza di sicurezza.",
+      "3": "Una password temporanea è un meccanismo di autenticazione, non una vulnerabilità."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-007",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Social Engineering"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Che cos'è il phishing?",
+    "options": [
+      "Un attacco di ingegneria sociale in cui l'attaccante inganna la vittima per ottenere dati sensibili o credenziali, spesso tramite email o siti falsi",
+      "Un attacco che satura di traffico un server per renderlo irraggiungibile",
+      "Un software che cifra i file e chiede un riscatto",
+      "Una tecnica di backup automatico dei dati aziendali"
+    ],
+    "correct": [0],
+    "explanation": "Il phishing è una tecnica di ingegneria sociale che sfrutta l'inganno (email, messaggi o siti web falsi) per indurre la vittima a rivelare informazioni sensibili come credenziali o dati bancari.",
+    "why_wrong": {
+      "1": "La saturazione di un server con traffico descrive un attacco DDoS.",
+      "2": "Cifrare i file e chiedere un riscatto è il comportamento del ransomware.",
+      "3": "Il backup dei dati è una misura di protezione, non un attacco."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-008",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Firewall"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual è la funzione principale di un firewall?",
+    "options": [
+      "Monitorare e controllare il traffico di rete in entrata e in uscita in base a regole di sicurezza predefinite",
+      "Cifrare tutti i dati memorizzati sul disco del computer",
+      "Replicare automaticamente i file su più server di backup",
+      "Verificare l'identità biometrica degli utenti che accedono"
+    ],
+    "correct": [0],
+    "explanation": "Il firewall filtra il traffico di rete in ingresso e in uscita applicando regole di sicurezza predefinite, consentendo o bloccando le connessioni per proteggere la rete.",
+    "why_wrong": {
+      "1": "La cifratura dei dati su disco è compito di strumenti di encryption, non del firewall.",
+      "2": "La replica dei file riguarda i sistemi di backup, non il firewall.",
+      "3": "La verifica biometrica è un metodo di autenticazione, non la funzione di un firewall."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-009",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Qual è la differenza principale tra un IDS e un IPS?",
+    "options": [
+      "L'IDS rileva e segnala le attività sospette, mentre l'IPS può anche bloccarle attivamente",
+      "L'IDS blocca il traffico, mentre l'IPS si limita a registrarlo",
+      "Sono due nomi diversi per lo stesso identico dispositivo, senza alcuna differenza",
+      "L'IDS cifra il traffico di rete, mentre l'IPS lo decifra"
+    ],
+    "correct": [0],
+    "explanation": "Un IDS (Intrusion Detection System) rileva e segnala le attività sospette senza intervenire, mentre un IPS (Intrusion Prevention System) può anche bloccare o prevenire attivamente il traffico malevolo.",
+    "why_wrong": {
+      "1": "È l'opposto: è l'IPS che può bloccare, mentre l'IDS si limita a rilevare e segnalare.",
+      "2": "IDS e IPS hanno ruoli distinti: rilevamento contro prevenzione attiva.",
+      "3": "IDS e IPS non hanno la funzione di cifrare o decifrare il traffico."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-010",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["VPN"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Che cos'è una VPN (Virtual Private Network)?",
+    "options": [
+      "Una tecnologia che crea un tunnel cifrato per proteggere le comunicazioni su reti non sicure",
+      "Un malware che registra di nascosto i tasti premuti dall'utente",
+      "Un attacco che intercetta il traffico scambiato tra due parti",
+      "Un catalogo degli asset da proteggere all'interno dell'organizzazione"
+    ],
+    "correct": [0],
+    "explanation": "Una VPN instaura un tunnel cifrato tra il dispositivo e la rete, proteggendo la riservatezza e l'integrità delle comunicazioni anche quando si utilizzano reti pubbliche o non affidabili.",
+    "why_wrong": {
+      "1": "La registrazione dei tasti premuti è compito di uno spyware/keylogger.",
+      "2": "L'intercettazione del traffico tra due parti descrive un attacco man-in-the-middle (MITM).",
+      "3": "Un catalogo degli asset è un inventario degli asset, non una VPN."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-011",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["SIEM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Che cos'è un SIEM (Security Information and Event Management)?",
+    "options": [
+      "Uno strumento che raccoglie, aggrega e analizza log ed eventi di sicurezza per rilevare e segnalare le minacce",
+      "Un dispositivo hardware che sostituisce completamente il firewall",
+      "Un algoritmo di cifratura asimmetrica a chiave pubblica",
+      "Un tipo di malware che si diffonde tramite allegati email"
+    ],
+    "correct": [0],
+    "explanation": "Un SIEM centralizza la raccolta e l'aggregazione di log ed eventi da più fonti e li analizza (spesso in tempo reale) per individuare, correlare e segnalare potenziali minacce di sicurezza.",
+    "why_wrong": {
+      "1": "Il SIEM non sostituisce il firewall: sono strumenti complementari con funzioni diverse.",
+      "2": "Un algoritmo di cifratura riguarda la crittografia, non la gestione di eventi di sicurezza.",
+      "3": "Il SIEM è uno strumento difensivo, non un malware."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-012",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Che cosa si intende per autenticazione?",
+    "options": [
+      "Il processo di verifica dell'identità di un utente",
+      "Il processo di concessione dei permessi di accesso a risorse specifiche",
+      "La cifratura dei dati mentre transitano sulla rete",
+      "La saturazione di un server tramite traffico eccessivo"
+    ],
+    "correct": [0],
+    "explanation": "L'autenticazione è il processo con cui si verifica l'identità di un utente (chi è), ad esempio tramite password, biometria o token, prima di concedergli l'accesso.",
+    "why_wrong": {
+      "1": "La concessione dei permessi a risorse specifiche è l'autorizzazione, non l'autenticazione.",
+      "2": "La cifratura dei dati in transito riguarda la crittografia, non l'autenticazione.",
+      "3": "La saturazione di un server descrive un attacco DDoS."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-013",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Crittografia"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni sulla crittografia sono corrette? (Seleziona due opzioni)",
+    "options": [
+      "La crittografia asimmetrica utilizza una coppia di chiavi: una pubblica e una privata",
+      "La crittografia simmetrica utilizza la stessa chiave per cifrare e decifrare i dati",
+      "La crittografia rende i dati permanentemente irrecuperabili anche per il destinatario legittimo",
+      "La crittografia serve principalmente ad aumentare la velocità della rete"
+    ],
+    "correct": [0, 1],
+    "explanation": "La crittografia asimmetrica si basa su una coppia di chiavi (pubblica e privata), mentre quella simmetrica usa un'unica chiave condivisa per cifrare e decifrare. In entrambi i casi i dati restano recuperabili da chi possiede la chiave corretta.",
+    "why_wrong": {
+      "2": "La crittografia è reversibile: il destinatario legittimo, con la chiave corretta, può decifrare i dati.",
+      "3": "Lo scopo della crittografia è proteggere la riservatezza dei dati, non aumentare la velocità della rete."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-014",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni su minacce, vulnerabilità ed exploit sono corrette? (Seleziona due opzioni)",
+    "options": [
+      "Una vulnerabilità è una debolezza che può essere sfruttata da un attore di minaccia",
+      "Un exploit è il codice o la tecnica che sfrutta una vulnerabilità",
+      "Una minaccia (threat) è la stessa cosa di una patch di sicurezza",
+      "Il rischio è del tutto indipendente dalle vulnerabilità presenti"
+    ],
+    "correct": [0, 1],
+    "explanation": "Una vulnerabilità è una debolezza sfruttabile, mentre un exploit è il mezzo (codice o tecnica) con cui tale debolezza viene effettivamente sfruttata. Il rischio dipende dalla combinazione di minacce, vulnerabilità e impatto.",
+    "why_wrong": {
+      "2": "Una minaccia è un potenziale evento dannoso; una patch è invece una correzione che riduce una vulnerabilità.",
+      "3": "Il rischio dipende proprio dalle vulnerabilità presenti, oltre che dalle minacce e dall'impatto potenziale."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-015",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["DDoS", "Malware"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni su botnet e attacchi DDoS sono corrette? (Seleziona due opzioni)",
+    "options": [
+      "Una botnet è una rete di dispositivi infetti controllati da un unico attore malevolo",
+      "Un attacco DDoS mira a rendere un servizio non disponibile sovraccaricandolo di traffico",
+      "Un attacco DDoS serve a cifrare i file della vittima per chiedere un riscatto",
+      "Una botnet è un tipo di firewall hardware per la difesa perimetrale"
+    ],
+    "correct": [0, 1],
+    "explanation": "Una botnet è un insieme di dispositivi infetti controllati da un unico attore (il 'bot-herder') e viene spesso usata per lanciare attacchi DDoS, che rendono un servizio irraggiungibile saturandolo di traffico.",
+    "why_wrong": {
+      "2": "Cifrare i file e chiedere un riscatto è il comportamento del ransomware, non di un attacco DDoS.",
+      "3": "Una botnet è una rete di dispositivi compromessi, non un firewall difensivo."
+    },
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-016",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Malware"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un worm ha bisogno di un file host per potersi replicare.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. A differenza del virus, il worm si auto-replica e si diffonde autonomamente attraverso la rete, senza bisogno di allegarsi a un file host o di un'azione dell'utente.",
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-017",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Una vulnerabilità zero-day è una vulnerabilità per la quale non esiste ancora una patch nota.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Una zero-day è una vulnerabilità sconosciuta o priva di correzione disponibile: gli attaccanti possono sfruttarla prima che venga rilasciata una patch.",
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  },
+  {
+    "id": "gl-018",
+    "cert": ["Glossario Cybersecurity"],
+    "topics": ["Controllo accessi"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "L'autenticazione e l'autorizzazione sono esattamente la stessa cosa.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. L'autenticazione verifica l'identità di un utente (chi è), mentre l'autorizzazione stabilisce a quali risorse quell'utente può accedere: sono due processi distinti e complementari.",
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+  }
+]

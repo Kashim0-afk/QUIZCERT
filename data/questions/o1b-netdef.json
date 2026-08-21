@@ -1,0 +1,330 @@
+[
+  {
+    "id": "nd-001",
+    "cert": ["Network Defense"],
+    "topics": ["Difesa in profondità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e il principio fondamentale della difesa in profondita (defense in depth)?",
+    "options": [
+      "Concentrare tutte le risorse di sicurezza su un unico firewall perimetrale robusto",
+      "Disporre piu livelli di controlli di sicurezza indipendenti in modo che il fallimento di uno non comprometta l'intera rete",
+      "Affidarsi esclusivamente alla cifratura dei dati per proteggere ogni risorsa",
+      "Eliminare la ridondanza dei controlli per ridurre la complessita di gestione"
+    ],
+    "correct": [1],
+    "explanation": "La difesa in profondita prevede piu livelli (strati) di controlli sovrapposti e indipendenti: perimetro, rete, host, applicazione, dati e persone. Se un livello viene superato, gli altri continuano a proteggere, riducendo la probabilita di compromissione totale.",
+    "why_wrong": {
+      "0": "Un unico punto di controllo, per quanto robusto, crea un single point of failure: e l'opposto della difesa in profondita.",
+      "2": "La cifratura e solo uno dei molti controlli; la difesa in profondita richiede livelli multipli ed eterogenei.",
+      "3": "La difesa in profondita si basa proprio sulla ridondanza e sulla sovrapposizione dei controlli, non sulla loro eliminazione."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-002",
+    "cert": ["Network Defense"],
+    "topics": ["Firewall"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale tipo di firewall tiene traccia dello stato delle connessioni attive e consente il traffico di ritorno solo se appartiene a una sessione gia stabilita?",
+    "options": [
+      "Packet filter senza stato (stateless)",
+      "Firewall stateful (stateful inspection)",
+      "Proxy applicativo a livello 7",
+      "Firewall solo con regole statiche sulla porta sorgente"
+    ],
+    "correct": [1],
+    "explanation": "Il firewall stateful (stateful inspection) mantiene una tabella di stato delle connessioni e valuta i pacchetti nel contesto della sessione a cui appartengono, permettendo automaticamente il traffico di ritorno legittimo e bloccando pacchetti fuori sequenza.",
+    "why_wrong": {
+      "0": "Il packet filter stateless valuta ogni pacchetto singolarmente, senza memoria delle connessioni, quindi non conosce lo stato della sessione.",
+      "2": "Il proxy applicativo opera a livello 7 analizzando il contenuto, ma la caratteristica descritta (tracciamento dello stato delle connessioni) e propria dello stateful inspection.",
+      "3": "Le regole statiche sulla porta non tengono traccia dello stato della connessione."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-003",
+    "cert": ["Network Defense"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual e la differenza principale tra un IDS e un IPS?",
+    "options": [
+      "L'IDS blocca attivamente il traffico malevolo, l'IPS si limita a registrarlo",
+      "L'IDS rileva e segnala le intrusioni, mentre l'IPS puo rilevarle e bloccarle attivamente",
+      "L'IDS opera solo su host, l'IPS solo su rete",
+      "Non esiste differenza: sono due nomi per lo stesso dispositivo"
+    ],
+    "correct": [1],
+    "explanation": "Un IDS (Intrusion Detection System) monitora il traffico, rileva attivita sospette e genera allarmi, ma non interviene. Un IPS (Intrusion Prevention System) e posto in linea e puo bloccare, scartare o reimpostare le connessioni malevole in tempo reale.",
+    "why_wrong": {
+      "0": "E invertito: e l'IPS a bloccare il traffico, mentre l'IDS si limita a rilevare e segnalare.",
+      "2": "Sia IDS sia IPS esistono in versione network-based e host-based; la distinzione host/rete non e il criterio che li separa.",
+      "3": "IDS e IPS hanno funzioni diverse: rilevamento passivo contro prevenzione attiva."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-004",
+    "cert": ["Network Defense"],
+    "topics": ["DMZ"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e lo scopo principale di una DMZ (zona demilitarizzata) in un'architettura di rete?",
+    "options": [
+      "Ospitare i database interni piu sensibili per proteggerli dagli utenti della LAN",
+      "Isolare i server accessibili dall'esterno (web, mail, DNS pubblico) in una sottorete separata tra Internet e la LAN interna",
+      "Fornire connettivita wireless agli ospiti senza alcun controllo",
+      "Sostituire completamente il firewall perimetrale"
+    ],
+    "correct": [1],
+    "explanation": "La DMZ e una sottorete cuscinetto che ospita i servizi esposti a Internet (web, mail, DNS pubblico). Se un server in DMZ viene compromesso, l'attaccante non raggiunge direttamente la LAN interna, che resta separata da regole firewall dedicate.",
+    "why_wrong": {
+      "0": "I database piu sensibili vanno nella rete interna protetta, non in DMZ che e esposta al traffico esterno.",
+      "2": "La rete ospiti wireless e una segmentazione diversa; la DMZ e comunque controllata da firewall, non priva di controlli.",
+      "3": "La DMZ non sostituisce il firewall: e realizzata proprio grazie a regole firewall che la separano da Internet e dalla LAN."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-005",
+    "cert": ["Network Defense"],
+    "topics": ["VPN"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale coppia di protocolli e comunemente utilizzata per realizzare VPN sicure ad accesso remoto?",
+    "options": [
+      "IPsec e SSL/TLS",
+      "Telnet e FTP",
+      "HTTP e SNMPv1",
+      "SMTP e POP3"
+    ],
+    "correct": [0],
+    "explanation": "Le VPN moderne si basano tipicamente su IPsec (a livello di rete, con ESP/AH e IKE) oppure su SSL/TLS (VPN SSL, spesso per accesso client-based o clientless via browser). Entrambi forniscono cifratura, autenticazione e integrita del tunnel.",
+    "why_wrong": {
+      "1": "Telnet e FTP trasmettono dati e credenziali in chiaro: non offrono cifratura ne sono protocolli VPN.",
+      "2": "HTTP non e cifrato e SNMPv1 e un protocollo di gestione insicuro; nessuno dei due realizza tunnel VPN.",
+      "3": "SMTP e POP3 sono protocolli di posta, non protocolli per la costruzione di tunnel VPN sicuri."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-006",
+    "cert": ["Network Defense"],
+    "topics": ["VLAN", "Difesa in profondità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In che modo le VLAN contribuiscono alla sicurezza di rete?",
+    "options": [
+      "Cifrano automaticamente tutto il traffico che le attraversa",
+      "Segmentano logicamente la rete separando i domini di broadcast e limitando il movimento laterale tra gruppi di host",
+      "Eliminano la necessita di firewall e controllo degli accessi",
+      "Aumentano la velocita fisica delle porte dello switch"
+    ],
+    "correct": [1],
+    "explanation": "Le VLAN suddividono logicamente una rete fisica in domini di broadcast separati. Isolando gruppi di host (per reparto, ruolo o livello di fiducia), limitano il movimento laterale di un attaccante e riducono la superficie d'attacco; il traffico tra VLAN diverse puo essere filtrato da router o firewall.",
+    "why_wrong": {
+      "0": "Le VLAN separano il traffico ma non lo cifrano: la riservatezza richiede protocolli di cifratura separati.",
+      "2": "La segmentazione VLAN e complementare, non sostitutiva, di firewall e controllo accessi.",
+      "3": "Le VLAN operano a livello logico (livello 2) e non modificano la velocita fisica delle porte."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-007",
+    "cert": ["Network Defense"],
+    "topics": ["Sicurezza Wireless"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale affermazione descrive correttamente WPA3 rispetto a WPA2?",
+    "options": [
+      "WPA3 usa ancora la stessa cifratura RC4 di WEP",
+      "WPA3 introduce SAE (Simultaneous Authentication of Equals) offrendo protezione migliore contro gli attacchi a dizionario offline rispetto a WPA2",
+      "WPA3 elimina completamente la necessita di una password",
+      "WPA3 e meno sicuro di WPA2 perche rimuove la cifratura"
+    ],
+    "correct": [1],
+    "explanation": "WPA3 sostituisce l'handshake PSK di WPA2 con SAE (Dragonfly), che fornisce forward secrecy e resistenza agli attacchi a dizionario offline anche con password deboli. Utilizza inoltre cifratura piu robusta e protezione delle reti aperte con OWE.",
+    "why_wrong": {
+      "0": "RC4 e proprio dell'obsoleto WEP; WPA3 usa cifratura moderna basata su AES, non RC4.",
+      "2": "WPA3-Personal continua a usare una passphrase; e SAE a proteggere lo scambio, non l'assenza di password.",
+      "3": "WPA3 e piu sicuro di WPA2, non meno, e mantiene una cifratura robusta."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-008",
+    "cert": ["Network Defense"],
+    "topics": ["NAC"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e la funzione principale di un sistema NAC (Network Access Control)?",
+    "options": [
+      "Cifrare i dati sui dischi degli endpoint",
+      "Verificare identita e conformita (posture) dei dispositivi prima di concedere loro l'accesso alla rete",
+      "Sostituire il DNS interno dell'organizzazione",
+      "Generare automaticamente le firme dell'antivirus"
+    ],
+    "correct": [1],
+    "explanation": "Il NAC controlla chi e cosa si connette alla rete: autentica l'utente/dispositivo e ne valuta la postura di sicurezza (patch, antivirus aggiornato, configurazione). I dispositivi non conformi possono essere bloccati, messi in quarantena o indirizzati a una rete di remediation.",
+    "why_wrong": {
+      "0": "La cifratura del disco e compito di soluzioni come BitLocker, non del NAC.",
+      "2": "Il NAC controlla l'accesso alla rete, non fornisce risoluzione dei nomi come un server DNS.",
+      "3": "La generazione delle firme e compito del fornitore antivirus, non del NAC."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-009",
+    "cert": ["Network Defense"],
+    "topics": ["Hardening"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale delle seguenti azioni e un esempio tipico di hardening di un sistema?",
+    "options": [
+      "Installare tutti i servizi disponibili per massimizzare le funzionalita",
+      "Disabilitare servizi e porte non necessari, rimuovere account inutilizzati e applicare le patch di sicurezza",
+      "Lasciare le credenziali di default per facilitare la manutenzione",
+      "Disattivare i log per migliorare le prestazioni"
+    ],
+    "correct": [1],
+    "explanation": "L'hardening consiste nel ridurre la superficie d'attacco: disabilitare servizi e porte non usati, rimuovere software e account superflui, cambiare le credenziali di default, applicare patch e configurare in modo sicuro il sistema secondo baseline riconosciute.",
+    "why_wrong": {
+      "0": "Installare servizi non necessari amplia la superficie d'attacco: e l'opposto dell'hardening.",
+      "2": "Le credenziali di default sono un rischio noto e vanno sempre modificate.",
+      "3": "Disattivare i log riduce la capacita di rilevamento e indagine: contrario alle buone pratiche di sicurezza."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-010",
+    "cert": ["Network Defense"],
+    "topics": ["Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Il principio del minimo privilegio (least privilege) prevede che:",
+    "options": [
+      "Ogni utente riceva i privilegi di amministratore per evitare blocchi operativi",
+      "A ogni utente o processo siano concessi solo i permessi strettamente necessari a svolgere le proprie funzioni",
+      "Tutti gli utenti condividano lo stesso account per semplificare la gestione",
+      "I permessi vengano assegnati una volta e mai piu rivisti"
+    ],
+    "correct": [1],
+    "explanation": "Il minimo privilegio limita gli accessi allo stretto necessario per il ruolo: cosi si riduce l'impatto di un account compromesso o di un errore, limitando il movimento laterale e l'escalation dei privilegi.",
+    "why_wrong": {
+      "0": "Concedere a tutti privilegi di amministratore viola direttamente il principio del minimo privilegio e aumenta il rischio.",
+      "2": "Gli account condivisi impediscono la tracciabilita e violano il controllo accessi individuale.",
+      "3": "I permessi vanno riesaminati periodicamente (access review) per evitare accumulo di privilegi non piu necessari."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-011",
+    "cert": ["Network Defense"],
+    "topics": ["Firewall", "Difesa in profondità"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti sono buone pratiche nella configurazione delle regole di un firewall? (seleziona due)",
+    "options": [
+      "Adottare una politica di default deny, consentendo solo il traffico esplicitamente autorizzato",
+      "Consentire tutto il traffico in uscita e in entrata per non ostacolare gli utenti",
+      "Applicare il principio del minimo privilegio anche alle regole, aprendo solo le porte e i servizi necessari",
+      "Disabilitare la registrazione (logging) delle regole per risparmiare spazio"
+    ],
+    "correct": [0, 2],
+    "explanation": "Un firewall ben configurato adotta una politica default deny (si nega tutto tranne cio che e esplicitamente permesso) e applica il minimo privilegio alle regole, aprendo solo porte e servizi realmente necessari. Cosi si minimizza la superficie d'attacco.",
+    "why_wrong": {
+      "1": "Consentire tutto il traffico annulla la funzione del firewall ed espone la rete: e l'opposto del default deny.",
+      "3": "Il logging delle regole e essenziale per rilevamento e indagine; disabilitarlo indebolisce il monitoraggio."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-012",
+    "cert": ["Network Defense"],
+    "topics": ["IDS/IPS"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti sono metodologie di rilevamento utilizzate dagli IDS/IPS? (seleziona due)",
+    "options": [
+      "Rilevamento basato su firme (signature-based)",
+      "Rilevamento basato su anomalie (anomaly-based)",
+      "Rilevamento basato sulla velocita della ventola del server",
+      "Rilevamento basato sul colore dei cavi di rete"
+    ],
+    "correct": [0, 1],
+    "explanation": "Gli IDS/IPS rilevano le minacce principalmente in due modi: signature-based (confronto con pattern noti di attacco) e anomaly-based (deviazioni da un profilo di comportamento normale precedentemente definito come baseline). Alcuni sistemi combinano entrambi gli approcci.",
+    "why_wrong": {
+      "2": "La velocita della ventola e un parametro hardware ambientale, non un metodo di rilevamento delle intrusioni.",
+      "3": "Il colore dei cavi non ha alcuna attinenza con l'analisi del traffico o il rilevamento delle intrusioni."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-013",
+    "cert": ["Network Defense"],
+    "topics": ["VPN", "Sicurezza Wireless"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali obiettivi di sicurezza fornisce una VPN correttamente implementata? (seleziona due)",
+    "options": [
+      "Riservatezza dei dati tramite cifratura del tunnel",
+      "Autenticazione degli endpoint e integrita dei dati trasmessi",
+      "Aumento illimitato della larghezza di banda della connessione Internet",
+      "Eliminazione della necessita di qualsiasi antivirus sui client"
+    ],
+    "correct": [0, 1],
+    "explanation": "Una VPN garantisce riservatezza (i dati sono cifrati nel tunnel), autenticazione (verifica dell'identita degli estremi del tunnel) e integrita (i dati non vengono alterati in transito). Non aumenta la banda ne rende superflue altre difese come l'antivirus.",
+    "why_wrong": {
+      "2": "La VPN puo anzi introdurre un lieve overhead; non incrementa la larghezza di banda della linea.",
+      "3": "La VPN protegge il canale di trasmissione, ma non sostituisce le difese endpoint come l'antivirus (difesa in profondita)."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-014",
+    "cert": ["Network Defense"],
+    "topics": ["IDS/IPS"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Un IPS (Intrusion Prevention System) e collocato tipicamente in linea (inline) e puo bloccare attivamente il traffico malevolo, mentre un IDS solitamente si limita a rilevare e generare allarmi.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Affermazione corretta. L'IPS opera inline sul percorso del traffico e puo scartare i pacchetti o interrompere le connessioni malevole in tempo reale; l'IDS tipicamente osserva una copia del traffico e si limita a rilevare e segnalare, senza bloccare.",
+    "why_wrong": {
+      "1": "L'affermazione e vera: l'IPS blocca inline, l'IDS rileva e segnala."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-015",
+    "cert": ["Network Defense"],
+    "topics": ["Sicurezza Wireless"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "WPA2 offre una protezione piu robusta di WPA3 ed e quindi lo standard da preferire per le nuove reti wireless.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Affermazione falsa. WPA3 e piu sicuro di WPA2: introduce l'handshake SAE (resistente agli attacchi a dizionario offline), la forward secrecy e una cifratura piu robusta. Per le nuove reti si preferisce WPA3 (o WPA2 solo dove WPA3 non e disponibile).",
+    "why_wrong": {
+      "0": "E l'inverso: WPA3 supera WPA2 in sicurezza, quindi l'affermazione e falsa."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd-016",
+    "cert": ["Network Defense"],
+    "topics": ["DMZ"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In una corretta architettura di rete, i server pubblici come il web server e il mail server dovrebbero essere collocati nella DMZ e non direttamente nella LAN interna.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Affermazione corretta. I servizi esposti a Internet vanno collocati nella DMZ, una sottorete isolata da regole firewall. Cosi, se uno di questi server viene compromesso, l'attaccante non ottiene accesso diretto alla LAN interna, che resta protetta.",
+    "why_wrong": {
+      "1": "L'affermazione e vera: collocare i server pubblici in DMZ e la pratica corretta per isolarli dalla rete interna."
+    },
+    "source": "HACK/Book defence.rtf"
+  }
+]

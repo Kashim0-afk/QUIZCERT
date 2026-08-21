@@ -8,6 +8,13 @@
     "questions/o1-ibm.json",
     "questions/o1-microsoft.json",
     "questions/o1-paloalto.json",
+    "questions/o1b-gcloud.json",
+    "questions/o1b-glossario.json",
+    "questions/o1b-googleai.json",
+    "questions/o1b-netdef.json",
+    "questions/o1b-nmapwire.json",
+    "questions/o1b-tooling.json",
+    "questions/o1b-websec.json",
     "questions/sample.json"
   ]
 }
