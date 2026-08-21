@@ -1,0 +1,507 @@
+[
+  {
+    "id": "sec4-001",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'applicazione web deve memorizzare le password degli utenti nel proprio database. Quale approccio offre la protezione piu robusta contro il furto delle credenziali in caso di compromissione del database?",
+    "options": [
+      "Cifrare le password con AES-256 e conservare la chiave nella stessa tabella del database",
+      "Applicare una funzione di hashing lenta con salt univoco per ogni utente, ad esempio bcrypt",
+      "Codificare le password in Base64 prima di salvarle",
+      "Applicare un singolo passaggio di SHA-256 senza salt"
+    ],
+    "correct": [1],
+    "explanation": "Le password vanno protette con una funzione di hashing progettata per essere lenta (bcrypt, scrypt, Argon2) e con un salt univoco per utente. La lentezza ostacola gli attacchi a forza bruta e il salt rende inutili le rainbow table, poiche due utenti con la stessa password producono hash diversi.",
+    "why_wrong": {
+      "0": "La cifratura e reversibile: se un attaccante ottiene il database e la chiave conservata insieme ai dati, recupera tutte le password in chiaro.",
+      "2": "Base64 e solo una codifica, non offre alcuna protezione crittografica ed e banalmente reversibile.",
+      "3": "Un solo passaggio di SHA-256 e velocissimo e senza salt e vulnerabile a rainbow table e brute force ad alta velocita."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-002",
+    "cert": ["CompTIA Security+"],
+    "topics": ["PKI"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In una PKI, il protocollo OCSP consente di verificare in tempo reale lo stato di revoca di un singolo certificato senza dover scaricare l'intera CRL.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "OCSP (Online Certificate Status Protocol) permette a un client di interrogare un responder per conoscere lo stato di revoca di uno specifico certificato, ricevendo una risposta puntuale. E piu efficiente della CRL (Certificate Revocation List), che e un elenco completo e potenzialmente molto grande di certificati revocati.",
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-003",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Controllo accessi"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un'azienda utilizza un sistema legacy che non puo piu ricevere patch dal produttore. Per ridurre il rischio, l'IT lo isola in una VLAN dedicata protetta da regole firewall molto restrittive. Come si classifica questa misura?",
+    "options": [
+      "Controllo compensativo",
+      "Controllo direttivo",
+      "Controllo dissuasivo",
+      "Controllo di rilevamento"
+    ],
+    "correct": [0],
+    "explanation": "Un controllo compensativo (compensating) e una misura alternativa adottata quando il controllo primario, in questo caso il patching, non e applicabile. L'isolamento in VLAN con firewall restrittivo compensa l'impossibilita di correggere la vulnerabilita del sistema legacy.",
+    "why_wrong": {
+      "1": "Un controllo direttivo indirizza il comportamento tramite policy o procedure, non riduce tecnicamente l'esposizione di un sistema non aggiornabile.",
+      "2": "Un controllo dissuasivo scoraggia l'attaccante, ma qui la misura riduce concretamente la superficie di attacco, non si limita a scoraggiare.",
+      "3": "Un controllo di rilevamento identifica un evento gia in corso, mentre l'isolamento previene o limita l'accesso, non lo rileva."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-004",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Social Engineering"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un dipendente della contabilita riceve un'email urgente apparentemente firmata dal CEO che chiede un bonifico immediato verso un nuovo fornitore. Il dominio del mittente imita quello aziendale. Di quale tipo di attacco si tratta?",
+    "options": [
+      "Shoulder surfing",
+      "Business Email Compromise (BEC)",
+      "Watering hole",
+      "Typosquatting"
+    ],
+    "correct": [1],
+    "explanation": "Il Business Email Compromise sfrutta l'impersonificazione di una figura autorevole (spesso un dirigente) e la leva della fretta per indurre un dipendente a eseguire pagamenti o divulgare dati. E una forma mirata di phishing con impatto economico diretto.",
+    "why_wrong": {
+      "0": "Lo shoulder surfing e l'osservazione fisica dello schermo o della tastiera per rubare informazioni, non riguarda le email.",
+      "2": "Un watering hole compromette un sito legittimo frequentato dalle vittime, non consiste nell'inviare email fraudolente.",
+      "3": "Il typosquatting registra domini simili per intercettare errori di digitazione; qui l'attacco e un'email di frode diretta, non un dominio di atterraggio."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-005",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Malware", "Incident Response"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali due indicatori sono tipicamente associati a un'infezione ransomware in corso su una condivisione di rete? (scegli 2)",
+    "options": [
+      "Rinomina o cambio massivo delle estensioni dei file e comparsa di note di riscatto",
+      "Picco improvviso di operazioni di scrittura e cifratura sui file condivisi",
+      "Riduzione del consumo di CPU e della larghezza di banda",
+      "Ripristino automatico dei backup pianificati"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il ransomware cifra rapidamente grandi quantita di file, generando un picco anomalo di operazioni di scrittura e la modifica in massa delle estensioni, e lascia note di riscatto nelle cartelle. Questi sono segnali comportamentali classici rilevabili nei log e nel monitoraggio dei file.",
+    "why_wrong": {
+      "2": "Durante la cifratura il consumo di CPU e di I/O tende ad aumentare, non a diminuire.",
+      "3": "Il ripristino automatico dei backup non e un sintomo dell'infezione; semmai il ransomware tenta di eliminare i backup e le shadow copy."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-006",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Threat e vulnerabilita"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un programma verifica i permessi di accesso a un file e, in un secondo momento, lo apre per scrivervi. Un attaccante sostituisce il file tra la verifica e l'apertura per farlo puntare a una risorsa protetta. Quale classe di vulnerabilita e stata sfruttata?",
+    "options": [
+      "Buffer overflow",
+      "Race condition di tipo TOCTOU",
+      "SQL injection",
+      "Cross-site scripting"
+    ],
+    "correct": [1],
+    "explanation": "Si tratta di una race condition TOCTOU (Time-of-Check to Time-of-Use): esiste una finestra temporale tra il controllo dello stato di una risorsa e il suo effettivo utilizzo, durante la quale un attaccante puo alterare la risorsa per aggirare i controlli.",
+    "why_wrong": {
+      "0": "Un buffer overflow deriva dalla scrittura oltre i limiti di un buffer in memoria, non da una finestra temporale tra controllo e uso.",
+      "2": "La SQL injection inserisce comandi SQL malevoli tramite input non validati verso un database, scenario diverso da questo.",
+      "3": "Il cross-site scripting inietta script eseguiti nel browser della vittima e riguarda le applicazioni web, non l'accesso ai file locali."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-007",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Threat e vulnerabilita"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'azienda scopre che una libreria open source integrata nel proprio software conteneva codice malevolo, introdotto a monte dopo la compromissione dell'account del manutentore. Come si classifica questa minaccia?",
+    "options": [
+      "Attacco alla supply chain",
+      "Insider threat",
+      "Attacco brute force",
+      "Shadow IT"
+    ],
+    "correct": [0],
+    "explanation": "Un attacco alla supply chain compromette un fornitore, un componente o una dipendenza a monte per raggiungere indirettamente le organizzazioni che lo utilizzano. L'inserimento di codice malevolo in una libreria di terze parti ne e un esempio tipico.",
+    "why_wrong": {
+      "1": "Un insider threat proviene da una persona interna con accesso legittimo; qui la compromissione avviene presso un fornitore esterno.",
+      "2": "Il brute force tenta ripetutamente credenziali o chiavi, non riguarda l'iniezione di codice in una dipendenza.",
+      "3": "Lo shadow IT e l'uso di soluzioni non approvate dall'IT interno, diverso dalla compromissione di una libreria upstream."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-008",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Threat e vulnerabilita"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un attaccante prova un piccolo insieme di password molto comuni, ad esempio 'Password123', su un gran numero di account diversi, evitando cosi il blocco per tentativi falliti sul singolo account. Quale tecnica sta usando?",
+    "options": [
+      "Brute force esaustivo su un singolo account",
+      "Password spraying",
+      "Attacco a dizionario mirato su un singolo account",
+      "Pass-the-hash"
+    ],
+    "correct": [1],
+    "explanation": "Il password spraying inverte la logica del brute force: usa poche password comuni distribuite su molti account per restare sotto le soglie di lockout, che tipicamente contano i tentativi falliti per singolo utente.",
+    "why_wrong": {
+      "0": "Il brute force esaustivo prova moltissime password su uno stesso account e fa scattare rapidamente i blocchi, l'opposto di questo scenario.",
+      "2": "Un attacco a dizionario mirato concentra molti tentativi su un unico account, mentre qui l'attacco si distribuisce su molti account.",
+      "3": "Il pass-the-hash riutilizza un hash di password gia sottratto per autenticarsi, non prova password comuni su piu account."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-009",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Hardening"],
+    "type": "multi",
+    "difficulty": 1,
+    "question": "Quali due misure di hardening riducono efficacemente la superficie di attacco di un server appena installato? (scegli 2)",
+    "options": [
+      "Disabilitare i servizi e chiudere le porte non necessari",
+      "Rimuovere o disattivare gli account predefiniti non utilizzati",
+      "Assegnare a tutti gli utenti privilegi di amministratore",
+      "Disattivare gli aggiornamenti di sicurezza automatici"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'hardening riduce la superficie di attacco eliminando cio che non serve: servizi e porte non necessari sono potenziali punti di ingresso, e gli account predefiniti hanno spesso credenziali note e vanno rimossi o disabilitati.",
+    "why_wrong": {
+      "2": "Concedere privilegi amministrativi a tutti viola il principio del minimo privilegio e amplia enormemente il rischio.",
+      "3": "Disattivare gli aggiornamenti lascia il sistema esposto alle vulnerabilita note, aumentando la superficie di attacco anziche ridurla."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-010",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Cloud security"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un modello di servizio SaaS, secondo il modello di responsabilita condivisa, quale responsabilita rimane sempre in capo al cliente?",
+    "options": [
+      "La manutenzione dell'hardware fisico del datacenter",
+      "La gestione dei dati e dei permessi di accesso degli utenti",
+      "L'applicazione delle patch al sistema operativo sottostante",
+      "La sicurezza dell'hypervisor di virtualizzazione"
+    ],
+    "correct": [1],
+    "explanation": "Nel SaaS il provider gestisce infrastruttura, piattaforma e applicazione, ma il cliente resta sempre responsabile dei propri dati e della gestione delle identita e degli accessi degli utenti (chi puo accedere e a cosa).",
+    "why_wrong": {
+      "0": "L'hardware fisico e interamente gestito dal provider cloud in qualsiasi modello di servizio.",
+      "2": "Nel SaaS il sistema operativo sottostante e patchato dal provider, non dal cliente.",
+      "3": "La sicurezza dell'hypervisor e responsabilita del provider, non del cliente SaaS."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-011",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Zero Trust"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Nell'architettura Zero Trust, quale componente applica concretamente la decisione autorizzativa consentendo o bloccando il traffico verso la risorsa protetta?",
+    "options": [
+      "Policy Engine",
+      "Policy Administrator",
+      "Policy Enforcement Point (PEP)",
+      "Threat intelligence feed"
+    ],
+    "correct": [2],
+    "explanation": "Nel modello Zero Trust (NIST SP 800-207) il Policy Enforcement Point e il punto che abilita, monitora e termina la connessione, applicando la decisione presa dal control plane. E l'elemento che tecnicamente consente o nega l'accesso alla risorsa.",
+    "why_wrong": {
+      "0": "Il Policy Engine prende la decisione di concedere o negare, ma non la applica direttamente sul traffico.",
+      "1": "Il Policy Administrator esegue la decisione istruendo il PEP, ma non e il punto di applicazione sul flusso verso la risorsa.",
+      "3": "Un feed di threat intelligence e una fonte informativa di supporto, non un componente che applica le decisioni di accesso."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-012",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Hardening", "Compliance"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'azienda vuole impedire che i dipendenti inviino accidentalmente numeri di carta di credito o dati sensibili tramite email o dispositivi USB. Quale soluzione e piu adatta?",
+    "options": [
+      "DLP (Data Loss Prevention)",
+      "IPS (Intrusion Prevention System)",
+      "NAC (Network Access Control)",
+      "SIEM (Security Information and Event Management)"
+    ],
+    "correct": [0],
+    "explanation": "Una soluzione DLP ispeziona i contenuti in uscita (email, USB, upload) e applica policy basate su pattern come i numeri di carta, bloccando o segnalando i trasferimenti non autorizzati di dati sensibili.",
+    "why_wrong": {
+      "1": "Un IPS blocca traffico di rete malevolo in base a firme o anomalie, non e progettato per riconoscere e fermare l'esfiltrazione di dati sensibili per contenuto.",
+      "2": "Il NAC controlla quali dispositivi possono connettersi alla rete, ma non ispeziona i contenuti dei dati in uscita.",
+      "3": "Il SIEM raccoglie e correla i log per il rilevamento, ma non blocca attivamente il trasferimento dei dati."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-013",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Cloud security"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In un'architettura serverless (Function as a Service), il cliente rimane responsabile della gestione e del patching del sistema operativo sottostante che esegue le funzioni.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Nel serverless il provider astrae e gestisce completamente il sistema operativo e il runtime sottostante; il cliente e responsabile solo del proprio codice, delle configurazioni e dei dati. Il patching del SO non e a carico del cliente.",
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-014",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Incident Response"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Secondo il ciclo di vita della gestione degli incidenti del NIST SP 800-61, quale fase segue immediatamente 'Contenimento, eradicazione e ripristino'?",
+    "options": [
+      "Preparazione",
+      "Rilevamento e analisi",
+      "Attivita post-incidente (lezioni apprese)",
+      "Identificazione degli asset"
+    ],
+    "correct": [2],
+    "explanation": "Il ciclo NIST prevede: Preparazione; Rilevamento e analisi; Contenimento, eradicazione e ripristino; Attivita post-incidente. Dopo il ripristino si conduce la fase di lessons learned per documentare l'accaduto e migliorare i processi.",
+    "why_wrong": {
+      "0": "La preparazione e la prima fase, precede il rilevamento e non segue il ripristino.",
+      "1": "Il rilevamento e l'analisi precedono il contenimento nel ciclo, non lo seguono.",
+      "3": "L'identificazione degli asset non e una fase distinta del ciclo NIST di risposta agli incidenti."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-015",
+    "cert": ["CompTIA Security+"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Un dispositivo di rete e posizionato in linea (inline) sul percorso del traffico, rileva pacchetti malevoli e li blocca attivamente prima che raggiungano la destinazione. Di quale sistema si tratta?",
+    "options": [
+      "IDS passivo basato su port mirroring",
+      "IPS (Intrusion Prevention System)",
+      "SIEM",
+      "Honeypot"
+    ],
+    "correct": [1],
+    "explanation": "Un IPS opera inline e puo bloccare o scartare attivamente il traffico malevolo in tempo reale. Un IDS, al contrario, si limita a rilevare e allertare senza interrompere la comunicazione.",
+    "why_wrong": {
+      "0": "Un IDS passivo osserva una copia del traffico e genera solo allarmi, non lo blocca.",
+      "2": "Il SIEM aggrega e correla i log per il rilevamento, non e un dispositivo inline che blocca pacchetti.",
+      "3": "Un honeypot e un sistema esca per attirare e studiare gli attaccanti, non filtra il traffico di produzione."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-016",
+    "cert": ["CompTIA Security+"],
+    "topics": ["IDS/IPS", "Incident Response"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Un analista SOC deve indagare su un sospetto accesso non autorizzato ottenuto tramite forza bruta su un server aziendale. Quali due fonti di dati sono piu utili per l'indagine? (scegli 2)",
+    "options": [
+      "I log di autenticazione del sistema operativo del server",
+      "Il SIEM con regole di correlazione sui tentativi di login falliti",
+      "Il diagramma della disposizione fisica dei rack in datacenter",
+      "L'inventario delle licenze software installate"
+    ],
+    "correct": [0, 1],
+    "explanation": "I log di autenticazione mostrano tentativi falliti, orari e IP di origine, mentre il SIEM correla questi eventi tra piu sistemi e fa scattare allarmi su pattern come molti login falliti seguiti da un successo. Insieme permettono di ricostruire l'attacco.",
+    "why_wrong": {
+      "2": "La disposizione fisica dei rack non fornisce informazioni sui tentativi di autenticazione o sull'origine dell'attacco.",
+      "3": "L'inventario delle licenze software non contiene dati sugli eventi di accesso o sui tentativi di login."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-017",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Controllo accessi"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Durante un audit emerge che diversi dipendenti, cambiando ruolo negli anni, hanno mantenuto anche i permessi delle mansioni precedenti, accumulando accessi eccessivi. Quale problema descrive questa situazione e quale pratica lo previene?",
+    "options": [
+      "Privilege creep, prevenuto da revisioni periodiche degli accessi",
+      "Separation of duties, prevenuto dalla rotazione delle mansioni",
+      "Implicit deny, prevenuto dall'uso di liste di autorizzazione",
+      "Race condition, prevenuta dall'applicazione delle patch"
+    ],
+    "correct": [0],
+    "explanation": "L'accumulo di permessi non piu necessari dovuto ai cambi di ruolo si chiama privilege creep (o authorization creep). Si contrasta con revisioni periodiche degli accessi (access review/recertification) e con l'applicazione costante del principio del minimo privilegio.",
+    "why_wrong": {
+      "1": "La separation of duties suddivide compiti critici tra piu persone per evitare abusi; non descrive l'accumulo di privilegi di un singolo utente nel tempo.",
+      "2": "L'implicit deny nega di default cio che non e esplicitamente permesso; non riguarda l'accumulo storico di permessi.",
+      "3": "Una race condition e una vulnerabilita software temporale, estranea alla gestione dei permessi utente."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-018",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Hardening"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un'azienda adotta una politica BYOD e vuole poter imporre cifratura, PIN e cancellazione remota esclusivamente sulla porzione aziendale dei dispositivi personali, senza toccare i dati privati dei dipendenti. Quale soluzione e piu appropriata?",
+    "options": [
+      "Containerizzazione dei dati aziendali tramite MDM",
+      "Cancellazione totale obbligatoria del dispositivo (full device wipe)",
+      "Consentire il jailbreak controllato dei dispositivi",
+      "Air-gapping dei dispositivi mobili"
+    ],
+    "correct": [0],
+    "explanation": "La containerizzazione tramite MDM/MAM crea un contenitore aziendale cifrato e isolato sul dispositivo personale: l'azienda applica policy e puo effettuare un wipe selettivo solo dei dati di lavoro, preservando i dati privati dell'utente, requisito tipico degli scenari BYOD.",
+    "why_wrong": {
+      "1": "Il full wipe cancellerebbe anche i dati personali, inaccettabile su un dispositivo di proprieta del dipendente.",
+      "2": "Il jailbreak indebolisce la sicurezza del dispositivo rimuovendo i controlli del sistema operativo, l'opposto di cio che serve.",
+      "3": "L'air-gapping isola completamente un sistema dalla rete e non e praticabile ne pertinente per smartphone BYOD in uso quotidiano."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-019",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Incident Response"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Durante la raccolta delle prove digitali, secondo l'ordine di volatilita (order of volatility) occorre acquisire il contenuto della memoria RAM prima dei dati memorizzati sul disco rigido.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. L'ordine di volatilita impone di raccogliere per prime le prove piu effimere. La RAM (processi, connessioni, chiavi in memoria) va persa allo spegnimento, mentre i dati su disco sono relativamente persistenti: la memoria va quindi acquisita prima del disco.",
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-020",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Zero Trust", "Hardening"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali due controlli aiutano a limitare il movimento laterale di un attaccante che ha gia ottenuto un punto d'appoggio nella rete interna? (scegli 2)",
+    "options": [
+      "Segmentazione della rete in VLAN separate",
+      "Microsegmentazione con policy zero trust tra i workload",
+      "Utilizzo di un'unica rete piatta con un solo dominio di broadcast",
+      "Condivisione delle stesse credenziali amministrative tra tutti i server"
+    ],
+    "correct": [0, 1],
+    "explanation": "Segmentazione e microsegmentazione confinano il traffico e impongono controlli tra le zone e tra i singoli workload, riducendo la possibilita per un attaccante di spostarsi lateralmente verso altri sistemi dopo la compromissione iniziale.",
+    "why_wrong": {
+      "2": "Una rete piatta senza segmentazione facilita il movimento laterale, perche tutti i sistemi si raggiungono liberamente.",
+      "3": "Riutilizzare le stesse credenziali admin ovunque consente all'attaccante di propagarsi facilmente (pass-the-hash o riuso credenziali), aumentando il rischio."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-021",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Gestione del rischio"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un asset del valore di 50.000 EUR subirebbe una perdita del 20% del proprio valore a ogni incidente, con una frequenza annua stimata di 2 eventi. Quanto vale l'Annualized Loss Expectancy (ALE)?",
+    "options": [
+      "10.000 EUR",
+      "20.000 EUR",
+      "5.000 EUR",
+      "100.000 EUR"
+    ],
+    "correct": [1],
+    "explanation": "SLE = valore asset x fattore di esposizione = 50.000 x 0,20 = 10.000 EUR. ALE = SLE x ARO = 10.000 x 2 = 20.000 EUR. L'ALE rappresenta la perdita attesa su base annua.",
+    "why_wrong": {
+      "0": "10.000 EUR e il valore del SLE (perdita per singolo evento), non dell'ALE annuale che considera la frequenza di 2 eventi.",
+      "2": "5.000 EUR non corrisponde ad alcun passaggio corretto del calcolo (equivarrebbe al 10% del valore).",
+      "3": "100.000 EUR sovrastima: si otterrebbe moltiplicando il valore pieno dell'asset per la frequenza, ignorando il fattore di esposizione del 20%."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-022",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Gestione del rischio"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'azienda stipula una polizza assicurativa cyber per coprire economicamente le perdite derivanti da un eventuale data breach. Quale strategia di trattamento del rischio sta adottando?",
+    "options": [
+      "Trasferimento del rischio",
+      "Accettazione del rischio",
+      "Elusione (avoidance) del rischio",
+      "Mitigazione del rischio"
+    ],
+    "correct": [0],
+    "explanation": "Sottoscrivere un'assicurazione sposta l'impatto economico del rischio a un terzo (l'assicuratore): e la definizione di trasferimento del rischio. Il rischio non viene eliminato, ma le sue conseguenze finanziarie vengono ripartite.",
+    "why_wrong": {
+      "1": "L'accettazione consiste nel non intraprendere azioni e sostenere direttamente l'eventuale perdita, non nel trasferirla a un assicuratore.",
+      "2": "L'elusione elimina il rischio abbandonando l'attivita che lo genera, cosa che qui non avviene.",
+      "3": "La mitigazione riduce probabilita o impatto con controlli tecnici o procedurali; una polizza non riduce il rischio, ne trasferisce le conseguenze."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-023",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Compliance"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il GDPR impone che una violazione di dati personali venga notificata all'autorita di controllo competente, ove richiesto, entro 72 ore dal momento in cui il titolare ne viene a conoscenza.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. L'articolo 33 del GDPR prevede che il titolare del trattamento notifichi la violazione all'autorita di controllo senza ingiustificato ritardo e, ove possibile, entro 72 ore dal momento in cui ne ha avuto conoscenza, salvo che sia improbabile un rischio per i diritti delle persone.",
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-024",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Compliance"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'azienda e un fornitore di servizi cloud formalizzano in un documento gli obiettivi minimi di prestazione e disponibilita del servizio (ad esempio il 99,9% di uptime) e le penali previste in caso di mancato rispetto. Di quale accordo si tratta?",
+    "options": [
+      "SLA (Service Level Agreement)",
+      "MOU (Memorandum of Understanding)",
+      "NDA (Non-Disclosure Agreement)",
+      "BPA (Business Partners Agreement)"
+    ],
+    "correct": [0],
+    "explanation": "Lo SLA definisce in modo misurabile i livelli di servizio attesi, come disponibilita, tempi di risposta e penali associate al mancato rispetto. E il documento che vincola il fornitore a standard prestazionali concordati.",
+    "why_wrong": {
+      "1": "Un MOU esprime un'intesa generale e spesso non vincolante tra le parti, senza metriche prestazionali dettagliate.",
+      "2": "Un NDA regola la riservatezza delle informazioni condivise, non i livelli di servizio.",
+      "3": "Un BPA disciplina i termini generali di una partnership commerciale (responsabilita, profitti), non i parametri di disponibilita del servizio."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec4-025",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Gestione del rischio"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Nell'ambito della continuita operativa e del disaster recovery, quali due metriche definiscono rispettivamente il tempo massimo accettabile per ripristinare un servizio e la massima quantita di dati che l'organizzazione puo tollerare di perdere? (scegli 2)",
+    "options": [
+      "RTO (Recovery Time Objective)",
+      "RPO (Recovery Point Objective)",
+      "MTBF (Mean Time Between Failures)",
+      "SLE (Single Loss Expectancy)"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'RTO indica il tempo massimo accettabile per riportare in servizio un sistema dopo un'interruzione, mentre l'RPO indica il punto nel tempo fino al quale i dati devono essere recuperabili, definendo la massima perdita di dati tollerabile. Entrambi derivano dalla Business Impact Analysis.",
+    "why_wrong": {
+      "2": "L'MTBF misura il tempo medio tra i guasti di un componente, un indicatore di affidabilita, non un obiettivo di ripristino.",
+      "3": "Il SLE quantifica la perdita economica attesa per singolo evento, non riguarda tempi di ripristino o perdita di dati."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  }
+]

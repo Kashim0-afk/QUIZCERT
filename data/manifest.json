@@ -48,6 +48,8 @@
     "questions/o3-securityplus.json",
     "questions/o3-tooling.json",
     "questions/o3-websec.json",
+    "questions/o4-ccna.json",
+    "questions/o4-securityplus.json",
     "questions/sample.json"
   ]
 }

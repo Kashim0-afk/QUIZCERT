@@ -1,4 +1,4 @@
-const CACHE = 'quizcert-v5';
+const CACHE = 'quizcert-v6';
 const SHELL = [
   ".",
   "index.html",
@@ -60,6 +60,8 @@ const SHELL = [
   "data/questions/o3-securityplus.json",
   "data/questions/o3-tooling.json",
   "data/questions/o3-websec.json",
+  "data/questions/o4-ccna.json",
+  "data/questions/o4-securityplus.json",
   "data/questions/sample.json",
   "manifest.webmanifest",
   "icons/icon-192.png",
