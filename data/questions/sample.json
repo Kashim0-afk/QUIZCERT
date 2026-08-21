@@ -1,0 +1,41 @@
+[
+  {
+    "id": "sc900-identity-001",
+    "cert": ["SC-900"],
+    "topics": ["Identity", "Zero Trust"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In Microsoft Entra ID, quale componente fornisce l'autenticazione a piu fattori?",
+    "options": ["Conditional Access", "MFA", "Defender for Endpoint", "Purview"],
+    "correct": [1],
+    "explanation": "MFA (Multi-Factor Authentication) richiede piu prove d'identita per accedere.",
+    "why_wrong": { "0": "Conditional Access applica le policy di accesso, non e il meccanismo MFA in se.", "2": "Defender for Endpoint protegge i dispositivi.", "3": "Purview riguarda governance e compliance dei dati." },
+    "source": "Certificazioni_Link.txt / SC-900"
+  },
+  {
+    "id": "nse4-nat-001",
+    "cert": ["Fortinet NSE4"],
+    "topics": ["NAT", "Firewall Policy"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali affermazioni sul NAT sorgente (SNAT) su FortiGate sono corrette? (scegli due)",
+    "options": ["Modifica l'IP sorgente in uscita", "Modifica l'IP destinazione in ingresso", "Puo usare l'IP dell'interfaccia in uscita", "Disabilita il logging"],
+    "correct": [0, 2],
+    "explanation": "SNAT riscrive l'indirizzo sorgente e puo usare l'IP dell'interfaccia in uscita.",
+    "why_wrong": { "1": "Quella descrive il DNAT (destinazione).", "3": "Il NAT non disabilita il logging." },
+    "source": "HACK/Fortinet Network Security.rtf"
+  },
+  {
+    "id": "ccna-osi-001",
+    "cert": ["CCNA"],
+    "topics": ["Modello OSI"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Il livello 3 del modello OSI e il livello di rete (Network).",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Il livello 3 OSI e il Network layer, responsabile dell'instradamento IP.",
+    "why_wrong": { "1": "Falso: il livello 3 e proprio il Network layer." },
+    "source": "HACK/CCNA"
+  }
+]
