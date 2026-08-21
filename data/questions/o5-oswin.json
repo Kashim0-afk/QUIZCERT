@@ -1,0 +1,285 @@
+[
+  {
+    "id": "oswinb-001",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Permessi NTFS", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un utente accede via rete a una cartella condivisa. Sulla condivisione ha il permesso 'Lettura', mentre a livello NTFS ha 'Modifica'. Qual e il permesso effettivo con cui puo operare sui file?",
+    "options": ["Lettura", "Modifica", "Controllo completo", "Nessun accesso"],
+    "correct": [0],
+    "explanation": "Quando si accede via rete, Windows applica sia i permessi di condivisione sia quelli NTFS e prende il piu restrittivo tra i due. La condivisione consente solo Lettura, quindi anche se NTFS concede Modifica il risultato effettivo e Lettura.",
+    "why_wrong": {
+      "1": "Modifica e il permesso NTFS, ma via rete viene limitato dal permesso di condivisione piu restrittivo (Lettura).",
+      "2": "Controllo completo non e concesso ne dalla condivisione ne da NTFS in questo scenario.",
+      "3": "Entrambi i livelli concedono almeno la lettura, quindi l'accesso non e negato."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-002",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nella console Servizi (services.msc) vuoi che un servizio si avvii automaticamente ma solo dopo che gli altri servizi critici e l'interfaccia sono pronti, per non rallentare il boot. Quale tipo di avvio scegli?",
+    "options": ["Automatico (avvio ritardato)", "Automatico", "Manuale", "Disabilitato"],
+    "correct": [0],
+    "explanation": "'Automatico (avvio ritardato)' avvia il servizio poco dopo l'avvio del sistema, dando priorita ai servizi essenziali e riducendo l'impatto sul tempo di boot.",
+    "why_wrong": {
+      "1": "'Automatico' avvia il servizio subito durante il boot, senza il ritardo richiesto.",
+      "2": "'Manuale' non avvia il servizio automaticamente: parte solo su richiesta di un'applicazione o dell'utente.",
+      "3": "'Disabilitato' impedisce del tutto l'avvio del servizio."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-003",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Devi modificare un'impostazione che deve valere solo per l'utente attualmente connesso, senza toccare gli altri profili. In quale hive del registro di sistema intervieni?",
+    "options": ["HKEY_CURRENT_USER (HKCU)", "HKEY_LOCAL_MACHINE (HKLM)", "HKEY_CLASSES_ROOT (HKCR)", "HKEY_USERS (HKU)"],
+    "correct": [0],
+    "explanation": "HKCU contiene le impostazioni specifiche dell'utente attualmente connesso. Modificarlo non influisce sugli altri utenti del computer.",
+    "why_wrong": {
+      "1": "HKLM contiene impostazioni valide per l'intera macchina e tutti gli utenti, non per un singolo profilo.",
+      "2": "HKCR gestisce le associazioni di file e le registrazioni COM, non le preferenze del singolo utente.",
+      "3": "HKU contiene i profili di tutti gli utenti caricati; HKCU e in pratica il collegamento al sottoalbero dell'utente corrente ed e la scelta corretta e mirata."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-004",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Log", "Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un utente segnala di non riuscire ad accedere. In quale registro del Visualizzatore eventi cerchi gli eventi di accesso riuscito e negato (ad esempio ID evento 4624 e 4625)?",
+    "options": ["Sicurezza (Security)", "Applicazione (Application)", "Sistema (System)", "Installazione (Setup)"],
+    "correct": [0],
+    "explanation": "Il registro Sicurezza raccoglie gli eventi di controllo (audit) come accessi riusciti (4624) e falliti (4625), utili per diagnosticare problemi di autenticazione.",
+    "why_wrong": {
+      "1": "Il registro Applicazione contiene eventi generati dai programmi, non gli audit di accesso.",
+      "2": "Il registro Sistema registra eventi di driver, servizi e componenti del sistema operativo, non gli accessi utente.",
+      "3": "Il registro Installazione riguarda l'installazione di componenti e aggiornamenti, non l'autenticazione."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-005",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["PowerShell", "Windows"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In PowerShell quale cmdlet elenca tutti i servizi installati con il loro stato (in esecuzione o arrestato)?",
+    "options": ["Get-Service", "Get-Process", "Get-EventLog", "Get-Item"],
+    "correct": [0],
+    "explanation": "Get-Service restituisce l'elenco dei servizi con nome, nome visualizzato e stato (Running/Stopped), l'equivalente PowerShell della console Servizi.",
+    "why_wrong": {
+      "1": "Get-Process elenca i processi in esecuzione, non i servizi.",
+      "2": "Get-EventLog legge i registri eventi, non l'elenco dei servizi.",
+      "3": "Get-Item recupera un elemento come un file o una chiave di registro, non i servizi."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-006",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Sospetti che file di sistema di Windows siano danneggiati o corrotti. Quale comando del Prompt dei comandi (eseguito come amministratore) verifica e ripara i file di sistema protetti?",
+    "options": ["sfc /scannow", "chkdsk /f", "ipconfig /all", "tasklist"],
+    "correct": [0],
+    "explanation": "System File Checker (sfc /scannow) analizza tutti i file di sistema protetti e sostituisce quelli danneggiati con copie integre dalla cache dei componenti.",
+    "why_wrong": {
+      "1": "chkdsk /f verifica e corregge errori del file system e del disco, non l'integrita dei file di sistema di Windows.",
+      "2": "ipconfig /all mostra la configurazione di rete, non ripara file di sistema.",
+      "3": "tasklist elenca i processi in esecuzione, non esegue riparazioni."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-007",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Hai appena modificato un criterio di gruppo (Group Policy) sul dominio. Su un client Windows quale comando forza l'applicazione immediata dei criteri senza attendere il refresh automatico?",
+    "options": ["gpupdate /force", "gpresult /r", "gpedit.msc", "netsh winsock reset"],
+    "correct": [0],
+    "explanation": "gpupdate /force rielabora e riapplica tutti i criteri di gruppo (utente e computer) immediatamente, invece di aspettare l'aggiornamento periodico.",
+    "why_wrong": {
+      "1": "gpresult /r mostra un report dei criteri applicati (RSoP), ma non forza l'aggiornamento.",
+      "2": "gpedit.msc apre l'editor dei criteri locali per modificarli, non li applica sul client di dominio.",
+      "3": "netsh winsock reset ripristina il catalogo Winsock di rete, non ha a che fare con i criteri di gruppo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-008",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Networking", "Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un sito web e stato spostato su un nuovo indirizzo IP ma un PC continua a raggiungere il vecchio server. Sospetti una risoluzione DNS memorizzata nella cache. Quale comando svuota la cache DNS locale?",
+    "options": ["ipconfig /flushdns", "ipconfig /release", "nslookup", "ping -t"],
+    "correct": [0],
+    "explanation": "ipconfig /flushdns cancella la cache del resolver DNS locale, obbligando il PC a interrogare nuovamente il server DNS e ottenere l'indirizzo aggiornato.",
+    "why_wrong": {
+      "1": "ipconfig /release rilascia l'indirizzo IP ottenuto via DHCP, non pulisce la cache DNS.",
+      "2": "nslookup interroga il DNS per diagnosi ma non svuota la cache locale del sistema.",
+      "3": "ping -t invia richieste ICMP continue, non ha effetto sulla cache DNS."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-009",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Controllo accessi", "Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "A cosa serve principalmente il Controllo dell'account utente (UAC) in Windows?",
+    "options": [
+      "Richiedere conferma o credenziali prima di eseguire azioni che richiedono privilegi amministrativi",
+      "Crittografare l'intero disco di sistema",
+      "Bloccare automaticamente i siti web pericolosi",
+      "Gestire gli aggiornamenti automatici del sistema"
+    ],
+    "correct": [0],
+    "explanation": "UAC limita i privilegi delle applicazioni finche non e necessaria l'elevazione: quando un'azione richiede diritti amministrativi mostra un prompt di conferma o richiede le credenziali, riducendo l'impatto del malware.",
+    "why_wrong": {
+      "1": "La crittografia del disco e compito di BitLocker, non di UAC.",
+      "2": "Il blocco dei siti pericolosi e gestito da SmartScreen o dal browser, non da UAC.",
+      "3": "Gli aggiornamenti automatici sono gestiti da Windows Update, non da UAC."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-010",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un'azienda si vuole controllare centralmente quali aggiornamenti Microsoft vengono approvati e distribuiti ai client, senza che ogni PC scarichi direttamente da Internet. Quale soluzione si usa tipicamente?",
+    "options": ["WSUS (Windows Server Update Services)", "Task Scheduler", "Resource Monitor", "BitLocker"],
+    "correct": [0],
+    "explanation": "WSUS e il ruolo di Windows Server che permette a un amministratore di scaricare, approvare e distribuire centralmente gli aggiornamenti Microsoft ai client interni, controllando cosa e quando viene installato.",
+    "why_wrong": {
+      "1": "Task Scheduler pianifica l'esecuzione di attivita e programmi, non gestisce la distribuzione degli aggiornamenti aziendali.",
+      "2": "Resource Monitor mostra l'uso di CPU, memoria, disco e rete, non gestisce gli aggiornamenti.",
+      "3": "BitLocker cifra i volumi del disco, non ha funzioni di update management."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-011",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Controllo accessi", "Windows"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni sulla gestione di utenti e gruppi locali in Windows sono corrette? (seleziona 2)",
+    "options": [
+      "Aggiungere un utente al gruppo 'Administrators' gli conferisce privilegi amministrativi completi sulla macchina",
+      "Il gruppo 'Users' consente per impostazione predefinita di installare qualsiasi software di sistema",
+      "La console lusrmgr.msc permette di gestire utenti e gruppi locali (nelle edizioni che la includono)",
+      "Un account disabilitato puo comunque effettuare l'accesso interattivo al sistema"
+    ],
+    "correct": [0, 2],
+    "explanation": "Appartenere al gruppo Administrators conferisce il controllo amministrativo completo del computer. La console lusrmgr.msc (Utenti e gruppi locali) e lo strumento grafico per crearli e gestirli nelle edizioni Pro/Enterprise.",
+    "why_wrong": {
+      "1": "Il gruppo Users ha privilegi limitati: non puo installare software che modifica il sistema o scrive in aree protette senza elevazione.",
+      "3": "Un account disabilitato non puo accedere al sistema finche non viene riabilitato."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-012",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Firewall", "Networking"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali affermazioni sul Windows Defender Firewall sono corrette? (seleziona 2)",
+    "options": [
+      "Utilizza profili distinti (Dominio, Privato, Pubblico) con regole applicabili a seconda della rete connessa",
+      "Permette di creare regole in ingresso (inbound) e in uscita (outbound)",
+      "Puo essere configurato solo tramite riga di comando, non ha interfaccia grafica",
+      "Se attivo, blocca completamente qualsiasi traffico di rete rendendo il PC irraggiungibile"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il firewall di Windows applica profili diversi in base al tipo di rete (Dominio, Privato, Pubblico) e consente di definire regole sia in ingresso sia in uscita per controllare il traffico.",
+    "why_wrong": {
+      "2": "Il firewall dispone di un'interfaccia grafica (wf.msc e il pannello di controllo) oltre ai comandi netsh/PowerShell.",
+      "3": "Il firewall filtra selettivamente il traffico secondo le regole; non blocca indiscriminatamente tutto, altrimenti impedirebbe anche il traffico legittimo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-013",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["PowerShell", "Windows"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo alla execution policy e ai cmdlet di PowerShell, quali affermazioni sono corrette? (seleziona 2)",
+    "options": [
+      "Get-ExecutionPolicy mostra il criterio di esecuzione degli script attualmente impostato",
+      "La policy 'Restricted' impedisce l'esecuzione degli script .ps1",
+      "La execution policy e un meccanismo di sicurezza inviolabile che rende impossibile eseguire uno script non firmato",
+      "Set-ExecutionPolicy non richiede mai privilegi amministrativi per modificare l'ambito LocalMachine"
+    ],
+    "correct": [0, 1],
+    "explanation": "Get-ExecutionPolicy visualizza il criterio corrente e la policy 'Restricted' (predefinita su molti client) blocca l'esecuzione dei file di script .ps1, consentendo solo comandi interattivi.",
+    "why_wrong": {
+      "2": "La execution policy e una misura di sicurezza di base, non un controllo inviolabile: puo essere aggirata (ad esempio con -ExecutionPolicy Bypass), quindi non e una barriera assoluta.",
+      "3": "Modificare l'ambito LocalMachine con Set-ExecutionPolicy richiede privilegi amministrativi."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-014",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Vero o Falso: quando su uno stesso volume NTFS piu permessi si applicano a un utente (diretti e tramite gruppi), tra i permessi 'Consenti' vale la somma cumulativa, ma un 'Nega' esplicito ha la precedenza e prevale.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "I permessi NTFS 'Consenti' si accumulano (l'utente ottiene l'unione dei permessi ricevuti direttamente e tramite i gruppi), ma un permesso 'Nega' esplicito ha la precedenza su qualsiasi 'Consenti'.",
+    "why_wrong": {
+      "1": "L'affermazione e corretta: il Nega esplicito prevale sempre sul Consenti, che invece e cumulativo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-015",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Networking", "Windows"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Vero o Falso: il file hosts di Windows (in C:\\Windows\\System32\\drivers\\etc) permette di associare manualmente un nome host a un indirizzo IP e, quando presente una voce, viene consultato prima di interrogare il server DNS.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Il file hosts consente mappature statiche nome-IP e ha priorita sulla risoluzione DNS: se un nome e presente nel file, Windows usa quella voce senza interrogare il DNS.",
+    "why_wrong": {
+      "1": "L'affermazione e corretta: il file hosts viene consultato prima del DNS per i nomi che contiene."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswinb-016",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Vero o Falso: in Task Manager la scheda 'Avvio' (Startup) permette di disabilitare i programmi che si avviano automaticamente al login, ma disabilitare una voce non disinstalla il relativo programma.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "La scheda Avvio di Task Manager gestisce solo l'avvio automatico dei programmi al login: disabilitare una voce impedisce l'esecuzione all'accensione ma lascia il programma installato e utilizzabile manualmente.",
+    "why_wrong": {
+      "1": "L'affermazione e corretta: disabilitare l'avvio automatico non equivale a disinstallare il programma."
+    },
+    "source": "IT generale"
+  }
+]

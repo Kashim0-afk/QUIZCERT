@@ -1,0 +1,271 @@
+[
+  {
+    "id": "scrb-001",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["PowerShell"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In PowerShell i cmdlet seguono la convenzione di denominazione Verbo-Nome (Verb-Noun). Quale tra i seguenti rispetta correttamente questa convenzione?",
+    "options": ["Get-Process", "ProcessGet", "get_process", "ProcessList"],
+    "correct": [0],
+    "explanation": "I cmdlet PowerShell usano la forma Verbo-Nome con un verbo approvato (Get, Set, New, Remove...) seguito da un trattino e da un nome singolare. Get-Process rispetta esattamente questo schema: verbo Get + nome Process.",
+    "why_wrong": {
+      "1": "ProcessGet inverte l'ordine: il verbo deve precedere il nome, non seguirlo.",
+      "2": "get_process usa underscore e minuscolo in stile snake_case, tipico di Python/Bash, non della convenzione Verbo-Nome di PowerShell.",
+      "3": "ProcessList non contiene un verbo approvato separato da trattino: manca del tutto la struttura Verbo-Nome."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-002",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["PowerShell"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Vuoi ottenere dalla pipeline solo i servizi il cui stato è 'Running'. Quale cmdlet usi per filtrare gli oggetti in base a una condizione?",
+    "options": ["Where-Object", "ForEach-Object", "Select-Object", "Sort-Object"],
+    "correct": [0],
+    "explanation": "Where-Object filtra gli oggetti della pipeline mantenendo solo quelli che soddisfano una condizione, ad esempio Get-Service | Where-Object { $_.Status -eq 'Running' }.",
+    "why_wrong": {
+      "1": "ForEach-Object esegue un'azione su ogni oggetto ma non filtra: restituisce tutti gli elementi elaborati.",
+      "2": "Select-Object seleziona proprietà o un numero di oggetti (es. -First 5), non applica un filtro condizionale sui valori.",
+      "3": "Sort-Object ordina gli oggetti ma non li filtra in base a una condizione."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-003",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["Bash"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In uno script Bash, subito dopo aver eseguito un comando, quale variabile speciale contiene il suo exit code (codice di uscita)?",
+    "options": ["$?", "$!", "$#", "$0"],
+    "correct": [0],
+    "explanation": "In Bash $? contiene l'exit code dell'ultimo comando eseguito: 0 indica successo, un valore diverso da 0 indica errore. È fondamentale per la gestione degli errori negli script.",
+    "why_wrong": {
+      "1": "$! contiene il PID dell'ultimo processo avviato in background, non l'exit code.",
+      "2": "$# contiene il numero di argomenti passati allo script, non il codice di uscita.",
+      "3": "$0 contiene il nome dello script o della shell, non l'exit code."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-004",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["Bash"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Bash vuoi assegnare a una variabile l'output di un comando (command substitution). Qual è la sintassi corretta e moderna?",
+    "options": ["oggi=$(date +%F)", "oggi=(date +%F)", "oggi=date +%F", "$oggi=date +%F"],
+    "correct": [0],
+    "explanation": "La command substitution moderna usa $(comando): la shell esegue il comando e sostituisce l'output. oggi=$(date +%F) assegna la data corrente alla variabile. La forma classica equivalente usa i backtick (`comando`).",
+    "why_wrong": {
+      "1": "oggi=(date +%F) crea un array con le stringhe letterali 'date' e '+%F', non esegue il comando.",
+      "2": "oggi=date +%F assegna la stringa 'date' a oggi e poi tenta di eseguire +%F come comando: non c'è sostituzione.",
+      "3": "In Bash le variabili si assegnano senza $ davanti; $oggi=... è sintassi errata e genera un errore."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-005",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["Python"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In Python hai un dizionario config = {'host': 'localhost', 'porta': 8080}. Come accedi al valore associato alla chiave 'porta'?",
+    "options": ["config['porta']", "config.porta", "config(porta)", "config->porta"],
+    "correct": [0],
+    "explanation": "In Python si accede al valore di un dizionario tramite la chiave fra parentesi quadre: config['porta'] restituisce 8080.",
+    "why_wrong": {
+      "1": "config.porta usa la notazione ad attributo: sui dizionari non funziona e solleva AttributeError.",
+      "2": "config(porta) tratterebbe config come una funzione da chiamare, ma un dizionario non è chiamabile.",
+      "3": "config->porta è sintassi di C/PHP per i puntatori/oggetti, non esiste in Python."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-006",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["Python"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Python qual è il modo consigliato per aprire un file in lettura assicurandosi che venga chiuso automaticamente al termine?",
+    "options": ["with open('dati.txt', 'r') as f:", "f = open('dati.txt')  # senza chiuderlo", "open('dati.txt', 'w')", "file.read('dati.txt')"],
+    "correct": [0],
+    "explanation": "Il costrutto with open(...) as f: è un context manager: garantisce la chiusura automatica del file al termine del blocco, anche in caso di eccezione. La modalità 'r' apre in lettura.",
+    "why_wrong": {
+      "1": "Aprire con open() senza mai chiamare close() (o senza with) lascia il file aperto, rischiando perdita di risorse e dati non scritti.",
+      "2": "La modalità 'w' apre in scrittura e tronca (svuota) il file esistente: non serve a leggere e può distruggere i dati.",
+      "3": "file.read('dati.txt') non è una funzione valida: non esiste un oggetto 'file' globale con questo metodo in Python 3."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-007",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["Automazione"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nell'automazione IT, cosa significa che un'operazione (o uno script) è 'idempotente'?",
+    "options": ["Eseguirla più volte produce lo stesso stato finale di eseguirla una volta sola", "Viene eseguita automaticamente a ogni riavvio del sistema", "Restituisce sempre exit code 0 anche in caso di errore", "Può essere eseguita solo una volta e poi si blocca"],
+    "correct": [0],
+    "explanation": "Idempotenza significa che applicare l'operazione più volte lascia il sistema nello stesso stato finale della prima esecuzione: se lo stato desiderato è già raggiunto, non produce ulteriori modifiche. È un principio chiave di tool come Ansible.",
+    "why_wrong": {
+      "1": "L'esecuzione automatica al riavvio riguarda lo scheduling/persistenza, non l'idempotenza.",
+      "2": "Restituire sempre 0 nasconderebbe gli errori ed è una cattiva pratica, non ha a che vedere con l'idempotenza.",
+      "3": "L'idempotenza non impedisce le riesecuzioni: al contrario garantisce che ripeterle sia sicuro."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-008",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["API"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In una API REST vuoi solo leggere dati da un endpoint, senza modificarli sul server. Quale metodo HTTP è quello appropriato?",
+    "options": ["GET", "POST", "DELETE", "PUT"],
+    "correct": [0],
+    "explanation": "GET serve a leggere/recuperare una risorsa senza modificarne lo stato sul server: è un metodo sicuro (safe) e per convenzione non deve avere effetti collaterali.",
+    "why_wrong": {
+      "1": "POST invia dati per creare una nuova risorsa o avviare un'elaborazione, quindi modifica lo stato del server.",
+      "2": "DELETE richiede la cancellazione di una risorsa: modifica i dati.",
+      "3": "PUT crea o sostituisce integralmente una risorsa: modifica lo stato del server."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-009",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["Cron"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In un file crontab trovi la riga: 30 2 * * 1 /opt/backup.sh . Quando viene eseguito lo script?",
+    "options": ["Ogni lunedì alle 02:30", "Ogni giorno alle 02:30 per 1 minuto", "Il giorno 1 di ogni mese alle 02:30", "Ogni 30 minuti a partire dalle 02:00 del lunedì"],
+    "correct": [0],
+    "explanation": "I cinque campi cron sono: minuto ora giorno-del-mese mese giorno-della-settimana. Quindi 30 2 * * 1 significa minuto 30, ora 2, qualsiasi giorno del mese, qualsiasi mese, giorno-della-settimana 1 (lunedì): ogni lunedì alle 02:30.",
+    "why_wrong": {
+      "1": "L'ultimo campo (1) è il giorno della settimana, non una durata: cron non gestisce durate di esecuzione.",
+      "2": "Il giorno del mese è l'asterisco (qualsiasi); il valore 1 finale è il giorno della settimana (lunedì), non del mese.",
+      "3": "Un intervallo di 30 minuti si scriverebbe */30 nel campo minuti; qui 30 indica un singolo minuto preciso."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-010",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["PowerShell"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In PowerShell vuoi verificare se la variabile $stato è uguale a 'OK'. Quale operatore di confronto usi?",
+    "options": ["$stato -eq 'OK'", "$stato == 'OK'", "$stato = 'OK'", "$stato -like 'OK'"],
+    "correct": [0],
+    "explanation": "PowerShell usa operatori di confronto testuali preceduti da trattino: -eq (equal) verifica l'uguaglianza. Quindi $stato -eq 'OK' è il confronto corretto.",
+    "why_wrong": {
+      "1": "In PowerShell == non è un operatore di confronto valido: si usa -eq.",
+      "2": "Il singolo = è l'operatore di assegnazione: $stato = 'OK' assegnerebbe il valore invece di confrontarlo.",
+      "3": "-like esegue un confronto con wildcard (es. 'OK*'); senza caratteri jolly funziona ma è l'operatore per pattern matching, non quello dedicato all'uguaglianza esatta."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-011",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["PowerShell"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni su PowerShell sono corrette? (seleziona 2)",
+    "options": [
+      "La pipeline passa oggetti .NET completi, non semplice testo",
+      "Le variabili si dichiarano con il prefisso $, ad esempio $conteggio = 10",
+      "L'execution policy Restricted permette di eseguire qualsiasi script senza limitazioni",
+      "Una hashtable si crea con la sintassi @[chiave = valore]"
+    ],
+    "correct": [0, 1],
+    "explanation": "PowerShell è orientato agli oggetti: nella pipeline transitano oggetti .NET con proprietà e metodi, non stringhe di testo come nelle shell Unix classiche. Le variabili usano il prefisso $ (es. $conteggio = 10). Queste due affermazioni sono corrette.",
+    "why_wrong": {
+      "2": "Restricted è la policy più chiusa: blocca l'esecuzione degli script. Sono policy come RemoteSigned o Unrestricted a consentirne l'esecuzione.",
+      "3": "Una hashtable si crea con @{ chiave = valore }, usando le parentesi graffe, non le quadre."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-012",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["Bash"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni sullo scripting Bash sono corrette? (seleziona 2)",
+    "options": [
+      "Le doppie virgolette \"$var\" permettono l'espansione della variabile, gli apici singoli '$var' no",
+      "L'operatore 2>&1 redirige lo standard error verso lo standard output",
+      "Il test [ -f percorso ] è vero solo se percorso è una directory",
+      "In un ciclo for, la parola chiave per terminarlo è 'endfor'"
+    ],
+    "correct": [0, 1],
+    "explanation": "In Bash le doppie virgolette consentono l'espansione delle variabili mentre gli apici singoli le trattano come testo letterale. La redirezione 2>&1 invia lo standard error (fd 2) dove punta lo standard output (fd 1). Entrambe le affermazioni sono corrette.",
+    "why_wrong": {
+      "2": "[ -f percorso ] è vero se percorso è un file regolare; per verificare una directory si usa [ -d percorso ].",
+      "3": "In Bash un ciclo for si chiude con 'done', non con 'endfor'."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-013",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["Python"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni su Python per l'IT sono corrette? (seleziona 2)",
+    "options": [
+      "Il modulo subprocess permette di eseguire comandi di sistema esterni dallo script",
+      "Una list comprehension come [x*2 for x in numeri] genera una nuova lista",
+      "Un set in Python può contenere elementi duplicati mantenendone le copie",
+      "Il blocco try/except serve a definire funzioni riutilizzabili"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il modulo subprocess è lo strumento standard per lanciare processi e comandi esterni da Python. Una list comprehension come [x*2 for x in numeri] costruisce in modo conciso una nuova lista. Entrambe le affermazioni sono corrette.",
+    "why_wrong": {
+      "2": "Un set è una collezione di elementi unici: elimina automaticamente i duplicati, non li conserva.",
+      "3": "try/except gestisce le eccezioni (errori a runtime); le funzioni si definiscono invece con la parola chiave def."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-014",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["Automazione"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Per convenzione, un exit code (codice di uscita) pari a 0 indica che il comando o lo script è terminato con successo.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Per convenzione POSIX un exit code 0 indica successo, mentre qualsiasi valore diverso da 0 segnala un errore o una condizione anomala. Gli script di automazione controllano questo valore (in Bash tramite $?) per gestire il flusso e gli errori.",
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-015",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["Python"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "In Python l'indentazione (i rientri) è significativa e serve a definire i blocchi di codice, ad esempio il corpo di un ciclo o di una funzione.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. A differenza di molti altri linguaggi che usano parentesi graffe, Python delimita i blocchi tramite l'indentazione: un'indentazione errata o incoerente provoca un IndentationError e cambia la logica del programma.",
+    "source": "IT generale"
+  },
+  {
+    "id": "scrb-016",
+    "cert": ["IT Generale - Scripting"],
+    "topics": ["API"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In una API REST, il metodo HTTP GET è pensato per modificare o cancellare dati sul server.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. GET è un metodo 'safe' pensato solo per leggere/recuperare risorse senza modificarne lo stato. Le operazioni che modificano i dati usano metodi come POST (creazione), PUT/PATCH (aggiornamento) o DELETE (cancellazione).",
+    "source": "IT generale"
+  }
+]

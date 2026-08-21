@@ -1,0 +1,265 @@
+[
+  {
+    "id": "dbb-001",
+    "cert": ["IT Generale - Database"],
+    "topics": ["Chiavi", "Database"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In una tabella relazionale, cosa identifica in modo univoco ogni singola riga?",
+    "options": ["La chiave primaria", "Un indice non-clustered", "Il nome della colonna", "Il tipo di dato"],
+    "correct": [0],
+    "explanation": "La chiave primaria (primary key) e' il vincolo che identifica univocamente ogni riga (tupla) di una tabella: non ammette valori duplicati ne valori NULL.",
+    "why_wrong": {
+      "1": "Un indice non-clustered velocizza le ricerche ma non garantisce l'unicita ne identifica la riga; puo esistere su colonne con valori ripetuti.",
+      "2": "Il nome della colonna identifica un attributo (una colonna), non una specifica riga.",
+      "3": "Il tipo di dato definisce il dominio dei valori ammessi in una colonna, non identifica righe."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-002",
+    "cert": ["IT Generale - Database"],
+    "topics": ["Chiavi", "Database"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Una chiave esterna (foreign key) definita nella tabella Ordini che punta alla tabella Clienti serve principalmente a:",
+    "options": ["Ordinare automaticamente le righe di Ordini", "Garantire l'integrita referenziale tra le due tabelle", "Cifrare i dati dei clienti", "Creare un indice clustered su Ordini"],
+    "correct": [1],
+    "explanation": "La chiave esterna crea un legame logico tra tabelle e impone l'integrita referenziale: un valore presente nella FK di Ordini deve corrispondere a una chiave esistente in Clienti (oppure essere NULL).",
+    "why_wrong": {
+      "0": "La FK non ordina le righe; l'ordinamento si ottiene con ORDER BY o dall'indice fisico, non dal vincolo referenziale.",
+      "2": "La cifratura dei dati e' una funzione di sicurezza separata, non correlata alle foreign key.",
+      "3": "La FK e' un vincolo di integrita; l'eventuale indice associato non e' necessariamente clustered ne il suo scopo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-003",
+    "cert": ["IT Generale - Database"],
+    "topics": ["Normalizzazione", "Database"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Una tabella e' in Prima Forma Normale (1NF) quando:",
+    "options": ["Ogni attributo non chiave dipende dalla chiave completa", "Ogni cella contiene un solo valore atomico e non ci sono gruppi ripetuti", "Non esistono dipendenze transitive", "Tutte le colonne hanno un indice"],
+    "correct": [1],
+    "explanation": "La 1NF richiede che ogni attributo contenga un valore atomico (indivisibile) e che non vi siano gruppi ripetuti o liste di valori in una singola cella.",
+    "why_wrong": {
+      "0": "La dipendenza dall'intera chiave (eliminazione delle dipendenze parziali) e' il requisito della 2NF, non della 1NF.",
+      "2": "L'assenza di dipendenze transitive e' il requisito della 3NF.",
+      "3": "Gli indici riguardano le prestazioni, non hanno alcun ruolo nelle forme normali."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-004",
+    "cert": ["IT Generale - Database"],
+    "topics": ["JOIN", "SQL"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale tipo di JOIN restituisce tutte le righe della tabella di sinistra, anche quando non hanno corrispondenza nella tabella di destra (con NULL nei campi mancanti)?",
+    "options": ["INNER JOIN", "LEFT JOIN", "CROSS JOIN", "RIGHT JOIN"],
+    "correct": [1],
+    "explanation": "Il LEFT JOIN (LEFT OUTER JOIN) restituisce tutte le righe della tabella di sinistra; per le righe senza corrispondenza a destra i campi della tabella di destra risultano NULL.",
+    "why_wrong": {
+      "0": "L'INNER JOIN restituisce solo le righe che hanno corrispondenza in entrambe le tabelle, scartando le altre.",
+      "2": "Il CROSS JOIN produce il prodotto cartesiano di tutte le combinazioni di righe, senza condizione di corrispondenza.",
+      "3": "Il RIGHT JOIN conserva tutte le righe della tabella di destra, non di quella di sinistra."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-005",
+    "cert": ["IT Generale - Database"],
+    "topics": ["SQL", "Database"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In una query SQL, la clausola HAVING si distingue da WHERE perche':",
+    "options": ["Filtra le righe prima del raggruppamento", "Filtra i gruppi dopo il GROUP BY, potendo usare funzioni aggregate", "E' obbligatoria in ogni SELECT", "Serve solo a ordinare i risultati"],
+    "correct": [1],
+    "explanation": "WHERE filtra le singole righe prima dell'aggregazione; HAVING filtra i gruppi dopo il GROUP BY e puo utilizzare funzioni aggregate come COUNT(), SUM() o AVG().",
+    "why_wrong": {
+      "0": "Il filtro delle righe prima del raggruppamento e' compito di WHERE, non di HAVING.",
+      "2": "HAVING e' opzionale e ha senso solo in presenza di aggregazione/raggruppamento.",
+      "3": "L'ordinamento dei risultati e' compito della clausola ORDER BY, non di HAVING."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-006",
+    "cert": ["IT Generale - Database"],
+    "topics": ["SQL", "Database"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale funzione aggregata SQL restituisce il numero di righe che soddisfano una condizione?",
+    "options": ["SUM()", "COUNT()", "AVG()", "MAX()"],
+    "correct": [1],
+    "explanation": "COUNT() conta il numero di righe (o di valori non NULL di una colonna) che soddisfano la query, ad esempio COUNT(*) restituisce il totale delle righe.",
+    "why_wrong": {
+      "0": "SUM() calcola la somma dei valori numerici di una colonna, non il numero di righe.",
+      "2": "AVG() calcola la media aritmetica dei valori di una colonna numerica.",
+      "3": "MAX() restituisce il valore massimo di una colonna, non un conteggio."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-007",
+    "cert": ["IT Generale - Database"],
+    "topics": ["ACID", "Database"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nelle proprieta ACID di una transazione, cosa garantisce la 'Atomicita' (Atomicity)?",
+    "options": ["I dati restano coerenti rispetto ai vincoli", "La transazione viene eseguita completamente oppure per nulla", "Le transazioni concorrenti non si interferiscono", "I dati confermati sopravvivono a un guasto"],
+    "correct": [1],
+    "explanation": "L'atomicita garantisce che una transazione sia trattata come un'unita indivisibile: o vengono applicate tutte le sue operazioni (COMMIT) o nessuna (ROLLBACK), senza stati intermedi.",
+    "why_wrong": {
+      "0": "Questa e' la Consistenza (Consistency): la transazione porta il database da uno stato valido a un altro rispettando i vincoli.",
+      "2": "Il non interferire delle transazioni concorrenti e' l'Isolamento (Isolation).",
+      "3": "La persistenza dei dati confermati dopo un guasto e' la Durabilita (Durability)."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-008",
+    "cert": ["IT Generale - Database"],
+    "topics": ["Indici", "Database"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Qual e' la caratteristica principale di un indice clustered?",
+    "options": ["Puo esistere in piu copie sulla stessa tabella", "Determina l'ordine fisico di memorizzazione delle righe nella tabella", "Non velocizza mai le ricerche", "Memorizza i dati in un file separato dalla tabella"],
+    "correct": [1],
+    "explanation": "L'indice clustered definisce l'ordine fisico con cui le righe sono memorizzate; per questo puo esistere un solo indice clustered per tabella (i dati stessi sono ordinati secondo la sua chiave).",
+    "why_wrong": {
+      "0": "Poiche riordina fisicamente i dati, puo esistere un solo indice clustered per tabella; sono i non-clustered a poter essere multipli.",
+      "2": "L'indice clustered velocizza notevolmente le ricerche e le scansioni per intervallo sulla sua chiave.",
+      "3": "E' l'indice non-clustered a mantenere una struttura separata con puntatori; il clustered coincide con l'ordinamento dei dati."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-009",
+    "cert": ["IT Generale - Database"],
+    "topics": ["NoSQL", "Database"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un database MongoDB, che organizza i dati come documenti JSON/BSON flessibili, appartiene a quale categoria NoSQL?",
+    "options": ["Chiave-valore", "Documentale", "A grafo", "Colonnare"],
+    "correct": [1],
+    "explanation": "MongoDB e' un database documentale (document store): memorizza i dati come documenti (tipicamente JSON/BSON) con schema flessibile, raggruppati in collezioni.",
+    "why_wrong": {
+      "0": "I database chiave-valore (es. Redis) memorizzano coppie chiave-valore semplici, senza la struttura interrogabile di un documento.",
+      "2": "I database a grafo (es. Neo4j) modellano nodi e relazioni, adatti a dati fortemente connessi.",
+      "3": "I database colonnari (es. Cassandra) organizzano i dati per colonne/famiglie di colonne, non come documenti."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-010",
+    "cert": ["IT Generale - Database"],
+    "topics": ["SQL", "Database"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In un'applicazione web, la difesa piu efficace contro la SQL injection e':",
+    "options": ["Nascondere i messaggi di errore all'utente", "Usare query parametrizzate (prepared statement) che separano codice e dati", "Rinominare le tabelle con nomi complessi", "Aumentare la RAM del server database"],
+    "correct": [1],
+    "explanation": "Le query parametrizzate (prepared statement) trattano l'input utente esclusivamente come dato e mai come codice SQL eseguibile, neutralizzando alla radice la SQL injection.",
+    "why_wrong": {
+      "0": "Nascondere gli errori riduce le informazioni per l'attaccante ma non impedisce l'iniezione: e' solo una misura complementare.",
+      "2": "Rinominare le tabelle e' security through obscurity, inefficace: l'iniezione sfrutta la struttura della query, non i nomi.",
+      "3": "Aumentare la RAM riguarda le prestazioni e non ha alcun effetto sulla vulnerabilita di iniezione."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-011",
+    "cert": ["IT Generale - Database"],
+    "topics": ["SQL", "Database"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti sono istruzioni SQL di tipo DDL (Data Definition Language)? (seleziona 2)",
+    "options": ["CREATE TABLE", "UPDATE", "ALTER TABLE", "SELECT"],
+    "correct": [0, 2],
+    "explanation": "Il DDL definisce e modifica la struttura degli oggetti del database: CREATE TABLE crea una tabella e ALTER TABLE ne modifica la definizione. Fanno parte del DDL anche DROP e TRUNCATE.",
+    "why_wrong": {
+      "1": "UPDATE modifica i dati contenuti nelle righe: e' un'istruzione DML (Data Manipulation Language), non DDL.",
+      "3": "SELECT interroga i dati (DML/DQL); non definisce ne modifica la struttura delle tabelle."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-012",
+    "cert": ["IT Generale - Database"],
+    "topics": ["SQL", "Chiavi"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo ai vincoli (constraint) di una colonna in SQL, quali affermazioni sono corrette? (seleziona 2)",
+    "options": ["Il vincolo UNIQUE impedisce valori duplicati nella colonna", "Il vincolo NOT NULL obbliga la colonna a contenere sempre un valore", "Il vincolo PRIMARY KEY ammette piu valori NULL", "Il vincolo CHECK ordina automaticamente le righe"],
+    "correct": [0, 1],
+    "explanation": "UNIQUE garantisce che i valori di una colonna (o combinazione) siano tutti distinti; NOT NULL impone la presenza di un valore, vietando i NULL. Il vincolo CHECK impone invece una condizione logica sui valori ammessi.",
+    "why_wrong": {
+      "2": "La PRIMARY KEY non ammette valori NULL (implica UNIQUE + NOT NULL) e deve essere univoca.",
+      "3": "CHECK verifica che i valori rispettino una condizione (es. eta > 0); non ha alcuna funzione di ordinamento."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-013",
+    "cert": ["IT Generale - Database"],
+    "topics": ["SQL", "Database"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali affermazioni sull'operatore UNION in SQL sono corrette? (seleziona 2)",
+    "options": ["Combina i risultati di due o piu SELECT in un unico insieme", "Di default rimuove le righe duplicate dal risultato", "Richiede che le SELECT abbiano numero di colonne diverso", "Esegue il prodotto cartesiano tra due tabelle"],
+    "correct": [0, 1],
+    "explanation": "UNION unisce verticalmente i risultati di piu SELECT e, per impostazione predefinita, elimina i duplicati; per mantenerli si usa UNION ALL. Le SELECT devono avere lo stesso numero di colonne con tipi compatibili.",
+    "why_wrong": {
+      "2": "Al contrario, UNION richiede che le SELECT abbiano lo stesso numero di colonne, con tipi di dato compatibili.",
+      "3": "Il prodotto cartesiano si ottiene con il CROSS JOIN; UNION combina insiemi di righe, non colonne."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-014",
+    "cert": ["IT Generale - Database"],
+    "topics": ["ACID", "Database"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Il comando ROLLBACK annulla le modifiche effettuate durante una transazione non ancora confermata, riportando il database allo stato precedente.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. ROLLBACK annulla tutte le operazioni della transazione corrente non ancora sottoposte a COMMIT, ripristinando lo stato coerente precedente e garantendo l'atomicita.",
+    "why_wrong": {
+      "1": "E' errato: proprio ROLLBACK e' il comando che disfa le modifiche pendenti; COMMIT invece le rende permanenti."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-015",
+    "cert": ["IT Generale - Database"],
+    "topics": ["Database", "SQL"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Una vista (view) e' una tabella virtuale definita da una query: non memorizza fisicamente i dati (in una vista standard) ma li ricalcola dalle tabelle sottostanti quando viene interrogata.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Una vista standard e' una query memorizzata che si comporta come una tabella virtuale: i dati vengono derivati dalle tabelle di base a ogni accesso. Solo le viste materializzate memorizzano fisicamente il risultato.",
+    "why_wrong": {
+      "1": "E' errato: la vista non contiene dati propri, ma espone il risultato di una query sulle tabelle reali (eccetto le viste materializzate)."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "dbb-016",
+    "cert": ["IT Generale - Database"],
+    "topics": ["NoSQL", "Database"],
+    "type": "truefalse",
+    "difficulty": 3,
+    "question": "Secondo il teorema CAP, in presenza di una partizione di rete un sistema distribuito puo garantire contemporaneamente sia la piena consistenza (Consistency) sia la piena disponibilita (Availability).",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Il teorema CAP afferma che in caso di partizione di rete (P) un sistema distribuito deve sacrificare almeno una tra Consistenza (C) e Disponibilita (A): non puo garantirle entrambe pienamente insieme.",
+    "why_wrong": {
+      "0": "E' errato: durante una partizione occorre scegliere tra rispondere sempre (AP) o restare consistenti anche rifiutando richieste (CP); non entrambe al massimo grado."
+    },
+    "source": "IT generale"
+  }
+]

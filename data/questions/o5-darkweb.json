@@ -1,0 +1,330 @@
+[
+  {
+    "id": "hvb-001",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Tor", "Anonimato"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "A cosa serve il 'guard node' (entry guard) in un circuito Tor e perche resta lo stesso per settimane?",
+    "options": [
+      "E il nodo di uscita che comunica con il sito finale in chiaro, cambiato a ogni richiesta per confondere le tracce",
+      "E il primo nodo del circuito, scelto da un piccolo insieme stabile per settimane, per ridurre la probabilita che nel tempo un attaccante controlli sia il primo sia l'ultimo nodo",
+      "E un nodo aggiuntivo opzionale che cifra i DNS del sistema operativo",
+      "E il nodo centrale (middle) che ha il compito di verificare l'identita reale dell'utente"
+    ],
+    "correct": [1],
+    "explanation": "Il guard (o entry guard) e il primo hop del circuito. Se Tor scegliesse un primo nodo diverso a ogni circuito, prima o poi l'utente ne userebbe uno controllato dall'attaccante proprio mentre viene usato anche un exit ostile, favorendo attacchi di correlazione. Mantenendo un piccolo insieme di guard stabili nel tempo, la probabilita che l'utente 'incontri' un guard malevolo resta bassa e costante.",
+    "why_wrong": {
+      "0": "Quello descritto e l'exit node, non il guard; inoltre il guard non e il punto che parla in chiaro con la destinazione.",
+      "2": "Il guard non e un componente opzionale per il DNS: e strutturalmente il primo hop del circuito.",
+      "3": "Nessun nodo Tor verifica l'identita reale dell'utente; il modello e progettato proprio perche nessun singolo nodo la conosca."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-002",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Tor", "Anonimato"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In un contesto di censura di rete, a cosa servono i 'bridge' e i 'pluggable transport' (es. obfs4) di Tor?",
+    "options": [
+      "Ad aumentare la velocita del circuito aggiungendo un quarto nodo dedicato",
+      "A far sembrare il traffico Tor un normale traffico e a usare nodi d'ingresso non pubblici, cosi che un censore non possa bloccarli facilmente ne riconoscerli",
+      "A cifrare due volte il payload per resistere ai computer quantistici",
+      "A pubblicare l'elenco completo dei relay per facilitarne il blocco"
+    ],
+    "correct": [1],
+    "explanation": "I bridge sono relay d'ingresso non elencati nella directory pubblica, quindi difficili da inserire in una blocklist. I pluggable transport come obfs4 offuscano l'aspetto del traffico Tor facendolo somigliare a dati casuali o ad altri protocolli, cosi la Deep Packet Inspection di un censore non lo riconosce. Insieme aiutano a eludere la censura, non a velocizzare la rete.",
+    "why_wrong": {
+      "0": "I bridge non aggiungono un hop per la velocita; anzi tipicamente il percorso e piu lento, non piu veloce.",
+      "2": "L'obiettivo e l'anti-censura e l'offuscamento, non la resistenza quantistica.",
+      "3": "E l'opposto: i bridge NON sono pubblicati proprio per non essere bloccati."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-003",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Tor", "OPSEC"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In cosa consiste concettualmente un 'traffic correlation attack' (attacco di correlazione) contro Tor?",
+    "options": [
+      "Nel decifrare gli strati di cifratura del circuito grazie a una falla nell'algoritmo AES",
+      "Nell'osservare tempi e volumi del traffico all'ingresso e all'uscita della rete e correlarli statisticamente per collegare mittente e destinazione, senza rompere la cifratura",
+      "Nel forzare la password del servizio .onion tramite brute force",
+      "Nel corrompere un solo nodo middle per leggere i contenuti in chiaro"
+    ],
+    "correct": [1],
+    "explanation": "La correlazione end-to-end non attacca la crittografia: un avversario che osserva sia il traffico che entra nella rete (vicino all'utente) sia quello che ne esce (vicino alla destinazione) puo confrontare pattern temporali e dimensioni dei pacchetti e dedurre che i due flussi appartengono alla stessa sessione. E la principale limitazione teorica di Tor contro un avversario globale che vede molti punti della rete.",
+    "why_wrong": {
+      "0": "L'attacco non rompe AES ne gli strati di cifratura: lavora sui metadati di temporizzazione e volume.",
+      "2": "Non e un attacco alle password dei servizi nascosti.",
+      "3": "Un singolo middle non vede i contenuti in chiaro; la correlazione richiede osservazione ai due estremi, non un middle corrotto."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-004",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Tor", "Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa rappresenta un indirizzo onion 'v3' (quello lungo 56 caratteri, es. abcd...xyz.onion)?",
+    "options": [
+      "Un dominio clearnet registrato presso ICANN con estensione speciale",
+      "Una stringa derivata dalla chiave pubblica del servizio nascosto, che funge sia da indirizzo sia da elemento per verificarne l'autenticita crittografica",
+      "Un indirizzo IP privato mascherato dietro NAT",
+      "Un semplice hash MD5 del nome scelto dal gestore del sito"
+    ],
+    "correct": [1],
+    "explanation": "Negli hidden service v3 l'indirizzo .onion e ricavato dalla chiave pubblica Ed25519 del servizio. Questo lega l'indirizzo all'identita crittografica: chi si connette puo verificare di parlare davvero con il possessore della chiave corrispondente, senza bisogno di un'autorita di certificazione esterna. I v3 (56 caratteri) hanno sostituito i vecchi v2 (16 caratteri) proprio per crittografia piu robusta.",
+    "why_wrong": {
+      "0": "I .onion non sono domdomini ICANN e non esistono nel DNS pubblico; sono risolti solo dentro la rete Tor.",
+      "2": "Non e un IP privato dietro NAT: e una stringa derivata da una chiave pubblica.",
+      "3": "Non e un hash MD5 di un nome arbitrario; deriva dalla chiave pubblica del servizio (Ed25519)."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-005",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["VPN", "Crittografia"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale affermazione descrive correttamente una differenza tra i protocolli VPN WireGuard, OpenVPN e IPsec?",
+    "options": [
+      "WireGuard tende ad avere una base di codice molto piu piccola e usa un set fisso di primitive crittografiche moderne, mentre OpenVPN e piu configurabile ma piu pesante",
+      "OpenVPN e l'unico che non usa alcuna cifratura, mentre WireGuard e IPsec sono cifrati",
+      "IPsec funziona solo su HTTP e non puo attraversare Internet",
+      "WireGuard richiede obbligatoriamente un certificato X.509 per ogni pacchetto trasmesso"
+    ],
+    "correct": [0],
+    "explanation": "WireGuard e progettato per essere minimale: poche migliaia di righe di codice e un insieme fisso di primitive (es. Curve25519, ChaCha20-Poly1305), il che riduce la superficie di attacco e facilita l'audit. OpenVPN e molto flessibile (gira spesso su OpenSSL, TCP/UDP, molte opzioni) ma piu complesso e talvolta piu lento. IPsec e uno standard maturo integrato nei sistemi operativi, spesso usato per tunnel site-to-site.",
+    "why_wrong": {
+      "1": "Falso: OpenVPN e cifrato quanto gli altri; nessuno dei tre trasmette in chiaro.",
+      "2": "IPsec opera a livello di rete (IP) e attraversa normalmente Internet; non e legato a HTTP.",
+      "3": "WireGuard usa chiavi pubbliche/private in stile Noise, non certificati X.509 per pacchetto."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-006",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Crittografia", "VPN"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Cosa garantisce la 'Perfect Forward Secrecy' (PFS) in un canale cifrato come una VPN o TLS?",
+    "options": [
+      "Che la chiave privata del server non scada mai, restando valida per sempre",
+      "Che, anche se in futuro un attaccante ottenesse la chiave privata a lungo termine, non potrebbe decifrare le sessioni passate registrate, perche ognuna usa chiavi di sessione effimere e indipendenti",
+      "Che il traffico venga compresso prima di essere cifrato per risparmiare banda",
+      "Che l'utente non debba mai reinserire la password durante la connessione"
+    ],
+    "correct": [1],
+    "explanation": "La PFS si ottiene generando chiavi di sessione effimere (tipicamente tramite scambio Diffie-Hellman effimero, ECDHE) che non derivano direttamente dalla chiave privata a lungo termine e vengono scartate al termine della sessione. Cosi la compromissione futura della chiave del server non permette di decifrare a ritroso il traffico intercettato e archiviato in passato: ogni sessione e protetta in modo indipendente.",
+    "why_wrong": {
+      "0": "La PFS non riguarda la durata della chiave del server; anzi punta a limitare i danni se quella chiave viene compromessa.",
+      "2": "La compressione non c'entra con la PFS ed e anzi rischiosa in ambito TLS (attacchi tipo CRIME).",
+      "3": "La PFS e una proprieta crittografica delle chiavi di sessione, non una comodita di autenticazione."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-007",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["VPN", "Anonimato"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In quale situazione una VPN commerciale aggiunge in pratica poco o nulla in termini di privacy o sicurezza?",
+    "options": [
+      "Quando ci si collega da una rete Wi-Fi pubblica non fidata per proteggere il traffico locale",
+      "Quando si vuole nascondere il proprio IP di origine al sito di destinazione",
+      "Quando si accede a un sito gia in HTTPS e con login personale: il contenuto e gia cifrato e il sito conosce comunque la nostra identita, mentre la fiducia si sposta solo dal provider Internet al provider VPN",
+      "Quando si vuole aggirare un blocco geografico basato sull'IP"
+    ],
+    "correct": [2],
+    "explanation": "Una VPN sposta la fiducia dal proprio ISP al fornitore VPN: non rende anonimi. Se si accede a un servizio in HTTPS dove si e loggati col proprio nome, il contenuto e gia cifrato end-to-end e il servizio sa comunque chi siamo; la VPN cambia solo l'IP visto dal sito e chi puo osservare i metadati. In quel caso il beneficio di privacy reale e marginale, e conta molto la politica no-log e l'affidabilita del provider.",
+    "why_wrong": {
+      "0": "Su Wi-Fi pubblico non fidato la VPN e utile: protegge il traffico locale da chi e sulla stessa rete.",
+      "1": "Nascondere l'IP di origine al sito e proprio uno degli usi legittimi della VPN.",
+      "3": "Aggirare un geoblocco basato su IP e un caso in cui la VPN e effettivamente efficace."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-008",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Anonimato", "OPSEC"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Perche si dice che Bitcoin offre 'pseudonimato' e non anonimato, e come si collega alla chain analysis?",
+    "options": [
+      "Perche le transazioni sono cifrate e nessuno puo vederle sulla blockchain",
+      "Perche gli indirizzi non contengono un nome, ma tutte le transazioni sono pubbliche e permanenti: analizzando i flussi (chain analysis) si possono raggruppare indirizzi e, se uno viene collegato a un'identita, ricostruire l'attivita a ritroso",
+      "Perche ogni utente deve registrare la propria identita presso la rete Bitcoin",
+      "Perche le transazioni scompaiono dopo 24 ore rendendo impossibile ogni tracciamento"
+    ],
+    "correct": [1],
+    "explanation": "Sulla blockchain pubblica ogni transazione e visibile e immutabile; gli indirizzi sono pseudonimi (non riportano il nome reale). Le tecniche di chain analysis clusterizzano gli indirizzi in base a euristiche (es. input spesi insieme) e li collegano a punti di de-anonimizzazione come un exchange che applica il KYC. Un solo aggancio a un'identita reale puo esporre l'intera storia delle transazioni collegate.",
+    "why_wrong": {
+      "0": "Le transazioni Bitcoin non sono cifrate ne segrete: sono pubbliche e consultabili da chiunque.",
+      "2": "Non c'e alcuna registrazione d'identita a livello di protocollo Bitcoin; il KYC avviene solo presso gli exchange.",
+      "3": "Le transazioni sono permanenti, non spariscono: e proprio la loro persistenza a permettere la chain analysis."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-009",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["OPSEC", "Anonimato"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Dal punto di vista dell'OPSEC, perche i metadati (come i dati EXIF di una foto o gli orari di pubblicazione) sono un rischio di de-anonimizzazione?",
+    "options": [
+      "Perche cifrano il contenuto rendendolo illeggibile agli investigatori",
+      "Perche possono contenere o rivelare informazioni collaterali (posizione GPS, modello del dispositivo, fuso orario, abitudini) che, correlate tra loro, permettono di risalire a una persona anche senza vederne il nome",
+      "Perche rallentano il caricamento dei file e basta",
+      "Perche sono visibili solo al proprietario del file e a nessun altro"
+    ],
+    "correct": [1],
+    "explanation": "L'anonimato si perde spesso non per un singolo dato, ma per la correlazione di molti indizi. I metadati EXIF possono includere coordinate GPS, modello di fotocamera/telefono e timestamp; incrociati con altri (fuso orario dei post, stile di scrittura, orari ricorrenti) permettono profilazione e attribuzione. Una buona OPSEC prevede la rimozione dei metadati e la coerenza dello pseudonimo.",
+    "why_wrong": {
+      "0": "I metadati non cifrano nulla: al contrario, espongono informazioni aggiuntive.",
+      "2": "Il problema non e la velocita di caricamento ma l'informazione che rivelano.",
+      "3": "I metadati viaggiano col file e sono leggibili da chi lo riceve, non solo dal proprietario."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-010",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Social Engineering"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Mr Robot compaiono spesso telefonate ingannevoli. Cos'e il 'vishing' e qual e la difesa concettuale piu efficace?",
+    "options": [
+      "E un malware che infetta i telefoni via Bluetooth; la difesa e spegnere il Bluetooth",
+      "E il phishing vocale: l'attaccante telefona fingendosi banca, IT o help desk per farsi dare credenziali o codici; la difesa e verificare l'identita richiamando un numero ufficiale noto e non fornire mai codici a chi chiama",
+      "E l'invio massivo di SMS pubblicitari; la difesa e un filtro antispam",
+      "E l'intercettazione fisica del cavo telefonico; la difesa e cifrare il doppino"
+    ],
+    "correct": [1],
+    "explanation": "Il vishing (voice phishing) sfrutta la voce e l'autorevolezza percepita: l'attaccante crea urgenza e si finge un ente fidato per estorcere password, OTP o dati. La difesa non e tecnica ma procedurale: non fidarsi del numero mostrato (falsificabile con spoofing), riagganciare e richiamare il numero ufficiale verificato, e sapere che enti legittimi non chiedono OTP o password complete al telefono.",
+    "why_wrong": {
+      "0": "Il vishing non e un malware Bluetooth; e ingegneria sociale telefonica.",
+      "2": "Gli SMS ingannevoli sono lo 'smishing'; il vishing e via chiamata vocale.",
+      "3": "Non e intercettazione del cavo: sfrutta la persuasione della persona, non un attacco fisico alla linea."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-011",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["BadUSB", "Malware"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Un attacco tipo Rubber Ducky / BadUSB sfrutta un dispositivo USB che si presenta come tastiera (HID) e digita comandi automaticamente. Quali DUE misure sono difese concettualmente valide?",
+    "options": [
+      "Applicare policy di controllo dei dispositivi USB / device control che consentano solo periferiche autorizzate e blocchino nuove HID non approvate",
+      "Coprire fisicamente il monitor durante l'uso del PC",
+      "Educare gli utenti a non collegare chiavette trovate o di provenienza ignota e bloccare porte USB non necessarie",
+      "Aumentare la luminosita dello schermo per notare i comandi digitati"
+    ],
+    "correct": [0, 2],
+    "explanation": "BadUSB abusa del fatto che il sistema si fida ciecamente delle tastiere: il dispositivo si dichiara HID e inietta sequenze di tasti rapidissime. Le difese efficaci sono organizzative e tecniche: device control/USB allowlisting (consentire solo periferiche note, richiedere approvazione per nuove HID), disabilitazione delle porte non necessarie e formazione degli utenti a non inserire dispositivi ignoti. Alcuni sistemi possono anche segnalare l'aggiunta improvvisa di una nuova tastiera.",
+    "why_wrong": {
+      "1": "Coprire il monitor non impedisce l'iniezione automatica di comandi da parte del dispositivo.",
+      "3": "La luminosita e irrilevante: gli attacchi HID digitano in millisecondi, non c'e tempo per notarli a occhio."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-012",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["VPN", "Anonimato"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Nel valutare l'affidabilita di una VPN 'no-log', quali DUE elementi sono concettualmente rilevanti?",
+    "options": [
+      "La giurisdizione in cui opera il provider, perche determina a quali obblighi legali di conservazione o consegna dati e soggetto",
+      "Il colore del logo e la grafica del sito ufficiale del provider",
+      "L'esistenza di audit indipendenti che verifichino la reale politica di non registrazione dei log",
+      "Il numero di emoji usate nelle recensioni sui social"
+    ],
+    "correct": [0, 2],
+    "explanation": "Una promessa 'no-log' vale quanto la fiducia che si puo riporre nel provider. Due fattori oggettivi contano davvero: la giurisdizione (quali leggi su data retention e richieste delle autorita si applicano, e se il paese fa parte di alleanze di intelligence) e la presenza di audit indipendenti da parte di terze parti che ispezionino infrastruttura e pratiche. Senza verifica esterna, 'no-log' resta solo un'affermazione di marketing.",
+    "why_wrong": {
+      "1": "L'aspetto grafico del sito non dice nulla sulle pratiche di logging o sulla sicurezza.",
+      "3": "Le recensioni con emoji non sono una prova tecnica dell'assenza di log."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-013",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["RAT", "Malware"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo a RAT (Remote Access Trojan) e infrastrutture C2 (Command and Control), quali DUE affermazioni sono corrette dal punto di vista difensivo?",
+    "options": [
+      "Un RAT da all'attaccante controllo remoto persistente sull'host infetto e comunica con un server C2 per ricevere comandi ed esfiltrare dati",
+      "Il traffico C2 spesso imita protocolli legittimi (HTTPS, DNS) e usa 'beaconing' periodico, quindi analizzare pattern e frequenze anomale delle connessioni in uscita aiuta a rilevarlo",
+      "Un RAT e innocuo perche opera solo in RAM e non puo mai stabilire persistenza al riavvio",
+      "Bloccare tutto il traffico in ingresso col firewall elimina con certezza qualsiasi canale C2, perche il C2 usa solo connessioni entranti"
+    ],
+    "correct": [0, 1],
+    "explanation": "Un RAT fornisce accesso remoto persistente e dialoga con un server C2. Sul piano del rilevamento, molte campagne mascherano il C2 dentro protocolli comuni (HTTPS, DNS tunneling) e usano beaconing regolare: il monitoraggio del traffico in uscita per periodicita e destinazioni anomale (analisi comportamentale) e una difesa chiave, insieme a segmentazione ed egress filtering.",
+    "why_wrong": {
+      "2": "Molti RAT stabiliscono persistenza (chiavi di registro, task pianificati, servizi) e sopravvivono al riavvio; non e vero che restano solo in RAM.",
+      "3": "Il C2 e tipicamente avviato dall'host infetto verso l'esterno (connessioni in uscita), proprio per aggirare i firewall che bloccano l'ingresso; serve controllare anche il traffico in uscita."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-014",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["OPSEC", "Anonimato"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Vero o falso: Tails e un sistema operativo 'amnesico' pensato per non lasciare tracce, perche gira in genere da chiavetta live, instrada il traffico attraverso Tor e per impostazione predefinita non scrive dati in modo permanente sul disco della macchina.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Tails (The Amnesic Incognito Live System) e un sistema live: all'avvio da USB/DVD lavora principalmente in RAM e non tocca il disco interno, cosicche al riavvio non restano tracce (salvo un eventuale 'persistent storage' cifrato attivato esplicitamente). Forza inoltre le connessioni attraverso Tor. E un esempio didattico di sistema amnesico orientato ad anonimato e riservatezza.",
+    "why_wrong": {
+      "1": "E falso definirlo non amnesico: proprio l'assenza di scrittura permanente sul disco e il routing via Tor sono le sue caratteristiche distintive."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-015",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Steganografia", "Crittografia"],
+    "type": "truefalse",
+    "difficulty": 3,
+    "question": "Vero o falso: la steganografia nasconde l'esistenza stessa di un messaggio (per esempio dentro un'immagine), mentre un 'volume nascosto' con deniability plausibile mira a rendere non dimostrabile la presenza di dati cifrati aggiuntivi.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. La crittografia rende un messaggio illeggibile ma ne lascia evidente l'esistenza; la steganografia invece occulta il fatto stesso che ci sia un messaggio, immergendolo in un contenitore apparentemente innocuo (immagine, audio). I volumi nascosti con 'plausible deniability' spingono oltre l'idea: dentro un volume cifrato puo esisterne un altro non rilevabile, cosi non si puo provare che vi siano ulteriori dati, offrendo una via di negazione plausibile.",
+    "why_wrong": {
+      "1": "E falso negarlo: la distinzione tra nascondere l'esistenza (steganografia/volumi nascosti) e solo rendere illeggibile (crittografia) e corretta."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hvb-016",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Botnet", "Malware"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Vero o falso: in un attacco DDoS realizzato con una botnet, la potenza offensiva deriva dal fatto che migliaia di dispositivi compromessi (spesso ignari) inviano traffico contemporaneamente verso il bersaglio, il che rende difficile distinguere e bloccare le richieste legittime da quelle malevole.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Una botnet e un insieme di dispositivi infetti (PC, IoT) controllati da un attaccante tramite C2. In un DDoS distribuito, la sorgente e frammentata su moltissimi host in tutto il mondo: non esiste un unico IP da bloccare e il traffico malevolo si mescola a quello legittimo, complicando il filtraggio. Le difese includono mitigazione a monte, rate limiting, scrubbing e reti di distribuzione dei contenuti.",
+    "why_wrong": {
+      "1": "E falso negarlo: la natura distribuita del traffico e proprio cio che caratterizza un DDoS via botnet e ne complica il blocco."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  }
+]

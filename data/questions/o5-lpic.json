@@ -1,0 +1,373 @@
+[
+  {
+    "id": "lpicb-001",
+    "cert": ["LPIC-1"],
+    "topics": ["Systemd"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Su un sistema con systemd, quale comando configura un servizio affinché venga avviato automaticamente al boot senza avviarlo immediatamente?",
+    "options": [
+      "systemctl start nginx.service",
+      "systemctl enable nginx.service",
+      "systemctl status nginx.service",
+      "systemctl mask nginx.service"
+    ],
+    "correct": [1],
+    "explanation": "systemctl enable crea i link simbolici nella directory .wants dell'unità target appropriata, in modo che il servizio venga attivato al prossimo avvio. Non lo avvia nella sessione corrente: per farlo subito si usa 'enable --now' oppure 'start' separatamente.",
+    "why_wrong": {
+      "0": "start avvia il servizio solo nella sessione corrente, ma non lo abilita al boot: dopo un riavvio resterebbe fermo.",
+      "2": "status mostra soltanto lo stato attuale del servizio (attivo/inattivo, PID, log recenti), non modifica la configurazione di avvio.",
+      "3": "mask ha l'effetto opposto: collega l'unità a /dev/null impedendone completamente l'avvio, anche manuale."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-002",
+    "cert": ["LPIC-1"],
+    "topics": ["Systemd", "Linux"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale comando mostra esclusivamente i messaggi del kernel relativi all'avvio corrente del sistema tramite il journal di systemd?",
+    "options": [
+      "journalctl -k -b",
+      "journalctl -f",
+      "journalctl -u kernel",
+      "journalctl --disk-usage"
+    ],
+    "correct": [0],
+    "explanation": "L'opzione -k (alias --dmesg) filtra i soli messaggi del kernel, mentre -b limita l'output all'avvio corrente. Insieme riproducono l'equivalente di dmesg ma tramite journald, con la possibilità di selezionare boot precedenti (es. -b -1).",
+    "why_wrong": {
+      "1": "-f (--follow) mostra in tempo reale le nuove righe di log di tutto il sistema, senza filtrare per kernel né per avvio.",
+      "2": "Non esiste un'unità systemd chiamata 'kernel'; i messaggi del kernel si filtrano con -k, non con -u.",
+      "3": "--disk-usage riporta solo lo spazio occupato dai file di journal su disco, non i messaggi."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-003",
+    "cert": ["LPIC-1"],
+    "topics": ["Linux"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale comando rimuove dal kernel in esecuzione un modulo insieme ai suoi moduli dipendenti non più utilizzati?",
+    "options": [
+      "insmod -r nomemodulo",
+      "rmmod -f nomemodulo",
+      "modprobe -r nomemodulo",
+      "lsmod -d nomemodulo"
+    ],
+    "correct": [2],
+    "explanation": "modprobe -r rimuove il modulo indicato e, risalendo il file di dipendenze (modules.dep), scarica anche i moduli da esso richiesti che non risultano più in uso, gestendo automaticamente le dipendenze.",
+    "why_wrong": {
+      "0": "insmod carica un singolo modulo da percorso esplicito e non gestisce dipendenze; l'opzione -r non esiste per rimuovere.",
+      "1": "rmmod scarica un solo modulo alla volta senza toccare le dipendenze; -f forza la rimozione ed è pericoloso.",
+      "3": "lsmod si limita a elencare i moduli caricati leggendo /proc/modules e non può rimuoverli."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-004",
+    "cert": ["LPIC-1"],
+    "topics": ["Gestione pacchetti"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Su un sistema Debian, quale comando indica a quale pacchetto installato appartiene il file /usr/bin/vim?",
+    "options": [
+      "dpkg -S /usr/bin/vim",
+      "dpkg -L vim",
+      "apt-cache search vim",
+      "dpkg -l vim"
+    ],
+    "correct": [0],
+    "explanation": "dpkg -S (--search) cerca nel database di dpkg quale pacchetto installato possiede il file indicato, restituendo pacchetto e percorso.",
+    "why_wrong": {
+      "1": "dpkg -L compie l'operazione inversa: elenca i file installati da un pacchetto già noto, non risale dal file al pacchetto.",
+      "2": "apt-cache search cerca stringhe nelle descrizioni dei pacchetti disponibili, non associa un file a un pacchetto.",
+      "3": "dpkg -l mostra lo stato di installazione di un pacchetto (installato, configurato), non l'appartenenza di un file."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-005",
+    "cert": ["LPIC-1"],
+    "topics": ["Gestione pacchetti"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Su un sistema basato su RPM, quale comando mostra a quale pacchetto appartiene il file /etc/hosts?",
+    "options": [
+      "rpm -ql hosts",
+      "rpm -qf /etc/hosts",
+      "rpm -qa /etc/hosts",
+      "yum provides hosts"
+    ],
+    "correct": [1],
+    "explanation": "rpm -qf (query file) interroga il database RPM per stabilire quale pacchetto installato fornisce il file indicato.",
+    "why_wrong": {
+      "0": "rpm -ql elenca i file di un pacchetto già noto; inoltre 'hosts' non è un nome di pacchetto valido.",
+      "2": "rpm -qa elenca tutti i pacchetti installati e ignora l'argomento file passato.",
+      "3": "yum provides individua il pacchetto che fornisce una capacità/file, ma richiede il percorso completo o un glob (es. */etc/hosts); il solo 'hosts' non è risolvibile e riguarda i repository, non ciò che è già installato."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-006",
+    "cert": ["LPIC-1"],
+    "topics": ["Linux", "Gestione pacchetti"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Dopo aver modificato /etc/default/grub, quale comando rigenera il file di configurazione principale di GRUB2?",
+    "options": [
+      "grub-mkconfig -o /boot/grub/grub.cfg",
+      "grub-install /dev/sda",
+      "grub-editenv create",
+      "grub-set-default 0"
+    ],
+    "correct": [0],
+    "explanation": "grub-mkconfig legge /etc/default/grub e gli script in /etc/grub.d/ e, con -o, scrive il file di configurazione finale (grub.cfg). Su Debian esiste il wrapper update-grub che lo richiama con il percorso corretto.",
+    "why_wrong": {
+      "1": "grub-install scrive il boot loader (immagine di GRUB) nel MBR o nella ESP; non rigenera grub.cfg a partire dalla configurazione.",
+      "2": "grub-editenv gestisce il file di ambiente grubenv (variabili persistenti), non il file di configurazione dei menu.",
+      "3": "grub-set-default imposta la voce di menu predefinita, ma non rigenera la configurazione dopo la modifica di /etc/default/grub."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-007",
+    "cert": ["LPIC-1"],
+    "topics": ["Bash"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale opzione di grep abilita le espressioni regolari estese (ERE), consentendo l'uso di +, ? e | senza doverli precedere da backslash?",
+    "options": [
+      "grep -F",
+      "grep -E",
+      "grep -o",
+      "grep -w"
+    ],
+    "correct": [1],
+    "explanation": "grep -E (equivalente a egrep) interpreta il pattern come espressione regolare estesa, per cui metacaratteri come +, ?, | e le parentesi () funzionano direttamente senza escape.",
+    "why_wrong": {
+      "0": "grep -F (fixed strings) tratta il pattern come stringa letterale, disabilitando del tutto le espressioni regolari.",
+      "2": "grep -o stampa solo la porzione di riga che corrisponde al pattern, ma non cambia il tipo di regex usata.",
+      "3": "grep -w forza la corrispondenza a parole intere; non abilita la sintassi estesa."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-008",
+    "cert": ["LPIC-1"],
+    "topics": ["Permessi"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un file eseguibile deve avere permessi rwxr-xr-x con il bit SUID attivo. Quale valore ottale passare a chmod?",
+    "options": [
+      "2755",
+      "1755",
+      "4755",
+      "6755"
+    ],
+    "correct": [2],
+    "explanation": "rwxr-xr-x corrisponde a 755. Il bit SUID vale 4000 nella cifra dei permessi speciali, quindi il valore complessivo è 4755.",
+    "why_wrong": {
+      "0": "2755 attiva il bit SGID (2000), non il SUID.",
+      "1": "1755 attiva lo sticky bit (1000), non il SUID.",
+      "3": "6755 attiva contemporaneamente SUID (4000) e SGID (2000), quindi imposta anche un bit non richiesto."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-009",
+    "cert": ["LPIC-1"],
+    "topics": ["Linux"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale segnale invia il comando kill quando viene eseguito senza specificare alcun numero o nome di segnale?",
+    "options": [
+      "SIGKILL (9)",
+      "SIGTERM (15)",
+      "SIGHUP (1)",
+      "SIGSTOP (19)"
+    ],
+    "correct": [1],
+    "explanation": "Per impostazione predefinita kill invia SIGTERM (15), una richiesta di terminazione che il processo può intercettare per chiudersi in modo pulito rilasciando le risorse.",
+    "why_wrong": {
+      "0": "SIGKILL (9) termina immediatamente il processo e non è intercettabile, ma va inviato esplicitamente con kill -9.",
+      "2": "SIGHUP (1) segnala la chiusura del terminale di controllo e viene spesso usato per far rileggere la configurazione, non è il segnale di default.",
+      "3": "SIGSTOP (19) sospende il processo senza terminarlo e non è il comportamento predefinito di kill."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-010",
+    "cert": ["LPIC-1"],
+    "topics": ["Linux"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un processo già in esecuzione con PID 2500 consuma troppa CPU. Quale comando ne aumenta il valore di nice a 10, riducendone la priorità?",
+    "options": [
+      "nice -n 10 2500",
+      "renice -n 10 -p 2500",
+      "renice -n -10 -p 2500",
+      "nice 2500 10"
+    ],
+    "correct": [1],
+    "explanation": "renice modifica la priorità di un processo già in esecuzione: -n 10 imposta il valore di nice a 10 e -p 2500 indica il PID. Un valore di nice più alto significa priorità più bassa.",
+    "why_wrong": {
+      "0": "nice serve ad avviare un nuovo comando con una priorità impostata, non ad agire su un PID esistente; 2500 verrebbe interpretato come comando da eseguire.",
+      "2": "-n -10 abbasserebbe il valore di nice aumentando la priorità (l'opposto di quanto richiesto) e richiede comunque privilegi di root.",
+      "3": "La sintassi è errata: nice non accetta un PID e attende un comando dopo le opzioni."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-011",
+    "cert": ["LPIC-1"],
+    "topics": ["Filesystem"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Nel file /etc/fstab, cosa rappresenta il sesto campo (l'ultimo) di una riga di mount?",
+    "options": [
+      "Il tipo di filesystem",
+      "L'ordine di controllo con fsck all'avvio",
+      "Le opzioni di mount",
+      "La frequenza di dump per il backup"
+    ],
+    "correct": [1],
+    "explanation": "I sei campi di fstab sono: dispositivo, punto di mount, tipo di filesystem, opzioni, dump, pass. Il sesto campo (pass) indica l'ordine con cui fsck controlla i filesystem all'avvio: 1 per la root, 2 per gli altri, 0 per nessun controllo.",
+    "why_wrong": {
+      "0": "Il tipo di filesystem è il terzo campo (es. ext4, xfs).",
+      "2": "Le opzioni di mount (es. defaults, noatime) sono il quarto campo.",
+      "3": "La frequenza di dump è il quinto campo, usata dallo storico utility dump per i backup."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-012",
+    "cert": ["LPIC-1"],
+    "topics": ["Filesystem"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali due comandi permettono di analizzare l'utilizzo dello spazio su disco? (Seleziona due)",
+    "options": [
+      "df -h",
+      "du -sh /var/log",
+      "fsck -n /dev/sda1",
+      "mkfs.ext4 /dev/sdb1"
+    ],
+    "correct": [0, 1],
+    "explanation": "df -h riporta lo spazio totale, usato e disponibile per ciascun filesystem montato in formato leggibile; du -sh calcola lo spazio complessivo occupato da una directory. Insieme coprono l'analisi a livello di filesystem e di directory.",
+    "why_wrong": {
+      "2": "fsck controlla e ripara l'integrità di un filesystem, non ne misura l'occupazione di spazio.",
+      "3": "mkfs.ext4 crea un nuovo filesystem, operazione distruttiva che formatta la partizione."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-013",
+    "cert": ["LPIC-1"],
+    "topics": ["Networking"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali due comandi mostrano gli indirizzi IP configurati sulle interfacce di rete? (Seleziona due)",
+    "options": [
+      "ip addr show",
+      "ifconfig -a",
+      "ip route show",
+      "hostname -f"
+    ],
+    "correct": [0, 1],
+    "explanation": "ip addr show (suite iproute2) elenca interfacce e relativi indirizzi IPv4/IPv6; ifconfig -a, sebbene deprecato, mostra anch'esso gli indirizzi assegnati a tutte le interfacce.",
+    "why_wrong": {
+      "2": "ip route show visualizza la tabella di instradamento (gateway e rotte), non gli indirizzi delle interfacce.",
+      "3": "hostname -f restituisce il nome di dominio pienamente qualificato (FQDN) del sistema, non gli indirizzi IP."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-014",
+    "cert": ["LPIC-1"],
+    "topics": ["SSH"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo all'autenticazione SSH a chiave pubblica, quali due affermazioni sono corrette? (Seleziona due)",
+    "options": [
+      "La chiave pubblica va aggiunta al file ~/.ssh/authorized_keys sul server",
+      "ssh-keygen genera la coppia di chiavi pubblica e privata",
+      "La chiave privata deve essere copiata su ogni server a cui ci si connette",
+      "Il file authorized_keys deve avere permessi 777 per funzionare"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'autenticazione a chiave pubblica prevede che ssh-keygen crei la coppia di chiavi e che la sola chiave pubblica venga inserita in ~/.ssh/authorized_keys sull'host di destinazione; la chiave privata resta riservata sul client.",
+    "why_wrong": {
+      "2": "La chiave privata non va mai distribuita: deve rimanere segreta sul client. Sui server si copia solo la chiave pubblica.",
+      "3": "Permessi troppo aperti come 777 fanno rifiutare la chiave da sshd (StrictModes): authorized_keys richiede permessi restrittivi (es. 600) e la directory ~/.ssh 700."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-015",
+    "cert": ["LPIC-1"],
+    "topics": ["Bash"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali due comandi possono essere usati per estrarre o trasformare colonne e caratteri da un flusso di testo? (Seleziona due)",
+    "options": [
+      "cut -d: -f1 /etc/passwd",
+      "tr 'a-z' 'A-Z'",
+      "wc -l /etc/passwd",
+      "chmod +x script.sh"
+    ],
+    "correct": [0, 1],
+    "explanation": "cut estrae campi o caratteri specifici da ogni riga (qui il primo campo delimitato da ':'), mentre tr traduce o elimina caratteri (qui converte minuscole in maiuscole). Entrambi sono filtri di testo.",
+    "why_wrong": {
+      "2": "wc conta righe, parole o byte: fornisce statistiche numeriche, non estrae né trasforma il contenuto.",
+      "3": "chmod modifica i permessi di un file e non è un filtro di testo."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-016",
+    "cert": ["LPIC-1"],
+    "topics": ["Linux"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "UEFI, a differenza del BIOS legacy, richiede una partizione di sistema EFI (ESP) formattata in FAT che contiene i boot loader.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Il firmware UEFI avvia il sistema leggendo i file .efi dei boot loader dalla ESP, una partizione formattata in FAT (tipicamente FAT32) e identificata da un apposito codice di partizione, mentre il BIOS legacy carica il codice dal MBR.",
+    "why_wrong": {
+      "1": "È falso affermare il contrario: senza una ESP FAT il firmware UEFI non troverebbe i boot loader; è proprio ciò che distingue UEFI dal boot da MBR del BIOS legacy."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-017",
+    "cert": ["LPIC-1"],
+    "topics": ["Permessi"],
+    "type": "truefalse",
+    "difficulty": 3,
+    "question": "Lo sticky bit impostato su una directory (es. /tmp) impedisce a un utente di cancellare o rinominare i file di cui non è proprietario, anche se ha il permesso di scrittura sulla directory.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Con lo sticky bit su una directory scrivibile da tutti, ogni utente può rimuovere o rinominare solo i file di cui è proprietario (o se è proprietario della directory o root), evitando che in /tmp si cancellino a vicenda i file altrui.",
+    "why_wrong": {
+      "1": "È errato: senza sticky bit chiunque abbia scrittura sulla directory potrebbe cancellare qualsiasi file; lo sticky bit serve esattamente a impedirlo per i file non propri."
+    },
+    "source": "LPIC-1"
+  },
+  {
+    "id": "lpicb-018",
+    "cert": ["LPIC-1"],
+    "topics": ["Linux"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In una crontab, la voce con la pianificazione '*/15 * * * *' esegue il comando ogni 15 minuti.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. I cinque campi di cron sono minuto, ora, giorno del mese, mese e giorno della settimana. Nel campo dei minuti '*/15' indica un passo di 15, quindi l'esecuzione avviene ai minuti 0, 15, 30 e 45 di ogni ora.",
+    "why_wrong": {
+      "1": "È falso: la sintassi step '*/15' nel primo campo significa proprio ogni 15 minuti, non un altro intervallo."
+    },
+    "source": "LPIC-1"
+  }
+]

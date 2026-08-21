@@ -1,0 +1,329 @@
+[
+  {
+    "id": "adb-001",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Active Directory"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In una foresta Active Directory, qual e il confine di sicurezza piu ampio, ovvero l'unita che contiene uno o piu domini che condividono lo stesso schema e la stessa configuration partition?",
+    "options": ["Il dominio", "La foresta", "L'unita organizzativa (OU)", "Il sito"],
+    "correct": [1],
+    "explanation": "La foresta e il vero confine di sicurezza in Active Directory: contiene uno o piu alberi di domini che condividono lo stesso schema, la stessa partizione di configurazione e un catalogo globale comune. Un amministratore che compromette un dominio puo potenzialmente raggiungere l'intera foresta, per questo la foresta e considerata l'unita di isolamento della sicurezza.",
+    "why_wrong": {
+      "0": "Il dominio e un confine amministrativo e di replica, ma non e il confine di sicurezza definitivo: piu domini della stessa foresta condividono schema e trust automatici.",
+      "2": "L'OU e un contenitore usato per organizzare oggetti e delegare l'amministrazione o applicare GPO, non un confine di sicurezza della foresta.",
+      "3": "Il sito rappresenta la topologia fisica di rete e serve a ottimizzare la replica e l'autenticazione, non e un confine di sicurezza."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-002",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Active Directory"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un sistemista deve raggruppare utenti, gruppi e computer di una specifica filiale per delegare l'amministrazione e applicare Group Policy mirate, senza creare un nuovo dominio. Quale oggetto AD DS deve utilizzare?",
+    "options": ["Un gruppo di sicurezza universale", "Un'unita organizzativa (OU)", "Un nuovo albero di dominio", "Un contatto"],
+    "correct": [1],
+    "explanation": "L'unita organizzativa (OU) e un contenitore progettato proprio per organizzare gli oggetti in modo gerarchico, delegare l'amministrazione tramite ACL e collegare oggetti Group Policy (GPO). E la soluzione corretta per gestire una filiale senza aggiungere domini alla struttura.",
+    "why_wrong": {
+      "0": "Un gruppo di sicurezza serve ad assegnare permessi e non e un contenitore: non e possibile collegarvi una GPO ne delegarvi l'amministrazione in modo gerarchico.",
+      "2": "Creare un nuovo albero di dominio e sproporzionato e introduce overhead di replica e gestione non necessario per una semplice esigenza organizzativa.",
+      "3": "Il contatto e un oggetto che rappresenta un riferimento a una persona esterna (tipicamente per la posta), non un contenitore per organizzare oggetti."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-003",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Active Directory", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Secondo la strategia AGDLP raccomandata da Microsoft per l'assegnazione dei permessi in un dominio, qual e la sequenza corretta di annidamento?",
+    "options": [
+      "Gli account (A) vanno in gruppi Globali (G), inseriti in gruppi Domain Local (DL), a cui si assegnano i Permessi (P)",
+      "Gli account (A) vanno in gruppi Domain Local (DL), inseriti in gruppi Globali (G), a cui si assegnano i Permessi (P)",
+      "Gli account (A) vanno direttamente in gruppi Universali (U) a cui si assegnano i Permessi (P)",
+      "I Permessi (P) vanno assegnati direttamente agli account (A) senza usare gruppi"
+    ],
+    "correct": [0],
+    "explanation": "AGDLP significa: Account -> Global group -> Domain Local group -> Permission. Gli utenti si inseriscono in gruppi Globali (che raccolgono utenti per ruolo/reparto), i gruppi Globali si annidano in gruppi Domain Local (che rappresentano l'accesso a una risorsa), e i permessi si assegnano al gruppo Domain Local. Questo separa 'chi sono gli utenti' da 'a cosa hanno accesso', semplificando la gestione.",
+    "why_wrong": {
+      "1": "La sequenza e invertita: i gruppi Globali contengono gli account e vanno annidati nei Domain Local, non viceversa.",
+      "2": "L'uso diretto di gruppi Universali per assegnare permessi non e la strategia raccomandata; gli Universali (AGUDLP) si usano in scenari multi-dominio come livello intermedio.",
+      "3": "Assegnare permessi direttamente agli account e una cattiva pratica: rende ingestibile la manutenzione e vanifica lo scopo dei gruppi."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-004",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Active Directory", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un gruppo di sicurezza con scope Global puo contenere membri provenienti solo dal proprio dominio, ma puo essere utilizzato per assegnare permessi in qualsiasi dominio della foresta. Quale altra caratteristica lo distingue da un gruppo Universal?",
+    "options": [
+      "Il gruppo Global viene replicato nel catalogo globale con tutta la sua appartenenza, a differenza dello Universal",
+      "Il gruppo Global non replica la propria appartenenza nel catalogo globale, riducendo il traffico di replica",
+      "Il gruppo Global puo contenere membri da qualsiasi dominio della foresta",
+      "Il gruppo Global puo essere convertito solo in Domain Local e mai in Universal"
+    ],
+    "correct": [1],
+    "explanation": "L'appartenenza dei gruppi Global NON viene replicata nel catalogo globale (viene pubblicata l'esistenza del gruppo ma non l'elenco dei membri), mentre l'appartenenza dei gruppi Universal SI. Per questo i gruppi Universal, se cambiano spesso membri, generano piu traffico di replica inter-sito: una best practice e annidare gruppi Global stabili dentro gli Universal.",
+    "why_wrong": {
+      "0": "E l'opposto: e lo Universal a replicare la propria appartenenza completa nel catalogo globale, non il Global.",
+      "2": "Un gruppo Global puo contenere membri solo dal proprio dominio; sono gli Universal a poter contenere membri da qualsiasi dominio della foresta.",
+      "3": "Un gruppo Global puo essere convertito in Universal (se non e membro di un altro Global), quindi l'affermazione e falsa."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-005",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Group Policy"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In quale ordine vengono applicati gli oggetti Group Policy (GPO) a un utente/computer, seguendo il principio LSDOU?",
+    "options": [
+      "OU -> Dominio -> Sito -> Local (dall'alto verso il basso)",
+      "Local -> Sito -> Dominio -> OU (le GPO applicate per ultime vincono in caso di conflitto)",
+      "Dominio -> Sito -> Local -> OU",
+      "Local -> OU -> Dominio -> Sito (il Local vince sempre)"
+    ],
+    "correct": [1],
+    "explanation": "LSDOU indica l'ordine di elaborazione: Local (criteri locali della macchina), poi Site, poi Domain, poi OU (dalla piu esterna alla piu interna). Le GPO elaborate per ultime sovrascrivono quelle precedenti in caso di conflitto, quindi le GPO a livello di OU hanno di norma la precedenza piu alta, seguite dal dominio, dal sito e infine dai criteri locali.",
+    "why_wrong": {
+      "0": "L'ordine e invertito: si parte dai criteri Local e si termina con le OU, non il contrario.",
+      "2": "L'ordine e errato: il Local e il primo a essere elaborato e le OU sono le ultime; inoltre il dominio non precede il sito.",
+      "3": "I criteri Local sono elaborati per primi e quindi hanno la precedenza piu bassa, non la piu alta; l'ordine complessivo e comunque errato."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-006",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Group Policy"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Su un'OU e stato impostato 'Block Inheritance' per fermare le GPO ereditate dai livelli superiori. Un amministratore di dominio vuole comunque garantire che una specifica GPO di sicurezza si applichi sempre a quell'OU. Cosa deve fare?",
+    "options": [
+      "Impostare l'opzione 'Enforced' (No Override) sul link della GPO di sicurezza",
+      "Rimuovere il Block Inheritance dall'OU, non esistono alternative",
+      "Aumentare la priorita della GPO nell'elenco dei link dell'OU",
+      "Applicare un filtro WMI alla GPO di sicurezza"
+    ],
+    "correct": [0],
+    "explanation": "L'opzione 'Enforced' (in passato 'No Override') impostata sul collegamento di una GPO forza l'applicazione di quella GPO anche verso le OU che hanno abilitato 'Block Inheritance'. Enforced ha la precedenza assoluta: scavalca sia il blocco dell'ereditarieta sia eventuali GPO in conflitto ai livelli inferiori.",
+    "why_wrong": {
+      "1": "Non e necessario rimuovere il Block Inheritance: Enforced e proprio il meccanismo pensato per superarlo mantenendo il blocco per le altre GPO.",
+      "2": "La priorita nell'elenco dei link agisce solo tra GPO collegate allo stesso container e non supera un Block Inheritance ereditato dai livelli superiori.",
+      "3": "Un filtro WMI limita a quali macchine si applica la GPO in base a condizioni, ma non forza il superamento del Block Inheritance."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-007",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Group Policy"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In un ambiente con server Terminal/RDS, si vuole che le impostazioni utente di una GPO siano applicate in base al COMPUTER a cui l'utente accede, ignorando le GPO utente normali della sua OU. Quale funzionalita si deve configurare?",
+    "options": [
+      "Il filtro di sicurezza (Security Filtering) sulla GPO",
+      "La modalita Loopback Processing (elaborazione loopback)",
+      "L'opzione Enforced sulla GPO utente",
+      "Un filtro WMI basato sul sistema operativo"
+    ],
+    "correct": [1],
+    "explanation": "Il Loopback Processing (Group Policy Loopback) fa si che la sezione User Configuration venga applicata in funzione dell'oggetto computer anziche dell'utente. E la funzionalita tipica di ambienti condivisi (RDS, chioschi, laboratori) dove serve un'esperienza utente uniforme indipendente dalla OU di provenienza dell'utente. Puo operare in modalita Merge o Replace.",
+    "why_wrong": {
+      "0": "Il Security Filtering limita a quali utenti/gruppi si applica una GPO, ma non cambia il fatto che le impostazioni utente seguano l'oggetto utente invece del computer.",
+      "2": "Enforced forza l'applicazione di una GPO superando blocchi ed override, ma non fa applicare le impostazioni utente in base al computer.",
+      "3": "Un filtro WMI decide se la GPO si applica in base a condizioni (es. OS), ma non ridirige l'elaborazione delle impostazioni utente sull'oggetto computer."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-008",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["DNS", "Active Directory"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un client deve individuare un domain controller per autenticarsi. Quale tipo di record DNS interroga per trovare i servizi (come Kerberos e LDAP) offerti dai DC del dominio?",
+    "options": ["Record A", "Record MX", "Record SRV", "Record PTR"],
+    "correct": [2],
+    "explanation": "I record SRV (Service Location) pubblicano quali server offrono un determinato servizio, la porta e la priorita. Active Directory registra numerosi record SRV (ad esempio _ldap._tcp.dc._msdcs.dominio e _kerberos._tcp.dominio) che permettono ai client di localizzare i domain controller e i servizi Kerberos/LDAP. Senza SRV corretti, il logon al dominio fallisce.",
+    "why_wrong": {
+      "0": "Il record A risolve un nome host in un indirizzo IPv4 ma non descrive quale servizio offre l'host; da solo non consente il DC locator.",
+      "1": "Il record MX indica i mail server del dominio e non ha alcun ruolo nella localizzazione dei domain controller.",
+      "3": "Il record PTR serve alla risoluzione inversa (IP verso nome) e non pubblica servizi come Kerberos o LDAP."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-009",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Kerberos"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Nel protocollo Kerberos usato di default da Active Directory, cosa ottiene un utente dopo aver superato con successo l'autenticazione iniziale (pre-authentication) presso il KDC?",
+    "options": [
+      "Un Ticket Granting Ticket (TGT) rilasciato dall'Authentication Service",
+      "Direttamente un Service Ticket (TGS) per ogni servizio che usera",
+      "Un hash NTLM da presentare ai server applicativi",
+      "Un certificato X.509 emesso dalla CA aziendale"
+    ],
+    "correct": [0],
+    "explanation": "Dopo la pre-authentication, l'Authentication Service (AS) del KDC rilascia all'utente un Ticket Granting Ticket (TGT), cifrato con la chiave del KRBTGT. Il client conserva il TGT e lo presenta successivamente al Ticket Granting Service (TGS) per ottenere i Service Ticket verso i singoli servizi (identificati dai loro SPN), senza dover reinserire la password.",
+    "why_wrong": {
+      "1": "I Service Ticket (TGS) non vengono rilasciati subito: si ottengono in un secondo momento presentando il TGT al Ticket Granting Service.",
+      "2": "NTLM e il protocollo legacy alternativo a Kerberos; con Kerberos non si distribuisce un hash NTLM per l'accesso ai server.",
+      "3": "Kerberos si basa su ticket a chiave simmetrica, non su certificati X.509 (che intervengono solo in scenari PKINIT/smart card, non come esito standard della pre-auth)."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-010",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Active Directory", "Replica"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In una foresta con un solo dominio, quanti ruoli FSMO sono presenti complessivamente e come sono distribuiti tra i livelli foresta e dominio?",
+    "options": [
+      "5 ruoli: 2 a livello di foresta (Schema Master, Domain Naming Master) e 3 a livello di dominio (RID Master, PDC Emulator, Infrastructure Master)",
+      "5 ruoli, tutti a livello di dominio",
+      "3 ruoli: 1 di foresta e 2 di dominio",
+      "5 ruoli: 3 di foresta (Schema, Domain Naming, PDC) e 2 di dominio (RID, Infrastructure)"
+    ],
+    "correct": [0],
+    "explanation": "I ruoli FSMO (Flexible Single Master Operations) sono cinque. Due sono unici per l'intera foresta: Schema Master (gestisce le modifiche allo schema) e Domain Naming Master (gestisce l'aggiunta/rimozione di domini). Tre esistono in ogni dominio: RID Master (assegna pool di RID), PDC Emulator (sincronizzazione ora, cambi password, compatibilita) e Infrastructure Master (aggiorna i riferimenti cross-dominio).",
+    "why_wrong": {
+      "1": "Non tutti i ruoli sono di dominio: Schema Master e Domain Naming Master sono unici per l'intera foresta.",
+      "2": "I ruoli FSMO sono cinque, non tre; l'affermazione confonde il conteggio.",
+      "3": "Il PDC Emulator e un ruolo di dominio, non di foresta; i ruoli di foresta sono solo Schema Master e Domain Naming Master."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-011",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Replica", "Active Directory"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale componente di Active Directory genera automaticamente la topologia di replica tra i domain controller, creando gli oggetti connection all'interno di un sito e tra siti diversi?",
+    "options": [
+      "Il KCC (Knowledge Consistency Checker)",
+      "Il PDC Emulator",
+      "Il servizio DFS Replication",
+      "Il catalogo globale"
+    ],
+    "correct": [0],
+    "explanation": "Il KCC (Knowledge Consistency Checker) e il processo che gira su ogni domain controller e calcola automaticamente la topologia di replica, creando gli oggetti connection ottimali intra-sito e, tramite l'ISTG, inter-sito. La replica di AD e multi-master e usa i numeri USN (Update Sequence Number) per tracciare le modifiche ed evitare loop.",
+    "why_wrong": {
+      "1": "Il PDC Emulator e un ruolo FSMO che gestisce ora, cambi password e compatibilita, ma non calcola la topologia di replica.",
+      "2": "DFS Replication replica il contenuto di SYSVOL (nei domini moderni) ma non genera la topologia di replica del database AD tra i DC.",
+      "3": "Il catalogo globale e una copia parziale di tutti gli oggetti della foresta per ricerche e logon, non l'entita che costruisce la topologia di replica."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-012",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Identity", "Active Directory"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un'azienda migra da Active Directory Domain Services on-premise a Microsoft Entra ID (ex Azure AD). Quale affermazione descrive correttamente una differenza fondamentale tra i due?",
+    "options": [
+      "Entra ID usa protocolli moderni come SAML, OAuth 2.0 e OpenID Connect ed e privo delle OU e delle Group Policy classiche di AD DS",
+      "Entra ID e semplicemente AD DS ospitato su una VM in cloud, con identiche OU, GPO e Kerberos",
+      "Entra ID usa Kerberos e LDAP come protocolli primari esattamente come AD DS on-premise",
+      "AD DS on-premise non supporta l'autenticazione Kerberos, a differenza di Entra ID"
+    ],
+    "correct": [0],
+    "explanation": "Entra ID e un servizio di identita cloud che si basa su protocolli web moderni (SAML, OAuth 2.0, OpenID Connect, SCIM) per autenticare app SaaS e web. Non e una copia di AD DS: non ha la struttura gerarchica di OU con Group Policy ne usa Kerberos/LDAP come meccanismi primari (la gestione dei dispositivi avviene tramite MDM/Intune e i criteri tramite Conditional Access).",
+    "why_wrong": {
+      "1": "Entra ID non e AD DS su una VM: e un servizio PaaS di identita con architettura e protocolli differenti, senza OU e GPO tradizionali.",
+      "2": "Entra ID non usa Kerberos e LDAP come protocolli primari; si affida a SAML, OAuth e OIDC. AD DS invece si basa su Kerberos e LDAP.",
+      "3": "Falso: AD DS on-premise usa proprio Kerberos come protocollo di autenticazione predefinito."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-013",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Active Directory", "Controllo accessi"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni sui Read-Only Domain Controller (RODC) sono corrette? (Seleziona 2)",
+    "options": [
+      "Un RODC mantiene una copia in sola lettura del database AD e non permette scritture dirette che vengono inoltrate a un DC scrivibile",
+      "Un RODC memorizza per impostazione predefinita le password di tutti gli utenti del dominio",
+      "Tramite la Password Replication Policy si controlla quali credenziali possono essere memorizzate nella cache dell'RODC",
+      "Un RODC puo ospitare i ruoli FSMO Schema Master e PDC Emulator"
+    ],
+    "correct": [0, 2],
+    "explanation": "L'RODC e pensato per sedi periferiche/poco sicure: ospita una replica in sola lettura del database AD e inoltra le richieste di scrittura a un DC scrivibile. Per default NON conserva le password degli utenti; solo le credenziali autorizzate dalla Password Replication Policy (PRP) possono essere memorizzate nella cache, limitando l'esposizione in caso di furto del server.",
+    "why_wrong": {
+      "1": "Per impostazione predefinita l'RODC non memorizza alcuna password utente; la cache e regolata esplicitamente dalla Password Replication Policy.",
+      "3": "I ruoli FSMO richiedono un DC scrivibile: un RODC, essendo in sola lettura, non puo ospitare ruoli come Schema Master o PDC Emulator."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-014",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Active Directory"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo ai trust in Active Directory, quali delle seguenti affermazioni sono corrette? (Seleziona 2)",
+    "options": [
+      "All'interno di una singola foresta, i trust tra i domini sono automatici, bidirezionali e transitivi",
+      "Un external trust verso un dominio di un'altra foresta e sempre transitivo e si estende a tutta la foresta remota",
+      "La direzione di un trust determina il verso in cui fluisce l'accesso: un trust unidirezionale consente a un solo dominio di accedere alle risorse dell'altro",
+      "Un forest trust e possibile solo tra domini che condividono lo stesso schema all'interno della medesima foresta"
+    ],
+    "correct": [0, 2],
+    "explanation": "Nella stessa foresta, i domini sono legati da trust automatici, bidirezionali e transitivi (parent-child e tree-root). La direzione del trust stabilisce il verso dell'accesso: in un trust unidirezionale, gli utenti del dominio trusted possono accedere alle risorse del dominio trusting, ma non il contrario. La transitivita determina se il trust si propaga ad altri domini collegati.",
+    "why_wrong": {
+      "1": "Un external trust e per definizione non transitivo: collega puntualmente due domini e non si estende all'intera foresta remota.",
+      "3": "Un forest trust si stabilisce proprio TRA due foreste distinte (con schemi separati) per collegarle; non e un trust interno alla stessa foresta."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-015",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Active Directory", "Group Policy"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti sono partizioni (naming context) del database di Active Directory replicate tra i domain controller? (Seleziona 2)",
+    "options": [
+      "La Schema Partition, che definisce classi e attributi degli oggetti ed e comune a tutta la foresta",
+      "La Configuration Partition, che contiene informazioni su siti, servizi e struttura della foresta",
+      "La Registry Partition, che memorizza il registro di sistema dei client di dominio",
+      "La SYSVOL Partition, che e un naming context LDAP contenente le password degli utenti"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il database AD (ntds.dit) e suddiviso in partizioni/naming context: la Schema Partition (definizioni di classi e attributi, unica per foresta), la Configuration Partition (topologia di siti, servizi e struttura, replicata a tutta la foresta) e la Domain Partition (oggetti del singolo dominio). Esistono anche partizioni applicative (es. DNS integrato).",
+    "why_wrong": {
+      "2": "Non esiste una 'Registry Partition' in AD: il registro dei client e locale a ciascuna macchina e non e un naming context replicato.",
+      "3": "SYSVOL e una cartella condivisa replicata (script e GPO) tramite DFS-R/FRS, non un naming context LDAP, e non contiene le password degli utenti."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "adb-016",
+    "cert": ["IT Generale - Active Directory"],
+    "topics": ["Kerberos", "Active Directory"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Uno Service Principal Name (SPN) associa un servizio a un account (utente o computer) e permette a Kerberos di identificare il servizio per cui rilasciare un Service Ticket. Vero o Falso?",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Vero. Lo Service Principal Name (SPN) e un identificatore univoco di un'istanza di servizio (ad esempio HTTP/webserver.dominio.local) registrato su un account. Quando un client richiede l'accesso a quel servizio, il KDC usa lo SPN per individuare l'account corretto e cifrare il Service Ticket con la chiave di quell'account. SPN duplicati o mancanti sono una causa tipica di fallimenti di autenticazione Kerberos.",
+    "why_wrong": {
+      "0": "L'affermazione e corretta, quindi la risposta 'Vero' e quella giusta; selezionare qui significherebbe negare il ruolo effettivo dello SPN in Kerberos."
+    },
+    "source": "IT generale"
+  }
+]

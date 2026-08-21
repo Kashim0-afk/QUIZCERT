@@ -1,0 +1,365 @@
+[
+  {
+    "id": "virtb-001",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Hypervisor", "Virtualizzazione"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual e la caratteristica distintiva di un hypervisor di tipo 1 (bare-metal) come VMware ESXi, Microsoft Hyper-V o KVM?",
+    "options": [
+      "Viene eseguito direttamente sull'hardware fisico, senza un sistema operativo host sottostante",
+      "Richiede sempre Windows come sistema operativo host per funzionare",
+      "Puo virtualizzare solo un sistema operativo alla volta",
+      "Viene installato come una normale applicazione dentro un sistema operativo desktop"
+    ],
+    "correct": [0],
+    "explanation": "Un hypervisor di tipo 1 (bare-metal) si installa direttamente sull'hardware fisico del server e gestisce le macchine virtuali senza bisogno di un sistema operativo host. Questo riduce l'overhead e aumenta prestazioni, sicurezza e densita. Esempi tipici sono ESXi, Hyper-V e KVM.",
+    "why_wrong": {
+      "1": "KVM gira su Linux e ESXi ha un proprio kernel dedicato: nessuno richiede Windows come host.",
+      "2": "Un hypervisor di tipo 1 esegue contemporaneamente molte VM, non una sola.",
+      "3": "Installarsi come applicazione dentro un OS desktop e la caratteristica del tipo 2 (hosted), non del tipo 1."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-002",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Hypervisor", "Virtualizzazione"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "VirtualBox e VMware Workstation sono esempi tipici di quale categoria di hypervisor?",
+    "options": [
+      "Hypervisor di tipo 2 (hosted), eseguiti come applicazione sopra un sistema operativo esistente",
+      "Hypervisor di tipo 1 (bare-metal), installati direttamente sull'hardware",
+      "Container runtime che condividono il kernel dell'host",
+      "Orchestratori di cluster per data center"
+    ],
+    "correct": [0],
+    "explanation": "VirtualBox e VMware Workstation sono hypervisor di tipo 2 (hosted): girano come applicazione sopra un sistema operativo host (Windows, macOS o Linux). Sono comodi per desktop, test e sviluppo, ma hanno piu overhead rispetto ai bare-metal.",
+    "why_wrong": {
+      "1": "Il tipo 1 si installa senza OS host: non e il caso di questi due prodotti desktop.",
+      "2": "Sono hypervisor completi che virtualizzano l'hardware, non container che condividono il kernel.",
+      "3": "Non sono orchestratori di cluster: gestiscono VM su una singola macchina."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-003",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["VMware", "Virtualizzazione"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un ambiente VMware vSphere, quale componente offre la console di gestione centralizzata per amministrare piu host ESXi, cluster e VM da un unico punto?",
+    "options": [
+      "vCenter Server",
+      "Un singolo host ESXi",
+      "Il file VMDK",
+      "Lo storage vMotion"
+    ],
+    "correct": [0],
+    "explanation": "vCenter Server e la piattaforma di gestione centralizzata di vSphere: consente di amministrare piu host ESXi, creare cluster e abilitare funzioni avanzate come DRS, HA e vMotion. Senza vCenter ogni host ESXi va gestito singolarmente.",
+    "why_wrong": {
+      "1": "Un singolo host ESXi si gestisce da solo, ma non fornisce la vista e le funzioni centralizzate su piu host.",
+      "2": "Il VMDK e il file del disco virtuale, non uno strumento di gestione.",
+      "3": "vMotion e la migrazione a caldo delle VM, non una console di amministrazione."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-004",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["VMware", "Virtualizzazione"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale funzione di VMware vSphere permette di spostare una macchina virtuale accesa da un host ESXi a un altro senza interruzione del servizio?",
+    "options": [
+      "vMotion",
+      "HA (High Availability)",
+      "Snapshot",
+      "Thin provisioning"
+    ],
+    "correct": [0],
+    "explanation": "vMotion consente la migrazione a caldo (live migration) di una VM in esecuzione da un host ESXi a un altro senza downtime, trasferendo lo stato di memoria e CPU. E utile per manutenzione hardware e bilanciamento del carico.",
+    "why_wrong": {
+      "1": "HA riavvia le VM su un altro host dopo un guasto: comporta un breve riavvio, non e una migrazione senza interruzione.",
+      "2": "Lo snapshot cattura lo stato di una VM in un istante, non la sposta tra host.",
+      "3": "Il thin provisioning riguarda l'allocazione dello spazio disco, non la migrazione."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-005",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["VMware", "Virtualizzazione"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e la differenza principale tra thin provisioning e thick provisioning di un disco virtuale?",
+    "options": [
+      "Il thin provisioning alloca lo spazio su disco man mano che serve, mentre il thick lo riserva tutto subito alla creazione",
+      "Il thin provisioning riserva tutto lo spazio subito, mentre il thick lo alloca gradualmente",
+      "Il thin provisioning e possibile solo su dischi fisici, il thick solo su dischi virtuali",
+      "Non c'e alcuna differenza pratica tra i due"
+    ],
+    "correct": [0],
+    "explanation": "Con il thin provisioning il disco virtuale occupa sullo storage solo lo spazio effettivamente usato dai dati, crescendo su richiesta: ottimizza lo spazio ma va monitorato per evitare l'overcommit. Con il thick provisioning tutto lo spazio dichiarato viene riservato subito, garantendo prestazioni piu prevedibili.",
+    "why_wrong": {
+      "1": "E l'esatto contrario: e il thick a riservare tutto subito.",
+      "2": "Entrambe le modalita si applicano ai dischi virtuali su datastore, non a questa distinzione fisico/virtuale.",
+      "3": "La differenza esiste ed e rilevante per gestione dello spazio e prestazioni."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-006",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Hyper-V", "Virtualizzazione"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Microsoft Hyper-V, come viene chiamato il meccanismo che salva lo stato di una VM in un dato istante per poterci tornare in seguito (analogo allo snapshot di VMware)?",
+    "options": [
+      "Checkpoint",
+      "Datastore",
+      "Cluster DRS",
+      "Ballooning"
+    ],
+    "correct": [0],
+    "explanation": "In Hyper-V lo snapshot si chiama checkpoint: cattura lo stato, i dati e la configurazione di una VM in un momento preciso, permettendo di ripristinarla a quel punto. E utile prima di aggiornamenti o modifiche rischiose, ma non sostituisce un backup vero.",
+    "why_wrong": {
+      "1": "Il datastore e un archivio di storage (terminologia VMware), non un punto di ripristino.",
+      "2": "DRS e una funzione VMware di bilanciamento del carico nel cluster, non un checkpoint.",
+      "3": "Il ballooning e una tecnica di gestione della memoria in overcommit, non un salvataggio di stato."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-007",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Virtualizzazione", "Hypervisor"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Cosa si intende per overcommitment della memoria in un ambiente virtualizzato e a quale tecnica ricorre spesso l'hypervisor per gestirlo?",
+    "options": [
+      "Assegnare alle VM piu memoria totale di quella fisica disponibile, gestita con tecniche come il memory ballooning",
+      "Assegnare a ogni VM esattamente la memoria fisica installata, senza alcuna condivisione",
+      "Disabilitare del tutto la memoria virtuale per aumentare le prestazioni",
+      "Riservare tutta la RAM a una sola VM privilegiata"
+    ],
+    "correct": [0],
+    "explanation": "L'overcommitment della memoria consiste nell'assegnare alle VM piu RAM virtuale della RAM fisica realmente presente, contando sul fatto che non tutte la usino al massimo contemporaneamente. Per recuperare memoria l'hypervisor usa tecniche come il ballooning, in cui un driver dentro la VM restituisce pagine inutilizzate all'host.",
+    "why_wrong": {
+      "1": "Assegnare esattamente la RAM fisica senza condivisione e proprio l'assenza di overcommit.",
+      "2": "La memoria virtuale non viene disabilitata; il concetto qui e l'allocazione oltre il fisico.",
+      "3": "Riservare tutta la RAM a una VM non descrive l'overcommit, che riguarda l'allocazione aggregata su piu VM."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-008",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Docker", "Container"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Docker, cos'e il Dockerfile?",
+    "options": [
+      "Un file di testo con le istruzioni per costruire automaticamente un'immagine del container",
+      "Il registro pubblico da cui si scaricano le immagini gia pronte",
+      "Il container in esecuzione con i suoi processi attivi",
+      "Il volume persistente in cui vengono salvati i dati del container"
+    ],
+    "correct": [0],
+    "explanation": "Il Dockerfile e un file di testo che contiene, riga per riga, le istruzioni (FROM, RUN, COPY, CMD, ecc.) per costruire in modo ripetibile un'immagine Docker. Ogni istruzione genera tipicamente un layer dell'immagine.",
+    "why_wrong": {
+      "1": "Il registro pubblico da cui si scaricano le immagini e Docker Hub, non il Dockerfile.",
+      "2": "Il container in esecuzione e l'istanza dell'immagine, non il file di build.",
+      "3": "Il volume e il meccanismo di persistenza dei dati, distinto dal Dockerfile."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-009",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Docker", "Container"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e la differenza tra un'immagine Docker e un container Docker?",
+    "options": [
+      "L'immagine e un template statico di sola lettura, mentre il container e un'istanza in esecuzione creata a partire dall'immagine",
+      "L'immagine e in esecuzione, mentre il container e solo un file su disco mai avviato",
+      "Sono sinonimi e indicano esattamente la stessa cosa",
+      "L'immagine gira solo su Windows, il container solo su Linux"
+    ],
+    "correct": [0],
+    "explanation": "L'immagine Docker e un template immutabile e a strati (layer) di sola lettura che contiene applicazione e dipendenze. Il container e un'istanza eseguibile creata dall'immagine, con un layer scrivibile in cima: dalla stessa immagine si possono avviare piu container.",
+    "why_wrong": {
+      "1": "E invertito: e il container a essere in esecuzione, l'immagine e il template.",
+      "2": "Immagine e container sono concetti distinti, non sinonimi.",
+      "3": "La distinzione non dipende dal sistema operativo in quel modo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-010",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Kubernetes", "Container"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Kubernetes, qual e l'unita minima di deployment che incapsula uno o piu container che condividono rete e storage?",
+    "options": [
+      "Il Pod",
+      "Il Deployment",
+      "Il Namespace",
+      "Il Service"
+    ],
+    "correct": [0],
+    "explanation": "Il Pod e l'unita di scheduling piu piccola in Kubernetes: contiene uno o piu container strettamente accoppiati che condividono lo stesso indirizzo IP, la rete e i volumi. Kubernetes pianifica ed esegue i Pod sui nodi del cluster.",
+    "why_wrong": {
+      "1": "Il Deployment gestisce e scala i Pod tramite ReplicaSet, ma non e l'unita minima che incapsula i container.",
+      "2": "Il Namespace e una suddivisione logica del cluster per isolare le risorse, non un'unita di esecuzione.",
+      "3": "Il Service espone i Pod in rete con un endpoint stabile, ma non contiene i container."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-011",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Kubernetes", "Container"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In Kubernetes, quale componente e l'agente che gira su ogni nodo worker e si assicura che i container descritti nei Pod siano effettivamente in esecuzione?",
+    "options": [
+      "kubelet",
+      "ReplicaSet",
+      "etcd",
+      "Ingress"
+    ],
+    "correct": [0],
+    "explanation": "Il kubelet e l'agente presente su ogni nodo worker: riceve le specifiche dei Pod dal control plane e garantisce che i container corrispondenti siano avviati e in salute sul nodo. Comunica con il container runtime per gestire il ciclo di vita dei container.",
+    "why_wrong": {
+      "1": "Il ReplicaSet garantisce il numero desiderato di repliche di Pod, ma e un oggetto del control plane, non l'agente di nodo.",
+      "2": "etcd e il datastore chiave-valore che conserva lo stato del cluster, non l'agente sui nodi.",
+      "3": "Ingress gestisce l'instradamento HTTP/HTTPS esterno verso i Service, non l'esecuzione dei container sul nodo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-012",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Virtualizzazione", "Container"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un team deve eseguire decine di microservizi leggeri sullo stesso server, con avvio rapido e alta densita, accettando che condividano il kernel del sistema operativo host. Quale tecnologia e la piu adatta?",
+    "options": [
+      "I container, perche condividono il kernel dell'host e offrono avvio veloce e alta densita",
+      "Le macchine virtuali complete, una per ogni microservizio, con kernel separato",
+      "Un hypervisor di tipo 1 dedicato per ciascun microservizio",
+      "Un singolo hypervisor di tipo 2 su desktop"
+    ],
+    "correct": [0],
+    "explanation": "I container condividono il kernel del sistema operativo host e non emulano hardware ne includono un OS completo: sono percio molto leggeri, si avviano in pochi secondi e permettono un'elevata densita sullo stesso server. Sono la scelta naturale per microservizi numerosi e leggeri.",
+    "why_wrong": {
+      "1": "Una VM completa per ogni microservizio aggiunge un OS e un kernel per ciascuno: piu pesante, piu lenta all'avvio, minore densita.",
+      "2": "Un hypervisor di tipo 1 per ciascun microservizio e sproporzionato e non risolve il problema della densita.",
+      "3": "Un hypervisor di tipo 2 su desktop non e adatto a eseguire decine di servizi in produzione ad alta densita."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-013",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Docker", "Container"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni sulla gestione dei dati e della rete in Docker sono corrette? (Seleziona 2)",
+    "options": [
+      "I volumi Docker permettono di conservare i dati in modo persistente anche dopo la rimozione del container",
+      "Una network bridge consente ai container sullo stesso host di comunicare tra loro tramite una rete virtuale interna",
+      "I dati scritti nel layer scrivibile di un container sopravvivono automaticamente alla sua eliminazione",
+      "Un bind mount e l'unico modo per pubblicare un'immagine su Docker Hub"
+    ],
+    "correct": [0, 1],
+    "explanation": "I volumi Docker sono il meccanismo gestito da Docker per la persistenza: i dati restano disponibili anche dopo che il container viene rimosso. La rete bridge crea una rete virtuale interna sull'host che permette ai container collegati di comunicare tra loro e con l'esterno tramite NAT.",
+    "why_wrong": {
+      "2": "Il layer scrivibile del container e effimero: quando il container viene eliminato, i dati non salvati su un volume o bind mount vanno persi.",
+      "3": "Il bind mount monta una cartella dell'host dentro il container; la pubblicazione di un'immagine su Docker Hub si fa con docker push, non con un bind mount."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-014",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Virtualizzazione", "VMware"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali dei seguenti sono componenti o elementi tipici di un ambiente di virtualizzazione server? (Seleziona 2)",
+    "options": [
+      "Il virtual switch, che collega le schede di rete virtuali delle VM alla rete fisica",
+      "Il datastore, l'archivio di storage in cui risiedono i file delle VM e i dischi virtuali",
+      "Il Dockerfile, necessario per accendere qualunque macchina virtuale",
+      "Il pod, unita minima usata da tutti gli hypervisor per avviare le VM"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il virtual switch e uno switch software che collega le NIC virtuali delle VM tra loro e alla rete fisica tramite le schede dell'host. Il datastore e il contenitore di storage (locale o condiviso) dove risiedono i file di configurazione delle VM e i dischi virtuali (VMDK, VHDX).",
+    "why_wrong": {
+      "2": "Il Dockerfile appartiene al mondo dei container Docker e non serve per avviare macchine virtuali.",
+      "3": "Il pod e un concetto di Kubernetes/container, non l'unita con cui gli hypervisor avviano le VM."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-015",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Kubernetes", "Container"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo agli oggetti di Kubernetes, quali affermazioni sono corrette? (Seleziona 2)",
+    "options": [
+      "Un Deployment gestisce il numero desiderato di repliche di un Pod tramite un ReplicaSet, gestendo aggiornamenti e rollback",
+      "Un Service fornisce un endpoint di rete stabile per raggiungere un insieme di Pod anche se questi vengono ricreati",
+      "Un Namespace e il file immagine da cui si avviano i container di un Pod",
+      "Un ReplicaSet e l'hypervisor bare-metal che esegue i nodi del cluster"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il Deployment descrive lo stato desiderato dell'applicazione e, tramite un ReplicaSet, mantiene il numero corretto di repliche dei Pod, gestendo rolling update e rollback. Il Service astrae un gruppo di Pod dietro un IP/nome DNS stabile, cosi i client li raggiungono anche quando i Pod vengono sostituiti.",
+    "why_wrong": {
+      "2": "Il Namespace e una suddivisione logica per isolare e organizzare le risorse del cluster, non un file immagine.",
+      "3": "Il ReplicaSet e un oggetto software che garantisce le repliche dei Pod, non un hypervisor bare-metal."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-016",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Container", "Virtualizzazione"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "L'Infrastructure as Code (IaC) consiste nel definire e gestire l'infrastruttura tramite file di configurazione versionabili, invece di configurare manualmente i server. Vero o falso?",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. L'Infrastructure as Code descrive l'infrastruttura (VM, reti, container, risorse cloud) tramite file di configurazione dichiarativi e versionabili con strumenti come Terraform o Ansible. Questo rende le distribuzioni ripetibili, tracciabili e automatizzabili, riducendo gli errori della configurazione manuale.",
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-017",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Container", "Docker"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "A differenza di una macchina virtuale, un container include al suo interno un intero sistema operativo completo con un proprio kernel separato. Vero o falso?",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Il container NON include un intero sistema operativo con kernel proprio: condivide il kernel dell'host e impacchetta solo l'applicazione con le sue librerie e dipendenze. E proprio la macchina virtuale, invece, a includere un OS guest completo con il suo kernel, risultando piu pesante.",
+    "source": "IT generale"
+  },
+  {
+    "id": "virtb-018",
+    "cert": ["IT Generale - Virtualizzazione"],
+    "topics": ["Kubernetes", "Container"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In Kubernetes il control plane e responsabile delle decisioni globali del cluster, come lo scheduling dei Pod e il mantenimento dello stato desiderato. Vero o falso?",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Il control plane di Kubernetes (con componenti come kube-apiserver, scheduler, controller-manager ed etcd) prende le decisioni globali del cluster: pianifica i Pod sui nodi, reagisce agli eventi e mantiene lo stato reale allineato a quello desiderato. I nodi worker, tramite kubelet, eseguono invece concretamente i Pod.",
+    "source": "IT generale"
+  }
+]

@@ -1,0 +1,380 @@
+[
+  {
+    "id": "isob-001",
+    "cert": ["ISO 27001"],
+    "topics": ["ISMS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "La norma ISO/IEC 27001:2022 adotta la Harmonized Structure (HLS) comune a tutte le norme sui sistemi di gestione. Quali clausole contengono i requisiti effettivamente auditabili e certificabili?",
+    "options": [
+      "Le clausole da 0 a 3",
+      "Le clausole da 4 a 10",
+      "Solo l'Annex A",
+      "Le clausole da 1 a 5"
+    ],
+    "correct": [1],
+    "explanation": "Nella struttura HLS le clausole 0-3 sono introduttive (scopo, riferimenti normativi, termini e definizioni), mentre i requisiti obbligatori e verificabili in audit si trovano nelle clausole 4 (Contesto), 5 (Leadership), 6 (Pianificazione), 7 (Supporto), 8 (Operativita), 9 (Valutazione prestazioni) e 10 (Miglioramento).",
+    "why_wrong": {
+      "0": "Le clausole 0-3 sono introduttive e non contengono requisiti verificabili: definiscono scopo, riferimenti e terminologia.",
+      "2": "L'Annex A elenca i controlli di riferimento, ma i requisiti del sistema di gestione risiedono nelle clausole 4-10; l'Annex A e applicato tramite la Dichiarazione di Applicabilita.",
+      "3": "Le clausole 1-3 non sono requisiti; inoltre ometterebbero le clausole 6-10 che sono il cuore auditabile della norma."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-002",
+    "cert": ["ISO 27001"],
+    "topics": ["ISMS", "Governance"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "La clausola 4 richiede di comprendere l'organizzazione e il suo contesto. Cosa deve fare l'organizzazione riguardo alle parti interessate (interested parties)?",
+    "options": [
+      "Soddisfare integralmente ogni richiesta di qualsiasi parte interessata",
+      "Determinare le parti interessate rilevanti per l'ISMS e i loro requisiti pertinenti",
+      "Ignorare le parti esterne perche fuori dal perimetro di certificazione",
+      "Certificare tutte le parti interessate secondo la stessa norma"
+    ],
+    "correct": [1],
+    "explanation": "La clausola 4.2 richiede di identificare le parti interessate rilevanti ai fini dell'ISMS (es. clienti, autorita, dipendenti, fornitori) e di determinare quali dei loro requisiti sono pertinenti alla sicurezza delle informazioni, includendo requisiti legali, regolamentari e contrattuali.",
+    "why_wrong": {
+      "0": "La norma richiede di determinare quali requisiti sono pertinenti e devono essere affrontati, non di soddisfare integralmente ogni richiesta di chiunque.",
+      "2": "Le parti interessate esterne (regolatori, clienti, fornitori) sono spesso quelle piu rilevanti e non vanno ignorate.",
+      "3": "L'organizzazione non certifica le parti interessate; ne identifica e considera i requisiti."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-003",
+    "cert": ["ISO 27001"],
+    "topics": ["Governance", "ISMS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Secondo la clausola 5 (Leadership), quale responsabilita e attribuita specificamente all'alta direzione riguardo alla politica per la sicurezza delle informazioni?",
+    "options": [
+      "Delegare completamente la politica al responsabile IT senza ulteriore coinvolgimento",
+      "Stabilire una politica appropriata allo scopo dell'organizzazione e assicurare l'integrazione dell'ISMS nei processi",
+      "Redigere personalmente tutte le procedure operative di sicurezza",
+      "Approvare la politica solo dopo il primo audit di certificazione"
+    ],
+    "correct": [1],
+    "explanation": "La clausola 5.2 richiede che l'alta direzione stabilisca una politica per la sicurezza delle informazioni appropriata allo scopo dell'organizzazione, che includa obiettivi o fornisca un quadro per fissarli, e la clausola 5.1 richiede di garantire l'integrazione dei requisiti dell'ISMS nei processi aziendali. La leadership deve dimostrare impegno, non delega totale.",
+    "why_wrong": {
+      "0": "La leadership richiede impegno dimostrabile dell'alta direzione: la delega totale senza coinvolgimento contraddice la clausola 5.1.",
+      "2": "L'alta direzione non deve redigere personalmente le procedure operative; deve dare indirizzo, risorse e supporto.",
+      "3": "La politica deve essere stabilita e comunicata come parte del funzionamento dell'ISMS, non subordinata al superamento dell'audit."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-004",
+    "cert": ["ISO 27001"],
+    "topics": ["Gestione del rischio", "ISMS"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "La clausola 6.1.2 richiede un processo di valutazione del rischio di sicurezza delle informazioni. Quale caratteristica deve avere questo processo?",
+    "options": [
+      "Deve produrre risultati diversi ogni volta per garantire creativita",
+      "Deve produrre risultati coerenti, validi e comparabili nel tempo",
+      "Deve basarsi esclusivamente sul giudizio soggettivo di un singolo analista",
+      "Deve considerare solo le minacce di natura tecnica"
+    ],
+    "correct": [1],
+    "explanation": "La clausola 6.1.2 richiede che il processo di risk assessment sia definito e applicato in modo da produrre risultati coerenti, validi e comparabili. Deve includere criteri di accettazione del rischio, identificazione dei rischi, analisi (probabilita e conseguenze) e ponderazione/valutazione rispetto ai criteri.",
+    "why_wrong": {
+      "0": "La norma richiede risultati ripetibili e comparabili nel tempo, non variabilita: la coerenza e un requisito esplicito.",
+      "2": "Un processo dipendente da un singolo giudizio soggettivo non garantisce coerenza e comparabilita richieste dalla norma.",
+      "3": "I rischi comprendono minacce tecniche, fisiche, umane e organizzative; limitarsi al tecnico e insufficiente."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-005",
+    "cert": ["ISO 27001"],
+    "topics": ["Gestione del rischio", "Compliance"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cos'e la Dichiarazione di Applicabilita (Statement of Applicability, SoA) richiesta dalla clausola 6.1.3?",
+    "options": [
+      "Un elenco dei soli controlli tecnici implementati",
+      "Un documento che indica i controlli necessari, la loro applicabilita/esclusione con giustificazione e lo stato di attuazione",
+      "La politica generale di sicurezza firmata dall'alta direzione",
+      "Il rapporto finale dell'audit di certificazione"
+    ],
+    "correct": [1],
+    "explanation": "La SoA e un documento obbligatorio che elenca i controlli necessari (tipicamente confrontati con l'Annex A), indica se ciascun controllo e applicabile o escluso con la relativa giustificazione, e riporta lo stato di implementazione. E il collegamento tracciabile tra i rischi individuati e i controlli scelti.",
+    "why_wrong": {
+      "0": "La SoA copre tutti i controlli necessari (organizzativi, persone, fisici, tecnologici), non solo quelli tecnici.",
+      "2": "La politica di sicurezza e un documento distinto della clausola 5.2; la SoA riguarda i controlli e la loro applicabilita.",
+      "3": "Il rapporto di audit e prodotto dall'organismo di certificazione o dall'auditor, non e la SoA."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-006",
+    "cert": ["ISO 27001"],
+    "topics": ["ISMS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "La clausola 6.2 riguarda gli obiettivi di sicurezza delle informazioni. Quale caratteristica devono avere questi obiettivi?",
+    "options": [
+      "Essere generici e non misurabili per restare flessibili",
+      "Essere coerenti con la politica, misurabili se fattibile, monitorati e aggiornati",
+      "Essere definiti solo dall'organismo di certificazione",
+      "Coincidere sempre con gli obiettivi finanziari annuali"
+    ],
+    "correct": [1],
+    "explanation": "La clausola 6.2 richiede che gli obiettivi siano coerenti con la politica, misurabili (ove praticabile), tengano conto dei requisiti applicabili e dei risultati del risk assessment, siano monitorati, comunicati e aggiornati quando necessario. Deve inoltre essere pianificato come raggiungerli (risorse, responsabili, tempi, valutazione).",
+    "why_wrong": {
+      "0": "La norma richiede obiettivi misurabili ove fattibile e monitorabili: obiettivi generici e non misurabili non soddisfano il requisito.",
+      "2": "Gli obiettivi sono definiti dall'organizzazione, non dall'organismo di certificazione.",
+      "3": "Gli obiettivi di sicurezza riguardano la protezione delle informazioni; possono allinearsi al business ma non coincidono necessariamente con quelli finanziari."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-007",
+    "cert": ["ISO 27001"],
+    "topics": ["ISMS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nella clausola 7 (Supporto), qual e la differenza tra 'competenza' e 'consapevolezza' (awareness)?",
+    "options": [
+      "Sono sinonimi e la norma li tratta come un unico requisito",
+      "La competenza riguarda capacita ed esperienza per svolgere un compito; la consapevolezza riguarda la comprensione della politica e del proprio contributo all'ISMS",
+      "La competenza riguarda solo i vertici, la consapevolezza solo i tecnici",
+      "La consapevolezza si applica solo ai fornitori esterni"
+    ],
+    "correct": [1],
+    "explanation": "La clausola 7.2 (Competenza) richiede che le persone che influenzano le prestazioni dell'ISMS abbiano competenza adeguata basata su istruzione, formazione o esperienza. La clausola 7.3 (Consapevolezza) richiede che tutte le persone siano consapevoli della politica, del proprio contributo all'efficacia dell'ISMS e delle implicazioni della non conformita.",
+    "why_wrong": {
+      "0": "Sono requisiti distinti in clausole separate (7.2 e 7.3) con finalita diverse.",
+      "2": "Entrambi i requisiti si applicano trasversalmente al personale rilevante, non a livelli separati.",
+      "3": "La consapevolezza riguarda le persone che lavorano sotto il controllo dell'organizzazione, non solo i fornitori esterni."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-008",
+    "cert": ["ISO 27001"],
+    "topics": ["ISMS", "Compliance"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "La clausola 7.5 tratta le 'informazioni documentate'. Quale requisito riguarda il loro controllo?",
+    "options": [
+      "Devono essere sempre stampate e conservate solo in formato cartaceo",
+      "Devono essere disponibili e adeguate all'uso dove servono, protette e sottoposte a controllo di versione, distribuzione e conservazione",
+      "Non devono mai essere modificate dopo la prima emissione",
+      "Sono richieste solo per i controlli tecnologici dell'Annex A"
+    ],
+    "correct": [1],
+    "explanation": "La clausola 7.5.3 richiede che le informazioni documentate siano disponibili e idonee all'uso dove e quando necessario e adeguatamente protette (es. da perdita di riservatezza o integrita). Il controllo include distribuzione, accesso, recupero, conservazione, controllo delle modifiche e delle versioni, e conservazione/eliminazione.",
+    "why_wrong": {
+      "0": "La norma e neutrale rispetto al supporto: le informazioni documentate possono essere digitali o cartacee.",
+      "2": "Le informazioni documentate possono e devono essere aggiornate; e richiesto il controllo delle modifiche, non l'immutabilita.",
+      "3": "Le informazioni documentate riguardano l'intero ISMS (clausole 4-10 e controlli applicabili), non solo i controlli tecnologici."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-009",
+    "cert": ["ISO 27001"],
+    "topics": ["Audit", "ISMS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "La clausola 9.2 richiede audit interni dell'ISMS. Quale principio deve essere garantito nello svolgimento?",
+    "options": [
+      "Gli auditor devono verificare esclusivamente il proprio lavoro per efficienza",
+      "L'audit deve essere condotto in modo obiettivo e imparziale, con auditor che non verificano il proprio lavoro",
+      "Gli audit interni sostituiscono l'audit di certificazione esterno",
+      "Gli audit interni vanno svolti una sola volta prima della certificazione iniziale"
+    ],
+    "correct": [1],
+    "explanation": "La clausola 9.2 richiede audit interni a intervalli pianificati per verificare che l'ISMS sia conforme ai requisiti dell'organizzazione e della norma e sia efficacemente attuato. La selezione degli auditor e la conduzione devono assicurare obiettivita e imparzialita: un auditor non deve verificare il proprio lavoro.",
+    "why_wrong": {
+      "0": "Verificare il proprio lavoro compromette l'imparzialita richiesta dalla norma.",
+      "2": "Gli audit interni non sostituiscono l'audit di terza parte dell'organismo di certificazione; sono complementari.",
+      "3": "Gli audit interni sono un'attivita ricorrente a intervalli pianificati, parte del ciclo di miglioramento continuo."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-010",
+    "cert": ["ISO 27001"],
+    "topics": ["Governance", "ISMS"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "La clausola 9.3 richiede il riesame di direzione (management review). Quale tra i seguenti e un input obbligatorio del riesame?",
+    "options": [
+      "Il fatturato dettagliato per singolo cliente",
+      "Lo stato delle azioni dei riesami precedenti, i cambiamenti del contesto, i feedback sulle prestazioni e i risultati del risk assessment",
+      "Solo la valutazione economica del reparto marketing",
+      "L'elenco delle ferie del personale IT"
+    ],
+    "correct": [1],
+    "explanation": "La clausola 9.3.2 elenca gli input del riesame di direzione: stato delle azioni dei riesami precedenti, cambiamenti nelle questioni interne/esterne rilevanti, feedback sulle prestazioni (non conformita, monitoraggio, audit, obiettivi), feedback delle parti interessate, risultati del risk assessment e stato del piano di trattamento, opportunita di miglioramento continuo.",
+    "why_wrong": {
+      "0": "Il fatturato per cliente non e un input previsto dalla clausola 9.3 sul riesame dell'ISMS.",
+      "2": "La valutazione economica del marketing non e un input del riesame dell'efficacia dell'ISMS.",
+      "3": "L'elenco delle ferie non e tra gli input previsti per valutare adeguatezza ed efficacia dell'ISMS."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-011",
+    "cert": ["ISO 27001"],
+    "topics": ["ISMS", "PDCA"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "La clausola 10 (Miglioramento) tratta le non conformita e le azioni correttive. Cosa deve fare l'organizzazione quando si verifica una non conformita?",
+    "options": [
+      "Registrarla e attendere l'audit successivo senza intervenire",
+      "Reagire alla non conformita, valutare la necessita di eliminarne le cause per evitare che si ripeta e attuare le azioni necessarie",
+      "Eliminare immediatamente l'ISMS e ricominciare da zero",
+      "Ignorarla se non ha causato un incidente registrato"
+    ],
+    "correct": [1],
+    "explanation": "La clausola 10.2 richiede di reagire alla non conformita (correzione e gestione delle conseguenze), valutare la necessita di azioni per eliminarne le cause radice affinche non si ripresenti, attuare le azioni, riesaminarne l'efficacia e aggiornare l'ISMS se necessario. Tutto va documentato (natura della NC, azioni, risultati).",
+    "why_wrong": {
+      "0": "La norma richiede di reagire e agire sulle cause, non di rimandare passivamente all'audit successivo.",
+      "2": "Non e richiesto smantellare l'ISMS: l'approccio e correttivo e di miglioramento continuo.",
+      "3": "Una non conformita va gestita indipendentemente dal fatto che abbia gia causato un incidente."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-012",
+    "cert": ["ISO 27001"],
+    "topics": ["Controllo accessi", "ISMS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "L'Annex A della ISO/IEC 27001:2022 organizza i 93 controlli in quattro temi. Quali sono?",
+    "options": [
+      "Preventivi, Investigativi, Correttivi, Direttivi",
+      "Organizzativi (A.5), Persone (A.6), Fisici (A.7), Tecnologici (A.8)",
+      "Riservatezza, Integrita, Disponibilita, Autenticita",
+      "Strategici, Tattici, Operativi, Amministrativi"
+    ],
+    "correct": [1],
+    "explanation": "La revisione 2022 ha ristrutturato i controlli in 93 controlli raggruppati in 4 temi: Organizzativi (A.5, 37 controlli), Persone (A.6, 8 controlli), Fisici (A.7, 14 controlli) e Tecnologici (A.8, 34 controlli), rispetto ai 114 controlli in 14 domini della versione 2013.",
+    "why_wrong": {
+      "0": "Preventivo/investigativo/correttivo sono attributi (tipi di controllo) usati nella ISO 27002:2022, non i quattro temi di raggruppamento dell'Annex A.",
+      "2": "Riservatezza, integrita e disponibilita sono le proprieta della sicurezza delle informazioni, non i temi dei controlli.",
+      "3": "Strategico/tattico/operativo non e la classificazione dei controlli dell'Annex A 2022."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-013",
+    "cert": ["ISO 27001"],
+    "topics": ["Compliance", "ISMS"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni sulle differenze tra ISO/IEC 27001, ISO/IEC 27002 e ISO/IEC 27005 sono corrette? (selezionane due)",
+    "options": [
+      "La ISO/IEC 27001 e la norma certificabile che specifica i requisiti dell'ISMS",
+      "La ISO/IEC 27002 e una norma certificabile che sostituisce la 27001",
+      "La ISO/IEC 27005 fornisce linee guida per la gestione del rischio di sicurezza delle informazioni",
+      "La ISO/IEC 27005 e obbligatoria per ottenere la certificazione ISO 27001"
+    ],
+    "correct": [0, 2],
+    "explanation": "La ISO/IEC 27001 e l'unica norma certificabile della serie e specifica i requisiti per stabilire e mantenere un ISMS. La ISO/IEC 27002 e una guida di implementazione che fornisce linee guida e dettagli sui controlli. La ISO/IEC 27005 fornisce linee guida per il processo di gestione del rischio, ma il suo uso e volontario: la 27001 non impone una metodologia specifica.",
+    "why_wrong": {
+      "1": "La ISO/IEC 27002 non e certificabile e non sostituisce la 27001: e una guida di supporto ai controlli.",
+      "3": "La ISO/IEC 27005 e una linea guida non obbligatoria; l'organizzazione puo scegliere qualsiasi metodo di risk management coerente con i requisiti della 27001."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-014",
+    "cert": ["ISO 27001"],
+    "topics": ["Audit", "Compliance"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo al processo di certificazione ISO 27001 svolto da un organismo accreditato, quali affermazioni sono corrette? (selezionane due)",
+    "options": [
+      "Lo Stage 1 e un riesame documentale e di prontezza (readiness) dell'ISMS",
+      "Lo Stage 2 verifica l'attuazione e l'efficacia dell'ISMS sul campo",
+      "Dopo la certificazione non e previsto alcun controllo fino al rinnovo triennale",
+      "Il certificato viene rilasciato prima dello Stage 1"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'audit di certificazione si articola in due fasi: lo Stage 1 valuta la documentazione e la prontezza dell'organizzazione (scope, politica, SoA, risk assessment, audit interni, riesame di direzione), mentre lo Stage 2 verifica sul campo l'effettiva attuazione ed efficacia dell'ISMS. Il ciclo di certificazione dura tipicamente tre anni con audit di sorveglianza annuali.",
+    "why_wrong": {
+      "2": "Dopo la certificazione sono previsti audit di sorveglianza periodici (di norma annuali) per verificare il mantenimento della conformita.",
+      "3": "Il certificato e rilasciato solo dopo il superamento con esito positivo dello Stage 2, non prima dello Stage 1."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-015",
+    "cert": ["ISO 27001"],
+    "topics": ["Gestione del rischio", "Governance"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Nel trattamento del rischio (risk treatment, clausola 6.1.3), quali delle seguenti sono opzioni valide per gestire un rischio di sicurezza delle informazioni? (selezionane due)",
+    "options": [
+      "Modificare il rischio applicando controlli per ridurlo",
+      "Accettare il rischio in modo consapevole rispettando i criteri stabiliti",
+      "Nascondere il rischio all'alta direzione per evitare allarmismi",
+      "Eliminare la registrazione del rischio dal registro per chiudere la pratica"
+    ],
+    "correct": [0, 1],
+    "explanation": "Le opzioni di trattamento del rischio includono: modificare/ridurre il rischio applicando controlli, accettare (ritenere) il rischio secondo i criteri di accettazione, evitare il rischio eliminando la fonte o l'attivita, e condividere/trasferire il rischio (es. assicurazione, outsourcing). La scelta deve essere documentata e coerente con i criteri definiti.",
+    "why_wrong": {
+      "2": "Nascondere il rischio contraddice i principi di governance e il coinvolgimento della direzione richiesto dalla norma.",
+      "3": "Cancellare un rischio dal registro senza trattarlo non e un'opzione di trattamento: il rischio deve essere gestito e tracciato."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-016",
+    "cert": ["ISO 27001"],
+    "topics": ["Governance", "ISMS"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Riguardo alla determinazione dello scopo (perimetro) dell'ISMS secondo la clausola 4.3, quali affermazioni sono corrette? (selezionane due)",
+    "options": [
+      "Lo scopo deve tenere conto delle questioni interne ed esterne e dei requisiti delle parti interessate",
+      "Lo scopo deve essere disponibile come informazione documentata",
+      "Lo scopo deve necessariamente coprire l'intera organizzazione senza eccezioni",
+      "Lo scopo non puo includere interfacce e dipendenze con terze parti"
+    ],
+    "correct": [0, 1],
+    "explanation": "La clausola 4.3 richiede di determinare i confini e l'applicabilita dell'ISMS considerando le questioni interne/esterne (4.1), i requisiti delle parti interessate (4.2) e le interfacce e dipendenze con attivita svolte da altre organizzazioni. Lo scopo deve essere mantenuto come informazione documentata.",
+    "why_wrong": {
+      "2": "Lo scopo puo essere limitato a determinati siti, servizi o unita organizzative, purche i confini siano definiti e giustificati; non deve necessariamente coprire tutta l'organizzazione.",
+      "4": "Al contrario, la norma richiede esplicitamente di considerare le interfacce e le dipendenze con terze parti nel definire lo scopo."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-017",
+    "cert": ["ISO 27001"],
+    "topics": ["Compliance", "ISMS"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Vero o Falso: nella ISO/IEC 27001:2022 la Dichiarazione di Applicabilita (SoA) puo includere controlli aggiuntivi rispetto a quelli elencati nell'Annex A se ritenuti necessari a fronte del risk assessment.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. L'Annex A rappresenta un insieme di controlli di riferimento, ma non e esaustivo. L'organizzazione deve determinare i controlli necessari per il trattamento del rischio e puo aggiungerne di ulteriori (da altre fonti o definiti internamente) oltre a quelli dell'Annex A, documentandoli nella SoA.",
+    "why_wrong": {
+      "1": "E errato affermare il contrario: la norma consente e talvolta richiede controlli aggiuntivi oltre l'Annex A quando il risk assessment li rende necessari."
+    },
+    "source": "ISO/IEC 27001"
+  },
+  {
+    "id": "isob-018",
+    "cert": ["ISO 27001"],
+    "topics": ["PDCA", "ISMS"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Vero o Falso: la ISO/IEC 27001 impone che gli indicatori di prestazione (KPI) e il monitoraggio della sicurezza siano definiti dall'organismo di certificazione e non dall'organizzazione.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. La clausola 9.1 richiede che sia l'organizzazione a determinare cosa monitorare e misurare, i metodi, quando eseguirlo e chi analizza i risultati, al fine di valutare le prestazioni e l'efficacia dell'ISMS. L'organismo di certificazione verifica il sistema, ma non definisce i KPI aziendali.",
+    "why_wrong": {
+      "0": "E errato: la definizione di cosa e come misurare spetta all'organizzazione (clausola 9.1), non all'organismo di certificazione che si limita a valutarne l'adeguatezza."
+    },
+    "source": "ISO/IEC 27001"
+  }
+]

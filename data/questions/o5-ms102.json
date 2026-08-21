@@ -1,0 +1,364 @@
+[
+  {
+    "id": "ms102b-001",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft 365", "Gestione tenant"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Hai aggiunto il dominio personalizzato contoso.it al tenant Microsoft 365. Il portale mostra il dominio come 'Non verificato' e chiede di completare un passaggio prima di poterlo usare per gli account utente. Quale azione devi eseguire presso il registrar DNS per verificare la proprietà del dominio?",
+    "options": [
+      "Creare un record MX che punti a contoso-it.mail.protection.outlook.com",
+      "Aggiungere il record TXT (o CNAME) fornito da Microsoft nella zona DNS del dominio",
+      "Impostare un record SRV per l'autodiscovery di Exchange Online",
+      "Configurare il record SPF con v=spf1 include:spf.protection.outlook.com"
+    ],
+    "correct": [1],
+    "explanation": "Per verificare la proprietà di un dominio personalizzato, Microsoft 365 richiede di pubblicare un record specifico (di norma un TXT, in alternativa un CNAME) nella zona DNS del dominio. Il servizio interroga il DNS e, trovando il valore atteso, conferma che chi gestisce il tenant controlla anche il dominio, portandolo allo stato 'Verificato'. Solo dopo la verifica è possibile assegnare il dominio a caselle e account.",
+    "why_wrong": {
+      "0": "Il record MX serve a instradare la posta verso Exchange Online e si configura dopo la verifica, non per dimostrare la proprietà del dominio.",
+      "2": "Il record SRV riguarda funzionalità come Teams/Skype o l'autodiscovery, non la verifica di proprietà del dominio.",
+      "3": "Il record SPF è un controllo anti-spoofing per la posta in uscita e non ha alcun ruolo nella verifica iniziale del dominio."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-002",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft 365", "Ruoli amministrativi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un collega dell'help desk deve poter reimpostare le password degli utenti non amministratori e forzare la registrazione MFA, ma la policy aziendale impone il privilegio minimo: non deve poter modificare licenze, gruppi o configurazioni del tenant. Quale ruolo di Entra ID è più appropriato assegnargli?",
+    "options": [
+      "Amministratore utenti (User Administrator)",
+      "Amministratore autenticazione (Authentication Administrator)",
+      "Amministratore globale (Global Administrator)",
+      "Amministratore supporto tecnico (Helpdesk Administrator)"
+    ],
+    "correct": [3],
+    "explanation": "Il ruolo Amministratore supporto tecnico (Helpdesk Administrator) è pensato esattamente per il personale di primo livello: consente di reimpostare le password e gestire le richieste di autenticazione degli utenti non amministratori, senza poter modificare licenze, gruppi o impostazioni globali del tenant. È quindi la scelta che rispetta il principio del privilegio minimo per l'help desk.",
+    "why_wrong": {
+      "0": "L'Amministratore utenti può creare/eliminare utenti, gestire gruppi e assegnare licenze: eccede i requisiti e viola il privilegio minimo.",
+      "1": "L'Authentication Administrator gestisce i metodi di autenticazione ma è orientato a un ambito più stretto; il requisito di reset password per l'help desk è coperto tipicamente dall'Helpdesk Administrator, che è il ruolo di riferimento per lo scenario descritto.",
+      "2": "L'Amministratore globale ha il controllo completo del tenant: è il massimo privilegio, l'opposto del principio richiesto."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-003",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Entra ID", "Sincronizzazione identità"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "L'azienda ha un requisito di sicurezza: nessun hash di password, nemmeno in forma derivata, deve essere sincronizzato nel cloud, e l'autenticazione deve avvenire in tempo reale contro i domain controller on-premises senza distribuire server ADFS aggiuntivi. Quale metodo di autenticazione di Entra Connect soddisfa questi requisiti?",
+    "options": [
+      "Password Hash Synchronization (PHS)",
+      "Pass-through Authentication (PTA)",
+      "Federazione con AD FS",
+      "Seamless Single Sign-On (SSSO) da solo"
+    ],
+    "correct": [1],
+    "explanation": "La Pass-through Authentication (PTA) convalida le password direttamente contro Active Directory on-premises tramite agent leggeri, senza sincronizzare alcun hash di password nel cloud e senza richiedere l'infrastruttura ADFS. Soddisfa quindi sia il requisito di non memorizzare hash nel cloud sia quello di evitare server di federazione dedicati.",
+    "why_wrong": {
+      "0": "PHS sincronizza un hash dell'hash della password nel cloud: viola esplicitamente il requisito di non avere hash nel cloud.",
+      "2": "La federazione con AD FS soddisfa la validazione on-premises ma richiede proprio l'infrastruttura ADFS che il requisito vuole evitare.",
+      "3": "Seamless SSO fornisce il single sign-on ma non è un metodo di autenticazione autonomo: si abbina a PHS o PTA e da solo non convalida le credenziali."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-004",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Entra ID", "Licensing"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Vuoi assegnare automaticamente le licenze Microsoft 365 E3 a tutti i dipendenti in base all'appartenenza a un gruppo dinamico che raccoglie gli utenti con department=Sales. Quale funzionalità di Entra ID consente di assegnare la licenza al gruppo così che venga propagata automaticamente ai membri?",
+    "options": [
+      "Group-based licensing (licensing basato su gruppo)",
+      "Assegnazione diretta della licenza a ciascun utente tramite PowerShell",
+      "Administrative Units per delegare l'assegnazione",
+      "Conditional Access con controllo di sessione"
+    ],
+    "correct": [0],
+    "explanation": "Il group-based licensing permette di assegnare uno o più prodotti a un gruppo di Entra ID (statico o dinamico): la licenza viene automaticamente applicata a chi entra nel gruppo e rimossa a chi ne esce. Combinato con un gruppo dinamico basato su department=Sales, ottieni un'assegnazione completamente automatica e mantenuta nel tempo.",
+    "why_wrong": {
+      "1": "L'assegnazione diretta via PowerShell non è automatica: andrebbe rieseguita a ogni cambio di organico, perdendo il beneficio del gruppo dinamico.",
+      "2": "Le Administrative Units delegano l'amministrazione a un sottoinsieme di oggetti, ma non assegnano automaticamente licenze in base all'appartenenza a un gruppo.",
+      "3": "Il Conditional Access governa l'accesso alle risorse, non l'assegnazione delle licenze."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-005",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Defender for Office 365", "Sicurezza email"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Gli utenti ricevono email con allegati che superano l'antimalware standard ma si rivelano dannosi solo all'apertura. Vuoi che ogni allegato venga fatto detonare in un ambiente sandbox prima della consegna, bloccando i file che mostrano comportamento malevolo. Quale funzionalità di Defender for Office 365 devi configurare?",
+    "options": [
+      "Safe Links con time-of-click protection",
+      "Safe Attachments con azione Blocca",
+      "Anti-spoofing tramite DMARC",
+      "Zero-hour Auto Purge (ZAP) per lo spam"
+    ],
+    "correct": [1],
+    "explanation": "Safe Attachments di Defender for Office 365 apre gli allegati in un ambiente sandbox isolato (detonazione) per osservarne il comportamento reale prima della consegna. Con l'azione 'Blocca', i messaggi con allegati riconosciuti dannosi vengono bloccati, fornendo protezione contro malware sconosciuto che sfugge alla scansione basata su firme.",
+    "why_wrong": {
+      "0": "Safe Links protegge gli URL riscrivendoli e verificandoli al momento del click, non analizza gli allegati in sandbox.",
+      "2": "L'anti-spoofing con DMARC verifica l'autenticità del mittente, non il contenuto dannoso degli allegati.",
+      "3": "ZAP rimuove retroattivamente messaggi già consegnati risultati dannosi, ma non esegue la detonazione preventiva degli allegati richiesta."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-006",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft Purview", "DLP"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Devi impedire che gli utenti condividano all'esterno documenti contenenti numeri di carta di credito tramite email di Exchange Online e file di SharePoint/OneDrive, mostrando anche un suggerimento all'utente al momento del tentativo. Quale soluzione di Microsoft Purview implementa questo controllo?",
+    "options": [
+      "Etichette di conservazione (retention labels)",
+      "Criterio di prevenzione della perdita dei dati (DLP)",
+      "eDiscovery (Standard)",
+      "Insider Risk Management"
+    ],
+    "correct": [1],
+    "explanation": "Un criterio DLP di Microsoft Purview individua contenuti sensibili tramite tipi di informazioni riservate (come il numero di carta di credito) attraverso i carichi di lavoro (Exchange, SharePoint, OneDrive, Teams) e può bloccare la condivisione esterna mostrando un policy tip all'utente. È esattamente lo strumento per prevenire la fuoriuscita di dati sensibili in base al contenuto.",
+    "why_wrong": {
+      "0": "Le etichette di conservazione governano per quanto tempo mantenere o quando eliminare i contenuti, non bloccano la condivisione di dati sensibili.",
+      "2": "eDiscovery serve a cercare e conservare contenuti per finalità legali/investigative, non a impedire in tempo reale la condivisione.",
+      "3": "Insider Risk Management valuta i comportamenti a rischio degli utenti nel tempo, ma non applica il blocco basato su contenuto con policy tip come fa la DLP."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-007",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Entra ID", "SSPR"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Vuoi che gli utenti possano reimpostare autonomamente la propria password dimenticata dal portale, ma solo dopo aver confermato la propria identità con almeno due metodi (es. app Authenticator e SMS). Quale impostazione del Self-Service Password Reset (SSPR) devi configurare?",
+    "options": [
+      "Impostare 'Numero di metodi richiesti per reimpostare' a 2 e abilitare almeno due metodi di autenticazione",
+      "Abilitare la scrittura differita delle password (password writeback) su Entra Connect",
+      "Attivare un criterio di Conditional Access che richiede MFA",
+      "Impostare la durata massima della password a 90 giorni"
+    ],
+    "correct": [0],
+    "explanation": "Nel SSPR di Entra ID puoi definire quanti metodi l'utente deve fornire per completare la reimpostazione. Impostando il numero di metodi richiesti a 2 e abilitando almeno due opzioni (ad es. app Authenticator e SMS), obblighi la doppia verifica dell'identità prima di consentire il reset. Questa è la configurazione diretta del requisito.",
+    "why_wrong": {
+      "1": "Il password writeback serve a riportare le password reimpostate verso Active Directory on-premises in ambienti ibridi, non a definire quanti metodi di verifica servono.",
+      "2": "Il Conditional Access con MFA protegge l'accesso alle app, ma non governa il flusso e i metodi del self-service password reset.",
+      "3": "La scadenza della password riguarda la rotazione periodica, non il numero di metodi di verifica per il reset."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-008",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft Defender XDR", "Secure Score"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "La direzione chiede un indicatore quantitativo e comparabile dello stato di sicurezza del tenant, con azioni di miglioramento consigliate e prioritizzate e la possibilità di confrontarsi con organizzazioni simili. Quale strumento del portale Microsoft Defender fornisce questa misura?",
+    "options": [
+      "Microsoft Secure Score",
+      "Compliance Manager",
+      "Attack Simulation Training",
+      "Threat Explorer"
+    ],
+    "correct": [0],
+    "explanation": "Microsoft Secure Score assegna un punteggio numerico basato sulle configurazioni e comportamenti di sicurezza adottati, propone azioni di miglioramento con relativo incremento di punti e prioritizzazione, e permette il confronto (benchmark) con organizzazioni analoghe. È la metrica di riferimento per rappresentare e migliorare la postura di sicurezza.",
+    "why_wrong": {
+      "1": "Compliance Manager misura la conformità normativa rispetto a standard e regolamenti, non la postura di sicurezza tecnica con benchmark tra pari.",
+      "2": "Attack Simulation Training esegue simulazioni di phishing per formare gli utenti, non fornisce un punteggio complessivo di sicurezza.",
+      "3": "Threat Explorer analizza minacce e messaggi in dettaglio, ma non produce un punteggio quantitativo comparabile della postura."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-009",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft Purview", "Etichette di riservatezza"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "L'azienda vuole che i documenti classificati come 'Confidenziale' restino cifrati e con restrizioni d'uso (es. divieto di stampa) anche dopo essere stati scaricati o inviati fuori dall'organizzazione. Quale funzionalità delle etichette di riservatezza (sensitivity labels) di Purview realizza questa protezione persistente?",
+    "options": [
+      "Il content marking con intestazioni e piè di pagina",
+      "La crittografia con diritti di utilizzo (encryption / rights management) associata all'etichetta",
+      "L'applicazione automatica dell'etichetta tramite trainable classifier",
+      "La pubblicazione dell'etichetta tramite un label policy"
+    ],
+    "correct": [1],
+    "explanation": "Le sensitivity labels possono applicare la crittografia con Azure Rights Management, incorporando diritti d'uso (visualizzazione, modifica, stampa, ecc.) direttamente nel file. La protezione viaggia con il documento: resta cifrato e con le restrizioni impostate anche se scaricato o inviato all'esterno, perché i diritti sono valutati all'apertura indipendentemente dalla posizione.",
+    "why_wrong": {
+      "0": "Il content marking aggiunge marcature visive (header, footer, watermark) ma non impedisce tecnicamente stampa o accesso: è solo indicativo.",
+      "2": "Il trainable classifier automatizza l'assegnazione dell'etichetta, ma è la crittografia associata, non il metodo di classificazione, a garantire la protezione persistente.",
+      "3": "La label policy pubblica e rende disponibili le etichette agli utenti, ma non è ciò che applica la cifratura persistente al contenuto."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-010",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft 365", "Service health"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Gli utenti segnalano lentezza nell'accesso a Exchange Online. Come amministratore vuoi verificare rapidamente se Microsoft ha dichiarato un incidente o una degradazione del servizio che riguarda il tuo tenant, con eventuali avvisi e tempi di risoluzione stimati. Dove controlli questa informazione?",
+    "options": [
+      "Nella dashboard Integrità del servizio (Service health) dell'interfaccia di amministrazione di Microsoft 365",
+      "Nel report di utilizzo (Usage reports) del centro di amministrazione",
+      "Nel Microsoft Entra sign-in log",
+      "Nel Message center delle novità di prodotto"
+    ],
+    "correct": [0],
+    "explanation": "La dashboard Integrità del servizio (Service health) del centro di amministrazione Microsoft 365 elenca gli incidenti e gli avvisi di degradazione dichiarati da Microsoft per i servizi a cui il tenant è abbonato, con stato, servizi impattati e tempi di risoluzione stimati. È il punto corretto per verificare se il problema è un incidente lato Microsoft.",
+    "why_wrong": {
+      "1": "I report di utilizzo mostrano adozione e volumi di utilizzo dei servizi, non lo stato degli incidenti in corso.",
+      "2": "Il sign-in log registra i tentativi di accesso degli utenti, utile per problemi di autenticazione ma non per gli incidenti dichiarati sul servizio.",
+      "3": "Il Message center comunica modifiche pianificate e novità di prodotto, non gli incidenti attivi che invece appaiono in Service health."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-011",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Defender for Endpoint", "Onboarding"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Devi effettuare l'onboarding di un parco di dispositivi Windows già gestiti da Microsoft Intune in Microsoft Defender for Endpoint, evitando di distribuire manualmente script su ciascuna macchina. Qual è l'approccio consigliato per l'onboarding su larga scala?",
+    "options": [
+      "Eseguire lo script di onboarding locale (WindowsDefenderATPLocalOnboardingScript.cmd) su ogni dispositivo",
+      "Configurare la connessione Intune-Defender e distribuire l'onboarding tramite una policy di Endpoint Security/configurazione in Intune",
+      "Modificare manualmente il registro di sistema su ciascun endpoint",
+      "Creare una regola di trasporto in Exchange Online"
+    ],
+    "correct": [1],
+    "explanation": "Con dispositivi già gestiti da Intune, l'approccio scalabile è abilitare la connessione tra Microsoft Defender for Endpoint e Intune e poi distribuire l'onboarding tramite una policy (Endpoint Security / profilo di configurazione) applicata ai gruppi di dispositivi. In questo modo l'onboarding avviene in modo centralizzato e automatico, senza toccare le singole macchine.",
+    "why_wrong": {
+      "0": "Lo script locale è pensato per pochi dispositivi o test: non è adatto all'onboarding su larga scala e richiede intervento su ogni macchina.",
+      "2": "La modifica manuale del registro è soggetta a errori e non scala su un intero parco dispositivi.",
+      "3": "Le regole di trasporto di Exchange gestiscono il flusso della posta e non hanno alcun ruolo nell'onboarding degli endpoint in Defender."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-012",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Entra ID", "Sincronizzazione identità"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Stai valutando Microsoft Entra Cloud Sync al posto di Entra Connect Sync per uno scenario multi-foresta. Quali due affermazioni su Entra Cloud Sync sono corrette? (Seleziona due)",
+    "options": [
+      "Utilizza agent di provisioning leggeri installati on-premises, gestiti dal cloud",
+      "Richiede l'installazione di SQL Server dedicato per il database di metaverse",
+      "Supporta la sincronizzazione da più foreste AD disconnesse verso un unico tenant",
+      "È l'unica opzione che supporta la sincronizzazione degli attributi di Exchange ibrido e le regole di sincronizzazione più complesse"
+    ],
+    "correct": [0, 2],
+    "explanation": "Entra Cloud Sync si basa su agent di provisioning leggeri installati on-premises la cui configurazione è gestita interamente nel cloud, senza necessità di un server di sincronizzazione pesante. Inoltre supporta scenari con più foreste AD disconnesse che sincronizzano verso un singolo tenant, cosa complessa con il classico Connect Sync. Queste due caratteristiche lo rendono adatto allo scenario multi-foresta descritto.",
+    "why_wrong": {
+      "1": "Cloud Sync non richiede SQL Server: è proprio uno dei suoi vantaggi rispetto a Entra Connect Sync, che usa LocalDB/SQL. L'affermazione è errata.",
+      "3": "È vero il contrario: gli scenari più complessi (attributi Exchange ibrido avanzati, regole di sincronizzazione personalizzate estese) restano coperti meglio da Entra Connect Sync, non da Cloud Sync."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-013",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Entra ID", "MFA"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Vuoi rafforzare l'autenticazione degli utenti privilegiati con metodi resistenti al phishing e ridurre l'uso di metodi deboli. Quali due metodi di autenticazione sono considerati resistenti al phishing in Entra ID? (Seleziona due)",
+    "options": [
+      "SMS al numero di telefono cellulare",
+      "Chiavi di sicurezza FIDO2",
+      "Windows Hello for Business",
+      "Codici OTP inviati via email"
+    ],
+    "correct": [1, 2],
+    "explanation": "Le chiavi di sicurezza FIDO2 e Windows Hello for Business sono metodi di autenticazione phishing-resistant: si basano su crittografia a chiave pubblica legata al dispositivo/hardware e non su segreti trasmissibili, quindi non possono essere intercettati e riutilizzati da un sito di phishing. Sono i metodi consigliati per gli account privilegiati.",
+    "why_wrong": {
+      "0": "L'SMS è un metodo debole e soggetto a phishing e SIM swapping: il codice può essere carpito e riusato, quindi non è phishing-resistant.",
+      "3": "Gli OTP via email non sono legati all'hardware e possono essere intercettati o rilanciati in un attacco di phishing, quindi non sono considerati resistenti al phishing."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-014",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Defender for Office 365", "Threat policies"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Stai configurando i criteri di protezione predefiniti (preset security policies) e i threat policy in Microsoft Defender for Office 365. Quali due affermazioni sono corrette? (Seleziona due)",
+    "options": [
+      "I preset di sicurezza Standard e Strict applicano impostazioni consigliate da Microsoft e prevalgono sui criteri personalizzati con priorità inferiore",
+      "Le policy anti-phishing possono includere la protezione dell'impersonificazione di utenti e domini",
+      "Safe Attachments e Safe Links sono disponibili solo con la licenza Exchange Online Protection (EOP) base",
+      "Le regole di posta indesiderata (anti-spam) non possono agire sui messaggi in uscita"
+    ],
+    "correct": [0, 1],
+    "explanation": "I preset di sicurezza Standard e Strict applicano configurazioni raccomandate da Microsoft e sono valutati con priorità elevata rispetto ai criteri personalizzati. Le policy anti-phishing di Defender for Office 365 includono la protezione contro l'impersonificazione (impersonation) di utenti e domini specifici, oltre allo spoof intelligence. Entrambe le affermazioni descrivono correttamente le threat policy.",
+    "why_wrong": {
+      "2": "Safe Attachments e Safe Links appartengono a Defender for Office 365 (Plan 1/Plan 2), non a EOP base: l'affermazione è falsa.",
+      "3": "Le policy anti-spam includono anche criteri per la posta in uscita (outbound spam), ad esempio per limitare invii massivi da account compromessi, quindi possono agire sui messaggi in uscita."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-015",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft Purview", "eDiscovery e audit"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Il reparto legale richiede supporto per un'indagine interna. Quali due capacità sono fornite da eDiscovery (Premium) di Microsoft Purview rispetto a eDiscovery (Standard)? (Seleziona due)",
+    "options": [
+      "Gestione dei custodian (custodi) con notifiche di conservazione legale",
+      "Analisi dei contenuti con funzionalità come near-duplicate detection ed email threading",
+      "Ricerca del contenuto e blocco (hold) sui siti e caselle interessati",
+      "Attivazione automatica del log di controllo (audit) per l'intero tenant"
+    ],
+    "correct": [0, 1],
+    "explanation": "eDiscovery (Premium) estende le funzionalità con la gestione end-to-end dei custodian, incluse le comunicazioni di conservazione legale (legal hold notifications) e il tracciamento delle acknowledgement, e con la fase di analisi/review avanzata che comprende near-duplicate detection, email threading e themes. Queste capacità non sono presenti nella versione Standard.",
+    "why_wrong": {
+      "2": "La ricerca di contenuto e l'applicazione di hold sono disponibili anche in eDiscovery (Standard): non sono ciò che distingue Premium.",
+      "3": "L'audit logging è una funzionalità separata (Purview Audit) e oggi è attivo per impostazione predefinita; non è una capacità specifica di eDiscovery Premium."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-016",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Entra ID", "Conditional Access"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In Microsoft Entra ID, la funzione di Security Defaults e i criteri di Accesso condizionale (Conditional Access) possono essere abilitati contemporaneamente e coesistere sullo stesso tenant.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. I Security Defaults e il Conditional Access sono mutuamente esclusivi: per creare e utilizzare i criteri di Accesso condizionale è necessario disabilitare i Security Defaults. Non possono essere attivi contemporaneamente sullo stesso tenant, perché rappresentano due approcci alternativi alla protezione dell'accesso (baseline predefinita vs. criteri granulari).",
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-017",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft Purview", "Etichette di conservazione"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In Microsoft Purview, un'etichetta di conservazione (retention label) può essere configurata per conservare i contenuti per un periodo definito e successivamente eliminarli automaticamente al termine del periodo.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Le retention label di Purview consentono di definire un'azione di conservazione per un periodo specifico e, alla scadenza, un'azione di eliminazione automatica (retain-then-delete). Questo permette di rispettare i requisiti normativi mantenendo i dati il tempo necessario e rimuovendoli quando non servono più, riducendo il rischio e i costi di archiviazione.",
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102b-018",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft 365", "Ruoli amministrativi"],
+    "type": "truefalse",
+    "difficulty": 3,
+    "question": "Le Unità amministrative (Administrative Units) di Entra ID consentono di delegare l'amministrazione di un sottoinsieme di utenti e gruppi (ad esempio di una singola sede) a un amministratore, limitando il suo ambito di azione a quegli oggetti.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Le Administrative Units permettono di raggruppare utenti, gruppi e dispositivi e di assegnare ruoli con ambito limitato a quella unità. In questo modo, ad esempio, un help desk regionale può gestire solo gli oggetti della propria sede senza avere privilegi sull'intero tenant, applicando la delega amministrativa con privilegio minimo.",
+    "source": "Microsoft MS-102"
+  }
+]
