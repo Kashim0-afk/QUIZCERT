@@ -32,3 +32,18 @@ test('merges multiple files', async () => {
   const res = await loadQuestions('data/manifest.json', fetchFn);
   assert.deepEqual(res.questions.map(q => q.id), ['x1', 'x2']);
 });
+
+test('a broken file is skipped, others still load', async () => {
+  const good = {
+    id: 'x1', cert: ['CCNA'], topics: ['NAT'], type: 'single', difficulty: 1,
+    question: 'q', options: ['a', 'b'], correct: [0], explanation: 'e'
+  };
+  const fetchFn = async (url) => {
+    if (url === 'data/manifest.json') return { json: async () => ({ files: ['questions/broken.json', 'questions/good.json'] }) };
+    if (url === 'data/questions/broken.json') return { json: async () => { throw new Error('bad json'); } };
+    return { json: async () => [good] };
+  };
+  const res = await loadQuestions('data/manifest.json', fetchFn);
+  assert.equal(res.questions.length, 1);
+  assert.deepEqual(res.failedFiles, ['questions/broken.json']);
+});

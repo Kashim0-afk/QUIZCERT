@@ -62,6 +62,10 @@ async function persist(app) {
 
 // ---------- HOME ----------
 function renderHome(app) {
+  // Cancel any exam timer still running from an abandoned simulation:
+  // leaving the exam via "← Home" must stop the countdown, otherwise it keeps
+  // ticking and eventually hijacks the screen + records phantom attempts.
+  if (app.examTimer) { clearInterval(app.examTimer); app.examTimer = null; }
   const certs = listCerts(app.questions);
   const topics = listTopics(app.questions);
 
@@ -248,6 +252,7 @@ function runExam(app, session) {
       if (t) t.textContent = fmtTime(session.remaining);
       if (session.remaining <= 0) finishExam(app, session);
     }, 1000);
+    app.examTimer = session.timer; // so navigation away can cancel it
   }
   if (session.index >= session.order.length) return finishExam(app, session);
 
@@ -282,7 +287,10 @@ function runExam(app, session) {
 }
 
 async function finishExam(app, session) {
+  if (session.finished) return; // idempotent: guard against timer/click race
+  session.finished = true;
   if (session.timer) { clearInterval(session.timer); session.timer = null; }
+  app.examTimer = null;
   let correct = 0;
   const review = [];
   for (let i = 0; i < session.order.length; i++) {
