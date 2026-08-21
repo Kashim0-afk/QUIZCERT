@@ -87,6 +87,7 @@
     "questions/o5-cysa.json",
     "questions/o5-darkweb.json",
     "questions/o5-db.json",
+    "questions/o5-googleai.json",
     "questions/o5-hardware.json",
     "questions/o5-iso27001.json",
     "questions/o5-itops.json",
@@ -97,6 +98,7 @@
     "questions/o5-pentest.json",
     "questions/o5-sc300.json",
     "questions/o5-scripting.json",
+    "questions/o5-tooling.json",
     "questions/o5-virt.json",
     "questions/sample.json"
   ]
