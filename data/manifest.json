@@ -8,6 +8,7 @@
     "questions/cor-ms102.json",
     "questions/cor-pentest.json",
     "questions/cor-sc300.json",
+    "questions/hv-darkweb-vpn.json",
     "questions/mix-ad.json",
     "questions/mix-backup.json",
     "questions/mix-cloud.json",

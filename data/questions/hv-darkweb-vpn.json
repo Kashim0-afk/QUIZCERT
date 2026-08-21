@@ -1,0 +1,497 @@
+[
+  {
+    "id": "hv-001",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Dark Web"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual e la differenza corretta tra deep web e dark web?",
+    "options": [
+      "Sono sinonimi: indicano entrambi i siti illegali non indicizzati",
+      "Il deep web e tutto cio che non e indicizzato dai motori di ricerca (es. webmail, home banking), mentre il dark web ne e una piccola porzione accessibile solo con software specifici come Tor",
+      "Il deep web richiede Tor, mentre il dark web e liberamente accessibile da qualsiasi browser",
+      "Il dark web e piu grande del deep web e contiene tutte le pagine pubbliche"
+    ],
+    "correct": [1],
+    "explanation": "Il deep web e semplicemente la parte del web non indicizzata dai motori di ricerca: contenuti dietro login, database, pagine dinamiche, del tutto legittimi (posta elettronica, banking). Il dark web e un sottoinsieme molto piu piccolo, raggiungibile solo tramite reti come Tor o I2P, e ospita sia servizi legittimi (privacy, giornalismo) sia illeciti.",
+    "why_wrong": {
+      "0": "Non sono sinonimi e il deep web non e sinonimo di illegalita: comprende soprattutto contenuti leciti non indicizzati.",
+      "2": "E l'inverso: e il dark web a richiedere software specifici, non il deep web.",
+      "3": "Il deep web e enormemente piu grande del dark web e non contiene le pagine pubbliche, che sono il web di superficie (clearnet)."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-002",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Tor", "Anonimato"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Come funziona a grandi linee l'onion routing usato da Tor?",
+    "options": [
+      "Il traffico viene inviato in chiaro a un unico server centrale che lo inoltra alla destinazione",
+      "Il traffico attraversa in genere tre nodi (entry, middle, exit) con piu strati di cifratura, dove ogni nodo conosce solo il precedente e il successivo",
+      "Ogni pacchetto viene cifrato con la chiave pubblica della destinazione e inviato direttamente",
+      "I dati vengono duplicati e inviati a tutti i nodi della rete contemporaneamente"
+    ],
+    "correct": [1],
+    "explanation": "Nell'onion routing il client costruisce un circuito di solito a tre salti (entry/guard, middle, exit) e avvolge il messaggio in strati di cifratura, come una cipolla. Ogni nodo rimuove uno strato e conosce solo il nodo immediatamente precedente e quello successivo: nessun singolo nodo vede insieme mittente e contenuto in chiaro verso la destinazione.",
+    "why_wrong": {
+      "0": "Non esiste un server centrale unico e il traffico interno alla rete non viaggia in chiaro: e proprio l'assenza di un punto unico a fornire l'anonimato.",
+      "2": "La cifratura non e a singolo strato verso la destinazione, ma multi-strato attraverso il circuito dei nodi.",
+      "3": "Tor non usa broadcast a tutti i nodi: instrada lungo un circuito selezionato di pochi relay."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-003",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Tor", "Anonimato"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa puo vedere l'exit node (nodo di uscita) di Tor quando l'utente visita un sito HTTP non cifrato?",
+    "options": [
+      "L'indirizzo IP reale dell'utente e la sua identita",
+      "Il traffico in chiaro diretto alla destinazione, ma non l'IP di origine reale dell'utente",
+      "Nulla, perche il traffico resta cifrato fino al server di destinazione",
+      "Solo l'ora della connessione, senza alcun contenuto"
+    ],
+    "correct": [1],
+    "explanation": "L'ultimo strato di cifratura di Tor viene rimosso all'exit node: da li in poi il traffico raggiunge la destinazione cosi com'e. Se il sito usa HTTP non cifrato, l'exit node puo leggere i contenuti (ed eventuali credenziali). Non vede pero l'IP reale dell'utente, mascherato dal circuito. Per questo l'HTTPS end-to-end resta essenziale anche su Tor.",
+    "why_wrong": {
+      "0": "L'exit node non conosce l'IP reale dell'utente: e separato dal client da entry e middle node.",
+      "2": "Tor cifra il traffico solo all'interno della rete; verso la destinazione l'exit node lo consegna com'e, quindi in chiaro se il sito e HTTP.",
+      "3": "Vede molto piu dell'ora: su HTTP puo osservare l'intero contenuto della comunicazione."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-004",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Dark Web", "Tor"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa caratterizza un servizio nascosto (hidden service) con indirizzo .onion?",
+    "options": [
+      "E un normale sito clearnet con un dominio alternativo piu corto",
+      "E un servizio raggiungibile solo dentro la rete Tor, dove anche l'indirizzo del server resta nascosto e il traffico non passa da un exit node classico",
+      "E un sito ospitato su un server governativo certificato",
+      "E un dominio che garantisce automaticamente la legalita dei contenuti"
+    ],
+    "correct": [1],
+    "explanation": "Un hidden service .onion e pubblicato all'interno di Tor: sia il client sia il server restano anonimi e la connessione avviene tramite punti di incontro (rendezvous) senza uscire su un exit node verso la clearnet. L'indirizzo .onion e derivato dalla chiave crittografica del servizio. Esistono usi legittimi (giornalismo, whistleblowing) e illeciti.",
+    "why_wrong": {
+      "0": "Non e un sito clearnet: e accessibile solo dentro Tor e nasconde anche la posizione del server.",
+      "2": "L'architettura .onion serve proprio a evitare l'identificazione del server: non implica alcuna certificazione governativa.",
+      "3": "Il suffisso .onion non dice nulla sulla legalita dei contenuti ospitati."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-005",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["VPN", "Anonimato"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Da quale minaccia protegge principalmente una VPN e da quale invece NON protegge?",
+    "options": [
+      "Protegge dai malware sul dispositivo ma non dalla rete Wi-Fi pubblica",
+      "Protegge dall'intercettazione sulla rete locale/ISP ma non da un endpoint gia compromesso (malware, keylogger)",
+      "Protegge da qualsiasi tracciamento online rendendo l'utente totalmente anonimo",
+      "Protegge i dati solo quando il dispositivo e spento"
+    ],
+    "correct": [1],
+    "explanation": "Una VPN crea un tunnel cifrato tra il dispositivo e il server VPN: nasconde il traffico all'ISP e a chi controlla la rete locale (es. Wi-Fi pubblico) e cambia l'IP visibile. Non protegge pero cio che accade sull'endpoint: se il dispositivo ha malware, un keylogger o un RAT, la VPN cifra semplicemente traffico gia compromesso. Non rende nemmeno totalmente anonimi.",
+    "why_wrong": {
+      "0": "E l'opposto: la VPN aiuta proprio sul Wi-Fi pubblico, ma non rimuove i malware dal dispositivo.",
+      "2": "La VPN non garantisce anonimato totale: fingerprinting, cookie, login e il provider VPN stesso possono tracciare.",
+      "3": "La VPN protegge il traffico in transito quando il dispositivo e in uso, non quando e spento."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-006",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["VPN", "Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale affermazione descrive correttamente il protocollo WireGuard rispetto ai protocolli VPN piu datati?",
+    "options": [
+      "Usa crittografia obsoleta e una base di codice enorme e complessa",
+      "Usa primitive crittografiche moderne (es. ChaCha20, Curve25519), ha una base di codice ridotta e punta a prestazioni elevate",
+      "Non cifra il traffico ma si limita a comprimerlo",
+      "Funziona solo con autenticazione tramite password in chiaro"
+    ],
+    "correct": [1],
+    "explanation": "WireGuard e un protocollo VPN moderno che adotta primitive crittografiche recenti e selezionate (ChaCha20 per la cifratura, Poly1305 per l'autenticazione, Curve25519 per lo scambio chiavi). Ha una base di codice molto piu piccola di OpenVPN o IPsec, il che riduce la superficie d'attacco e ne facilita l'audit, con buone prestazioni.",
+    "why_wrong": {
+      "0": "E il contrario: WireGuard nasce proprio per usare crittografia moderna e codice minimale.",
+      "2": "WireGuard cifra il traffico end-to-end nel tunnel; non e un semplice compressore.",
+      "3": "Usa chiavi crittografiche pubbliche/private, non password in chiaro."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-007",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["VPN"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "A cosa serve la funzione kill switch di un client VPN?",
+    "options": [
+      "Spegne fisicamente il computer se rileva un attacco",
+      "Blocca tutto il traffico di rete se la connessione VPN cade, evitando che i dati escano in chiaro sull'IP reale",
+      "Cancella automaticamente i file sensibili in caso di emergenza",
+      "Aumenta la velocita disattivando la cifratura quando serve"
+    ],
+    "correct": [1],
+    "explanation": "Il kill switch e un meccanismo di sicurezza: se il tunnel VPN si interrompe improvvisamente, blocca il traffico del dispositivo (o delle app selezionate) invece di lasciarlo passare sulla connessione normale. Cosi si evita che, durante la disconnessione, il traffico e l'IP reale vengano esposti senza che l'utente se ne accorga.",
+    "why_wrong": {
+      "0": "Non spegne il computer: agisce solo sul traffico di rete.",
+      "2": "Non ha a che fare con la cancellazione di file: quella e un'altra categoria di funzioni.",
+      "3": "Non disattiva la cifratura per andare piu veloce: al contrario, impedisce traffico non protetto."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-008",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["VPN", "Anonimato"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cos'e un DNS leak quando si usa una VPN e perche e un problema?",
+    "options": [
+      "E la perdita della password della VPN verso il provider DNS",
+      "E quando le richieste DNS escono al di fuori del tunnel VPN, ad esempio verso i DNS dell'ISP, rivelando i siti visitati nonostante la VPN",
+      "E un errore che rende impossibile navigare finche non si riavvia il router",
+      "E la cifratura eccessiva delle query DNS che rallenta la navigazione"
+    ],
+    "correct": [1],
+    "explanation": "Un DNS leak si verifica quando le query di risoluzione dei nomi non vengono instradate nel tunnel VPN ma verso resolver esterni (spesso quelli dell'ISP). Anche se il traffico e cifrato, l'osservatore vede quali domini l'utente sta risolvendo, vanificando parte della privacy. Kill switch, DNS del provider VPN e test anti-leak aiutano a prevenirlo.",
+    "why_wrong": {
+      "0": "Non riguarda la password della VPN, ma il percorso delle richieste DNS.",
+      "2": "Un DNS leak non impedisce di navigare: la navigazione funziona, ma trapelano i domini richiesti.",
+      "3": "Il problema non e un eccesso di cifratura, ma il fatto che le query escono fuori dal tunnel."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-009",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["VPN", "Tor"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e una differenza concettuale corretta tra una VPN e la rete Tor?",
+    "options": [
+      "La VPN usa sempre tre nodi anonimi, Tor uno solo",
+      "Con la VPN ci si affida a un singolo provider che vede l'IP reale, mentre Tor distribuisce la fiducia su piu nodi indipendenti in modo che nessuno veda insieme origine e destinazione",
+      "Tor cifra il traffico mentre la VPN lo lascia sempre in chiaro",
+      "La VPN e illegale mentre Tor e sempre legale"
+    ],
+    "correct": [1],
+    "explanation": "Con una VPN si sposta la fiducia sul provider: il server VPN conosce l'IP reale dell'utente e potrebbe vedere/registrare il traffico. Tor invece distribuisce la fiducia su piu relay gestiti da entita diverse, in modo che nessun singolo nodo colleghi mittente e destinazione. Sono strumenti diversi con modelli di minaccia diversi; entrambi sono di per se legali.",
+    "why_wrong": {
+      "0": "La VPN classica ha tipicamente un solo hop, mentre Tor usa in genere tre nodi: e l'inverso di quanto affermato.",
+      "2": "Anche la VPN cifra il traffico nel tunnel; non lo lascia in chiaro.",
+      "3": "Ne la VPN ne Tor sono di per se illegali nella maggior parte dei paesi."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-010",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Social Engineering"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In una scena tipica di social engineering (come quelle mostrate in Mr Robot), un attaccante telefona fingendosi un tecnico IT per farsi dare una password. Come si chiama e come ci si difende?",
+    "options": [
+      "Si chiama vishing/pretexting e ci si difende verificando l'identita del chiamante tramite canali ufficiali, senza fornire credenziali al telefono",
+      "Si chiama brute force e si risolve cambiando spesso la password",
+      "Si chiama phishing e si blocca solo con un buon antivirus",
+      "Si chiama DDoS e si difende con un firewall di rete"
+    ],
+    "correct": [0],
+    "explanation": "La tecnica combina il pretexting (costruire una scusa/identita credibile) con il vishing (voice phishing, phishing telefonico). La difesa e procedurale e umana: non comunicare mai credenziali per telefono, verificare il chiamante richiamando un numero ufficiale, e formare il personale a riconoscere pressione e senso di urgenza.",
+    "why_wrong": {
+      "1": "Il brute force e un attacco automatizzato sulle password, non una manipolazione telefonica.",
+      "2": "E una forma di phishing vocale, ma un antivirus non ferma la manipolazione psicologica di una persona.",
+      "3": "Il DDoS punta a saturare un servizio, non a estorcere credenziali con l'inganno."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-011",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["BadUSB", "Malware"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Perche una chiavetta USB tipo BadUSB / Rubber Ducky e pericolosa e come ci si difende (a livello concettuale)?",
+    "options": [
+      "E pericolosa solo se contiene file infetti aperti dall'utente; basta un antivirus aggiornato",
+      "Si presenta al computer come una tastiera e puo digitare comandi automaticamente; ci si difende non collegando dispositivi USB non fidati e usando policy di controllo dei dispositivi",
+      "Non e un rischio reale perche il sistema chiede sempre conferma prima di eseguire una tastiera",
+      "E pericolosa solo su computer senza password all'accensione"
+    ],
+    "correct": [1],
+    "explanation": "Un BadUSB o Rubber Ducky sfrutta il fatto che il sistema si fida delle periferiche di input: si registra come tastiera HID e inietta sequenze di tasti a grande velocita, eseguendo comandi senza che l'utente apra alcun file. Le difese sono comportamentali e tecniche: non inserire chiavette trovate o non fidate (attacchi USB drop), disabilitare l'autorun e applicare policy di device control.",
+    "why_wrong": {
+      "0": "Il pericolo non e un file da aprire: l'attacco funziona emulando una tastiera, quindi l'antivirus classico spesso non lo intercetta.",
+      "2": "Il sistema in genere non chiede conferma per collegare una tastiera: proprio questa fiducia e il punto debole sfruttato.",
+      "3": "La minaccia non dipende dalla presenza di una password all'accensione; agisce su un sistema gia in uso/sbloccato."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-012",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Malware", "OPSEC"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e la difesa piu efficace contro il ransomware per limitarne l'impatto?",
+    "options": [
+      "Pagare rapidamente il riscatto per riavere subito i dati",
+      "Mantenere backup regolari, testati e isolati (offline/immutabili), insieme ad aggiornamenti e segmentazione della rete",
+      "Rinominare le cartelle importanti cosi il ransomware non le trova",
+      "Disattivare l'antivirus per evitare falsi positivi durante il ripristino"
+    ],
+    "correct": [1],
+    "explanation": "Contro il ransomware la resilienza si costruisce prima dell'attacco: backup frequenti, verificati e conservati in modo isolato (offline o immutabili) permettono di ripristinare senza pagare. A questo si aggiungono patch tempestive, segmentazione della rete per limitare la propagazione, minimo privilegio e monitoraggio. Il pagamento non garantisce il recupero e alimenta il fenomeno.",
+    "why_wrong": {
+      "0": "Pagare non garantisce la decifratura, finanzia i criminali e non impedisce recidive.",
+      "2": "Rinominare le cartelle non protegge: il ransomware cifra i file indipendentemente dal nome delle cartelle.",
+      "3": "Disattivare l'antivirus aumenta il rischio e non facilita alcun ripristino sicuro."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-013",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Steganografia", "Crittografia"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Nella serie viene mostrato il nascondere dati dentro file musicali e l'uso di volumi cifrati nascosti. Quale coppia di concetti descrive correttamente steganografia e deniability?",
+    "options": [
+      "Steganografia = cifrare i dati con AES; deniability = usare password lunghe",
+      "Steganografia = nascondere l'esistenza stessa del messaggio dentro un altro file (es. audio/immagine); deniability = poter negare in modo plausibile la presenza di dati grazie a volumi nascosti indistinguibili dallo spazio libero",
+      "Steganografia = comprimere i file; deniability = cancellare i log di sistema",
+      "Steganografia e deniability sono sinonimi che indicano la cifratura del disco"
+    ],
+    "correct": [1],
+    "explanation": "La steganografia nasconde l'esistenza del messaggio occultandolo dentro un altro contenuto (immagine, audio, video), a differenza della crittografia che nasconde il contenuto ma non l'esistenza. La deniability (negabilita plausibile) e ottenuta ad esempio con volumi nascosti dentro un volume cifrato: senza la seconda password, il volume interno e indistinguibile da dati casuali/spazio libero, permettendo di negarne l'esistenza.",
+    "why_wrong": {
+      "0": "Confonde la steganografia con la cifratura: la prima nasconde l'esistenza del messaggio, non si limita a cifrarlo.",
+      "2": "Comprimere file e cancellare log non sono definizioni di steganografia ne di deniability.",
+      "3": "Non sono sinonimi ne coincidono con la semplice cifratura del disco: descrivono concetti distinti."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-014",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Malware", "OPSEC"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cos'e un rootkit e perche rende difficile la sua rilevazione?",
+    "options": [
+      "Un tipo di firewall che protegge la radice del filesystem",
+      "Un malware progettato per nascondere la propria presenza e mantenere accesso privilegiato persistente, spesso manomettendo il sistema operativo stesso per non farsi vedere",
+      "Un backup automatico dei file di sistema critici",
+      "Uno strumento legittimo per aggiornare i driver del kernel"
+    ],
+    "correct": [1],
+    "explanation": "Un rootkit e software malevolo che punta a ottenere e mantenere privilegi elevati restando invisibile: puo agganciarsi a componenti profondi del sistema (kernel, driver, bootloader) per nascondere processi, file e connessioni. Proprio perche compromette gli strumenti con cui il sistema si osserva, la rilevazione spesso richiede analisi esterne, integrita del boot e strumenti dedicati.",
+    "why_wrong": {
+      "0": "Non e un firewall: e un malware che occulta se stesso e altri componenti dannosi.",
+      "2": "Non e un backup: al contrario, mina l'affidabilita del sistema.",
+      "3": "Non e uno strumento legittimo di aggiornamento driver, anche se puo agire a livello di kernel."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-015",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Botnet"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cos'e una botnet e in che modo viene tipicamente sfruttata per un attacco DDoS?",
+    "options": [
+      "Una rete privata aziendale usata per bilanciare il carico dei server",
+      "Un insieme di dispositivi compromessi controllati da remoto che possono essere usati insieme per inondare di richieste un bersaglio e renderlo indisponibile",
+      "Un protocollo di cifratura per proteggere i router domestici",
+      "Un tipo di antivirus distribuito su piu computer"
+    ],
+    "correct": [1],
+    "explanation": "Una botnet e un insieme di dispositivi infetti (PC, server, IoT) controllati da un attaccante tramite infrastruttura di comando e controllo. In un attacco DDoS le macchine vengono comandate a generare simultaneamente enormi volumi di traffico o richieste verso un bersaglio, saturandone risorse e banda fino a renderlo irraggiungibile. Difese: patch dei dispositivi, protezione anti-DDoS, filtraggio del traffico.",
+    "why_wrong": {
+      "0": "Una botnet non e una rete aziendale legittima di load balancing, ma un insieme di dispositivi compromessi.",
+      "2": "Non e un protocollo di cifratura per router.",
+      "3": "Non e un antivirus: e uno strumento offensivo controllato dall'attaccante."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-016",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["VPN", "OPSEC"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti minacce una VPN NON e in grado di neutralizzare? (Seleziona due)",
+    "options": [
+      "L'intercettazione passiva del traffico su una rete Wi-Fi pubblica",
+      "Un keylogger o RAT gia presente sul dispositivo dell'utente",
+      "Il tracciamento tramite cookie e login effettuati dall'utente sui siti",
+      "L'osservazione del traffico da parte dell'ISP sul primo tratto di rete"
+    ],
+    "correct": [1, 2],
+    "explanation": "La VPN protegge il traffico in transito: cifra i dati contro l'intercettazione sulla rete locale e nasconde il contenuto all'ISP. Non agisce pero sull'endpoint (un keylogger o RAT gia installato cattura i dati prima o dopo la cifratura) ne sull'identita che l'utente rivela volontariamente accedendo con account e accettando cookie. Il modello di minaccia va sempre definito con chiarezza.",
+    "why_wrong": {
+      "0": "Contro l'intercettazione passiva su Wi-Fi pubblico la VPN e efficace, perche cifra il tunnel.",
+      "3": "La VPN sottrae proprio all'ISP la visibilita sui contenuti del traffico, quindi questa minaccia e mitigata."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-017",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Tor", "Anonimato"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali comportamenti aumentano il rischio di deanonimizzazione mentre si usa Tor? (Seleziona due)",
+    "options": [
+      "Effettuare il login con il proprio account personale reale durante la sessione Tor",
+      "Usare il Tor Browser cosi com'e senza modificarne le impostazioni di sicurezza",
+      "Aprire allegati o abilitare plugin/script esterni che possono rivelare l'IP reale",
+      "Lasciare che il traffico attraversi il consueto circuito a tre nodi"
+    ],
+    "correct": [0, 2],
+    "explanation": "L'anonimato di Tor si perde soprattutto per errori dell'utente. Accedere con un account personale reale collega direttamente l'identita alla sessione. Aprire allegati o abilitare plugin, script o contenuti esterni puo far partire connessioni fuori da Tor che rivelano l'IP vero. Usare il browser con le impostazioni predefinite e affidarsi al circuito standard sono invece comportamenti corretti.",
+    "why_wrong": {
+      "1": "Usare il Tor Browser cosi com'e e la prassi consigliata: modifiche fai-da-te tendono ad aumentare, non ridurre, il rischio.",
+      "3": "Il circuito a tre nodi e il normale funzionamento che fornisce l'anonimato, non una causa di deanonimizzazione."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-018",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["OPSEC", "Malware"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali misure difensive limitano la propagazione e l'impatto di un attacco all'interno di una rete? (Seleziona due)",
+    "options": [
+      "Applicare tempestivamente gli aggiornamenti di sicurezza (patch)",
+      "Segmentare la rete per isolare i sistemi critici e limitare il movimento laterale",
+      "Usare la stessa password amministrativa su tutti i sistemi per semplicita",
+      "Disabilitare i log per ridurre il rumore e risparmiare spazio"
+    ],
+    "correct": [0, 1],
+    "explanation": "Patch tempestive chiudono le vulnerabilita note prima che vengano sfruttate, mentre la segmentazione della rete contiene un'eventuale intrusione impedendo all'attaccante di muoversi liberamente verso i sistemi critici (movimento laterale). Riusare le password e disabilitare i log fanno l'opposto: facilitano l'attaccante e ostacolano il rilevamento e le indagini.",
+    "why_wrong": {
+      "2": "Riusare la stessa password ovunque permette a chi la ottiene di compromettere l'intera rete: pessima pratica.",
+      "3": "Disabilitare i log elimina le tracce necessarie a rilevare e ricostruire un attacco."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-019",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["RAT", "Malware"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali affermazioni descrivono correttamente un RAT (Remote Access Trojan)? (Seleziona due)",
+    "options": [
+      "Consente all'attaccante il controllo remoto nascosto del dispositivo infetto",
+      "Puo permettere esfiltrazione di dati, cattura schermo, webcam e tasti digitati",
+      "E un aggiornamento ufficiale del sistema operativo firmato dal produttore",
+      "Migliora le prestazioni del PC ottimizzando la memoria"
+    ],
+    "correct": [0, 1],
+    "explanation": "Un RAT e un trojan che apre all'attaccante una backdoor per controllare da remoto il dispositivo in modo furtivo. Tipicamente offre funzioni come esecuzione di comandi, trasferimento e furto di file, keylogging, cattura dello schermo e accesso a webcam/microfono. Non ha nulla di legittimo e non e ne un aggiornamento ufficiale ne un ottimizzatore.",
+    "why_wrong": {
+      "2": "Un RAT non e un aggiornamento firmato dal produttore: e malware che si spaccia spesso per software innocuo.",
+      "3": "Non ottimizza nulla: consuma risorse per fini malevoli e mette a rischio i dati."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-020",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["OPSEC"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "In Mr Robot compare un piccolo dispositivo (es. un Raspberry Pi) nascosto nella rete/impianto di un'azienda. Quali difese aiutano a prevenire o rilevare dispositivi rogue di questo tipo? (Seleziona due)",
+    "options": [
+      "Controllo degli accessi fisici e ispezioni periodiche di armadi di rete e locali tecnici",
+      "Monitoraggio della rete con controllo degli accessi (NAC) per rilevare dispositivi non autorizzati",
+      "Affidarsi unicamente all'antivirus dei PC per individuare l'hardware estraneo",
+      "Lasciare le porte di rete e le prese sempre attive per comodita degli utenti"
+    ],
+    "correct": [0, 1],
+    "explanation": "Un dispositivo rogue introdotto fisicamente aggira molte difese logiche. Le contromisure efficaci combinano sicurezza fisica (accesso controllato ai locali, ispezioni di armadi e cablaggi) e controlli di rete come il NAC e il monitoraggio, che identificano dispositivi non autorizzati che si collegano e possono metterli in quarantena. L'antivirus dei PC non vede l'hardware estraneo sulla rete.",
+    "why_wrong": {
+      "2": "L'antivirus sui PC non rileva un dispositivo hardware indipendente collegato alla rete o all'impianto.",
+      "3": "Lasciare tutte le prese di rete attive facilita proprio l'inserimento di dispositivi rogue: le porte inutilizzate andrebbero disabilitate."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-021",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["Anonimato"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Le criptovalute come Bitcoin garantiscono l'anonimato totale, perche le transazioni non sono collegabili a nessuno.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Bitcoin e pseudonimo, non anonimo: tutte le transazioni sono registrate su una blockchain pubblica e permanente. Gli indirizzi non riportano un nome, ma tramite analisi della catena, exchange che richiedono identita (KYC) e correlazioni e spesso possibile risalire alle persone. L'anonimato reale richiede accorgimenti aggiuntivi ed e comunque fragile.",
+    "why_wrong": {
+      "0": "Non e vero: la blockchain e pubblica e le transazioni pseudonime sono spesso tracciabili fino a un'identita reale."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-022",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["VPN", "OPSEC"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Una policy no-log dichiarata da un provider VPN e sempre una garanzia tecnica assoluta che nessun dato di connessione venga mai conservato.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. La policy no-log e una dichiarazione/politica del provider, non una proprieta tecnica verificabile automaticamente dall'utente. La sua affidabilita dipende dalla fiducia nel fornitore, dalla giurisdizione, da eventuali audit indipendenti e dalla configurazione reale. Alcuni provider hanno conservato dati nonostante dichiarazioni contrarie: il modello di fiducia va valutato con attenzione.",
+    "why_wrong": {
+      "0": "Non e una garanzia assoluta: e una promessa che dipende da fiducia, giurisdizione e audit, non un fatto tecnico automatico."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-023",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["OPSEC", "Social Engineering"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Il riuso della stessa password su piu servizi espone al credential stuffing, in cui credenziali rubate da una violazione vengono provate automaticamente su altri siti.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Nel credential stuffing gli attaccanti prendono coppie utente/password trapelate da una violazione e le provano in massa su molti altri servizi, contando sul fatto che le persone riusano le stesse credenziali. Le difese sono password uniche (con un password manager) e l'autenticazione a piu fattori, che rende inutile la sola password rubata.",
+    "why_wrong": {
+      "1": "L'affermazione e corretta: il riuso delle password e proprio cio che rende efficace il credential stuffing."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  },
+  {
+    "id": "hv-024",
+    "cert": ["Dark Web, VPN & Mr Robot"],
+    "topics": ["OPSEC"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un sistema air-gapped, fisicamente isolato dalle reti, e completamente immune a ogni attacco e non necessita di altre misure di sicurezza.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. L'air gap (isolamento fisico dalle reti) riduce molto la superficie d'attacco, ma non rende immuni: puo essere superato tramite supporti rimovibili infetti (come un attacco USB drop), insider, compromissioni della supply chain o canali laterali. Restano necessarie difese aggiuntive come controllo dei dispositivi, aggiornamenti e sorveglianza fisica.",
+    "why_wrong": {
+      "0": "Non e vero: gli air gap sono stati superati, ad esempio tramite chiavette USB infette o canali laterali, quindi servono comunque altre misure."
+    },
+    "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
+  }
+]
