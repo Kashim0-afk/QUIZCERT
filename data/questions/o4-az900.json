@@ -1,0 +1,364 @@
+[
+  {
+    "id": "az9004-001",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "Cost Management"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Un'azienda dismette il proprio datacenter e migra i carichi di lavoro su Azure con modello di pagamento a consumo (pay-as-you-go). Come cambia principalmente la struttura dei costi?",
+    "options": [
+      "Da spese operative (OpEx) a spese in conto capitale (CapEx)",
+      "Da spese in conto capitale (CapEx) a spese operative (OpEx)",
+      "Elimina completamente ogni tipo di costo IT",
+      "Trasforma tutti i costi in ammortamenti pluriennali dell'hardware"
+    ],
+    "correct": [1],
+    "explanation": "Il cloud con modello a consumo sostituisce l'acquisto anticipato di hardware (CapEx) con costi ricorrenti proporzionali all'uso effettivo (OpEx), migliorando la flessibilita finanziaria.",
+    "why_wrong": {
+      "0": "E' l'inverso: il datacenter di proprieta rappresenta il CapEx, mentre il cloud a consumo genera OpEx.",
+      "2": "Il cloud riduce l'investimento iniziale ma non elimina i costi, che diventano operativi e ricorrenti.",
+      "3": "Gli ammortamenti pluriennali sono tipici dell'hardware acquistato (CapEx), non del modello a consumo."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-002",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Responsabilita condivisa", "IaaS/PaaS/SaaS"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nel modello di responsabilita condivisa, quando si utilizza un servizio SaaS il cliente rimane sempre responsabile della gestione e del patching del sistema operativo sottostante.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Nel SaaS il provider gestisce sistema operativo, runtime, patch e applicazione; al cliente restano solo i dati, gli account e la gestione degli accessi. La responsabilita del sistema operativo e del provider.",
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-003",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["IaaS/PaaS/SaaS", "Azure"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Un team di sviluppo vuole distribuire le proprie applicazioni web mantenendo il controllo sul codice e sulla configurazione applicativa, ma senza dover gestire i server, il sistema operativo o le patch. Quale modello di servizio e piu adatto?",
+    "options": [
+      "IaaS (Infrastructure as a Service)",
+      "PaaS (Platform as a Service)",
+      "SaaS (Software as a Service)",
+      "On-premises tradizionale"
+    ],
+    "correct": [1],
+    "explanation": "PaaS fornisce una piattaforma gestita (sistema operativo, runtime, patch) su cui il team distribuisce solo il proprio codice, mantenendo il controllo sull'applicazione senza occuparsi dell'infrastruttura.",
+    "why_wrong": {
+      "0": "Con IaaS il team dovrebbe comunque installare e gestire il sistema operativo e il middleware delle macchine virtuali.",
+      "2": "Con SaaS si consuma un'applicazione gia pronta, senza distribuire codice proprio.",
+      "3": "L'on-premises richiede la gestione completa dell'infrastruttura fisica, contraria all'obiettivo indicato."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-004",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "SLA"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali dei seguenti sono benefici tipici del cloud computing? (Selezionane due)",
+    "options": [
+      "Scalabilita elastica delle risorse in base alla domanda",
+      "Eliminazione totale della latenza di rete tra utenti e servizi",
+      "Alta disponibilita garantita tramite ridondanza e SLA",
+      "Assenza completa di responsabilita del cliente sulla sicurezza dei dati"
+    ],
+    "correct": [0, 2],
+    "explanation": "Il cloud offre scalabilita elastica (aumentare o ridurre le risorse su richiesta) e alta disponibilita grazie alla ridondanza e agli SLA della piattaforma. La latenza e la responsabilita sui dati non vengono azzerate.",
+    "why_wrong": {
+      "1": "La latenza di rete dipende dalla distanza fisica e dall'infrastruttura e non puo essere eliminata del tutto.",
+      "3": "Per il modello di responsabilita condivisa, la protezione dei dati resta sempre in parte a carico del cliente."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-005",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "Cost Management"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale termine descrive la capacita di aumentare o diminuire automaticamente le risorse cloud in base al carico effettivo, pagando solo per cio che si utilizza?",
+    "options": [
+      "Elasticita",
+      "Ridondanza geografica",
+      "Disaster recovery",
+      "Sovranita dei dati"
+    ],
+    "correct": [0],
+    "explanation": "L'elasticita e la capacita di adattare dinamicamente le risorse alla domanda; combinata con il modello pay-as-you-go, permette di pagare solo l'effettivo consumo.",
+    "why_wrong": {
+      "1": "La ridondanza geografica replica i dati tra region per aumentare la resilienza, non regola il carico.",
+      "2": "Il disaster recovery riguarda il ripristino dei servizi dopo un guasto, non lo scaling automatico.",
+      "3": "La sovranita dei dati riguarda la giurisdizione legale a cui i dati sono soggetti."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-006",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "IaaS/PaaS/SaaS"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Un'azienda vuole eseguire piccole funzioni di codice attivate da eventi (ad esempio il caricamento di un file), senza gestire alcun server e pagando solo per il tempo di esecuzione. Quale servizio Azure e indicato?",
+    "options": [
+      "Azure Virtual Machines",
+      "Azure Functions",
+      "Azure Blob Storage",
+      "Azure Virtual Network"
+    ],
+    "correct": [1],
+    "explanation": "Azure Functions e un servizio serverless che esegue codice attivato da trigger (eventi) addebitando solo l'effettivo tempo di esecuzione, senza gestione dei server.",
+    "why_wrong": {
+      "0": "Le macchine virtuali richiedono la gestione del sistema operativo e vengono addebitate anche quando sono inattive.",
+      "2": "Blob Storage e un servizio di archiviazione di oggetti, non di esecuzione di codice.",
+      "3": "Virtual Network fornisce connettivita di rete, non esecuzione di codice."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-007",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni sui servizi di archiviazione di Azure sono corrette? (Selezionane due)",
+    "options": [
+      "Azure Blob Storage e ottimizzato per l'archiviazione di dati oggetto non strutturati come immagini e backup",
+      "Azure Files consente condivisioni file SMB accessibili sia dal cloud sia da client on-premises",
+      "Azure Blob Storage e un database relazionale completamente gestito",
+      "Azure Files puo essere utilizzato esclusivamente da macchine on-premises"
+    ],
+    "correct": [0, 1],
+    "explanation": "Blob Storage archivia dati non strutturati (immagini, log, backup), mentre Azure Files offre condivisioni file SMB/NFS montabili sia da risorse cloud sia da client on-premises.",
+    "why_wrong": {
+      "2": "Blob Storage archivia oggetti non strutturati; il database relazionale gestito e Azure SQL Database.",
+      "3": "Le condivisioni di Azure Files sono accessibili sia dal cloud sia dall'ambiente on-premises."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-008",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale servizio Azure permette di connettere una rete on-premises al cloud tramite una connessione privata e dedicata che non attraversa la rete Internet pubblica?",
+    "options": [
+      "Azure VPN Gateway con connessione site-to-site su Internet",
+      "Azure ExpressRoute",
+      "Azure DNS",
+      "Azure Load Balancer"
+    ],
+    "correct": [1],
+    "explanation": "ExpressRoute fornisce una connessione privata e dedicata tra la rete on-premises e Azure senza passare per Internet pubblica, offrendo maggiore affidabilita, sicurezza e minore latenza.",
+    "why_wrong": {
+      "0": "Il VPN Gateway site-to-site crea un tunnel cifrato ma il traffico attraversa comunque la rete Internet pubblica.",
+      "2": "Azure DNS gestisce la risoluzione dei nomi di dominio, non la connettivita tra reti.",
+      "3": "Il Load Balancer distribuisce il traffico tra piu istanze, non collega la rete on-premises ad Azure."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-009",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "SLA"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Le zone di disponibilita (Availability Zones) sono ubicazioni fisicamente separate all'interno di una stessa area di Azure (region), progettate per proteggere le applicazioni dai guasti a livello di singolo datacenter.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Le Availability Zones sono datacenter fisicamente distinti, con alimentazione, raffreddamento e rete indipendenti, all'interno di una region. Distribuire le risorse tra piu zone aumenta la resilienza ai guasti di un singolo datacenter.",
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-010",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In Azure, quale elemento funge da contenitore logico per raggruppare e gestire insieme risorse correlate (come VM, dischi e indirizzi IP) che condividono lo stesso ciclo di vita?",
+    "options": [
+      "Resource Group (gruppo di risorse)",
+      "Management Group (gruppo di gestione)",
+      "Subscription (sottoscrizione)",
+      "Tag (etichetta)"
+    ],
+    "correct": [0],
+    "explanation": "Il gruppo di risorse e un contenitore logico in cui si raggruppano risorse correlate per distribuirle, gestirle, monitorarle ed eliminarle insieme.",
+    "why_wrong": {
+      "1": "Il management group organizza e applica criteri a piu sottoscrizioni, non alle singole risorse.",
+      "2": "La sottoscrizione e un'unita di fatturazione e di gestione che contiene piu gruppi di risorse.",
+      "3": "I tag sono coppie nome-valore per la categorizzazione, non contenitori di risorse."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-011",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "IaaS/PaaS/SaaS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'applicazione web richiede un database relazionale completamente gestito, con backup automatici, patching e alta disponibilita a carico del provider. Quale servizio e piu adatto?",
+    "options": [
+      "SQL Server installato manualmente su una macchina virtuale Azure",
+      "Azure SQL Database",
+      "Azure Blob Storage",
+      "Azure Cosmos DB con API per MongoDB"
+    ],
+    "correct": [1],
+    "explanation": "Azure SQL Database e un servizio PaaS di database relazionale gestito, con backup automatici, patching, scalabilita e alta disponibilita gestiti da Microsoft.",
+    "why_wrong": {
+      "0": "SQL Server su VM (IaaS) richiede la gestione manuale di sistema operativo, patch e backup.",
+      "2": "Blob Storage archivia oggetti non strutturati e non e un database relazionale.",
+      "3": "Cosmos DB e un database NoSQL distribuito, non un database relazionale."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-012",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale servizio Azure consente di distribuire e gestire automaticamente un gruppo di macchine virtuali identiche, con bilanciamento del carico e scalabilita automatica in base alla domanda?",
+    "options": [
+      "Azure Virtual Machine Scale Sets",
+      "Azure Kubernetes Service",
+      "Azure App Service",
+      "Azure Bastion"
+    ],
+    "correct": [0],
+    "explanation": "I Virtual Machine Scale Sets permettono di creare e gestire un insieme di VM identiche con bilanciamento del carico e scalabilita automatica in base al carico.",
+    "why_wrong": {
+      "1": "AKS orchestra container, non gruppi di macchine virtuali tradizionali identiche.",
+      "2": "App Service ospita applicazioni web PaaS e non gestisce direttamente set di VM.",
+      "3": "Azure Bastion fornisce accesso RDP/SSH sicuro alle VM, non la scalabilita automatica."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-013",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["RBAC", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un amministratore deve concedere a un utente la sola possibilita di visualizzare le risorse di un gruppo di risorse, senza poterle modificare. Quale approccio con Azure RBAC e corretto?",
+    "options": [
+      "Assegnare il ruolo Reader (Lettore) con ambito sul gruppo di risorse",
+      "Assegnare il ruolo Owner (Proprietario) sull'intera sottoscrizione",
+      "Assegnare il ruolo Contributor (Collaboratore) sul gruppo di risorse",
+      "Creare un'Azure Policy che nega ogni accesso alle risorse"
+    ],
+    "correct": [0],
+    "explanation": "Il controllo degli accessi in base al ruolo (RBAC) segue il principio del privilegio minimo: il ruolo Reader assegnato con ambito sul gruppo di risorse concede la sola lettura di quelle risorse.",
+    "why_wrong": {
+      "1": "Owner sulla sottoscrizione concede il pieno controllo su tutte le risorse, violando il privilegio minimo.",
+      "2": "Contributor consente di creare e modificare le risorse, non solo di leggerle.",
+      "3": "Azure Policy governa la conformita delle risorse, non l'assegnazione dei permessi di lettura agli utenti."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-014",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "Compliance"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti sono funzioni di Azure Policy? (Selezionane due)",
+    "options": [
+      "Applicare regole per garantire la conformita delle risorse, ad esempio imporre solo region consentite",
+      "Valutare le risorse esistenti e segnalarne lo stato di non conformita",
+      "Autenticare gli utenti e gestire le loro credenziali di accesso",
+      "Cifrare automaticamente tutto il traffico di rete tra le macchine virtuali"
+    ],
+    "correct": [0, 1],
+    "explanation": "Azure Policy definisce e applica regole di conformita (ad esempio limitare le region o gli SKU consentiti) e valuta continuamente le risorse esistenti segnalando quelle non conformi.",
+    "why_wrong": {
+      "2": "L'autenticazione degli utenti e la gestione delle credenziali sono compito di Microsoft Entra ID, non di Azure Policy.",
+      "3": "La cifratura del traffico di rete non e una funzione di Azure Policy."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-015",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Cost Management", "Azure"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale strumento nativo di Azure consente di monitorare e analizzare la spesa cloud, creare budget e ricevere avvisi al superamento delle soglie impostate?",
+    "options": [
+      "Microsoft Cost Management",
+      "Azure Advisor",
+      "Azure Monitor",
+      "Azure Blueprints"
+    ],
+    "correct": [0],
+    "explanation": "Microsoft Cost Management fornisce analisi dettagliata dei costi, creazione di budget e avvisi di spesa per controllare e ottimizzare i costi delle risorse Azure.",
+    "why_wrong": {
+      "1": "Azure Advisor fornisce raccomandazioni (anche di ottimizzazione dei costi) ma non gestisce budget e analisi dettagliata della spesa.",
+      "2": "Azure Monitor raccoglie metriche e log sulle prestazioni, non gestisce i budget di spesa.",
+      "3": "Azure Blueprints distribuisce ambienti conformi e ripetibili, non analizza la spesa."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-016",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Cost Management", "Azure"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "In Azure i tag (coppie nome-valore) possono essere utilizzati per organizzare le risorse e, in Cost Management, per suddividere e analizzare i costi per reparto, progetto o ambiente.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. I tag sono metadati nome-valore applicabili alle risorse. Oltre a organizzarle logicamente, consentono in Cost Management di filtrare e ripartire i costi per reparto, progetto o ambiente.",
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-017",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "Cost Management"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'organizzazione vuole ricevere raccomandazioni personalizzate su come migliorare sicurezza, affidabilita, prestazioni e ottimizzazione dei costi delle proprie risorse Azure. Quale servizio fornisce queste indicazioni?",
+    "options": [
+      "Azure Advisor",
+      "Azure Policy",
+      "Azure Service Health",
+      "Microsoft Entra ID"
+    ],
+    "correct": [0],
+    "explanation": "Azure Advisor analizza la configurazione e l'utilizzo delle risorse e fornisce raccomandazioni personalizzate su affidabilita, sicurezza, eccellenza operativa, prestazioni e ottimizzazione dei costi.",
+    "why_wrong": {
+      "1": "Azure Policy applica regole di conformita alle risorse, non fornisce raccomandazioni di ottimizzazione.",
+      "2": "Azure Service Health informa su incidenti e manutenzioni della piattaforma, non offre raccomandazioni sulle risorse.",
+      "3": "Microsoft Entra ID gestisce identita e accessi, non fornisce raccomandazioni sulle risorse."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az9004-018",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "Compliance"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Riguardo all'Infrastructure as Code (IaC) in Azure, quali delle seguenti affermazioni sono corrette? (Selezionane due)",
+    "options": [
+      "I modelli ARM e Bicep permettono di distribuire l'infrastruttura in modo dichiarativo e ripetibile",
+      "L'IaC consente distribuzioni coerenti e versionabili tramite file di configurazione",
+      "L'IaC richiede obbligatoriamente la configurazione manuale nel portale per ogni singola risorsa",
+      "L'IaC e disponibile solo per le applicazioni SaaS di terze parti"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'Infrastructure as Code descrive l'infrastruttura in file dichiarativi (ad esempio ARM, Bicep, Terraform), consentendo distribuzioni ripetibili, coerenti e controllabili con il versionamento del codice.",
+    "why_wrong": {
+      "2": "L'IaC serve proprio a evitare la configurazione manuale nel portale, automatizzando le distribuzioni.",
+      "3": "L'IaC gestisce risorse Azure (IaaS e PaaS) e non e limitata alle applicazioni SaaS di terze parti."
+    },
+    "source": "Microsoft AZ-900"
+  }
+]

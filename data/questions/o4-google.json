@@ -1,0 +1,373 @@
+[
+  {
+    "id": "g4-001",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Un'azienda applica controlli per garantire che i dati di fatturazione non possano essere alterati da personale non autorizzato durante il transito e l'archiviazione. Quale pilastro della triade CIA viene protetto in modo prioritario in questo scenario?",
+    "options": [
+      "Riservatezza (confidentiality)",
+      "Integrità (integrity)",
+      "Disponibilità (availability)",
+      "Ridondanza (redundancy)"
+    ],
+    "correct": [1],
+    "explanation": "L'integrità garantisce che i dati rimangano accurati, completi e non modificati da soggetti non autorizzati. Impedire alterazioni ai dati di fatturazione è la definizione stessa di protezione dell'integrità.",
+    "why_wrong": {
+      "0": "La riservatezza riguarda impedire la divulgazione dei dati a chi non è autorizzato a vederli, non la loro modifica.",
+      "2": "La disponibilità assicura che i dati e i servizi siano accessibili quando servono, ma non ne previene l'alterazione.",
+      "3": "La ridondanza è una tecnica di resilienza e non è uno dei tre pilastri della triade CIA."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-002",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Gestione del rischio"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel NIST Cybersecurity Framework (CSF), quale funzione principale definisce le attività per intervenire e contenere un incidente di sicurezza già rilevato, limitandone l'impatto?",
+    "options": [
+      "Identify (Identificare)",
+      "Protect (Proteggere)",
+      "Respond (Rispondere)",
+      "Recover (Ripristinare)"
+    ],
+    "correct": [2],
+    "explanation": "La funzione Respond del NIST CSF comprende le attività da eseguire quando un incidente è stato rilevato: contenimento, analisi, mitigazione e comunicazioni, con l'obiettivo di limitarne gli effetti.",
+    "why_wrong": {
+      "0": "Identify riguarda la comprensione del contesto, degli asset e dei rischi, precede il verificarsi dell'incidente.",
+      "1": "Protect si occupa delle salvaguardie preventive per evitare o ridurre gli incidenti, non della reazione a uno già in corso.",
+      "3": "Recover interviene dopo la fase di risposta per ripristinare capacità e servizi compromessi."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-003",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Firewall"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un amministratore configura un firewall che tiene traccia dello stato delle connessioni attive e decide se consentire un pacchetto in base al fatto che appartenga a una sessione già stabilita. Di quale tipo di firewall si tratta?",
+    "options": [
+      "Firewall stateless (senza stato)",
+      "Firewall stateful (con stato)",
+      "Un semplice repeater di livello fisico",
+      "Un server proxy inverso per il bilanciamento del carico"
+    ],
+    "correct": [1],
+    "explanation": "Un firewall stateful mantiene una tabella delle connessioni e valuta ogni pacchetto nel contesto della sessione a cui appartiene, consentendo il traffico di ritorno delle connessioni legittime senza regole aggiuntive.",
+    "why_wrong": {
+      "0": "Un firewall stateless valuta ogni pacchetto in modo isolato, senza memoria dello stato delle connessioni.",
+      "2": "Un repeater rigenera il segnale a livello fisico e non prende alcuna decisione di filtraggio.",
+      "3": "Un proxy inverso distribuisce le richieste ai server backend ma non è definito dal tracciamento dello stato delle connessioni."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-004",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["TCP/IP", "Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un dipendente in smart working deve accedere alla rete aziendale attraverso Internet pubblico. Quale tecnologia crea un tunnel cifrato tra il suo dispositivo e la rete, proteggendo i dati dall'intercettazione?",
+    "options": [
+      "Una VPN (Virtual Private Network)",
+      "Un hub di rete non gestito",
+      "Il protocollo Telnet",
+      "Un indirizzo IP statico assegnato al portatile"
+    ],
+    "correct": [0],
+    "explanation": "Una VPN incapsula e cifra il traffico in un tunnel tra il client e il gateway aziendale, garantendo riservatezza e integrità dei dati anche quando attraversano reti pubbliche non fidate.",
+    "why_wrong": {
+      "1": "Un hub inoltra il traffico a tutte le porte senza alcuna cifratura né controllo dell'accesso remoto.",
+      "2": "Telnet trasmette i dati, comprese le credenziali, in chiaro ed è considerato insicuro.",
+      "3": "Un IP statico è solo un indirizzo fisso e non fornisce alcuna cifratura del traffico."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-005",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Linux"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Durante un'indagine su un server Linux, un analista vuole visualizzare in tempo reale le nuove righe che vengono scritte nel file /var/log/syslog man mano che si aggiungono. Quale comando è più adatto?",
+    "options": [
+      "tail -f /var/log/syslog",
+      "head /var/log/syslog",
+      "rm /var/log/syslog",
+      "chmod 777 /var/log/syslog"
+    ],
+    "correct": [0],
+    "explanation": "L'opzione -f (follow) di tail mantiene il file aperto e mostra le nuove righe non appena vengono aggiunte, ideale per monitorare un log in tempo reale durante un'indagine.",
+    "why_wrong": {
+      "1": "head mostra solo le prime righe del file e non segue gli aggiornamenti successivi.",
+      "2": "rm cancellerebbe il file di log, distruggendo potenziali prove.",
+      "3": "chmod 777 modifica i permessi rendendo il file scrivibile da tutti, non ne mostra il contenuto ed è insicuro."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-006",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["SQL"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un analista deve estrarre dalla tabella login_attempts tutte le righe in cui il tentativo di accesso NON ha avuto successo (colonna success con valore FALSE). Quale query SQL è corretta?",
+    "options": [
+      "SELECT * FROM login_attempts WHERE success = FALSE;",
+      "SELECT * FROM login_attempts ORDER BY success;",
+      "DELETE FROM login_attempts WHERE success = FALSE;",
+      "SELECT success FROM login_attempts GROUP BY success;"
+    ],
+    "correct": [0],
+    "explanation": "La clausola WHERE filtra le righe in base a una condizione: WHERE success = FALSE restituisce esattamente i tentativi di accesso falliti, utili per individuare possibili attacchi brute force.",
+    "why_wrong": {
+      "1": "ORDER BY ordina i risultati ma restituisce comunque tutte le righe, senza filtrare i soli tentativi falliti.",
+      "2": "DELETE eliminerebbe i record dalla tabella invece di visualizzarli, cancellando le prove.",
+      "3": "GROUP BY con la sola colonna success aggrega i valori ma non restituisce le singole righe dei tentativi falliti."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-007",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un team di sicurezza vuole ridurre la superficie di attacco (attack surface) di un'applicazione web. Quale delle seguenti definizioni descrive correttamente il concetto di superficie di attacco?",
+    "options": [
+      "L'insieme di tutti i punti di ingresso attraverso cui un attaccante potrebbe tentare di accedere o estrarre dati da un sistema",
+      "Il numero totale di utenti registrati nell'applicazione",
+      "La quantità di spazio su disco occupata dai file di log",
+      "La velocità massima di connessione supportata dal server"
+    ],
+    "correct": [0],
+    "explanation": "La superficie di attacco è l'insieme di tutti i punti esposti (porte, servizi, endpoint, input, account) attraverso cui un attaccante può interagire con il sistema. Ridurla significa eliminare punti di ingresso non necessari.",
+    "why_wrong": {
+      "1": "Il numero di utenti registrati è una metrica di adozione, non descrive i vettori di attacco esposti.",
+      "2": "Lo spazio occupato dai log riguarda la gestione dello storage, non i punti di ingresso attaccabili.",
+      "3": "La velocità di connessione è un parametro prestazionale e non rappresenta la superficie di attacco."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-008",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Due parti che non hanno mai condiviso in precedenza un segreto devono scambiarsi in modo sicuro una chiave su un canale non fidato. Quale tipo di crittografia utilizza una coppia di chiavi pubblica e privata per rendere possibile questo scambio?",
+    "options": [
+      "Crittografia simmetrica",
+      "Crittografia asimmetrica (a chiave pubblica)",
+      "Funzione di hash",
+      "Codifica Base64"
+    ],
+    "correct": [1],
+    "explanation": "La crittografia asimmetrica usa una coppia di chiavi correlate: ciò che è cifrato con la chiave pubblica può essere decifrato solo con la corrispondente chiave privata. Questo permette lo scambio sicuro anche senza un segreto condiviso preesistente.",
+    "why_wrong": {
+      "0": "La crittografia simmetrica usa un'unica chiave condivisa che deve però essere distribuita in modo sicuro, il problema che l'asimmetrica risolve.",
+      "2": "Una funzione di hash è unidirezionale e non serve a cifrare o scambiare chiavi.",
+      "3": "Base64 è una codifica, non una cifratura, ed è facilmente reversibile senza alcuna chiave."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-009",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'organizzazione vuole un dispositivo posizionato in linea (inline) sul traffico di rete che non si limiti a generare avvisi, ma blocchi automaticamente i pacchetti riconosciuti come dannosi. Quale soluzione soddisfa questo requisito?",
+    "options": [
+      "Un IDS (Intrusion Detection System)",
+      "Un IPS (Intrusion Prevention System)",
+      "Un server DNS ricorsivo",
+      "Un load balancer"
+    ],
+    "correct": [1],
+    "explanation": "Un IPS opera in linea sul traffico e può bloccare o scartare attivamente i pacchetti malevoli oltre a rilevarli, prevenendo l'attacco in tempo reale.",
+    "why_wrong": {
+      "0": "Un IDS rileva e segnala l'attività sospetta ma non blocca il traffico, si limita a generare avvisi.",
+      "2": "Un server DNS risolve nomi in indirizzi IP e non ha funzioni di rilevamento o blocco delle intrusioni.",
+      "3": "Un load balancer distribuisce il carico tra i server ma non ispeziona il traffico per bloccare minacce."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-010",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Python"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un analista deve estrarre automaticamente tutti gli indirizzi IP presenti in un file di log utilizzando un'espressione regolare in Python. Quale funzione del modulo re restituisce una lista di tutte le corrispondenze trovate in una stringa?",
+    "options": [
+      "re.findall()",
+      "print()",
+      "os.remove()",
+      "len()"
+    ],
+    "correct": [0],
+    "explanation": "re.findall() applica un pattern regex a una stringa e restituisce una lista con tutte le sottostringhe corrispondenti, perfetta per raccogliere tutti gli indirizzi IP presenti nel log.",
+    "why_wrong": {
+      "1": "print() mostra semplicemente un valore a schermo e non esegue alcuna ricerca con pattern.",
+      "2": "os.remove() elimina un file dal filesystem e non ha nulla a che vedere con la ricerca di testo.",
+      "3": "len() restituisce la lunghezza di un oggetto e non individua corrispondenze di pattern."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-011",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Incident Response"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un analista SOC di primo livello individua un incidente critico che supera il proprio livello di autorità e competenza. Quale documento definisce chi deve essere avvisato, con quali tempistiche e in base a quali criteri di gravità?",
+    "options": [
+      "La escalation policy (politica di escalation)",
+      "Il contratto di licenza del software antivirus",
+      "Il manuale utente della stampante di rete",
+      "La brochure commerciale del fornitore SIEM"
+    ],
+    "correct": [0],
+    "explanation": "La escalation policy stabilisce criteri, tempi e destinatari delle comunicazioni quando un incidente deve essere trasferito a figure di livello superiore, assicurando una risposta tempestiva e coordinata.",
+    "why_wrong": {
+      "1": "Il contratto di licenza regola l'uso del software, non le procedure di escalation degli incidenti.",
+      "2": "Il manuale della stampante è documentazione tecnica di un dispositivo, irrilevante per la gestione degli incidenti.",
+      "3": "Una brochure commerciale ha finalità di marketing e non definisce processi operativi di risposta."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-012",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Gestione del rischio"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Dopo aver valutato un rischio, un'organizzazione deve decidere come trattarlo. Quali delle seguenti sono strategie legittime di gestione del rischio? (Seleziona due)",
+    "options": [
+      "Trasferire il rischio a terzi, ad esempio stipulando una polizza assicurativa",
+      "Mitigare il rischio applicando controlli che ne riducono probabilità o impatto",
+      "Aumentare deliberatamente la superficie di attacco per rendere il sistema più interessante",
+      "Disattivare in modo permanente ogni registro di audit per non doverli analizzare"
+    ],
+    "correct": [0, 1],
+    "explanation": "Trasferire (ad esempio con un'assicurazione) e mitigare (applicando controlli) sono due delle quattro strategie classiche di trattamento del rischio, insieme ad accettare ed evitare.",
+    "why_wrong": {
+      "2": "Aumentare la superficie di attacco espande i vettori sfruttabili e accresce il rischio anziché gestirlo.",
+      "3": "Disattivare i log di audit riduce la visibilità e la capacità di rilevare incidenti, peggiorando la postura di sicurezza."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-013",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["TCP/IP"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Nel modello TCP/IP, quali dei seguenti protocolli operano a livello di trasporto (transport layer)? (Seleziona due)",
+    "options": [
+      "TCP (Transmission Control Protocol)",
+      "UDP (User Datagram Protocol)",
+      "HTTP (HyperText Transfer Protocol)",
+      "ARP (Address Resolution Protocol)"
+    ],
+    "correct": [0, 1],
+    "explanation": "TCP e UDP sono i due protocolli del livello di trasporto: TCP offre una consegna affidabile e ordinata orientata alla connessione, UDP una consegna veloce e senza connessione.",
+    "why_wrong": {
+      "2": "HTTP è un protocollo di livello applicazione che si appoggia al trasporto sottostante (tipicamente TCP).",
+      "3": "ARP opera al livello di collegamento/rete per associare indirizzi IP a indirizzi MAC, non a livello di trasporto."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-014",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Incident Response", "SIEM"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Il ciclo di vita della risposta agli incidenti secondo il NIST comprende diverse fasi. Quali delle seguenti sono fasi legittime di questo processo? (Seleziona due)",
+    "options": [
+      "Preparazione (Preparation)",
+      "Contenimento, eradicazione e ripristino (Containment, Eradication and Recovery)",
+      "Negoziazione del pagamento del riscatto con gli attaccanti",
+      "Cancellazione volontaria dei log per nascondere l'incidente ai revisori"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il ciclo di vita NIST della risposta agli incidenti include Preparazione; Rilevamento e analisi; Contenimento, eradicazione e ripristino; e Attività post-incidente. Le opzioni 0 e 1 corrispondono a due di queste fasi.",
+    "why_wrong": {
+      "2": "Negoziare il pagamento di un riscatto non è una fase del processo di risposta e viene generalmente sconsigliato.",
+      "3": "Cancellare i log distrugge le prove, ostacola le lezioni apprese e non è una fase prevista del ciclo di risposta."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-015",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Threat e vulnerabilità", "Controllo accessi"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Un amministratore deve effettuare l'hardening (irrobustimento) di un nuovo server prima di metterlo in produzione. Quali delle seguenti sono pratiche corrette di hardening? (Seleziona due)",
+    "options": [
+      "Applicare tempestivamente le patch e gli aggiornamenti di sicurezza disponibili",
+      "Disabilitare servizi, porte e account non necessari",
+      "Mantenere le credenziali predefinite di fabbrica per comodità del team",
+      "Concedere privilegi di amministratore a tutti gli utenti per evitare richieste di supporto"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'hardening riduce la superficie di attacco applicando aggiornamenti che chiudono vulnerabilità note e disabilitando tutto ciò che non è indispensabile (servizi, porte, account inutili).",
+    "why_wrong": {
+      "2": "Le credenziali predefinite sono pubblicamente note e tra i primi bersagli degli attaccanti: vanno sempre cambiate.",
+      "3": "Concedere privilegi di amministratore a tutti viola il principio del privilegio minimo e amplia notevolmente il rischio."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-016",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Python"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In Python, l'operatore == confronta due valori per verificarne l'uguaglianza, mentre il singolo simbolo = viene usato per assegnare un valore a una variabile.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "In Python == è l'operatore di confronto che restituisce True o False in base all'uguaglianza dei valori, mentre = è l'operatore di assegnazione che collega un valore a una variabile. Confonderli è un errore logico frequente.",
+    "why_wrong": {
+      "1": "È errato negarlo: si tratta di due operatori distinti, uno di confronto (==) e uno di assegnazione (=)."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-017",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["TCP/IP", "Crittografia"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il protocollo HTTPS utilizza TLS per cifrare il traffico web e opera tipicamente sulla porta 443.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "HTTPS è HTTP incapsulato in TLS: cifra la comunicazione tra browser e server garantendone riservatezza e integrità, e per convenzione utilizza la porta TCP 443.",
+    "why_wrong": {
+      "1": "È errato negarlo: HTTPS si basa proprio su TLS e la sua porta standard è la 443, mentre HTTP in chiaro usa la 80."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g4-018",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Controllo accessi", "Gestione del rischio"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il principio del privilegio minimo (least privilege) prevede di concedere a ogni utente il maggior numero possibile di permessi, così da non doverli mai richiedere in seguito ed evitare interruzioni operative.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Il privilegio minimo prevede l'esatto contrario: a ciascun utente si concedono solo i permessi strettamente necessari per svolgere i propri compiti, riducendo così i danni potenziali in caso di compromissione dell'account.",
+    "why_wrong": {
+      "0": "È falso: concedere il massimo dei permessi contraddice il least privilege e amplia la superficie di attacco e l'impatto di un eventuale abuso."
+    },
+    "source": "HACK/Google Cybersecurity"
+  }
+]

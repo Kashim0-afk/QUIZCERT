@@ -1,0 +1,373 @@
+[
+  {
+    "id": "itil4b-001",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Value System"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Secondo ITIL 4, quale definizione descrive correttamente un 'servizio'?",
+    "options": [
+      "Un insieme di componenti hardware e software gestiti dal fornitore per conto del cliente",
+      "Un mezzo per consentire la co-creazione di valore facilitando i risultati (outcome) che i clienti desiderano ottenere, senza che debbano gestire costi e rischi specifici",
+      "Un accordo formale documentato tra fornitore e cliente che definisce i livelli di servizio attesi",
+      "Il risultato tangibile prodotto al termine di un'attività o di un processo"
+    ],
+    "correct": [1],
+    "explanation": "In ITIL 4 un servizio è definito come un mezzo per abilitare la co-creazione di valore facilitando gli outcome che i clienti vogliono raggiungere, sollevandoli dalla gestione di specifici costi e rischi. Il valore non è consegnato dal solo fornitore, ma co-creato con il cliente.",
+    "why_wrong": {
+      "0": "L'hardware e il software sono componenti/risorse (parte della dimensione Informazioni e tecnologia), non la definizione di servizio.",
+      "2": "Questo descrive un accordo sui livelli di servizio (SLA), uno strumento della pratica Service Level Management, non il servizio stesso.",
+      "3": "Questo è un output, cioè un deliverable di un'attività, non la definizione di servizio."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-002",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Value System"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Affinché un servizio crei valore deve possedere sia utility sia warranty. Cosa rappresenta la warranty (garanzia)?",
+    "options": [
+      "La funzionalità offerta da un servizio per soddisfare un particolare bisogno, ovvero l'idoneità allo scopo (fitness for purpose)",
+      "L'assicurazione che il servizio soddisferà i requisiti concordati, ovvero l'idoneità all'uso (fitness for use)",
+      "Il valore economico complessivo percepito dal cliente al momento dell'acquisto",
+      "L'elenco dei risultati di business che il cliente intende raggiungere"
+    ],
+    "correct": [1],
+    "explanation": "La warranty è l'assicurazione che un prodotto o servizio rispetterà i requisiti concordati (fitness for use), tipicamente riferiti ad aspetti come disponibilità, capacità, continuità e sicurezza. La utility, invece, è ciò che il servizio fa (fitness for purpose). Entrambe sono necessarie per creare valore.",
+    "why_wrong": {
+      "0": "Questa è la definizione di utility (idoneità allo scopo), non di warranty.",
+      "2": "Il valore percepito è un concetto più ampio e soggettivo; non definisce la warranty.",
+      "3": "I risultati di business sono outcome del cliente, non la definizione di garanzia."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-003",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Value System"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un output è un risultato tangibile o intangibile di un'attività, mentre un outcome è un risultato per uno stakeholder reso possibile da uno o più output.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "L'affermazione è corretta. L'output è il prodotto diretto di un'attività (ad esempio un report generato), mentre l'outcome è il risultato che uno stakeholder ottiene grazie a quell'output (ad esempio decisioni migliori prese grazie al report). Distinguere i due concetti è fondamentale per focalizzarsi sul valore.",
+    "why_wrong": {
+      "1": "L'affermazione è vera: la distinzione tra output (deliverable dell'attività) e outcome (risultato per lo stakeholder abilitato dagli output) è esattamente quella descritta in ITIL 4."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-004",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Principi guida"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'organizzazione vuole migliorare un processo e, prima di ricostruirlo da zero, misura e valuta ciò che già esiste per non perdere elementi di valore. Quale principio guida sta applicando?",
+    "options": [
+      "Focalizzarsi sul valore",
+      "Partire da dove si è (Start where you are)",
+      "Mantenere le cose semplici e pratiche",
+      "Ottimizzare e automatizzare"
+    ],
+    "correct": [1],
+    "explanation": "Il principio 'Partire da dove si è' raccomanda di non ricominciare da zero senza aver prima valutato ciò che è già disponibile e riutilizzabile. Le misurazioni e l'osservazione diretta dello stato attuale guidano le decisioni di miglioramento.",
+    "why_wrong": {
+      "0": "'Focalizzarsi sul valore' riguarda il fatto che tutto ciò che si fa deve contribuire al valore, non la valutazione dello stato esistente prima di ricostruire.",
+      "2": "'Mantenere le cose semplici e pratiche' invita a eliminare passaggi che non aggiungono valore, ma non riguarda specificamente il riutilizzo di ciò che già esiste.",
+      "3": "'Ottimizzare e automatizzare' riguarda rendere efficaci le risorse prima di automatizzare, non la valutazione dello stato di partenza."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-005",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Principi guida"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE dei seguenti sono principi guida di ITIL 4? (seleziona 2)",
+    "options": [
+      "Ottimizzare e automatizzare",
+      "Progettare per la massima disponibilità",
+      "Collaborare e promuovere la visibilità",
+      "Massimizzare sempre l'utilizzo delle risorse"
+    ],
+    "correct": [0, 2],
+    "explanation": "I sette principi guida sono: Focalizzarsi sul valore; Partire da dove si è; Progredire in modo iterativo con feedback; Collaborare e promuovere la visibilità; Pensare e lavorare in modo olistico; Mantenere le cose semplici e pratiche; Ottimizzare e automatizzare. Quindi le risposte corrette sono 'Ottimizzare e automatizzare' e 'Collaborare e promuovere la visibilità'.",
+    "why_wrong": {
+      "1": "'Progettare per la massima disponibilità' non è un principio guida ITIL 4; la disponibilità è un aspetto della warranty.",
+      "3": "'Massimizzare sempre l'utilizzo delle risorse' non è un principio guida; anzi 'Mantenere le cose semplici e pratiche' invita a evitare sprechi ma non parla di massimizzare l'utilizzo."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-006",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Quattro dimensioni"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quali sono le quattro dimensioni della gestione dei servizi in ITIL 4?",
+    "options": [
+      "Persone, Processi, Prodotti, Partner",
+      "Organizzazioni e persone; Informazioni e tecnologia; Partner e fornitori; Flussi di valore e processi",
+      "Strategia dei servizi, Progettazione, Transizione, Operatività",
+      "Utility, Warranty, Costi, Rischi"
+    ],
+    "correct": [1],
+    "explanation": "Le quattro dimensioni sono: Organizzazioni e persone; Informazioni e tecnologia; Partner e fornitori; Flussi di valore e processi. Devono essere considerate tutte per garantire un approccio olistico ed equilibrato alla gestione dei servizi. Fattori esterni (PESTLE) influenzano tutte le dimensioni.",
+    "why_wrong": {
+      "0": "Le '4 P' (Persone, Processi, Prodotti, Partner) appartenevano a ITIL v3 (progettazione dei servizi), non sono le quattro dimensioni di ITIL 4.",
+      "2": "Questi sono stadi del ciclo di vita del servizio in ITIL v3, non le quattro dimensioni.",
+      "3": "Utility, warranty, costi e rischi sono concetti chiave del service management, ma non le quattro dimensioni."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-007",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Value System"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale dei seguenti NON è un componente del Service Value System (SVS)?",
+    "options": [
+      "I principi guida",
+      "La governance",
+      "La catena del valore del servizio (Service Value Chain)",
+      "Le quattro dimensioni della gestione dei servizi"
+    ],
+    "correct": [3],
+    "explanation": "I componenti dell'SVS sono: principi guida, governance, catena del valore del servizio, pratiche e miglioramento continuo. Le quattro dimensioni non sono un componente dell'SVS: sono prospettive trasversali che si applicano a tutto l'SVS e a tutte le sue parti.",
+    "why_wrong": {
+      "0": "I principi guida sono uno dei cinque componenti dell'SVS.",
+      "1": "La governance è un componente dell'SVS, che dirige e controlla l'organizzazione.",
+      "2": "La catena del valore del servizio è il modello operativo centrale dell'SVS."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-008",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Value Chain"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale attività della catena del valore del servizio (SVC) è responsabile di comprendere le esigenze degli stakeholder, garantire trasparenza e mantenere buone relazioni con tutti gli stakeholder?",
+    "options": [
+      "Pianificare (Plan)",
+      "Coinvolgere (Engage)",
+      "Fornire e supportare (Deliver & support)",
+      "Migliorare (Improve)"
+    ],
+    "correct": [1],
+    "explanation": "L'attività 'Coinvolgere' (Engage) fornisce una buona comprensione delle esigenze degli stakeholder, garantisce trasparenza e coinvolgimento continuo e mantiene buone relazioni con clienti, utenti, fornitori e partner. È il punto di contatto con la domanda e con gli stakeholder esterni.",
+    "why_wrong": {
+      "0": "'Pianificare' assicura una comprensione condivisa di visione, stato attuale e direzione di miglioramento per tutte le quattro dimensioni; non è l'attività di gestione delle relazioni.",
+      "2": "'Fornire e supportare' garantisce che i servizi siano erogati e supportati secondo le specifiche concordate.",
+      "3": "'Migliorare' assicura il miglioramento continuo di prodotti, servizi e pratiche lungo tutta la catena del valore."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-009",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Value Chain"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE delle seguenti sono attività della catena del valore del servizio (SVC)? (seleziona 2)",
+    "options": [
+      "Progettare e realizzare la transizione (Design & transition)",
+      "Ottimizzare e automatizzare",
+      "Ottenere/costruire (Obtain/build)",
+      "Gestione degli incidenti"
+    ],
+    "correct": [0, 2],
+    "explanation": "Le sei attività della catena del valore del servizio sono: Pianificare, Migliorare, Coinvolgere, Progettare e realizzare la transizione, Ottenere/costruire, Fornire e supportare. Quindi 'Progettare e realizzare la transizione' e 'Ottenere/costruire' sono corrette.",
+    "why_wrong": {
+      "1": "'Ottimizzare e automatizzare' è un principio guida, non un'attività della catena del valore.",
+      "3": "'Gestione degli incidenti' è una pratica ITIL, non un'attività della catena del valore (anche se le pratiche contribuiscono alle attività della SVC)."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-010",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Incident Management"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual è lo scopo della pratica di Incident Management (Gestione degli incidenti)?",
+    "options": [
+      "Minimizzare l'impatto negativo degli incidenti ripristinando il normale funzionamento del servizio il più rapidamente possibile",
+      "Ridurre la probabilità e l'impatto degli incidenti identificando le cause radice effettive e potenziali",
+      "Assicurare che i cambiamenti siano valutati, autorizzati e programmati correttamente",
+      "Registrare e soddisfare le richieste di servizio predefinite provenienti dagli utenti"
+    ],
+    "correct": [0],
+    "explanation": "Lo scopo dell'Incident Management è minimizzare l'impatto negativo degli incidenti ripristinando il normale funzionamento del servizio il più rapidamente possibile. Un incidente è un'interruzione non pianificata o una riduzione della qualità di un servizio.",
+    "why_wrong": {
+      "1": "Questo è lo scopo del Problem Management, focalizzato su cause radice, errori noti e workaround.",
+      "2": "Questo è lo scopo del Change Enablement.",
+      "3": "Questo è lo scopo del Service Request Management."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-011",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Pratiche ITIL"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nella pratica di Problem Management, come viene definito un 'errore noto' (known error)?",
+    "options": [
+      "Un'interruzione non pianificata di un servizio che richiede ripristino immediato",
+      "Un problema che è stato analizzato ma non è stato risolto, di cui si conoscono causa e possibile workaround",
+      "Una richiesta di modifica presentata da un utente tramite il Service Desk",
+      "Un rischio identificato durante la progettazione di un nuovo servizio"
+    ],
+    "correct": [1],
+    "explanation": "Un errore noto è un problema per il quale sono stati completati l'analisi e, spesso, l'identificazione della causa, ma che non è ancora stato risolto. Il Problem Management gestisce gli errori noti e i workaround per ridurre la probabilità e l'impatto degli incidenti che potrebbero derivarne.",
+    "why_wrong": {
+      "0": "Questa è la definizione di incidente, gestito dall'Incident Management.",
+      "2": "Una richiesta di modifica riguarda il Change Enablement, non è un errore noto.",
+      "3": "Un rischio identificato in progettazione non è un errore noto: un errore noto deriva da un problema analizzato ma non risolto."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-012",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Change Enablement"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nella pratica di Change Enablement, come viene descritta una modifica standard (standard change)?",
+    "options": [
+      "Una modifica che deve essere valutata, autorizzata e programmata da un'apposita autorità di modifica (change authority)",
+      "Una modifica pre-autorizzata, a basso rischio, ben compresa e completamente documentata, implementabile senza necessità di ulteriore autorizzazione",
+      "Una modifica che deve essere implementata il prima possibile per risolvere un incidente ad alto impatto",
+      "Una modifica che richiede sempre l'approvazione del Change Advisory Board (CAB)"
+    ],
+    "correct": [1],
+    "explanation": "Una modifica standard è a basso rischio, pre-autorizzata, ben compresa e documentata; può essere eseguita seguendo una procedura senza richiedere ulteriore autorizzazione. I tre tipi di modifica sono: standard, normale ed emergenza.",
+    "why_wrong": {
+      "0": "Questa descrive una modifica normale, che deve essere valutata e autorizzata secondo un percorso definito.",
+      "2": "Questa descrive una modifica di emergenza, da implementare rapidamente per un incidente grave.",
+      "3": "L'approvazione del CAB è tipica delle modifiche normali; le modifiche standard sono pre-autorizzate e non la richiedono."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-013",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Pratiche ITIL"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Il Service Desk è il punto di contatto unico tra il fornitore di servizi e tutti i suoi utenti.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "L'affermazione è corretta. Lo scopo della pratica Service Desk è catturare la domanda relativa a risoluzione di incidenti e richieste di servizio, fungendo da punto di contatto unico (single point of contact) tra il fornitore di servizi e tutti i suoi utenti.",
+    "why_wrong": {
+      "1": "L'affermazione è vera: il Service Desk è per definizione il punto di contatto unico tra il fornitore di servizi e gli utenti."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-014",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Level Management"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è lo scopo della pratica di Service Level Management (Gestione dei livelli di servizio)?",
+    "options": [
+      "Impostare obiettivi chiari e basati sul business per i livelli di servizio e assicurare che l'erogazione sia adeguatamente valutata, monitorata e gestita rispetto a tali obiettivi",
+      "Proteggere le informazioni necessarie all'organizzazione per svolgere il proprio business",
+      "Massimizzare il numero di modifiche IT di successo garantendo una corretta valutazione dei rischi",
+      "Assicurare che i fornitori e le loro prestazioni siano gestiti in modo appropriato"
+    ],
+    "correct": [0],
+    "explanation": "Lo scopo del Service Level Management è definire obiettivi chiari e orientati al business per i livelli di servizio e garantire che l'erogazione sia valutata, monitorata e gestita rispetto a tali obiettivi. Richiede una comprensione condivisa e coinvolgimento continuo con clienti e stakeholder.",
+    "why_wrong": {
+      "1": "Questo è lo scopo dell'Information Security Management.",
+      "2": "Questo è lo scopo del Change Enablement.",
+      "3": "Questo è lo scopo del Supplier Management (gestione dei fornitori)."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-015",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Pratiche ITIL"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE delle seguenti sono pratiche ITIL 4? (seleziona 2)",
+    "options": [
+      "Gestione delle richieste di servizio (Service Request Management)",
+      "Gestione del budget di progetto (Project Budget Management)",
+      "Gestione degli asset IT (IT Asset Management)",
+      "Gestione della qualità del codice sorgente (Source Code Quality Management)"
+    ],
+    "correct": [0, 2],
+    "explanation": "Service Request Management e IT Asset Management sono entrambe pratiche ITIL 4. Il Service Request Management gestisce il ciclo di vita di tutte le richieste di servizio predefinite; l'IT Asset Management pianifica e gestisce l'intero ciclo di vita degli asset IT.",
+    "why_wrong": {
+      "1": "'Gestione del budget di progetto' non è una pratica ITIL 4 standard; la gestione finanziaria e la gestione dei progetti esistono come pratiche di gestione generale, ma con nomi e scopi diversi.",
+      "3": "'Gestione della qualità del codice sorgente' non è una pratica ITIL 4."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-016",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Miglioramento continuo"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Il modello di miglioramento continuo di ITIL prevede una serie di passi. Qual è il primo passo del modello?",
+    "options": [
+      "Qual è la visione? (What is the vision?)",
+      "Dove siamo ora? (Where are we now?)",
+      "Intraprendere azioni (Take action)",
+      "Come manteniamo lo slancio? (How do we keep the momentum going?)"
+    ],
+    "correct": [0],
+    "explanation": "Il primo passo del modello di miglioramento continuo è 'Qual è la visione?', che collega l'iniziativa di miglioramento alla visione e agli obiettivi dell'organizzazione. I passi successivi sono: Dove siamo ora?, Dove vogliamo arrivare?, Come ci arriviamo?, Intraprendere azioni, Ci siamo arrivati?, Come manteniamo lo slancio?",
+    "why_wrong": {
+      "1": "'Dove siamo ora?' è il secondo passo, che valuta lo stato attuale.",
+      "2": "'Intraprendere azioni' è il quinto passo, dopo la pianificazione del percorso.",
+      "3": "'Come manteniamo lo slancio?' è l'ultimo passo del modello."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-017",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Principi guida", "Miglioramento continuo"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il principio guida 'Progredire in modo iterativo con feedback' suggerisce di organizzare il lavoro in sezioni più piccole e gestibili, da eseguire e completare in tempi ragionevoli, utilizzando il feedback prima, durante e dopo ogni iterazione.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "L'affermazione è corretta. 'Progredire in modo iterativo con feedback' raccomanda di suddividere le iniziative in iterazioni più piccole e gestibili, raccogliendo e utilizzando il feedback in modo continuo per garantire che le azioni restino pertinenti e reagiscano ai cambiamenti.",
+    "why_wrong": {
+      "1": "L'affermazione è vera: il lavoro iterativo con uso costante del feedback è esattamente ciò che descrive questo principio guida."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil4b-018",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Value System"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo ai concetti chiave della co-creazione di valore, quali DUE affermazioni sono corrette? (seleziona 2)",
+    "options": [
+      "Un rischio rimosso dal cliente è un potenziale beneficio derivante dall'utilizzo di un servizio",
+      "Il valore di un servizio è determinato esclusivamente dal fornitore di servizi",
+      "Una relazione di servizio comprende la fornitura di servizi, il consumo di servizi e la gestione della relazione di servizio",
+      "Nel modello di co-creazione, tutti i costi e i rischi sono sempre a carico del cliente"
+    ],
+    "correct": [0, 2],
+    "explanation": "Un servizio può rimuovere rischi dal cliente (rischi rimossi = beneficio potenziale), pur potendo introdurne di nuovi (rischi imposti). Inoltre una relazione di servizio è l'insieme delle collaborazioni tra fornitore e consumatore e include fornitura, consumo e gestione della relazione. Il valore è co-creato e soggettivo, quindi non determinato dal solo fornitore.",
+    "why_wrong": {
+      "1": "Il valore è soggettivo e co-creato: dipende dalla percezione e dagli outcome del consumatore, non è deciso solo dal fornitore.",
+      "3": "Uno degli scopi di un servizio è proprio sollevare il consumatore da specifici costi e rischi; non tutti i costi e rischi ricadono sul cliente."
+    },
+    "source": "ITIL 4 Foundation"
+  }
+]

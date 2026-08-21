@@ -1,0 +1,364 @@
+[
+  {
+    "id": "pa4-001",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Firewall Policy"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è la caratteristica principale della Single-Pass Architecture (SP3) dei firewall di nuova generazione di Palo Alto Networks?",
+    "options": [
+      "Ogni funzione di sicurezza esegue una scansione separata e sequenziale del pacchetto",
+      "Il traffico viene analizzato una sola volta per tutte le funzioni (App-ID, User-ID, Content-ID) in un unico passaggio",
+      "Le applicazioni vengono identificate esclusivamente in base a porta e protocollo",
+      "È necessaria un'appliance dedicata per ogni servizio di sicurezza"
+    ],
+    "correct": [1],
+    "explanation": "La Single-Pass Parallel Processing (SP3) analizza ogni pacchetto una sola volta applicando in parallelo App-ID, User-ID e Content-ID, riducendo la latenza rispetto alle architetture che eseguono scansioni multiple in serie.",
+    "why_wrong": {
+      "0": "La SP3 evita proprio le scansioni multiple sequenziali che introducono latenza.",
+      "2": "L'identificazione basata solo su porta e protocollo è il modello legacy superato da App-ID.",
+      "3": "La SP3 integra tutti i servizi in un unico dispositivo, senza appliance separate."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-002",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["App-ID"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Che cosa fa la tecnologia App-ID di Palo Alto Networks?",
+    "options": [
+      "Identifica le applicazioni indipendentemente da porta, protocollo o cifratura",
+      "Assegna indirizzi IP dinamici agli host della rete",
+      "Cifra il traffico applicativo tra le zone di sicurezza",
+      "Consente il traffico solo sulla porta 80"
+    ],
+    "correct": [0],
+    "explanation": "App-ID identifica l'applicazione reale che genera il traffico usando firme, decodifica di protocollo ed euristiche, anche quando l'app usa porte non standard o cifratura, consentendo policy applicative granulari.",
+    "why_wrong": {
+      "1": "L'assegnazione dinamica di IP è compito del DHCP, non di App-ID.",
+      "2": "App-ID identifica il traffico, non lo cifra.",
+      "3": "App-ID non si basa sulle porte e riconosce le app anche su porte non standard."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-003",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["User-ID"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale beneficio principale offre User-ID nelle policy di sicurezza di un NGFW Palo Alto Networks?",
+    "options": [
+      "Consente di scrivere policy basate su identità utente e gruppi invece che su soli indirizzi IP",
+      "Aumenta il throughput cifrando automaticamente le sessioni",
+      "Sostituisce completamente Active Directory in azienda",
+      "Filtra le email di phishing in arrivo"
+    ],
+    "correct": [0],
+    "explanation": "User-ID mappa gli indirizzi IP agli utenti e ai gruppi (via AD/LDAP, syslog, portal, ecc.), permettendo di definire regole di sicurezza basate sull'identità piuttosto che su indirizzi IP statici.",
+    "why_wrong": {
+      "1": "User-ID gestisce la mappatura utente-IP e non riguarda throughput o cifratura.",
+      "2": "User-ID si integra con Active Directory/LDAP, non lo sostituisce.",
+      "3": "Il filtraggio del phishing è compito di altri servizi come URL Filtering e Threat Prevention."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-004",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Content-ID nei NGFW di Palo Alto Networks fornisce principalmente:",
+    "options": [
+      "La traduzione degli indirizzi di rete (NAT)",
+      "Prevenzione delle minacce, filtraggio URL e blocco del trasferimento di file e dati sensibili",
+      "L'autenticazione multifattore degli utenti",
+      "La gestione centralizzata di più firewall"
+    ],
+    "correct": [1],
+    "explanation": "Content-ID ispeziona il contenuto del traffico per bloccare minacce (IPS, antivirus, anti-spyware), applicare URL Filtering e prevenire l'esfiltrazione di file e dati sensibili (File/Data Filtering).",
+    "why_wrong": {
+      "0": "La NAT è una funzione separata del firewall, non parte di Content-ID.",
+      "2": "L'MFA non è una funzione di Content-ID.",
+      "3": "La gestione centralizzata di più firewall è compito di Panorama."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-005",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Firewall Policy"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un firewall Palo Alto Networks, per impostazione predefinita il traffico tra due interfacce assegnate a zone di sicurezza diverse (interzona):",
+    "options": [
+      "È consentito automaticamente senza necessità di regole",
+      "È bloccato finché non viene creata una regola di sicurezza esplicita che lo consente",
+      "Viene sempre sottoposto a NAT",
+      "Viene inoltrato solo se cifrato con SSL"
+    ],
+    "correct": [1],
+    "explanation": "La regola interzona di default nega il traffico tra zone diverse: occorre una security policy esplicita che lo autorizzi. Il traffico intrazona è invece consentito di default.",
+    "why_wrong": {
+      "0": "Il traffico interzona è negato di default, non consentito automaticamente.",
+      "2": "La NAT è indipendente dalle security policy e non viene applicata automaticamente.",
+      "3": "La cifratura non è un requisito per l'inoltro del traffico interzona."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-006",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["NAT"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale tipo di NAT viene tipicamente usato per consentire a molti host interni con indirizzi privati di accedere a Internet condividendo un unico indirizzo IP pubblico?",
+    "options": [
+      "NAT statico uno-a-uno",
+      "Source NAT con traduzione dinamica di IP e porta (DIPP / PAT)",
+      "Destination NAT",
+      "Nessuna traduzione (routing puro)"
+    ],
+    "correct": [1],
+    "explanation": "La Source NAT con Dynamic IP and Port (DIPP), nota anche come PAT, permette a molti host interni di condividere un singolo IP pubblico distinguendo le sessioni tramite le porte sorgente.",
+    "why_wrong": {
+      "0": "Il NAT statico mappa un singolo host a un singolo IP pubblico e non è condiviso da più host.",
+      "2": "La Destination NAT serve a pubblicare servizi interni verso l'esterno, non a far uscire molti host.",
+      "3": "Senza traduzione gli indirizzi privati non sarebbero instradabili su Internet."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-007",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Firewall Policy"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Nella decryption SSL Forward Proxy, come agisce il firewall Palo Alto Networks?",
+    "options": [
+      "Inoltra il traffico cifrato senza ispezionarlo",
+      "Agisce come man-in-the-middle di fiducia: decifra il traffico, lo ispeziona e lo ri-cifra verso la destinazione",
+      "Blocca automaticamente tutto il traffico HTTPS",
+      "Sostituisce il certificato del server con uno scaduto per interrompere la connessione"
+    ],
+    "correct": [1],
+    "explanation": "In SSL Forward Proxy il firewall intercetta la sessione, presenta al client un certificato firmato da una CA di fiducia, decifra e ispeziona il traffico e infine lo ri-cifra verso il server, potendo così applicare Threat Prevention al traffico cifrato.",
+    "why_wrong": {
+      "0": "Lo scopo della decryption è proprio ispezionare il traffico, non lasciarlo passare cifrato.",
+      "2": "La decryption ispeziona il traffico HTTPS in base alle policy, non blocca tutto indistintamente.",
+      "3": "Il firewall presenta un certificato valido firmato dalla propria CA di fiducia, non un certificato scaduto."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-008",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["WildFire"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è la funzione principale di WildFire di Palo Alto Networks?",
+    "options": [
+      "Bilanciare il carico di traffico tra più firewall",
+      "Analizzare file e URL sconosciuti in una sandbox cloud per rilevare malware zero-day",
+      "Gestire le VPN site-to-site tra le sedi",
+      "Distribuire le licenze ai dispositivi"
+    ],
+    "correct": [1],
+    "explanation": "WildFire è il servizio di sandbox cloud che detona file e link sospetti in ambienti controllati per identificare minacce sconosciute (zero-day) e distribuire rapidamente nuove firme di protezione ai firewall.",
+    "why_wrong": {
+      "0": "Il bilanciamento del carico non è una funzione di WildFire.",
+      "2": "La gestione delle VPN è una funzione del firewall/GlobalProtect, non di WildFire.",
+      "3": "La distribuzione delle licenze non è correlata a WildFire."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-009",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["VPN"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "A cosa serve GlobalProtect di Palo Alto Networks?",
+    "options": [
+      "A fornire accesso VPN remoto sicuro estendendo le policy di sicurezza agli utenti mobili",
+      "A generare i report di conformità normativa",
+      "A eseguire il backup automatico delle configurazioni",
+      "A eseguire il sandboxing dei file sospetti"
+    ],
+    "correct": [0],
+    "explanation": "GlobalProtect è l'agente che connette gli utenti remoti al firewall (o a Prisma Access) tramite VPN, applicando le stesse policy di sicurezza e i controlli di host information profile (HIP) indipendentemente dalla posizione.",
+    "why_wrong": {
+      "1": "La reportistica di conformità non è la funzione di GlobalProtect.",
+      "2": "Il backup delle configurazioni è gestito dal firewall o da Panorama.",
+      "3": "Il sandboxing dei file è compito di WildFire."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-010",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Firewall Policy"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale ruolo svolge Panorama nell'ecosistema Palo Alto Networks?",
+    "options": [
+      "È un agente endpoint per il rilevamento delle minacce",
+      "È la soluzione di gestione centralizzata per configurare, amministrare e monitorare più firewall",
+      "È un servizio di sandbox nel cloud",
+      "È il client VPN per gli utenti remoti"
+    ],
+    "correct": [1],
+    "explanation": "Panorama è la piattaforma di network security management centralizzata: permette di gestire policy, oggetti, aggiornamenti e log aggregati di più firewall e Prisma Access da un'unica console.",
+    "why_wrong": {
+      "0": "L'agente endpoint di detection & response è Cortex XDR, non Panorama.",
+      "2": "La sandbox cloud è WildFire.",
+      "3": "Il client VPN è GlobalProtect."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-011",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cortex XDR di Palo Alto Networks è principalmente una piattaforma per:",
+    "options": [
+      "La traduzione degli indirizzi di rete",
+      "Il rilevamento e la risposta estesi (extended detection & response) su endpoint, rete e cloud correlando dati da più fonti",
+      "La generazione di certificati SSL",
+      "La configurazione delle regole NAT"
+    ],
+    "correct": [1],
+    "explanation": "Cortex XDR raccoglie e correla telemetria da endpoint, rete e cloud per rilevare attività malevole, effettuare investigazioni tramite analisi comportamentale e automatizzare la risposta agli incidenti.",
+    "why_wrong": {
+      "0": "La NAT è una funzione del firewall, non di Cortex XDR.",
+      "2": "La generazione di certificati non è compito di XDR.",
+      "3": "La configurazione delle regole NAT non è correlata a Cortex XDR."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-012",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["IDS/IPS", "WildFire"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali dei seguenti sono servizi/componenti di prevenzione delle minacce di Palo Alto Networks? (Seleziona 2)",
+    "options": [
+      "Antivirus, Anti-Spyware e IPS basati su firme (Threat Prevention)",
+      "WildFire per l'analisi in sandbox del malware zero-day",
+      "Server DHCP integrato",
+      "Spanning Tree Protocol (STP)"
+    ],
+    "correct": [0, 1],
+    "explanation": "Threat Prevention (Antivirus, Anti-Spyware, Vulnerability Protection/IPS) e WildFire sono servizi di sicurezza avanzati che, insieme a Content-ID, proteggono da minacce note e sconosciute.",
+    "why_wrong": {
+      "2": "Il DHCP è un servizio di rete per l'assegnazione degli indirizzi, non di prevenzione delle minacce.",
+      "3": "STP è un protocollo di rete di livello 2 per evitare loop, non correlato alla sicurezza delle minacce."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-013",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Zero Trust"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali principi sono fondamentali per il modello Zero Trust? (Seleziona 2)",
+    "options": [
+      "Verificare esplicitamente ogni utente e dispositivo secondo il principio 'mai fidarsi, sempre verificare'",
+      "Applicare il privilegio minimo (least privilege) e la microsegmentazione",
+      "Fidarsi implicitamente di tutto il traffico interno alla rete",
+      "Basare la sicurezza esclusivamente sul perimetro di rete"
+    ],
+    "correct": [0, 1],
+    "explanation": "Zero Trust elimina la fiducia implicita: ogni accesso è verificato esplicitamente e viene concesso il minimo privilegio necessario, con microsegmentazione per limitare il movimento laterale.",
+    "why_wrong": {
+      "2": "Zero Trust elimina proprio la fiducia implicita, incluso il traffico interno.",
+      "3": "Zero Trust supera il modello basato solo sul perimetro, considerando ogni risorsa come potenzialmente esposta."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-014",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["SASE"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali affermazioni su Prisma Access (SASE) di Palo Alto Networks sono corrette? (Seleziona 2)",
+    "options": [
+      "Eroga funzioni di sicurezza di rete dal cloud verso utenti mobili e sedi remote",
+      "Combina rete e sicurezza (FWaaS, SWG, ZTNA, CASB) in un servizio cloud convergente",
+      "È un'appliance hardware da installare fisicamente in ogni filiale",
+      "Protegge esclusivamente il traffico interno del data center on-premise"
+    ],
+    "correct": [0, 1],
+    "explanation": "Prisma Access è l'implementazione SASE di Palo Alto Networks: fornisce dal cloud servizi convergenti di rete e sicurezza (FWaaS, Secure Web Gateway, ZTNA, CASB) a utenti e sedi distribuiti.",
+    "why_wrong": {
+      "2": "Prisma Access è un servizio cloud, non un'appliance hardware da installare in ogni filiale.",
+      "3": "È progettato per proteggere utenti e sedi distribuiti, non solo il data center on-premise."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-015",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Firewall Policy", "User-ID"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali elementi possono essere usati come criteri di corrispondenza in una regola di sicurezza di un NGFW Palo Alto Networks? (Seleziona 2)",
+    "options": [
+      "Zone di origine e destinazione",
+      "Applicazione (App-ID) e utente/gruppo (User-ID)",
+      "La temperatura della CPU del firewall",
+      "Il colore del cavo di rete collegato all'interfaccia"
+    ],
+    "correct": [0, 1],
+    "explanation": "Le security policy dei NGFW possono corrispondere su zone, indirizzi, applicazioni (App-ID), utenti e gruppi (User-ID), servizi/porte, categorie URL e altro, consentendo controllo granulare del traffico.",
+    "why_wrong": {
+      "2": "La temperatura della CPU è un parametro di stato hardware, non un criterio di security policy.",
+      "3": "Il colore del cavo non ha alcuna rilevanza per le regole di sicurezza."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-016",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Firewall Policy"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Il servizio URL Filtering (Advanced URL Filtering) di Palo Alto Networks consente di controllare l'accesso web classificando i siti in categorie e applicando policy per categoria.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. URL Filtering assegna una categoria a ogni sito e permette di consentire, bloccare, avvisare o continuare in base alla categoria; l'Advanced URL Filtering aggiunge l'analisi in tempo reale per rilevare URL malevoli e phishing sconosciuti.",
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-017",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["SOAR"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Cortex XSOAR è una piattaforma SIEM che elimina completamente la necessità di raccogliere i log di sicurezza.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Cortex XSOAR è una piattaforma SOAR (Security Orchestration, Automation and Response): orchestra e automatizza le risposte agli incidenti tramite playbook e case management, ma non sostituisce un SIEM né la raccolta dei log, con cui anzi si integra.",
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa4-018",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Firewall Policy"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Senza abilitare la decryption SSL/TLS, il firewall non può ispezionare il contenuto del traffico cifrato per rilevare minacce nascoste al suo interno.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Il traffico cifrato non è leggibile finché non viene decifrato: senza policy di decryption il firewall vede solo i metadati e non può applicare Threat Prevention al payload, lasciando spazio a minacce nascoste nelle sessioni HTTPS/TLS.",
+    "source": "HACK/Palo Alto.rtf"
+  }
+]

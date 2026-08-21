@@ -1,0 +1,451 @@
+[
+  {
+    "id": "ceh4-001",
+    "cert": ["CEH"],
+    "topics": ["Reconnaissance"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale delle seguenti attività è un esempio di reconnaissance passiva?",
+    "options": [
+      "Consultare i registri WHOIS e i profili social pubblici dell'organizzazione target",
+      "Eseguire una scansione delle porte con uno scanner sui server esposti",
+      "Inviare pacchetti ICMP per mappare gli host della rete interna",
+      "Tentare un accesso ai servizi con credenziali predefinite"
+    ],
+    "correct": [0],
+    "explanation": "La reconnaissance passiva raccoglie informazioni da fonti pubbliche (OSINT) senza interagire direttamente con i sistemi del target, quindi è difficile da rilevare. Per il difensore, riconoscere questa fase significa limitare le informazioni esposte pubblicamente (dati DNS, metadati, social).",
+    "why_wrong": {
+      "1": "La scansione delle porte invia pacchetti direttamente ai sistemi target: è reconnaissance/scanning attiva, non passiva.",
+      "2": "L'invio di pacchetti ICMP interagisce direttamente con la rete del target, quindi è attività attiva e potenzialmente rilevabile.",
+      "3": "Il tentativo di accesso con credenziali appartiene già alla fase di gaining access, non alla ricognizione passiva."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-002",
+    "cert": ["CEH"],
+    "topics": ["Scanning", "Port Scanning"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual è lo scopo principale della fase di scanning nella metodologia dell'ethical hacking?",
+    "options": [
+      "Identificare host attivi, porte aperte e servizi in esecuzione sul target",
+      "Cancellare i log per eliminare le tracce dell'attività",
+      "Formare gli utenti a riconoscere le e-mail di phishing",
+      "Stabilire un canale di comando e controllo persistente"
+    ],
+    "correct": [0],
+    "explanation": "Lo scanning individua host vivi, porte e servizi aperti e potenziali punti d'ingresso. Comprendere ciò che uno scanner rivela permette al difensore di ridurre la superficie d'attacco chiudendo porte e disabilitando servizi non necessari e monitorando le scansioni con un IDS.",
+    "why_wrong": {
+      "1": "La cancellazione dei log appartiene alla fase di clearing tracks, successiva alla compromissione.",
+      "2": "La formazione degli utenti è una contromisura organizzativa, non un obiettivo della fase tecnica di scanning.",
+      "3": "Il canale di comando e controllo si stabilisce nella fase di maintaining access, non durante lo scanning."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-003",
+    "cert": ["CEH"],
+    "topics": ["Enumeration"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In cosa consiste la fase di enumeration e perché è rilevante per la difesa?",
+    "options": [
+      "Nell'estrarre attivamente nomi utente, condivisioni, gruppi e risorse dai servizi individuati",
+      "Nel cifrare i dati sensibili prima della trasmissione in rete",
+      "Nel distribuire aggiornamenti di sicurezza a tutti gli endpoint",
+      "Nel generare esclusivamente report di conformità normativa"
+    ],
+    "correct": [0],
+    "explanation": "L'enumeration crea connessioni attive ai servizi per estrarre informazioni dettagliate come account, condivisioni SMB, gruppi e banner. Per difendersi si limitano i banner informativi, si disabilitano le sessioni nulle e si applica il principio del privilegio minimo, riducendo ciò che un attaccante può raccogliere.",
+    "why_wrong": {
+      "1": "La cifratura dei dati è una contromisura crittografica, non l'attività di enumerazione svolta dall'attaccante.",
+      "2": "La distribuzione delle patch è parte del vulnerability management, non dell'enumeration.",
+      "3": "La reportistica di conformità è un'attività di governance e non descrive l'enumeration tecnica."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-004",
+    "cert": ["CEH"],
+    "topics": ["Scanning"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è l'obiettivo della vulnerability analysis all'interno del processo di valutazione della sicurezza?",
+    "options": [
+      "Identificare e classificare le debolezze note dei sistemi per stabilire le priorità di remediation",
+      "Sfruttare le vulnerabilità per esfiltrare dati riservati",
+      "Rimuovere in modo permanente ogni possibilità di attacco futuro",
+      "Sostituire completamente la necessità di applicare le patch"
+    ],
+    "correct": [0],
+    "explanation": "La vulnerability analysis rileva e classifica le debolezze (ad esempio tramite scanner e confronto con database CVE) per assegnare priorità alla remediation in base al rischio. È un'attività difensiva che alimenta il patch management e la riduzione della superficie d'attacco.",
+    "why_wrong": {
+      "1": "Lo sfruttamento delle vulnerabilità è la fase di exploitation, distinta dall'analisi che si limita a individuarle e valutarle.",
+      "2": "Nessuna analisi elimina in modo permanente ogni rischio: la sicurezza è un processo continuo.",
+      "3": "L'analisi individua le vulnerabilità ma non sostituisce l'applicazione delle patch, che resta indispensabile."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-005",
+    "cert": ["CEH"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale definizione descrive correttamente un trojan (cavallo di Troia)?",
+    "options": [
+      "Un programma apparentemente legittimo che nasconde funzionalità dannose eseguite all'insaputa dell'utente",
+      "Un codice che si replica autonomamente attraverso la rete senza bisogno di un file ospite",
+      "Un programma che cifra i file e chiede un riscatto per decifrarli",
+      "Un dispositivo hardware che intercetta il traffico di rete"
+    ],
+    "correct": [0],
+    "explanation": "Il trojan si maschera da software legittimo per indurre l'utente a eseguirlo, mentre nasconde payload dannosi (backdoor, spyware). Le difese principali sono l'esecuzione di software solo da fonti attendibili, il controllo delle firme e soluzioni anti-malware/EDR con analisi comportamentale.",
+    "why_wrong": {
+      "1": "La replica autonoma in rete senza file ospite descrive un worm, non un trojan.",
+      "2": "La cifratura dei file con richiesta di riscatto descrive il ransomware.",
+      "3": "Un dispositivo hardware che intercetta il traffico è uno sniffer/tap, non un malware trojan."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-006",
+    "cert": ["CEH"],
+    "topics": ["Sicurezza Wireless"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale contromisura è più efficace per prevenire lo sniffing del traffico su una rete commutata?",
+    "options": [
+      "Cifrare le comunicazioni con protocolli sicuri come TLS/HTTPS e SSH",
+      "Aumentare la larghezza di banda dei collegamenti di rete",
+      "Assegnare indirizzi IP statici a tutti i dispositivi",
+      "Disabilitare i log degli switch per migliorare le prestazioni"
+    ],
+    "correct": [0],
+    "explanation": "Lo sniffing intercetta i dati in transito; cifrare le comunicazioni end-to-end (TLS, SSH, VPN) rende inutilizzabile il traffico catturato. Ulteriori difese includono port security, Dynamic ARP Inspection e segmentazione per contrastare ARP poisoning e MAC flooding.",
+    "why_wrong": {
+      "1": "Aumentare la banda non protegge la riservatezza dei dati intercettati.",
+      "2": "Gli IP statici non impediscono la cattura del traffico né la sua lettura se non è cifrato.",
+      "3": "Disabilitare i log riduce la visibilità difensiva e non previene in alcun modo lo sniffing."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-007",
+    "cert": ["CEH"],
+    "topics": ["Social Engineering"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual è la contromisura più importante contro gli attacchi di social engineering?",
+    "options": [
+      "Formazione e sensibilizzazione continua degli utenti, unita a procedure di verifica",
+      "Installare un firewall perimetrale più potente",
+      "Aumentare la complessità degli algoritmi di cifratura",
+      "Sostituire i dischi rigidi con unità a stato solido"
+    ],
+    "correct": [0],
+    "explanation": "Il social engineering sfrutta il fattore umano, quindi la difesa principale è la formazione continua, il security awareness e procedure di verifica dell'identità (ad esempio doppia conferma per richieste sensibili). I controlli tecnici da soli non fermano l'inganno psicologico.",
+    "why_wrong": {
+      "1": "Un firewall filtra il traffico di rete ma non impedisce a un dipendente di essere manipolato.",
+      "2": "La cifratura protegge i dati ma non ferma un utente indotto con l'inganno a rivelare informazioni.",
+      "3": "Il tipo di disco è irrilevante rispetto alla manipolazione psicologica delle persone."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-008",
+    "cert": ["CEH"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale misura contribuisce a mitigare un attacco DDoS volumetrico?",
+    "options": [
+      "Utilizzare servizi di scrubbing/CDN e rate limiting per assorbire e filtrare il traffico",
+      "Spegnere l'IDS per ridurre il carico dei server",
+      "Comunicare pubblicamente gli indirizzi IP interni dei server",
+      "Disabilitare la ridondanza dei collegamenti di rete"
+    ],
+    "correct": [0],
+    "explanation": "Contro i DDoS volumetrici si usano servizi anti-DDoS/scrubbing, CDN, rate limiting, filtraggio a monte presso l'ISP e capacità ridondante. L'obiettivo è distribuire e filtrare il traffico malevolo prima che saturi le risorse del target.",
+    "why_wrong": {
+      "1": "Spegnere l'IDS riduce la visibilità sull'attacco e non ne diminuisce il volume.",
+      "2": "Divulgare gli IP interni aumenta l'esposizione anziché mitigare l'attacco.",
+      "3": "Disabilitare la ridondanza rende il servizio più fragile e più facile da saturare."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-009",
+    "cert": ["CEH"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale protezione riduce efficacemente il rischio di session hijacking sulle applicazioni web?",
+    "options": [
+      "Usare HTTPS, cookie con flag Secure e HttpOnly e rigenerare l'ID di sessione dopo il login",
+      "Memorizzare gli ID di sessione in chiaro negli URL",
+      "Impostare una durata di sessione illimitata per comodità degli utenti",
+      "Utilizzare identificatori di sessione brevi e sequenziali"
+    ],
+    "correct": [0],
+    "explanation": "Il session hijacking sottrae o predice il token di sessione. Difese chiave sono il trasporto cifrato (HTTPS), cookie con flag Secure/HttpOnly, ID di sessione lunghi e casuali, timeout e rigenerazione del token dopo l'autenticazione, che invalidano gli identificatori catturati.",
+    "why_wrong": {
+      "1": "Gli ID nell'URL vengono facilmente esposti in log, cronologia e referer, favorendo il furto della sessione.",
+      "2": "Sessioni illimitate lasciano un token valido a tempo indefinito, aumentando la finestra di attacco.",
+      "3": "ID brevi e sequenziali sono prevedibili e quindi facilmente indovinabili da un attaccante."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-010",
+    "cert": ["CEH"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un attaccante frammenta i pacchetti per eludere un IDS basato su firme. Quale contromisura aiuta a rilevare questa tecnica di evasione?",
+    "options": [
+      "Abilitare il riassemblaggio dei pacchetti e l'analisi statale del traffico sull'IDS/IPS",
+      "Ridurre a zero il periodo di conservazione dei log",
+      "Disattivare l'ispezione approfondita dei pacchetti",
+      "Consentire tutto il traffico frammentato senza controllo"
+    ],
+    "correct": [0],
+    "explanation": "La frammentazione mira a impedire all'IDS di riconoscere una firma spezzata su più pacchetti. Abilitare il riassemblaggio (packet reassembly), l'ispezione statale e la normalizzazione del traffico consente al sensore di ricostruire il flusso completo e rilevare l'attacco.",
+    "why_wrong": {
+      "1": "Ridurre la conservazione dei log ostacola l'analisi forense e non aiuta a rilevare l'evasione.",
+      "2": "Disattivare la deep packet inspection elimina proprio il controllo necessario a scoprire il payload malevolo.",
+      "3": "Consentire il traffico frammentato senza controllo lascia passare l'attacco indisturbato."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-011",
+    "cert": ["CEH"],
+    "topics": ["Scanning"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale pratica migliora la sicurezza di un web server esposto a Internet?",
+    "options": [
+      "Rimuovere servizi e moduli non necessari, applicare le patch e configurare un banner minimale",
+      "Eseguire il servizio web con privilegi di amministratore di sistema",
+      "Mantenere attive le pagine e gli script di esempio predefiniti",
+      "Esporre messaggi di errore dettagliati con percorsi e versioni del software"
+    ],
+    "correct": [0],
+    "explanation": "L'hardening di un web server prevede la rimozione di componenti inutili, l'applicazione tempestiva delle patch, l'esecuzione con privilegi minimi e la riduzione delle informazioni nei banner. Questo diminuisce la superficie d'attacco e le informazioni utili all'attaccante durante l'enumeration.",
+    "why_wrong": {
+      "1": "Eseguire il servizio come amministratore amplifica l'impatto di una compromissione violando il privilegio minimo.",
+      "2": "Le pagine e gli script di esempio contengono spesso vulnerabilità note e vanno rimossi.",
+      "3": "Messaggi di errore verbosi rivelano versioni e percorsi, agevolando l'attaccante."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-012",
+    "cert": ["CEH"],
+    "topics": ["SQL Injection"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale contromisura è considerata la difesa primaria contro la SQL injection?",
+    "options": [
+      "Usare query parametrizzate (prepared statement) e validare/sanificare l'input",
+      "Nascondere il pulsante di login nell'interfaccia utente",
+      "Aumentare il timeout delle connessioni al database",
+      "Affidarsi solo alla validazione lato client tramite JavaScript"
+    ],
+    "correct": [0],
+    "explanation": "La SQL injection sfrutta l'inserimento di input non controllato nelle query. La difesa principale sono le query parametrizzate/prepared statement, che separano codice e dati, unite a validazione dell'input, privilegi minimi sul database e stored procedure sicure.",
+    "why_wrong": {
+      "1": "Nascondere il pulsante di login è security through obscurity e non impedisce l'invio diretto di payload.",
+      "2": "Il timeout delle connessioni non ha alcun effetto sulla manipolazione delle query.",
+      "3": "La validazione lato client può essere aggirata facilmente; i controlli devono essere applicati lato server."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-013",
+    "cert": ["CEH"],
+    "topics": ["Sicurezza Wireless"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale configurazione offre la protezione più robusta per una rete Wi-Fi aziendale?",
+    "options": [
+      "WPA3 (o WPA2-Enterprise con 802.1X) e password/robustezza adeguate",
+      "WEP con una chiave a 128 bit",
+      "Rete aperta con solo filtraggio degli indirizzi MAC",
+      "Nascondere il SSID come unica misura di sicurezza"
+    ],
+    "correct": [0],
+    "explanation": "WPA3, o in alternativa WPA2-Enterprise con autenticazione 802.1X, fornisce cifratura forte e gestione sicura delle chiavi. WEP è obsoleto e violabile, mentre filtro MAC e SSID nascosto sono facilmente aggirabili e non sostituiscono una cifratura robusta.",
+    "why_wrong": {
+      "1": "WEP utilizza algoritmi deboli e può essere violato in pochi minuti; è deprecato.",
+      "2": "Gli indirizzi MAC si possono clonare (spoofing), quindi il filtro MAC non protegge una rete aperta.",
+      "3": "Il SSID nascosto è comunque individuabile e non fornisce alcuna cifratura del traffico."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-014",
+    "cert": ["CEH"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale affermazione descrive correttamente la differenza tra cifratura simmetrica e asimmetrica?",
+    "options": [
+      "La simmetrica usa un'unica chiave condivisa, l'asimmetrica usa una coppia di chiavi pubblica e privata",
+      "La simmetrica non usa alcuna chiave, l'asimmetrica ne usa una sola",
+      "La asimmetrica è sempre più veloce della simmetrica su grandi volumi di dati",
+      "Entrambe usano esclusivamente la stessa chiave pubblica per tutti gli utenti"
+    ],
+    "correct": [0],
+    "explanation": "La cifratura simmetrica (es. AES) impiega una sola chiave segreta condivisa tra le parti; l'asimmetrica (es. RSA) usa una coppia chiave pubblica/privata. Spesso si combinano: l'asimmetrica scambia in sicurezza una chiave di sessione simmetrica usata poi per i dati.",
+    "why_wrong": {
+      "1": "La cifratura simmetrica usa sempre una chiave; è falso che non ne impieghi alcuna.",
+      "2": "L'asimmetrica è computazionalmente più lenta della simmetrica su grandi volumi, per questo si usa per lo scambio di chiavi.",
+      "3": "Nella asimmetrica ogni utente ha la propria coppia di chiavi, non un'unica chiave pubblica comune."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-015",
+    "cert": ["CEH"],
+    "topics": ["Penetration Testing"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni sui tipi di penetration test sono corrette? (due risposte)",
+    "options": [
+      "Nel black box il tester non dispone di conoscenze preliminari dell'infrastruttura interna",
+      "Nel white box il tester ha informazioni complete come codice sorgente e architettura",
+      "Il grey box richiede sempre l'accesso fisico ai data center del cliente",
+      "Un penetration test è legittimo anche senza autorizzazione scritta se individua vulnerabilità reali"
+    ],
+    "correct": [0, 1],
+    "explanation": "Nel black box il tester parte senza conoscenze interne, simulando un attaccante esterno; nel white box dispone di informazioni complete per un'analisi approfondita; il grey box è una via di mezzo con conoscenza parziale. In tutti i casi l'autorizzazione scritta e uno scope definito sono requisiti etici e legali imprescindibili.",
+    "why_wrong": {
+      "2": "Il grey box indica una conoscenza parziale del sistema, non implica alcun requisito di accesso fisico ai data center.",
+      "3": "Senza autorizzazione scritta l'attività è illegale, a prescindere dalle vulnerabilità trovate: l'autorizzazione è il fondamento dell'ethical hacking."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-016",
+    "cert": ["CEH"],
+    "topics": ["Malware"],
+    "type": "multi",
+    "difficulty": 1,
+    "question": "Quali misure aiutano a difendersi efficacemente dai malware? (due risposte)",
+    "options": [
+      "Mantenere aggiornati sistemi operativi e applicazioni con le patch di sicurezza",
+      "Utilizzare soluzioni anti-malware/EDR con analisi comportamentale e backup regolari",
+      "Concedere privilegi di amministratore a tutti gli utenti per semplicità operativa",
+      "Disabilitare tutti i log di sistema per ridurre il carico dei server"
+    ],
+    "correct": [0, 1],
+    "explanation": "Le difese antimalware combinano patch management, soluzioni anti-malware/EDR con analisi comportamentale, backup affidabili, privilegio minimo e formazione degli utenti. Ridurre i privilegi e mantenere i log migliora la capacità di prevenzione e rilevamento.",
+    "why_wrong": {
+      "2": "Concedere privilegi amministrativi a tutti amplia l'impatto di un'infezione e viola il principio del privilegio minimo.",
+      "3": "Disabilitare i log elimina la visibilità necessaria a rilevare e investigare le infezioni."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-017",
+    "cert": ["CEH"],
+    "topics": ["Cloud security"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali pratiche migliorano la sicurezza degli ambienti cloud? (due risposte)",
+    "options": [
+      "Applicare il principio del privilegio minimo alle identità e ai ruoli IAM",
+      "Cifrare i dati a riposo e in transito e monitorare le configurazioni",
+      "Lasciare i bucket di storage pubblicamente accessibili per comodità",
+      "Salvare le chiavi API in repository di codice pubblici"
+    ],
+    "correct": [0, 1],
+    "explanation": "La sicurezza cloud si basa su gestione rigorosa delle identità (IAM con privilegio minimo e MFA), cifratura dei dati, monitoraggio delle configurazioni e responsabilità condivisa. Errori come bucket pubblici e chiavi esposte sono cause frequenti di violazioni.",
+    "why_wrong": {
+      "2": "Bucket di storage pubblici espongono i dati a chiunque su Internet e sono una delle principali cause di data leak.",
+      "3": "Le chiavi API in repository pubblici vengono rapidamente individuate e abusate dagli attaccanti."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-018",
+    "cert": ["CEH"],
+    "topics": ["IDS/IPS", "Cloud security"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali affermazioni sulla sicurezza di dispositivi mobile, IoT e OT sono corrette? (due risposte)",
+    "options": [
+      "Cambiare le credenziali predefinite dei dispositivi IoT riduce il rischio di compromissione",
+      "La segmentazione di rete isola i sistemi OT/ICS dalla rete IT generale limitando i movimenti laterali",
+      "I dispositivi IoT non necessitano mai di aggiornamenti del firmware",
+      "Le app mobili possono memorizzare password in chiaro sul dispositivo senza rischi"
+    ],
+    "correct": [0, 1],
+    "explanation": "IoT e OT vanno protetti cambiando le credenziali predefinite, aggiornando il firmware e segmentando le reti per isolare i sistemi critici. Le app mobili devono conservare i segreti in modo sicuro (keystore/keychain), mai in chiaro, per evitare furto di credenziali.",
+    "why_wrong": {
+      "2": "Il firmware IoT richiede aggiornamenti periodici per correggere vulnerabilità note: non aggiornarlo lascia falle sfruttabili.",
+      "3": "Le password memorizzate in chiaro possono essere estratte da chi accede al dispositivo o ai backup, con grave rischio."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-019",
+    "cert": ["CEH"],
+    "topics": ["XSS"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali contromisure prevengono gli attacchi Cross-Site Scripting (XSS)? (due risposte)",
+    "options": [
+      "Validare l'input e applicare l'output encoding contestuale ai dati mostrati nelle pagine",
+      "Implementare una Content Security Policy (CSP) restrittiva",
+      "Trasmettere le password degli utenti tramite HTTP non cifrato",
+      "Disattivare completamente HTTPS sul sito web"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'XSS inietta script nel contesto del browser della vittima. Le difese principali sono la validazione dell'input, l'output encoding contestuale, l'uso del flag HttpOnly sui cookie e una Content Security Policy che limita le sorgenti di script eseguibili.",
+    "why_wrong": {
+      "2": "Trasmettere le password in HTTP non cifrato è una grave debolezza a sé e non ha alcun effetto preventivo sull'XSS.",
+      "3": "Disattivare HTTPS riduce la sicurezza complessiva e non contrasta l'iniezione di script nelle pagine."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-020",
+    "cert": ["CEH"],
+    "topics": ["Penetration Testing"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Un penetration test etico deve sempre essere autorizzato per iscritto e delimitato da uno scope concordato prima di iniziare le attività.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "L'autorizzazione scritta (ad esempio tramite Rules of Engagement e contratto) e la definizione dello scope sono requisiti etici e legali fondamentali. Senza di essi l'attività costituisce un accesso non autorizzato e quindi un reato, oltre a esporre il tester a responsabilità legali.",
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-021",
+    "cert": ["CEH"],
+    "topics": ["Crittografia"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Una funzione di hash crittografica come SHA-256 è progettata per essere reversibile, così da poter ricavare facilmente il testo originale a partire dal valore hash.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso: le funzioni di hash crittografiche sono unidirezionali e resistenti alle collisioni, quindi non permettono di risalire all'input originale. Per proteggere le password si usano hash con salt e algoritmi lenti (bcrypt, scrypt, Argon2), non la cifratura reversibile.",
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh4-022",
+    "cert": ["CEH"],
+    "topics": ["IDS/IPS"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Un honeypot è un sistema esca deliberatamente esposto e monitorato, usato per rilevare, deviare e studiare i tentativi di attacco.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero: l'honeypot è una risorsa esca che non ha uso legittimo, quindi ogni interazione con esso è sospetta. Serve al difensore per rilevare precocemente gli attacchi, distogliere l'attaccante dai sistemi reali e raccogliere informazioni sulle tecniche utilizzate.",
+    "source": "CEH - Certified Ethical Hacker"
+  }
+]

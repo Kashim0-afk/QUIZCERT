@@ -1,0 +1,309 @@
+[
+  {
+    "id": "ibm4-001",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un dipendente apre un allegato che cifra tutti i documenti sul suo computer e mostra una richiesta di pagamento in criptovaluta per ottenere la chiave di decifratura. Di quale tipo di malware si tratta?",
+    "options": ["Worm", "Ransomware", "Rootkit", "Adware"],
+    "correct": [1],
+    "explanation": "Il ransomware cifra i file della vittima e chiede un riscatto (spesso in criptovaluta) in cambio della chiave di decifratura. Il comportamento descritto (cifratura + richiesta di pagamento) ne è la firma classica.",
+    "why_wrong": {
+      "0": "Un worm si replica e si propaga autonomamente in rete, ma non ha come obiettivo primario la cifratura dei file a scopo di estorsione.",
+      "2": "Un rootkit serve a nascondere la presenza dell'attaccante mantenendo un accesso privilegiato e furtivo, non a chiedere un riscatto.",
+      "3": "L'adware mostra pubblicità indesiderata e non cifra i dati né richiede pagamenti per liberarli."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-002",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["CIA Triad"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un attacco DDoS satura di richieste il server di e-commerce di un'azienda, rendendolo irraggiungibile ai clienti legittimi per diverse ore. Quale proprieta della triade CIA viene principalmente compromessa?",
+    "options": ["Riservatezza", "Integrita", "Disponibilita", "Non ripudio"],
+    "correct": [2],
+    "explanation": "La Disponibilita garantisce che i sistemi e i dati siano accessibili agli utenti autorizzati quando servono. Un DDoS che rende il servizio irraggiungibile colpisce esattamente questa proprieta.",
+    "why_wrong": {
+      "0": "La Riservatezza riguarda la protezione dei dati da accessi non autorizzati; in un DDoS i dati non vengono necessariamente letti o divulgati.",
+      "1": "L'Integrita riguarda la non alterazione dei dati; un DDoS non modifica il contenuto delle informazioni, ne blocca solo l'accesso.",
+      "3": "Il non ripudio riguarda l'impossibilita di negare un'azione compiuta e non e la proprieta interessata da un'interruzione del servizio."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-003",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Threat Intelligence"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un gruppo di attaccanti ben finanziato e sponsorizzato da uno stato nazionale conduce per mesi una campagna furtiva e mirata per sottrarre segreti industriali a un'azienda della difesa, mantenendo l'accesso senza farsi rilevare. Come si classifica meglio questo attore della minaccia?",
+    "options": ["Script kiddie", "APT (Advanced Persistent Threat)", "Hacktivista", "Insider accidentale"],
+    "correct": [1],
+    "explanation": "Un APT e un attore altamente capace e dotato di risorse (spesso statale) che conduce intrusioni prolungate, mirate e furtive per obiettivi strategici come lo spionaggio. La persistenza e la sofisticazione descritte lo identificano.",
+    "why_wrong": {
+      "0": "Uno script kiddie usa strumenti pronti senza competenze approfondite e non e in grado di sostenere una campagna prolungata e furtiva.",
+      "2": "Un hacktivista agisce per motivazioni ideologiche o politiche, tipicamente con azioni dimostrative e visibili, non con spionaggio industriale silenzioso.",
+      "3": "Un insider accidentale causa danni per errore o negligenza, senza l'intenzionalita e l'organizzazione di una campagna di spionaggio."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-004",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Architettura di sicurezza"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Nell'approccio all'architettura di sicurezza proposto da IBM, il sistema informativo viene protetto per domini funzionali. Quali dei seguenti rientrano tra questi domini di sicurezza? (seleziona due)",
+    "options": ["Gestione delle identita e degli accessi (IAM)", "Contabilita generale", "Sicurezza degli endpoint", "Marketing digitale"],
+    "correct": [0, 2],
+    "explanation": "L'architettura di sicurezza IBM organizza le difese in domini quali IAM, sicurezza degli endpoint, della rete, delle applicazioni e dei dati. IAM e la sicurezza degli endpoint sono due di questi domini fondamentali.",
+    "why_wrong": {
+      "1": "La contabilita generale e una funzione amministrativa aziendale, non un dominio dell'architettura di sicurezza.",
+      "3": "Il marketing digitale e un'attivita di business e non costituisce un dominio di sicurezza da proteggere architetturalmente."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-005",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un sistema di Identity and Access Management (IAM), quale principio impone di concedere a ogni utente o processo esclusivamente i permessi strettamente necessari a svolgere le proprie funzioni, nulla di piu?",
+    "options": ["Privilegio minimo (least privilege)", "Difesa in profondita", "Ridondanza geografica", "Fail-open"],
+    "correct": [0],
+    "explanation": "Il principio del privilegio minimo limita i diritti di ciascun soggetto allo stretto indispensabile, riducendo la superficie di attacco e l'impatto di un eventuale account compromesso.",
+    "why_wrong": {
+      "1": "La difesa in profondita prevede piu livelli di controllo sovrapposti, ma non definisce quanti permessi assegnare a un singolo utente.",
+      "2": "La ridondanza geografica riguarda la continuita operativa e la disponibilita, non l'assegnazione dei permessi.",
+      "3": "Il fail-open descrive un comportamento in caso di guasto (consentire l'accesso) ed e generalmente insicuro, non un principio di assegnazione dei privilegi."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-006",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Architettura di sicurezza"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'azienda vuole rafforzare la sicurezza degli endpoint andando oltre l'antivirus basato su firme, per rilevare e rispondere anche a minacce sconosciute monitorando in continuo il comportamento dei processi. Quale tecnologia e piu adatta?",
+    "options": ["EDR (Endpoint Detection and Response)", "DHCP", "NAT", "RAID 5"],
+    "correct": [0],
+    "explanation": "Un EDR monitora continuamente l'attivita degli endpoint, rileva comportamenti anomali (anche di minacce zero-day non coperte da firme) e consente risposte come l'isolamento dell'host o la terminazione dei processi.",
+    "why_wrong": {
+      "1": "Il DHCP assegna automaticamente gli indirizzi IP ai dispositivi e non ha funzioni di sicurezza degli endpoint.",
+      "2": "Il NAT traduce gli indirizzi di rete e non rileva ne risponde alle minacce sugli endpoint.",
+      "3": "Il RAID 5 e una tecnica di ridondanza dei dischi per la disponibilita dei dati, non uno strumento di rilevamento delle minacce."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-007",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Difesa in profondita"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "La segmentazione della rete tramite VLAN e firewall interni contribuisce a limitare il movimento laterale di un attaccante che ha gia compromesso un host all'interno del perimetro.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Suddividere la rete in segmenti isolati e controllare il traffico tra di essi impedisce a un attaccante che ha compromesso un host di raggiungere liberamente altri sistemi, contenendo la propagazione della minaccia.",
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-008",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Architettura di sicurezza"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un test rivela che un'applicazione web non controlla i dati inseriti dagli utenti e consente di iniettare comandi SQL malevoli nei campi del modulo di login. Quale contromisura di sicurezza applicativa e la piu appropriata?",
+    "options": ["Validazione/sanificazione degli input e query parametrizzate", "Aumentare la memoria RAM del server", "Disabilitare i log applicativi", "Assegnare al server un indirizzo IP pubblico"],
+    "correct": [0],
+    "explanation": "La SQL injection si previene validando e sanificando l'input e, soprattutto, usando query parametrizzate (prepared statement) che separano il codice SQL dai dati forniti dall'utente.",
+    "why_wrong": {
+      "1": "Aumentare la RAM migliora le prestazioni ma non impedisce l'iniezione di comandi SQL.",
+      "2": "Disabilitare i log riduce la visibilita e la capacita di indagine, peggiorando la sicurezza invece di risolvere la vulnerabilita.",
+      "3": "Assegnare un IP pubblico non ha alcun effetto sulla validazione dell'input e, anzi, aumenta l'esposizione del server."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-009",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Crittografia", "Architettura di sicurezza"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Per proteggere i dati a riposo (data at rest) sul portatile aziendale di un dipendente, in modo che restino illeggibili in caso di furto del dispositivo, quale controllo e piu efficace?",
+    "options": ["Cifratura completa del disco (full disk encryption)", "Un salvaschermo protetto da password", "La compressione dei file", "Aumentare la frequenza dei backup"],
+    "correct": [0],
+    "explanation": "La cifratura completa del disco rende i dati illeggibili senza la chiave/credenziale corretta: anche rimuovendo fisicamente il disco, un ladro non puo accedere alle informazioni.",
+    "why_wrong": {
+      "1": "Un salvaschermo con password blocca solo la sessione: chi estrae il disco e lo collega a un altro sistema legge comunque i dati non cifrati.",
+      "2": "La compressione riduce lo spazio occupato ma non rende i dati illeggibili a chi li ottiene.",
+      "3": "Backup frequenti proteggono dalla perdita dei dati, ma non impediscono che i dati sul disco rubato vengano letti."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-010",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Crittografia"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni sulla crittografia a chiave asimmetrica (a chiave pubblica) sono corrette? (seleziona due)",
+    "options": [
+      "Utilizza una coppia di chiavi matematicamente legate: una pubblica e una privata",
+      "Utilizza un'unica chiave segreta condivisa sia per cifrare sia per decifrare",
+      "Un messaggio cifrato con la chiave pubblica puo essere decifrato solo dalla corrispondente chiave privata",
+      "E sempre piu veloce della crittografia simmetrica per cifrare grandi volumi di dati"
+    ],
+    "correct": [0, 2],
+    "explanation": "La crittografia asimmetrica si basa su una coppia di chiavi (pubblica e privata): cio che viene cifrato con la chiave pubblica puo essere decifrato solo dalla chiave privata associata, e viceversa. Questo permette scambio sicuro di chiavi e firme digitali.",
+    "why_wrong": {
+      "1": "L'uso di un'unica chiave segreta condivisa per cifrare e decifrare descrive la crittografia simmetrica, non quella asimmetrica.",
+      "3": "La crittografia asimmetrica e computazionalmente piu lenta di quella simmetrica; per grandi volumi si usa spesso un approccio ibrido in cui l'asimmetrica protegge solo la chiave simmetrica di sessione."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-011",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["SIEM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e la funzione principale di una piattaforma SIEM all'interno di un Security Operations Center?",
+    "options": [
+      "Raccogliere, normalizzare e correlare in tempo reale log ed eventi provenienti da fonti diverse per generare allarmi di sicurezza",
+      "Cifrare tutto il traffico delle VPN aziendali",
+      "Distribuire gli aggiornamenti del sistema operativo agli endpoint",
+      "Erogare i corsi di formazione sulla sicurezza ai dipendenti"
+    ],
+    "correct": [0],
+    "explanation": "Un SIEM (Security Information and Event Management) centralizza i log da molte fonti, li normalizza e li correla per individuare pattern sospetti, generando allarmi e supportando l'analisi e le indagini nel SOC.",
+    "why_wrong": {
+      "1": "La cifratura del traffico VPN e compito di soluzioni VPN/gateway, non di un SIEM.",
+      "2": "La distribuzione delle patch spetta a strumenti di patch/endpoint management, non al SIEM.",
+      "3": "La formazione degli utenti e un'attivita di security awareness, distinta dalla raccolta e correlazione degli eventi."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-012",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["SIEM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un SOC vuole ridurre i tempi di risposta automatizzando azioni ripetitive come l'isolamento di un host, l'arricchimento degli indicatori e il blocco di un IP, orchestrando piu strumenti tramite playbook predefiniti. Quale tecnologia risponde a questa esigenza?",
+    "options": ["SOAR (Security Orchestration, Automation and Response)", "DLP (Data Loss Prevention)", "Un semplice honeypot", "Un proxy web di navigazione"],
+    "correct": [0],
+    "explanation": "Il SOAR orchestra e automatizza i flussi di risposta agli incidenti tramite playbook, integrando strumenti diversi e riducendo il lavoro manuale ripetitivo degli analisti, quindi i tempi di risposta.",
+    "why_wrong": {
+      "1": "La DLP previene la fuoriuscita di dati sensibili, ma non orchestra ne automatizza i flussi di risposta agli incidenti.",
+      "2": "Un honeypot e un'esca per attirare e osservare gli attaccanti, non uno strumento di automazione della risposta.",
+      "3": "Un proxy web filtra e media la navigazione, senza funzioni di orchestrazione e automazione della risposta."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-013",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Incident Response"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Secondo il ciclo di gestione degli incidenti del NIST (SP 800-61), la fase di attivita post-incidente (lezioni apprese) deve essere svolta solo per gli incidenti classificati come critici.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Le lezioni apprese sono una fase strutturale del ciclo NIST e vanno applicate a tutti gli incidenti significativi (non solo ai critici) per migliorare processi, controlli e capacita di risposta future.",
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-014",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Analisi forense"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In un'indagine di digital forensics, per garantire che le prove digitali siano ammissibili in tribunale, quale elemento documenta in modo tracciabile chi ha avuto accesso a ciascun reperto, quando, dove e per quale motivo, dalla raccolta fino alla presentazione?",
+    "options": ["La catena di custodia (chain of custody)", "Il disciplinare tecnico del server", "La politica di backup aziendale", "Il registro delle assegnazioni DHCP"],
+    "correct": [0],
+    "explanation": "La catena di custodia documenta ogni passaggio e accesso al reperto digitale, preservandone l'integrita e dimostrando che la prova non e stata alterata: e essenziale per l'ammissibilita in sede legale.",
+    "why_wrong": {
+      "1": "Il disciplinare tecnico descrive configurazioni e specifiche di un sistema, non la tracciabilita del reperto di prova.",
+      "2": "La politica di backup regola le copie di sicurezza, ma non traccia gli accessi alle prove durante un'indagine.",
+      "3": "Il registro DHCP puo aiutare a correlare IP e dispositivi, ma non documenta la custodia e l'integrita dei reperti."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-015",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Threat Intelligence"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Nella threat intelligence, gli Indicatori di Compromissione (IoC) sono artefatti osservabili che segnalano una possibile intrusione. Quali dei seguenti sono esempi validi di IoC? (seleziona due)",
+    "options": [
+      "L'hash (es. SHA-256) di un file malevolo noto",
+      "Il colore del logo aziendale",
+      "Un dominio o indirizzo IP associato a un server di comando e controllo (C2)",
+      "Il numero totale di dipendenti dell'azienda"
+    ],
+    "correct": [0, 2],
+    "explanation": "Gli IoC sono elementi tecnici osservabili collegati a un'attivita malevola: hash di file dannosi, domini/IP di C2, URL, chiavi di registro o mutex. Hash del malware e IP/dominio C2 sono esempi tipici usati per rilevamento e blocco.",
+    "why_wrong": {
+      "1": "Il colore del logo aziendale e un elemento di branding e non ha alcuna relazione con un'attivita malevola rilevabile.",
+      "3": "Il numero di dipendenti e un dato organizzativo e non costituisce un artefatto tecnico indicativo di compromissione."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-016",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Threat Intelligence"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Durante un penetration test autorizzato, in quale fase il tester raccoglie informazioni pubblicamente disponibili sull'organizzazione (domini, indirizzi email, nomi dei dipendenti) senza interagire direttamente con i sistemi bersaglio?",
+    "options": ["Ricognizione passiva (OSINT)", "Sfruttamento (exploitation)", "Post-sfruttamento", "Redazione del report finale"],
+    "correct": [0],
+    "explanation": "La ricognizione passiva (OSINT) raccoglie informazioni da fonti pubbliche senza toccare i sistemi del bersaglio, riducendo il rischio di essere rilevati e preparando le fasi successive del test.",
+    "why_wrong": {
+      "1": "Lo sfruttamento e la fase attiva in cui si utilizzano le vulnerabilita per ottenere accesso, quindi implica interazione diretta con i sistemi.",
+      "2": "Il post-sfruttamento avviene dopo aver ottenuto l'accesso, per mantenere la presenza ed espandere il controllo.",
+      "3": "La redazione del report e la fase conclusiva in cui si documentano i risultati, non la raccolta iniziale di informazioni."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-017",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Architettura di sicurezza"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nel modello di responsabilita condivisa del cloud, in un servizio IaaS (Infrastructure as a Service) e il fornitore cloud a essere responsabile della messa in sicurezza del sistema operativo e delle applicazioni installate dal cliente.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. In un modello IaaS il fornitore protegge l'infrastruttura fisica, la virtualizzazione e la rete di base, mentre il cliente resta responsabile di sistema operativo, patch, configurazioni, applicazioni e dati.",
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm4-018",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["IDS/IPS"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali affermazioni distinguono correttamente un IDS da un IPS? (seleziona due)",
+    "options": [
+      "Un IDS rileva e segnala il traffico sospetto ma non lo blocca autonomamente",
+      "Un IPS, posizionato in linea, puo bloccare o scartare attivamente il traffico malevolo",
+      "Un IDS cifra automaticamente tutto il traffico di rete che attraversa il segmento",
+      "Un IPS rende del tutto superflui firewall e antivirus"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'IDS (Intrusion Detection System) e passivo: osserva e allerta. L'IPS (Intrusion Prevention System) e posizionato in linea e puo intervenire bloccando o scartando il traffico dannoso in tempo reale.",
+    "why_wrong": {
+      "2": "Un IDS non ha funzioni di cifratura del traffico: si limita a ispezionare e segnalare gli eventi sospetti.",
+      "3": "L'IPS e un livello di difesa complementare, non sostitutivo: firewall e antivirus restano necessari in un'architettura a difesa in profondita."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  }
+]

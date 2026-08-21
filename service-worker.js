@@ -1,4 +1,4 @@
-const CACHE = 'quizcert-v6';
+const CACHE = 'quizcert-v7';
 const SHELL = [
   ".",
   "index.html",
@@ -60,7 +60,17 @@ const SHELL = [
   "data/questions/o3-securityplus.json",
   "data/questions/o3-tooling.json",
   "data/questions/o3-websec.json",
+  "data/questions/o4-az900.json",
   "data/questions/o4-ccna.json",
+  "data/questions/o4-ceh.json",
+  "data/questions/o4-fortinet.json",
+  "data/questions/o4-google.json",
+  "data/questions/o4-ibm.json",
+  "data/questions/o4-itil4.json",
+  "data/questions/o4-md102.json",
+  "data/questions/o4-networkplus.json",
+  "data/questions/o4-paloalto.json",
+  "data/questions/o4-sc900.json",
   "data/questions/o4-securityplus.json",
   "data/questions/sample.json",
   "manifest.webmanifest",
