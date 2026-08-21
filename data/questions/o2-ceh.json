@@ -1,0 +1,364 @@
+[
+  {
+    "id": "ceh-001",
+    "cert": ["CEH"],
+    "topics": ["Penetration Testing"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual e l'ordine corretto delle fasi classiche dell'hacking etico secondo la metodologia CEH?",
+    "options": [
+      "Scanning, Reconnaissance, Gaining Access, Maintaining Access, Clearing Tracks",
+      "Reconnaissance, Scanning, Gaining Access, Maintaining Access, Clearing Tracks",
+      "Reconnaissance, Gaining Access, Scanning, Clearing Tracks, Maintaining Access",
+      "Gaining Access, Reconnaissance, Scanning, Maintaining Access, Clearing Tracks"
+    ],
+    "correct": [1],
+    "explanation": "La sequenza metodologica prevede prima la ricognizione (raccolta informazioni), poi lo scanning (individuazione host/porte/servizi), quindi l'accesso, il mantenimento dell'accesso e infine la cancellazione delle tracce. Comprendere l'ordine aiuta a mappare le contromisure a ogni fase.",
+    "why_wrong": {
+      "0": "Lo scanning non puo precedere la reconnaissance: senza informazioni preliminari non si sa cosa scandire.",
+      "2": "Lo scanning va fatto prima di ottenere l'accesso, non dopo; l'ordine e incoerente.",
+      "3": "Non si puo ottenere l'accesso prima di aver raccolto informazioni e scandito i sistemi."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-002",
+    "cert": ["CEH"],
+    "topics": ["Reconnaissance"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel footprinting, qual e la differenza concettuale tra ricognizione passiva e attiva?",
+    "options": [
+      "La passiva usa solo strumenti a pagamento, l'attiva strumenti gratuiti",
+      "La passiva raccoglie informazioni senza interagire direttamente col target, l'attiva interagisce coi sistemi del bersaglio",
+      "La passiva e illegale, l'attiva e sempre legale",
+      "La passiva riguarda solo le reti wireless, l'attiva solo quelle cablate"
+    ],
+    "correct": [1],
+    "explanation": "La ricognizione passiva raccoglie dati da fonti pubbliche (OSINT, WHOIS, social, motori di ricerca) senza toccare i sistemi del target, riducendo il rischio di rilevamento. L'attiva prevede interazione diretta (es. query DNS mirate, banner grabbing) ed e piu facilmente rilevabile.",
+    "why_wrong": {
+      "0": "La distinzione non dipende dal costo degli strumenti ma dall'interazione col bersaglio.",
+      "2": "La liceita dipende dall'autorizzazione, non dalla natura passiva o attiva.",
+      "3": "Entrambe si applicano a qualsiasi tipo di rete; non c'e legame col mezzo trasmissivo."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-003",
+    "cert": ["CEH"],
+    "topics": ["Penetration Testing"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e il documento fondamentale che autorizza formalmente un penetration test e ne definisce il perimetro?",
+    "options": [
+      "Il report finale di vulnerabilita",
+      "Le regole di ingaggio e l'autorizzazione scritta (scope of work)",
+      "Il file di configurazione dello scanner",
+      "La checklist OWASP Top 10"
+    ],
+    "correct": [1],
+    "explanation": "Prima di qualsiasi attivita, l'ethical hacker deve ottenere un'autorizzazione scritta con regole di ingaggio (scope, orari, sistemi inclusi/esclusi, contatti). Senza questo documento l'attivita e illegale, indipendentemente dall'intento.",
+    "why_wrong": {
+      "0": "Il report e un output finale, non l'autorizzazione preliminare.",
+      "2": "La configurazione dello scanner e un dettaglio tecnico, non un'autorizzazione legale.",
+      "3": "La checklist OWASP e una guida tecnica, non conferisce alcuna autorizzazione."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-004",
+    "cert": ["CEH"],
+    "topics": ["Scanning", "Port Scanning"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Nmap, a cosa serve concettualmente una scansione TCP SYN (half-open)?",
+    "options": [
+      "A completare sempre l'handshake a tre vie con ogni porta",
+      "A determinare lo stato delle porte inviando SYN senza completare la connessione, risultando piu discreta",
+      "A cifrare il traffico verso il target",
+      "A eseguire codice remoto sulle porte aperte"
+    ],
+    "correct": [1],
+    "explanation": "La scansione SYN invia un pacchetto SYN e valuta la risposta (SYN/ACK = porta aperta, RST = chiusa) senza completare l'handshake, riducendo i log generati. Conoscerla serve anche al difensore per riconoscere i pattern di scansione.",
+    "why_wrong": {
+      "0": "La SYN non completa l'handshake: e proprio questa la sua caratteristica half-open.",
+      "2": "Lo scanning non cifra il traffico; serve a rilevare lo stato delle porte.",
+      "3": "Una scansione identifica porte e servizi, non esegue codice sul target."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-005",
+    "cert": ["CEH"],
+    "topics": ["Enumeration"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e lo scopo principale della fase di enumeration?",
+    "options": [
+      "Cancellare i log del sistema bersaglio",
+      "Estrarre attivamente nomi utente, condivisioni, servizi e risorse dai sistemi identificati",
+      "Cifrare i dati sensibili trovati",
+      "Installare una backdoor persistente"
+    ],
+    "correct": [1],
+    "explanation": "L'enumeration approfondisce lo scanning stabilendo connessioni attive per estrarre informazioni dettagliate: account utente, gruppi, condivisioni di rete, banner di servizio, tabelle di routing. E preziosa anche per il difensore per capire quali informazioni un sistema espone.",
+    "why_wrong": {
+      "0": "La cancellazione dei log appartiene alla fase di clearing tracks.",
+      "2": "L'enumeration raccoglie informazioni, non cifra dati.",
+      "3": "L'installazione di backdoor appartiene al mantenimento dell'accesso."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-006",
+    "cert": ["CEH"],
+    "topics": ["Social Engineering"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale contromisura e piu efficace contro gli attacchi di social engineering?",
+    "options": [
+      "Aumentare la larghezza di banda della rete",
+      "Formazione e sensibilizzazione periodica del personale con simulazioni",
+      "Installare un firewall piu potente",
+      "Aumentare la complessita delle password del database"
+    ],
+    "correct": [1],
+    "explanation": "Il social engineering sfrutta il fattore umano, quindi la difesa piu efficace e la consapevolezza: formazione continua, simulazioni di phishing e procedure di verifica dell'identita. I controlli tecnici da soli non fermano l'inganno delle persone.",
+    "why_wrong": {
+      "0": "La banda di rete non ha alcun effetto sull'inganno delle persone.",
+      "2": "Un firewall protegge il perimetro di rete, non le decisioni umane.",
+      "3": "Password complesse non impediscono a un utente ingannato di rivelarle."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-007",
+    "cert": ["CEH"],
+    "topics": ["SQL Injection"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e la contromisura piu efficace contro le vulnerabilita di SQL injection?",
+    "options": [
+      "Nascondere i messaggi di errore del database",
+      "Usare query parametrizzate (prepared statement) e validazione dell'input",
+      "Cambiare la porta del database",
+      "Aumentare la RAM del server database"
+    ],
+    "correct": [1],
+    "explanation": "Le query parametrizzate separano il codice SQL dai dati forniti dall'utente, impedendo che l'input venga interpretato come comando. Unite alla validazione dell'input e al principio del minimo privilegio, costituiscono la difesa primaria contro la SQL injection.",
+    "why_wrong": {
+      "0": "Nascondere gli errori riduce le informazioni all'attaccante ma non elimina la vulnerabilita sottostante.",
+      "2": "Cambiare porta e sicurezza per oscurita: non impedisce l'iniezione tramite l'applicazione.",
+      "3": "La quantita di RAM non ha alcuna relazione con la validazione dell'input."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-008",
+    "cert": ["CEH"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e la differenza concettuale principale tra crittografia simmetrica e asimmetrica?",
+    "options": [
+      "La simmetrica non usa chiavi, l'asimmetrica si",
+      "La simmetrica usa la stessa chiave per cifrare e decifrare, l'asimmetrica usa una coppia di chiavi pubblica/privata",
+      "La simmetrica e sempre insicura, l'asimmetrica sempre sicura",
+      "La simmetrica funziona solo su hash, l'asimmetrica solo su file"
+    ],
+    "correct": [1],
+    "explanation": "Nella crittografia simmetrica la stessa chiave segreta cifra e decifra (es. AES), richiedendo uno scambio sicuro della chiave. Nell'asimmetrica una coppia matematicamente collegata (chiave pubblica e privata) risolve il problema della distribuzione della chiave (es. RSA).",
+    "why_wrong": {
+      "0": "Entrambe usano chiavi; la differenza sta nel numero e nell'uso delle chiavi.",
+      "2": "La sicurezza dipende da implementazione e lunghezza della chiave, non dal tipo in assoluto.",
+      "3": "Entrambe possono operare su dati arbitrari; l'hashing e una funzione distinta."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-009",
+    "cert": ["CEH"],
+    "topics": ["Sicurezza Wireless"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Perche WPA2/WPA3 sono preferibili a WEP per proteggere una rete wireless?",
+    "options": [
+      "Perche WEP e piu lento nella trasmissione",
+      "Perche WEP usa cifratura debole (RC4 con IV corti) facilmente violabile, mentre WPA2/WPA3 usano cifratura robusta",
+      "Perche WEP non supporta le password",
+      "Perche WPA2/WPA3 non richiedono alcuna autenticazione"
+    ],
+    "correct": [1],
+    "explanation": "WEP presenta debolezze crittografiche note (vettori di inizializzazione corti e riutilizzabili con RC4) che permettono di recuperare la chiave. WPA2 (AES-CCMP) e soprattutto WPA3 offrono cifratura e gestione delle chiavi molto piu robuste.",
+    "why_wrong": {
+      "0": "La differenza e la robustezza crittografica, non la velocita.",
+      "2": "WEP usa una chiave/passphrase; il problema e la debolezza dell'algoritmo.",
+      "3": "WPA2/WPA3 richiedono autenticazione: e falso che ne siano privi."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-010",
+    "cert": ["CEH"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Cos'e concettualmente un honeypot nel contesto della difesa di rete?",
+    "options": [
+      "Un firewall che blocca tutto il traffico in ingresso",
+      "Un sistema esca deliberatamente vulnerabile usato per attirare e osservare gli attaccanti",
+      "Un algoritmo di cifratura per le email",
+      "Un protocollo di autenticazione a due fattori"
+    ],
+    "correct": [1],
+    "explanation": "Un honeypot e una risorsa esca, isolata e monitorata, progettata per sembrare un bersaglio reale. Serve a rilevare, deviare e studiare i comportamenti degli attaccanti, migliorando la comprensione delle minacce senza esporre sistemi produttivi.",
+    "why_wrong": {
+      "0": "Un firewall filtra il traffico; l'honeypot attira e osserva, non blocca.",
+      "2": "Non e un algoritmo di cifratura ma un sistema esca di rilevamento.",
+      "3": "Non ha nulla a che vedere con l'autenticazione a due fattori."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-011",
+    "cert": ["CEH"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e la differenza concettuale tra un virus e un worm?",
+    "options": [
+      "Il virus si propaga autonomamente in rete, il worm no",
+      "Il virus necessita di un file/host e di un'azione dell'utente per diffondersi, il worm si autoreplica e si propaga autonomamente in rete",
+      "Il virus e sempre innocuo, il worm sempre distruttivo",
+      "Il virus colpisce solo Linux, il worm solo Windows"
+    ],
+    "correct": [1],
+    "explanation": "Un virus si attacca a un file ospite e richiede tipicamente un'azione dell'utente per attivarsi e propagarsi. Un worm e autonomo: si autoreplica e si diffonde attraverso la rete senza interazione, spesso sfruttando vulnerabilita. La distinzione guida le contromisure.",
+    "why_wrong": {
+      "0": "E l'inverso: il worm si propaga autonomamente, non il virus.",
+      "2": "La pericolosita dipende dal payload, non dalla categoria.",
+      "3": "Entrambi possono colpire diversi sistemi operativi; non c'e vincolo di piattaforma."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-012",
+    "cert": ["CEH"],
+    "topics": ["Scanning", "Enumeration"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti sono contromisure difensive appropriate contro scanning ed enumeration? (seleziona 2)",
+    "options": [
+      "Disabilitare i servizi non necessari e ridurre i banner informativi esposti",
+      "Pubblicare online la mappa completa della rete interna",
+      "Configurare firewall e sistemi IDS/IPS per rilevare e filtrare traffico di scansione",
+      "Disattivare tutti i log di sistema"
+    ],
+    "correct": [0, 2],
+    "explanation": "Ridurre la superficie esposta (chiudere servizi inutili, mascherare i banner) e monitorare/filtrare il traffico con firewall e IDS/IPS limitano l'efficacia di scanning ed enumeration e ne aumentano il rilevamento.",
+    "why_wrong": {
+      "1": "Pubblicare la mappa della rete facilita gli attaccanti: e l'opposto di una difesa.",
+      "3": "Disattivare i log elimina la capacita di rilevare e investigare le scansioni."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-013",
+    "cert": ["CEH"],
+    "topics": ["XSS", "SQL Injection"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali pratiche riducono efficacemente le vulnerabilita delle applicazioni web secondo l'approccio OWASP? (seleziona 2)",
+    "options": [
+      "Validazione e sanitizzazione dell'input e codifica dell'output",
+      "Affidarsi esclusivamente ai controlli lato client",
+      "Applicare il principio del minimo privilegio e mantenere aggiornati i componenti",
+      "Memorizzare le password in chiaro per facilitare il recupero"
+    ],
+    "correct": [0, 2],
+    "explanation": "La validazione/sanitizzazione dell'input con codifica dell'output previene injection e XSS; il minimo privilegio e l'aggiornamento delle dipendenze riducono l'impatto e le vulnerabilita note. Sono pilastri delle raccomandazioni OWASP.",
+    "why_wrong": {
+      "1": "I controlli lato client sono aggirabili: la validazione deve avvenire lato server.",
+      "3": "Le password vanno sempre salvate con hashing robusto e salt, mai in chiaro."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-014",
+    "cert": ["CEH"],
+    "topics": ["Malware"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali sono contromisure valide per ridurre il rischio di infezioni da malware? (seleziona 2)",
+    "options": [
+      "Mantenere sistemi e software costantemente aggiornati con le patch",
+      "Disabilitare l'antivirus per migliorare le prestazioni",
+      "Usare soluzioni endpoint e principio del minimo privilegio con backup regolari",
+      "Eseguire ogni allegato email ricevuto per verificarne il contenuto"
+    ],
+    "correct": [0, 2],
+    "explanation": "Il patching tempestivo chiude le vulnerabilita sfruttate dal malware; protezione endpoint, minimo privilegio e backup limitano diffusione e impatto (inclusi ransomware). Sono contromisure difensive fondamentali.",
+    "why_wrong": {
+      "1": "Disabilitare l'antivirus rimuove una difesa essenziale e aumenta il rischio.",
+      "3": "Eseguire allegati non verificati e proprio il vettore principale di infezione."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-015",
+    "cert": ["CEH"],
+    "topics": ["Penetration Testing"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali principi etici deve rispettare sempre un ethical hacker? (seleziona 2)",
+    "options": [
+      "Operare solo entro l'ambito e con autorizzazione scritta del cliente",
+      "Divulgare pubblicamente le vulnerabilita prima di informare il committente",
+      "Mantenere la riservatezza sui dati e riportare i risultati in modo responsabile",
+      "Sfruttare le vulnerabilita trovate per profitto personale"
+    ],
+    "correct": [0, 2],
+    "explanation": "L'ethical hacking richiede autorizzazione formale e rispetto dello scope, riservatezza sui dati trattati e disclosure responsabile dei risultati al committente. Questi principi distinguono l'attivita legale da quella criminale.",
+    "why_wrong": {
+      "1": "La divulgazione pubblica prima di avvisare il committente e irresponsabile e dannosa.",
+      "3": "Sfruttare le vulnerabilita per profitto personale viola legge ed etica professionale."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-016",
+    "cert": ["CEH"],
+    "topics": ["Reconnaissance"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Il footprinting passivo raccoglie informazioni sul bersaglio senza interagire direttamente con i suoi sistemi, riducendo il rischio di essere rilevati.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Il footprinting passivo si basa su fonti pubbliche (OSINT, WHOIS, social, motori di ricerca) senza toccare i sistemi del target, risultando difficilmente rilevabile rispetto alle tecniche attive.",
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-017",
+    "cert": ["CEH"],
+    "topics": ["Penetration Testing"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Eseguire un penetration test senza autorizzazione scritta e accettabile purche l'intento sia di migliorare la sicurezza.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. L'autorizzazione scritta e sempre obbligatoria: senza di essa l'attivita e illegale a prescindere dalle buone intenzioni. Cio che distingue l'ethical hacking e proprio il consenso formale del proprietario dei sistemi.",
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh-018",
+    "cert": ["CEH"],
+    "topics": ["IDS/IPS"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un attacco di Denial of Service mira a compromettere la riservatezza dei dati sottraendoli dal sistema.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Il Denial of Service colpisce la disponibilita del servizio, rendendolo inaccessibile agli utenti legittimi tramite saturazione di risorse, non la riservatezza. Contromisure tipiche sono rate limiting, filtraggio e servizi anti-DDoS.",
+    "source": "CEH - Certified Ethical Hacker"
+  }
+]

@@ -15,6 +15,15 @@
     "questions/o1b-nmapwire.json",
     "questions/o1b-tooling.json",
     "questions/o1b-websec.json",
+    "questions/o2-az900.json",
+    "questions/o2-ceh.json",
+    "questions/o2-itil4.json",
+    "questions/o2-md102.json",
+    "questions/o2-networkplus.json",
+    "questions/o2-nse5.json",
+    "questions/o2-nse6.json",
+    "questions/o2-nse7.json",
+    "questions/o2-securityplus.json",
     "questions/sample.json"
   ]
 }

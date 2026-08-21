@@ -1,0 +1,321 @@
+[
+  {
+    "id": "nse5-001",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiAnalyzer", "Log Management"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual è la funzione principale di FortiAnalyzer in una infrastruttura Fortinet?",
+    "options": [
+      "Raccogliere, archiviare e analizzare i log generati dai dispositivi Fortinet, fornendo report e analytics",
+      "Applicare in modo centralizzato le policy di sicurezza sui firewall gestiti",
+      "Terminare i tunnel VPN IPsec provenienti dai client remoti",
+      "Fornire connettività SD-WAN tra le sedi remote dell'azienda"
+    ],
+    "correct": [0],
+    "explanation": "FortiAnalyzer è la piattaforma di log management e analytics: centralizza la raccolta dei log dai dispositivi (FortiGate, FortiMail, ecc.), li indicizza e li archivia, e offre analisi, FortiView, event handler e report.",
+    "why_wrong": {
+      "1": "La gestione e distribuzione centralizzata delle policy è compito di FortiManager, non di FortiAnalyzer.",
+      "2": "La terminazione dei tunnel VPN è un ruolo del FortiGate, non di FortiAnalyzer.",
+      "3": "La connettività SD-WAN è fornita dai FortiGate; FortiAnalyzer si occupa di log e analisi."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-002",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiManager", "Gestione centralizzata"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual è lo scopo principale di FortiManager?",
+    "options": [
+      "Analizzare i log e generare report di sicurezza in modo centralizzato",
+      "Gestire e configurare centralmente più dispositivi Fortinet, distribuendo policy e configurazioni",
+      "Eseguire l'antivirus e l'ispezione dei contenuti sul traffico di rete",
+      "Fornire un portale captive per l'autenticazione degli utenti wireless"
+    ],
+    "correct": [1],
+    "explanation": "FortiManager è la piattaforma di gestione centralizzata: permette di amministrare i dispositivi tramite Device Manager, creare e installare policy package, gestire il provisioning, il revision control e gli script su molti FortiGate contemporaneamente.",
+    "why_wrong": {
+      "0": "L'analisi dei log e la reportistica sono compiti di FortiAnalyzer, non di FortiManager.",
+      "2": "L'antivirus e l'ispezione dei contenuti sono eseguiti dal FortiGate sul traffico reale.",
+      "3": "Il captive portal è una funzione del FortiGate/FortiAuthenticator, non di FortiManager."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-003",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["ADOM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Che cosa consente principalmente di fare l'uso degli ADOM (Administrative Domain) su FortiManager e FortiAnalyzer?",
+    "options": [
+      "Aumentare la velocità di indicizzazione dei log riducendo lo spazio disco occupato",
+      "Separare e isolare la gestione e i dati dei dispositivi in domini amministrativi distinti",
+      "Abilitare automaticamente l'alta disponibilità tra due unità in cluster",
+      "Cifrare i log durante il trasferimento tra FortiGate e FortiAnalyzer"
+    ],
+    "correct": [1],
+    "explanation": "Un ADOM è un dominio amministrativo che separa i dispositivi, le configurazioni e i dati (log) in gruppi logici distinti. Consente di isolare clienti o reparti diversi e di assegnare agli amministratori la visibilità solo sul proprio dominio.",
+    "why_wrong": {
+      "0": "Gli ADOM non hanno la funzione di ottimizzare l'indicizzazione; servono alla separazione amministrativa e dei dati.",
+      "2": "L'alta disponibilità (HA) è una funzione separata e non viene abilitata dagli ADOM.",
+      "3": "La cifratura del trasporto dei log è gestita dal protocollo OFTP/SSL, non dagli ADOM."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-004",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiManager", "Policy Package"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In FortiManager, cos'è un policy package e come viene applicato ai dispositivi gestiti?",
+    "options": [
+      "Un archivio di log analizzati che viene copiato sul FortiAnalyzer",
+      "Un insieme di firewall policy e oggetti che viene installato sui FortiGate gestiti tramite l'operazione di install",
+      "Un pacchetto firmware che aggiorna automaticamente il sistema operativo del FortiGate",
+      "Un report pianificato che viene inviato via email agli amministratori"
+    ],
+    "correct": [1],
+    "explanation": "Un policy package raccoglie le firewall policy e gli oggetti associati; su FortiManager viene creato/modificato e poi installato (install) sui dispositivi gestiti, distribuendo così la configurazione in modo centralizzato.",
+    "why_wrong": {
+      "0": "I log analizzati riguardano FortiAnalyzer; un policy package è configurazione, non dati di log.",
+      "2": "L'aggiornamento del firmware è un'operazione distinta dalla gestione dei policy package.",
+      "3": "Un report pianificato è una funzione di FortiAnalyzer, non un policy package."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-005",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiAnalyzer", "Event Handler"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "A cosa serve un event handler in FortiAnalyzer?",
+    "options": [
+      "A definire condizioni sui log che, se soddisfatte, generano eventi e possono attivare notifiche o alert",
+      "A pianificare l'installazione delle policy sui FortiGate gestiti",
+      "A comprimere gli archivi dei log per ridurre l'uso dello storage",
+      "A creare gli ADOM e assegnare i dispositivi ai domini amministrativi"
+    ],
+    "correct": [0],
+    "explanation": "Un event handler definisce filtri e condizioni sui log; quando i log corrispondono, FortiAnalyzer genera eventi (con severità) che possono innescare notifiche (email, SNMP, ecc.), supportando le funzionalità di correlazione e monitoraggio.",
+    "why_wrong": {
+      "1": "La pianificazione dell'installazione delle policy avviene su FortiManager, non tramite event handler.",
+      "2": "La compressione/archiviazione dei log è gestita dalle politiche di storage, non dagli event handler.",
+      "3": "La creazione degli ADOM è un'operazione amministrativa separata dagli event handler."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-006",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiAnalyzer", "Storage"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In FortiAnalyzer, quale distinzione descrive correttamente i log analitici (Analytics) rispetto ai log archiviati (Archive)?",
+    "options": [
+      "I log analitici sono compressi e non ricercabili, mentre gli archivi sono indicizzati e interrogabili",
+      "I log analitici sono indicizzati nel database SQL e ricercabili, mentre i log archiviati sono compressi per la conservazione a lungo termine",
+      "I log analitici e i log archiviati sono la stessa cosa con nomi diversi",
+      "I log archiviati vengono usati per FortiView, mentre i log analitici solo per il backup"
+    ],
+    "correct": [1],
+    "explanation": "In FortiAnalyzer i log ricevuti vengono indicizzati nel database SQL (analytics) per essere ricercabili e usati da FortiView, drill-down e report; superato il periodo di conservazione analitica passano allo stato di archivio, compresso e destinato alla conservazione a lungo termine.",
+    "why_wrong": {
+      "0": "È l'inverso: sono i log analitici a essere indicizzati e ricercabili, mentre gli archivi sono compressi.",
+      "2": "Non sono la stessa cosa: differiscono per indicizzazione, ricercabilità e finalità di conservazione.",
+      "3": "FortiView usa i log analitici indicizzati, non gli archivi compressi."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-007",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiManager", "Revision Control"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "A cosa serve il revision control (revision history) sui dispositivi in FortiManager?",
+    "options": [
+      "A pianificare l'invio dei report ai dispositivi gestiti",
+      "A mantenere le versioni storiche delle configurazioni, consentendo confronto e ripristino di una revisione precedente",
+      "A indicizzare i log ricevuti dai FortiGate per la ricerca",
+      "A definire le soglie di allarme sugli eventi di sicurezza"
+    ],
+    "correct": [1],
+    "explanation": "Il revision control conserva lo storico delle configurazioni di un dispositivo: gli amministratori possono confrontare le revisioni e ripristinare (revert) una versione precedente, garantendo tracciabilità e roll-back delle modifiche.",
+    "why_wrong": {
+      "0": "L'invio dei report è una funzione di FortiAnalyzer, non del revision control di FortiManager.",
+      "2": "L'indicizzazione dei log riguarda FortiAnalyzer, non il revision control delle configurazioni.",
+      "3": "Le soglie di allarme sugli eventi sono definite tramite event handler in FortiAnalyzer."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-008",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiManager", "Device Manager"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quando un FortiGate viene messo in modalità di gestione centralizzata da FortiManager, cosa accade tipicamente in caso di conflitto tra la configurazione locale e quella gestita?",
+    "options": [
+      "La configurazione locale del FortiGate ha sempre la precedenza su quella di FortiManager",
+      "FortiManager rileva l'out-of-sync e richiede una sincronizzazione o un import/re-install per riallineare la configurazione",
+      "Il FortiGate viene automaticamente riavviato e riportato alle impostazioni di fabbrica",
+      "I log del FortiGate vengono cancellati per risolvere il conflitto"
+    ],
+    "correct": [1],
+    "explanation": "FortiManager confronta la configurazione gestita con quella presente sul dispositivo; se rileva una differenza (out-of-sync/modified) segnala lo stato e l'amministratore deve reimportare la configurazione o reinstallarla per riallineare device DB e device reale.",
+    "why_wrong": {
+      "0": "In gestione centralizzata è la configurazione gestita a fare riferimento; il conflitto va risolto con sync, non con precedenza automatica locale.",
+      "2": "Un conflitto di configurazione non provoca un reset di fabbrica del dispositivo.",
+      "3": "I log non vengono cancellati per risolvere una differenza di configurazione."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-009",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiAnalyzer", "FortiView"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Cosa fornisce FortiView in FortiAnalyzer?",
+    "options": [
+      "Una console per installare i firmware sui dispositivi gestiti",
+      "Una vista grafica e interattiva del traffico e degli eventi con possibilità di drill-down basata sui log indicizzati",
+      "Un editor per creare le firewall policy da distribuire ai FortiGate",
+      "Un motore per la sincronizzazione delle configurazioni tra dispositivi"
+    ],
+    "correct": [1],
+    "explanation": "FortiView è lo strumento di visualizzazione di FortiAnalyzer: presenta grafici e tabelle interattive (per sorgenti, destinazioni, applicazioni, minacce) con drill-down, basandosi sui log analitici indicizzati.",
+    "why_wrong": {
+      "0": "L'installazione dei firmware è gestita da FortiManager, non da FortiView.",
+      "2": "La creazione delle firewall policy avviene in FortiManager (policy package), non in FortiView.",
+      "3": "La sincronizzazione delle configurazioni è una funzione di FortiManager."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-010",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiManager", "Provisioning"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In FortiManager, cosa rappresentano i provisioning template (es. system template, SD-WAN template, CLI template)?",
+    "options": [
+      "Modelli di configurazione riutilizzabili che possono essere assegnati a più dispositivi per applicare impostazioni comuni in modo coerente",
+      "Report pianificati che aggregano i log di più dispositivi",
+      "Archivi compressi di log destinati alla conservazione a lungo termine",
+      "Regole di correlazione degli eventi di sicurezza tra dispositivi diversi"
+    ],
+    "correct": [0],
+    "explanation": "I provisioning template sono modelli di configurazione (system, SNMP, SD-WAN, CLI, IPsec, ecc.) che si assegnano a uno o più dispositivi per applicare in modo uniforme le impostazioni comuni, riducendo il lavoro manuale e garantendo coerenza durante il provisioning.",
+    "why_wrong": {
+      "1": "I report pianificati sono una funzionalità di FortiAnalyzer, non i provisioning template.",
+      "2": "Gli archivi di log compressi riguardano lo storage di FortiAnalyzer, non i template.",
+      "3": "Le regole di correlazione degli eventi sono gestite tramite event handler in FortiAnalyzer."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-011",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiAnalyzer", "Log Management"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti sono attività tipiche svolte da FortiAnalyzer? (seleziona 2)",
+    "options": [
+      "Distribuire i policy package installandoli sui FortiGate gestiti",
+      "Raccogliere e indicizzare i log inviati dai dispositivi Fortinet",
+      "Generare report pianificati sull'attività di rete e sulle minacce",
+      "Fornire il routing SD-WAN e il bilanciamento del traffico WAN"
+    ],
+    "correct": [1, 2],
+    "explanation": "FortiAnalyzer raccoglie e indicizza i log dei dispositivi e produce report (pianificati o on-demand) su traffico, applicazioni e minacce, oltre a offrire FortiView ed event handler.",
+    "why_wrong": {
+      "0": "L'installazione dei policy package sui FortiGate è compito di FortiManager.",
+      "3": "Il routing SD-WAN e il bilanciamento WAN sono funzioni del FortiGate, non di FortiAnalyzer."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-012",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiManager", "Gestione centralizzata"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti funzionalità sono fornite da FortiManager? (seleziona 2)",
+    "options": [
+      "Revision control delle configurazioni dei dispositivi con possibilità di ripristino",
+      "Indicizzazione SQL dei log per l'uso in FortiView",
+      "Gestione centralizzata dei dispositivi tramite Device Manager e installazione delle configurazioni",
+      "Analisi forense dettagliata dei singoli pacchetti di log tramite drill-down"
+    ],
+    "correct": [0, 2],
+    "explanation": "FortiManager offre il revision control (storico e roll-back delle configurazioni) e la gestione centralizzata dei dispositivi tramite Device Manager, con l'operazione di install per distribuire le configurazioni ai FortiGate.",
+    "why_wrong": {
+      "1": "L'indicizzazione SQL dei log e FortiView appartengono a FortiAnalyzer, non a FortiManager.",
+      "3": "L'analisi dei log con drill-down è una funzionalità di FortiAnalyzer (FortiView/Log View)."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-013",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["ADOM", "FortiAnalyzer"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali affermazioni sugli ADOM in FortiAnalyzer e FortiManager sono corrette? (seleziona 2)",
+    "options": [
+      "Gli ADOM permettono di separare i dispositivi e i relativi dati in domini amministrativi distinti",
+      "Gli ADOM devono essere abilitati prima di poter essere utilizzati per raggruppare i dispositivi",
+      "Con gli ADOM abilitati, tutti gli amministratori vedono comunque tutti i dispositivi senza restrizioni",
+      "Gli ADOM aumentano automaticamente la capacità di storage disponibile sul dispositivo"
+    ],
+    "correct": [0, 1],
+    "explanation": "Gli ADOM separano dispositivi e dati in domini amministrativi e vanno abilitati (feature ADOM) prima di essere utilizzati per raggruppare i dispositivi e assegnare accessi limitati agli amministratori.",
+    "why_wrong": {
+      "2": "Con gli ADOM la visibilità degli amministratori può essere limitata al proprio dominio, non estesa a tutti.",
+      "3": "Gli ADOM non aumentano la capacità fisica di storage; organizzano la gestione e i dati, non aggiungono spazio disco."
+    },
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-014",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiManager", "Policy Package"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "In FortiManager, dopo aver modificato un policy package è necessario eseguire l'operazione di install affinché le modifiche vengano applicate ai FortiGate gestiti.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Le modifiche a un policy package restano nel database di FortiManager finché non si esegue l'install, che distribuisce e applica la configurazione ai dispositivi gestiti.",
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-015",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiAnalyzer", "SIEM"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "FortiAnalyzer è la piattaforma che gestisce e installa centralmente le firewall policy sui dispositivi FortiGate.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. La gestione e l'installazione centralizzata delle policy sono compiti di FortiManager. FortiAnalyzer si occupa di raccogliere, indicizzare e analizzare i log, produrre report e gestire event handler.",
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  },
+  {
+    "id": "nse5-016",
+    "cert": ["Fortinet NSE5"],
+    "topics": ["FortiManager", "Script"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In FortiManager è possibile utilizzare script (CLI o TCL) per applicare configurazioni in modo automatizzato a uno o più dispositivi gestiti.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. FortiManager supporta script CLI e TCL che possono essere eseguiti verso il device database o direttamente sui dispositivi, consentendo di automatizzare l'applicazione di configurazioni su uno o più FortiGate.",
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+  }
+]

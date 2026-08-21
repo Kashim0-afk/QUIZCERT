@@ -1,0 +1,364 @@
+[
+  {
+    "id": "sec-001",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'azienda deve cifrare grandi volumi di dati garantendo alte prestazioni. Quale tipo di crittografia è più adatto per la cifratura in blocco dei dati e perché?",
+    "options": [
+      "Crittografia asimmetrica, perché usa una coppia di chiavi pubblica/privata",
+      "Crittografia simmetrica, perché usa un'unica chiave condivisa ed è computazionalmente più veloce",
+      "Hashing, perché è irreversibile e garantisce la riservatezza",
+      "Steganografia, perché nasconde i dati dentro altri file"
+    ],
+    "correct": [1],
+    "explanation": "La crittografia simmetrica (es. AES) usa la stessa chiave per cifrare e decifrare ed è molto più veloce di quella asimmetrica, quindi è ideale per cifrare grandi volumi di dati (bulk encryption). La crittografia asimmetrica viene tipicamente usata solo per scambiare in sicurezza la chiave simmetrica.",
+    "why_wrong": {
+      "0": "La crittografia asimmetrica è molto più lenta ed è inadatta a cifrare grandi volumi; si usa soprattutto per lo scambio di chiavi e le firme digitali.",
+      "2": "L'hashing è una funzione unidirezionale per l'integrità: non è reversibile e quindi non permette di recuperare i dati, non serve a cifrarli.",
+      "3": "La steganografia nasconde l'esistenza di un messaggio ma non fornisce di per sé cifratura robusta né prestazioni adatte al bulk."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-002",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Crittografia", "Difesa in profondità"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale proprietà della triade CIA viene garantita principalmente dall'uso di funzioni di hashing come SHA-256 per verificare che un file non sia stato modificato?",
+    "options": [
+      "Riservatezza (Confidentiality)",
+      "Integrità (Integrity)",
+      "Disponibilità (Availability)",
+      "Non ripudio"
+    ],
+    "correct": [1],
+    "explanation": "L'hashing produce un'impronta univoca del file: se anche un solo bit cambia, l'hash risultante è diverso. Confrontando l'hash calcolato con quello originale si verifica l'integrità del dato, cioè che non sia stato alterato.",
+    "why_wrong": {
+      "0": "La riservatezza si ottiene con la cifratura, che rende i dati illeggibili a chi non possiede la chiave, non con l'hashing.",
+      "2": "La disponibilità riguarda l'accessibilità dei dati e dei servizi (ridondanza, backup), non la verifica di modifiche.",
+      "3": "Il non ripudio richiede una firma digitale con chiave privata; l'hash da solo non lega la modifica a uno specifico soggetto."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-003",
+    "cert": ["CompTIA Security+"],
+    "topics": ["PKI", "Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In una PKI, con quale chiave un mittente cifra un messaggio per garantire che solo il destinatario previsto possa leggerlo?",
+    "options": [
+      "Con la propria chiave privata",
+      "Con la propria chiave pubblica",
+      "Con la chiave pubblica del destinatario",
+      "Con la chiave privata del destinatario"
+    ],
+    "correct": [2],
+    "explanation": "Per garantire la riservatezza si cifra con la chiave pubblica del destinatario: solo quest'ultimo, con la corrispondente chiave privata, potrà decifrare il messaggio. Questo assicura che nessun altro possa leggerlo.",
+    "why_wrong": {
+      "0": "Cifrare con la propria chiave privata serve a firmare (autenticità/non ripudio), non a garantire la riservatezza, perché chiunque possiede la chiave pubblica può decifrare.",
+      "1": "Cifrando con la propria chiave pubblica solo il mittente potrebbe decifrare, il che è inutile per inviare un messaggio ad altri.",
+      "3": "Il mittente non possiede la chiave privata del destinatario: le chiavi private non vengono mai condivise."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-004",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un amministratore assegna a ogni utente solo i permessi strettamente necessari per svolgere le proprie mansioni. Quale principio di sicurezza sta applicando?",
+    "options": [
+      "Separazione dei compiti (Separation of duties)",
+      "Privilegio minimo (Least privilege)",
+      "Difesa in profondità (Defense in depth)",
+      "Sicurezza tramite oscurità (Security through obscurity)"
+    ],
+    "correct": [1],
+    "explanation": "Il principio del privilegio minimo (least privilege) prevede di concedere a ciascun utente, processo o sistema solo i permessi indispensabili a svolgere il proprio compito, riducendo la superficie di attacco e l'impatto di un eventuale compromissione dell'account.",
+    "why_wrong": {
+      "0": "La separazione dei compiti divide un'attività critica tra più persone per evitare frodi, ma non riguarda la quantità di permessi minimi assegnati al singolo.",
+      "2": "La difesa in profondità stratifica più controlli di sicurezza, ma non descrive l'assegnazione dei permessi minimi.",
+      "3": "La sicurezza tramite oscurità si basa sul nascondere i dettagli implementativi e non è un principio di controllo degli accessi affidabile."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-005",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Controllo accessi", "Difesa in profondità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Una telecamera di videosorveglianza (CCTV) installata all'ingresso di un data center rientra principalmente in quale categoria di controllo di sicurezza?",
+    "options": [
+      "Preventivo (Preventive)",
+      "Detective (Detective)",
+      "Correttivo (Corrective)",
+      "Compensativo (Compensating)"
+    ],
+    "correct": [1],
+    "explanation": "Una telecamera CCTV è un controllo di tipo detective (di rilevamento): serve a identificare e registrare attività o eventi di sicurezza, permettendo di accorgersi di un accesso non autorizzato. Non impedisce fisicamente l'accesso, ma lo documenta.",
+    "why_wrong": {
+      "0": "Un controllo preventivo impedisce che l'evento accada (es. una serratura o un badge); la telecamera non blocca l'ingresso.",
+      "2": "Un controllo correttivo ripristina la situazione dopo un incidente (es. un backup); la telecamera non corregge nulla.",
+      "3": "Un controllo compensativo sostituisce un controllo primario non applicabile; qui la telecamera svolge una funzione di rilevamento, non compensativa."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-006",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Malware", "Threat e vulnerabilità"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale tipo di malware si presenta come un programma legittimo e utile, ma nasconde al suo interno funzionalità dannose che si attivano una volta eseguito?",
+    "options": [
+      "Worm",
+      "Trojan (Cavallo di Troia)",
+      "Ransomware",
+      "Rootkit"
+    ],
+    "correct": [1],
+    "explanation": "Un trojan si maschera da software legittimo per indurre l'utente a installarlo, ma una volta eseguito svolge azioni malevole (furto dati, backdoor, ecc.). A differenza di un worm, non si replica autonomamente e richiede l'azione dell'utente.",
+    "why_wrong": {
+      "0": "Un worm si propaga autonomamente in rete sfruttando vulnerabilità, senza fingersi un programma legittimo né richiedere l'esecuzione da parte dell'utente.",
+      "2": "Il ransomware cifra i dati e chiede un riscatto; non è definito dall'inganno di apparire come software legittimo.",
+      "3": "Un rootkit si nasconde nel sistema per mantenere accesso privilegiato e occultare attività, ma non è caratterizzato dal fingersi un'applicazione utile."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-007",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Social Engineering", "Threat e vulnerabilità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un dipendente riceve un'email urgente che sembra provenire dal CEO dell'azienda, in cui gli si chiede di effettuare immediatamente un bonifico riservato. Di quale attacco si tratta più precisamente?",
+    "options": [
+      "Whaling",
+      "Phishing generico",
+      "Vishing",
+      "Tailgating"
+    ],
+    "correct": [0],
+    "explanation": "Il whaling è una forma mirata di spear phishing che prende di mira figure di alto profilo o ne sfrutta l'identità (es. il CEO) per convincere i dipendenti a compiere azioni come bonifici. L'uso dell'autorità del dirigente e dell'urgenza è tipico di questo attacco (noto anche come CEO fraud).",
+    "why_wrong": {
+      "1": "Il phishing generico è indiscriminato e non mirato; qui l'attacco impersona specificamente un dirigente di alto livello.",
+      "2": "Il vishing avviene tramite telefono o messaggio vocale, mentre qui il vettore è un'email.",
+      "3": "Il tailgating è un attacco fisico in cui si segue una persona autorizzata per entrare in un'area protetta, non ha nulla a che vedere con l'email."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-008",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Zero Trust", "Security Architecture"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale affermazione descrive meglio il principio fondante di un'architettura Zero Trust?",
+    "options": [
+      "Tutto il traffico interno alla rete aziendale è considerato affidabile per impostazione predefinita",
+      "Non fidarsi mai e verificare sempre ogni richiesta di accesso, indipendentemente dalla posizione",
+      "La sicurezza si basa esclusivamente sul firewall perimetrale",
+      "Gli utenti autenticati una volta ottengono accesso permanente a tutte le risorse"
+    ],
+    "correct": [1],
+    "explanation": "Zero Trust si fonda sul principio never trust, always verify: nessun utente, dispositivo o richiesta è considerato affidabile a priori, nemmeno se già dentro il perimetro. Ogni accesso viene autenticato, autorizzato e verificato continuamente in base all'identità e al contesto.",
+    "why_wrong": {
+      "0": "È l'esatto contrario di Zero Trust: il modello tradizionale a perimetro si fida della rete interna, approccio che Zero Trust rifiuta.",
+      "2": "Zero Trust supera il modello centrato solo sul perimetro; la difesa non si basa esclusivamente sul firewall.",
+      "3": "Zero Trust prevede verifica e rivalutazione continue, non un accesso permanente concesso una volta per tutte."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-009",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Incident Response", "Security Operations"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel processo di Incident Response, in quale fase l'obiettivo primario è isolare i sistemi compromessi per impedire la propagazione dell'attacco senza ancora eliminarne la causa?",
+    "options": [
+      "Preparazione (Preparation)",
+      "Contenimento (Containment)",
+      "Eradicazione (Eradication)",
+      "Ripristino (Recovery)"
+    ],
+    "correct": [1],
+    "explanation": "Il contenimento (containment) mira a limitare la diffusione e l'impatto dell'incidente, ad esempio isolando o segmentando i sistemi compromessi, prima di procedere con l'eradicazione della causa e il ripristino. È una fase intermedia critica per fermare l'emorragia.",
+    "why_wrong": {
+      "0": "La preparazione avviene prima dell'incidente: definisce policy, strumenti e piani, non isola sistemi già compromessi.",
+      "2": "L'eradicazione rimuove la causa dell'incidente (malware, account compromessi); avviene dopo il contenimento.",
+      "3": "Il ripristino riporta i sistemi in produzione in sicurezza, dopo che la minaccia è stata eliminata."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-010",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Gestione del rischio", "Security Program Management"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un'organizzazione decide di acquistare una polizza assicurativa informatica per coprire le perdite economiche derivanti da un possibile attacco. Quale strategia di gestione del rischio sta adottando?",
+    "options": [
+      "Accettazione del rischio (Risk acceptance)",
+      "Evitamento del rischio (Risk avoidance)",
+      "Trasferimento del rischio (Risk transference)",
+      "Mitigazione del rischio (Risk mitigation)"
+    ],
+    "correct": [2],
+    "explanation": "Stipulare un'assicurazione trasferisce l'impatto economico del rischio a una terza parte (l'assicuratore). Questa strategia è il trasferimento del rischio: non elimina la probabilità dell'evento, ma sposta le conseguenze finanziarie su un altro soggetto.",
+    "why_wrong": {
+      "0": "L'accettazione significa non fare nulla e assorbire eventuali perdite; qui invece si acquista attivamente una copertura.",
+      "1": "L'evitamento elimina l'attività o l'asset che genera il rischio; la polizza non elimina il rischio, lo copre.",
+      "3": "La mitigazione riduce probabilità o impatto con controlli tecnici/organizzativi; una polizza non riduce la probabilità dell'attacco."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-011",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Cloud security", "Security Architecture"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un modello di servizio cloud IaaS (Infrastructure as a Service), chi è generalmente responsabile della sicurezza del sistema operativo e delle applicazioni installate sulle macchine virtuali?",
+    "options": [
+      "Il provider cloud, che gestisce l'intero stack",
+      "Il cliente, secondo il modello di responsabilità condivisa",
+      "Nessuno, la sicurezza è automatica in cloud",
+      "Un ente di certificazione esterno"
+    ],
+    "correct": [1],
+    "explanation": "Nel modello di responsabilità condivisa dell'IaaS, il provider è responsabile della sicurezza fisica e dell'infrastruttura sottostante (hypervisor, rete, storage), mentre il cliente è responsabile del sistema operativo, delle patch, delle applicazioni e dei dati. Nell'IaaS il cliente gestisce buona parte dello stack.",
+    "why_wrong": {
+      "0": "Nel IaaS il provider gestisce solo l'infrastruttura di base, non il sistema operativo e le applicazioni del cliente.",
+      "2": "La sicurezza non è mai automatica: il cliente ha responsabilità precise anche in cloud.",
+      "3": "Un ente di certificazione può verificare la conformità, ma non è responsabile della sicurezza operativa dei sistemi del cliente."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-012",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Security Operations", "Difesa in profondità"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "L'hardening di un server prevede di disabilitare servizi, porte e account inutilizzati per ridurre la superficie di attacco.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Affermazione vera. L'hardening consiste nel ridurre la superficie di attacco: disabilitare servizi, porte e account non necessari elimina potenziali punti di ingresso per un attaccante. Al contrario, abilitare tutti i servizi predefiniti o disattivare gli aggiornamenti aumenterebbe l'esposizione a vulnerabilità.",
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-013",
+    "cert": ["CompTIA Security+"],
+    "topics": ["IDS/IPS", "Security Operations"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni descrivono correttamente la differenza tra un IDS e un IPS? (Seleziona due)",
+    "options": [
+      "Un IDS rileva e segnala le attività sospette ma non le blocca automaticamente",
+      "Un IPS può bloccare o interrompere attivamente il traffico malevolo in linea",
+      "Un IDS è sempre posizionato in linea (inline) e blocca il traffico",
+      "Un IPS si limita a registrare gli eventi senza alcuna azione preventiva"
+    ],
+    "correct": [0, 1],
+    "explanation": "Un IDS (Intrusion Detection System) monitora e genera allarmi sulle attività sospette, ma è passivo e non blocca il traffico. Un IPS (Intrusion Prevention System) è posizionato in linea e può intervenire attivamente bloccando o interrompendo il traffico malevolo in tempo reale.",
+    "why_wrong": {
+      "2": "È il contrario: l'IDS opera tipicamente in modalità passiva (out-of-band) e non blocca; è l'IPS a essere inline.",
+      "3": "L'IPS non si limita a registrare: la sua caratteristica distintiva è proprio la capacità di prevenire e bloccare attivamente le minacce."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-014",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Controllo accessi", "Difesa in profondità"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali dei seguenti sono esempi validi di autenticazione a più fattori (MFA) che combinano fattori di categorie diverse? (Seleziona due)",
+    "options": [
+      "Password più codice OTP generato da un'app authenticator",
+      "PIN più impronta digitale",
+      "Password più risposta a una domanda di sicurezza",
+      "Due password diverse impostate dall'utente"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'MFA richiede fattori di categorie differenti: qualcosa che sai (password/PIN), qualcosa che hai (token/OTP) e qualcosa che sei (biometria). Password + OTP combina sapere e possedere; PIN + impronta combina sapere ed essere: entrambi sono MFA validi.",
+    "why_wrong": {
+      "2": "Password e domanda di sicurezza appartengono entrambe alla categoria qualcosa che sai: è un solo fattore, quindi non è vera MFA.",
+      "3": "Due password sono entrambe qualcosa che sai: usare più elementi della stessa categoria non costituisce autenticazione multifattore."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-015",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Threat e vulnerabilità", "Security Operations"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Un'organizzazione vuole ridurre il rischio legato allo sfruttamento delle vulnerabilità software. Quali due misure sono più efficaci a questo scopo? (Seleziona due)",
+    "options": [
+      "Applicare tempestivamente le patch di sicurezza (patch management)",
+      "Eseguire scansioni periodiche delle vulnerabilità",
+      "Aumentare la lunghezza minima delle password degli utenti",
+      "Disattivare i log di sistema per migliorare le prestazioni"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il patch management applica le correzioni ai difetti noti eliminando le vulnerabilità sfruttabili, mentre le scansioni periodiche delle vulnerabilità le identificano prima che un attaccante le sfrutti. Insieme formano un ciclo efficace di gestione delle vulnerabilità.",
+    "why_wrong": {
+      "2": "Password più lunghe rafforzano l'autenticazione contro attacchi di forza bruta, ma non riducono le vulnerabilità del software.",
+      "3": "Disattivare i log elimina la capacità di rilevare e investigare gli attacchi, peggiorando la postura di sicurezza anziché migliorarla."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-016",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Crittografia", "PKI"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali due obiettivi di sicurezza vengono garantiti da una firma digitale apposta a un documento? (Seleziona due)",
+    "options": [
+      "Autenticità dell'origine del documento",
+      "Non ripudio da parte del firmatario",
+      "Riservatezza del contenuto del documento",
+      "Disponibilità continua del documento"
+    ],
+    "correct": [0, 1],
+    "explanation": "La firma digitale si crea cifrando l'hash del documento con la chiave privata del firmatario. Chiunque, usando la chiave pubblica, può verificarne l'autenticità (l'origine) e il non ripudio (il firmatario non può negare di averlo firmato); l'integrità è verificata tramite l'hash.",
+    "why_wrong": {
+      "2": "La firma digitale non cifra il contenuto: il documento resta leggibile. La riservatezza richiede una cifratura separata del testo.",
+      "3": "La disponibilità riguarda l'accessibilità del documento (backup, ridondanza) e non è un obiettivo garantito dalla firma digitale."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-017",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Gestione del rischio", "Security Program Management"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il rischio residuo è il rischio che rimane dopo che sono stati applicati i controlli di sicurezza per mitigare il rischio inerente.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Affermazione vera. Il rischio inerente è quello presente in assenza di controlli; dopo aver applicato le contromisure rimane il rischio residuo, che l'organizzazione deve decidere se accettare, trasferire o mitigare ulteriormente.",
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec-018",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Crittografia"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "L'hashing è un processo reversibile che permette di recuperare i dati originali applicando la chiave corretta.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Affermazione falsa. L'hashing è una funzione unidirezionale e non reversibile: dall'hash non si può risalire ai dati originali, e non utilizza alcuna chiave per la decifratura. Serve a verificare l'integrità, non a proteggere e poi recuperare i dati come fa la cifratura.",
+    "source": "CompTIA Security+ SY0-701"
+  }
+]
