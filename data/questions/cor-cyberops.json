@@ -1,0 +1,332 @@
+[
+  {
+    "id": "cbo-001",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Security Monitoring", "Analisi del traffico"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Durante il monitoraggio SOC ricevi un record NetFlow relativo a una connessione sospetta verso un IP esterno. Un collega ti chiede di estrarre dal record il contenuto dei comandi inviati dall'attaccante. Cosa rispondi correttamente?",
+    "options": [
+      "NetFlow contiene i metadati del flusso (IP, porte, protocollo, byte, timestamp) ma non il payload, quindi non puoi vedere i comandi",
+      "NetFlow contiene l'intero payload applicativo, basta decodificarlo con Wireshark",
+      "NetFlow registra solo gli hash dei pacchetti, quindi il contenuto va ricostruito con un tool di hashing inverso",
+      "NetFlow memorizza il payload solo per le connessioni cifrate, quindi il contenuto è disponibile ma da decifrare"
+    ],
+    "correct": [0],
+    "explanation": "NetFlow raccoglie metadati sul flusso di traffico (indirizzi IP e porte sorgente/destinazione, protocollo, numero di pacchetti e byte, timestamp, flag TCP), ma non cattura il payload. Per vedere il contenuto effettivo serve una full packet capture (PCAP).",
+    "why_wrong": {
+      "1": "NetFlow non contiene il payload applicativo; solo la full packet capture registra il contenuto completo dei pacchetti.",
+      "2": "NetFlow non calcola hash dei pacchetti e non esiste un hashing inverso per ricostruire dati.",
+      "3": "NetFlow non memorizza payload in alcun caso, cifrato o meno; registra solo metadati di flusso."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-002",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Difesa in profondità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un attaccante altera silenziosamente i valori in un database finanziario senza sottrarre né bloccare i dati. Quale principio della triade CIA è stato violato in modo primario?",
+    "options": [
+      "Riservatezza (Confidentiality)",
+      "Integrità (Integrity)",
+      "Disponibilità (Availability)",
+      "Non ripudio"
+    ],
+    "correct": [1],
+    "explanation": "L'integrità garantisce che i dati non siano modificati in modo non autorizzato. La modifica silenziosa e non autorizzata dei valori nel database è una violazione diretta dell'integrità dei dati.",
+    "why_wrong": {
+      "0": "La riservatezza riguarda l'accesso non autorizzato/divulgazione dei dati, ma qui non c'è sottrazione o lettura indebita.",
+      "2": "La disponibilità riguarda l'accessibilità del sistema; i dati non sono stati bloccati o resi indisponibili.",
+      "3": "Il non ripudio riguarda l'impossibilità di negare un'azione e non fa parte della triade CIA classica."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-003",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Il team di rete lamenta che un dispositivo di sicurezza inline ha bloccato traffico legittimo di produzione, causando un'interruzione. Quale tecnologia, per il suo posizionamento nel percorso del traffico, può causare questo effetto?",
+    "options": [
+      "Un IDS in modalità passiva collegato a una porta SPAN",
+      "Un IPS posizionato inline nel flusso del traffico",
+      "Un NetFlow collector",
+      "Un server syslog centralizzato"
+    ],
+    "correct": [1],
+    "explanation": "Un IPS (Intrusion Prevention System) è posizionato inline e può bloccare/scartare attivamente i pacchetti. Un falso positivo su un IPS inline può quindi interrompere traffico legittimo, cosa che un IDS passivo non può fare.",
+    "why_wrong": {
+      "0": "Un IDS su porta SPAN riceve solo una copia del traffico: rileva e allerta ma non può bloccare né interrompere connessioni legittime.",
+      "2": "Un NetFlow collector raccoglie solo metadati di flusso, non è inline e non blocca traffico.",
+      "3": "Un server syslog riceve e archivia log, non ispeziona né blocca il traffico di rete."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-004",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Analisi forense", "SIEM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Stai investigando un possibile accesso non autorizzato a un host Windows. Quale Event ID del log di sicurezza indica un accesso con logon fallito ed è utile per rilevare tentativi di brute force?",
+    "options": [
+      "Event ID 4624 (logon riuscito)",
+      "Event ID 4625 (logon fallito)",
+      "Event ID 4634 (logoff)",
+      "Event ID 4688 (creazione nuovo processo)"
+    ],
+    "correct": [1],
+    "explanation": "L'Event ID 4625 registra un tentativo di logon fallito. Un elevato numero di 4625 verso lo stesso account o da una singola sorgente in breve tempo è un tipico indicatore di attacco brute force o password spraying.",
+    "why_wrong": {
+      "0": "L'Event ID 4624 indica un logon riuscito, utile per confermare l'accesso ma non per rilevare i tentativi falliti.",
+      "2": "L'Event ID 4634 registra un logoff, non un tentativo di autenticazione fallito.",
+      "3": "L'Event ID 4688 registra la creazione di un processo, utile per l'analisi di esecuzione ma non per i logon falliti."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-005",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Incident Response"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Devi prioritizzare la remediation di più vulnerabilità. Quale standard fornisce un punteggio numerico da 0.0 a 10.0 basato su metriche Base, Temporal ed Environmental per rappresentarne la gravità?",
+    "options": [
+      "CVE (Common Vulnerabilities and Exposures)",
+      "CVSS (Common Vulnerability Scoring System)",
+      "CWE (Common Weakness Enumeration)",
+      "STIX (Structured Threat Information Expression)"
+    ],
+    "correct": [1],
+    "explanation": "Il CVSS assegna un punteggio da 0.0 a 10.0 combinando gruppi di metriche Base, Temporal ed Environmental, fornendo una misura standardizzata della gravità utile per prioritizzare la remediation.",
+    "why_wrong": {
+      "0": "CVE è un identificatore univoco che cataloga una vulnerabilità nota, non un punteggio di gravità.",
+      "2": "CWE è una tassonomia dei tipi di debolezza software (es. buffer overflow), non un sistema di scoring.",
+      "3": "STIX è un formato standard per condividere threat intelligence, non un punteggio di gravità delle vulnerabilità."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-006",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Analisi forense"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Dopo aver acquisito l'immagine di un disco come evidenza, devi garantire che sia ammissibile in un eventuale procedimento legale. Quale pratica documenta chi ha maneggiato l'evidenza, quando e con quale scopo, dalla raccolta fino alla presentazione?",
+    "options": [
+      "La chain of custody (catena di custodia)",
+      "Il calcolo del punteggio CVSS",
+      "La difesa in profondità",
+      "La segmentazione della rete in VLAN"
+    ],
+    "correct": [0],
+    "explanation": "La chain of custody è la documentazione cronologica che traccia ogni passaggio di mano dell'evidenza (chi, quando, dove, perché). Insieme alla verifica tramite hash preserva l'integrità e l'ammissibilità legale dell'evidenza.",
+    "why_wrong": {
+      "1": "Il CVSS misura la gravità di una vulnerabilità e non ha alcun ruolo nella tracciabilità dell'evidenza.",
+      "2": "La difesa in profondità è una strategia di controlli di sicurezza a più livelli, non una pratica forense di tracciamento.",
+      "3": "La segmentazione in VLAN è un controllo di rete, non è correlata alla custodia delle evidenze."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-007",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Security Monitoring", "Analisi del traffico"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un analista deve estrarre un file eseguibile trasferito via HTTP da un endpoint compromesso per analizzarlo. Quale tipo di dati di rete è necessario per ricostruire integralmente il file trasferito?",
+    "options": [
+      "I dati NetFlow del flusso",
+      "La full packet capture (FPC / PCAP)",
+      "I session data del firewall",
+      "Gli statistical data del collector"
+    ],
+    "correct": [1],
+    "explanation": "La full packet capture registra i pacchetti completi, payload incluso, permettendo di ricostruire (carving) i file trasferiti. È l'unico tipo di dato che consente il recupero integrale del contenuto.",
+    "why_wrong": {
+      "0": "NetFlow contiene solo metadati del flusso, senza payload: non permette di ricostruire il file.",
+      "2": "I session data descrivono la conversazione (endpoint, durata, volumi) ma non contengono il contenuto dei pacchetti.",
+      "3": "Gli statistical data sono aggregati e riepiloghi del traffico, privi del contenuto necessario a ricostruire il file."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-008",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Incident Response"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Secondo il ciclo di vita dell'incident response del NIST SP 800-61, in quale fase rientrano le attività di isolamento dell'host, eradicazione del malware e ripristino dei sistemi in produzione?",
+    "options": [
+      "Preparation",
+      "Detection and Analysis",
+      "Containment, Eradication, and Recovery",
+      "Post-Incident Activity",
+      "Lessons Learned"
+    ],
+    "correct": [2],
+    "explanation": "Nel NIST SP 800-61 la fase 'Containment, Eradication, and Recovery' include il contenimento (isolamento host), l'eradicazione (rimozione del malware e delle persistenze) e il recovery (ripristino dei sistemi in produzione monitorandone il comportamento).",
+    "why_wrong": {
+      "0": "Preparation riguarda strumenti, procedure e formazione predisposti prima dell'incidente.",
+      "1": "Detection and Analysis riguarda il rilevamento, la validazione e la triage dell'incidente, non il ripristino.",
+      "3": "Post-Incident Activity riguarda la revisione a posteriori e le lezioni apprese, non le azioni operative di ripristino.",
+      "4": "Le 'Lessons Learned' fanno parte della Post-Incident Activity e non coincidono con contenimento/eradicazione/recovery."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-009",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Analisi del traffico", "IDS/IPS"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un attaccante invia frammenti IP sovrapposti con offset manipolati per confondere il modo in cui l'IDS riassembla i pacchetti rispetto all'host di destinazione. Quale categoria di tecnica sta utilizzando?",
+    "options": [
+      "Tunneling DNS per l'esfiltrazione",
+      "Evasione tramite frammentazione/riassemblaggio dei pacchetti",
+      "Password spraying",
+      "SQL injection basata su errori"
+    ],
+    "correct": [1],
+    "explanation": "Manipolare offset e sovrapposizioni dei frammenti IP è una tecnica di evasione: se l'IDS riassembla i frammenti in modo diverso dall'host di destinazione, il payload malevolo può sfuggire all'ispezione pur venendo ricostruito correttamente dalla vittima.",
+    "why_wrong": {
+      "0": "Il tunneling DNS incapsula dati nelle query DNS per esfiltrazione/C2, non riguarda la frammentazione IP.",
+      "2": "Il password spraying è un attacco di autenticazione con poche password su molti account, non una tecnica di evasione di rete.",
+      "3": "La SQL injection è un attacco a livello applicativo sul database, non una manipolazione dei frammenti di pacchetto."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-010",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Difesa in profondità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un framework AAA, dopo che un utente ha dimostrato con successo la propria identità con le credenziali, quale funzione determina quali risorse e operazioni gli sono effettivamente consentite?",
+    "options": [
+      "Authentication (autenticazione)",
+      "Authorization (autorizzazione)",
+      "Accounting (rendicontazione)",
+      "Encryption (cifratura)"
+    ],
+    "correct": [1],
+    "explanation": "Nel modello AAA l'Authorization stabilisce, dopo l'autenticazione, quali risorse, servizi e operazioni sono permessi all'utente (applicando il principio del privilegio minimo).",
+    "why_wrong": {
+      "0": "L'Authentication verifica l'identità dell'utente; è il passo precedente, non quello che assegna i permessi.",
+      "2": "L'Accounting traccia e registra le attività e il consumo di risorse dell'utente, non concede i permessi.",
+      "3": "La cifratura protegge la riservatezza dei dati e non fa parte delle tre 'A' del modello AAA."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-011",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Analisi del traffico", "Analisi forense"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Analizzando una cattura PCAP di traffico sospetto, quali DUE artefatti puoi tipicamente estrarre direttamente da una full packet capture non cifrata? (Seleziona 2)",
+    "options": [
+      "Gli User-Agent e gli header delle richieste HTTP",
+      "I file trasferiti tramite protocolli in chiaro (carving)",
+      "Le chiavi private del certificato del server web",
+      "La password del BIOS dell'host attaccato"
+    ],
+    "correct": [1, 0],
+    "explanation": "Da una PCAP non cifrata è possibile estrarre gli header applicativi (es. User-Agent, host, URI delle richieste HTTP) e ricostruire i file trasferiti in chiaro tramite file carving. Questi artefatti sono fondamentali per l'analisi di intrusione e l'estrazione di IOC.",
+    "why_wrong": {
+      "2": "Le chiavi private del server non transitano in rete; non sono presenti nel traffico catturato e non sono estraibili da una PCAP.",
+      "3": "La password del BIOS è locale all'hardware dell'host e non viene trasmessa sulla rete, quindi non è nel PCAP."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-012",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Analisi forense", "SIEM"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Investigando un possibile accesso non autorizzato su un server Linux, quali DUE file di log consulteresti tipicamente per tracciare autenticazioni ed esecuzione di comandi privilegiati? (Seleziona 2)",
+    "options": [
+      "/var/log/auth.log (o /var/log/secure)",
+      "Il file di history della shell dell'utente (es. ~/.bash_history)",
+      "Il registro di sistema di Windows (SYSTEM hive)",
+      "Il file /etc/hostname"
+    ],
+    "correct": [0, 1],
+    "explanation": "Su Linux /var/log/auth.log (Debian/Ubuntu) o /var/log/secure (RHEL/CentOS) registra login, tentativi SSH e uso di sudo; il file .bash_history dell'utente conserva i comandi eseguiti nella shell. Entrambi sono chiave per ricostruire l'attività dell'attaccante.",
+    "why_wrong": {
+      "2": "Il SYSTEM hive è un artefatto del registro di Windows, non presente su un sistema Linux.",
+      "3": "/etc/hostname contiene solo il nome host della macchina e non registra eventi di autenticazione o comandi."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-013",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Malware", "Analisi forense"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Un analista deve fare una prima triage di un sospetto campione di malware. Quali DUE attività appartengono all'analisi statica di base (senza eseguire il file)? (Seleziona 2)",
+    "options": [
+      "Calcolare l'hash del file e cercarlo su servizi di threat intelligence",
+      "Estrarre le stringhe leggibili e ispezionare l'header PE del file",
+      "Eseguire il campione in una sandbox e osservare le connessioni C2 generate",
+      "Monitorare in tempo reale le modifiche al registro durante l'esecuzione"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'analisi statica esamina il file senza eseguirlo: calcolare l'hash (per reputazione/IOC), estrarre le stringhe e ispezionare l'header PE sono tipiche attività statiche. L'esecuzione e l'osservazione del comportamento appartengono invece all'analisi dinamica.",
+    "why_wrong": {
+      "2": "Eseguire il campione in sandbox e osservare il traffico C2 è analisi dinamica, perché richiede l'esecuzione del file.",
+      "3": "Monitorare le modifiche al registro durante l'esecuzione è analisi dinamica comportamentale, non statica."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-014",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Security Monitoring", "Analisi del traffico"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "NetFlow registra il contenuto completo (payload) di ogni pacchetto che attraversa il dispositivo di rete.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. NetFlow raccoglie solo i metadati del flusso (indirizzi IP e porte, protocollo, conteggio pacchetti/byte, timestamp, flag), non il payload. Per il contenuto completo serve una full packet capture.",
+    "why_wrong": {
+      "0": "È errato: NetFlow non cattura il payload, ma solo informazioni aggregate sul flusso; il contenuto richiede una FPC."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-015",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["Difesa in profondità"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "La difesa in profondità consiste nell'implementare più livelli di controlli di sicurezza indipendenti, in modo che il fallimento di un singolo controllo non comprometta l'intero sistema.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. La difesa in profondità (defense in depth) sovrappone controlli ridondanti e diversificati (fisici, tecnici, amministrativi) così che, se un livello viene superato, gli altri continuano a proteggere gli asset.",
+    "why_wrong": {
+      "1": "È errato: negare questo principio contraddice la definizione di difesa in profondità basata sulla ridondanza dei controlli."
+    },
+    "source": "Cisco CyberOps 200-201"
+  },
+  {
+    "id": "cbo-016",
+    "cert": ["Cisco CyberOps Associate"],
+    "topics": ["IDS/IPS", "SIEM"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In un sistema di rilevamento, un falso positivo si verifica quando un evento benigno viene erroneamente classificato come malevolo, generando un allarme non necessario.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Un falso positivo è un allarme generato per attività in realtà legittima. Un alto tasso di falsi positivi causa alert fatigue e sottrae tempo all'analista; il fenomeno opposto è il falso negativo (minaccia reale non rilevata).",
+    "why_wrong": {
+      "1": "È errato: la definizione data corrisponde esattamente a un falso positivo; il caso di minaccia reale non rilevata è invece il falso negativo."
+    },
+    "source": "Cisco CyberOps 200-201"
+  }
+]

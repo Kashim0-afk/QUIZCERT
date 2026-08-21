@@ -1,0 +1,330 @@
+[
+  {
+    "id": "ms102-001",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft 365"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Stai aggiungendo il dominio personalizzato contoso.com al tenant Microsoft 365. Dopo aver inserito il dominio, il portale mostra lo stato 'Non verificato'. Quale azione devi completare presso il provider DNS per dimostrare la proprietà del dominio?",
+    "options": [
+      "Creare un record MX che punta ai server di posta di Exchange Online",
+      "Creare il record TXT (o CNAME) fornito da Microsoft nella zona DNS pubblica del dominio",
+      "Creare un record A che punta all'indirizzo IP del tenant",
+      "Creare un record SRV per il servizio di autodiscover"
+    ],
+    "correct": [1],
+    "explanation": "Per verificare la proprietà di un dominio personalizzato, Microsoft 365 fornisce un record di verifica (tipicamente un TXT, in alternativa un CNAME) che va aggiunto alla zona DNS pubblica del dominio. Microsoft interroga il DNS e, trovando il valore atteso, conferma che chi aggiunge il dominio ne controlla effettivamente il DNS. Solo dopo la verifica si configurano i record di servizio (MX, autodiscover, ecc.).",
+    "why_wrong": {
+      "0": "Il record MX serve a instradare la posta verso Exchange Online e si configura dopo la verifica; da solo non dimostra la proprietà del dominio.",
+      "2": "Un record A associa un nome a un IP e non viene usato da Microsoft 365 per verificare la proprietà del dominio.",
+      "3": "Il record SRV supporta servizi come Teams/autodiscover, ma non è il meccanismo di verifica della proprietà del dominio."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-002",
+    "cert": ["Microsoft MS-102"],
+    "topics": ["Microsoft 365"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Gli utenti segnalano rallentamenti nell'accesso a SharePoint Online. Come amministratore vuoi verificare se Microsoft ha in corso un incidente noto sul servizio e leggere gli aggiornamenti ufficiali. Dove guardi nel Microsoft 365 admin center?",
+    "options": [
+      "In Reports > Usage per analizzare il traffico degli utenti",
+      "In Health > Service health per consultare lo stato dei servizi e gli avvisi/incidenti",
+      "In Settings > Org settings per modificare le impostazioni di SharePoint",
+      "In Users > Active users per controllare le licenze assegnate"
+    ],
+    "correct": [1],
+    "explanation": "La pagina Service health (Integrità del servizio) nel Microsoft 365 admin center mostra lo stato in tempo reale di ogni servizio (Exchange, SharePoint, Teams, ecc.) e pubblica avvisi e incidenti con la descrizione del problema, l'impatto e gli aggiornamenti forniti da Microsoft. È il punto di partenza per capire se un problema è lato Microsoft.",
+    "why_wrong": {
+      "0": "I report di utilizzo mostrano l'adozione e il traffico, ma non indicano se è in corso un incidente sul servizio.",
+      "2": "Org settings serve a configurare le impostazioni dei servizi, non a monitorare incidenti o stato di salute.",
+      "3": "La pagina Active users gestisce utenti e licenze e non riporta lo stato operativo dei servizi."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-003",
+    "cert": ["Microsoft MS-102", "Controllo accessi"],
+    "topics": ["Microsoft 365", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un collega dell'help desk deve poter reimpostare le password degli utenti standard e gestire le richieste di supporto, ma non deve poter modificare la configurazione di sicurezza del tenant né gestire altri amministratori. Applicando il principio del privilegio minimo, quale ruolo di Entra ID assegni?",
+    "options": [
+      "Global Administrator",
+      "Helpdesk Administrator",
+      "Security Administrator",
+      "Privileged Role Administrator"
+    ],
+    "correct": [1],
+    "explanation": "Il ruolo Helpdesk Administrator (Amministratore Help Desk) consente di reimpostare le password degli utenti non amministratori e di gestire le richieste di supporto, senza concedere il controllo sulla configurazione di sicurezza o sugli altri ruoli. È la scelta corretta secondo il principio del privilegio minimo, che impone di assegnare solo i permessi strettamente necessari.",
+    "why_wrong": {
+      "0": "Global Administrator concede il controllo completo del tenant: viola nettamente il privilegio minimo per un compito di help desk.",
+      "2": "Security Administrator gestisce funzionalità e policy di sicurezza, molto più di quanto serva per reimpostare password.",
+      "3": "Privileged Role Administrator permette di assegnare ruoli ad altri amministratori, un privilegio elevato non richiesto qui."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-004",
+    "cert": ["Microsoft MS-102", "Entra ID"],
+    "topics": ["Identity", "Entra ID"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Stai configurando Entra Connect per sincronizzare l'Active Directory on-premises con Entra ID. L'azienda vuole che gli utenti usino la stessa password in cloud e on-premises, mantenendo l'autenticazione gestita in cloud e senza distribuire server aggiuntivi. Quale metodo di autenticazione scegli?",
+    "options": [
+      "Password Hash Synchronization (PHS)",
+      "Pass-through Authentication (PTA) senza sincronizzazione delle password",
+      "Federazione con AD FS",
+      "Autenticazione solo cloud disabilitando la sincronizzazione"
+    ],
+    "correct": [0],
+    "explanation": "Con Password Hash Synchronization Entra Connect sincronizza in Entra ID un hash dell'hash della password memorizzata in AD: gli utenti usano la stessa password in cloud e on-premises e l'autenticazione viene convalidata da Entra ID senza bisogno di server aggiuntivi. È il metodo più semplice e resiliente, indipendente dalla disponibilità dei domain controller.",
+    "why_wrong": {
+      "1": "PTA convalida le password contro l'AD on-premises tramite agent: richiede agent aggiuntivi e la disponibilità dei DC, e non sincronizza gli hash.",
+      "2": "AD FS richiede l'implementazione e la manutenzione di un'infrastruttura di federazione con server dedicati, contraria al requisito di non aggiungere server.",
+      "3": "Disabilitare la sincronizzazione impedirebbe di avere le stesse identità e password gestite tra on-premises e cloud."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-005",
+    "cert": ["Microsoft MS-102", "Controllo accessi"],
+    "topics": ["Identity", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Vuoi imporre la MFA a tutti gli utenti che accedono a Microsoft 365 solo quando l'accesso proviene da una rete esterna alle sedi aziendali fidate, senza richiederla dalle reti dell'ufficio. Quale funzionalità di Entra ID usi per implementare questo requisito?",
+    "options": [
+      "Impostazioni MFA per utente (per-user MFA) abilitate su ogni account",
+      "Una policy di Conditional Access che richiede MFA con condizione basata su named locations",
+      "Security defaults del tenant",
+      "Le password policy in Entra Connect"
+    ],
+    "correct": [1],
+    "explanation": "Il Conditional Access permette di applicare controlli come 'Require multifactor authentication' in base a segnali contestuali. Definendo le named locations (posizioni con nome) per gli IP delle sedi fidate ed escludendole dalla policy, la MFA viene richiesta solo per gli accessi provenienti dall'esterno. È l'approccio corretto per una MFA condizionata alla posizione.",
+    "why_wrong": {
+      "0": "La per-user MFA impone la MFA sempre, in tutti gli accessi, senza poter distinguere in base alla posizione di rete.",
+      "2": "I security defaults applicano la MFA in modo generalizzato e non offrono condizioni granulari basate sulla posizione.",
+      "3": "Entra Connect gestisce la sincronizzazione delle identità, non le policy di richiesta MFA basate sulla posizione."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-006",
+    "cert": ["Microsoft MS-102", "Defender"],
+    "topics": ["Defender", "Cloud security"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Vuoi che gli allegati email in ingresso vengano eseguiti (detonati) in un ambiente virtuale isolato per rilevare malware zero-day prima della consegna all'utente. Quale funzionalità di Microsoft Defender for Office 365 configuri?",
+    "options": [
+      "Safe Links",
+      "Safe Attachments",
+      "Anti-phishing con protezione da spoofing",
+      "Zero-hour Auto Purge (ZAP)"
+    ],
+    "correct": [1],
+    "explanation": "Safe Attachments di Defender for Office 365 apre gli allegati in un ambiente sandbox isolato (detonation) e ne analizza il comportamento per individuare malware sconosciuti/zero-day, bloccando o mettendo in quarantena i file dannosi prima che raggiungano l'utente. È la protezione mirata contro gli allegati malevoli.",
+    "why_wrong": {
+      "0": "Safe Links riscrive e verifica gli URL al momento del clic, protegge dai link malevoli, non analizza gli allegati in sandbox.",
+      "2": "L'anti-phishing rileva spoofing e impersonation basandosi su euristiche e mittenti, ma non detona gli allegati.",
+      "3": "ZAP rimuove a posteriori i messaggi già consegnati che risultano malevoli, ma non esegue la detonation preventiva degli allegati."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-007",
+    "cert": ["Microsoft MS-102", "Defender"],
+    "topics": ["Defender", "Cloud security"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un utente riceve un'email con un URL che al momento della consegna risulta pulito, ma dopo qualche ora la pagina di destinazione viene compromessa e inizia a distribuire malware. Quale funzionalità di Defender for Office 365 protegge l'utente verificando l'URL nel momento in cui viene cliccato?",
+    "options": [
+      "Safe Attachments",
+      "Safe Links (time-of-click protection)",
+      "Connection filtering (IP allow/block list)",
+      "DKIM per il dominio del mittente"
+    ],
+    "correct": [1],
+    "explanation": "Safe Links esegue la verifica dell'URL al momento del clic (time-of-click): riscrive i link nei messaggi e, quando l'utente li apre, controlla in tempo reale la reputazione della destinazione. Anche se il link era innocuo alla consegna ma è stato compromesso in seguito, Safe Links può bloccare l'accesso alla pagina malevola.",
+    "why_wrong": {
+      "0": "Safe Attachments protegge dagli allegati eseguendoli in sandbox, non verifica gli URL cliccati.",
+      "2": "Il connection filtering agisce sugli IP di connessione in ingresso, non rivaluta gli URL al momento del clic.",
+      "3": "DKIM autentica l'integrità e l'origine del messaggio tramite firma, ma non controlla la sicurezza delle destinazioni dei link."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-008",
+    "cert": ["Microsoft MS-102", "Compliance"],
+    "topics": ["Compliance", "Microsoft 365"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "L'azienda vuole impedire che numeri di carta di credito vengano inviati all'esterno tramite Exchange Online, SharePoint e Teams, mostrando all'utente un avviso e bloccando la condivisione. Quale funzionalità di Microsoft Purview implementi?",
+    "options": [
+      "Una policy di Data Loss Prevention (DLP) con il tipo di informazione sensibile 'Credit Card Number'",
+      "Una retention label applicata automaticamente",
+      "Una sensitivity label con crittografia",
+      "Un eDiscovery case con legal hold"
+    ],
+    "correct": [0],
+    "explanation": "La Data Loss Prevention (DLP) di Microsoft Purview individua contenuti sensibili tramite i Sensitive Information Types (come 'Credit Card Number') e applica azioni come bloccare la condivisione esterna, mostrare policy tip all'utente e generare report. È lo strumento corretto per impedire l'esfiltrazione di dati sensibili su Exchange, SharePoint, OneDrive e Teams.",
+    "why_wrong": {
+      "1": "Le retention label governano la conservazione ed eliminazione dei dati nel tempo, non bloccano la condivisione di contenuti sensibili.",
+      "2": "Le sensitivity label classificano e proteggono (es. crittografano) i documenti, ma non ispezionano il flusso per bloccare l'invio di numeri di carta.",
+      "3": "eDiscovery e legal hold servono a preservare e ricercare contenuti per esigenze legali, non a prevenire in tempo reale la perdita di dati."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-009",
+    "cert": ["Microsoft MS-102", "Compliance"],
+    "topics": ["Compliance", "Microsoft 365"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Devi garantire che i documenti classificati come 'Confidenziale' siano crittografati e che solo gli utenti autorizzati possano aprirli, indipendentemente da dove il file viene copiato o inviato. Quale funzionalità di Microsoft Purview usi?",
+    "options": [
+      "Retention label",
+      "Sensitivity label con protezione tramite crittografia",
+      "DLP policy in sola modalità di audit",
+      "Communication compliance policy"
+    ],
+    "correct": [1],
+    "explanation": "Le sensitivity label (etichette di riservatezza) di Purview classificano i contenuti e possono applicare protezione tramite crittografia e restrizioni sui permessi. La protezione viaggia con il file: anche se il documento viene copiato o inviato all'esterno, solo gli utenti autorizzati definiti nell'etichetta possono aprirlo e usarlo.",
+    "why_wrong": {
+      "0": "Le retention label gestiscono i cicli di conservazione e cancellazione, non applicano crittografia né restrizioni di accesso ai file.",
+      "2": "Una DLP in audit registra le violazioni ma non cifra i documenti né vincola chi può aprirli.",
+      "3": "Communication compliance analizza le comunicazioni per rischi/violazioni di policy, non protegge i documenti con crittografia persistente."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-010",
+    "cert": ["Microsoft MS-102", "Defender"],
+    "topics": ["Defender", "Cloud security"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Vuoi iniziare a monitorare e proteggere i dispositivi Windows aziendali con Microsoft Defender for Endpoint. Qual è il passo necessario affinché un dispositivo inizi a inviare i propri segnali (telemetria) al servizio e compaia nell'inventario?",
+    "options": [
+      "Assegnare al dispositivo una sensitivity label",
+      "Eseguire l'onboarding del dispositivo (es. tramite Intune, script o GPO) al servizio Defender for Endpoint",
+      "Aggiungere il dispositivo a una named location in Conditional Access",
+      "Creare una regola di trasporto in Exchange Online"
+    ],
+    "correct": [1],
+    "explanation": "Per essere protetto e monitorato da Defender for Endpoint, un dispositivo deve essere sottoposto a onboarding: si applica un pacchetto/configurazione di onboarding (tramite Microsoft Intune, script locale, GPO, Configuration Manager, ecc.) che attiva il sensore. Solo dopo l'onboarding il device invia la telemetria al servizio e appare nell'inventario dei dispositivi.",
+    "why_wrong": {
+      "0": "Le sensitivity label proteggono i documenti, non collegano un endpoint al servizio EDR.",
+      "2": "Le named location definiscono posizioni di rete per il Conditional Access, non eseguono l'onboarding di un dispositivo a Defender for Endpoint.",
+      "3": "Le regole di trasporto agiscono sul flusso della posta in Exchange Online e non hanno alcun ruolo nell'onboarding degli endpoint."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-011",
+    "cert": ["Microsoft MS-102", "Entra ID"],
+    "topics": ["Identity", "Entra ID"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Stai pianificando l'ibridità delle identità con Entra Connect. Quali DUE delle seguenti affermazioni sono corrette riguardo alle sue funzionalità?",
+    "options": [
+      "Il Password writeback consente di riscrivere in Active Directory on-premises le password cambiate o reimpostate in cloud (es. tramite SSPR)",
+      "Il filtraggio (scoping) permette di sincronizzare solo determinate OU o gruppi, escludendo gli oggetti non necessari",
+      "Entra Connect richiede obbligatoriamente AD FS per sincronizzare gli account utente",
+      "Entra Connect può sincronizzare identità solo in un'unica direzione: esclusivamente dal cloud verso l'on-premises"
+    ],
+    "correct": [0, 1],
+    "explanation": "Password writeback permette che le modifiche/reimpostazioni di password effettuate in cloud (ad esempio con Self-Service Password Reset) vengano riscritte in AD on-premises, mantenendo le password allineate. Il filtraggio (per dominio, OU o attributo) consente di limitare l'ambito della sincronizzazione ai soli oggetti desiderati. Entrambe sono funzionalità standard di Entra Connect.",
+    "why_wrong": {
+      "2": "AD FS è opzionale: Entra Connect può usare Password Hash Sync o Pass-through Authentication senza alcuna federazione AD FS.",
+      "3": "La sincronizzazione delle identità avviene principalmente da on-premises verso il cloud; il password writeback è un'eccezione specifica, quindi affermare che sia solo dal cloud verso l'on-premises è errato."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-012",
+    "cert": ["Microsoft MS-102", "Defender"],
+    "topics": ["Defender", "Cloud security"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Microsoft Defender XDR integra più servizi di sicurezza in un'unica esperienza. Quali DUE dei seguenti sono componenti di Microsoft Defender XDR?",
+    "options": [
+      "Microsoft Defender for Endpoint",
+      "Microsoft Defender for Office 365",
+      "Microsoft Entra Connect",
+      "Microsoft Purview eDiscovery"
+    ],
+    "correct": [0, 1],
+    "explanation": "Microsoft Defender XDR (Extended Detection and Response) correla i segnali provenienti da più prodotti, tra cui Microsoft Defender for Endpoint (protezione degli endpoint/EDR) e Microsoft Defender for Office 365 (protezione di email e strumenti di collaborazione). Insieme ad altri come Defender for Identity e Defender for Cloud Apps, offrono una visione unificata di incidenti e minacce.",
+    "why_wrong": {
+      "2": "Entra Connect è lo strumento di sincronizzazione delle identità ibride, non un componente di Defender XDR.",
+      "3": "eDiscovery fa parte di Microsoft Purview (compliance) per la ricerca e conservazione dei contenuti, non di Defender XDR."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-013",
+    "cert": ["Microsoft MS-102", "Controllo accessi"],
+    "topics": ["Controllo accessi", "Entra ID"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Stai creando una policy di Conditional Access in Entra ID. Quali DUE dei seguenti sono esempi validi di grant control (controlli di concessione) che possono essere imposti quando le condizioni della policy sono soddisfatte?",
+    "options": [
+      "Require multifactor authentication (richiedere l'autenticazione a più fattori)",
+      "Require device to be marked as compliant (richiedere un dispositivo conforme)",
+      "Increase the user's assigned license count (aumentare le licenze dell'utente)",
+      "Rename the user's on-premises Active Directory account (rinominare l'account AD on-premises)"
+    ],
+    "correct": [0, 1],
+    "explanation": "I grant control del Conditional Access determinano cosa è necessario per concedere l'accesso quando le condizioni corrispondono. 'Require MFA' e 'Require device to be marked as compliant' (dispositivo conforme, tipicamente valutato tramite Intune) sono due controlli di concessione classici, spesso combinati per rafforzare l'accesso condizionato.",
+    "why_wrong": {
+      "2": "La gestione delle licenze non è un controllo del Conditional Access: le policy regolano l'accesso, non la quantità di licenze assegnate.",
+      "3": "Il Conditional Access non modifica gli oggetti in AD on-premises come il nome dell'account; valuta segnali e applica controlli di accesso."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-014",
+    "cert": ["Microsoft MS-102", "Compliance"],
+    "topics": ["Compliance", "Microsoft 365"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In Microsoft Purview, le retention label servono principalmente a stabilire per quanto tempo un contenuto deve essere conservato o quando deve essere eliminato, mentre le sensitivity label servono a classificare e proteggere i contenuti (ad esempio con crittografia). Vero o falso?",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Affermazione vera. Le retention label governano il ciclo di vita dei dati (conservazione ed eliminazione secondo policy e requisiti normativi), mentre le sensitivity label classificano i contenuti in base alla riservatezza e possono applicare protezioni come crittografia, marcature e restrizioni di accesso. Sono due meccanismi distinti e complementari di Purview.",
+    "why_wrong": {
+      "1": "È errato considerare l'affermazione falsa: la distinzione descritta tra retention label (conservazione) e sensitivity label (classificazione/protezione) è esattamente corretta."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-015",
+    "cert": ["Microsoft MS-102", "Defender"],
+    "topics": ["Defender", "Cloud security"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In Microsoft Defender for Office 365, Safe Links verifica gli URL solo una volta, al momento della consegna dell'email, e non esegue alcun controllo aggiuntivo quando l'utente clicca sul collegamento. Vero o falso?",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Affermazione falsa. La caratteristica distintiva di Safe Links è proprio la protezione time-of-click: gli URL vengono riscritti e la loro reputazione viene rivalutata nel momento in cui l'utente clicca il link, non soltanto alla consegna. Questo consente di bloccare pagine che erano innocue alla ricezione ma sono state compromesse in un secondo momento.",
+    "why_wrong": {
+      "0": "Considerare l'affermazione vera è errato: Safe Links esegue la verifica al momento del clic, non solo alla consegna del messaggio."
+    },
+    "source": "Microsoft MS-102"
+  },
+  {
+    "id": "ms102-016",
+    "cert": ["Microsoft MS-102", "Entra ID"],
+    "topics": ["Identity", "Entra ID"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Con Entra Connect, la sincronizzazione dell'hash delle password (Password Hash Synchronization) consente agli utenti di autenticarsi in Entra ID anche quando i domain controller on-premises non sono raggiungibili. Vero o falso?",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Affermazione vera. Con PHS l'hash delle password è sincronizzato in Entra ID, che convalida direttamente le autenticazioni in cloud. Poiché non dipende dalla disponibilità dei domain controller o di agent locali (a differenza di Pass-through Authentication e di AD FS), gli utenti possono continuare ad autenticarsi anche se l'ambiente on-premises è offline.",
+    "why_wrong": {
+      "1": "È errato considerarla falsa: essendo l'autenticazione convalidata in cloud, PHS resta funzionante anche quando i domain controller on-premises non sono disponibili."
+    },
+    "source": "Microsoft MS-102"
+  }
+]

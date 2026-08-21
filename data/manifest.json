@@ -1,5 +1,13 @@
 {
   "files": [
+    "questions/cor-az500.json",
+    "questions/cor-cyberops.json",
+    "questions/cor-cysa.json",
+    "questions/cor-iso27001.json",
+    "questions/cor-lpic.json",
+    "questions/cor-ms102.json",
+    "questions/cor-pentest.json",
+    "questions/cor-sc300.json",
     "questions/mix-ad.json",
     "questions/mix-backup.json",
     "questions/mix-cloud.json",

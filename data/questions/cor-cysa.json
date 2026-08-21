@@ -1,0 +1,330 @@
+[
+  {
+    "id": "cysa-001",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["SIEM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un analista SOC nota che il SIEM genera migliaia di alert al giorno, molti dei quali falsi positivi legati a una scansione di vulnerabilità pianificata interna. Qual è l'approccio più corretto per ridurre il rumore senza perdere visibilità sulle minacce reali?",
+    "options": [
+      "Disattivare la regola di correlazione che genera gli alert per eliminarli definitivamente",
+      "Creare un'eccezione di tuning che escluda l'indirizzo IP dello scanner autorizzato durante la finestra di scansione",
+      "Aumentare la soglia di tutti gli alert del SIEM per ridurre il volume complessivo",
+      "Inoltrare tutti gli alert direttamente al team di incident response per la revisione manuale"
+    ],
+    "correct": [1],
+    "explanation": "Il tuning del SIEM tramite eccezioni mirate (per esempio escludere l'IP dello scanner autorizzato nella finestra di scansione pianificata) elimina i falsi positivi noti mantenendo intatta la capacità di rilevare attività sospette da altre fonti. È la pratica standard per gestire il rumore preservando la fedeltà del rilevamento.",
+    "why_wrong": {
+      "0": "Disattivare del tutto la regola crea un punto cieco: se un attaccante reale generasse quel pattern, non verrebbe più rilevato.",
+      "2": "Alzare indiscriminatamente le soglie di tutti gli alert rischia di sopprimere anche eventi critici non correlati alla scansione.",
+      "3": "Inoltrare tutto all'IR senza triage aumenta il carico e l'affaticamento da alert, senza risolvere la causa dei falsi positivi."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-002",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Durante la prioritizzazione della remediation, un analista deve scegliere tra due vulnerabilità con CVSS base identico di 7.5. Quale fattore aggiuntivo è più utile per decidere quale correggere per prima secondo un approccio basato sul rischio?",
+    "options": [
+      "L'ordine alfabetico del CVE per uniformità di processo",
+      "La presenza della vulnerabilità nel catalogo KEV di CISA e/o un punteggio EPSS elevato",
+      "La data di pubblicazione più recente del CVE",
+      "Il numero totale di host su cui è installato il software, indipendentemente dall'esposizione"
+    ],
+    "correct": [1],
+    "explanation": "A parità di CVSS base, la prioritizzazione basata sul rischio considera la probabilità di sfruttamento reale: l'inclusione nel catalogo Known Exploited Vulnerabilities (KEV) di CISA indica sfruttamento attivo in-the-wild, e un punteggio EPSS alto stima la probabilità di exploit a breve. Questi arricchimenti spostano la priorità verso ciò che gli attaccanti stanno realmente usando.",
+    "why_wrong": {
+      "0": "L'ordine alfabetico del CVE non ha alcuna relazione con il rischio o l'impatto.",
+      "2": "La sola data di pubblicazione non indica se la vulnerabilità sia sfruttata o esposta; un CVE più vecchio può essere molto più pericoloso se attivamente sfruttato.",
+      "3": "Il conteggio degli host è un fattore, ma senza considerare esposizione e sfruttabilità può portare a correggere prima vulnerabilità meno critiche."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-003",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Incident Response"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Secondo il ciclo di vita dell'incident response, dopo aver rilevato e analizzato un host compromesso da malware, quale fase mira principalmente a impedire che la minaccia si propaghi ad altri sistemi prima di rimuoverla?",
+    "options": [
+      "Eradicazione (Eradication)",
+      "Recupero (Recovery)",
+      "Contenimento (Containment)",
+      "Lezioni apprese (Lessons Learned)"
+    ],
+    "correct": [2],
+    "explanation": "Il contenimento è la fase in cui si limita la diffusione dell'incidente, per esempio isolando l'host dalla rete o segmentando il traffico, prima di procedere all'eradicazione. Nel modello SANS PICERL le fasi sono Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned.",
+    "why_wrong": {
+      "0": "L'eradicazione rimuove la minaccia (malware, account, persistenza) ma avviene dopo aver contenuto la propagazione.",
+      "1": "Il recupero ripristina i sistemi alla normale operatività e avviene dopo l'eradicazione.",
+      "3": "Le lezioni apprese sono la fase finale di analisi post-incidente, non servono a bloccare la propagazione."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-004",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Threat Intelligence"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un analista di threat intelligence descrive il comportamento di un gruppo APT dicendo che usa spear phishing per l'accesso iniziale, PowerShell offuscato per l'esecuzione e WMI per la persistenza. A quale livello della Pyramid of Pain appartengono queste informazioni e perché sono più preziose degli IoC atomici?",
+    "options": [
+      "Sono hash di file: facili da cambiare per l'attaccante e quindi poco utili",
+      "Sono TTP (tattiche, tecniche e procedure): descrivono il comportamento dell'avversario ed è molto costoso per lui modificarle",
+      "Sono indirizzi IP: identificano univocamente l'infrastruttura C2 dell'attaccante",
+      "Sono nomi di dominio: bloccarli neutralizza completamente il gruppo APT"
+    ],
+    "correct": [1],
+    "explanation": "Descrizioni di spear phishing, PowerShell offuscato e persistenza via WMI sono TTP, in cima alla Pyramid of Pain. Rilevare e bloccare i TTP è ciò che causa più dolore all'avversario perché modificare il proprio modus operandi è costoso e complesso, a differenza di hash, IP o domini che si cambiano facilmente.",
+    "why_wrong": {
+      "0": "Gli hash sono IoC atomici alla base della piramide, facili da cambiare, ma la descrizione data non è un hash: è comportamento.",
+      "2": "Gli indirizzi IP sono indicatori a basso valore nella piramide e non corrispondono alla descrizione di comportamenti dati.",
+      "3": "I domini sono IoC facilmente ruotabili; bloccarli non neutralizza le tecniche dell'avversario descritte."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-005",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Analisi forense", "Incident Response"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Durante la risposta a un incidente su un server Windows ancora acceso e sospettato di ospitare malware fileless residente in memoria, quale principio forense determina l'ordine di raccolta delle prove?",
+    "options": [
+      "Raccogliere per prima l'immagine del disco perché è la fonte più completa di prove",
+      "Seguire l'ordine di volatilità, acquisendo per prime le prove più volatili come la RAM e le connessioni di rete attive",
+      "Spegnere immediatamente il server per congelare lo stato ed evitare alterazioni",
+      "Raccogliere solo i log del SIEM perché sono già centralizzati e integri"
+    ],
+    "correct": [1],
+    "explanation": "L'ordine di volatilità (RFC 3227) impone di raccogliere per prime le prove che si perdono più facilmente: contenuto della RAM, cache, tabelle di routing, connessioni di rete e processi in esecuzione, prima dei dati persistenti su disco. Per malware fileless in memoria questo è cruciale, perché lo spegnimento distruggerebbe l'unica prova.",
+    "why_wrong": {
+      "0": "L'immagine del disco è importante ma i dati su disco sono meno volatili; acquisirli per primi rischia di perdere le prove in RAM.",
+      "2": "Spegnere il server distrugge i dati volatili in memoria, proprio dove risiede il malware fileless.",
+      "3": "I log del SIEM sono utili ma non sostituiscono la memoria volatile dell'host compromesso, dove si trova l'artefatto principale."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-006",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un IDS basato su firme non rileva una nuova variante di malware perché la sua firma non è ancora presente nel database. Quale tipo di rilevamento sarebbe più efficace contro una minaccia sconosciuta di questo tipo?",
+    "options": [
+      "Rilevamento basato su firme con aggiornamento più frequente",
+      "Rilevamento basato su anomalie/comportamento che confronta l'attività con una baseline normale",
+      "Blacklist statica di indirizzi IP noti come malevoli",
+      "Filtraggio dei contenuti basato su parole chiave note"
+    ],
+    "correct": [1],
+    "explanation": "Il rilevamento basato su anomalie (behavior-based) costruisce una baseline dell'attività normale e segnala le deviazioni, riuscendo così a individuare minacce sconosciute e zero-day per cui non esiste ancora una firma. Il rilevamento a firme è intrinsecamente incapace di riconoscere ciò che non è già catalogato.",
+    "why_wrong": {
+      "0": "Anche con aggiornamenti frequenti, il rilevamento a firme resta inefficace finché la firma della nuova variante non viene creata e distribuita.",
+      "2": "Una blacklist di IP noti non copre infrastrutture nuove o mai osservate usate da una variante sconosciuta.",
+      "3": "Il filtraggio per parole chiave note ricade nella stessa limitazione delle firme: non riconosce pattern non ancora catalogati."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-007",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["SIEM", "Threat Intelligence"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Analizzando i log di un firewall in un SIEM, un analista osserva che un host interno stabilisce connessioni in uscita verso lo stesso IP esterno a intervalli molto regolari di circa 60 secondi, con payload di dimensioni quasi costanti. Cosa suggerisce più probabilmente questo pattern?",
+    "options": [
+      "Un normale aggiornamento software automatico del sistema operativo",
+      "Beaconing di un canale di comando e controllo (C2) da parte di un host compromesso",
+      "Un attacco di tipo denial of service verso l'host interno",
+      "Traffico di backup pianificato verso un server esterno legittimo"
+    ],
+    "correct": [1],
+    "explanation": "Connessioni in uscita periodiche e regolari verso lo stesso host esterno, con dimensioni di payload costanti, sono la firma classica del beaconing C2: un impianto che contatta il server di comando a intervalli fissi in attesa di istruzioni. È un indicatore comportamentale chiave nel threat hunting.",
+    "why_wrong": {
+      "0": "Gli aggiornamenti software non seguono cadenze così brevi e rigidamente periodiche verso un singolo IP con payload costanti.",
+      "2": "Un DoS implicherebbe un volume elevato di traffico in ingresso verso l'host, non connessioni periodiche in uscita di piccole dimensioni.",
+      "3": "Un backup pianificato genera in genere grandi trasferimenti a orari definiti, non micro-connessioni ripetute ogni minuto."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-008",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un analista esegue una scansione di vulnerabilità non autenticata (unauthenticated) su un server. Rispetto a una scansione autenticata (credentialed), quale limite ha più probabilità di produrre?",
+    "options": [
+      "Genera necessariamente più falsi positivi perché accede alla configurazione interna del sistema",
+      "Fornisce una visione limitata dello stato di patch e configurazione interni, potendo mancare vulnerabilità visibili solo dall'interno",
+      "Richiede sempre più privilegi amministrativi rispetto a una scansione autenticata",
+      "Non è in grado di rilevare alcun servizio di rete esposto"
+    ],
+    "correct": [1],
+    "explanation": "Una scansione non autenticata vede il sistema come lo vedrebbe un attaccante esterno senza credenziali: rileva i servizi esposti ma non può ispezionare patch installate, configurazioni locali e software interno. La scansione autenticata usa credenziali per un'analisi più profonda e accurata dello stato reale dell'host.",
+    "why_wrong": {
+      "0": "È la scansione autenticata ad accedere alla configurazione interna; quella non autenticata tende semmai a essere meno precisa sul contesto locale.",
+      "2": "La scansione non autenticata non richiede credenziali privilegiate; è quella autenticata a necessitare di credenziali.",
+      "3": "Anche una scansione non autenticata rileva i servizi di rete esposti; è proprio ciò che sa fare meglio."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-009",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Malware", "Incident Response"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un endpoint mostra segni di infezione. L'analista vuole comprendere il comportamento del malware (connessioni di rete, modifiche al registro, file creati) senza rischiare la produzione. Qual è l'approccio più appropriato?",
+    "options": [
+      "Eseguire il campione direttamente sull'endpoint di produzione per osservarlo nel contesto reale",
+      "Detonare il campione in una sandbox isolata per analisi dinamica del comportamento",
+      "Eliminare immediatamente il file senza analizzarlo per fermare l'infezione",
+      "Caricare il file su una chat pubblica per chiedere opinioni ad altri analisti"
+    ],
+    "correct": [1],
+    "explanation": "L'analisi dinamica in una sandbox isolata permette di detonare il campione in un ambiente controllato e osservarne il comportamento a runtime (traffico C2, chiavi di registro, file, processi) senza mettere a rischio i sistemi di produzione, generando IoC utili per il rilevamento.",
+    "why_wrong": {
+      "0": "Eseguire il malware in produzione può causare danni, propagazione ed esfiltrazione reali: è inaccettabile.",
+      "2": "Eliminare subito il file impedisce l'analisi e la raccolta di IoC, e potrebbe non rimuovere la persistenza già installata.",
+      "3": "Condividere un campione su una chat pubblica espone dati potenzialmente sensibili e non costituisce un'analisi controllata."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-010",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Gestione del rischio"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Il team di vulnerability management identifica una vulnerabilità critica su un sistema legacy che non può essere patchato perché eseguirebbe un'applicazione business-critical non più supportata. Quale risposta al rischio consente di ridurre l'esposizione mantenendo il sistema operativo?",
+    "options": [
+      "Accettare il rischio senza alcuna azione perché la patch non è disponibile",
+      "Applicare controlli compensativi come segmentazione di rete e monitoraggio rafforzato del sistema",
+      "Trasferire l'intero rischio a una polizza assicurativa ed eliminare il monitoraggio",
+      "Evitare il rischio spegnendo immediatamente il sistema business-critical"
+    ],
+    "correct": [1],
+    "explanation": "Quando la remediation diretta (patch) non è possibile, si applicano controlli compensativi (mitigazione): isolare il sistema in un segmento di rete dedicato, restringere gli accessi e intensificare il monitoraggio riduce concretamente l'esposizione mantenendo operativa l'applicazione critica.",
+    "why_wrong": {
+      "0": "L'accettazione pura senza mitigazioni lascia la vulnerabilità critica pienamente esposta, scelta difficilmente giustificabile.",
+      "2": "L'assicurazione trasferisce l'impatto economico ma non riduce l'esposizione tecnica, e rimuovere il monitoraggio peggiora la situazione.",
+      "3": "Spegnere il sistema business-critical viola il vincolo di mantenerlo operativo e interrompe il business."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-011",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Threat Intelligence", "SIEM"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Un analista SOC vuole avviare un'attività di threat hunting proattivo basata su ipotesi. Quali due affermazioni descrivono correttamente questo approccio? (Seleziona due)",
+    "options": [
+      "Il threat hunting parte dal presupposto che una compromissione possa già essere presente e cerca prove attivamente, invece di attendere un alert",
+      "Il threat hunting si basa esclusivamente sugli alert automatici generati dal SIEM senza formulare ipotesi",
+      "Le ipotesi di hunting possono essere derivate dai TTP di avversari noti mappati su framework come MITRE ATT&CK",
+      "Il threat hunting sostituisce completamente la necessità di rilevamento automatizzato e di regole del SIEM"
+    ],
+    "correct": [0, 2],
+    "explanation": "Il threat hunting è un'attività proattiva e ipotesi-guidata: assume che l'avversario possa essere già dentro il perimetro e cerca prove in modo attivo. Le ipotesi si formulano spesso a partire dai TTP di attori noti mappati su MITRE ATT&CK, guidando la ricerca verso comportamenti specifici.",
+    "why_wrong": {
+      "1": "Il threat hunting non si limita agli alert automatici: è proprio ciò che va oltre il rilevamento reattivo formulando ipotesi.",
+      "3": "Il hunting integra, ma non sostituisce, il rilevamento automatizzato e le regole del SIEM, che restano fondamentali."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-012",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Incident Response", "Analisi forense"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Durante la raccolta di prove per un possibile procedimento legale, un analista deve garantirne l'ammissibilità. Quali due pratiche sono essenziali per preservare l'integrità e la difendibilità delle prove digitali? (Seleziona due)",
+    "options": [
+      "Mantenere una catena di custodia documentata che tracci chi ha maneggiato la prova, quando e perché",
+      "Modificare i file di prova per aggiungere annotazioni utili all'indagine",
+      "Calcolare e verificare gli hash crittografici (es. SHA-256) delle immagini per dimostrare che non sono state alterate",
+      "Lavorare sempre direttamente sull'evidenza originale per risparmiare tempo di copia"
+    ],
+    "correct": [0, 2],
+    "explanation": "La catena di custodia documenta ogni passaggio di mano della prova, garantendone la tracciabilità e la difendibilità in tribunale. Il calcolo e la verifica di hash crittografici prima e dopo dimostrano che l'immagine forense non è stata alterata, preservandone l'integrità.",
+    "why_wrong": {
+      "1": "Modificare i file di prova ne compromette l'integrità e ne rende inammissibile l'uso legale; le annotazioni vanno tenute separate.",
+      "3": "Si lavora sempre su copie forensi verificate, mai sull'originale, che va preservato intatto come riferimento."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-013",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Threat e vulnerabilità", "Gestione del rischio"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Nel comunicare i risultati di un assessment di vulnerabilità alla dirigenza e ai team tecnici, quali due elementi rendono il report più efficace? (Seleziona due)",
+    "options": [
+      "Adattare il livello di dettaglio all'audience: sintesi orientata al rischio per la dirigenza, dettagli tecnici e passi di remediation per i team IT",
+      "Includere solo i punteggi CVSS grezzi senza alcun contesto di business o di esposizione",
+      "Fornire raccomandazioni di remediation azionabili e una prioritizzazione basata sul rischio",
+      "Elencare tutte le vulnerabilità in ordine casuale per non influenzare le decisioni del lettore"
+    ],
+    "correct": [0, 2],
+    "explanation": "Un report efficace di vulnerability management è audience-aware: la dirigenza ha bisogno di una sintesi orientata al rischio di business, mentre i team tecnici necessitano dei dettagli e dei passi concreti di remediation. Raccomandazioni azionabili e prioritizzazione basata sul rischio permettono di intervenire prima su ciò che conta di più.",
+    "why_wrong": {
+      "1": "Il solo CVSS grezzo senza contesto di business e di esposizione non aiuta a prendere decisioni informate.",
+      "3": "Un ordine casuale nasconde la priorità e ostacola l'azione; il report deve guidare verso gli interventi più urgenti."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-014",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Threat Intelligence"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un indicatore di compromissione (IoC) come un hash di file o un indirizzo IP malevolo è generalmente più facile da modificare per un attaccante rispetto alle sue tattiche, tecniche e procedure (TTP).",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Vero. Secondo la Pyramid of Pain, gli IoC atomici come hash e indirizzi IP stanno alla base della piramide: un attaccante può cambiarli rapidamente (ricompilare un file, ruotare l'infrastruttura). I TTP, che descrivono il suo modus operandi, sono in cima e molto più costosi da modificare, quindi rilevarli infligge più dolore all'avversario.",
+    "why_wrong": {
+      "0": "L'affermazione è corretta: gli IoC atomici sono effettivamente più volatili e facili da cambiare rispetto ai TTP, quindi la risposta non è Falso."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-015",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un punteggio CVSS base elevato è di per sé sufficiente a determinare la priorità di remediation di una vulnerabilità, senza considerare la sfruttabilità reale o l'esposizione dell'asset.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Il CVSS base misura la gravità intrinseca ma non tiene conto del contesto: sfruttamento attivo (KEV), probabilità di exploit (EPSS), criticità e esposizione dell'asset. Una prioritizzazione basata sul rischio combina il CVSS con questi fattori per decidere davvero cosa correggere per primo.",
+    "why_wrong": {
+      "0": "Affidarsi al solo CVSS base è un errore comune: ignora sfruttabilità ed esposizione, quindi l'affermazione non è Vera."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  },
+  {
+    "id": "cysa-016",
+    "cert": ["CompTIA CySA+"],
+    "topics": ["Incident Response"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nel ciclo di vita dell'incident response, la fase di lezioni apprese (lessons learned) dovrebbe essere svolta al termine dell'incidente per identificare miglioramenti ai processi e ai controlli difensivi.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. La fase di lezioni apprese (post-incident review) chiude il ciclo di IR: si analizza cosa è andato bene e cosa no, si aggiornano playbook, controlli e detection, e si alimenta la fase di preparazione dei futuri incidenti. È essenziale per il miglioramento continuo del SOC.",
+    "why_wrong": {
+      "1": "L'affermazione è corretta: la revisione post-incidente è proprio finalizzata a identificare miglioramenti, quindi la risposta non è Falso."
+    },
+    "source": "CompTIA CySA+ CS0-003"
+  }
+]

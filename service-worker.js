@@ -1,4 +1,4 @@
-const CACHE = 'quizcert-v8';
+const CACHE = 'quizcert-v9';
 const SHELL = [
   ".",
   "index.html",
@@ -12,6 +12,14 @@ const SHELL = [
   "src/data-loader.js",
   "src/schema.js",
   "data/manifest.json",
+  "data/questions/cor-az500.json",
+  "data/questions/cor-cyberops.json",
+  "data/questions/cor-cysa.json",
+  "data/questions/cor-iso27001.json",
+  "data/questions/cor-lpic.json",
+  "data/questions/cor-ms102.json",
+  "data/questions/cor-pentest.json",
+  "data/questions/cor-sc300.json",
   "data/questions/mix-ad.json",
   "data/questions/mix-backup.json",
   "data/questions/mix-cloud.json",
