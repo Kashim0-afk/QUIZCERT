@@ -1,0 +1,299 @@
+[
+  {
+    "id": "gc3-001",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Responsabilità condivisa"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Nel modello di responsabilità condivisa di Google Cloud, di quale aspetto è SEMPRE responsabile il cliente, indipendentemente dal servizio utilizzato?",
+    "options": [
+      "La sicurezza fisica dei data center di Google",
+      "La gestione degli accessi e delle identità (IAM) e la configurazione dei propri dati",
+      "La manutenzione e sostituzione dell'hardware dei server",
+      "L'aggiornamento del firmware dei dischi di storage"
+    ],
+    "correct": [1],
+    "explanation": "Nel modello di responsabilità condivisa, Google gestisce la sicurezza dell'infrastruttura sottostante (hardware, data center, rete fisica), mentre il cliente resta sempre responsabile di come configura gli accessi (IAM), di come protegge e classifica i propri dati e di chi può accedervi. Questa parte non viene mai delegata a Google.",
+    "why_wrong": {
+      "0": "La sicurezza fisica dei data center è responsabilità esclusiva di Google, non del cliente.",
+      "2": "La manutenzione dell'hardware è gestita interamente da Google come parte dell'infrastruttura.",
+      "3": "Il firmware e la manutenzione dei dischi fanno parte dell'infrastruttura gestita da Google."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-002",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Controllo accessi", "IAM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Secondo il principio del privilegio minimo (least privilege), quale tipo di ruolo IAM è preferibile assegnare a un utente in Google Cloud?",
+    "options": [
+      "Un ruolo di base (primitivo) come Editor, per semplicità di gestione",
+      "Un ruolo predefinito granulare che concede solo i permessi necessari al compito",
+      "Il ruolo Owner a livello di organizzazione per evitare futuri blocchi",
+      "Nessun ruolo, disabilitando completamente IAM per il progetto"
+    ],
+    "correct": [1],
+    "explanation": "Il principio del privilegio minimo richiede di concedere solo i permessi strettamente necessari. I ruoli predefiniti di Google Cloud sono granulari e mappati a compiti specifici, riducendo la superficie di attacco rispetto ai ruoli di base (Owner/Editor/Viewer), che sono troppo ampi.",
+    "why_wrong": {
+      "0": "I ruoli di base come Editor concedono permessi molto ampi su quasi tutte le risorse, violando il privilegio minimo.",
+      "2": "Owner a livello di organizzazione è il permesso più esteso possibile: l'opposto del privilegio minimo.",
+      "3": "IAM non può essere disabilitato ed è il meccanismo fondamentale per il controllo degli accessi; rimuoverlo non è una pratica di sicurezza."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-003",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Come vengono protetti per impostazione predefinita i dati a riposo (at-rest) archiviati sui servizi di Google Cloud?",
+    "options": [
+      "Non vengono cifrati, a meno che il cliente non attivi manualmente la crittografia",
+      "Vengono cifrati automaticamente (tipicamente con AES-256) senza alcuna azione richiesta dal cliente",
+      "Vengono protetti solo se il cliente fornisce le proprie chiavi (CSEK)",
+      "Vengono protetti unicamente tramite hashing SHA-256"
+    ],
+    "correct": [1],
+    "explanation": "Google Cloud cifra automaticamente tutti i dati a riposo prima che vengano scritti su disco, tipicamente con AES-256, senza che il cliente debba configurare nulla. Il cliente può, opzionalmente, gestire le proprie chiavi (CMEK/CSEK) per un controllo aggiuntivo.",
+    "why_wrong": {
+      "0": "La crittografia at-rest è attiva di default: non richiede alcuna attivazione manuale.",
+      "2": "Le chiavi fornite dal cliente (CSEK) sono un'opzione aggiuntiva, non la condizione necessaria per avere la crittografia.",
+      "3": "L'hashing (SHA-256) serve a verificare l'integrità, non a cifrare i dati: non protegge la riservatezza."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-004",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Crittografia"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale protocollo protegge tipicamente i dati in transito (in-transit) tra un client e i servizi di Google Cloud?",
+    "options": [
+      "TLS (Transport Layer Security)",
+      "FTP (File Transfer Protocol)",
+      "Telnet",
+      "SNMP v1"
+    ],
+    "correct": [0],
+    "explanation": "I dati in transito verso e all'interno di Google Cloud vengono protetti tramite TLS, che garantisce riservatezza e integrità della comunicazione cifrando il canale tra client e servizio.",
+    "why_wrong": {
+      "1": "FTP trasmette i dati e le credenziali in chiaro: non offre protezione crittografica.",
+      "2": "Telnet è un protocollo non cifrato e obsoleto, inadeguato a proteggere i dati in transito.",
+      "3": "SNMP v1 non fornisce crittografia ed è usato per il monitoraggio, non per proteggere trasferimenti di dati."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-005",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Firewall"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale affermazione descrive correttamente le regole firewall VPC in Google Cloud?",
+    "options": [
+      "Vengono applicate a livello di singola istanza VM (tramite tag di rete o service account) e hanno una priorità configurabile",
+      "Possono filtrare solo il traffico in ingresso, mai quello in uscita",
+      "Sono definite unicamente a livello globale e non possono essere rese specifiche",
+      "Sostituiscono completamente la necessità di IAM"
+    ],
+    "correct": [0],
+    "explanation": "Le regole firewall VPC controllano ingresso (ingress) e uscita (egress) e si applicano alle istanze in base a tag di rete o service account. Ogni regola ha una priorità numerica: quella con valore più basso ha precedenza, permettendo un controllo granulare del traffico.",
+    "why_wrong": {
+      "1": "Le regole firewall VPC gestiscono sia il traffico ingress sia quello egress.",
+      "2": "Le regole possono essere mirate a istanze specifiche tramite tag o service account, non solo globali.",
+      "3": "Il firewall protegge la rete, mentre IAM gestisce le identità e i permessi: sono controlli complementari, non alternativi."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-006",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Compliance", "Responsabilità condivisa"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Riguardo alla conformità normativa (es. GDPR) nel cloud, quale attività resta una responsabilità del cliente?",
+    "options": [
+      "Ottenere la certificazione ISO 27001 dei data center fisici di Google",
+      "Classificare correttamente i dati sensibili e configurare controlli adeguati per i dati che carica nel cloud",
+      "Garantire la sicurezza fisica delle sale server di Google",
+      "Firmare gli accordi di certificazione degli standard con gli enti di audit al posto di Google"
+    ],
+    "correct": [1],
+    "explanation": "Google fornisce un'infrastruttura conforme a numerosi standard e mette a disposizione la documentazione delle certificazioni. Tuttavia la corretta classificazione dei dati, la loro protezione e la configurazione conforme dei servizi restano responsabilità del cliente: la compliance è condivisa.",
+    "why_wrong": {
+      "0": "Le certificazioni dei data center fisici sono ottenute e mantenute da Google, non dal cliente.",
+      "2": "La sicurezza fisica dei server è a carico di Google come parte dell'infrastruttura.",
+      "3": "Gli accordi di certificazione degli standard con gli auditor sono gestiti da Google per la propria infrastruttura."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-007",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Gestione del rischio"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nella gestione del rischio, cosa rappresenta il 'rischio residuo' (residual risk)?",
+    "options": [
+      "Il rischio che rimane dopo l'applicazione dei controlli di mitigazione",
+      "Il rischio totale presente prima di implementare qualsiasi controllo",
+      "Un rischio che non può mai essere identificato né misurato",
+      "Il costo economico di una polizza assicurativa contro i data breach"
+    ],
+    "correct": [0],
+    "explanation": "Il rischio residuo è la quota di rischio che permane dopo aver applicato le contromisure. Poiché nessun controllo elimina completamente il rischio, l'organizzazione deve valutare se il rischio residuo rientra nel proprio livello di accettazione (risk appetite).",
+    "why_wrong": {
+      "1": "Il rischio prima di ogni controllo è il rischio inerente (inherent risk), non quello residuo.",
+      "2": "Il rischio residuo è per definizione stimato e misurato dopo la mitigazione; non è un rischio ignoto.",
+      "3": "Il costo di un'assicurazione è una forma di trasferimento del rischio, non la definizione di rischio residuo."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-008",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "IAM", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è una buona pratica di sicurezza nella gestione degli account di servizio (service account) in Google Cloud?",
+    "options": [
+      "Condividere una singola chiave di service account tra tutte le applicazioni per semplicità",
+      "Evitare di scaricare chiavi di lunga durata e preferire credenziali temporanee o l'impersonation",
+      "Assegnare sempre il ruolo Owner ai service account per evitare errori di permessi",
+      "Usare l'account di servizio predefinito con permessi ampi per tutti i carichi di lavoro"
+    ],
+    "correct": [1],
+    "explanation": "Le chiavi di service account di lunga durata sono un rischio elevato se compromesse. La buona pratica è ridurne l'uso preferendo credenziali temporanee, il service account impersonation o le identità gestite, così da limitare l'esposizione delle credenziali.",
+    "why_wrong": {
+      "0": "Condividere una chiave tra più applicazioni amplia l'impatto in caso di compromissione e impedisce la revoca mirata.",
+      "2": "Assegnare Owner viola il privilegio minimo e concede al service account permessi molto superiori al necessario.",
+      "3": "L'account di servizio predefinito ha permessi ampi: usarlo per tutto aumenta il rischio invece di ridurlo."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-009",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Firewall", "Gestione del rischio"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Qual è lo scopo principale di VPC Service Controls in Google Cloud?",
+    "options": [
+      "Creare un perimetro di sicurezza attorno ai servizi gestiti per mitigare il rischio di esfiltrazione dei dati",
+      "Fornire connettività internet in uscita alle istanze VM prive di IP pubblico",
+      "Cifrare automaticamente i dischi persistenti delle macchine virtuali",
+      "Gestire le password e la rotazione delle credenziali degli utenti finali"
+    ],
+    "correct": [0],
+    "explanation": "VPC Service Controls definisce un perimetro logico attorno a risorse e servizi gestiti (es. Cloud Storage, BigQuery) per limitare l'accesso e ridurre il rischio di esfiltrazione dei dati, anche in caso di credenziali compromesse o errori di configurazione IAM.",
+    "why_wrong": {
+      "1": "La connettività in uscita senza IP pubblico è fornita da Cloud NAT, non da VPC Service Controls.",
+      "2": "La crittografia dei dischi è gestita separatamente (di default e tramite Cloud KMS), non da VPC Service Controls.",
+      "3": "La gestione delle password e delle identità è compito di IAM e Cloud Identity, non di questo controllo perimetrale."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-010",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Controllo accessi"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali dei seguenti sono principi fondamentali della sicurezza nel cloud? (seleziona 2)",
+    "options": [
+      "Difesa in profondità (defense in depth), con più livelli di controllo",
+      "Fiducia implicita verso tutto ciò che si trova nella rete interna",
+      "Privilegio minimo (least privilege) nell'assegnazione dei permessi",
+      "Disabilitare tutti i log per migliorare le prestazioni del sistema"
+    ],
+    "correct": [0, 2],
+    "explanation": "La difesa in profondità (più livelli di controllo indipendenti) e il privilegio minimo (concedere solo i permessi necessari) sono principi cardine della sicurezza cloud. Insieme riducono la superficie di attacco e limitano l'impatto di una compromissione.",
+    "why_wrong": {
+      "1": "La fiducia implicita nella rete interna è contraria all'approccio Zero Trust: ogni accesso va verificato.",
+      "3": "Disabilitare i log elimina la tracciabilità e la capacità di rilevare incidenti, indebolendo la sicurezza."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-011",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Crittografia"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali opzioni di gestione delle chiavi di crittografia sono realmente offerte da Google Cloud? (seleziona 2)",
+    "options": [
+      "Chiavi di crittografia gestite dal cliente (CMEK) tramite Cloud KMS",
+      "Chiavi di crittografia fornite dal cliente (CSEK)",
+      "Chiavi trasmesse in chiaro via email al supporto Google per l'attivazione",
+      "Nessuna opzione di crittografia disponibile per i dati dei clienti"
+    ],
+    "correct": [0, 1],
+    "explanation": "Oltre alla crittografia gestita da Google di default, il cliente può usare CMEK (chiavi gestite tramite Cloud KMS) o CSEK (chiavi fornite direttamente dal cliente) per ottenere maggiore controllo sul ciclo di vita delle chiavi.",
+    "why_wrong": {
+      "2": "Trasmettere chiavi in chiaro via email è una pratica insicura e non è un metodo previsto da Google Cloud.",
+      "3": "Google Cloud cifra sempre i dati a riposo di default e offre inoltre opzioni aggiuntive: la crittografia è sempre disponibile."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-012",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Gestione del rischio", "Controllo accessi"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali misure contribuiscono a ridurre il rischio in un ambiente Google Cloud? (seleziona 2)",
+    "options": [
+      "Abilitare l'autenticazione a più fattori (MFA / verifica in due passaggi)",
+      "Attivare Cloud Audit Logs per garantire la tracciabilità delle operazioni",
+      "Concedere il ruolo Owner a tutti gli utenti per evitare richieste di accesso",
+      "Disabilitare gli aggiornamenti di sicurezza per non interrompere i servizi"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'MFA riduce drasticamente il rischio di compromissione degli account anche in caso di furto della password, mentre Cloud Audit Logs fornisce visibilità e tracciabilità indispensabili per rilevare e investigare attività sospette.",
+    "why_wrong": {
+      "2": "Concedere Owner a tutti viola il privilegio minimo e aumenta enormemente il rischio in caso di account compromesso.",
+      "3": "Disabilitare gli aggiornamenti di sicurezza lascia note vulnerabilità aperte, aumentando il rischio di attacco."
+    },
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-013",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Responsabilità condivisa"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Nel modello di responsabilità condivisa, Google è sempre responsabile della sicurezza della configurazione delle applicazioni e dei dati caricati dal cliente.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Google è responsabile della sicurezza dell'infrastruttura, ma la corretta configurazione delle applicazioni, la gestione degli accessi e la protezione dei dati caricati restano responsabilità del cliente.",
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-014",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Firewall"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In una rete VPC di Google Cloud esistono regole firewall implicite che, per impostazione predefinita, negano tutto il traffico in ingresso e consentono tutto il traffico in uscita.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Ogni rete VPC ha due regole implicite: un implied deny ingress (blocca tutto il traffico in ingresso) e un implied allow egress (consente tutto il traffico in uscita). Le regole create dall'utente possono modificare questo comportamento in base alle priorità.",
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  },
+  {
+    "id": "gc3-015",
+    "cert": ["Google Cloud Security"],
+    "topics": ["Cloud security", "Crittografia"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "I dati a riposo su Google Cloud rimangono non cifrati finché l'utente non abilita manualmente la crittografia.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Google Cloud cifra automaticamente tutti i dati a riposo di default, senza alcuna azione da parte dell'utente. La gestione di chiavi proprie (CMEK/CSEK) è solo un'opzione aggiuntiva di controllo, non un prerequisito per avere la crittografia.",
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+  }
+]

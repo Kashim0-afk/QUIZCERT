@@ -1,0 +1,256 @@
+[
+  {
+    "id": "sec3-001",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale proprietà garantisce che la compromissione futura della chiave privata a lungo termine di un server non permetta di decifrare le sessioni TLS registrate in passato?",
+    "options": ["Perfect Forward Secrecy (PFS)", "Key stretching", "Cifratura ibrida", "Certificate pinning"],
+    "correct": [0],
+    "explanation": "La Perfect Forward Secrecy si ottiene con scambi di chiavi effimeri (es. ECDHE): per ogni sessione viene generata una chiave di sessione temporanea non derivabile dalla chiave privata a lungo termine. Anche se in futuro quella chiave privata viene rubata, il traffico catturato in precedenza resta protetto.",
+    "why_wrong": {
+      "1": "Il key stretching (es. PBKDF2, bcrypt) rende piu lenta la derivazione di chiavi da password deboli, ma non protegge le sessioni passate dalla compromissione della chiave privata.",
+      "2": "La cifratura ibrida combina algoritmi asimmetrici e simmetrici per efficienza, ma da sola non garantisce che le chiavi di sessione siano indipendenti dalla chiave privata a lungo termine.",
+      "3": "Il certificate pinning lega un client a un certificato o chiave specifici per prevenire attacchi MITM, ma non ha effetto sulla decifrabilita del traffico registrato."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-002",
+    "cert": ["CompTIA Security+"],
+    "topics": ["PKI"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In una PKI, quale meccanismo consente al server web di allegare esso stesso una risposta di validita del proprio certificato, riducendo il carico sul responder e migliorando la privacy del client?",
+    "options": ["OCSP stapling", "CRL distribution point", "Key escrow", "Certificate signing request (CSR)"],
+    "correct": [0],
+    "explanation": "Con l'OCSP stapling e il server (non il client) a interrogare periodicamente il responder OCSP e ad allegare (staple) la risposta firmata e con timestamp durante l'handshake TLS. Cosi il client non deve contattare la CA, migliorando prestazioni e privacy.",
+    "why_wrong": {
+      "1": "La CRL e una lista di certificati revocati scaricata dal client; e piu pesante e meno tempestiva dell'OCSP stapling e non sposta il lavoro sul server.",
+      "2": "Il key escrow e la custodia di copie delle chiavi presso terze parti per recupero, non riguarda la verifica dello stato di revoca.",
+      "3": "Il CSR e la richiesta che si invia alla CA per ottenere un certificato; non ha alcun ruolo nella verifica di validita durante l'handshake."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-003",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'azienda concede l'accesso a un file in base a una policy che valuta contemporaneamente reparto dell'utente, orario, posizione geografica e classificazione del documento. Quale modello di controllo degli accessi viene descritto?",
+    "options": ["ABAC (Attribute-Based Access Control)", "DAC (Discretionary Access Control)", "MAC (Mandatory Access Control)", "Rule-Based Access Control con sole ACL statiche"],
+    "correct": [0],
+    "explanation": "L'ABAC prende decisioni valutando dinamicamente attributi del soggetto, della risorsa, dell'azione e del contesto (orario, posizione, ecc.). La combinazione di piu attributi contestuali e la caratteristica distintiva di questo modello.",
+    "why_wrong": {
+      "1": "Nel DAC e il proprietario della risorsa a decidere i permessi in modo discrezionale, senza policy che valutano attributi contestuali multipli.",
+      "2": "Il MAC basa l'accesso su etichette di sicurezza e clearance imposte dal sistema, non su una combinazione flessibile di attributi come orario e posizione.",
+      "3": "Le sole ACL statiche non valutano condizioni dinamiche come orario o geolocalizzazione; il caso descritto richiede una valutazione basata su attributi."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-004",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un'applicazione verifica i permessi di un file e, solo successivamente, lo apre per l'uso; un attaccante sostituisce il file tra i due momenti. Come si chiama questa classe di vulnerabilita?",
+    "options": ["Race condition di tipo TOCTOU (Time-of-Check to Time-of-Use)", "Buffer overflow", "SQL injection", "Cross-site request forgery (CSRF)"],
+    "correct": [0],
+    "explanation": "Il TOCTOU e una race condition in cui lo stato di una risorsa cambia tra il momento del controllo (check) e quello dell'uso (use). Sfruttando questa finestra temporale l'attaccante altera la risorsa dopo la verifica ma prima dell'utilizzo.",
+    "why_wrong": {
+      "1": "Il buffer overflow deriva dalla scrittura oltre i limiti di un buffer in memoria, non dal cambiamento di stato di una risorsa tra controllo e uso.",
+      "2": "La SQL injection inietta comandi SQL tramite input non validato; non riguarda una finestra temporale tra verifica e utilizzo.",
+      "3": "Il CSRF induce il browser della vittima a inviare richieste autenticate non volute; non e una race condition sullo stato di una risorsa."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-005",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Gestione del rischio"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Un'azienda stipula una polizza assicurativa cyber per coprire le perdite economiche di un eventuale attacco ransomware. Quale strategia di trattamento del rischio sta applicando?",
+    "options": ["Trasferimento del rischio (risk transfer)", "Accettazione del rischio (risk acceptance)", "Evitamento del rischio (risk avoidance)", "Mitigazione del rischio (risk mitigation)"],
+    "correct": [0],
+    "explanation": "Acquistare un'assicurazione sposta l'impatto economico del rischio verso una terza parte (l'assicuratore): questa e la definizione di trasferimento del rischio. Il rischio residuo tecnico rimane, ma le perdite finanziarie sono coperte.",
+    "why_wrong": {
+      "1": "L'accettazione consiste nel non intraprendere azioni e assorbire l'impatto internamente; qui invece si ricorre a un terzo tramite polizza.",
+      "2": "L'evitamento eliminerebbe l'attivita o la tecnologia che genera il rischio; l'azienda continua invece a operare acquistando una copertura.",
+      "3": "La mitigazione riduce probabilita o impatto tramite controlli (es. backup, EDR); la polizza non riduce la probabilita dell'attacco ma ne copre le perdite."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-006",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un dipendente inserisce nel software aziendale del codice che cancella i file critici solo se il suo nome utente viene rimosso dal libro paga. Di quale tipo di minaccia si tratta?",
+    "options": ["Logic bomb", "Worm", "Rootkit", "Ransomware"],
+    "correct": [0],
+    "explanation": "Una logic bomb e codice malevolo che rimane dormiente finche non si verifica una condizione specifica (una data, un evento o, come qui, la rimozione dell'account dal libro paga). Al verificarsi del trigger esegue il payload distruttivo.",
+    "why_wrong": {
+      "1": "Un worm si autoreplica e si propaga autonomamente in rete; qui il codice non si diffonde ma attende una condizione precisa.",
+      "2": "Un rootkit nasconde la presenza dell'attaccante e mantiene accesso privilegiato; non e definito da un trigger condizionale distruttivo.",
+      "3": "Il ransomware cifra i dati e chiede un riscatto; nel caso descritto il payload cancella i file al verificarsi di una condizione, senza richiesta di pagamento."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-007",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Social Engineering"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un gruppo di attaccanti compromette un sito web di settore molto frequentato dai dipendenti dell'azienda bersaglio, per infettarli quando lo visitano. Quale tecnica di social engineering/attacco descrive lo scenario?",
+    "options": ["Watering hole attack", "Spear phishing", "Tailgating", "Vishing"],
+    "correct": [0],
+    "explanation": "Nel watering hole gli attaccanti compromettono un sito legittimo che la vittima frequenta abitualmente, trasformandolo in vettore d'infezione. Sfruttano la fiducia nel sito per colpire un gruppo specifico di utenti.",
+    "why_wrong": {
+      "1": "Lo spear phishing e un messaggio mirato inviato direttamente a una vittima specifica, non la compromissione di un sito terzo frequentato.",
+      "2": "Il tailgating e un accesso fisico non autorizzato seguendo una persona autorizzata attraverso una porta; qui l'attacco e digitale.",
+      "3": "Il vishing e phishing tramite telefonata vocale; lo scenario descrive invece l'infezione tramite un sito web compromesso."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-008",
+    "cert": ["CompTIA Security+"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un sistema di rilevamento delle intrusioni costruisce una linea di base del traffico normale e segnala ogni deviazione significativa. Quale metodo di rilevamento utilizza?",
+    "options": ["Rilevamento basato su anomalie (behavior/anomaly-based)", "Rilevamento basato su firme (signature-based)", "Rilevamento basato su liste di blocco statiche", "Rilevamento basato su reputazione IP"],
+    "correct": [0],
+    "explanation": "Il rilevamento basato su anomalie definisce un profilo (baseline) di comportamento normale e genera alert quando il traffico se ne discosta. E efficace anche contro minacce sconosciute o zero-day, al costo di piu falsi positivi.",
+    "why_wrong": {
+      "1": "Il rilevamento basato su firme confronta il traffico con pattern noti di attacchi: non usa una baseline e non individua minacce prive di firma.",
+      "2": "Le liste di blocco statiche fermano indicatori predefiniti, ma non modellano il comportamento normale ne rilevano deviazioni.",
+      "3": "La reputazione IP valuta l'affidabilita nota di un indirizzo; non costruisce un profilo di comportamento della rete."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-009",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Zero Trust"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Nell'architettura Zero Trust definita dal NIST, quale componente del control plane prende la decisione finale di concedere o negare l'accesso valutando policy e segnali di fiducia?",
+    "options": ["Policy Engine (PE)", "Policy Enforcement Point (PEP)", "Data plane", "Trusted Platform Module (TPM)"],
+    "correct": [0],
+    "explanation": "Nel modello NIST Zero Trust il Policy Engine, insieme al Policy Administrator, forma il Policy Decision Point: e il PE che valuta policy, attributi e segnali (trust algorithm) per decidere se concedere l'accesso. Il PEP poi applica materialmente la decisione.",
+    "why_wrong": {
+      "1": "Il Policy Enforcement Point esegue e applica la decisione (apre o chiude la connessione) ma non e il componente che la prende.",
+      "2": "Il data plane e dove avviene il traffico applicativo effettivo dopo la concessione, non dove si decide l'accesso.",
+      "3": "Il TPM e un chip hardware per operazioni crittografiche e attestazione; puo fornire segnali di fiducia ma non prende decisioni di policy."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-010",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e lo scopo principale dell'aggiunta di un salt casuale e univoco a ogni password prima dell'hashing?",
+    "options": ["Impedire che password identiche producano lo stesso hash e vanificare rainbow table precalcolate", "Cifrare la password in modo reversibile per poterla recuperare in seguito", "Comprimere l'hash per risparmiare spazio nel database", "Sostituire la necessita di una funzione di hashing"],
+    "correct": [0],
+    "explanation": "Un salt casuale e unico per utente fa si che due password uguali generino hash differenti e rende inutilizzabili le rainbow table precalcolate, poiche l'attaccante dovrebbe ricalcolare le tabelle per ogni singolo salt.",
+    "why_wrong": {
+      "1": "L'hashing non e reversibile: il salt non serve a recuperare la password in chiaro, obiettivo che sarebbe anzi contrario alla sicurezza.",
+      "2": "Il salt non ha alcuna funzione di compressione; anzi aggiunge dati da memorizzare insieme all'hash.",
+      "3": "Il salt integra la funzione di hashing, non la sostituisce: senza hashing la password non sarebbe comunque protetta."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-011",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Cloud security"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "In un modello IaaS (Infrastructure as a Service) secondo il modello di responsabilita condivisa, quali due responsabilita ricadono tipicamente sul CLIENTE?",
+    "options": ["Applicare le patch al sistema operativo guest delle proprie VM", "Configurare correttamente i gruppi di sicurezza e le regole firewall delle proprie istanze", "Garantire la sicurezza fisica dei data center del provider", "Manutenere l'hypervisor sottostante e l'infrastruttura di virtualizzazione"],
+    "correct": [0, 1],
+    "explanation": "In IaaS il provider gestisce l'infrastruttura fisica, l'hypervisor e la sicurezza dei data center. Il cliente resta responsabile di tutto cio che sta sopra: patching del sistema operativo guest, configurazione di rete/firewall, applicazioni e dati.",
+    "why_wrong": {
+      "2": "La sicurezza fisica dei data center e sempre responsabilita del cloud provider, non del cliente.",
+      "3": "La manutenzione dell'hypervisor e dell'infrastruttura di virtualizzazione e a carico del provider in IaaS."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-012",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Incident Response"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Nel ciclo di incident response del NIST (SP 800-61), quali DUE delle seguenti sono fasi ufficiali del processo?",
+    "options": ["Preparazione (Preparation)", "Contenimento, eradicazione e recupero (Containment, Eradication & Recovery)", "Attribuzione pubblica all'attaccante (Public Attribution)", "Pagamento del riscatto (Ransom Payment)"],
+    "correct": [0, 1],
+    "explanation": "Le quattro fasi del framework NIST sono: Preparazione; Rilevamento e analisi; Contenimento, eradicazione e recupero; Attivita post-incidente (lessons learned). Preparazione e Contenimento/Eradicazione/Recupero sono quindi fasi ufficiali.",
+    "why_wrong": {
+      "2": "L'attribuzione pubblica all'attaccante non e una fase del ciclo NIST di incident response; l'attribuzione e attivita di threat intelligence, non parte del processo.",
+      "3": "Il pagamento del riscatto non e una fase del processo di risposta agli incidenti ed e generalmente sconsigliato dalle autorita."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-013",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Controllo accessi"],
+    "type": "multi",
+    "difficulty": 1,
+    "question": "Un sistema richiede una password e, in aggiunta, l'impronta digitale dell'utente. Quali DUE fattori di autenticazione vengono combinati?",
+    "options": ["Qualcosa che sai (something you know)", "Qualcosa che sei (something you are)", "Qualcosa che hai (something you have)", "Da qualche parte dove ti trovi (somewhere you are)"],
+    "correct": [0, 1],
+    "explanation": "La password rientra nel fattore 'qualcosa che sai' (conoscenza), mentre l'impronta digitale e un tratto biometrico, quindi 'qualcosa che sei' (inerenza). La combinazione di due fattori diversi realizza un'autenticazione a piu fattori.",
+    "why_wrong": {
+      "2": "'Qualcosa che hai' e un fattore di possesso, come un token hardware o uno smartphone; ne password ne impronta rientrano in questa categoria.",
+      "3": "'Da qualche parte dove ti trovi' e un fattore di localizzazione (es. geolocalizzazione o rete); non e coinvolto in password e impronta."
+    },
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-014",
+    "cert": ["CompTIA Security+"],
+    "topics": ["PKI", "Crittografia"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In una firma digitale, il mittente cifra l'hash del messaggio con la propria chiave privata, e il destinatario lo verifica usando la chiave pubblica del mittente.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. La firma digitale si crea cifrando (firmando) l'hash del messaggio con la chiave privata del mittente. Chiunque possieda la chiave pubblica del mittente puo decifrare/verificare la firma, ottenendo autenticita, integrita e non ripudio.",
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-015",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Una vulnerabilita zero-day e una falla per la quale, al momento del suo sfruttamento, non esiste ancora una patch o correzione ufficiale disponibile dal fornitore.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Il termine zero-day indica che gli sviluppatori hanno avuto zero giorni per correggere la vulnerabilita: viene sfruttata (o resa nota) prima che sia disponibile una patch ufficiale, rendendo difficile la difesa con i soli controlli tradizionali.",
+    "source": "CompTIA Security+ SY0-701"
+  },
+  {
+    "id": "sec3-016",
+    "cert": ["CompTIA Security+"],
+    "topics": ["Gestione del rischio"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il rischio residuo e il rischio che rimane dopo l'applicazione dei controlli e delle misure di mitigazione.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Il rischio residuo e la quota di rischio che permane una volta implementati i controlli di mitigazione. Nessun controllo elimina completamente il rischio: la direzione deve decidere se accettare, trasferire o ridurre ulteriormente il residuo.",
+    "source": "CompTIA Security+ SY0-701"
+  }
+]

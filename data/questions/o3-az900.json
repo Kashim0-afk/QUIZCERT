@@ -1,0 +1,308 @@
+[
+  {
+    "id": "az3-001",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "SLA"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In una singola regione di Azure, qual e' lo scopo principale delle Availability Zones (zone di disponibilita')?",
+    "options": [
+      "Replicare i dati automaticamente in un continente diverso per la sovranita' del dato",
+      "Proteggere le applicazioni dal guasto di un intero datacenter fisico all'interno della stessa regione",
+      "Ridurre i costi distribuendo il carico su datacenter piu' economici",
+      "Fornire una connessione VPN dedicata tra la sede on-premises e Azure"
+    ],
+    "correct": [1],
+    "explanation": "Le Availability Zones sono ubicazioni fisicamente separate (datacenter con alimentazione, raffreddamento e rete indipendenti) all'interno della stessa regione. Distribuendo le risorse su piu' zone si sopravvive al guasto di un intero datacenter, ottenendo SLA piu' elevati (es. 99,99% per le VM su piu' zone).",
+    "why_wrong": {
+      "0": "La replica geografica tra regioni diverse riguarda le region pair, non le Availability Zones che restano nella stessa regione.",
+      "2": "Le zone non nascono per ridurre i costi ma per aumentare la resilienza; anzi distribuire su piu' zone puo' aggiungere costi di traffico.",
+      "3": "La connessione dedicata on-premises e' fornita da ExpressRoute o VPN Gateway, non dalle Availability Zones."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-002",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "RBAC", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e' la differenza fondamentale tra Azure RBAC e Azure Policy?",
+    "options": [
+      "RBAC definisce COSA puo' fare un utente (chi accede a cosa), mentre Azure Policy definisce COME devono essere configurate le risorse",
+      "RBAC e Azure Policy sono lo stesso servizio con due nomi diversi",
+      "Azure Policy gestisce le password degli utenti, mentre RBAC gestisce le regole di rete",
+      "RBAC si applica solo alle VM, mentre Azure Policy si applica solo agli storage account"
+    ],
+    "correct": [0],
+    "explanation": "Azure RBAC (Role-Based Access Control) governa le autorizzazioni: quali identita' possono eseguire quali azioni su quali risorse. Azure Policy governa invece la conformita' e le proprieta' delle risorse (es. imporre una regione consentita o l'uso di tag), a prescindere da chi le crea. Sono complementari.",
+    "why_wrong": {
+      "1": "Sono due servizi distinti con scopi diversi: accesso vs conformita'.",
+      "2": "Azure Policy non gestisce password; la gestione delle identita' e' compito di Microsoft Entra ID.",
+      "3": "Entrambi si applicano trasversalmente a molti tipi di risorsa, non a un solo tipo."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-003",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "A cosa servono principalmente i tag (etichette) applicati alle risorse di Azure?",
+    "options": [
+      "Ad aumentare automaticamente le prestazioni delle risorse etichettate",
+      "A crittografare i dati contenuti nella risorsa",
+      "Ad organizzare le risorse con metadati (coppie nome-valore) per gestione, ricerca e ripartizione dei costi",
+      "A sostituire i gruppi di risorse rendendoli inutili"
+    ],
+    "correct": [2],
+    "explanation": "I tag sono coppie nome-valore (es. Ambiente=Produzione, CentroDiCosto=Marketing) che si applicano alle risorse per organizzarle logicamente. Sono molto usati in Cost Management per filtrare e suddividere i costi per progetto, reparto o ambiente.",
+    "why_wrong": {
+      "0": "I tag sono solo metadati e non influenzano le prestazioni.",
+      "1": "I tag non forniscono alcuna crittografia dei dati.",
+      "3": "I tag integrano ma non sostituiscono i gruppi di risorse, che restano il contenitore di ciclo di vita delle risorse."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-004",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'azienda deve conservare backup normativi consultati raramente al costo di archiviazione piu' basso possibile, accettando tempi di recupero di diverse ore. Quale livello (tier) di Azure Blob Storage e' piu' adatto?",
+    "options": [
+      "Hot (frequente)",
+      "Cool (sporadico)",
+      "Archive (archivio)",
+      "Premium"
+    ],
+    "correct": [2],
+    "explanation": "Il livello Archive offre il costo di archiviazione piu' basso ed e' pensato per dati raramente acceduti che tollerano una latenza di recupero (rehydration) di ore. E' l'ideale per backup normativi a lungo termine.",
+    "why_wrong": {
+      "0": "Hot ha il costo di archiviazione piu' alto ed e' ottimizzato per accessi frequenti, non economico per dati statici.",
+      "1": "Cool costa meno di Hot ma resta piu' caro di Archive per dati praticamente mai letti.",
+      "3": "Premium usa SSD per bassissima latenza ad alto costo, l'opposto del requisito di massimo risparmio."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-005",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "Gestione del rischio"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale servizio di Azure fornisce raccomandazioni personalizzate su cinque aree (affidabilita', sicurezza, eccellenza operativa, prestazioni e ottimizzazione dei costi) per le tue risorse?",
+    "options": [
+      "Azure Monitor",
+      "Azure Advisor",
+      "Azure Service Health",
+      "Azure Blueprints"
+    ],
+    "correct": [1],
+    "explanation": "Azure Advisor analizza la configurazione e la telemetria delle risorse e fornisce consigli attuabili nelle categorie del Well-Architected Framework: affidabilita', sicurezza, eccellenza operativa, prestazioni e costi.",
+    "why_wrong": {
+      "0": "Azure Monitor raccoglie metriche e log ma non produce raccomandazioni su queste cinque categorie come fa Advisor.",
+      "2": "Azure Service Health informa sullo stato dei servizi Azure e sugli incidenti, non da' consigli di ottimizzazione.",
+      "3": "Azure Blueprints serve a distribuire ambienti conformi in modo ripetibile, non a fornire raccomandazioni."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-006",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Entra ID", "Controllo accessi", "Cloud security"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa consente di fare l'Accesso Condizionale (Conditional Access) di Microsoft Entra ID?",
+    "options": [
+      "Applicare controlli di accesso basati su segnali come utente, dispositivo, posizione e rischio prima di concedere l'accesso",
+      "Crittografare automaticamente tutti i dischi delle macchine virtuali",
+      "Ridurre la fattura mensile applicando sconti sui servizi di calcolo",
+      "Creare copie di backup geograficamente ridondanti dei dati"
+    ],
+    "correct": [0],
+    "explanation": "L'Accesso Condizionale valuta segnali (identita' dell'utente, stato/conformita' del dispositivo, posizione di rete, livello di rischio del sign-in) e applica decisioni come consentire, bloccare o richiedere l'MFA. E' un pilastro dell'approccio Zero Trust.",
+    "why_wrong": {
+      "1": "La crittografia dei dischi e' compito di Azure Disk Encryption, non dell'Accesso Condizionale.",
+      "2": "L'Accesso Condizionale riguarda la sicurezza degli accessi, non la fatturazione.",
+      "3": "La ridondanza dei backup e' una funzione dei servizi di storage, non dell'identita'."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-007",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un'organizzazione vuole gestire e applicare criteri di governance (Azure Policy) a server fisici e macchine virtuali che si trovano on-premises e su altri cloud, da un unico piano di controllo Azure. Quale servizio abilita questo scenario?",
+    "options": [
+      "Azure Arc",
+      "Azure Bastion",
+      "Azure Migrate",
+      "Azure Virtual Desktop"
+    ],
+    "correct": [0],
+    "explanation": "Azure Arc estende il piano di gestione di Azure (Resource Manager, Azure Policy, RBAC, tag) a risorse esterne ad Azure, come server on-premises, VM su altri cloud e cluster Kubernetes, consentendo governance e conformita' centralizzate.",
+    "why_wrong": {
+      "1": "Azure Bastion fornisce accesso RDP/SSH sicuro alle VM tramite browser, non governance ibrida.",
+      "2": "Azure Migrate valuta e sposta i carichi verso Azure, non li governa dove sono.",
+      "3": "Azure Virtual Desktop offre desktop e app virtualizzati, non gestione di risorse ibride."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-008",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["SLA", "Azure"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un'applicazione usa in serie due servizi Azure, ciascuno con SLA del 99,9%. Come si calcola lo SLA composito (composite) dell'applicazione?",
+    "options": [
+      "Si prende lo SLA piu' alto dei due, quindi 99,9%",
+      "Si moltiplicano i due valori (0,999 x 0,999), ottenendo circa 99,8%",
+      "Si sommano i due valori, ottenendo 199,8%",
+      "Si fa la media dei due valori, ottenendo 99,9%"
+    ],
+    "correct": [1],
+    "explanation": "Quando piu' servizi sono in serie (l'applicazione dipende da tutti), gli SLA si moltiplicano: 0,999 x 0,999 = 0,998001, cioe' circa 99,8%. Aggiungere dipendenze in serie abbassa quindi lo SLA complessivo.",
+    "why_wrong": {
+      "0": "Prendere solo il valore piu' alto ignora che il guasto di un qualsiasi componente in serie interrompe il servizio.",
+      "2": "Sommare le percentuali produce un valore superiore al 100%, privo di senso per una disponibilita'.",
+      "3": "La media non riflette il fatto che la dipendenza da entrambi riduce la disponibilita' totale."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-009",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e' l'ordine corretto della gerarchia di gestione delle risorse in Azure, dal livello piu' alto al piu' basso?",
+    "options": [
+      "Gruppi di risorse > Sottoscrizioni > Gruppi di gestione > Risorse",
+      "Gruppi di gestione > Sottoscrizioni > Gruppi di risorse > Risorse",
+      "Sottoscrizioni > Gruppi di gestione > Risorse > Gruppi di risorse",
+      "Risorse > Gruppi di risorse > Gruppi di gestione > Sottoscrizioni"
+    ],
+    "correct": [1],
+    "explanation": "La gerarchia va da Gruppi di gestione (management groups) che raggruppano piu' sottoscrizioni, poi Sottoscrizioni, poi Gruppi di risorse e infine le singole Risorse. Criteri e RBAC applicati a un livello superiore vengono ereditati dai livelli inferiori.",
+    "why_wrong": {
+      "0": "Inverte i livelli: i gruppi di risorse stanno sotto le sottoscrizioni, non sopra.",
+      "2": "Le sottoscrizioni stanno sotto i gruppi di gestione, non sopra, e le risorse sono l'ultimo livello.",
+      "3": "E' l'ordine esattamente rovesciato: parte dal livello piu' basso."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-010",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["IaaS/PaaS/SaaS", "Responsabilita' condivisa"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Nel modello IaaS (Infrastructure as a Service), quali DUE responsabilita' ricadono tipicamente sul CLIENTE?",
+    "options": [
+      "La sicurezza fisica dei datacenter",
+      "L'applicazione delle patch e degli aggiornamenti del sistema operativo delle VM",
+      "La manutenzione dell'hardware host e dell'hypervisor",
+      "La configurazione del sistema operativo guest e delle applicazioni installate"
+    ],
+    "correct": [1, 3],
+    "explanation": "In IaaS il provider gestisce hardware fisico, datacenter, rete fisica e hypervisor. Il cliente e' responsabile del sistema operativo guest (patching e configurazione), del middleware, delle applicazioni e dei dati. Quindi patching del SO e configurazione di SO/app sono del cliente.",
+    "why_wrong": {
+      "0": "La sicurezza fisica dei datacenter e' sempre responsabilita' del provider cloud.",
+      "2": "L'hardware host e l'hypervisor sono gestiti dal provider in tutti i modelli di servizio."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-011",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Cloud security", "Gestione del rischio", "Azure"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE affermazioni descrivono correttamente Microsoft Defender for Cloud?",
+    "options": [
+      "Fornisce un Secure Score che misura la postura di sicurezza e suggerisce azioni di miglioramento",
+      "E' un servizio di editing di documenti di Office online",
+      "Offre protezione dei carichi di lavoro (CWP) e rilevamento delle minacce per risorse Azure, ibride e multicloud",
+      "Sostituisce completamente la necessita' di gestire le identita' con Entra ID"
+    ],
+    "correct": [0, 2],
+    "explanation": "Defender for Cloud e' una soluzione di Cloud Security Posture Management (CSPM) e Cloud Workload Protection (CWP): calcola il Secure Score con raccomandazioni e protegge/monitora le minacce su risorse Azure, on-premises e su altri cloud.",
+    "why_wrong": {
+      "1": "L'editing di documenti online e' Office/Microsoft 365, non Defender for Cloud.",
+      "3": "Defender for Cloud non sostituisce Entra ID; la gestione delle identita' resta compito di Entra ID e i due si integrano."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-012",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "Gestione del rischio"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE strumenti aiutano a stimare o controllare i costi PRIMA e DURANTE l'uso di Azure?",
+    "options": [
+      "Pricing Calculator (calcolatore prezzi) per stimare i costi prima del deployment",
+      "Azure Bastion",
+      "Budget e avvisi di spesa in Microsoft Cost Management",
+      "Azure Load Balancer"
+    ],
+    "correct": [0, 2],
+    "explanation": "Il Pricing Calculator stima i costi previsti prima di distribuire le risorse; i budget e gli alert in Cost Management monitorano la spesa effettiva e notificano al superamento delle soglie. Insieme coprono pianificazione e controllo dei costi.",
+    "why_wrong": {
+      "1": "Azure Bastion e' un servizio di accesso sicuro alle VM, non uno strumento di gestione dei costi.",
+      "3": "Azure Load Balancer distribuisce il traffico di rete e non serve a stimare o controllare la spesa."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-013",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["IaaS/PaaS/SaaS", "Azure"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il modello serverless (ad esempio Azure Functions nel piano a consumo) permette di eseguire codice senza gestire l'infrastruttura sottostante e di pagare solo per l'effettiva esecuzione.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Con il serverless il provider gestisce automaticamente il provisioning e lo scaling dell'infrastruttura; nel piano a consumo di Azure Functions si paga in base al numero di esecuzioni e alle risorse consumate, senza costi per capacita' inattiva.",
+    "why_wrong": {
+      "1": "E' errato: il serverless astrae proprio la gestione dei server e adotta un modello di pagamento a consumo, non una tariffa fissa per infrastruttura sempre attiva."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-014",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["SLA", "Azure"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "I servizi Azure offerti gratuitamente o in anteprima (preview) generalmente NON includono uno SLA finanziariamente garantito.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Microsoft non fornisce SLA con garanzia finanziaria per i livelli gratuiti (Free/Basic in alcuni casi) e per i servizi in anteprima. Lo SLA formale si applica ai servizi a pagamento in disponibilita' generale (GA).",
+    "why_wrong": {
+      "1": "E' errato: i servizi gratuiti e in preview sono esplicitamente esclusi dagli impegni SLA garantiti."
+    },
+    "source": "Microsoft AZ-900"
+  },
+  {
+    "id": "az3-015",
+    "cert": ["Microsoft AZ-900"],
+    "topics": ["Azure", "Compliance"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il Microsoft Purview Compliance Manager (nel Service Trust Portal / portale di conformita') aiuta le organizzazioni a valutare e gestire la conformita' normativa fornendo un punteggio di conformita' (compliance score).",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Compliance Manager offre valutazioni predefinite rispetto a standard e regolamenti (es. ISO 27001, GDPR), traccia le azioni di miglioramento e calcola un compliance score che riflette la postura di conformita' dell'organizzazione.",
+    "why_wrong": {
+      "1": "E' errato: Compliance Manager esiste proprio per valutare la conformita' e fornire un punteggio con azioni consigliate."
+    },
+    "source": "Microsoft AZ-900"
+  }
+]

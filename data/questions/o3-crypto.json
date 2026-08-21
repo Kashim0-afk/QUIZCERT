@@ -1,0 +1,248 @@
+[
+  {
+    "id": "bc3-001",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia", "Hashing"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale proprieta di una funzione di hash crittografica garantisce che sia computazionalmente impraticabile trovare due input diversi che producono lo stesso digest?",
+    "options": ["Resistenza alla preimmagine", "Resistenza alla seconda preimmagine", "Resistenza alle collisioni", "Effetto valanga"],
+    "correct": [2],
+    "explanation": "La resistenza alle collisioni impedisce di trovare due input qualsiasi x e y (con x diverso da y) tali che hash(x)=hash(y). E' proprio l'esistenza di collisioni che ha decretato la fine di MD5 e SHA-1.",
+    "why_wrong": {
+      "0": "La resistenza alla preimmagine riguarda il non poter risalire a un input a partire da un dato digest, non la ricerca di due input collidenti.",
+      "1": "La seconda preimmagine fissa un input specifico e cerca un secondo input con lo stesso hash; la collisione invece lascia liberi entrambi gli input.",
+      "3": "L'effetto valanga descrive come un piccolo cambiamento nell'input cambi drasticamente l'output, ma non e la definizione di resistenza alle collisioni."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-002",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In uno scambio di chiavi Diffie-Hellman, qual e l'obiettivo principale del protocollo?",
+    "options": ["Cifrare direttamente i messaggi con chiave pubblica", "Concordare un segreto condiviso su un canale insicuro senza trasmetterlo", "Firmare digitalmente i messaggi", "Generare un hash resistente alle collisioni"],
+    "correct": [1],
+    "explanation": "Diffie-Hellman permette a due parti di derivare un segreto condiviso comune scambiando solo valori pubblici su un canale non sicuro; il segreto non viene mai trasmesso in chiaro.",
+    "why_wrong": {
+      "0": "DH non cifra messaggi: stabilisce solo una chiave, poi si usa un cifrario simmetrico separato.",
+      "2": "La firma digitale e uno scopo diverso, tipicamente affidato ad algoritmi come RSA, DSA o ECDSA.",
+      "3": "Diffie-Hellman non e una funzione di hash e non produce digest."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-003",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia", "Firma digitale"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In uno schema di firma digitale a chiave asimmetrica, quale chiave viene usata per creare la firma e quale per verificarla?",
+    "options": ["Si firma con la chiave pubblica e si verifica con la privata", "Si firma con la chiave privata e si verifica con la pubblica", "Si firma e si verifica con la stessa chiave segreta condivisa", "Si firma con la privata e si verifica con una seconda chiave privata"],
+    "correct": [1],
+    "explanation": "Il firmatario usa la propria chiave privata per generare la firma; chiunque possieda la chiave pubblica corrispondente puo verificarla, ottenendo autenticita e non ripudio.",
+    "why_wrong": {
+      "0": "E' l'inverso: se si firmasse con la pubblica, chiunque potrebbe firmare, annullando l'autenticita.",
+      "2": "Una chiave condivisa e tipica della crittografia simmetrica e non garantisce il non ripudio.",
+      "3": "La verifica avviene con la chiave pubblica, non con un'altra chiave privata."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-004",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Blockchain", "Merkle Tree"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In un albero di Merkle, cosa consente una prova di Merkle (Merkle proof) per un client leggero (SPV)?",
+    "options": ["Verificare che una transazione appartiene a un blocco senza scaricare l'intero blocco", "Cifrare tutte le transazioni del blocco", "Ordinare le transazioni per timestamp", "Sostituire completamente la firma digitale delle transazioni"],
+    "correct": [0],
+    "explanation": "La Merkle proof fornisce solo gli hash dei nodi lungo il percorso dalla foglia alla radice, permettendo di dimostrare l'inclusione di una transazione confrontando la Merkle root nell'header, senza scaricare tutte le transazioni.",
+    "why_wrong": {
+      "1": "L'albero di Merkle serve a verificare l'integrita tramite hash, non a cifrare i dati.",
+      "2": "L'ordinamento temporale non e la funzione dell'albero di Merkle.",
+      "3": "La prova di inclusione non sostituisce le firme, che restano necessarie per autorizzare la spesa."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-005",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Blockchain", "Consenso"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e la differenza fondamentale tra Proof of Work (PoW) e Proof of Stake (PoS) nella selezione di chi crea il blocco?",
+    "options": ["In PoW conta la quantita di moneta bloccata, in PoS la potenza di calcolo", "In PoW conta la potenza di calcolo spesa, in PoS la quantita di moneta messa in stake", "Entrambi si basano esclusivamente sul possesso di hardware ASIC", "Entrambi selezionano il validatore in modo puramente casuale senza costi"],
+    "correct": [1],
+    "explanation": "In PoW il diritto di proporre un blocco deriva dal lavoro computazionale (hashing) effettuato; in PoS deriva dalla quantita di criptovaluta vincolata (stake), riducendo drasticamente il consumo energetico.",
+    "why_wrong": {
+      "0": "La descrizione e invertita: lo stake e di PoS, la potenza di calcolo e di PoW.",
+      "2": "Gli ASIC sono tipici del PoW; il PoS non richiede hardware di mining specializzato.",
+      "3": "Entrambi hanno costi (energia in PoW, capitale a rischio in PoS) e non sono selezioni gratuite e puramente casuali."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-006",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Perche nelle architetture ibride si usa la crittografia asimmetrica per scambiare una chiave e poi quella simmetrica per i dati?",
+    "options": ["Perche la simmetrica e piu sicura ma piu lenta della asimmetrica", "Perche la asimmetrica risolve lo scambio di chiavi ma e lenta, mentre la simmetrica cifra i dati velocemente", "Perche la asimmetrica non richiede alcuna chiave", "Perche la simmetrica non puo cifrare grandi volumi di dati"],
+    "correct": [1],
+    "explanation": "La crittografia asimmetrica gestisce elegantemente la distribuzione della chiave ma e computazionalmente costosa; per questo si cifra solo la chiave di sessione e poi si usa la simmetrica, molto piu veloce, per il grosso dei dati.",
+    "why_wrong": {
+      "0": "E' l'opposto: la simmetrica e piu veloce, non piu lenta, della asimmetrica.",
+      "2": "La asimmetrica usa una coppia di chiavi (pubblica e privata), quindi richiede chiavi.",
+      "3": "La simmetrica e proprio l'algoritmo ideale per grandi volumi di dati grazie alla sua velocita."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-007",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["PKI", "Firma digitale"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In una PKI, a cosa serve una Certificate Revocation List (CRL)?",
+    "options": ["A elencare i certificati non piu validi prima della loro naturale scadenza", "A generare nuove coppie di chiavi per gli utenti", "A cifrare il traffico tra client e server", "A memorizzare le chiavi private degli utenti"],
+    "correct": [0],
+    "explanation": "La CRL e una lista firmata dalla CA che contiene i numeri seriali dei certificati revocati (per compromissione della chiave, cessazione, ecc.) prima della scadenza; OCSP ne e l'alternativa in tempo reale.",
+    "why_wrong": {
+      "1": "La generazione delle chiavi non e compito della CRL, ma dell'utente o della RA/CA.",
+      "2": "La CRL non cifra traffico: gestisce lo stato di revoca dei certificati.",
+      "3": "Le chiavi private non vengono mai memorizzate nella CRL; restano segrete presso il titolare."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-008",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Blockchain", "Wallet"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa distingue un wallet 'custodial' da uno 'non-custodial'?",
+    "options": ["Nel custodial l'utente detiene le chiavi private, nel non-custodial le detiene un terzo", "Nel custodial le chiavi private sono gestite da un terzo (es. exchange), nel non-custodial le detiene l'utente", "Entrambi memorizzano le chiavi private on-chain", "Il non-custodial non usa affatto chiavi private"],
+    "correct": [1],
+    "explanation": "In un wallet custodial e un servizio terzo (tipicamente un exchange) a custodire le chiavi private; in uno non-custodial e l'utente ad avere il controllo esclusivo delle chiavi, secondo il principio 'not your keys, not your coins'.",
+    "why_wrong": {
+      "0": "Le definizioni sono invertite: nel custodial e il terzo a detenere le chiavi.",
+      "2": "Le chiavi private non risiedono on-chain; sulla blockchain vi sono indirizzi e transazioni, non le chiavi segrete.",
+      "3": "Anche il wallet non-custodial usa chiavi private: semplicemente le controlla l'utente."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-009",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Perche in un cifrario a blocchi la modalita ECB e considerata insicura per dati strutturati?",
+    "options": ["Perche usa un vettore di inizializzazione troppo lungo", "Perche blocchi di testo in chiaro identici producono blocchi cifrati identici, rivelando pattern", "Perche non permette la decifratura", "Perche richiede una chiave diversa per ogni blocco"],
+    "correct": [1],
+    "explanation": "In ECB ogni blocco viene cifrato indipendentemente con la stessa chiave: blocchi di plaintext uguali generano ciphertext uguali, esponendo pattern e struttura dei dati (il classico esempio dell'immagine 'pinguino' ancora riconoscibile).",
+    "why_wrong": {
+      "0": "ECB non usa alcun vettore di inizializzazione: e proprio la sua mancanza a causare il problema.",
+      "2": "ECB e perfettamente decifrabile; il problema e la fuga di informazioni sui pattern.",
+      "3": "ECB usa la stessa chiave per tutti i blocchi, non una chiave per blocco."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-010",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia", "Hashing"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni sulle funzioni di hash crittografiche sono corrette? (seleziona 2)",
+    "options": ["Producono un output di lunghezza fissa indipendentemente dalla dimensione dell'input", "Sono progettate per essere facilmente invertibili conoscendo il digest", "Un piccolo cambiamento nell'input cambia in modo imprevedibile gran parte del digest", "Garantiscono la riservatezza cifrando i dati in ingresso"],
+    "correct": [0, 2],
+    "explanation": "Un hash crittografico mappa input di qualsiasi lunghezza in un digest di dimensione fissa (es. 256 bit per SHA-256) e possiede l'effetto valanga, per cui modifiche minime dell'input alterano radicalmente l'output.",
+    "why_wrong": {
+      "1": "Le funzioni di hash sono unidirezionali: sono progettate per NON essere invertibili (resistenza alla preimmagine).",
+      "3": "L'hashing non e cifratura e non garantisce riservatezza: non e reversibile e non protegge il contenuto per una successiva lettura."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-011",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Blockchain", "Smart Contract"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti sono caratteristiche o rischi tipici degli smart contract su blockchain? (seleziona 2)",
+    "options": ["Una volta distribuiti sono generalmente immutabili e i bug non sono facilmente correggibili", "Vengono eseguiti automaticamente al verificarsi delle condizioni programmate", "Possono essere modificati liberamente da chiunque dopo il deploy", "Non possono mai contenere vulnerabilita di sicurezza"],
+    "correct": [0, 1],
+    "explanation": "Gli smart contract si autoeseguono quando le condizioni codificate sono soddisfatte e, una volta pubblicati on-chain, sono tipicamente immutabili: un bug (come nel caso The DAO) puo diventare permanente e sfruttabile.",
+    "why_wrong": {
+      "2": "L'immutabilita impedisce modifiche arbitrarie dopo il deploy; servono pattern come i proxy upgradabili per aggiornarli.",
+      "3": "Gli smart contract possono contenere gravi vulnerabilita, ad esempio reentrancy o overflow aritmetici."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-012",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia", "PKI"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti coppie associano correttamente il tipo di algoritmo alla sua categoria? (seleziona 2)",
+    "options": ["AES e un algoritmo simmetrico", "RSA e un algoritmo asimmetrico", "SHA-256 e un algoritmo di cifratura simmetrica", "Diffie-Hellman e una funzione di hash"],
+    "correct": [0, 1],
+    "explanation": "AES e un cifrario a blocchi simmetrico (stessa chiave per cifrare e decifrare); RSA e asimmetrico e si basa su una coppia di chiavi pubblica/privata.",
+    "why_wrong": {
+      "2": "SHA-256 e una funzione di hash, non un algoritmo di cifratura: non usa chiavi e non e reversibile.",
+      "3": "Diffie-Hellman e un protocollo di scambio di chiavi, non una funzione di hash."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-013",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Blockchain", "Consenso"],
+    "type": "truefalse",
+    "difficulty": 3,
+    "question": "In una blockchain PoW un attacco del 51% consente a chi controlla la maggioranza dell'hash rate di modificare arbitrariamente le transazioni gia confermate di altri utenti, incluse quelle non proprie, rubando fondi da qualsiasi indirizzo.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Con la maggioranza dell'hash rate un attaccante puo riorganizzare la catena, censurare transazioni e soprattutto effettuare double-spending dei propri fondi, ma non puo forgiare firme altrui: non puo spendere monete da indirizzi di cui non possiede la chiave privata.",
+    "why_wrong": {
+      "0": "L'attacco 51% non rompe la crittografia a chiave pubblica: senza le chiavi private altrui non e possibile spostare i fondi di indirizzi non controllati."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-014",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia", "Controllo accessi"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "L'aggiunta di un 'salt' casuale e univoco prima dell'hashing delle password serve a impedire l'uso efficace di rainbow table e a rendere diversi gli hash di password identiche.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Il salt, unico per ogni utente, garantisce che due password uguali producano digest diversi e vanifica le rainbow table precalcolate, costringendo l'attaccante a un attacco mirato per ciascun hash.",
+    "why_wrong": {
+      "1": "Negare l'utilita del salt e errato: e una misura standard proprio contro le tabelle precalcolate e la deduplicazione degli hash."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc3-015",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Blockchain", "Wallet"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Una seed phrase (frase di recupero) di un wallet deterministico gerarchico (HD) permette di rigenerare tutte le chiavi private e gli indirizzi del wallet, quindi va custodita con la stessa segretezza di una chiave privata.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. In un wallet HD (standard BIP-32/BIP-39) la seed phrase e la radice da cui si derivano deterministicamente tutte le chiavi: chi la conosce controlla l'intero wallet, percio va protetta come e piu di una singola chiave privata.",
+    "why_wrong": {
+      "1": "E' errato considerarla poco sensibile: la seed phrase e il segreto master del wallet e la sua esposizione compromette tutti i fondi."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  }
+]

@@ -1,0 +1,256 @@
+[
+  {
+    "id": "net3-001",
+    "cert": ["CompTIA Network+"],
+    "topics": ["TCP/IP", "Porte e Protocolli"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale porta e protocollo di trasporto utilizza TFTP (Trivial File Transfer Protocol) per impostazione predefinita?",
+    "options": ["TCP 21", "UDP 69", "TCP 20", "UDP 53"],
+    "correct": [1],
+    "explanation": "TFTP usa la porta UDP 69. È un protocollo di trasferimento file semplice e senza autenticazione, spesso impiegato per il boot di rete (PXE) e il caricamento di configurazioni sugli apparati.",
+    "why_wrong": {
+      "0": "TCP 21 è la porta di controllo di FTP, non di TFTP.",
+      "2": "TCP 20 è la porta dati di FTP in modalità attiva.",
+      "3": "UDP 53 è utilizzata da DNS per le query."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-002",
+    "cert": ["CompTIA Network+"],
+    "topics": ["Subnetting", "TCP/IP"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In una sottorete con maschera /26 (255.255.255.192), quanti indirizzi host utilizzabili sono disponibili?",
+    "options": ["64", "62", "30", "126"],
+    "correct": [1],
+    "explanation": "Una /26 lascia 6 bit per gli host: 2^6 = 64 indirizzi totali, meno l'indirizzo di rete e quello di broadcast, danno 62 host utilizzabili.",
+    "why_wrong": {
+      "0": "64 è il numero totale di indirizzi del blocco, ma non sottrae rete e broadcast.",
+      "2": "30 host corrisponde a una /27 (2^5 - 2).",
+      "3": "126 host corrisponde a una /25 (2^7 - 2)."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-003",
+    "cert": ["CompTIA Network+"],
+    "topics": ["DNS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale tipo di record DNS viene utilizzato per la risoluzione inversa, ovvero per associare un indirizzo IP a un nome host?",
+    "options": ["A", "MX", "PTR", "CNAME"],
+    "correct": [2],
+    "explanation": "Il record PTR (pointer) esegue la risoluzione inversa mappando un indirizzo IP al nome host corrispondente; risiede nelle zone in-addr.arpa (IPv4) o ip6.arpa (IPv6).",
+    "why_wrong": {
+      "0": "Il record A mappa un nome host su un indirizzo IPv4 (risoluzione diretta), non inversa.",
+      "1": "Il record MX indica i server di posta del dominio.",
+      "3": "Il record CNAME crea un alias verso un altro nome host."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-004",
+    "cert": ["CompTIA Network+"],
+    "topics": ["VLAN"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quanti byte aggiunge il tag 802.1Q all'header di un frame Ethernet per identificare la VLAN?",
+    "options": ["2 byte", "4 byte", "8 byte", "12 byte"],
+    "correct": [1],
+    "explanation": "Il tag 802.1Q inserisce 4 byte nell'header Ethernet: 2 byte di TPID (0x8100) e 2 byte di TCI, che contengono il VLAN ID a 12 bit, la priorità (PCP) e il flag DEI.",
+    "why_wrong": {
+      "0": "2 byte non bastano: il solo TPID occupa già 2 byte.",
+      "2": "8 byte non corrisponde alla dimensione del tag 802.1Q.",
+      "3": "12 è il numero di bit del solo campo VLAN ID, non la dimensione in byte del tag completo."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-005",
+    "cert": ["CompTIA Network+"],
+    "topics": ["Sicurezza Wireless", "Wireless"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nella banda a 2,4 GHz, quali canali sono considerati non sovrapposti (non-overlapping) in Nord America?",
+    "options": ["1, 5, 9", "1, 6, 11", "2, 7, 12", "1, 4, 8"],
+    "correct": [1],
+    "explanation": "Nella banda 2,4 GHz i canali 1, 6 e 11 sono gli unici tre canali a 20 MHz che non si sovrappongono, riducendo l'interferenza co-canale tra access point vicini.",
+    "why_wrong": {
+      "0": "I canali 1, 5, 9 si sovrappongono perché la spaziatura di 4 canali è inferiore ai 5 necessari.",
+      "2": "In 2, 7, 12 il canale 12 non è utilizzabile in Nord America e la combinazione non è lo standard consigliato.",
+      "3": "I canali 1, 4, 8 hanno spaziatura insufficiente e si sovrappongono."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-006",
+    "cert": ["CompTIA Network+"],
+    "topics": ["Routing"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale protocollo di ridondanza del gateway (FHRP) è uno standard aperto definito dall'IETF, in alternativa al protocollo proprietario Cisco HSRP?",
+    "options": ["VRRP", "GLBP", "STP", "LACP"],
+    "correct": [0],
+    "explanation": "VRRP (Virtual Router Redundancy Protocol, RFC 5798) è lo standard aperto IETF per la ridondanza del gateway predefinito, equivalente aperto a HSRP di Cisco.",
+    "why_wrong": {
+      "1": "GLBP è anch'esso proprietario Cisco, non uno standard aperto.",
+      "2": "STP previene i loop di livello 2 e non gestisce la ridondanza del gateway.",
+      "3": "LACP aggrega link fisici e non fornisce ridondanza del gateway."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-007",
+    "cert": ["CompTIA Network+"],
+    "topics": ["SDN", "Cloud"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nell'architettura SDN (Software-Defined Networking), quale componente centralizza il piano di controllo prendendo le decisioni di instradamento che gli apparati eseguono?",
+    "options": ["Il controller SDN", "Lo switch di accesso", "Il piano dati", "L'hypervisor"],
+    "correct": [0],
+    "explanation": "In SDN il controller centralizza il piano di controllo e comunica con gli apparati (piano dati) tramite interfacce southbound come OpenFlow, mentre le applicazioni dialogano con esso tramite API northbound.",
+    "why_wrong": {
+      "1": "Lo switch di accesso appartiene al piano dati e si limita a inoltrare i pacchetti secondo le regole ricevute.",
+      "2": "Il piano dati esegue l'inoltro, non prende le decisioni di controllo.",
+      "3": "L'hypervisor virtualizza i server e non è il componente di controllo SDN."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-008",
+    "cert": ["CompTIA Network+"],
+    "topics": ["Cablaggio"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale categoria minima di cablaggio in rame è necessaria per supportare 10GBASE-T su una tratta completa di 100 metri?",
+    "options": ["Cat5e", "Cat6", "Cat6a", "Cat3"],
+    "correct": [2],
+    "explanation": "Cat6a supporta 10GBASE-T fino a 100 metri grazie alla banda di 500 MHz e alla riduzione dell'alien crosstalk. Cat6 raggiunge i 10G solo su tratte più brevi.",
+    "why_wrong": {
+      "0": "Cat5e è certificato per 1GBASE-T, non per 10 Gbps.",
+      "1": "Cat6 supporta 10GBASE-T solo fino a circa 37-55 metri, non sull'intera tratta di 100 m.",
+      "3": "Cat3 è limitato a 10 Mbps ed è usato storicamente per la telefonia."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-009",
+    "cert": ["CompTIA Network+"],
+    "topics": ["Porte e Protocolli", "Sicurezza"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Su quale porta TCP opera per impostazione predefinita LDAPS (LDAP su SSL/TLS)?",
+    "options": ["389", "636", "443", "3268"],
+    "correct": [1],
+    "explanation": "LDAPS utilizza la porta TCP 636. LDAP in chiaro usa invece la porta 389.",
+    "why_wrong": {
+      "0": "389 è la porta di LDAP non cifrato.",
+      "2": "443 è la porta di HTTPS.",
+      "3": "3268 è la porta del Global Catalog LDAP di Active Directory (non cifrato)."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-010",
+    "cert": ["CompTIA Network+"],
+    "topics": ["Routing"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale meccanismo dei protocolli di routing distance-vector previene i loop impedendo di riannunciare una rotta sull'interfaccia da cui è stata appresa?",
+    "options": ["Split horizon", "Flooding", "Load balancing", "Proxy ARP"],
+    "correct": [0],
+    "explanation": "Lo split horizon evita i loop di routing non ripubblicando una rotta sull'interfaccia da cui è stata ricevuta; spesso è abbinato al poison reverse per accelerare la convergenza.",
+    "why_wrong": {
+      "1": "Il flooding inoltra i pacchetti su tutte le porte e non previene i loop di routing.",
+      "2": "Il load balancing distribuisce il traffico su più percorsi, ma non previene i loop.",
+      "3": "Il proxy ARP risponde alle richieste ARP per conto di altri host e non riguarda i loop di routing."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-011",
+    "cert": ["CompTIA Network+"],
+    "topics": ["TCP/IP", "Porte e Protocolli"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE dei seguenti protocolli utilizzano TCP come protocollo di trasporto? (Seleziona due)",
+    "options": ["SSH", "SNMP", "HTTPS", "TFTP"],
+    "correct": [0, 2],
+    "explanation": "SSH (porta 22) e HTTPS (porta 443) usano TCP per garantire una consegna affidabile e orientata alla connessione. SNMP e TFTP usano invece UDP.",
+    "why_wrong": {
+      "1": "SNMP utilizza UDP (porte 161/162).",
+      "3": "TFTP utilizza UDP (porta 69)."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-012",
+    "cert": ["CompTIA Network+"],
+    "topics": ["TCP/IP"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE affermazioni sono corrette riguardo a IPv6? (Seleziona due)",
+    "options": ["Utilizza indirizzi a 128 bit", "Supporta l'autoconfigurazione stateless (SLAAC)", "Richiede sempre NAT per instradare il traffico", "Utilizza il broadcast come IPv4"],
+    "correct": [0, 1],
+    "explanation": "IPv6 usa indirizzi a 128 bit e supporta SLAAC, con cui gli host generano autonomamente il proprio indirizzo tramite i Router Advertisement. IPv6 elimina il broadcast (sostituito dal multicast) e non necessita di NAT grazie all'ampio spazio di indirizzi.",
+    "why_wrong": {
+      "2": "IPv6 non richiede NAT: lo spazio di indirizzi è così ampio da rendere superfluo il mascheramento tipico di IPv4.",
+      "3": "IPv6 non usa il broadcast; impiega indirizzi multicast e anycast al suo posto."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-013",
+    "cert": ["CompTIA Network+"],
+    "topics": ["Troubleshooting"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE strumenti sono utilizzati per la diagnostica fisica del cablaggio di rete? (Seleziona due)",
+    "options": ["Tester di cavo (cable tester)", "Generatore di tono e sonda (toner probe)", "nslookup", "ipconfig"],
+    "correct": [0, 1],
+    "explanation": "Il tester di cavo verifica continuità, mappatura dei pin e cortocircuiti, mentre il generatore di tono con sonda serve a individuare e tracciare un cavo specifico all'interno di un fascio. nslookup e ipconfig sono utilità software.",
+    "why_wrong": {
+      "2": "nslookup è un'utilità software per interrogare il DNS, non uno strumento fisico per il cablaggio.",
+      "3": "ipconfig mostra la configurazione IP dell'host, non diagnostica problemi fisici del cavo."
+    },
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-014",
+    "cert": ["CompTIA Network+"],
+    "topics": ["TCP/IP", "Modello OSI"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "UDP è un protocollo di trasporto senza connessione (connectionless) che non garantisce la consegna dei pacchetti.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. UDP è connectionless e non prevede handshake né conferme di consegna; è più veloce ma meno affidabile di TCP, ideale per traffico in tempo reale come VoIP e streaming.",
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-015",
+    "cert": ["CompTIA Network+"],
+    "topics": ["Modello OSI"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nel modello OSI, il livello 3 (Rete) è responsabile dell'indirizzamento fisico MAC.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. L'indirizzamento MAC (fisico) appartiene al livello 2 (Data Link). Il livello 3 (Rete) gestisce l'indirizzamento logico IP e l'instradamento tra reti.",
+    "source": "CompTIA Network+ N10-009"
+  },
+  {
+    "id": "net3-016",
+    "cert": ["CompTIA Network+"],
+    "topics": ["Sicurezza", "Sicurezza Wireless"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Lo standard 802.1X fornisce il controllo dell'accesso alla rete basato sulle porte, autenticando i dispositivi prima di concedere l'accesso.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. 802.1X è un framework di autenticazione port-based che coinvolge supplicant, authenticator (switch/AP) e server di autenticazione (tipicamente RADIUS), spesso usato con EAP.",
+    "source": "CompTIA Network+ N10-009"
+  }
+]

@@ -1,0 +1,299 @@
+[
+  {
+    "id": "nd3-001",
+    "cert": ["Network Defense"],
+    "topics": ["Difesa in profondità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Il principio della difesa in profondità (defense in depth) si basa su quale idea fondamentale?",
+    "options": [
+      "Concentrare tutte le risorse di sicurezza su un unico controllo perimetrale molto robusto",
+      "Disporre più livelli di controlli indipendenti in modo che il fallimento di uno non comprometta l'intera rete",
+      "Sostituire i firewall con un solo antivirus aggiornato su ogni host",
+      "Affidarsi esclusivamente alla cifratura del traffico per proteggere i dati"
+    ],
+    "correct": [1],
+    "explanation": "La difesa in profondità distribuisce controlli ridondanti e diversificati (fisici, tecnici, amministrativi) su più livelli, così che la compromissione di un singolo strato non porti alla compromissione totale.",
+    "why_wrong": {
+      "0": "Un unico controllo perimetrale crea un singolo punto di rottura, l'opposto della difesa in profondità.",
+      "2": "L'antivirus è un solo strato; da solo non fornisce ridondanza multilivello.",
+      "3": "La cifratura è utile ma è un singolo controllo, non un modello a più livelli."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-002",
+    "cert": ["Network Defense"],
+    "topics": ["Firewall"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è la differenza principale tra un firewall stateful e uno stateless (packet filter)?",
+    "options": [
+      "Lo stateful ispeziona solo l'indirizzo IP sorgente, lo stateless anche la porta",
+      "Lo stateful tiene traccia dello stato delle connessioni e valuta i pacchetti nel contesto della sessione, lo stateless valuta ogni pacchetto isolatamente",
+      "Lo stateless opera a livello applicativo, lo stateful solo a livello fisico",
+      "Non esiste differenza tecnica, cambia solo il nome commerciale"
+    ],
+    "correct": [1],
+    "explanation": "Il firewall stateful mantiene una tabella degli stati delle connessioni (state table) e decide in base al contesto della sessione; lo stateless applica regole a ogni pacchetto senza memoria delle connessioni precedenti.",
+    "why_wrong": {
+      "0": "Entrambi possono valutare IP e porta; la differenza è la memoria dello stato, non i campi ispezionati.",
+      "2": "Lo stateless opera tipicamente a livello 3/4, non applicativo; è il proxy/NGFW a lavorare a livello 7.",
+      "3": "La differenza è reale e sostanziale nel funzionamento."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-003",
+    "cert": ["Network Defense"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual è la differenza fondamentale tra un IDS e un IPS?",
+    "options": [
+      "L'IDS rileva e segnala le attività sospette, l'IPS può anche bloccarle attivamente in linea",
+      "L'IPS rileva soltanto, mentre l'IDS blocca il traffico",
+      "L'IDS opera solo su reti wireless, l'IPS solo su reti cablate",
+      "Sono lo stesso dispositivo con nomi diversi a seconda del produttore"
+    ],
+    "correct": [0],
+    "explanation": "L'IDS (Intrusion Detection System) monitora e genera allarmi ma non interviene sul traffico; l'IPS (Intrusion Prevention System) è posto in linea e può scartare o bloccare i pacchetti malevoli in tempo reale.",
+    "why_wrong": {
+      "1": "È invertito: è l'IPS a bloccare, non l'IDS.",
+      "2": "La distinzione non dipende dal tipo di mezzo (wireless/cablato).",
+      "3": "Sono tecnologie distinte per posizionamento e capacità di intervento."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-004",
+    "cert": ["Network Defense"],
+    "topics": ["DMZ"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "A cosa serve una DMZ (zona demilitarizzata) nell'architettura di rete?",
+    "options": [
+      "A collegare direttamente la rete interna a Internet senza filtri",
+      "A isolare i servizi accessibili dall'esterno (web, mail, DNS pubblico) da una sottorete separata, così che una loro compromissione non esponga la LAN interna",
+      "A cifrare tutto il traffico che entra ed esce dall'azienda",
+      "A sostituire completamente il firewall perimetrale"
+    ],
+    "correct": [1],
+    "explanation": "La DMZ è una sottorete cuscinetto tra Internet e la rete interna che ospita i servizi pubblici; se un server esposto viene compromesso, l'attaccante resta confinato nella DMZ e non raggiunge direttamente la LAN.",
+    "why_wrong": {
+      "0": "La DMZ serve proprio a evitare il collegamento diretto e non filtrato tra interno ed esterno.",
+      "2": "La cifratura è un'altra funzione; la DMZ è una zona di segmentazione.",
+      "3": "La DMZ lavora insieme ai firewall, non li sostituisce."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-005",
+    "cert": ["Network Defense"],
+    "topics": ["VPN"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel contesto di una VPN di accesso remoto, cosa comporta l'uso del 'split tunneling'?",
+    "options": [
+      "Tutto il traffico del client viene forzato attraverso il tunnel VPN aziendale",
+      "Solo il traffico diretto alle risorse aziendali passa nel tunnel, mentre il resto va direttamente in Internet senza attraversare i controlli aziendali",
+      "Il tunnel VPN viene cifrato due volte per aumentare la sicurezza",
+      "La VPN divide la banda equamente tra tutti gli utenti connessi"
+    ],
+    "correct": [1],
+    "explanation": "Con lo split tunneling solo il traffico verso le risorse interne transita nella VPN, mentre la navigazione generale esce direttamente; questo riduce il carico ma sottrae quel traffico ai controlli di sicurezza aziendali, aumentando il rischio.",
+    "why_wrong": {
+      "0": "Quella descrizione è il full tunneling, l'opposto dello split tunneling.",
+      "2": "Lo split tunneling riguarda l'instradamento del traffico, non una doppia cifratura.",
+      "3": "Non è un meccanismo di ripartizione della banda tra utenti."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-006",
+    "cert": ["Network Defense"],
+    "topics": ["VLAN"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In un attacco di tipo 'VLAN hopping' con double tagging, cosa sfrutta l'attaccante?",
+    "options": [
+      "La cifratura debole del traffico tra due VLAN",
+      "L'inserimento di due tag 802.1Q: lo switch rimuove il primo e inoltra il frame verso una VLAN di destinazione diversa da quella dell'attaccante",
+      "L'assenza totale di switch nella rete",
+      "La condivisione della stessa password Wi-Fi tra tutte le VLAN"
+    ],
+    "correct": [1],
+    "explanation": "Nel double tagging l'attaccante incapsula due tag 802.1Q: il primo switch rimuove il tag esterno (spesso quello della native VLAN) e inoltra il frame con il tag interno verso una VLAN target, raggiungendo host che dovrebbe essere isolati. Contromisure: cambiare la native VLAN e non usarla per il traffico dati.",
+    "why_wrong": {
+      "0": "L'attacco sfrutta il tagging 802.1Q, non la debolezza crittografica.",
+      "2": "L'attacco richiede proprio switch e trunk 802.1Q per funzionare.",
+      "3": "Le VLAN sono un concetto di livello 2 su rete cablata/switch, non legato alla password Wi-Fi."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-007",
+    "cert": ["Network Defense"],
+    "topics": ["Sicurezza Wireless"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale miglioramento chiave introduce WPA3-Personal rispetto a WPA2-Personal?",
+    "options": [
+      "Elimina del tutto la necessità di una password sull'access point",
+      "Sostituisce lo scambio PSK a 4 vie con SAE (Simultaneous Authentication of Equals), resistente agli attacchi offline a dizionario",
+      "Riduce la lunghezza della chiave per aumentare la velocità",
+      "Usa esclusivamente il protocollo WEP con chiavi più lunghe"
+    ],
+    "correct": [1],
+    "explanation": "WPA3-Personal adotta SAE (handshake Dragonfly) al posto del PSK a 4 vie di WPA2, fornendo forward secrecy e resistenza agli attacchi offline a dizionario anche con password deboli.",
+    "why_wrong": {
+      "0": "WPA3-Personal richiede comunque una password/passphrase.",
+      "2": "WPA3 rafforza, non riduce, la robustezza crittografica.",
+      "3": "WEP è un protocollo obsoleto e insicuro, non usato da WPA3."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-008",
+    "cert": ["Network Defense"],
+    "topics": ["NAC", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In una soluzione NAC (Network Access Control), qual è la funzione del 'posture assessment' (valutazione dello stato del dispositivo)?",
+    "options": [
+      "Misurare la velocità di connessione dell'utente prima di consentirgli l'accesso",
+      "Verificare che il dispositivo rispetti i requisiti di sicurezza (patch, antivirus, configurazione) prima di concedere l'accesso alla rete, mettendolo eventualmente in quarantena",
+      "Assegnare automaticamente un indirizzo IP pubblico a ogni endpoint",
+      "Cifrare il disco del client che si connette alla rete"
+    ],
+    "correct": [1],
+    "explanation": "Il posture assessment del NAC controlla lo stato di conformità del dispositivo (aggiornamenti, antimalware attivo, impostazioni) e, se non conforme, lo instrada verso una VLAN di quarantena/remediation prima di concedere l'accesso completo.",
+    "why_wrong": {
+      "0": "Il NAC valuta la conformità di sicurezza, non la velocità della connessione.",
+      "2": "Il NAC controlla l'accesso; non assegna IP pubblici agli endpoint.",
+      "3": "La cifratura del disco è una misura endpoint separata, non la funzione del posture assessment."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-009",
+    "cert": ["Network Defense"],
+    "topics": ["Hardening"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nell'hardening di uno switch di rete, perché è consigliato abilitare la 'port security' con limite di indirizzi MAC per porta?",
+    "options": [
+      "Per aumentare la larghezza di banda disponibile su ogni porta",
+      "Per mitigare attacchi di MAC flooding e impedire che dispositivi non autorizzati collegati a una porta ottengano accesso alla rete",
+      "Per cifrare automaticamente tutti i frame Ethernet",
+      "Per disabilitare completamente il protocollo Spanning Tree"
+    ],
+    "correct": [1],
+    "explanation": "La port security limita il numero (e talvolta gli specifici) indirizzi MAC ammessi su una porta: contrasta il MAC flooding che satura la CAM table forzando lo switch a comportarsi da hub, e blocca l'aggancio di dispositivi non autorizzati.",
+    "why_wrong": {
+      "0": "La port security è un controllo di sicurezza, non aumenta la banda.",
+      "2": "Non fornisce cifratura dei frame; è un controllo d'accesso a livello di porta.",
+      "3": "Non disabilita lo Spanning Tree, sono funzioni distinte."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-010",
+    "cert": ["Network Defense"],
+    "topics": ["Controllo accessi", "NAC"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni sullo standard IEEE 802.1X sono corrette? (Selezionane due)",
+    "options": [
+      "Fornisce autenticazione basata su porta prima di concedere l'accesso alla rete",
+      "Coinvolge tre ruoli: supplicant, authenticator e authentication server (tipicamente RADIUS)",
+      "È un protocollo di routing dinamico che sostituisce OSPF",
+      "Funziona esclusivamente su reti wireless e non è applicabile a porte cablate"
+    ],
+    "correct": [0, 1],
+    "explanation": "802.1X è un framework di controllo dell'accesso alla rete basato su porta: il supplicant (client) si autentica tramite l'authenticator (switch/AP) verso un authentication server RADIUS; solo dopo l'autenticazione la porta viene aperta al traffico. Vale sia per reti cablate sia wireless.",
+    "why_wrong": {
+      "2": "802.1X è controllo d'accesso, non un protocollo di routing come OSPF.",
+      "3": "802.1X funziona anche su porte cablate degli switch, non solo in Wi-Fi."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-011",
+    "cert": ["Network Defense"],
+    "topics": ["IDS/IPS", "Monitoraggio"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo alle tecniche di rilevamento degli IDS/IPS, quali affermazioni sono corrette? (Selezionane due)",
+    "options": [
+      "Il rilevamento basato su firme (signature-based) è efficace contro minacce note ma non riconosce attacchi zero-day sconosciuti",
+      "Il rilevamento basato su anomalie (anomaly-based) confronta il traffico con un baseline e può generare più falsi positivi",
+      "Il rilevamento basato su firme può individuare qualsiasi attacco mai visto prima senza aggiornamenti",
+      "Il rilevamento basato su anomalie non richiede alcuna fase di apprendimento del comportamento normale"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il signature-based confronta il traffico con firme di attacchi noti: preciso sui pattern conosciuti ma cieco verso gli zero-day. L'anomaly-based costruisce un baseline del comportamento normale e segnala le deviazioni, riuscendo a cogliere minacce nuove ma a costo di più falsi positivi.",
+    "why_wrong": {
+      "2": "Il signature-based non rileva ciò che non è nelle sue firme; richiede aggiornamenti continui.",
+      "3": "L'anomaly-based richiede proprio una fase di apprendimento/baseline del comportamento normale."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-012",
+    "cert": ["Network Defense"],
+    "topics": ["VLAN", "Difesa in profondità"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti sono buone pratiche di segmentazione della rete per limitare il movimento laterale di un attaccante? (Selezionane due)",
+    "options": [
+      "Separare i sistemi critici (es. server di produzione) dalle reti utente tramite VLAN e regole firewall tra le zone",
+      "Applicare il principio del privilegio minimo alle regole di comunicazione tra segmenti",
+      "Collocare tutti i dispositivi, server e workstation, in un'unica grande VLAN piatta",
+      "Consentire di default tutto il traffico est-ovest tra i segmenti interni"
+    ],
+    "correct": [0, 1],
+    "explanation": "La segmentazione isola i sistemi critici in zone separate con controllo del traffico tra esse e applica il privilegio minimo alle comunicazioni inter-segmento, riducendo drasticamente il movimento laterale dopo una compromissione iniziale.",
+    "why_wrong": {
+      "2": "Una singola VLAN piatta elimina la segmentazione e favorisce il movimento laterale.",
+      "3": "Permettere tutto il traffico est-ovest per default vanifica la segmentazione; il traffico interno va filtrato."
+    },
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-013",
+    "cert": ["Network Defense"],
+    "topics": ["IDS/IPS"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Un IDS (Intrusion Detection System) è un sistema passivo che rileva e segnala le intrusioni ma, a differenza di un IPS, non blocca autonomamente il traffico malevolo.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Corretto: l'IDS opera tipicamente in modalità passiva (fuori linea, su copia del traffico) e genera allarmi; è l'IPS, posizionato in linea, a poter bloccare o scartare attivamente il traffico malevolo.",
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-014",
+    "cert": ["Network Defense"],
+    "topics": ["Sicurezza Wireless"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "WPA2 offre una protezione più robusta di WPA3 e va quindi preferito nelle nuove installazioni wireless.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso: WPA3 è più recente e più sicuro di WPA2. Introduce SAE contro gli attacchi offline a dizionario, forward secrecy e protezioni migliori; nelle nuove installazioni va preferito WPA3 (o WPA3/WPA2 in transizione).",
+    "source": "HACK/Book defence.rtf"
+  },
+  {
+    "id": "nd3-015",
+    "cert": ["Network Defense"],
+    "topics": ["DMZ", "Difesa in profondità"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Collocare i server pubblici (web, mail, DNS esposto) in una DMZ isolata riduce il rischio che la loro compromissione porti a un accesso diretto alla rete interna.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero: la DMZ è una sottorete cuscinetto separata da regole firewall; se un servizio pubblico viene compromesso, l'attaccante resta confinato nella DMZ e non ottiene accesso diretto alla LAN interna, che è protetta da ulteriori controlli.",
+    "source": "HACK/Book defence.rtf"
+  }
+]

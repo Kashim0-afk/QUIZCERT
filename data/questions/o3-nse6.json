@@ -1,0 +1,308 @@
+[
+  {
+    "id": "nse63-001",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiWeb"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual è la funzione principale di FortiWeb all'interno della Security Fabric?",
+    "options": [
+      "Filtrare lo spam nelle caselle di posta aziendali",
+      "Proteggere le applicazioni web da attacchi come SQL injection e cross-site scripting agendo come Web Application Firewall",
+      "Gestire l'autenticazione a più fattori per gli utenti VPN",
+      "Analizzare i file sospetti in un ambiente sandbox isolato"
+    ],
+    "correct": [1],
+    "explanation": "FortiWeb è il Web Application Firewall (WAF) di Fortinet: ispeziona il traffico HTTP/HTTPS diretto alle applicazioni web e blocca attacchi applicativi come SQL injection, XSS, e quelli dell'OWASP Top 10, proteggendo anche le API.",
+    "why_wrong": {
+      "0": "Il filtraggio dello spam è compito di FortiMail, non di FortiWeb.",
+      "2": "L'autenticazione MFA e la gestione delle identità sono gestite da FortiAuthenticator.",
+      "3": "L'analisi comportamentale dei file in sandbox è la funzione di FortiSandbox."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-002",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiMail", "Sicurezza Email"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale prodotto della Security Fabric è specializzato nella protezione della posta elettronica contro spam, phishing e malware?",
+    "options": [
+      "FortiNAC",
+      "FortiADC",
+      "FortiMail",
+      "FortiSwitch"
+    ],
+    "correct": [2],
+    "explanation": "FortiMail è il secure email gateway di Fortinet: fornisce antispam, antiphishing, antivirus, filtraggio dei contenuti e protezione contro attacchi mirati alla posta elettronica in entrata e in uscita.",
+    "why_wrong": {
+      "0": "FortiNAC controlla l'accesso dei dispositivi alla rete, non la posta elettronica.",
+      "1": "FortiADC è un application delivery controller e load balancer.",
+      "3": "FortiSwitch è uno switch di rete gestito integrato nella Fabric."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-003",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiAuthenticator"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale ruolo svolge principalmente FortiAuthenticator nella Security Fabric?",
+    "options": [
+      "Fornire servizi di identità centralizzata, autenticazione a più fattori (MFA), RADIUS e Single Sign-On",
+      "Bilanciare il carico tra più server applicativi",
+      "Ispezionare il traffico web alla ricerca di exploit applicativi",
+      "Eseguire il controllo di accesso alla rete basato sulla postura del dispositivo"
+    ],
+    "correct": [0],
+    "explanation": "FortiAuthenticator è il gestore centralizzato delle identità: fornisce autenticazione a più fattori, server RADIUS/LDAP, Single Sign-On (FSSO), gestione dei certificati e dei token, integrandosi con i FortiGate e gli altri componenti della Fabric.",
+    "why_wrong": {
+      "1": "Il bilanciamento del carico applicativo è compito di FortiADC.",
+      "2": "L'ispezione del traffico web contro gli exploit è la funzione di FortiWeb.",
+      "3": "Il controllo di accesso basato sulla postura del dispositivo è la funzione di FortiNAC."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-004",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiSandbox"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Come rileva FortiSandbox le minacce sconosciute e di tipo zero-day?",
+    "options": [
+      "Confrontando gli hash dei file solo con una lista statica di firme note",
+      "Eseguendo i file sospetti in un ambiente isolato e osservandone il comportamento (analisi comportamentale)",
+      "Applicando policy di firewall stateful sul traffico di rete",
+      "Emettendo certificati digitali per i dispositivi endpoint"
+    ],
+    "correct": [1],
+    "explanation": "FortiSandbox esegue detonazione (sandboxing) dei file sospetti in un ambiente virtuale isolato e ne analizza il comportamento in tempo reale, individuando così malware sconosciuto e minacce zero-day che le firme statiche non riconoscerebbero.",
+    "why_wrong": {
+      "0": "L'affidarsi solo a firme statiche è proprio il limite che la sandbox supera con l'analisi comportamentale dinamica.",
+      "2": "Le policy stateful sono compito del FortiGate, non della sandbox.",
+      "3": "L'emissione di certificati è una funzione di FortiAuthenticator."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-005",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiNAC"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale funzione caratterizza FortiNAC nella Security Fabric?",
+    "options": [
+      "Fornire un antispam avanzato per la posta aziendale",
+      "Rilevare, profilare e controllare l'accesso alla rete dei dispositivi, inclusi endpoint e dispositivi IoT",
+      "Analizzare le applicazioni web contro l'OWASP Top 10",
+      "Detonare allegati sospetti in una sandbox"
+    ],
+    "correct": [1],
+    "explanation": "FortiNAC (Network Access Control) offre visibilità e controllo sui dispositivi che si connettono alla rete: li rileva, li profila (compresi i dispositivi IoT senza agent), applica policy di accesso e può metterli in quarantena o segmentarli automaticamente in caso di anomalia.",
+    "why_wrong": {
+      "0": "L'antispam è una funzione di FortiMail.",
+      "2": "L'analisi delle applicazioni web è compito di FortiWeb.",
+      "3": "La detonazione degli allegati in sandbox è la funzione di FortiSandbox."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-006",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiClient", "ZTNA"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nella soluzione ZTNA di Fortinet, quale ruolo svolge FortiClient sull'endpoint?",
+    "options": [
+      "Funge da server RADIUS per l'autenticazione degli utenti",
+      "Agisce come agent ZTNA che verifica la postura del dispositivo e stabilisce sessioni verso l'access proxy del FortiGate",
+      "Bilancia il traffico tra i data center",
+      "Filtra la posta elettronica in ingresso"
+    ],
+    "correct": [1],
+    "explanation": "In ZTNA, FortiClient funge da agent sull'endpoint: raccoglie le informazioni sulla postura del dispositivo (tag), fornisce il certificato client e stabilisce sessioni cifrate verso l'access proxy sul FortiGate, che concede l'accesso alle applicazioni solo dopo la verifica di identità e postura.",
+    "why_wrong": {
+      "0": "Il ruolo di server RADIUS è svolto da FortiAuthenticator, non da FortiClient.",
+      "2": "Il bilanciamento del traffico tra data center è compito di FortiADC.",
+      "3": "Il filtraggio della posta è la funzione di FortiMail."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-007",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiADC"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale descrizione rappresenta meglio il ruolo di FortiADC?",
+    "options": [
+      "È un secure email gateway che blocca il phishing",
+      "È un application delivery controller che bilancia il carico e ottimizza la disponibilità delle applicazioni server",
+      "È un gestore di identità per il Single Sign-On",
+      "È una sandbox per l'analisi del malware"
+    ],
+    "correct": [1],
+    "explanation": "FortiADC è un Application Delivery Controller: distribuisce il carico tra più server applicativi (server load balancing), garantisce alta disponibilità, offre offloading SSL e accelerazione, migliorando prestazioni e resilienza delle applicazioni pubblicate.",
+    "why_wrong": {
+      "0": "Il secure email gateway è FortiMail.",
+      "2": "La gestione delle identità e l'SSO sono forniti da FortiAuthenticator.",
+      "3": "L'analisi del malware in sandbox è compito di FortiSandbox."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-008",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["Security Fabric", "FortiClient"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale componente gestisce centralmente la distribuzione e le policy degli endpoint FortiClient nella Security Fabric?",
+    "options": [
+      "FortiSwitch",
+      "FortiMail",
+      "FortiClient EMS (Endpoint Management Server)",
+      "FortiSandbox"
+    ],
+    "correct": [2],
+    "explanation": "FortiClient EMS (Endpoint Management Server) è la console centralizzata per il deployment, la configurazione e il monitoraggio degli agent FortiClient: distribuisce le policy di sicurezza, gestisce i tag di postura ZTNA e condivide la telemetria degli endpoint con la Fabric.",
+    "why_wrong": {
+      "0": "FortiSwitch è uno switch di rete gestito, non gestisce gli endpoint FortiClient.",
+      "1": "FortiMail è dedicato alla sicurezza della posta elettronica.",
+      "3": "FortiSandbox esegue l'analisi comportamentale dei file, non la gestione degli endpoint."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-009",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiSwitch", "FortiAP", "Security Fabric"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In che modo FortiSwitch e FortiAP si integrano tipicamente nella Security Fabric?",
+    "options": [
+      "Vengono gestiti e orchestrati centralmente da un FortiGate tramite FortiLink e CAPWAP",
+      "Funzionano solo in modo autonomo senza alcuna gestione centralizzata",
+      "Sostituiscono il FortiGate come firewall perimetrale",
+      "Eseguono l'analisi antispam del traffico email"
+    ],
+    "correct": [0],
+    "explanation": "FortiSwitch e FortiAP possono essere gestiti direttamente da un FortiGate: FortiSwitch tramite il protocollo FortiLink e i FortiAP tramite CAPWAP. Questo modello di gestione unificata (managed switch/AP) estende visibilità, policy e sicurezza dell'accesso cablato e wireless all'interno della Fabric.",
+    "why_wrong": {
+      "1": "Sebbene possano operare in standalone, il valore nella Fabric deriva proprio dalla gestione centralizzata dal FortiGate.",
+      "2": "FortiSwitch e FortiAP non sostituiscono il FortiGate: forniscono accesso cablato e wireless, non il firewalling perimetrale.",
+      "3": "L'analisi antispam è una funzione di FortiMail, non di switch o access point."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-010",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiMail", "Sicurezza Email"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali tra le seguenti sono funzionalità tipiche di FortiMail? (selezionane due)",
+    "options": [
+      "Filtraggio antispam e antiphishing della posta in ingresso",
+      "Bilanciamento del carico tra server web pubblicati",
+      "Protezione contro malware negli allegati, con possibile integrazione a FortiSandbox",
+      "Emissione dei certificati X.509 per l'autenticazione VPN"
+    ],
+    "correct": [0, 2],
+    "explanation": "FortiMail come secure email gateway filtra spam e phishing e protegge dagli allegati malevoli; per le minacce sconosciute può inoltrare gli allegati a FortiSandbox per l'analisi comportamentale prima della consegna.",
+    "why_wrong": {
+      "1": "Il bilanciamento del carico dei server web è compito di FortiADC, non di FortiMail.",
+      "3": "L'emissione dei certificati X.509 è una funzione di FortiAuthenticator."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-011",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiAuthenticator", "FortiClient"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali affermazioni sui ruoli di identità e endpoint nella Security Fabric sono corrette? (selezionane due)",
+    "options": [
+      "FortiAuthenticator può fornire il server RADIUS e l'MFA per gli utenti che accedono alla rete",
+      "FortiClient EMS distribuisce le policy agli endpoint e ne condivide la telemetria con la Fabric",
+      "FortiAuthenticator esegue il load balancing delle applicazioni server",
+      "FortiClient sostituisce FortiMail nel filtraggio dello spam"
+    ],
+    "correct": [0, 1],
+    "explanation": "FortiAuthenticator centralizza identità, RADIUS e MFA, mentre FortiClient EMS gestisce le policy degli endpoint e ne condivide la telemetria (postura, vulnerabilità) con la Security Fabric, abilitando risposte coordinate.",
+    "why_wrong": {
+      "2": "Il load balancing delle applicazioni è compito di FortiADC, non di FortiAuthenticator.",
+      "3": "FortiClient protegge l'endpoint e abilita ZTNA; il filtraggio dello spam resta compito di FortiMail."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-012",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiNAC", "FortiSandbox", "Security Fabric"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali affermazioni descrivono correttamente FortiNAC e FortiSandbox? (selezionane due)",
+    "options": [
+      "FortiNAC può mettere in quarantena automaticamente un dispositivo che viola le policy di sicurezza",
+      "FortiSandbox condivide gli indicatori di compromissione con gli altri componenti della Fabric per aggiornare le difese",
+      "FortiNAC cifra la posta elettronica in uscita",
+      "FortiSandbox agisce come Web Application Firewall per le applicazioni pubblicate"
+    ],
+    "correct": [0, 1],
+    "explanation": "FortiNAC applica il controllo di accesso e può isolare o mettere in quarantena i dispositivi non conformi; FortiSandbox, dopo l'analisi comportamentale, distribuisce gli IOC e i verdetti alla Fabric (FortiGate, FortiMail, FortiClient) per bloccare la minaccia in modo coordinato.",
+    "why_wrong": {
+      "2": "La cifratura e la sicurezza della posta sono compito di FortiMail, non di FortiNAC.",
+      "3": "Il ruolo di Web Application Firewall è di FortiWeb, non di FortiSandbox."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-013",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiWeb"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "FortiWeb è progettato per proteggere le applicazioni web e le API dagli attacchi applicativi, non per gestire l'autenticazione a più fattori degli utenti.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Affermazione vera: FortiWeb è il Web Application Firewall che protegge applicazioni e API dagli attacchi applicativi (SQLi, XSS, OWASP Top 10). La gestione dell'MFA e delle identità spetta a FortiAuthenticator.",
+    "why_wrong": {
+      "1": "È errato: FortiWeb è effettivamente un WAF per applicazioni e API, mentre l'MFA è di competenza di FortiAuthenticator."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-014",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["ZTNA", "FortiClient", "Security Fabric"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nell'approccio ZTNA di Fortinet l'accesso a un'applicazione viene concesso solo dopo aver verificato sia l'identità dell'utente sia la postura di sicurezza del dispositivo.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Affermazione vera: il modello Zero Trust Network Access verifica continuamente identità e postura del dispositivo (tramite FortiClient e l'access proxy sul FortiGate) prima di concedere l'accesso per singola sessione, senza fiducia implicita basata sulla posizione in rete.",
+    "why_wrong": {
+      "1": "È errato: ZTNA non concede accesso implicito; richiede la verifica combinata di identità e postura del dispositivo per ogni sessione."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  },
+  {
+    "id": "nse63-015",
+    "cert": ["Fortinet NSE6"],
+    "topics": ["FortiSandbox", "Sicurezza Email"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "FortiMail e FortiWeb possono inoltrare file o oggetti sospetti a FortiSandbox affinché ne venga eseguita l'analisi comportamentale prima di consentirne la consegna.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Affermazione vera: nella Security Fabric prodotti come FortiMail, FortiWeb, FortiGate e FortiClient possono integrarsi con FortiSandbox, inviando file sospetti per la detonazione e ricevendo il verdetto, così da bloccare le minacce zero-day in modo coordinato.",
+    "why_wrong": {
+      "1": "È errato: l'integrazione con FortiSandbox è una caratteristica chiave della Fabric e riguarda diversi prodotti, tra cui FortiMail e FortiWeb."
+    },
+    "source": "Fortinet NSE6 (Fabric products)"
+  }
+]

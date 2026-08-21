@@ -1,0 +1,299 @@
+[
+  {
+    "id": "ms3-001",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Identity", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è la differenza principale tra un'identità gestita (managed identity) assegnata dal sistema e una assegnata dall'utente in Microsoft Entra ID?",
+    "options": [
+      "L'identità assegnata dal sistema può essere condivisa tra più risorse, mentre quella assegnata dall'utente no",
+      "L'identità assegnata dal sistema è legata al ciclo di vita di una singola risorsa, mentre quella assegnata dall'utente è una risorsa autonoma condivisibile tra più risorse",
+      "Solo l'identità assegnata dall'utente richiede la rotazione manuale delle credenziali da parte dell'amministratore",
+      "L'identità assegnata dal sistema funziona solo con applicazioni locali (on-premises)"
+    ],
+    "correct": [1],
+    "explanation": "Un'identità gestita assegnata dal sistema viene creata insieme a una risorsa di Azure (es. una VM) e viene eliminata automaticamente quando la risorsa viene eliminata: è legata al suo ciclo di vita. Quella assegnata dall'utente è invece una risorsa autonoma, creata separatamente e assegnabile a più risorse contemporaneamente. In entrambi i casi Azure gestisce automaticamente le credenziali.",
+    "why_wrong": {
+      "0": "È il contrario: è l'identità assegnata dall'utente a poter essere condivisa tra più risorse, non quella assegnata dal sistema.",
+      "2": "Uno dei vantaggi delle identità gestite è proprio che Azure gestisce automaticamente le credenziali; nessuna delle due richiede rotazione manuale.",
+      "3": "Le identità gestite servono ad autenticare le risorse verso servizi che supportano l'autenticazione Entra ID, non sono limitate all'on-premises."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-002",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Controllo accessi", "Zero Trust", "MFA"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale affermazione descrive meglio l'Accesso condizionale (Conditional Access) di Microsoft Entra ID?",
+    "options": [
+      "È un firewall di rete che filtra il traffico in base agli indirizzi IP di origine",
+      "È un motore di criteri \"if-then\" che valuta segnali (utente, dispositivo, posizione, rischio, applicazione) per applicare decisioni come consentire, bloccare o richiedere l'MFA",
+      "È un servizio che cripta i dati inattivi negli account di archiviazione cloud",
+      "Elimina la necessità di autenticazione memorizzando i token di accesso in modo permanente sul dispositivo"
+    ],
+    "correct": [1],
+    "explanation": "L'Accesso condizionale è un motore di criteri basato sulla logica \"se-allora\" (if-then): raccoglie segnali come identità utente, stato del dispositivo, posizione, rischio di accesso e applicazione di destinazione, e in base a essi applica una decisione (concedere, bloccare, richiedere MFA o richiedere un dispositivo conforme). È un pilastro dell'implementazione Zero Trust.",
+    "why_wrong": {
+      "0": "L'Accesso condizionale opera a livello di identità e accesso alle applicazioni, non è un firewall di rete che filtra pacchetti per IP.",
+      "2": "La crittografia dei dati inattivi è una funzione separata; l'Accesso condizionale governa le decisioni di accesso, non la cifratura dello storage.",
+      "3": "Al contrario, l'Accesso condizionale può rafforzare l'autenticazione (es. imporre l'MFA); non memorizza token in modo permanente per eliminare l'autenticazione."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-003",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Identity", "Controllo accessi", "Zero Trust"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è lo scopo principale di Privileged Identity Management (PIM) in Microsoft Entra ID?",
+    "options": [
+      "Assegnare in modo permanente i ruoli amministrativi per ridurre le richieste all'help desk",
+      "Fornire accesso con privilegi elevati just-in-time, a tempo limitato e con approvazione e verifica, riducendo i privilegi permanenti",
+      "Cifrare le password degli account amministrativi nel database della directory",
+      "Bloccare automaticamente tutti gli account amministratore dopo ogni accesso"
+    ],
+    "correct": [1],
+    "explanation": "PIM consente di gestire, controllare e monitorare l'accesso privilegiato. Invece di assegnare ruoli amministrativi in modo permanente, gli utenti attivano il ruolo solo quando serve (just-in-time), per un periodo limitato, spesso con approvazione, MFA e giustificazione. Questo riduce i privilegi permanenti (standing privileges) e la superficie di attacco.",
+    "why_wrong": {
+      "0": "PIM punta esattamente a evitare le assegnazioni permanenti di ruoli privilegiati, che aumentano il rischio.",
+      "2": "PIM gestisce l'attivazione e il ciclo di vita dei ruoli privilegiati, non la cifratura delle password.",
+      "3": "PIM non blocca gli account dopo ogni accesso; li rende idonei ad attivare un ruolo quando necessario."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-004",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Compliance", "Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Microsoft Purview, a cosa servono principalmente le etichette di riservatezza (sensitivity labels)?",
+    "options": [
+      "A classificare i contenuti e applicare protezioni (come crittografia e filigrana) che rimangono associate al documento anche quando viene condiviso",
+      "A eseguire il backup automatico dei file su un archivio immutabile",
+      "A impedire agli utenti di accedere a Microsoft 365 senza MFA",
+      "A monitorare il traffico di rete alla ricerca di malware"
+    ],
+    "correct": [0],
+    "explanation": "Le etichette di riservatezza permettono di classificare e proteggere i dati in base alla loro sensibilità. Una volta applicata, l'etichetta può imporre protezioni come crittografia, contrassegni (filigrane, intestazioni/piè di pagina) e restrizioni d'uso, e queste protezioni viaggiano con il contenuto anche quando il file esce dall'organizzazione.",
+    "why_wrong": {
+      "1": "Il backup e l'archiviazione immutabile non sono la funzione delle etichette di riservatezza; riguardano altre soluzioni.",
+      "2": "L'imposizione dell'MFA è gestita dall'Accesso condizionale in Entra ID, non dalle etichette di riservatezza.",
+      "3": "Il monitoraggio del traffico per malware è compito di soluzioni Defender, non delle etichette di Purview."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-005",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Cloud security"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Microsoft Defender for Cloud, a cosa serve il Secure Score?",
+    "options": [
+      "A misurare la velocità della rete tra le risorse cloud",
+      "A quantificare la postura di sicurezza delle risorse e fornire raccomandazioni prioritizzate per migliorarla",
+      "A calcolare i costi di consumo mensile delle risorse di Azure",
+      "A bloccare automaticamente tutte le risorse con vulnerabilità note"
+    ],
+    "correct": [1],
+    "explanation": "Il Secure Score in Defender for Cloud valuta continuamente la configurazione delle risorse rispetto alle best practice di sicurezza e restituisce un punteggio percentuale con raccomandazioni prioritizzate. Aiuta i team a capire la propria postura di sicurezza e su quali interventi concentrarsi per ridurre il rischio.",
+    "why_wrong": {
+      "0": "Il Secure Score misura la sicurezza, non le prestazioni o la latenza di rete.",
+      "2": "I costi di consumo sono gestiti dagli strumenti di gestione dei costi di Azure, non dal Secure Score.",
+      "3": "Il Secure Score raccomanda azioni ma non blocca automaticamente le risorse vulnerabili."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-006",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale affermazione è corretta riguardo alla crittografia asimmetrica?",
+    "options": [
+      "Utilizza un'unica chiave segreta condivisa sia per cifrare sia per decifrare",
+      "Utilizza una coppia di chiavi: ciò che viene cifrato con la chiave pubblica può essere decifrato solo con la corrispondente chiave privata",
+      "Non utilizza chiavi ed è basata unicamente su funzioni hash",
+      "È sempre più veloce della crittografia simmetrica per grandi volumi di dati"
+    ],
+    "correct": [1],
+    "explanation": "La crittografia asimmetrica usa una coppia di chiavi matematicamente correlate: una pubblica e una privata. I dati cifrati con la chiave pubblica possono essere decifrati solo con la chiave privata corrispondente (e viceversa per le firme digitali). Questo elimina la necessità di scambiare una chiave segreta condivisa in anticipo.",
+    "why_wrong": {
+      "0": "L'uso di un'unica chiave segreta condivisa descrive la crittografia simmetrica, non quella asimmetrica.",
+      "2": "L'hashing è un processo distinto e a senso unico; la crittografia asimmetrica utilizza proprio le chiavi pubblica/privata.",
+      "3": "La crittografia asimmetrica è in genere più lenta di quella simmetrica; per grandi volumi si usa spesso un approccio ibrido."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-007",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Zero Trust", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale delle seguenti opzioni elenca correttamente i tre principi guida del modello Zero Trust?",
+    "options": [
+      "Fidarsi della rete interna, aprire tutte le porte, disabilitare i log",
+      "Verificare in modo esplicito, usare l'accesso con privilegi minimi, presumere la violazione (assume breach)",
+      "Cifrare solo i dati in transito, usare password lunghe, evitare l'MFA",
+      "Basare la sicurezza sul solo perimetro di rete, concedere privilegi permanenti, ignorare i segnali di rischio"
+    ],
+    "correct": [1],
+    "explanation": "I tre principi guida di Zero Trust sono: verificare in modo esplicito (autenticare e autorizzare in base a tutti i punti dati disponibili), usare l'accesso con privilegi minimi (limitare l'accesso a quanto strettamente necessario, JIT/JEA) e presumere la violazione (assume breach: segmentare, cifrare, monitorare come se un attaccante fosse già presente).",
+    "why_wrong": {
+      "0": "Fidarsi ciecamente della rete interna è l'opposto di Zero Trust, che non concede fiducia implicita in base alla posizione di rete.",
+      "2": "Zero Trust incoraggia fortemente l'MFA e la cifratura sia in transito sia a riposo; questa opzione contraddice il modello.",
+      "3": "Affidarsi al solo perimetro e ai privilegi permanenti è il modello tradizionale che Zero Trust intende superare."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-008",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Cloud security", "Difesa in profondità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel modello di responsabilità condivisa del cloud, quali elementi restano sempre di responsabilità del cliente, indipendentemente dal fatto che si usi IaaS, PaaS o SaaS?",
+    "options": [
+      "La sicurezza fisica dei datacenter",
+      "I dati, gli account e le identità",
+      "L'infrastruttura di rete fisica del provider",
+      "Gli host fisici che eseguono gli hypervisor"
+    ],
+    "correct": [1],
+    "explanation": "Nel modello di responsabilità condivisa alcune responsabilità cambiano in base al tipo di servizio, ma tre restano sempre del cliente: i dati (informazioni), gli account e le identità, e i dispositivi. Al contrario, la sicurezza fisica di datacenter, host e rete fisica è sempre responsabilità del provider cloud.",
+    "why_wrong": {
+      "0": "La sicurezza fisica dei datacenter è sempre a carico del provider cloud, non del cliente.",
+      "2": "L'infrastruttura di rete fisica è gestita e protetta dal provider.",
+      "3": "Gli host fisici e gli hypervisor sono di responsabilità del provider in tutti i modelli di servizio."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-009",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Identity", "MFA", "Zero Trust"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In Microsoft Entra ID Protection, cosa rappresenta un \"rischio di accesso\" (sign-in risk)?",
+    "options": [
+      "La probabilità che l'intera identità (l'account) sia stata compromessa, indipendentemente dalla singola sessione",
+      "La probabilità che una specifica richiesta di autenticazione non sia stata autorizzata dal legittimo proprietario dell'identità",
+      "Il numero totale di applicazioni a cui un utente ha effettuato l'accesso in un giorno",
+      "Il costo in licenze necessario per abilitare l'MFA per un utente"
+    ],
+    "correct": [1],
+    "explanation": "In Entra ID Protection il rischio di accesso (sign-in risk) misura la probabilità che una determinata richiesta di autenticazione non provenga dal legittimo titolare dell'identità (es. accesso da IP anonimo, viaggio impossibile). È diverso dal rischio utente (user risk), che valuta la probabilità che l'intero account sia compromesso. Questi segnali possono essere usati nelle policy di Accesso condizionale basate sul rischio.",
+    "why_wrong": {
+      "0": "Questa descrizione corrisponde al rischio utente (user risk), non al rischio di accesso relativo alla singola sessione.",
+      "2": "Il conteggio delle applicazioni usate non è una misura di rischio in Identity Protection.",
+      "3": "Il rischio di accesso è una valutazione di sicurezza della sessione, non un calcolo di costi di licenza."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-010",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["MFA", "Identity"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali dei seguenti sono metodi di autenticazione validi per l'autenticazione a più fattori (MFA) di Microsoft Entra? (scegli 2)",
+    "options": [
+      "Il solo nome utente e password",
+      "L'app Microsoft Authenticator (notifica push o codice OTP)",
+      "Una chiave di sicurezza FIDO2",
+      "L'indirizzo IP pubblico del dispositivo"
+    ],
+    "correct": [1, 2],
+    "explanation": "L'MFA richiede due o più fattori di categorie diverse. L'app Microsoft Authenticator (qualcosa che possiedi, tramite push o codice OTP) e una chiave di sicurezza FIDO2 (qualcosa che possiedi, resistente al phishing) sono metodi di autenticazione validi e supportati da Entra. Anche SMS, chiamata vocale e Windows Hello for Business sono opzioni comuni.",
+    "why_wrong": {
+      "0": "Nome utente e password costituiscono un solo fattore (qualcosa che sai): da soli non realizzano l'MFA.",
+      "3": "L'indirizzo IP è un segnale di contesto (usabile dall'Accesso condizionale), ma non è un fattore di autenticazione."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-011",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Compliance", "Cloud security"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti sono funzionalità di Microsoft Purview? (scegli 2)",
+    "options": [
+      "Accesso condizionale",
+      "Prevenzione della perdita dei dati (Data Loss Prevention, DLP)",
+      "Gestione dei rischi Insider (Insider Risk Management)",
+      "Accesso just-in-time alle macchine virtuali"
+    ],
+    "correct": [1, 2],
+    "explanation": "Microsoft Purview è la piattaforma per governance, protezione e conformità dei dati. Include la Prevenzione della perdita dei dati (DLP), che impedisce la condivisione non autorizzata di informazioni sensibili, e la Gestione dei rischi Insider, che rileva e mitiga i rischi interni. Altre funzionalità Purview sono etichette di riservatezza, gestione dei criteri di conservazione, eDiscovery e Compliance Manager.",
+    "why_wrong": {
+      "0": "L'Accesso condizionale è una funzionalità di Microsoft Entra ID, non di Purview.",
+      "3": "L'accesso just-in-time alle VM è una funzionalità di Microsoft Defender for Cloud, non di Purview."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-012",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Difesa in profondità", "Cloud security"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali dei seguenti sono livelli (layer) del modello di difesa in profondità (defense in depth)? (scegli 2)",
+    "options": [
+      "Sicurezza fisica",
+      "Rete perimetrale (perimetro)",
+      "L'algoritmo di hashing SHA-256",
+      "Il modello di responsabilità condivisa"
+    ],
+    "correct": [0, 1],
+    "explanation": "La difesa in profondità utilizza più livelli di controllo così che, se uno viene superato, gli altri continuino a proteggere. I livelli tipici sono: sicurezza fisica, identità e accesso, perimetro, rete, calcolo, applicazione e dati. Sicurezza fisica e perimetro sono due di questi livelli.",
+    "why_wrong": {
+      "2": "SHA-256 è uno specifico algoritmo di hashing, non un livello del modello di difesa in profondità.",
+      "3": "Il modello di responsabilità condivisa è un concetto di ripartizione delle responsabilità nel cloud, non un livello di difesa in profondità."
+    },
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-013",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Crittografia"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "L'hashing è un processo reversibile: dal valore hash è sempre possibile risalire ai dati originali.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. L'hashing è una funzione a senso unico (one-way): converte un input in un valore a lunghezza fissa da cui non è possibile ricostruire i dati originali. A differenza della crittografia, non prevede una chiave per invertire il processo. Per questo è usato, ad esempio, per verificare l'integrità dei dati e per archiviare le password in modo sicuro.",
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-014",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Zero Trust", "Controllo accessi"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nel modello Zero Trust, la segmentazione della rete e il principio del privilegio minimo contribuiscono a limitare il movimento laterale di un eventuale attaccante.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Coerentemente con il principio \"presumere la violazione\", Zero Trust suddivide l'ambiente in segmenti (microsegmentazione) e concede solo i privilegi strettamente necessari. In questo modo, anche se un attaccante compromette un elemento, ha molte più difficoltà a spostarsi lateralmente verso altre risorse.",
+    "source": "HACK/Microsoft Cybersecurity"
+  },
+  {
+    "id": "ms3-015",
+    "cert": ["Microsoft SC-900"],
+    "topics": ["Identity", "Controllo accessi"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "La reimpostazione self-service della password (SSPR) in Microsoft Entra ID consente agli utenti di reimpostare o sbloccare la propria password senza coinvolgere l'help desk.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Self-Service Password Reset (SSPR) permette agli utenti di reimpostare autonomamente la propria password, dopo aver verificato la propria identità con metodi registrati (es. app Authenticator, e-mail alternativa, domande di sicurezza). Questo riduce le richieste all'help desk e i tempi di inattività degli utenti.",
+    "source": "HACK/Microsoft Cybersecurity"
+  }
+]

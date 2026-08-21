@@ -1,0 +1,324 @@
+[
+  {
+    "id": "ceh3-001",
+    "cert": ["CEH"],
+    "topics": ["Reconnaissance"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Nel footprinting, quale attivita e classificata come ricognizione PASSIVA perche non genera traffico diretto verso i sistemi del bersaglio?",
+    "options": [
+      "Interrogare i record WHOIS e i risultati dei motori di ricerca sull'organizzazione",
+      "Eseguire una scansione delle porte con nmap sull'IP pubblico",
+      "Inviare richieste di trasferimento di zona al server DNS del target",
+      "Effettuare il banner grabbing dei servizi esposti"
+    ],
+    "correct": [0],
+    "explanation": "La ricognizione passiva raccoglie informazioni da fonti pubbliche di terze parti (OSINT) come WHOIS, motori di ricerca, social media e archivi, senza interagire direttamente con l'infrastruttura del bersaglio, riducendo cosi il rischio di essere rilevati.",
+    "why_wrong": {
+      "1": "La scansione delle porte invia pacchetti direttamente ai sistemi del target: e ricognizione attiva.",
+      "2": "Il trasferimento di zona interroga direttamente il server DNS del bersaglio, quindi e attivo.",
+      "3": "Il banner grabbing stabilisce una connessione con il servizio del target per leggerne le informazioni: e attivo."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-002",
+    "cert": ["CEH"],
+    "topics": ["Penetration Testing"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In quale tipologia di penetration test al tester NON viene fornita alcuna informazione preliminare sull'infrastruttura, simulando un attaccante esterno reale?",
+    "options": [
+      "White box",
+      "Grey box",
+      "Black box",
+      "Announced test"
+    ],
+    "correct": [2],
+    "explanation": "Nel black box test il tester non riceve conoscenze interne (rete, codice, credenziali) e deve scoprire tutto da zero, simulando la prospettiva di un attaccante esterno privo di informazioni privilegiate.",
+    "why_wrong": {
+      "0": "Nel white box il tester dispone di piena conoscenza (schemi di rete, codice sorgente, credenziali).",
+      "1": "Nel grey box il tester ha conoscenza parziale, ad esempio credenziali di un utente standard.",
+      "3": "L'announced test riguarda il fatto che il team IT sia avvisato o meno, non il livello di informazioni fornite al tester."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-003",
+    "cert": ["CEH"],
+    "topics": ["Scanning", "Port Scanning"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Perche una scansione TCP SYN (half-open) e spesso preferita in fase di scanning rispetto a una scansione TCP connect completa?",
+    "options": [
+      "Perche completa sempre il three-way handshake garantendo risultati piu accurati",
+      "Perche non porta a termine il handshake, risultando piu veloce e meno probabile da registrare nei log applicativi",
+      "Perche utilizza esclusivamente il protocollo UDP evitando i firewall",
+      "Perche cifra i pacchetti rendendo impossibile il rilevamento"
+    ],
+    "correct": [1],
+    "explanation": "La scansione SYN invia un SYN e, alla ricezione del SYN/ACK, risponde con un RST senza completare il handshake. Cosi la connessione non viene stabilita del tutto, risultando piu rapida e meno probabile da registrare nei log delle applicazioni rispetto alla connect completa.",
+    "why_wrong": {
+      "0": "La caratteristica della SYN e proprio NON completare il handshake; e la connect a completarlo.",
+      "2": "La scansione SYN opera su TCP, non su UDP, e non aggira di per se i firewall.",
+      "3": "La scansione SYN non cifra i pacchetti e resta rilevabile dagli IDS di rete."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-004",
+    "cert": ["CEH"],
+    "topics": ["Enumeration"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale protocollo, se configurato con community string di default come 'public', viene tipicamente abusato in fase di enumeration per estrarre informazioni dettagliate su dispositivi di rete?",
+    "options": [
+      "SNMP",
+      "ICMP",
+      "NTP",
+      "TFTP"
+    ],
+    "correct": [0],
+    "explanation": "SNMP con community string deboli o di default (public/private) consente di enumerare interfacce, tabelle di routing, processi e account, esponendo molte informazioni sensibili sui dispositivi. La contromisura e disabilitarlo se non necessario, usare SNMPv3 e cambiare le community.",
+    "why_wrong": {
+      "1": "ICMP serve per diagnostica (ping/traceroute) e non usa community string.",
+      "2": "NTP sincronizza l'orario e puo rivelare host, ma non usa il meccanismo delle community string.",
+      "3": "TFTP e un trasferimento file senza autenticazione, non basato su community string SNMP."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-005",
+    "cert": ["CEH"],
+    "topics": ["Social Engineering"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Un attaccante lascia chiavette USB apparentemente smarrite nel parcheggio aziendale, sperando che un dipendente le colleghi. Quale tecnica di social engineering descrive questo scenario?",
+    "options": [
+      "Tailgating",
+      "Baiting",
+      "Vishing",
+      "Quid pro quo"
+    ],
+    "correct": [1],
+    "explanation": "Il baiting (esca) sfrutta la curiosita della vittima offrendo qualcosa di allettante, come una USB abbandonata contenente malware, per indurla a compromettere il proprio sistema. La contromisura chiave e la formazione e il blocco delle porte USB.",
+    "why_wrong": {
+      "0": "Il tailgating consiste nel seguire fisicamente una persona autorizzata per entrare in un'area protetta.",
+      "2": "Il vishing e phishing vocale effettuato tramite telefonate.",
+      "3": "Il quid pro quo offre un servizio o aiuto in cambio di informazioni, non un oggetto fisico lasciato come esca."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-006",
+    "cert": ["CEH"],
+    "topics": ["Sicurezza Wireless"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale caratteristica di sicurezza introdotta con WPA3 mitiga gli attacchi offline al dizionario contro la passphrase rispetto a WPA2?",
+    "options": [
+      "L'uso del cifrario RC4 al posto di AES",
+      "Il Simultaneous Authentication of Equals (SAE), noto anche come Dragonfly handshake",
+      "La disabilitazione completa della cifratura del traffico",
+      "L'impiego esclusivo del protocollo WEP con chiavi piu lunghe"
+    ],
+    "correct": [1],
+    "explanation": "WPA3 sostituisce il PSK a 4 vie di WPA2 con SAE (Dragonfly), che offre Forward Secrecy e resistenza agli attacchi offline al dizionario: catturare l'handshake non consente piu di provare offline password arbitrarie come avveniva con WPA2.",
+    "why_wrong": {
+      "0": "RC4 e un cifrario obsoleto e debole (usato in WEP), non introdotto da WPA3.",
+      "2": "WPA3 rafforza la cifratura, non la disabilita.",
+      "3": "WEP e il protocollo piu debole e deprecato, l'opposto di cio che WPA3 adotta."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-007",
+    "cert": ["CEH"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un attaccante invia pacchetti frammentati in modo tale che l'IDS li riassembli diversamente dal sistema di destinazione. Quale tecnica di evasione dell'IDS descrive questo comportamento?",
+    "options": [
+      "Session splicing basato su insertion/evasion e frammentazione",
+      "Un attacco di forza bruta alle credenziali",
+      "Un DNS poisoning della cache del risolutore",
+      "Un attacco di deautenticazione wireless"
+    ],
+    "correct": [0],
+    "explanation": "Con insertion ed evasion tramite frammentazione (e session splicing) l'attaccante sfrutta le differenze nel modo in cui l'IDS e l'host di destinazione riassemblano i pacchetti frammentati, cosi la firma malevola sfugge all'IDS ma viene comunque ricostruita dal target. La contromisura e la normalizzazione del traffico.",
+    "why_wrong": {
+      "1": "La forza bruta prova credenziali multiple e non riguarda il riassemblaggio dei pacchetti.",
+      "2": "Il DNS poisoning altera la cache di risoluzione dei nomi, non l'assemblaggio frammentato.",
+      "3": "La deautenticazione wireless disconnette i client Wi-Fi e non ha a che fare con l'evasione IDS via frammentazione."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-008",
+    "cert": ["CEH"],
+    "topics": ["SQL Injection"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Dal punto di vista difensivo, qual e la contromisura piu efficace e raccomandata contro le vulnerabilita di SQL Injection?",
+    "options": [
+      "Nascondere i messaggi di errore del database mantenendo query concatenate dinamicamente",
+      "Utilizzare query parametrizzate (prepared statement) con validazione dell'input",
+      "Aumentare la lunghezza della password dell'account amministratore del DB",
+      "Cifrare l'intero traffico con TLS per rendere sicure le query"
+    ],
+    "correct": [1],
+    "explanation": "Le prepared statement (query parametrizzate) separano il codice SQL dai dati forniti dall'utente, impedendo che l'input venga interpretato come comando. Unite alla validazione dell'input e al principio del minimo privilegio, costituiscono la difesa primaria contro SQLi.",
+    "why_wrong": {
+      "0": "Nascondere gli errori riduce le informazioni all'attaccante ma le query concatenate restano vulnerabili (blind SQLi).",
+      "2": "Una password forte del DBA non impedisce l'iniezione tramite l'applicazione web.",
+      "3": "TLS protegge i dati in transito ma non ferma un payload SQLi inviato attraverso il canale cifrato."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-009",
+    "cert": ["CEH"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In fase di system hacking, quale attivita descrive concettualmente il 'covering tracks' (copertura delle tracce) dopo una compromissione?",
+    "options": [
+      "Installare backdoor per garantirsi accessi futuri",
+      "Manipolare o cancellare i log e disabilitare l'auditing per nascondere le attivita svolte",
+      "Effettuare la scansione delle porte per individuare servizi vulnerabili",
+      "Raccogliere indirizzi email dai social media del bersaglio"
+    ],
+    "correct": [1],
+    "explanation": "Il covering tracks e la fase in cui l'attaccante altera, cancella o disabilita i log e i meccanismi di auditing per occultare le proprie azioni ed evitare il rilevamento. La contromisura difensiva e centralizzare i log su sistemi protetti e a sola aggiunta.",
+    "why_wrong": {
+      "0": "Installare backdoor rientra nel 'maintaining access', non nella copertura delle tracce.",
+      "2": "La scansione delle porte appartiene alla fase di scanning, precedente alla compromissione.",
+      "3": "La raccolta di email e footprinting/ricognizione, non copertura delle tracce."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-010",
+    "cert": ["CEH"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale proprieta della crittografia garantisce che un mittente non possa negare in seguito di aver inviato un messaggio firmato digitalmente?",
+    "options": [
+      "Riservatezza (confidentiality)",
+      "Disponibilita (availability)",
+      "Non ripudio (non-repudiation)",
+      "Ridondanza (redundancy)"
+    ],
+    "correct": [2],
+    "explanation": "Il non ripudio, ottenuto tramite firma digitale con la chiave privata del mittente, impedisce a quest'ultimo di negare l'invio del messaggio, poiche solo lui possiede la chiave privata usata per firmarlo.",
+    "why_wrong": {
+      "0": "La riservatezza protegge il contenuto dalla lettura non autorizzata, non l'origine.",
+      "1": "La disponibilita riguarda l'accessibilita del servizio, non l'attribuzione del messaggio.",
+      "3": "La ridondanza non e un obiettivo crittografico di attribuzione dell'origine."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-011",
+    "cert": ["CEH"],
+    "topics": ["Malware"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE delle seguenti sono contromisure difensive efficaci contro un attacco di tipo DoS/DDoS? (Seleziona due)",
+    "options": [
+      "Configurare rate limiting e filtraggio del traffico anomalo sui dispositivi perimetrali",
+      "Disabilitare completamente la cifratura per velocizzare il traffico",
+      "Adottare servizi di mitigazione DDoS e ridondanza/bilanciamento del carico",
+      "Condividere pubblicamente gli indirizzi IP interni dei server critici"
+    ],
+    "correct": [0, 2],
+    "explanation": "Il rate limiting, il filtraggio del traffico anomalo, l'uso di servizi cloud di mitigazione DDoS, la ridondanza e il bilanciamento del carico riducono l'impatto degli attacchi volumetrici e applicativi, mantenendo la disponibilita dei servizi.",
+    "why_wrong": {
+      "1": "Disabilitare la cifratura non contrasta un DoS e riduce la sicurezza complessiva.",
+      "3": "Divulgare gli IP interni facilita gli attaccanti nel prendere di mira i server critici."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-012",
+    "cert": ["CEH"],
+    "topics": ["Reconnaissance", "Scanning"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE affermazioni distinguono correttamente il footprinting passivo dal footprinting attivo? (Seleziona due)",
+    "options": [
+      "Il footprinting passivo raccoglie dati da fonti pubbliche senza interagire direttamente con il target",
+      "Il footprinting attivo interagisce direttamente con i sistemi del bersaglio ed e piu rilevabile",
+      "Il footprinting passivo richiede sempre l'invio di pacchetti ai server del target",
+      "Il footprinting attivo e per definizione impossibile da rilevare tramite i log"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il footprinting passivo (OSINT) usa fonti pubbliche di terze parti senza toccare il bersaglio, riducendo il rischio di rilevamento; quello attivo interroga direttamente i sistemi (DNS, banner, scansioni) ed e piu facilmente registrabile nei log del target.",
+    "why_wrong": {
+      "2": "L'invio di pacchetti ai server del target caratterizza il footprinting attivo, non quello passivo.",
+      "3": "Il footprinting attivo e spesso rilevabile proprio perche lascia tracce nei log dei sistemi interrogati."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-013",
+    "cert": ["CEH"],
+    "topics": ["XSS"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo agli attacchi di Cross-Site Scripting (XSS), quali DUE affermazioni sono corrette? (Seleziona due)",
+    "options": [
+      "L'XSS stored (persistente) memorizza lo script malevolo sul server e colpisce piu utenti che visualizzano la pagina",
+      "L'output encoding e la validazione dell'input sono contromisure efficaci contro l'XSS",
+      "L'XSS consente sempre l'esecuzione di codice arbitrario direttamente sul database del server",
+      "L'XSS puo essere prevenuto unicamente aumentando la complessita delle password utente"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'XSS stored salva il payload sul server (ad esempio in un commento) e viene eseguito nel browser di ogni utente che apre la pagina. Le difese principali sono l'output encoding, la validazione/sanitizzazione dell'input e header come la Content Security Policy.",
+    "why_wrong": {
+      "2": "L'XSS esegue script nel browser della vittima (lato client), non comandi arbitrari sul database del server.",
+      "3": "La complessita delle password non c'entra con la prevenzione dell'XSS, che dipende dalla gestione dell'input/output."
+    },
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-014",
+    "cert": ["CEH"],
+    "topics": ["IDS/IPS"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un honeypot e un sistema esca deliberatamente vulnerabile, progettato per attirare gli attaccanti e studiarne le tecniche, senza contenere dati di produzione reali.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Un honeypot e un sistema decoy volutamente esposto e privo di dati reali di produzione: serve a distrarre gli attaccanti, generare early warning e raccogliere informazioni sulle loro tecniche. Qualsiasi interazione con esso e per definizione sospetta.",
+    "why_wrong": {},
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-015",
+    "cert": ["CEH"],
+    "topics": ["Reconnaissance"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Le cinque fasi dell'hacking secondo il CEH seguono l'ordine: Reconnaissance, Scanning, Gaining Access, Maintaining Access e Clearing Tracks.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Il ciclo CEH prevede in ordine: ricognizione (raccolta informazioni), scanning (individuazione di host/porte/vulnerabilita), gaining access (sfruttamento), maintaining access (persistenza) e clearing tracks (copertura delle tracce). Conoscere questo ordine e fondamentale per l'approccio metodologico.",
+    "why_wrong": {},
+    "source": "CEH - Certified Ethical Hacker"
+  },
+  {
+    "id": "ceh3-016",
+    "cert": ["CEH"],
+    "topics": ["Penetration Testing"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il session hijacking consiste nel prendere il controllo di una sessione utente gia autenticata, spesso rubando o indovinando il token/cookie di sessione, e puo essere mitigato usando token casuali e imponendo HTTPS con l'attributo Secure sui cookie.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Nel session hijacking l'attaccante si impossessa di una sessione valida sottraendo o predicendo l'identificatore di sessione, aggirando l'autenticazione. Le contromisure includono token di sessione casuali e imprevedibili, rigenerazione del token dopo il login, timeout e cookie con attributi Secure e HttpOnly su HTTPS.",
+    "why_wrong": {},
+    "source": "CEH - Certified Ethical Hacker"
+  }
+]

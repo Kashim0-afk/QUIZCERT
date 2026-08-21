@@ -1,0 +1,308 @@
+[
+  {
+    "id": "g3-001",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["SIEM", "Incident Response"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un SIEM, un analista SOC nota che centinaia di eventi grezzi provenienti da fonti diverse vengono raggruppati in un unico avviso correlato. Quale funzione del SIEM rende possibile questo comportamento?",
+    "options": [
+      "L'indicizzazione dei log su disco",
+      "La correlazione degli eventi tramite regole predefinite",
+      "La rotazione periodica dei file di log",
+      "La cifratura dei dati in transito verso il collector"
+    ],
+    "correct": [1],
+    "explanation": "La correlazione degli eventi mette in relazione log provenienti da fonti differenti applicando regole logiche, così da trasformare molti eventi grezzi in un numero ridotto di avvisi significativi e ridurre il rumore per l'analista.",
+    "why_wrong": {
+      "0": "L'indicizzazione rende i log ricercabili ma non stabilisce relazioni logiche tra eventi diversi.",
+      "2": "La rotazione dei log gestisce lo spazio di archiviazione, non l'aggregazione in un avviso.",
+      "3": "La cifratura protegge la riservatezza del trasporto, non raggruppa gli eventi correlati."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-002",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Linux"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Su un sistema Linux, quale comando modifica i permessi del file report.txt concedendo lettura e scrittura al proprietario e sola lettura al gruppo e agli altri, usando la notazione numerica?",
+    "options": [
+      "chmod 644 report.txt",
+      "chmod 777 report.txt",
+      "chown 644 report.txt",
+      "chmod 466 report.txt"
+    ],
+    "correct": [0],
+    "explanation": "Nella notazione ottale, 6 corrisponde a rw- (4+2), mentre 4 corrisponde a r--. Quindi 644 assegna rw- al proprietario e r-- a gruppo e altri, esattamente ciò che richiede la domanda.",
+    "why_wrong": {
+      "1": "777 concede lettura, scrittura ed esecuzione a tutti, molto più permissivo di quanto richiesto.",
+      "2": "chown cambia il proprietario o il gruppo di un file, non i bit di permesso.",
+      "3": "466 darebbe r-- al proprietario e rw- a gruppo e altri, invertendo i permessi richiesti."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-003",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["SQL"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un analista deve estrarre dalla tabella employees tutti i record il cui campo department è 'Security' e il cui livello di accesso è superiore a 3. Quale clausola SQL combina correttamente le due condizioni?",
+    "options": [
+      "WHERE department = 'Security' OR access_level > 3",
+      "WHERE department = 'Security' AND access_level > 3",
+      "WHERE department = 'Security' AND access_level = >3",
+      "HAVING department = 'Security' AND access_level > 3"
+    ],
+    "correct": [1],
+    "explanation": "L'operatore AND impone che entrambe le condizioni siano vere contemporaneamente, restituendo solo i dipendenti del reparto Security con livello di accesso maggiore di 3.",
+    "why_wrong": {
+      "0": "OR restituisce le righe che soddisfano anche una sola condizione, quindi include record indesiderati.",
+      "2": "'= >3' non è una sintassi valida; l'operatore corretto di confronto è semplicemente >.",
+      "3": "HAVING filtra i risultati di funzioni di aggregazione con GROUP BY, non le singole righe come fa WHERE."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-004",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Threat e vulnerabilità", "Gestione del rischio"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel modello di gestione del rischio, quale espressione descrive meglio il rischio associato a un asset?",
+    "options": [
+      "Rischio = Minaccia moltiplicata per il numero di dipendenti",
+      "Rischio = probabilità che una minaccia sfrutti una vulnerabilità, combinata con l'impatto",
+      "Rischio = numero di vulnerabilità presenti sull'asset",
+      "Rischio = costo dei controlli di sicurezza implementati"
+    ],
+    "correct": [1],
+    "explanation": "Il rischio è funzione della probabilità che una minaccia sfrutti una vulnerabilità e dell'impatto conseguente sull'organizzazione. Senza vulnerabilità sfruttabili o senza impatto, il rischio effettivo è basso.",
+    "why_wrong": {
+      "0": "Il numero di dipendenti non è un fattore diretto nella definizione del rischio su un asset.",
+      "2": "Il solo conteggio delle vulnerabilità ignora probabilità di sfruttamento e impatto.",
+      "3": "Il costo dei controlli riguarda il trattamento del rischio, non la sua definizione."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-005",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è la differenza fondamentale tra un IDS e un IPS collocati nel percorso del traffico di rete?",
+    "options": [
+      "L'IDS cifra il traffico mentre l'IPS lo decifra",
+      "L'IDS rileva e segnala l'attività sospetta, mentre l'IPS può bloccarla attivamente",
+      "L'IDS opera solo su traffico interno e l'IPS solo su traffico esterno",
+      "L'IDS lavora a livello applicativo e l'IPS solo a livello fisico"
+    ],
+    "correct": [1],
+    "explanation": "Un IDS (Intrusion Detection System) monitora e genera avvisi sull'attività sospetta senza intervenire, mentre un IPS (Intrusion Prevention System), essendo in linea, può scartare o bloccare il traffico dannoso in tempo reale.",
+    "why_wrong": {
+      "0": "Né IDS né IPS hanno come funzione primaria la cifratura o decifratura del traffico.",
+      "2": "La distinzione non dipende dalla direzione interna o esterna del traffico.",
+      "3": "Entrambi possono operare a livelli diversi; la differenza chiave è l'azione di blocco, non il livello."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-006",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Python"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In uno script Python di sicurezza, quale struttura dati è più adatta per verificare in modo efficiente se un indirizzo IP è presente in una lista di blocco di grandi dimensioni?",
+    "options": [
+      "Una lista (list)",
+      "Un insieme (set)",
+      "Una stringa concatenata di tutti gli IP",
+      "Una tupla (tuple)"
+    ],
+    "correct": [1],
+    "explanation": "Un set in Python offre ricerca di appartenenza in tempo medio costante O(1) grazie all'hashing, rendendolo ideale per verificare rapidamente se un IP è nella lista di blocco anche con molti elementi.",
+    "why_wrong": {
+      "0": "La ricerca in una lista richiede scansione lineare O(n), inefficiente su grandi volumi.",
+      "2": "Cercare una sottostringa può generare falsi positivi e non è efficiente né affidabile.",
+      "3": "La tupla, come la lista, richiede ricerca lineare e non è ottimizzata per l'appartenenza."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-007",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Reti", "Firewall"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un firewall stateful si distingue da un firewall stateless perché:",
+    "options": [
+      "Ispeziona il payload applicativo di ogni pacchetto con firme antivirus",
+      "Tiene traccia dello stato delle connessioni e valuta i pacchetti nel contesto della sessione",
+      "Filtra esclusivamente in base all'indirizzo MAC di origine",
+      "Non richiede alcuna regola configurata dall'amministratore"
+    ],
+    "correct": [1],
+    "explanation": "Un firewall stateful mantiene una tabella dello stato delle connessioni attive e valuta ogni pacchetto in relazione alla sessione a cui appartiene, mentre uno stateless esamina ogni pacchetto in modo isolato.",
+    "why_wrong": {
+      "0": "L'ispezione profonda del payload con firme è tipica di un IPS o di un proxy applicativo, non definisce lo stateful.",
+      "2": "Il filtraggio per MAC non è ciò che distingue uno stateful da uno stateless.",
+      "3": "Entrambi i tipi di firewall richiedono regole configurate dall'amministratore."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-008",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Crittografia", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Durante l'accesso a un sito HTTPS, quale meccanismo garantisce che la chiave simmetrica di sessione venga scambiata in modo sicuro tra client e server?",
+    "options": [
+      "L'hashing SHA-256 della password dell'utente",
+      "La crittografia asimmetrica (a chiave pubblica) durante l'handshake TLS",
+      "Il filtraggio dei pacchetti del firewall perimetrale",
+      "La compressione dei dati prima dell'invio"
+    ],
+    "correct": [1],
+    "explanation": "Durante l'handshake TLS la crittografia asimmetrica permette di scambiare o negoziare in sicurezza la chiave simmetrica di sessione, che verrà poi usata per cifrare efficientemente il traffico applicativo.",
+    "why_wrong": {
+      "0": "L'hashing produce un digest a senso unico e non serve allo scambio di chiavi.",
+      "2": "Il firewall controlla il traffico ma non partecipa allo scambio crittografico delle chiavi.",
+      "3": "La compressione riduce la dimensione dei dati e non ha alcuna funzione di protezione della chiave."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-009",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Incident Response"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Secondo il ciclo di vita della risposta agli incidenti del NIST, in quale fase si eliminano gli artefatti dell'attaccante e si ripristinano i sistemi a uno stato operativo sicuro?",
+    "options": [
+      "Preparazione (Preparation)",
+      "Rilevamento e analisi (Detection and Analysis)",
+      "Contenimento, eradicazione e ripristino (Containment, Eradication and Recovery)",
+      "Attività post-incidente (Post-Incident Activity)"
+    ],
+    "correct": [2],
+    "explanation": "La fase di contenimento, eradicazione e ripristino include la rimozione di malware, backdoor e altri artefatti dell'attaccante (eradicazione) e il ritorno dei sistemi a uno stato operativo sicuro (ripristino).",
+    "why_wrong": {
+      "0": "La preparazione avviene prima dell'incidente, con policy, strumenti e formazione.",
+      "1": "Il rilevamento e analisi serve a identificare e comprendere l'incidente, non a eliminarne gli artefatti.",
+      "3": "L'attività post-incidente riguarda le lezioni apprese, successive al ripristino."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-010",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Nel framework di attacco a fasi (kill chain / catena di attacco), quali delle seguenti attività appartengono alle fasi INIZIALI, precedenti alla consegna del payload? (Seleziona due)",
+    "options": [
+      "Ricognizione (raccolta di informazioni sul bersaglio)",
+      "Weaponization (creazione dell'artefatto dannoso abbinato a un exploit)",
+      "Esfiltrazione dei dati verso un server esterno",
+      "Azioni sugli obiettivi (obiettivi finali dell'attaccante)"
+    ],
+    "correct": [0, 1],
+    "explanation": "La ricognizione e la weaponization sono le prime fasi della catena di attacco: prima si raccolgono informazioni sul bersaglio, poi si prepara l'artefatto dannoso, entrambe prima della consegna (delivery) del payload.",
+    "why_wrong": {
+      "2": "L'esfiltrazione dei dati avviene nelle fasi finali, dopo compromissione e installazione.",
+      "3": "Le azioni sugli obiettivi rappresentano l'ultima fase della catena, non una fase iniziale."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-011",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Controllo accessi", "Gestione del rischio"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali dei seguenti sono principi fondamentali per un controllo degli accessi sicuro? (Seleziona due)",
+    "options": [
+      "Principio del privilegio minimo (least privilege)",
+      "Separazione dei compiti (separation of duties)",
+      "Condivisione degli account amministrativi tra i membri del team",
+      "Disabilitazione permanente di tutti i registri di audit per migliorare le prestazioni"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il privilegio minimo concede solo i diritti strettamente necessari, mentre la separazione dei compiti distribuisce le operazioni critiche tra più persone per prevenire abusi: entrambi sono cardini del controllo degli accessi.",
+    "why_wrong": {
+      "2": "Condividere gli account amministrativi elimina la responsabilità individuale e viola il principio di accountability.",
+      "3": "Disabilitare i log di audit compromette la tracciabilità e la capacità di rilevare incidenti."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-012",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Linux", "SIEM"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Un analista deve individuare i tentativi di accesso SSH falliti su un server Linux. Quali delle seguenti azioni sono appropriate? (Seleziona due)",
+    "options": [
+      "Cercare la stringa 'Failed password' nel file /var/log/auth.log con grep",
+      "Usare il comando grep con l'opzione -c per contare le occorrenze di righe corrispondenti",
+      "Eseguire chmod 000 su /var/log per proteggere i log durante l'analisi",
+      "Cancellare il file di log e riavviare per generare eventi puliti"
+    ],
+    "correct": [0, 1],
+    "explanation": "Cercare 'Failed password' in /var/log/auth.log (o /var/log/secure) individua i tentativi SSH falliti, e l'opzione -c di grep permette di contarne rapidamente le occorrenze, utile per rilevare attacchi brute force.",
+    "why_wrong": {
+      "2": "chmod 000 su /var/log renderebbe i log inaccessibili anche all'analista e ai servizi, interrompendo il logging.",
+      "3": "Cancellare i log distrugge le prove dell'attività sospetta ed è controproducente in un'indagine."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-013",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Reti", "Threat e vulnerabilità"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un attacco DDoS di tipo SYN flood sfrutta il three-way handshake del TCP inviando numerose richieste SYN senza completare la connessione, esaurendo le risorse del server bersaglio.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Nel SYN flood l'attaccante invia molti pacchetti SYN senza rispondere con l'ACK finale del three-way handshake, lasciando il server con numerose connessioni half-open che ne saturano la tabella e le risorse.",
+    "why_wrong": {
+      "1": "È falso affermare il contrario: il SYN flood è proprio un abuso documentato dell'handshake TCP a tre vie."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-014",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Crittografia"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Una funzione di hash crittografica è progettata per essere reversibile, così da poter recuperare il testo originale a partire dal digest prodotto.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Le funzioni di hash crittografiche sono unidirezionali (a senso unico): dal digest non è possibile risalire all'input originale. Questa proprietà è ciò che le rende adatte alla verifica di integrità e alla memorizzazione delle password.",
+    "why_wrong": {
+      "0": "È errato: l'hashing non è cifratura e non è reversibile; per proteggere dati recuperabili si usa la crittografia."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g3-015",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Incident Response", "SIEM"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "La chain of custody (catena di custodia) documenta chi ha gestito una prova digitale, quando e come, per garantirne l'integrità e l'ammissibilità in un procedimento.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "La catena di custodia registra in modo cronologico e verificabile ogni passaggio, accesso e trasferimento di una prova digitale, dimostrando che non è stata alterata e preservandone il valore legale.",
+    "why_wrong": {
+      "1": "È falso negarlo: senza una catena di custodia documentata l'integrità della prova non può essere dimostrata e la prova rischia di non essere ammissibile."
+    },
+    "source": "HACK/Google Cybersecurity"
+  }
+]

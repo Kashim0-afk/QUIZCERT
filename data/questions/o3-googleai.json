@@ -1,0 +1,287 @@
+[
+  {
+    "id": "gai3-001",
+    "cert": ["Google AI Essentials"],
+    "topics": ["Machine Learning"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Nel machine learning supervisionato, quale caratteristica distingue i dati usati per l'addestramento?",
+    "options": [
+      "I dati sono etichettati, cioè associati alla risposta corretta attesa",
+      "I dati sono privi di qualsiasi etichetta e il modello li raggruppa da solo",
+      "I dati vengono generati automaticamente dal modello durante l'uso",
+      "I dati sono sempre numerici e mai testuali o visivi"
+    ],
+    "correct": [0],
+    "explanation": "L'apprendimento supervisionato usa esempi etichettati (input associato all'output corretto) affinché il modello impari a mappare gli ingressi sulle risposte desiderate.",
+    "why_wrong": {
+      "1": "Descrive l'apprendimento non supervisionato, in cui il modello trova strutture nei dati senza etichette.",
+      "2": "I dati di addestramento sono forniti da persone o raccolti, non generati dal modello che si sta addestrando.",
+      "3": "I dati possono essere di molti tipi: testo, immagini, audio, non solo numerici."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-002",
+    "cert": ["Google AI Essentials"],
+    "topics": ["IA generativa"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Che cosa caratterizza principalmente l'intelligenza artificiale generativa rispetto ad altri tipi di IA?",
+    "options": [
+      "Crea nuovi contenuti come testo, immagini o codice a partire da ciò che ha appreso",
+      "Si limita a classificare i dati in categorie predefinite",
+      "Funziona esclusivamente senza alcun addestramento su dati",
+      "Garantisce risposte sempre accurate e verificate"
+    ],
+    "correct": [0],
+    "explanation": "L'IA generativa produce contenuti nuovi (testo, immagini, audio, codice) basandosi sui pattern appresi da grandi quantità di dati di addestramento.",
+    "why_wrong": {
+      "1": "La sola classificazione è tipica dell'IA discriminativa, non di quella generativa.",
+      "2": "L'IA generativa richiede un addestramento su enormi quantità di dati per apprendere i pattern.",
+      "3": "L'IA generativa può produrre errori e allucinazioni: non garantisce accuratezza."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-003",
+    "cert": ["Google AI Essentials"],
+    "topics": ["LLM", "IA responsabile"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un'allucinazione di un modello linguistico è una risposta che appare plausibile e sicura ma è di fatto errata o inventata.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Le allucinazioni sono output presentati con tono convincente ma non corrispondenti alla realtà; per questo è necessario verificare sempre le informazioni prodotte da un LLM.",
+    "why_wrong": {
+      "1": "È vero: l'allucinazione è proprio un contenuto plausibile ma falso, motivo per cui serve verifica umana."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-004",
+    "cert": ["Google AI Essentials"],
+    "topics": ["Prompt Engineering"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale elemento rende generalmente più efficace un prompt fornito a uno strumento di IA generativa?",
+    "options": [
+      "Aggiungere contesto specifico, il ruolo desiderato e il formato dell'output atteso",
+      "Usare frasi il più possibile vaghe per non limitare il modello",
+      "Scrivere sempre in maiuscolo per dare enfasi ai comandi",
+      "Ridurre il prompt a una sola parola chiave isolata"
+    ],
+    "correct": [0],
+    "explanation": "Un prompt efficace fornisce contesto, indica un ruolo o obiettivo e specifica il formato desiderato: questo guida il modello verso risposte pertinenti e utili.",
+    "why_wrong": {
+      "1": "La vaghezza produce risposte generiche o fuori bersaglio; la specificità aiuta il modello.",
+      "2": "Il maiuscolo non migliora la qualità della risposta; conta il contenuto e la chiarezza del prompt.",
+      "3": "Una singola parola chiave raramente fornisce contesto sufficiente per un output di qualità."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-005",
+    "cert": ["Google AI Essentials"],
+    "topics": ["IA responsabile"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali tra i seguenti sono principi chiave di un uso responsabile dell'IA? (seleziona 2)",
+    "options": [
+      "Mantenere la supervisione umana sulle decisioni importanti",
+      "Essere trasparenti su quando e come viene usata l'IA",
+      "Accettare senza controllo tutti gli output per risparmiare tempo",
+      "Nascondere agli utenti che un contenuto è stato generato dall'IA"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'IA responsabile richiede supervisione umana (human-in-the-loop) e trasparenza sull'uso dell'IA, così da mantenere responsabilità e fiducia.",
+    "why_wrong": {
+      "2": "Accettare gli output senza verifica contraddice il principio di supervisione e può propagare errori o bias.",
+      "3": "Nascondere l'uso dell'IA viola il principio di trasparenza verso gli utenti."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-006",
+    "cert": ["Google AI Essentials"],
+    "topics": ["LLM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Su quale meccanismo di base si fonda la generazione di testo di un large language model (LLM)?",
+    "options": [
+      "Prevede la parola o il token successivo più probabile in base al contesto precedente",
+      "Cerca la risposta esatta in un database aggiornato in tempo reale",
+      "Copia integralmente frasi da un singolo documento di riferimento",
+      "Comprende il significato con vera coscienza come farebbe un essere umano"
+    ],
+    "correct": [0],
+    "explanation": "Un LLM genera testo stimando, un token alla volta, l'elemento successivo più probabile date le parole precedenti, sulla base dei pattern statistici appresi.",
+    "why_wrong": {
+      "1": "L'LLM non interroga un database in tempo reale: si basa sui pattern appresi durante l'addestramento.",
+      "2": "Non copia da un singolo documento; combina pattern statistici da moltissimi dati.",
+      "3": "Il modello non possiede coscienza o comprensione umana: elabora probabilità linguistiche."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-007",
+    "cert": ["Google AI Essentials"],
+    "topics": ["Bias"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è una causa frequente della presenza di bias negli output di un sistema di IA?",
+    "options": [
+      "I dati di addestramento riflettono pregiudizi o squilibri presenti nel mondo reale",
+      "Il modello sceglie deliberatamente di favorire alcuni gruppi",
+      "L'uso di hardware più potente introduce automaticamente bias",
+      "I bias compaiono solo se il prompt è scritto in maiuscolo"
+    ],
+    "correct": [0],
+    "explanation": "Il bias emerge spesso perché i dati di addestramento contengono squilibri o pregiudizi storici e sociali, che il modello apprende e può riprodurre o amplificare.",
+    "why_wrong": {
+      "1": "Il modello non ha intenzioni: il bias deriva dai dati e dal design, non da una scelta deliberata.",
+      "2": "La potenza dell'hardware non è la causa del bias; conta la qualità e rappresentatività dei dati.",
+      "3": "La formattazione del prompt non è l'origine del bias, che nasce dai dati e dal processo di addestramento."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-008",
+    "cert": ["Google AI Essentials"],
+    "topics": ["Privacy"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "È buona pratica evitare di inserire dati personali sensibili o informazioni aziendali riservate nei prompt di strumenti di IA pubblici.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Le informazioni inserite nei prompt potrebbero essere conservate o usate per migliorare i modelli; per tutelare privacy e riservatezza si devono evitare dati sensibili o confidenziali.",
+    "why_wrong": {
+      "1": "È vero: inserire dati sensibili in strumenti pubblici comporta rischi per la privacy e la sicurezza."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-009",
+    "cert": ["Google AI Essentials"],
+    "topics": ["Prompt Engineering"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa si intende per iterazione del prompt quando si lavora con l'IA generativa?",
+    "options": [
+      "Affinare progressivamente il prompt in base alle risposte per migliorare l'output",
+      "Inviare lo stesso identico prompt molte volte finché non cambia da solo",
+      "Chiedere al modello di ripetere parola per parola la domanda iniziale",
+      "Cancellare la cronologia dopo ogni singola risposta ricevuta"
+    ],
+    "correct": [0],
+    "explanation": "L'iterazione consiste nel modificare e perfezionare il prompt (aggiungendo contesto, esempi o vincoli) valutando le risposte, per avvicinarsi progressivamente al risultato desiderato.",
+    "why_wrong": {
+      "1": "Ripetere identico il prompt non è iterazione: l'iterazione implica cambiare e migliorare il prompt.",
+      "2": "Far ripetere la domanda non affina il risultato e non è lo scopo dell'iterazione.",
+      "3": "Cancellare la cronologia non equivale a raffinare il prompt verso un output migliore."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-010",
+    "cert": ["Google AI Essentials"],
+    "topics": ["IA generativa", "LLM"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali sono limiti reali degli attuali strumenti di IA generativa? (seleziona 2)",
+    "options": [
+      "Possono generare informazioni errate presentate come vere (allucinazioni)",
+      "Possono avere una conoscenza limitata a eventi fino a una certa data di addestramento",
+      "Comprendono e verificano sempre i fatti in modo autonomo e affidabile",
+      "Sono del tutto privi di bias grazie alla grande quantità di dati usati"
+    ],
+    "correct": [0, 1],
+    "explanation": "Gli LLM possono allucinare e hanno spesso un limite temporale nella conoscenza (knowledge cutoff) legato ai dati di addestramento: entrambi sono limiti concreti da tenere presenti.",
+    "why_wrong": {
+      "2": "I modelli non verificano i fatti in modo affidabile: la verifica resta compito dell'utente.",
+      "3": "La grande quantità di dati non elimina il bias; anzi può includere e amplificare pregiudizi esistenti."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-011",
+    "cert": ["Google AI Essentials"],
+    "topics": ["IA responsabile"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa indica l'approccio human-in-the-loop nell'uso dell'IA?",
+    "options": [
+      "Una persona revisiona, valuta e può correggere gli output dell'IA prima dell'uso",
+      "L'IA opera in totale autonomia senza alcun intervento umano",
+      "Gli utenti devono addestrare personalmente il modello da zero",
+      "Il modello decide da solo quando coinvolgere un supervisore"
+    ],
+    "correct": [0],
+    "explanation": "Human-in-the-loop significa mantenere una persona nel processo decisionale, che controlla e convalida gli output dell'IA, garantendo qualità e responsabilità.",
+    "why_wrong": {
+      "1": "L'autonomia totale è l'opposto del human-in-the-loop, che prevede la supervisione umana.",
+      "2": "Non richiede che gli utenti addestrino il modello da zero, ma che ne supervisionino l'uso.",
+      "3": "Nel human-in-the-loop è la persona, non il modello, a mantenere il controllo del processo."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-012",
+    "cert": ["Google AI Essentials"],
+    "topics": ["IA responsabile", "LLM"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Ci si può affidare all'IA generativa come unica fonte di verifica per fatti critici, senza controlli aggiuntivi.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso: gli strumenti di IA possono produrre errori o allucinazioni, perciò per informazioni critiche è necessario verificare con fonti affidabili e la supervisione umana.",
+    "why_wrong": {
+      "0": "È falso: affidarsi all'IA come unica fonte di verità è rischioso, servono sempre controlli e fonti attendibili."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-013",
+    "cert": ["Google AI Essentials"],
+    "topics": ["Prompt Engineering"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In cosa consiste la tecnica del few-shot prompting?",
+    "options": [
+      "Fornire nel prompt alcuni esempi di input e output desiderati per guidare il modello",
+      "Ridurre al minimo il numero di parole per accelerare la risposta",
+      "Impedire al modello di usare qualsiasi esempio o contesto",
+      "Chiedere la risposta in poche righe indipendentemente dal contenuto"
+    ],
+    "correct": [0],
+    "explanation": "Nel few-shot prompting si includono nel prompt alcuni esempi rappresentativi del compito, così il modello coglie il pattern e produce output nel formato e stile richiesti.",
+    "why_wrong": {
+      "1": "Il few-shot non riguarda la brevità del prompt, ma l'inclusione di esempi guida.",
+      "2": "È il contrario: il few-shot fornisce esempi, non li vieta.",
+      "3": "Non impone una lunghezza breve alla risposta; fornisce esempi per orientare l'output."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  },
+  {
+    "id": "gai3-014",
+    "cert": ["Google AI Essentials"],
+    "topics": ["Prompt Engineering", "IA generativa"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Assegnare un ruolo nel prompt (ad esempio \"Agisci come un esperto di marketing\") serve principalmente a:",
+    "options": [
+      "Orientare tono, prospettiva e stile della risposta verso il contesto desiderato",
+      "Dare al modello competenze reali che prima non possedeva",
+      "Garantire che la risposta sia sempre fattualmente corretta",
+      "Aumentare la velocità di elaborazione del modello"
+    ],
+    "correct": [0],
+    "explanation": "Indicare un ruolo aiuta il modello ad adottare una prospettiva, un tono e uno stile coerenti con il contesto richiesto, rendendo l'output più pertinente allo scopo.",
+    "why_wrong": {
+      "1": "Il ruolo non aggiunge conoscenze nuove al modello: ne orienta solo l'espressione basata su ciò che già ha appreso.",
+      "2": "Assegnare un ruolo non garantisce l'accuratezza dei fatti, che va comunque verificata.",
+      "3": "Il ruolo non influisce sulla velocità di elaborazione, ma sullo stile e sulla pertinenza della risposta."
+    },
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+  }
+]

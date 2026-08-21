@@ -1,0 +1,289 @@
+[
+  {
+    "id": "ibm3-001",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Kill Chain"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nella Cyber Kill Chain di Lockheed Martin, in quale fase l'attaccante combina un exploit con una backdoor in un payload pronto per la consegna, senza avere ancora alcun contatto con la vittima?",
+    "options": ["Ricognizione", "Armamento (Weaponization)", "Consegna (Delivery)", "Comando e controllo (C2)"],
+    "correct": [1],
+    "explanation": "L'Armamento è la fase in cui l'attaccante costruisce il payload (ad esempio un PDF contenente exploit e backdoor) prima di inviarlo. Avviene interamente lato attaccante, senza interazione con il bersaglio.",
+    "why_wrong": {
+      "0": "La Ricognizione raccoglie informazioni sul bersaglio, ma non produce ancora il payload armato.",
+      "2": "La Consegna è la trasmissione del payload alla vittima, quindi successiva all'armamento.",
+      "3": "Il Comando e controllo apre il canale verso l'host già compromesso, una fase molto più avanzata."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-002",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Incident Response"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Secondo il ciclo di gestione degli incidenti del NIST (SP 800-61), qual è la corretta sequenza delle fasi principali?",
+    "options": [
+      "Rilevamento, Preparazione, Contenimento, Ripristino",
+      "Preparazione, Rilevamento e analisi, Contenimento eradicazione e ripristino, Attività post-incidente",
+      "Preparazione, Contenimento, Rilevamento, Lezioni apprese",
+      "Identificazione, Protezione, Rilevamento, Risposta, Ripristino"
+    ],
+    "correct": [1],
+    "explanation": "Il NIST definisce quattro fasi in ordine: Preparazione, Rilevamento e analisi, Contenimento/eradicazione/ripristino e Attività post-incidente (lezioni apprese).",
+    "why_wrong": {
+      "0": "La Preparazione deve precedere il Rilevamento: qui l'ordine è invertito.",
+      "2": "Non si può contenere un incidente prima di averlo rilevato e analizzato.",
+      "3": "Queste sono le funzioni del NIST Cybersecurity Framework (Identify, Protect, Detect, Respond, Recover), non le fasi di gestione dell'incidente."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-003",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Analisi forense"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Durante l'acquisizione forense di un sistema ancora acceso, secondo l'ordine di volatilità (RFC 3227) quale fonte di dati deve essere raccolta per prima?",
+    "options": [
+      "Il contenuto del disco rigido",
+      "I file di log già archiviati su supporto esterno",
+      "I registri e la cache della CPU",
+      "I backup su nastro"
+    ],
+    "correct": [2],
+    "explanation": "L'ordine di volatilità impone di acquisire per primi i dati più effimeri: registri e cache della CPU, poi la RAM, le tabelle di routing e le connessioni, e solo dopo i dati persistenti su disco.",
+    "why_wrong": {
+      "0": "Il disco è memoria non volatile: i suoi dati sopravvivono allo spegnimento, quindi va acquisito dopo i dati volatili.",
+      "1": "I log archiviati sono già persistenti e stabili, tra le fonti meno volatili.",
+      "3": "I backup su nastro sono la fonte più stabile e duratura, l'ultima nell'ordine di volatilità."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-004",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["CIA Triad"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali dei seguenti attacchi compromettono principalmente la DISPONIBILITÀ (Availability) della triade CIA? (selezionane due)",
+    "options": [
+      "Attacco DDoS che satura un servizio web",
+      "Sniffing del traffico trasmesso in chiaro",
+      "Ransomware che cifra i file rendendoli inaccessibili",
+      "Modifica non autorizzata di un record in un database"
+    ],
+    "correct": [0, 2],
+    "explanation": "Il DDoS rende un servizio irraggiungibile e il ransomware blocca l'accesso ai dati cifrandoli: entrambi colpiscono direttamente la disponibilità.",
+    "why_wrong": {
+      "1": "Lo sniffing intercetta i dati e viola la riservatezza (confidentiality), non la disponibilità.",
+      "3": "L'alterazione non autorizzata di un dato viola l'integrità (integrity)."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-005",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è la differenza fondamentale tra un IDS e un IPS?",
+    "options": [
+      "L'IDS opera solo sul traffico cifrato, l'IPS solo su quello in chiaro",
+      "L'IDS rileva e segnala le minacce ma non le blocca, mentre l'IPS può bloccare attivamente il traffico malevolo in linea",
+      "L'IDS è sempre basato su hardware, l'IPS sempre su software",
+      "L'IDS previene gli attacchi, l'IPS si limita a registrarli nei log"
+    ],
+    "correct": [1],
+    "explanation": "L'IDS (Intrusion Detection System) è passivo: osserva e allerta. L'IPS (Intrusion Prevention System) è posizionato in linea e può scartare o bloccare attivamente il traffico riconosciuto come malevolo.",
+    "why_wrong": {
+      "0": "La distinzione non riguarda traffico cifrato o in chiaro, ma la capacità di reazione (rilevare vs bloccare).",
+      "2": "Entrambi possono essere implementati sia in hardware sia in software; non è questo il criterio distintivo.",
+      "3": "È l'esatto contrario: è l'IPS a prevenire/bloccare, mentre l'IDS si limita a rilevare e segnalare."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-006",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["SIEM"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Una funzione chiave di un SIEM è la correlazione degli eventi: aggrega e mette in relazione log provenienti da fonti diverse per individuare pattern di attacco che i singoli eventi isolati non rivelerebbero.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. La correlazione è centrale in un SIEM: unendo eventi da firewall, endpoint, server e applicazioni, riesce a far emergere sequenze sospette (ad esempio molti login falliti seguiti da un accesso riuscito) invisibili nei log isolati.",
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-007",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un sistema di crittografia asimmetrica, con quale chiave si cifra un messaggio affinché SOLO il destinatario previsto possa decifrarlo?",
+    "options": [
+      "La chiave privata del mittente",
+      "La chiave pubblica del destinatario",
+      "La chiave privata del destinatario",
+      "Una chiave simmetrica condivisa in anticipo"
+    ],
+    "correct": [1],
+    "explanation": "Si cifra con la chiave pubblica del destinatario: solo la corrispondente chiave privata, in possesso del solo destinatario, può decifrare il messaggio, garantendo la riservatezza.",
+    "why_wrong": {
+      "0": "Cifrare con la chiave privata del mittente serve a firmare (autenticità/non ripudio), non a proteggere la riservatezza: chiunque potrebbe decifrare con la chiave pubblica del mittente.",
+      "2": "Il destinatario usa la propria chiave privata per DECIFRARE; il mittente non la possiede e quindi non può usarla per cifrare.",
+      "3": "Questo descriverebbe la crittografia simmetrica, non quella asimmetrica richiesta dalla domanda."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-008",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale caratteristica distingue il malware 'fileless' (senza file) dalle minacce tradizionali basate su file?",
+    "options": [
+      "Si replica automaticamente via email come un worm classico",
+      "Risiede ed esegue prevalentemente in memoria (RAM) sfruttando strumenti legittimi di sistema, senza scrivere un eseguibile su disco",
+      "Richiede sempre privilegi di amministratore per potersi installare",
+      "Cifra i file della vittima e chiede un riscatto per la decifratura"
+    ],
+    "correct": [1],
+    "explanation": "Il malware fileless opera in memoria abusando di strumenti legittimi (living off the land), come PowerShell o WMI, evitando di lasciare un file eseguibile su disco e rendendo più difficile il rilevamento da parte degli antivirus tradizionali.",
+    "why_wrong": {
+      "0": "L'autoreplicazione via email descrive un worm, non la caratteristica distintiva del fileless.",
+      "2": "Molte tecniche fileless girano nel contesto dell'utente corrente e non richiedono necessariamente privilegi di amministratore.",
+      "3": "La cifratura con richiesta di riscatto descrive il ransomware, che è indipendente dall'essere fileless o meno."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-009",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Difesa in profondità"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni sulla strategia di difesa in profondità (defense in depth) sono CORRETTE? (selezionane due)",
+    "options": [
+      "Si affida a un unico controllo perimetrale molto robusto",
+      "Combina controlli fisici, tecnici e amministrativi disposti su più livelli",
+      "Se un livello viene superato, gli altri continuano comunque a fornire protezione",
+      "Elimina del tutto la necessità di monitoraggio e risposta agli incidenti"
+    ],
+    "correct": [1, 2],
+    "explanation": "La difesa in profondità stratifica controlli di natura diversa (fisici, tecnici, amministrativi) così che il fallimento di un singolo livello non comprometta l'intero sistema: gli altri livelli mantengono la protezione.",
+    "why_wrong": {
+      "0": "È l'opposto: affidarsi a un solo controllo perimetrale è proprio il modello che la difesa in profondità intende superare.",
+      "3": "La difesa in profondità non elimina il monitoraggio e la risposta agli incidenti, che restano livelli essenziali della strategia."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-010",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Il principio del privilegio minimo (least privilege) stabilisce che:",
+    "options": [
+      "ogni utente debba avere accesso amministrativo per ridurre le richieste all'help desk",
+      "a un utente o processo vadano concessi solo i permessi strettamente necessari a svolgere il proprio compito",
+      "i permessi vadano assegnati sempre ai singoli utenti anziché ai ruoli",
+      "tutti gli account debbano condividere le stesse credenziali per semplicità di gestione"
+    ],
+    "correct": [1],
+    "explanation": "Il privilegio minimo limita i diritti di ciascun utente o processo allo stretto necessario, riducendo la superficie di attacco e l'impatto di un eventuale account compromesso.",
+    "why_wrong": {
+      "0": "Concedere accesso amministrativo a tutti viola direttamente il principio del privilegio minimo e amplia la superficie di attacco.",
+      "2": "Assegnare i permessi ai ruoli (RBAC) è di norma preferibile; comunque non è questo il contenuto del principio del privilegio minimo.",
+      "3": "Le credenziali condivise annullano la tracciabilità e la responsabilità individuale, in contrasto con le buone pratiche di controllo accessi."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-011",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Analisi forense"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In analisi forense, un write blocker (bloccatore di scrittura) viene usato per impedire qualsiasi modifica ai dati del supporto originale durante l'acquisizione della copia forense.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Il write blocker consente la sola lettura del supporto originale, garantendo che l'evidenza non venga alterata durante la copia e preservando così l'integrità della prova e la catena di custodia.",
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-012",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Architettura di sicurezza"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è lo scopo principale di una DMZ (zona demilitarizzata) in un'architettura di rete?",
+    "options": [
+      "Ospitare i servizi esposti a Internet in una sottorete isolata, separandoli dalla rete interna fidata",
+      "Cifrare automaticamente tutto il traffico scambiato tra i server interni",
+      "Sostituire completamente la necessità di un firewall perimetrale",
+      "Fornire una rete wireless ad accesso libero per gli ospiti"
+    ],
+    "correct": [0],
+    "explanation": "La DMZ è una sottorete intermedia che ospita i servizi accessibili dall'esterno (web, mail, DNS pubblici). Se uno di essi viene compromesso, l'attaccante resta confinato nella DMZ e non raggiunge direttamente la rete interna.",
+    "why_wrong": {
+      "1": "La DMZ è un concetto di segmentazione di rete, non un meccanismo di cifratura del traffico.",
+      "2": "La DMZ non sostituisce il firewall: al contrario, è delimitata e protetta proprio da firewall.",
+      "3": "Una rete ospiti wireless è tutt'altra cosa; la DMZ serve a isolare i servizi pubblici, non a offrire accesso libero."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-013",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["SIEM"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti sono funzionalità tipiche di una piattaforma SIEM? (selezionane due)",
+    "options": [
+      "Aggregazione e normalizzazione dei log provenienti da fonti eterogenee",
+      "Generazione di alert in base a regole di correlazione",
+      "Cifratura fisica dei dischi degli endpoint aziendali",
+      "Sostituzione del firewall perimetrale della rete"
+    ],
+    "correct": [0, 1],
+    "explanation": "Un SIEM raccoglie, normalizza e centralizza i log da fonti diverse e genera alert applicando regole di correlazione, offrendo visibilità e rilevamento a livello di security operations.",
+    "why_wrong": {
+      "2": "La cifratura dei dischi è un controllo di protezione dei dati sull'endpoint (es. BitLocker), non una funzione del SIEM.",
+      "3": "Il SIEM monitora e analizza, ma non filtra il traffico né sostituisce il firewall perimetrale."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-014",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Incident Response"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Durante la risposta a un incidente, il team isola immediatamente un segmento di rete infetto per fermare la propagazione del malware, accettando una parziale interruzione del servizio. A quale fase appartiene principalmente questa azione?",
+    "options": ["Preparazione", "Contenimento", "Attività post-incidente (lezioni apprese)", "Ricognizione"],
+    "correct": [1],
+    "explanation": "Isolare un segmento per bloccare la diffusione della minaccia è un'azione di contenimento, la fase che mira a limitare l'impatto dell'incidente prima dell'eradicazione e del ripristino.",
+    "why_wrong": {
+      "0": "La Preparazione avviene prima dell'incidente (piani, strumenti, formazione), non durante la reazione attiva.",
+      "2": "Le attività post-incidente (lezioni apprese) seguono la chiusura dell'incidente, non la sua gestione in corso.",
+      "3": "La Ricognizione è una fase dell'attaccante nella kill chain, non un'attività del team di risposta."
+    },
+    "source": "HACK/IBM Cybersecurity"
+  },
+  {
+    "id": "ibm3-015",
+    "cert": ["IBM Cybersecurity"],
+    "topics": ["Crittografia"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Una funzione di hash crittografica è progettata per essere reversibile, in modo da poter ricostruire il messaggio originale a partire dal suo valore di hash.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Un hash crittografico è una funzione a senso unico (one-way): dal digest non è computazionalmente fattibile risalire all'input originale. Serve a verificare l'integrità, non a cifrare o recuperare i dati.",
+    "source": "HACK/IBM Cybersecurity"
+  }
+]

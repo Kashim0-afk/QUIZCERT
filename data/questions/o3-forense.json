@@ -1,0 +1,308 @@
+[
+  {
+    "id": "for3-001",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Catena di custodia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Durante un sequestro, un reperto informatico passa dalle mani dell'agente che lo raccoglie a quelle del tecnico di laboratorio. Cosa deve documentare la catena di custodia in questo passaggio?",
+    "options": [
+      "Solo l'hash del disco calcolato all'arrivo in laboratorio",
+      "Chi ha avuto il reperto, quando, dove e per quale motivo, per ogni trasferimento",
+      "Unicamente il nome del proprietario originario del dispositivo",
+      "Soltanto la marca e il modello del dispositivo sequestrato"
+    ],
+    "correct": [1],
+    "explanation": "La catena di custodia deve tracciare in modo continuo e verificabile ogni passaggio del reperto: identita di chi lo detiene, data/ora, luogo e scopo del trasferimento. Qualsiasi interruzione compromette l'ammissibilita della prova.",
+    "why_wrong": {
+      "0": "L'hash e fondamentale per l'integrita ma non sostituisce la registrazione dei passaggi di responsabilita.",
+      "2": "Il proprietario e un dato accessorio; cio che conta e chi ha materialmente custodito il reperto.",
+      "3": "Marca e modello identificano il reperto ma non documentano i trasferimenti di custodia."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-002",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Memory forensics"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Secondo il principio dell'ordine di volatilita (RFC 3227), quale tra questi elementi va acquisito per primo?",
+    "options": [
+      "I file di log archiviati sul disco rigido",
+      "Il contenuto della cache della CPU e dei registri",
+      "I dati salvati su un supporto di backup su nastro",
+      "La configurazione fisica e la topologia di rete"
+    ],
+    "correct": [1],
+    "explanation": "L'ordine di volatilita impone di raccogliere prima cio che si perde piu rapidamente. Registri e cache della CPU sono i dati piu volatili in assoluto, seguiti da tabella di routing/ARP, RAM, processi, e solo dopo dai dati su disco.",
+    "why_wrong": {
+      "0": "I log su disco sono relativamente persistenti e si acquisiscono dopo i dati volatili.",
+      "2": "I backup su nastro sono tra i dati meno volatili, tipicamente acquisiti per ultimi.",
+      "3": "La topologia fisica e informazione stabile, non volatile."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-003",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Perche in un'acquisizione forense si calcolano gli hash sia prima sia dopo la copia dell'immagine del disco?",
+    "options": [
+      "Per comprimere l'immagine e ridurne le dimensioni su disco",
+      "Per dimostrare che la copia e identica all'originale e non e stata alterata",
+      "Per cifrare il contenuto dell'immagine acquisita",
+      "Per accelerare la successiva indicizzazione dei file"
+    ],
+    "correct": [1],
+    "explanation": "L'hash (es. SHA-256) calcolato sull'originale e sulla copia deve coincidere: questo prova l'integrita e la fedelta bit-a-bit dell'immagine, requisito essenziale per l'ammissibilita in giudizio.",
+    "why_wrong": {
+      "0": "L'hash e una funzione di verifica, non un algoritmo di compressione.",
+      "2": "L'hashing non cifra i dati; e una funzione unidirezionale di integrita.",
+      "3": "L'hash non ha alcun ruolo nell'indicizzazione o nella velocita di ricerca."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-004",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Incident Response"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel ciclo di Incident Response del NIST SP 800-61, quale fase segue immediatamente il 'Containment, Eradication and Recovery'?",
+    "options": [
+      "Preparation",
+      "Detection and Analysis",
+      "Post-Incident Activity",
+      "Identification degli asset critici"
+    ],
+    "correct": [2],
+    "explanation": "Il NIST SP 800-61 definisce quattro fasi: Preparation; Detection and Analysis; Containment, Eradication and Recovery; Post-Incident Activity (lessons learned). La fase finale documenta l'accaduto e migliora le difese future.",
+    "why_wrong": {
+      "0": "Preparation e la prima fase, non successiva al contenimento.",
+      "1": "Detection and Analysis precede il contenimento.",
+      "3": "Non e una fase del modello NIST a quattro fasi."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-005",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Memory forensics"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In Volatility, quale plugin permette di individuare codice iniettato o processi nascosti confrontando le regioni di memoria con permessi anomali?",
+    "options": [
+      "pslist",
+      "malfind",
+      "filescan",
+      "hivelist"
+    ],
+    "correct": [1],
+    "explanation": "malfind cerca regioni di memoria private con permessi PAGE_EXECUTE_READWRITE prive di un file mappato, tipiche di code injection e malware fileless, ed estrae il contenuto sospetto per l'analisi.",
+    "why_wrong": {
+      "0": "pslist elenca i processi tramite la lista concatenata EPROCESS, ma non individua l'injection.",
+      "2": "filescan cerca oggetti FILE_OBJECT in memoria, non codice iniettato.",
+      "3": "hivelist localizza gli hive di registro caricati in memoria, non il malware injection."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-006",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Linux"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Su un sistema Linux, quale file registra tipicamente gli accessi (login/logout) e va analizzato con il comando 'last'?",
+    "options": [
+      "/var/log/wtmp",
+      "/etc/passwd",
+      "/var/spool/cron",
+      "/proc/version"
+    ],
+    "correct": [0],
+    "explanation": "/var/log/wtmp contiene lo storico dei login/logout ed e letto in formato binario dal comando 'last'. E una fonte chiave per ricostruire l'attivita degli utenti su un host Linux.",
+    "why_wrong": {
+      "1": "/etc/passwd elenca gli account ma non registra gli accessi effettivi.",
+      "2": "/var/spool/cron contiene i job pianificati, utile per la persistenza ma non per i login.",
+      "3": "/proc/version riporta la versione del kernel, non gli accessi."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-007",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In un file system NTFS, quale differenza tra i timestamp $STANDARD_INFORMATION e $FILE_NAME puo rivelare un timestomping?",
+    "options": [
+      "$FILE_NAME contiene solo la data di creazione, quindi non e confrontabile",
+      "$STANDARD_INFORMATION e facilmente modificabile dagli strumenti, mentre $FILE_NAME viene aggiornato solo dal kernel",
+      "$FILE_NAME e memorizzato sul disco cifrato e non e leggibile",
+      "I due attributi devono sempre coincidere, quindi qualsiasi differenza e normale"
+    ],
+    "correct": [1],
+    "explanation": "Gli strumenti di anti-forensics modificano facilmente i timestamp di $STANDARD_INFORMATION (visibili all'utente), ma quelli di $FILE_NAME nella MFT sono aggiornati dal kernel. Discrepanze tra i due set indicano manipolazione (timestomping).",
+    "why_wrong": {
+      "0": "$FILE_NAME contiene i quattro timestamp MFT (creazione, modifica, accesso, modifica record), non solo la creazione.",
+      "2": "$FILE_NAME non e cifrato; risiede nella MFT ed e analizzabile con strumenti come MFTECmd.",
+      "3": "In condizioni normali i valori possono differire per motivi legittimi, ma discrepanze marcate sono un indicatore di timestomping da investigare."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-008",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Catena di custodia"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Un write blocker (bloccante di scrittura) hardware permette solo la lettura del disco sorgente, impedendo qualsiasi alterazione dei dati originali durante l'acquisizione.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Il write blocker intercetta e blocca ogni comando di scrittura verso il supporto sorgente, consentendo la sola lettura: cosi l'immagine viene acquisita senza modificare l'originale, requisito imprescindibile per la validita della prova.",
+    "why_wrong": {
+      "1": "E errato: proprio impedendo le scritture il write blocker garantisce l'integrita del reperto; non cifra ne comprime nulla."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-009",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Nella tecnica del file carving, su quale principio si basa il recupero dei file senza l'ausilio dei metadati del file system?",
+    "options": [
+      "Sulla lettura della tabella MFT o degli inode per ricostruire i percorsi",
+      "Sul riconoscimento di firme note di header e footer nei dati grezzi",
+      "Sulla decrittazione delle chiavi memorizzate nel registro di sistema",
+      "Sull'analisi dei log di sistema per individuare i nomi dei file"
+    ],
+    "correct": [1],
+    "explanation": "Il file carving individua i file cercando pattern di byte tipici di inizio (header) e fine (footer) dei formati noti (es. FF D8 / FF D9 per JPEG) direttamente nei dati grezzi, senza dipendere dai metadati del file system, utile su spazio non allocato o supporti danneggiati.",
+    "why_wrong": {
+      "0": "L'uso di MFT/inode e proprio cio che il carving evita, operando indipendentemente dai metadati.",
+      "2": "Il carving non riguarda la decrittazione di chiavi.",
+      "3": "I log possono citare nomi di file ma non permettono il recupero del contenuto tramite carving."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-010",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa rappresenta un file di Prefetch (.pf) in un'indagine forense su Windows?",
+    "options": [
+      "Un file di configurazione delle policy di gruppo",
+      "Una traccia dell'esecuzione di un programma, con conteggio e ultima data di avvio",
+      "Un backup automatico del registro di sistema",
+      "Un contenitore delle password cifrate degli utenti"
+    ],
+    "correct": [1],
+    "explanation": "I file Prefetch, generati per velocizzare l'avvio delle applicazioni, sono preziosi indicatori di esecuzione: registrano nome dell'eseguibile, numero di esecuzioni, timestamp dell'ultima esecuzione e file/directory referenziati.",
+    "why_wrong": {
+      "0": "Le policy di gruppo non hanno relazione con i file Prefetch.",
+      "2": "Il backup del registro e gestito da altri meccanismi (es. RegBack), non dal Prefetch.",
+      "3": "Le credenziali risiedono nel SAM, non nei file Prefetch."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-011",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Malware"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali tra le seguenti sono tecniche di anti-forensics che un investigatore puo incontrare? (seleziona 2)",
+    "options": [
+      "Calcolo dell'hash SHA-256 dell'immagine acquisita",
+      "Wiping sicuro dello spazio libero per distruggere i dati residui",
+      "Steganografia per occultare dati dentro file apparentemente innocui",
+      "Redazione del verbale di catena di custodia"
+    ],
+    "correct": [1, 2],
+    "explanation": "Il wiping sicuro (sovrascrittura) elimina i dati residui rendendone impossibile il recupero, e la steganografia nasconde informazioni all'interno di altri file: entrambe sono tecniche anti-forensics volte a ostacolare l'indagine.",
+    "why_wrong": {
+      "0": "Il calcolo dell'hash e una pratica forense di verifica dell'integrita, non anti-forense.",
+      "3": "La redazione del verbale di catena di custodia e una procedura investigativa corretta, non una tecnica di occultamento."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-012",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali di questi artefatti del registro di Windows sono utili per stabilire quali dispositivi USB sono stati collegati? (seleziona 2)",
+    "options": [
+      "La chiave USBSTOR sotto SYSTEM\\CurrentControlSet\\Enum",
+      "La chiave RunMRU della cronologia della finestra Esegui",
+      "La chiave setupapi.dev.log con i timestamp di prima connessione",
+      "La chiave TypedURLs del browser Internet Explorer"
+    ],
+    "correct": [0, 2],
+    "explanation": "USBSTOR registra i dispositivi di archiviazione di massa collegati (produttore, modello, numero di serie), mentre setupapi.dev.log conserva l'orario della prima installazione del dispositivo. Insieme ricostruiscono la storia delle connessioni USB.",
+    "why_wrong": {
+      "1": "RunMRU elenca i comandi digitati nella finestra Esegui, non le connessioni USB.",
+      "3": "TypedURLs riguarda gli indirizzi digitati nel browser, non i dispositivi USB."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-013",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Incident Response"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali sono obiettivi tipici della fase di 'Containment' in un incidente di sicurezza? (seleziona 2)",
+    "options": [
+      "Isolare i sistemi compromessi dalla rete per limitare la diffusione",
+      "Redigere il report finale con le lezioni apprese",
+      "Preservare le prove volatili prima di spegnere i sistemi",
+      "Ripristinare completamente i servizi allo stato di produzione normale"
+    ],
+    "correct": [0, 2],
+    "explanation": "Il contenimento mira a fermare la propagazione dell'incidente isolando i sistemi colpiti, preservando al contempo le prove (memoria, connessioni, log) necessarie all'analisi successiva.",
+    "why_wrong": {
+      "1": "Il report con le lessons learned appartiene alla fase Post-Incident Activity.",
+      "3": "Il ripristino completo dei servizi rientra nella fase di Recovery, successiva al contenimento vero e proprio."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-014",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Crittografia"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Una collisione di hash MD5 tra due file diversi puo minare l'affidabilita di MD5 come unico strumento di verifica dell'integrita in ambito forense.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. MD5 e vulnerabile a collisioni dimostrabili: due file diversi possono produrre lo stesso digest. Per questo in ambito forense si preferiscono SHA-256 o l'uso combinato di piu algoritmi per garantire l'integrita.",
+    "why_wrong": {
+      "1": "E errato: le collisioni MD5 sono note e riproducibili, motivo per cui MD5 da solo non e piu considerato robusto."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for3-015",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Linux"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nella costruzione di una timeline forense, correlare i timestamp MAC (Modified, Accessed, Changed/Created) da piu fonti aiuta a ricostruire la sequenza degli eventi.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. La super timeline aggrega i timestamp MAC di file system, log, registro e altri artefatti in un'unica linea temporale ordinata, permettendo di ricostruire con precisione la sequenza delle attivita dell'attaccante o dell'utente.",
+    "why_wrong": {
+      "1": "E errato: la correlazione multi-sorgente dei timestamp e proprio il fondamento dell'analisi timeline (es. con strumenti come Plaso/log2timeline)."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  }
+]

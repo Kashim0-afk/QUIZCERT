@@ -1,0 +1,302 @@
+[
+  {
+    "id": "md3-001",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Autopilot"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In uno scenario Windows Autopilot, quale profilo di distribuzione consente all'utente di configurare il dispositivo con la propria identita' Entra ID e senza credenziali di amministratore locale al primo avvio?",
+    "options": [
+      "User-Driven con join a Microsoft Entra",
+      "Self-Deploying mode",
+      "Pre-provisioning (White Glove)",
+      "Autopilot Reset"
+    ],
+    "correct": [0],
+    "explanation": "La modalita' User-Driven (guidata dall'utente) con join a Microsoft Entra fa si' che l'utente finale acceda con le proprie credenziali Entra ID; per impostazione predefinita l'utente diventa Standard User e non amministratore locale, salvo diversa configurazione del profilo.",
+    "why_wrong": {
+      "1": "La modalita' Self-Deploying non richiede alcuna interazione ne' credenziali utente ed e' pensata per dispositivi kiosk/chioschi condivisi con TPM 2.0.",
+      "2": "Il Pre-provisioning (ex White Glove) e' una fase eseguita dal tecnico/OEM prima della consegna, non la configurazione utente al primo avvio.",
+      "3": "Autopilot Reset reimposta un dispositivo gia' gestito riportandolo a uno stato pronto per l'uso, non e' un profilo di primo provisioning."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-002",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Compliance"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In una policy di conformita' di Intune, a cosa serve l'impostazione 'Actions for noncompliance' (Azioni per la non conformita')?",
+    "options": [
+      "Bloccare immediatamente e in modo irreversibile il dispositivo appena rilevata la non conformita'",
+      "Definire una sequenza temporizzata di azioni, come inviare email all'utente o marcare il dispositivo non conforme dopo un periodo di tolleranza",
+      "Applicare automaticamente un profilo di configurazione correttivo",
+      "Forzare la crittografia BitLocker sul dispositivo"
+    ],
+    "correct": [1],
+    "explanation": "Le azioni per la non conformita' permettono di pianificare una sequenza graduale: ad esempio marcare il dispositivo non conforme subito o dopo X giorni, inviare notifiche email o push all'utente, bloccare o ritirare il dispositivo. Include un periodo di tolleranza configurabile.",
+    "why_wrong": {
+      "0": "Il blocco non e' ne' immediato ne' irreversibile per impostazione predefinita: si puo' configurare un periodo di grazia prima di marcare il dispositivo non conforme.",
+      "2": "Le policy di conformita' valutano lo stato ma non applicano profili di configurazione correttivi; la remediation di impostazioni spetta ai configuration profile.",
+      "3": "L'imposizione di BitLocker si fa tramite profilo di configurazione o policy Endpoint security, non tramite le azioni per la non conformita'."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-003",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Enrollment"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un amministratore vuole impedire l'iscrizione a Intune dei dispositivi Windows di proprieta' personale (BYOD), consentendo solo quelli aziendali. Quale funzionalita' deve usare?",
+    "options": [
+      "Device categories (Categorie di dispositivi)",
+      "Enrollment restrictions - Device platform restrictions con blocco dei dispositivi personali",
+      "Device compliance policy",
+      "Conditional Access"
+    ],
+    "correct": [1],
+    "explanation": "Le restrizioni di iscrizione (Enrollment restrictions) per piattaforma consentono di bloccare i dispositivi personali per una data piattaforma. Per Windows, un dispositivo e' considerato aziendale se preregistrato (es. Autopilot, IMEI/numero di serie) o iscritto con metodi corporate; gli altri sono personali e possono essere bloccati.",
+    "why_wrong": {
+      "0": "Le categorie di dispositivi servono a raggruppare i dispositivi in gruppi dinamici dopo l'iscrizione, non a bloccare l'iscrizione stessa.",
+      "2": "Le policy di conformita' valutano lo stato dopo l'iscrizione, non impediscono a un BYOD di iscriversi.",
+      "3": "L'accesso condizionale controlla l'accesso alle risorse, non blocca il processo di enrollment del dispositivo."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-004",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Gestione dispositivi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale tipo di profilo di configurazione di Intune usa i modelli ADMX per gestire impostazioni equivalenti ai Group Policy amministrativi su Windows?",
+    "options": [
+      "Settings catalog / Administrative Templates",
+      "Endpoint protection",
+      "Device restrictions",
+      "Custom (OMA-URI)"
+    ],
+    "correct": [0],
+    "explanation": "I profili Administrative Templates (e il Settings catalog che li ingloba) espongono impostazioni basate su ADMX equivalenti ai criteri di gruppo amministrativi, gestibili senza dover conoscere gli OMA-URI sottostanti.",
+    "why_wrong": {
+      "1": "Il profilo Endpoint protection gestisce funzionalita' di sicurezza come firewall e BitLocker, non i modelli ADMX generici.",
+      "2": "Device restrictions controlla impostazioni predefinite del dispositivo (password, cloud, ecc.), non i template ADMX.",
+      "3": "Il profilo Custom con OMA-URI permette impostazioni granulari via CSP, ma richiede di specificare manualmente i percorsi OMA-URI e non usa direttamente i modelli ADMX."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-005",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Conditional Access"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In una policy di Accesso condizionale basata sui dispositivi, quale grant control richiede che il dispositivo risulti conforme secondo le policy di Intune per concedere l'accesso?",
+    "options": [
+      "Require multifactor authentication",
+      "Require device to be marked as compliant",
+      "Require approved client app",
+      "Require password change"
+    ],
+    "correct": [1],
+    "explanation": "Il controllo 'Require device to be marked as compliant' verifica che il dispositivo sia registrato in Entra ID e valutato conforme dalle policy di conformita' di Intune prima di concedere l'accesso alla risorsa.",
+    "why_wrong": {
+      "0": "Richiedere l'MFA impone un secondo fattore di autenticazione, ma non verifica lo stato di conformita' del dispositivo.",
+      "2": "Richiedere un'app client approvata riguarda l'uso di app protette (App Protection Policies), non lo stato di conformita' del dispositivo.",
+      "3": "Il cambio password non e' un grant control basato sullo stato del dispositivo."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-006",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["BitLocker"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale requisito hardware e' fondamentale per abilitare la crittografia silenziosa (silent enablement) di BitLocker tramite Intune senza interazione dell'utente?",
+    "options": [
+      "Un chip TPM (Trusted Platform Module), tipicamente TPM 2.0",
+      "Una connessione VPN sempre attiva",
+      "Un account amministratore locale abilitato",
+      "Un lettore di smart card"
+    ],
+    "correct": [0],
+    "explanation": "La crittografia BitLocker silenziosa richiede un TPM (di norma TPM 2.0) che protegga la chiave senza richiedere un PIN o l'interazione dell'utente all'avvio, consentendo l'attivazione automatica tramite policy Intune.",
+    "why_wrong": {
+      "1": "Una VPN sempre attiva non e' correlata all'attivazione silenziosa di BitLocker.",
+      "2": "L'attivazione silenziosa non dipende da un account amministratore locale abilitato; anzi punta a rimuovere l'interazione utente.",
+      "3": "Il lettore di smart card e' un protettore alternativo opzionale, non un requisito per la crittografia silenziosa basata su TPM."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-007",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Microsoft Defender for Endpoint integrato con Intune, cosa rappresenta il livello di rischio del dispositivo (machine risk score) quando usato nelle policy di conformita'?",
+    "options": [
+      "Il livello di carica della batteria del dispositivo",
+      "Un valore (es. Clear, Low, Medium, High) che indica il rischio rilevato e usato per marcare il dispositivo conforme o non conforme",
+      "La versione del firmware TPM installata",
+      "Il numero di app installate sul dispositivo"
+    ],
+    "correct": [1],
+    "explanation": "Con la connessione Mobile Threat Defense tra Defender for Endpoint e Intune, il machine risk score (Clear/Low/Medium/High) viene passato a Intune; nella policy di conformita' si imposta il livello massimo consentito, oltre il quale il dispositivo diventa non conforme.",
+    "why_wrong": {
+      "0": "Il risk score non ha nulla a che vedere con la batteria del dispositivo.",
+      "2": "Il livello di rischio non indica la versione firmware del TPM.",
+      "3": "Il punteggio riflette segnali di minaccia complessivi, non un semplice conteggio delle app installate."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-008",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Windows Update"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Usando gli anelli di aggiornamento (Update rings) di Windows Update for Business in Intune, quale impostazione consente di ritardare l'installazione di un aggiornamento delle funzionalita' (feature update) di un numero definito di giorni?",
+    "options": [
+      "Quality update deferral period",
+      "Feature update deferral period (in giorni)",
+      "Delivery Optimization",
+      "Active hours (ore di attivita')"
+    ],
+    "correct": [1],
+    "explanation": "Il periodo di differimento degli aggiornamenti delle funzionalita' (Feature update deferral period) ritarda l'offerta dei feature update del numero di giorni impostato, permettendo di scaglionare la distribuzione tra gli anelli.",
+    "why_wrong": {
+      "0": "Il quality update deferral period ritarda gli aggiornamenti qualitativi (patch mensili di sicurezza/affidabilita'), non i feature update.",
+      "2": "Delivery Optimization ottimizza la larghezza di banda per il download da peer/cache, non ritarda l'installazione.",
+      "3": "Le ore di attivita' impediscono il riavvio automatico durante l'orario lavorativo, ma non differiscono l'installazione dell'aggiornamento."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-009",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Intune"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Intune, quale tipo di assegnazione di un'app la installa automaticamente e obbligatoriamente sui dispositivi del gruppo di destinazione?",
+    "options": [
+      "Available for enrolled devices",
+      "Required",
+      "Uninstall",
+      "Available with or without enrollment"
+    ],
+    "correct": [1],
+    "explanation": "L'assegnazione 'Required' (Obbligatoria) forza l'installazione dell'app sui dispositivi o utenti del gruppo assegnato, senza che l'utente debba avviarla dal Company Portal.",
+    "why_wrong": {
+      "0": "'Available for enrolled devices' rende l'app disponibile nel Company Portal per l'installazione volontaria da parte dell'utente, non forzata.",
+      "2": "'Uninstall' rimuove l'app dai dispositivi assegnati, non la installa.",
+      "3": "'Available with or without enrollment' offre l'app anche a dispositivi non iscritti, ma resta un'installazione facoltativa."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-010",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Autopilot"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali due condizioni/requisiti sono necessari perche' un dispositivo Windows possa essere distribuito tramite Windows Autopilot? (Seleziona 2)",
+    "options": [
+      "Il dispositivo deve essere registrato con il suo hardware hash nel servizio Autopilot",
+      "Il dispositivo deve avere una connessione a Internet durante l'OOBE",
+      "Il dispositivo deve avere gia' Microsoft Office preinstallato",
+      "Il dispositivo deve essere gia' aggiunto a un dominio Active Directory locale"
+    ],
+    "correct": [1, 0],
+    "explanation": "Autopilot richiede che il dispositivo sia registrato nel servizio (tramite hardware hash caricato da OEM/partner o manualmente) e che disponga di connettivita' Internet durante l'esperienza OOBE per contattare i servizi Entra ID/Intune e applicare il profilo.",
+    "why_wrong": {
+      "2": "La preinstallazione di Office non e' un requisito: le app vengono distribuite tramite Intune dopo l'iscrizione.",
+      "3": "Autopilot non richiede un preesistente join ad AD locale; supporta Entra join e, con connettori dedicati, Hybrid Entra join, ma il dispositivo parte tipicamente da uno stato OOBE."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-011",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Compliance"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali due delle seguenti sono impostazioni tipiche configurabili in una policy di conformita' di Intune per Windows? (Seleziona 2)",
+    "options": [
+      "Richiedere BitLocker abilitato",
+      "Impostare la versione minima del sistema operativo",
+      "Assegnare licenze Microsoft 365 agli utenti",
+      "Creare un anello di aggiornamento delle funzionalita'"
+    ],
+    "correct": [1, 0],
+    "explanation": "Le policy di conformita' per Windows permettono di verificare lo stato di sicurezza del dispositivo, ad esempio esigere BitLocker attivo e imporre una versione minima (e/o massima) del sistema operativo.",
+    "why_wrong": {
+      "2": "L'assegnazione di licenze M365 avviene in Entra ID / Microsoft 365 admin center, non nelle policy di conformita'.",
+      "3": "La creazione degli anelli di aggiornamento e' una funzione di Windows Update for Business, non un'impostazione di conformita'."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-012",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Entra ID"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo alle modalita' con cui un dispositivo Windows puo' essere collegato a Microsoft Entra ID, quali due affermazioni sono corrette? (Seleziona 2)",
+    "options": [
+      "Microsoft Entra join collega il dispositivo esclusivamente al cloud e supporta la gestione tramite Intune",
+      "Microsoft Entra registered (Registrazione dispositivo) e' tipico degli scenari BYOD in cui il dispositivo mantiene l'account locale/personale",
+      "Microsoft Entra join richiede sempre un domain controller Active Directory locale",
+      "Microsoft Entra registered promuove automaticamente l'utente ad amministratore globale del tenant"
+    ],
+    "correct": [1, 0],
+    "explanation": "Con Entra join il dispositivo e' aggiunto solo al cloud ed e' gestibile tramite Intune/MDM. Con Entra registered (registrazione) il dispositivo, tipico del BYOD, resta legato al proprio account principale (locale o Microsoft) e ottiene accesso alle risorse aziendali con un'identita' registrata.",
+    "why_wrong": {
+      "2": "Entra join NON richiede un controller di dominio locale; e' proprio lo scenario cloud-only (l'Hybrid join, diverso, richiede AD locale).",
+      "3": "La registrazione del dispositivo non conferisce alcun ruolo amministrativo, tantomeno Global Administrator."
+    },
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-013",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Gestione dispositivi"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Quando piu' profili di configurazione di Intune impostano lo stesso valore in modo contrastante su uno stesso dispositivo, si genera un conflitto e l'impostazione in conflitto non viene applicata finche' non e' risolta.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Se due o piu' profili applicano valori diversi alla medesima impostazione, Intune segnala un conflitto (stato 'Conflict') e quella specifica impostazione non viene applicata finche' l'amministratore non allinea i profili. Le altre impostazioni non in conflitto vengono comunque applicate.",
+    "why_wrong": {},
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-014",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Windows Update"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Le Feature Update policy di Intune consentono di fissare i dispositivi a una versione specifica di Windows (es. 22H2), impedendo l'aggiornamento a una versione superiore finche' la policy non viene modificata.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Le Feature updates for Windows 10 and later (Feature Update policy) permettono di bloccare i dispositivi su una versione di funzionalita' target; i dispositivi non passano a una versione piu' recente finche' non si aggiorna o rimuove la policy, utile per controllare la cadenza degli aggiornamenti di funzionalita'.",
+    "why_wrong": {},
+    "source": "Microsoft MD-102"
+  },
+  {
+    "id": "md3-015",
+    "cert": ["Microsoft MD-102"],
+    "topics": ["Enrollment"],
+    "type": "truefalse",
+    "difficulty": 3,
+    "question": "L'Enrollment Status Page (ESP) di Windows Autopilot puo' bloccare l'uso del dispositivo finche' app e profili critici non sono stati installati durante il provisioning.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. La Enrollment Status Page mostra l'avanzamento del provisioning e puo' essere configurata per impedire l'accesso al desktop finche' non sono completate le fasi di configurazione, incluse le app e i profili bloccanti definiti dall'amministratore.",
+    "why_wrong": {},
+    "source": "Microsoft MD-102"
+  }
+]

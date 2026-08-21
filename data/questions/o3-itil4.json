@@ -1,0 +1,308 @@
+[
+  {
+    "id": "itil3-001",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Quattro dimensioni"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un team introduce un nuovo strumento di automazione ma trascura la formazione del personale, i contratti con i fornitori e la ridefinizione dei flussi di lavoro. Quale rischio delle 'quattro dimensioni della gestione dei servizi' sta correndo?",
+    "options": [
+      "Sta ottimizzando correttamente perche' la tecnologia e' la dimensione piu' importante",
+      "Sta creando un punto cieco perche' le quattro dimensioni vanno considerate tutte insieme per ogni servizio",
+      "Sta seguendo la Service Value Chain al posto delle dimensioni",
+      "Sta applicando il principio guida 'Ottimizza e automatizza'"
+    ],
+    "correct": [1],
+    "explanation": "Le quattro dimensioni (Organizzazioni e persone; Informazioni e tecnologia; Partner e fornitori; Flussi di valore e processi) devono essere bilanciate e considerate congiuntamente per ogni servizio; trascurarne alcune produce servizi meno efficaci o inefficienti.",
+    "why_wrong": {
+      "0": "Nessuna dimensione e' 'la piu' importante': trascurare persone, fornitori e processi degrada il servizio anche con ottima tecnologia.",
+      "2": "La Service Value Chain e' un altro componente dell'SVS, non sostituisce le quattro dimensioni.",
+      "3": "Il principio 'Ottimizza e automatizza' non giustifica ignorare tre dimensioni su quattro."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-002",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Principi guida"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Prima di riprogettare da zero un processo, un consulente raccoglie e misura lo stato attuale invece di affidarsi a supposizioni. Quale principio guida sta applicando?",
+    "options": [
+      "Concentrati sul valore",
+      "Parti da dove sei (Start where you are)",
+      "Mantieni la semplicita' e la praticita'",
+      "Collabora e promuovi la visibilita'"
+    ],
+    "correct": [1],
+    "explanation": "'Parti da dove sei' invita a valutare oggettivamente lo stato corrente riutilizzando cio' che gia' esiste e basandosi su misurazioni reali, non su supposizioni, prima di decidere cosa cambiare.",
+    "why_wrong": {
+      "0": "'Concentrati sul valore' riguarda tenere il valore per il consumatore al centro, non la valutazione dello stato attuale.",
+      "2": "'Mantieni la semplicita'' riguarda eliminare passaggi inutili, non l'osservazione dello stato di partenza.",
+      "3": "'Collabora e promuovi la visibilita'' riguarda il coinvolgimento delle parti e la trasparenza, non la misurazione dell'esistente."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-003",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Pratiche ITIL", "Change Enablement"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Una modifica a basso rischio, pre-autorizzata e ripetibile, che segue una procedura consolidata senza bisogno di nuova valutazione del rischio, e' classificata come:",
+    "options": [
+      "Modifica normale (normal change)",
+      "Modifica di emergenza (emergency change)",
+      "Modifica standard (standard change)",
+      "Modifica maggiore (major change)"
+    ],
+    "correct": [2],
+    "explanation": "Le modifiche standard sono a basso rischio, pre-autorizzate e seguono una procedura documentata; l'autorizzazione e' concessa in anticipo, quindi non richiede una nuova valutazione a ogni esecuzione.",
+    "why_wrong": {
+      "0": "Le modifiche normali richiedono valutazione e autorizzazione secondo lo schema di autorita' prima di procedere.",
+      "1": "Le modifiche di emergenza vanno implementate il prima possibile, spesso per risolvere un incidente, con iter accelerato.",
+      "3": "'Modifica maggiore' non e' una delle tre categorie di Change Enablement in ITIL 4."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-004",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Pratiche ITIL", "Incident Management"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual e' lo scopo principale della pratica di gestione degli incidenti (Incident Management)?",
+    "options": [
+      "Identificare le cause profonde per evitare il ripetersi degli incidenti",
+      "Minimizzare l'impatto negativo degli incidenti ripristinando il normale funzionamento del servizio il piu' rapidamente possibile",
+      "Gestire tutte le richieste utente predefinite mantenendo la qualita' concordata",
+      "Massimizzare il numero di modifiche di successo"
+    ],
+    "correct": [1],
+    "explanation": "L'Incident Management mira a minimizzare l'impatto negativo degli incidenti ripristinando il normale funzionamento del servizio il piu' velocemente possibile.",
+    "why_wrong": {
+      "0": "L'identificazione delle cause profonde e' scopo del Problem Management, non dell'Incident Management.",
+      "2": "La gestione delle richieste utente predefinite e' compito del Service Request Management.",
+      "3": "Massimizzare le modifiche di successo e' lo scopo del Change Enablement."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-005",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Value Chain"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale attivita' della Service Value Chain si occupa di comprendere le esigenze delle parti interessate, garantire trasparenza e mantenere buone relazioni con tutti gli stakeholder?",
+    "options": [
+      "Design e transizione (Design and transition)",
+      "Coinvolgi (Engage)",
+      "Eroga e supporta (Deliver and support)",
+      "Pianifica (Plan)"
+    ],
+    "correct": [1],
+    "explanation": "L'attivita' 'Coinvolgi' (Engage) fornisce una buona comprensione delle esigenze degli stakeholder, trasparenza, coinvolgimento continuo e buone relazioni con tutte le parti interessate.",
+    "why_wrong": {
+      "0": "'Design e transizione' assicura che prodotti e servizi soddisfino aspettative di qualita', costi e time-to-market.",
+      "2": "'Eroga e supporta' garantisce che i servizi siano forniti e supportati secondo specifiche e aspettative concordate.",
+      "3": "'Pianifica' assicura una comprensione condivisa di visione, stato attuale e direzione di miglioramento per tutte le dimensioni."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-006",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Value System"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel Service Value System (SVS), quale componente rappresenta i mezzi con cui l'organizzazione e' diretta e controllata?",
+    "options": [
+      "I principi guida",
+      "La governance",
+      "Il miglioramento continuo",
+      "Le pratiche"
+    ],
+    "correct": [1],
+    "explanation": "La governance e' il componente dell'SVS che rappresenta i mezzi con cui un'organizzazione viene diretta e controllata, orientando le attivita' verso obiettivi e conformita'.",
+    "why_wrong": {
+      "0": "I principi guida sono raccomandazioni che orientano l'organizzazione in ogni circostanza, non il meccanismo di direzione e controllo.",
+      "2": "Il miglioramento continuo e' l'attivita' ricorrente di allineamento a esigenze che cambiano, non la direzione e il controllo.",
+      "3": "Le pratiche sono insiemi di risorse organizzative per svolgere il lavoro, non il meccanismo di governance."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-007",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Pratiche ITIL", "Service Level Management"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Secondo la pratica di Service Level Management, quale delle seguenti e' una caratteristica di un SLA ben formulato?",
+    "options": [
+      "Basarsi esclusivamente su metriche tecniche interne come la percentuale di uptime del server",
+      "Definire obiettivi chiari, misurabili e legati ai risultati di business, evitando l'effetto 'anguria'",
+      "Essere concordato una tantum senza revisioni periodiche",
+      "Coprire solo la disponibilita', escludendo l'esperienza dell'utente"
+    ],
+    "correct": [1],
+    "explanation": "Un buon SLA definisce obiettivi chiari e misurabili collegati ai risultati di business e all'esperienza percepita; cosi' si evita l'effetto 'anguria' (verde all'esterno, rosso all'interno) in cui i target tecnici sono rispettati ma l'utente e' insoddisfatto.",
+    "why_wrong": {
+      "0": "Basarsi solo su metriche tecniche interne genera proprio l'effetto anguria, scollegando l'SLA dal valore percepito.",
+      "2": "Gli SLA vanno rivisti periodicamente per restare allineati alle esigenze di business che cambiano.",
+      "3": "Un buon SLA considera anche l'esperienza dell'utente e i risultati, non solo la disponibilita'."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-008",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Pratiche ITIL", "Miglioramento continuo"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel modello di miglioramento continuo in sette passi, quale domanda serve a definire lo stato futuro desiderato traducendolo in obiettivi misurabili?",
+    "options": [
+      "Qual e' la visione?",
+      "Dove vogliamo essere?",
+      "Dove siamo ora?",
+      "Come manteniamo lo slancio?"
+    ],
+    "correct": [1],
+    "explanation": "'Dove vogliamo essere?' definisce gli obiettivi target dell'iniziativa di miglioramento, traducendo la visione in risultati misurabili (target condition).",
+    "why_wrong": {
+      "0": "'Qual e' la visione?' fissa gli obiettivi di lungo periodo e il contesto, non gli obiettivi misurabili dello stato futuro dell'iniziativa.",
+      "2": "'Dove siamo ora?' riguarda la misurazione oggettiva del punto di partenza (baseline).",
+      "3": "'Come manteniamo lo slancio?' riguarda il consolidamento dei risultati dopo l'azione, non la definizione del target."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-009",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Pratiche ITIL", "Service Desk"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale affermazione descrive meglio il ruolo del Service Desk in ITIL 4?",
+    "options": [
+      "E' l'unita' tecnica che esegue l'analisi delle cause profonde degli incidenti maggiori",
+      "E' il punto di contatto tra il fornitore di servizi e gli utenti, che cattura la domanda di risoluzione incidenti e di richieste di servizio",
+      "E' l'organo di autorizzazione delle modifiche (change authority)",
+      "E' la pratica che negozia e monitora gli SLA con il business"
+    ],
+    "correct": [1],
+    "explanation": "Il Service Desk e' il punto di contatto tra il service provider e gli utenti; il suo scopo e' catturare la domanda di risoluzione incidenti e di richieste di servizio, oltre a fungere da punto di ingaggio empatico e visibile.",
+    "why_wrong": {
+      "0": "L'analisi delle cause profonde e' del Problem Management; il Service Desk raccoglie e smista la domanda.",
+      "2": "L'autorizzazione delle modifiche spetta alla change authority nel Change Enablement.",
+      "3": "La negoziazione e il monitoraggio degli SLA competono al Service Level Management."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-010",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Service Value System", "Concetti chiave"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE affermazioni sui concetti di utilita' (utility) e garanzia (warranty) sono corrette?",
+    "options": [
+      "L'utilita' e' 'idoneita' allo scopo' (fit for purpose) e riguarda cio' che il servizio fa",
+      "La garanzia e' 'idoneita' all'uso' (fit for use) e riguarda come il servizio si comporta (disponibilita', capacita', sicurezza, continuita')",
+      "Un servizio crea valore anche con la sola utilita', senza alcuna garanzia adeguata",
+      "Utilita' e garanzia sono sinonimi e si possono usare in modo intercambiabile"
+    ],
+    "correct": [0, 1],
+    "explanation": "L'utilita' e' l'idoneita' allo scopo (cosa fa il servizio, la funzionalita'); la garanzia e' l'idoneita' all'uso (come si comporta: disponibilita', capacita', sicurezza, continuita'). Entrambe sono necessarie perche' il servizio generi valore.",
+    "why_wrong": {
+      "2": "Servono sia utilita' sia garanzia: un servizio utile ma inaffidabile non genera il valore atteso.",
+      "3": "Non sono sinonimi: descrivono aspetti distinti e complementari del valore di un servizio."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-011",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Pratiche ITIL", "Problem Management"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo alla pratica di Problem Management in ITIL 4, quali DUE affermazioni sono corrette?",
+    "options": [
+      "Un errore noto (known error) e' un problema di cui sono state analizzate cause e/o e' disponibile un workaround",
+      "Il suo scopo e' ridurre la probabilita' e l'impatto degli incidenti identificando cause reali e potenziali",
+      "Un problema e' identico a un incidente e va gestito con la stessa priorita' operativa",
+      "Il Problem Management non prevede l'uso di soluzioni temporanee (workaround)"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il Problem Management mira a ridurre probabilita' e impatto degli incidenti identificando cause reali e potenziali e gestendo workaround ed errori noti. Un errore noto e' un problema analizzato e/o dotato di workaround, documentato per accelerare future risoluzioni.",
+    "why_wrong": {
+      "2": "Un problema e' la causa (o potenziale causa) di uno o piu' incidenti; e' un concetto distinto dall'incidente e ha finalita' diverse.",
+      "3": "I workaround sono uno strumento chiave del Problem Management per ridurre l'impatto in attesa di una soluzione definitiva."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-012",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Principi guida"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE dei seguenti sono principi guida ufficiali di ITIL 4?",
+    "options": [
+      "Progredisci iterativamente con feedback",
+      "Pensa e lavora in modo olistico",
+      "Massimizza la documentazione a ogni passo",
+      "Centralizza sempre ogni decisione operativa"
+    ],
+    "correct": [0, 1],
+    "explanation": "Tra i sette principi guida figurano 'Progredisci iterativamente con feedback' e 'Pensa e lavora in modo olistico'. Gli altri sette sono: Concentrati sul valore, Parti da dove sei, Collabora e promuovi la visibilita', Mantieni la semplicita' e la praticita', Ottimizza e automatizza.",
+    "why_wrong": {
+      "2": "'Massimizza la documentazione' contraddice 'Mantieni la semplicita' e la praticita''; non e' un principio guida.",
+      "3": "'Centralizza sempre ogni decisione' non e' un principio guida ITIL 4 e contrasta con l'approccio contestuale dei principi."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-013",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Concetti chiave"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In ITIL 4 il valore e' co-creato attraverso una relazione attiva tra fornitore e consumatore, e non e' determinato unicamente dal fornitore.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "ITIL 4 supera l'idea che il valore sia consegnato dal solo fornitore: il valore e' co-creato tramite l'interazione tra fornitore e consumatore del servizio, con scambio attivo di risorse e informazioni.",
+    "why_wrong": {
+      "1": "E' errato: negare la co-creazione contraddice un concetto chiave di ITIL 4, secondo cui il valore nasce dalla relazione tra le parti."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-014",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Pratiche ITIL", "Monitoring and Event Management"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nella pratica di Monitoring and Event Management, un evento e' qualsiasi cambiamento di stato che ha un significato per la gestione di un servizio o di una sua componente.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Un evento e' un cambiamento di stato significativo per la gestione di un configuration item o servizio; la pratica osserva sistematicamente servizi e componenti e registra/riporta i cambiamenti di stato selezionati come eventi.",
+    "why_wrong": {
+      "1": "E' errato: la definizione data corrisponde esattamente a quella di 'evento' nella pratica di Monitoring and Event Management."
+    },
+    "source": "ITIL 4 Foundation"
+  },
+  {
+    "id": "itil3-015",
+    "cert": ["ITIL 4 Foundation"],
+    "topics": ["Miglioramento continuo", "Service Value Chain"],
+    "type": "truefalse",
+    "difficulty": 3,
+    "question": "Il miglioramento continuo e' contemporaneamente un componente dell'SVS, una pratica di gestione e un'attivita' ('Migliora') presente nella Service Value Chain.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Il miglioramento continuo compare a piu' livelli: e' uno dei componenti del Service Value System, e' una pratica ('Continual Improvement') ed e' anche l'attivita' 'Migliora' della Service Value Chain, a sottolinearne il carattere pervasivo.",
+    "why_wrong": {
+      "1": "E' errato: il miglioramento continuo e' effettivamente presente sia come componente SVS, sia come pratica, sia come attivita' della value chain."
+    },
+    "source": "ITIL 4 Foundation"
+  }
+]

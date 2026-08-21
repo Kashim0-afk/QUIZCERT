@@ -1,0 +1,248 @@
+[
+  {
+    "id": "nw3-001",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Port Scanning", "Firewall"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale scansione di nmap è pensata per mappare le regole di un firewall distinguendo le porte 'filtered' da quelle 'unfiltered', senza determinare se la porta è aperta o chiusa?",
+    "options": ["-sS (SYN scan)", "-sA (ACK scan)", "-sT (connect scan)", "-sV (version detection)"],
+    "correct": [1],
+    "explanation": "L'ACK scan (-sA) invia pacchetti con solo il flag ACK: se torna un RST la porta è classificata 'unfiltered' (il pacchetto è passato), se non arriva risposta o torna un errore ICMP è 'filtered'. Serve quindi a capire quali porte sono bloccate da un firewall stateful, non a stabilire se sono aperte.",
+    "why_wrong": {
+      "0": "-sS determina se una porta è aperta/chiusa/filtered tramite SYN, ma non è la tecnica specifica per mappare le regole del firewall distinguendo filtered/unfiltered.",
+      "2": "-sT completa il three-way handshake per stabilire lo stato aperto/chiuso, non classifica le porte come unfiltered.",
+      "3": "-sV interroga i servizi per identificarne versione e banner, non ha nulla a che vedere con la mappatura delle regole del firewall."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-002",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Port Scanning", "IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale template di timing di nmap è il più lento ed è usato per evadere IDS/IPS inviando i pacchetti in modo estremamente dilazionato?",
+    "options": ["-T0 (paranoid)", "-T3 (normal)", "-T4 (aggressive)", "-T5 (insane)"],
+    "correct": [0],
+    "explanation": "I template vanno da -T0 (paranoid) a -T5 (insane). -T0 è il più lento: serializza le sonde e introduce lunghe attese tra i pacchetti proprio per ridurre la probabilità di essere rilevati dagli IDS/IPS basati su soglia.",
+    "why_wrong": {
+      "1": "-T3 è il timing di default, un compromesso bilanciato, non il più lento.",
+      "2": "-T4 accelera la scansione assumendo una rete veloce e affidabile, aumentando anzi la rumorosità.",
+      "3": "-T5 è il più veloce e aggressivo, il massimo opposto rispetto all'evasione furtiva."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-003",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["TCP/IP", "Port Scanning"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Su cosa si basa principalmente il rilevamento del sistema operativo di nmap attivato con -O?",
+    "options": ["Sul banner testuale restituito dai servizi", "Sul fingerprinting delle risposte dello stack TCP/IP", "Sull'indirizzo MAC e il relativo OUI del vendor", "Sulla risoluzione DNS inversa dell'host"],
+    "correct": [1],
+    "explanation": "-O confronta le peculiarità delle risposte dello stack TCP/IP dell'host (TTL iniziale, dimensione della finestra, opzioni TCP, gestione di pacchetti anomali, sequence number) con il database nmap-os-db per stimare il sistema operativo.",
+    "why_wrong": {
+      "0": "L'analisi dei banner testuali appartiene alla version detection (-sV), non all'OS detection.",
+      "2": "L'OUI del MAC può suggerire il vendor della scheda ma è disponibile solo sulla stessa LAN e non è il meccanismo principale di -O.",
+      "3": "La risoluzione DNS inversa fornisce un hostname, non informazioni sullo stack e sul sistema operativo."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-004",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Port Scanning"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Con l'opzione -A, nmap abilita contemporaneamente diverse funzioni avanzate. Quale delle seguenti NON è inclusa in -A?",
+    "options": ["Rilevamento del sistema operativo (-O)", "Rilevamento di versione dei servizi (-sV)", "Esecuzione degli script NSE di default (-sC)", "Scansione di tutte le 65535 porte (-p-)"],
+    "correct": [3],
+    "explanation": "-A è un'opzione 'aggressiva' che raggruppa OS detection (-O), version detection (-sV), script scanning di default (-sC) e traceroute. Non modifica invece l'intervallo di porte scansionate: per scansionare tutte le porte serve comunque -p-.",
+    "why_wrong": {
+      "0": "L'OS detection (-O) è una delle componenti effettivamente attivate da -A.",
+      "1": "La version detection (-sV) è inclusa in -A.",
+      "2": "Lo script scanning di default (-sC) fa parte di -A."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-005",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Analisi del traffico", "TCP/IP"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale display filter di Wireshark isola i segmenti TCP che sono richieste di connessione iniziali (SYN puro, senza ACK)?",
+    "options": ["tcp.flags.syn == 1 && tcp.flags.ack == 0", "tcp.flags.syn == 1 && tcp.flags.ack == 1", "tcp.flags.reset == 1", "tcp.port == 0"],
+    "correct": [0],
+    "explanation": "Un SYN iniziale del client ha il bit SYN a 1 e il bit ACK a 0. Il filtro tcp.flags.syn == 1 && tcp.flags.ack == 0 isola esattamente questi pacchetti, utile per contare i tentativi di apertura connessione o individuare port scan.",
+    "why_wrong": {
+      "1": "Con syn==1 e ack==1 si selezionano i SYN-ACK di risposta del server, non le richieste iniziali del client.",
+      "2": "tcp.flags.reset == 1 filtra i pacchetti RST, cioè i reset della connessione, non i SYN.",
+      "3": "tcp.port == 0 è una condizione priva di senso pratico: la porta 0 è riservata e non identifica i SYN."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-006",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Analisi del traffico"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In Wireshark, qual è la differenza corretta tra un capture filter e un display filter?",
+    "options": ["Sono identici, cambia solo il nome del menu", "Il capture filter (sintassi BPF) decide quali pacchetti vengono registrati; il display filter filtra solo la visualizzazione dei pacchetti già catturati", "Il capture filter agisce sui pacchetti già salvati, il display filter sulla cattura live", "Entrambi usano la stessa sintassi di Wireshark (es. tcp.port == 80)"],
+    "correct": [1],
+    "explanation": "Il capture filter usa la sintassi BPF (es. 'tcp port 80') ed è applicato prima della registrazione: i pacchetti scartati non finiscono mai nel file. Il display filter usa la sintassi di Wireshark (es. 'tcp.port == 80') e nasconde/mostra pacchetti già catturati senza eliminarli.",
+    "why_wrong": {
+      "0": "Non sono identici: hanno scopi e sintassi diverse.",
+      "2": "È invertito: il capture filter agisce durante la cattura, il display filter sui pacchetti già registrati.",
+      "3": "Le sintassi sono diverse: BPF per la cattura, la sintassi Wireshark per la visualizzazione."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-007",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Analisi del traffico"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "A cosa serve la funzione 'Follow TCP Stream' di Wireshark?",
+    "options": ["A riordinare e ricomporre il payload applicativo scambiato in una singola connessione TCP", "A calcolare la latenza media dei pacchetti ICMP", "A decifrare automaticamente il traffico TLS senza chiavi", "A generare pacchetti SYN per una scansione"],
+    "correct": [0],
+    "explanation": "Follow TCP Stream ricostruisce il flusso bidirezionale di una connessione TCP riassemblando i segmenti nell'ordine corretto, mostrando il payload applicativo (es. una richiesta/risposta HTTP) in forma leggibile e applicando un filtro sul relativo tcp.stream.",
+    "why_wrong": {
+      "1": "Il calcolo della latenza ICMP non è la funzione di Follow TCP Stream; si usano altre statistiche.",
+      "2": "Senza le chiavi di sessione TLS Wireshark non può decifrare il traffico; Follow Stream mostrerebbe solo dati cifrati.",
+      "3": "La generazione di pacchetti non è compito di Wireshark, che è uno strumento di cattura/analisi passiva."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-008",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Port Scanning"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale opzione di nmap tenta di identificare nome e versione del servizio in ascolto su una porta aperta?",
+    "options": ["-sV", "-sn", "-sN", "-sL"],
+    "correct": [0],
+    "explanation": "-sV attiva la version detection: nmap invia sonde specifiche e confronta le risposte/banner con il database nmap-service-probes per determinare il servizio e la sua versione.",
+    "why_wrong": {
+      "1": "-sn esegue solo host discovery, senza scansionare le porte né i servizi.",
+      "2": "-sN è la NULL scan, una tecnica di scansione che non invia flag e non fa version detection.",
+      "3": "-sL è la List Scan: elenca gli host bersaglio (e prova la DNS inversa) senza inviare pacchetti agli host."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-009",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["ARP", "Analisi del traffico"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale segnalazione di Wireshark aiuta a individuare un possibile attacco di ARP poisoning (spoofing) sulla rete locale?",
+    "options": ["http.response.code == 404", "arp.duplicate-address-detected", "dns.flags.rcode != 0", "tcp.analysis.retransmission"],
+    "correct": [1],
+    "explanation": "Durante l'ARP poisoning uno stesso indirizzo IP viene associato a più indirizzi MAC diversi. Wireshark rileva questa incongruenza e la marca con l'expert info arp.duplicate-address-detected, un forte indicatore di spoofing ARP.",
+    "why_wrong": {
+      "0": "Un 404 HTTP è un errore applicativo web, del tutto estraneo all'ARP poisoning.",
+      "2": "Un rcode DNS diverso da zero indica un errore di risoluzione dei nomi, non un attacco al livello ARP.",
+      "3": "Le ritrasmissioni TCP segnalano problemi/perdite di rete generici e non sono specifiche dell'ARP spoofing."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-010",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Port Scanning", "TCP/IP"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti opzioni di nmap sono tecniche di host discovery (individuazione degli host attivi)? (seleziona 2)",
+    "options": ["-PS (TCP SYN ping)", "-sV (version detection)", "-PE (ICMP echo ping)", "-oX (output XML)"],
+    "correct": [0, 2],
+    "explanation": "-PS invia un TCP SYN a determinate porte per capire se l'host risponde, mentre -PE invia un ICMP echo request (ping classico): entrambe sono sonde di host discovery usate per stabilire quali host sono attivi prima della scansione delle porte.",
+    "why_wrong": {
+      "1": "-sV è la version detection dei servizi su porte aperte, non una tecnica di host discovery.",
+      "3": "-oX riguarda solo il formato di output (XML) dei risultati, non l'individuazione degli host."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-011",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["DNS", "Analisi del traffico"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali display filter di Wireshark permettono di isolare traffico DNS? (seleziona 2)",
+    "options": ["dns", "udp.port == 53", "http.request", "tcp.flags.reset == 1"],
+    "correct": [0, 1],
+    "explanation": "Il filtro 'dns' seleziona tutti i pacchetti riconosciuti come protocollo DNS (anche su TCP), mentre 'udp.port == 53' isola il traffico DNS che viaggia sulla porta UDP standard 53. Entrambi mostrano correttamente il traffico di risoluzione dei nomi.",
+    "why_wrong": {
+      "2": "http.request filtra le richieste HTTP, non il traffico DNS.",
+      "3": "tcp.flags.reset == 1 seleziona i reset TCP, del tutto estranei al DNS."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-012",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Port Scanning", "TCP/IP"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali affermazioni sulla NULL scan (-sN) di nmap sono corrette? (seleziona 2)",
+    "options": ["Non imposta alcun flag nell'header TCP", "Una porta chiusa risponde con un pacchetto RST", "Completa il three-way handshake come la connect scan", "È affidabile contro gli host Windows"],
+    "correct": [0, 1],
+    "explanation": "La NULL scan invia segmenti TCP con nessun flag impostato. Secondo la RFC 793 una porta chiusa risponde con RST, mentre una porta aperta o filtrata non risponde (stato open|filtered).",
+    "why_wrong": {
+      "2": "La NULL scan non completa alcun handshake: invia pacchetti anomali proprio per non instaurare una connessione regolare.",
+      "3": "Non è affidabile contro Windows, che non segue la RFC 793 e risponde con RST anche sulle porte aperte, rendendo i risultati inutilizzabili."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-013",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Analisi del traffico"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In Wireshark i capture filter usano la sintassi BPF (Berkeley Packet Filter), diversa dalla sintassi usata dai display filter.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "È vero: i capture filter adottano la sintassi BPF (es. 'host 10.0.0.1 and tcp port 80'), mentre i display filter usano la sintassi propria di Wireshark (es. 'ip.addr == 10.0.0.1 && tcp.port == 80'). Le due sintassi non sono intercambiabili.",
+    "why_wrong": {
+      "1": "È falso affermare che siano uguali: capture e display filter hanno sintassi e momenti di applicazione differenti."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-014",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Port Scanning", "Firewall"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "L'opzione -Pn di nmap salta la fase di host discovery e tratta tutti gli host bersaglio come attivi.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "È vero: -Pn disabilita l'host discovery e procede a scansionare tutti gli host indicati come se fossero online. È utile quando i ping sono bloccati da un firewall e gli host risulterebbero erroneamente spenti.",
+    "why_wrong": {
+      "1": "È falso il contrario: -Pn non esegue alcun ping sweep preliminare, proprio perché salta l'host discovery."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  },
+  {
+    "id": "nw3-015",
+    "cert": ["Nmap & Wireshark"],
+    "topics": ["Analisi del traffico"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "In Wireshark l'espressione 'tcp.port == 443' è un esempio di capture filter scritto in sintassi BPF.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "È falso: 'tcp.port == 443' è un display filter in sintassi Wireshark. Il capture filter BPF equivalente sarebbe 'tcp port 443' (senza punto e senza doppio uguale).",
+    "why_wrong": {
+      "0": "Non è vero: la notazione con il punto (tcp.port) e l'operatore == appartiene ai display filter, non alla sintassi BPF dei capture filter."
+    },
+    "source": "HACK/NMAP - WIRE.rtf"
+  }
+]
