@@ -1,0 +1,321 @@
+[
+  {
+    "id": "bc-001",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Hashing"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual è la proprietà fondamentale di una funzione di hash crittografica?",
+    "options": [
+      "È reversibile: dal digest si può ricalcolare l'input originale",
+      "È unidirezionale: dall'output (digest) è computazionalmente impraticabile risalire all'input",
+      "Produce un output di lunghezza variabile in base ai dati",
+      "Richiede una chiave segreta per essere calcolata"
+    ],
+    "correct": [1],
+    "explanation": "Una funzione di hash crittografica è one-way (unidirezionale): calcolare il digest dall'input è facile, ma invertire il processo per ottenere l'input dal digest è computazionalmente impraticabile.",
+    "why_wrong": {
+      "0": "Se fosse reversibile non sarebbe una funzione di hash sicura; l'irreversibilità è proprio la sua proprietà chiave.",
+      "2": "Al contrario, l'hash produce un output di lunghezza fissa (es. SHA-256 sempre 256 bit) indipendentemente dalla dimensione dell'input.",
+      "3": "L'hash non usa chiavi; è una funzione pubblica e deterministica. La chiave interviene nei MAC/HMAC, non nell'hash puro."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-002",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Nella crittografia simmetrica (es. AES), come vengono gestite le chiavi?",
+    "options": [
+      "Si usa la stessa chiave segreta sia per cifrare sia per decifrare",
+      "Si cifra con la chiave pubblica e si decifra con quella privata",
+      "Non è necessaria alcuna chiave, basta l'algoritmo",
+      "Ogni messaggio genera una coppia di chiavi diversa"
+    ],
+    "correct": [0],
+    "explanation": "Nella crittografia simmetrica la stessa chiave condivisa serve sia per cifrare sia per decifrare. È veloce ma richiede uno scambio sicuro preventivo della chiave.",
+    "why_wrong": {
+      "1": "Cifrare con chiave pubblica e decifrare con quella privata descrive la crittografia asimmetrica, non quella simmetrica.",
+      "2": "Ogni cifratura richiede una chiave; l'algoritmo (es. AES) è pubblico, è la chiave a garantire la segretezza.",
+      "3": "La generazione di coppie di chiavi appartiene alla crittografia asimmetrica; nel simmetrico si usa un'unica chiave condivisa."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-003",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Alice vuole inviare a Bob un messaggio riservato usando la crittografia asimmetrica. Con quale chiave deve cifrare il messaggio?",
+    "options": [
+      "Con la chiave privata di Alice",
+      "Con la chiave pubblica di Bob",
+      "Con la chiave privata di Bob",
+      "Con la chiave pubblica di Alice"
+    ],
+    "correct": [1],
+    "explanation": "Per garantire la riservatezza, Alice cifra con la chiave pubblica di Bob: solo Bob, con la propria chiave privata, potrà decifrare il messaggio.",
+    "why_wrong": {
+      "0": "Cifrare con la propria chiave privata serve a firmare (autenticità), non a rendere riservato il messaggio: chiunque potrebbe decifrarlo con la pubblica di Alice.",
+      "2": "Alice non possiede la chiave privata di Bob: è segreta e nota solo a lui.",
+      "3": "Cifrando con la pubblica di Alice, solo Alice potrebbe decifrare, non Bob."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-004",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Firma digitale"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Come viene creata una firma digitale su un documento?",
+    "options": [
+      "Cifrando l'hash del documento con la chiave privata del firmatario",
+      "Cifrando l'intero documento con la chiave pubblica del destinatario",
+      "Calcolando semplicemente l'hash del documento",
+      "Cifrando l'hash del documento con la chiave pubblica del firmatario"
+    ],
+    "correct": [0],
+    "explanation": "La firma digitale si genera calcolando l'hash del documento e cifrandolo con la chiave privata del firmatario. Chiunque può verificarla con la chiave pubblica corrispondente, ottenendo autenticità, integrità e non ripudio.",
+    "why_wrong": {
+      "1": "Cifrare con la pubblica del destinatario serve alla riservatezza, non a firmare; inoltre non lega il documento all'identità del firmatario.",
+      "2": "Il solo hash garantisce l'integrità ma non l'autenticità: non prova chi ha prodotto il documento perché chiunque può calcolarlo.",
+      "3": "Per firmare si usa la chiave privata (segreta) del firmatario, non quella pubblica; la pubblica serve solo alla verifica."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-005",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Hashing"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Vero o Falso: applicare una funzione di hash a un dato ne garantisce la riservatezza (confidenzialità).",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. L'hash garantisce l'integrità (rileva modifiche), non la riservatezza. Per proteggere la confidenzialità serve la cifratura. L'hash non è nemmeno destinato a essere decifrato.",
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-006",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["PKI"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In una PKI (Public Key Infrastructure), qual è il ruolo della Certification Authority (CA)?",
+    "options": [
+      "Generare e custodire le chiavi private di tutti gli utenti",
+      "Emettere e firmare certificati digitali che legano una chiave pubblica a un'identità",
+      "Cifrare tutto il traffico di rete tra gli utenti",
+      "Sostituire le password con codici usa e getta"
+    ],
+    "correct": [1],
+    "explanation": "La CA è l'autorità di fiducia che emette e firma i certificati digitali, garantendo il legame verificabile tra una chiave pubblica e l'identità del suo titolare.",
+    "why_wrong": {
+      "0": "Le chiavi private restano segrete presso il titolare: una CA affidabile non le custodisce né le genera per conto altrui.",
+      "2": "La CA non cifra il traffico; abilita la fiducia sui certificati che poi i protocolli (es. TLS) usano per stabilire canali cifrati.",
+      "3": "I codici usa e getta (OTP) riguardano l'autenticazione a più fattori, non la funzione di una CA."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-007",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Merkle Tree", "Blockchain"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "A cosa serve un Merkle tree (albero di Merkle) in un blocco della blockchain?",
+    "options": [
+      "A cifrare le transazioni con chiave simmetrica",
+      "A riassumere tutte le transazioni in un unico hash (Merkle root) e verificarne efficientemente l'inclusione",
+      "A ordinare i miner in base alla potenza di calcolo",
+      "A memorizzare le chiavi private degli utenti"
+    ],
+    "correct": [1],
+    "explanation": "Il Merkle tree combina gli hash delle transazioni a coppie fino a un unico hash radice (Merkle root). Permette di verificare in modo efficiente (log n) se una transazione è inclusa nel blocco senza scaricarle tutte.",
+    "why_wrong": {
+      "0": "Il Merkle tree usa funzioni di hash, non cifra le transazioni; non fornisce riservatezza.",
+      "2": "L'ordinamento dei miner non ha nulla a che vedere con il Merkle tree: è legato al meccanismo di consenso.",
+      "3": "Le chiavi private non vengono mai memorizzate nel blocco: risiedono nel wallet dell'utente."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-008",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Blockchain", "Consenso"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel meccanismo di consenso Proof of Work (PoW), cosa devono fare i miner per aggiungere un blocco?",
+    "options": [
+      "Depositare (mettere in staking) una quantità di criptovaluta come garanzia",
+      "Risolvere un problema computazionale trovando un nonce che produca un hash sotto una certa soglia (difficoltà)",
+      "Ottenere il voto della maggioranza degli utenti collegati",
+      "Farsi autorizzare da una autorità centrale"
+    ],
+    "correct": [1],
+    "explanation": "Nel PoW i miner cercano per tentativi un valore (nonce) tale che l'hash del blocco sia inferiore alla soglia di difficoltà. Questo lavoro richiede molta potenza di calcolo e rende costoso alterare la catena.",
+    "why_wrong": {
+      "0": "Depositare criptovaluta come garanzia descrive il Proof of Stake, non il Proof of Work.",
+      "2": "Il PoW non si basa su un voto degli utenti, ma sulla dimostrazione di lavoro computazionale svolto.",
+      "3": "La blockchain PoW è decentralizzata: non esiste un'autorità centrale che autorizza i blocchi."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-009",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Consenso"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual è la caratteristica distintiva del Proof of Stake (PoS) rispetto al Proof of Work?",
+    "options": [
+      "Il validatore viene scelto in base alla quantità di criptovaluta messa in stake, non alla potenza di calcolo",
+      "Richiede un consumo energetico molto maggiore del PoW",
+      "Elimina del tutto la necessità di chiavi crittografiche",
+      "Permette a chiunque di validare senza possedere alcun token"
+    ],
+    "correct": [0],
+    "explanation": "Nel PoS il diritto di validare i blocchi è assegnato in proporzione alla quantità di token bloccati in stake (e ad altri criteri), evitando la corsa alla potenza di calcolo del PoW e riducendo il consumo energetico.",
+    "why_wrong": {
+      "1": "È il contrario: il PoS consuma molta meno energia del PoW proprio perché non richiede calcoli intensivi.",
+      "2": "Il PoS continua a usare chiavi crittografiche per firmare transazioni e blocchi; non le elimina.",
+      "3": "Per validare in PoS occorre mettere in stake dei token: chi non ne possiede non può fare da validatore."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-010",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Hashing"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti sono proprietà desiderabili di una funzione di hash crittografica? (seleziona 2)",
+    "options": [
+      "Resistenza alle collisioni (difficile trovare due input con lo stesso digest)",
+      "Effetto valanga: un piccolo cambiamento nell'input cambia radicalmente l'output",
+      "Reversibilità semplice per recuperare l'input dal digest",
+      "Output di lunghezza proporzionale alla lunghezza dell'input"
+    ],
+    "correct": [0, 1],
+    "explanation": "Una buona funzione di hash è resistente alle collisioni e presenta l'effetto valanga: modificare anche un solo bit dell'input produce un digest completamente diverso. Queste proprietà la rendono adatta a verificare l'integrità.",
+    "why_wrong": {
+      "2": "La reversibilità è indesiderabile: una funzione di hash sicura deve essere unidirezionale, non invertibile.",
+      "3": "L'output ha lunghezza fissa (es. 256 bit) indipendentemente dalla dimensione dell'input, non proporzionale."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-011",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Firma digitale"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali garanzie fornisce una firma digitale valida? (seleziona 2)",
+    "options": [
+      "Autenticità e non ripudio del firmatario",
+      "Integrità del documento firmato",
+      "Riservatezza (confidenzialità) del contenuto del documento",
+      "Anonimato totale del firmatario"
+    ],
+    "correct": [0, 1],
+    "explanation": "La firma digitale garantisce autenticità e non ripudio (identifica il firmatario, che non può negare) e integrità (qualsiasi modifica invaliderebbe la firma). Non cifra il contenuto.",
+    "why_wrong": {
+      "2": "La firma non nasconde il contenuto: per la riservatezza serve la cifratura, che è un'operazione distinta.",
+      "3": "La firma fa esattamente l'opposto dell'anonimato: lega il documento all'identità verificabile del firmatario."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-012",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Crittografia", "Controllo accessi"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Vero o Falso: per far funzionare la crittografia asimmetrica è necessario condividere la propria chiave privata con l'interlocutore.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. La chiave privata deve rimanere segreta e non va mai condivisa. Si distribuisce soltanto la chiave pubblica; la sicurezza dell'intero sistema dipende dalla riservatezza della chiave privata.",
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-013",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Wallet"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un wallet di criptovaluta, cosa custodisce realmente l'utente?",
+    "options": [
+      "Le monete digitali fisicamente memorizzate nel dispositivo",
+      "Le chiavi private che autorizzano la spesa dei fondi registrati sulla blockchain",
+      "Una copia completa dell'intera blockchain",
+      "Il certificato emesso dalla banca centrale"
+    ],
+    "correct": [1],
+    "explanation": "Un wallet non contiene monete ma le chiavi private (e i relativi indirizzi). I fondi vivono sulla blockchain; la chiave privata è ciò che permette di firmare transazioni e quindi spendere.",
+    "why_wrong": {
+      "0": "Le monete non sono file nel dispositivo: sono voci contabili sulla blockchain; il wallet gestisce solo le chiavi.",
+      "2": "Un wallet ordinario non conserva l'intera blockchain; al più un nodo completo lo fa, ma non è il ruolo del wallet.",
+      "3": "Non esiste alcun certificato di banca centrale nelle criptovalute decentralizzate: il controllo è basato sulle chiavi."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-014",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Smart Contract", "Blockchain"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cos'è uno smart contract?",
+    "options": [
+      "Un contratto cartaceo digitalizzato e archiviato in cloud",
+      "Un programma eseguito sulla blockchain che applica automaticamente regole predefinite quando si verificano determinate condizioni",
+      "Un accordo verbale registrato da un notaio",
+      "Una chiave privata condivisa tra due parti contraenti"
+    ],
+    "correct": [1],
+    "explanation": "Uno smart contract è codice eseguibile registrato sulla blockchain: le sue regole si applicano automaticamente e in modo deterministico al verificarsi delle condizioni previste, senza bisogno di un intermediario di fiducia.",
+    "why_wrong": {
+      "0": "Non è la semplice digitalizzazione di un documento: è codice attivo che si esegue autonomamente sulla rete.",
+      "2": "Non ha nulla a che vedere con accordi verbali o notai: è software deterministico su blockchain.",
+      "3": "Uno smart contract non è una chiave; le chiavi servono a firmare le transazioni che lo invocano."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-015",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Blockchain", "Hashing"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Vero o Falso: ogni blocco della blockchain contiene l'hash del blocco precedente, e questo concatenamento rende difficile alterare i dati passati.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Ogni blocco include l'hash del precedente formando una catena. Modificare un blocco passato ne cambierebbe l'hash, invalidando tutti i blocchi successivi: è questo concatenamento a garantire l'immutabilità (tamper-evidence).",
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  },
+  {
+    "id": "bc-016",
+    "cert": ["Blockchain e Crittografia"],
+    "topics": ["Wallet", "Controllo accessi"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali sono buone pratiche di sicurezza per proteggere un wallet di criptovalute? (seleziona 2)",
+    "options": [
+      "Conservare offline la seed phrase (frase di recupero), lontano da dispositivi connessi",
+      "Usare un hardware wallet (cold wallet) per custodire le chiavi private",
+      "Salvare la chiave privata in chiaro in una email per non dimenticarla",
+      "Condividere la seed phrase con il supporto tecnico che la richiede via chat"
+    ],
+    "correct": [0, 1],
+    "explanation": "Conservare la seed phrase offline e usare un hardware wallet mantiene le chiavi private lontane da minacce online (malware, phishing), riducendo drasticamente il rischio di furto dei fondi.",
+    "why_wrong": {
+      "2": "Salvare la chiave privata in chiaro in una email la espone a chiunque comprometta l'account di posta: è una pratica gravemente insicura.",
+      "3": "Nessun supporto legittimo richiede mai la seed phrase: chi la chiede è un truffatore e chi la ottiene può svuotare il wallet."
+    },
+    "source": "HACK/Blockchain e Sicurezza.rtf"
+  }
+]

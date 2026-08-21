@@ -1,0 +1,349 @@
+[
+  {
+    "id": "pa-001",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["App-ID", "Firewall Policy"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale tecnologia del next-generation firewall di Palo Alto Networks identifica le applicazioni indipendentemente da porta, protocollo, cifratura SSL o tattiche evasive?",
+    "options": ["App-ID", "User-ID", "Content-ID", "GlobalProtect"],
+    "correct": [0],
+    "explanation": "App-ID classifica il traffico determinando l'esatta identita' dell'applicazione a livello 7, a prescindere dalla porta o dalla cifratura, permettendo policy basate sull'applicazione reale e non sul numero di porta.",
+    "why_wrong": {
+      "1": "User-ID mappa gli indirizzi IP alle identita' degli utenti, non identifica le applicazioni.",
+      "2": "Content-ID ispeziona i contenuti per minacce e dati, ma la classificazione dell'applicazione spetta ad App-ID.",
+      "3": "GlobalProtect e' l'agente VPN/endpoint per l'accesso remoto sicuro, non un motore di identificazione applicativa."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-002",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["User-ID", "Zero Trust"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e' la funzione principale di User-ID nel firewall di nuova generazione?",
+    "options": [
+      "Mappare gli indirizzi IP alle identita' di utenti e gruppi per applicare policy basate sull'utente",
+      "Decifrare il traffico SSL in ingresso e in uscita",
+      "Analizzare i file sconosciuti in una sandbox cloud",
+      "Assegnare dinamicamente indirizzi IP tramite DHCP"
+    ],
+    "correct": [0],
+    "explanation": "User-ID collega l'attivita' di rete a utenti e gruppi (via Active Directory, agenti, syslog, ecc.), consentendo di scrivere regole di sicurezza per identita' invece che per soli indirizzi IP, un pilastro dell'approccio Zero Trust.",
+    "why_wrong": {
+      "1": "La decifratura SSL e' gestita dalle policy di decryption, non da User-ID.",
+      "2": "L'analisi sandbox dei file sconosciuti e' compito di WildFire.",
+      "3": "L'assegnazione IP via DHCP e' una funzione di rete di base, non lo scopo di User-ID."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-003",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Threat e vulnerabilità", "IDS/IPS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa fornisce principalmente Content-ID nel next-generation firewall?",
+    "options": [
+      "Prevenzione delle minacce, filtraggio URL e blocco di file e dati sensibili nel traffico consentito",
+      "L'autenticazione a piu' fattori degli utenti",
+      "Il bilanciamento del carico tra piu' server web",
+      "La creazione di tunnel IPsec site-to-site"
+    ],
+    "correct": [0],
+    "explanation": "Content-ID ispeziona il contenuto del traffico gia' ammesso dalla policy per bloccare exploit, malware, URL pericolosi e prevenire l'esfiltrazione di file e dati, integrando IPS, antivirus, anti-spyware, URL filtering e file/data filtering.",
+    "why_wrong": {
+      "1": "L'autenticazione multifattore riguarda l'identita' (User-ID/MFA), non Content-ID.",
+      "2": "Il bilanciamento di carico non e' una funzione di Content-ID.",
+      "3": "I tunnel IPsec appartengono alle funzioni VPN del firewall, non a Content-ID."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-004",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Firewall Policy"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Nel firewall Palo Alto, qual e' il comportamento predefinito per il traffico tra due zone di sicurezza diverse (interzone) quando nessuna regola esplicita corrisponde?",
+    "options": [
+      "Viene bloccato dalla regola interzone-default",
+      "Viene consentito perche' intra e interzone sono aperte di default",
+      "Viene messo in coda finche' un amministratore non lo approva",
+      "Viene inoltrato senza ispezione applicativa"
+    ],
+    "correct": [0],
+    "explanation": "Per impostazione predefinita il traffico intrazone (stessa zona) e' consentito, mentre il traffico interzone (tra zone diverse) e' negato dalla regola implicita interzone-default: serve quindi una regola esplicita per permetterlo.",
+    "why_wrong": {
+      "1": "Solo l'intrazone e' consentita di default; l'interzone e' negata.",
+      "2": "Non esiste un meccanismo di coda/approvazione automatica per il traffico.",
+      "3": "Il traffico non viene inoltrato senza ispezione: se non c'e' regola che lo consenta, viene scartato."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-005",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Zero Trust"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale principio riassume meglio il modello di sicurezza Zero Trust?",
+    "options": [
+      "Non fidarsi mai in modo implicito e verificare sempre ogni accesso",
+      "Fidarsi di tutto cio' che si trova all'interno del perimetro di rete",
+      "Cifrare solo il traffico diretto verso Internet",
+      "Consentire pieno accesso agli utenti dopo il primo login"
+    ],
+    "correct": [0],
+    "explanation": "Zero Trust si basa sul principio 'never trust, always verify': ogni utente, dispositivo e flusso viene autenticato, autorizzato e verificato continuamente, applicando il privilegio minimo, senza fiducia implicita basata sulla posizione in rete.",
+    "why_wrong": {
+      "1": "Fidarsi del traffico interno e' esattamente il modello perimetrale che Zero Trust supera.",
+      "2": "Zero Trust riguarda la verifica continua degli accessi, non solo la cifratura verso Internet.",
+      "3": "Concedere accesso pieno dopo un singolo login viola il privilegio minimo e la verifica continua."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-006",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["SASE", "Cloud security"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa descrive il modello SASE (Secure Access Service Edge)?",
+    "options": [
+      "La convergenza di funzioni di rete (SD-WAN) e di sicurezza erogate dal cloud in un unico servizio",
+      "Un singolo firewall hardware installato nel data center centrale",
+      "Un protocollo di routing per reti geografiche",
+      "Un sistema antivirus tradizionale basato su firme locali"
+    ],
+    "correct": [0],
+    "explanation": "SASE unisce capacita' di rete (come SD-WAN) e di sicurezza (SWG, CASB, ZTNA, FWaaS) erogate dal cloud e vicine all'utente, per proteggere in modo uniforme utenti e sedi ovunque si trovino. In Palo Alto e' realizzato da Prisma SASE/Prisma Access.",
+    "why_wrong": {
+      "1": "SASE e' cloud-delivered e distribuito, non un singolo apparato hardware centrale.",
+      "2": "Non e' un protocollo di routing, ma un'architettura di rete e sicurezza convergente.",
+      "3": "Non e' un antivirus locale: eroga sicurezza dal cloud vicino all'utente."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-007",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["WildFire", "Threat e vulnerabilità"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e' lo scopo del servizio WildFire di Palo Alto Networks?",
+    "options": [
+      "Analizzare in una sandbox cloud i file e i link sconosciuti per rilevare malware zero-day e generare nuove protezioni",
+      "Gestire l'assegnazione delle licenze del firewall",
+      "Fornire connettivita' VPN agli utenti remoti",
+      "Tradurre gli indirizzi privati in indirizzi pubblici"
+    ],
+    "correct": [0],
+    "explanation": "WildFire e' il servizio di analisi malware basato sul cloud: detona ed esamina file e URL sconosciuti in un ambiente sandbox, classifica le minacce sconosciute e distribuisce automaticamente nuove firme di protezione a tutti i firewall abbonati.",
+    "why_wrong": {
+      "1": "La gestione delle licenze non e' compito di WildFire.",
+      "2": "La connettivita' VPN remota e' fornita da GlobalProtect.",
+      "3": "La traduzione degli indirizzi e' il NAT, non WildFire."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-008",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["SOAR", "SIEM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nell'ambito delle Security Operations, quale prodotto Palo Alto e' una piattaforma SOAR per orchestrare e automatizzare la risposta agli incidenti tramite playbook?",
+    "options": ["Cortex XSOAR", "PAN-OS", "GlobalProtect", "Panorama"],
+    "correct": [0],
+    "explanation": "Cortex XSOAR e' la piattaforma di Security Orchestration, Automation and Response (SOAR) che automatizza i processi del SOC tramite playbook, integrazioni e gestione centralizzata dei casi, riducendo i tempi di risposta.",
+    "why_wrong": {
+      "1": "PAN-OS e' il sistema operativo dei firewall Palo Alto, non una piattaforma SOAR.",
+      "2": "GlobalProtect e' l'agente VPN per l'accesso remoto sicuro.",
+      "3": "Panorama e' la console di gestione centralizzata dei firewall, non un SOAR."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-009",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Cloud security"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale soluzione Palo Alto e' una piattaforma di protezione delle applicazioni cloud-native (CNAPP) che protegge host, container e funzioni serverless su ambienti multicloud?",
+    "options": ["Prisma Cloud", "Cortex XDR", "AutoFocus", "Prisma Access"],
+    "correct": [0],
+    "explanation": "Prisma Cloud e' la piattaforma CNAPP che fornisce visibilita' e protezione su tutto il ciclo di vita cloud: posture management (CSPM), sicurezza dei workload (host, container, serverless), scansione IaC e protezione delle identita' su AWS, Azure e GCP.",
+    "why_wrong": {
+      "1": "Cortex XDR e' la piattaforma di rilevamento e risposta su endpoint/rete, non un CNAPP.",
+      "2": "AutoFocus e' un servizio di threat intelligence contestuale.",
+      "3": "Prisma Access eroga sicurezza SASE agli utenti/sedi, non e' la piattaforma di protezione dei workload cloud."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-010",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["NAT"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'azienda deve permettere ai PC della LAN interna (indirizzi privati) di navigare su Internet usando un unico indirizzo IP pubblico. Quale tipo di NAT e' piu' indicato?",
+    "options": [
+      "Source NAT con traduzione dinamica (PAT/hide NAT)",
+      "Destination NAT statico uno-a-uno",
+      "Nessun NAT, solo instradamento diretto",
+      "Destination NAT con port forwarding verso la LAN"
+    ],
+    "correct": [0],
+    "explanation": "Per il traffico in uscita si usa il Source NAT dinamico con overload di porta (PAT), che nasconde molti indirizzi privati dietro un singolo IP pubblico distinguendo le sessioni tramite le porte sorgente.",
+    "why_wrong": {
+      "1": "Il Destination NAT statico serve a esporre un servizio interno verso l'esterno, non a far uscire molti client.",
+      "2": "Senza NAT gli indirizzi privati non sono instradabili su Internet.",
+      "3": "Il port forwarding in Destination NAT pubblica servizi interni, non gestisce l'uscita degli host."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-011",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Difesa in profondità", "Firewall Policy"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Cosa indica il principio di 'difesa in profondita' (defense in depth) nella sicurezza di rete?",
+    "options": [
+      "Applicare piu' livelli di controlli di sicurezza cosi' che, se uno fallisce, gli altri continuino a proteggere",
+      "Affidarsi a un unico firewall perimetrale molto potente",
+      "Cifrare tutti i dati usando una sola chiave condivisa",
+      "Concedere agli amministratori il massimo livello di privilegio su tutto"
+    ],
+    "correct": [0],
+    "explanation": "La difesa in profondita' stratifica controlli diversi e complementari (segmentazione, firewall, IPS, endpoint, identita', monitoraggio) in modo che il fallimento o l'aggiramento di un singolo livello non comprometta l'intero sistema.",
+    "why_wrong": {
+      "1": "Un solo firewall e' un punto di fallimento unico, l'opposto della difesa a piu' livelli.",
+      "2": "Un'unica chiave condivisa e' una fragilita', non una strategia a strati.",
+      "3": "Concedere il massimo privilegio viola il privilegio minimo e aumenta il rischio."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-012",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["App-ID", "Firewall Policy"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE affermazioni su App-ID sono corrette?",
+    "options": [
+      "Identifica l'applicazione a prescindere dalla porta TCP/UDP utilizzata",
+      "Permette policy che consentono applicazioni specifiche bloccandone altre sulla stessa porta",
+      "Si basa esclusivamente sul numero di porta per classificare il traffico",
+      "Funziona solo con traffico in chiaro e non con sessioni cifrate"
+    ],
+    "correct": [0, 1],
+    "explanation": "App-ID determina l'identita' dell'applicazione a livello 7 indipendentemente dalla porta, permettendo di distinguere e controllare app diverse che condividono la stessa porta (es. consentire una web app e bloccarne un'altra su 443).",
+    "why_wrong": {
+      "2": "App-ID supera proprio la classificazione basata solo sulla porta, tipica dei firewall tradizionali.",
+      "3": "Con le policy di decryption App-ID identifica anche il traffico cifrato, non solo quello in chiaro."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-013",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Zero Trust"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE sono principi fondamentali del modello Zero Trust?",
+    "options": [
+      "Verificare esplicitamente ogni richiesta di accesso",
+      "Applicare il privilegio minimo (least privilege)",
+      "Considerare attendibile per default il traffico interno alla rete",
+      "Basare la sicurezza unicamente sul perimetro di rete"
+    ],
+    "correct": [0, 1],
+    "explanation": "Zero Trust si fonda su verifica esplicita e continua di ogni accesso e sull'accesso con privilegio minimo (unito all'assunzione di compromissione), eliminando la fiducia implicita legata alla posizione in rete.",
+    "why_wrong": {
+      "2": "La fiducia implicita nel traffico interno e' esattamente cio' che Zero Trust rifiuta.",
+      "3": "Zero Trust supera il modello a perimetro: la protezione segue utenti, dati e risorse ovunque."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-014",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Threat e vulnerabilità", "IDS/IPS"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali DUE funzioni fanno parte di Content-ID?",
+    "options": [
+      "Prevenzione delle minacce (IPS, anti-spyware, antivirus)",
+      "Filtraggio degli URL",
+      "Autenticazione a due fattori degli utenti",
+      "Bilanciamento del carico tra server applicativi"
+    ],
+    "correct": [0, 1],
+    "explanation": "Content-ID integra piu' motori di ispezione del contenuto: prevenzione delle minacce (IPS/anti-spyware/antivirus), URL filtering e file/data filtering, tutti applicati al traffico gia' consentito dalla policy.",
+    "why_wrong": {
+      "2": "L'autenticazione a due fattori riguarda l'identita', non il motore Content-ID.",
+      "3": "Il bilanciamento del carico non e' una funzione di Content-ID."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-015",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["SASE", "Cloud security"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali DUE componenti sono tipici di un'architettura SASE?",
+    "options": [
+      "SD-WAN per la connettivita' di rete",
+      "Zero Trust Network Access (ZTNA)",
+      "Un firewall hardware perimetrale dedicato in ogni filiale",
+      "Il cablaggio strutturato in fibra ottica"
+    ],
+    "correct": [0, 1],
+    "explanation": "SASE converge funzioni di rete e di sicurezza erogate dal cloud: include SD-WAN per la connettivita' e servizi di sicurezza come ZTNA, SWG, CASB e FWaaS, avvicinati all'utente ovunque si trovi.",
+    "why_wrong": {
+      "2": "SASE riduce la dipendenza da appliance hardware per sede erogando la sicurezza dal cloud.",
+      "3": "Il cablaggio in fibra e' infrastruttura fisica, non un componente logico dell'architettura SASE."
+    },
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-016",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["App-ID"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "App-ID richiede che ogni applicazione usi la propria porta standard per poter essere riconosciuta dal firewall.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso: App-ID identifica l'applicazione analizzando il traffico a livello 7 indipendentemente dalla porta usata, quindi riconosce anche app che girano su porte non standard o che tentano di evadere via port hopping.",
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-017",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["Zero Trust"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Nel modello Zero Trust la fiducia non e' mai implicita e ogni accesso deve essere verificato.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero: il principio guida di Zero Trust e' 'never trust, always verify'. Nessun utente o dispositivo e' considerato attendibile per default, e ogni accesso viene autenticato, autorizzato e verificato con il privilegio minimo.",
+    "source": "HACK/Palo Alto.rtf"
+  },
+  {
+    "id": "pa-018",
+    "cert": ["Palo Alto Networks"],
+    "topics": ["WildFire", "Threat e vulnerabilità"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "WildFire e' il servizio cloud di Palo Alto Networks che analizza file e link sconosciuti in una sandbox per rilevare malware zero-day e distribuire nuove protezioni.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero: WildFire detona i contenuti sconosciuti in un ambiente sandbox cloud, classifica le minacce mai viste prima e genera automaticamente nuove firme che vengono distribuite ai firewall abbonati, riducendo il tempo di esposizione.",
+    "source": "HACK/Palo Alto.rtf"
+  }
+]

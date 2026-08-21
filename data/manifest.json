@@ -1,1 +1,13 @@
-{ "files": ["questions/sample.json"] }
+{
+  "files": [
+    "questions/o1-ccna.json",
+    "questions/o1-crypto.json",
+    "questions/o1-forense.json",
+    "questions/o1-fortinet.json",
+    "questions/o1-google.json",
+    "questions/o1-ibm.json",
+    "questions/o1-microsoft.json",
+    "questions/o1-paloalto.json",
+    "questions/sample.json"
+  ]
+}

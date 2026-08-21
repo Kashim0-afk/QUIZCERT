@@ -1,0 +1,321 @@
+[
+  {
+    "id": "for-001",
+    "cert": ["Analisi Forense"],
+    "topics": ["Catena di custodia"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Qual e lo scopo principale della catena di custodia (chain of custody) in un'indagine forense?",
+    "options": [
+      "Accelerare l'acquisizione dell'immagine disco riducendo i tempi di copia",
+      "Documentare chi ha maneggiato la prova, quando e per quale motivo, garantendone l'integrita e l'ammissibilita",
+      "Cifrare i reperti in modo che solo l'analista possa aprirli",
+      "Comprimere le prove digitali per risparmiare spazio di archiviazione"
+    ],
+    "correct": [1],
+    "explanation": "La catena di custodia e la documentazione cronologica e continua che traccia ogni passaggio di mano, spostamento e accesso a un reperto. Serve a dimostrare in tribunale che la prova non e stata alterata e a garantirne l'ammissibilita legale.",
+    "why_wrong": {
+      "0": "La catena di custodia non ha nulla a che vedere con la velocita di copia: e un documento di tracciamento, non una procedura tecnica di acquisizione.",
+      "2": "La cifratura protegge la riservatezza, ma non e lo scopo della catena di custodia, che riguarda la tracciabilita e l'integrita documentata del reperto.",
+      "3": "La compressione altererebbe potenzialmente i dati e non c'entra con la finalita legale della catena di custodia."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-002",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Memory forensics"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Secondo l'ordine di volatilita (RFC 3227), quale tra le seguenti fonti di prova deve essere acquisita per prima?",
+    "options": [
+      "I file di log archiviati su un disco rigido",
+      "Il contenuto dei registri della CPU e della cache",
+      "I dati su supporti di backup off-line (nastri)",
+      "La configurazione fisica e la topologia di rete"
+    ],
+    "correct": [1],
+    "explanation": "L'ordine di volatilita impone di raccogliere prima cio che si perde piu rapidamente. Registri e cache della CPU sono gli elementi piu volatili in assoluto e vanno acquisiti per primi, prima di RAM, tabelle di routing, dischi e backup.",
+    "why_wrong": {
+      "0": "I log su disco sono relativamente persistenti e si collocano piu in basso nell'ordine di volatilita rispetto ai registri di CPU.",
+      "2": "I backup off-line sono tra i dati meno volatili: si acquisiscono per ultimi, non per primi.",
+      "3": "La topologia e la configurazione fisica sono considerate tra le informazioni meno volatili nell'RFC 3227."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-003",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Perche durante l'acquisizione di un'immagine disco si calcola un hash (MD5/SHA-256) prima e dopo la copia?",
+    "options": [
+      "Per cifrare l'immagine e impedire l'accesso a personale non autorizzato",
+      "Per comprimere l'immagine e ridurne le dimensioni sul supporto di destinazione",
+      "Per dimostrare l'integrita, verificando che l'immagine copiata sia identica bit per bit all'originale",
+      "Per recuperare i file cancellati non piu presenti nella tabella dei file"
+    ],
+    "correct": [2],
+    "explanation": "L'hash e un'impronta digitale del contenuto. Calcolarlo sull'originale e sulla copia e confrontarlo dimostra che l'immagine e una duplicazione fedele bit per bit e che non e stata alterata durante o dopo l'acquisizione.",
+    "why_wrong": {
+      "0": "Una funzione di hash non cifra nulla: e a senso unico e non permette di risalire ai dati; la riservatezza si ottiene con la cifratura, non con l'hashing.",
+      "1": "L'hashing non comprime i dati; produce un valore di lunghezza fissa che non contiene i dati originali.",
+      "3": "Il recupero di file cancellati e un'attivita di analisi separata e non dipende dal calcolo dell'hash di integrita."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-004",
+    "cert": ["Analisi Forense"],
+    "topics": ["Incident Response"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Secondo il ciclo di vita dell'incident response del NIST SP 800-61, qual e la corretta sequenza delle fasi principali?",
+    "options": [
+      "Contenimento, Preparazione, Rilevamento, Attivita post-incidente",
+      "Preparazione; Rilevamento e Analisi; Contenimento, Eradicazione e Ripristino; Attivita post-incidente",
+      "Rilevamento, Eradicazione, Preparazione, Contenimento",
+      "Preparazione, Ripristino, Contenimento, Rilevamento"
+    ],
+    "correct": [1],
+    "explanation": "Il NIST SP 800-61 definisce quattro fasi in sequenza: Preparazione; Rilevamento e Analisi; Contenimento, Eradicazione e Ripristino; Attivita post-incidente (lessons learned). Le fasi centrali possono iterare, ma la preparazione precede sempre e la lezione appresa chiude il ciclo.",
+    "why_wrong": {
+      "0": "La preparazione deve precedere il rilevamento e il contenimento: non si puo contenere un incidente prima di essersi preparati e averlo rilevato.",
+      "2": "L'eradicazione non puo avvenire prima della preparazione e del contenimento; l'ordine e tecnicamente scorretto.",
+      "3": "Il ripristino e il contenimento non possono precedere il rilevamento dell'incidente."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-005",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "A cosa serve un write blocker (bloccante di scrittura) durante l'acquisizione forense di un disco?",
+    "options": [
+      "A impedire qualsiasi scrittura sul dispositivo sorgente, preservandone l'integrita",
+      "A velocizzare la lettura del disco raddoppiando la banda del bus",
+      "A cifrare automaticamente il disco sorgente durante la copia",
+      "A cancellare in modo sicuro il disco di destinazione prima della copia"
+    ],
+    "correct": [0],
+    "explanation": "Il write blocker e un dispositivo hardware o software che consente la sola lettura del supporto sorgente, bloccando ogni comando di scrittura. Cosi si evita di modificare timestamp o dati e si preserva l'integrita della prova originale.",
+    "why_wrong": {
+      "1": "Il write blocker non ha la funzione di aumentare le prestazioni: il suo scopo e la protezione dalle scritture, non la velocita.",
+      "2": "Non cifra nulla; si limita a intercettare e bloccare i comandi di scrittura verso la sorgente.",
+      "3": "La cancellazione sicura del disco di destinazione (wiping) e un'operazione separata e non e cio che fa un write blocker."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-006",
+    "cert": ["Analisi Forense"],
+    "topics": ["Memory forensics"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale tipo di prova e possibile recuperare da un'acquisizione della memoria RAM ma tipicamente NON da un'immagine del disco spento?",
+    "options": [
+      "I metadati NTFS dei file presenti sul volume",
+      "Processi in esecuzione, connessioni di rete attive e chiavi di cifratura in chiaro",
+      "I file di log di sistema salvati su disco",
+      "Le voci del registro di sistema di Windows non caricate in memoria"
+    ],
+    "correct": [1],
+    "explanation": "La RAM contiene lo stato volatile del sistema: processi attivi, socket di rete aperti, contenuto decifrato, malware fileless e chiavi crittografiche in chiaro. Questi dati scompaiono allo spegnimento e non sono recuperabili da un disco statico.",
+    "why_wrong": {
+      "0": "I metadati NTFS risiedono sul disco e si recuperano dall'immagine del volume, non necessitano della RAM.",
+      "2": "I log salvati su disco sono dati persistenti, disponibili anche a sistema spento tramite l'immagine disco.",
+      "3": "Gli hive del registro sono file su disco: si analizzano dall'immagine disco anche senza acquisizione di memoria."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-007",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In ambito Windows, quale artefatto e piu utile per dimostrare l'esecuzione passata di un programma, incluso il numero di volte e l'ultimo avvio?",
+    "options": [
+      "I file di Prefetch nella cartella C:\\Windows\\Prefetch",
+      "Il file hosts in C:\\Windows\\System32\\drivers\\etc",
+      "La cartella Temp del profilo utente",
+      "Il file di paging pagefile.sys"
+    ],
+    "correct": [0],
+    "explanation": "I file Prefetch (.pf) sono creati da Windows per ottimizzare l'avvio dei programmi e registrano il nome dell'eseguibile, il numero di esecuzioni e i timestamp di ultima esecuzione, rendendoli una prova chiave dell'esecuzione (evidence of execution).",
+    "why_wrong": {
+      "1": "Il file hosts mappa nomi a indirizzi IP e non registra l'esecuzione dei programmi.",
+      "2": "La cartella Temp puo contenere residui, ma non traccia in modo strutturato conteggi ed esecuzioni come il Prefetch.",
+      "3": "Il pagefile puo contenere frammenti di memoria, ma non fornisce un registro strutturato di quante volte un programma e stato eseguito."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-008",
+    "cert": ["Analisi Forense"],
+    "topics": ["Linux"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Su un sistema Linux, quale file viene tipicamente esaminato per individuare tentativi di autenticazione SSH falliti e accessi sospetti?",
+    "options": [
+      "/etc/passwd",
+      "/var/log/auth.log (o /var/log/secure su distribuzioni RHEL)",
+      "/etc/fstab",
+      "/proc/cpuinfo"
+    ],
+    "correct": [1],
+    "explanation": "Su Debian/Ubuntu gli eventi di autenticazione, inclusi i login SSH riusciti e falliti e l'uso di sudo, sono registrati in /var/log/auth.log; su Red Hat/CentOS l'equivalente e /var/log/secure. E la fonte primaria per l'analisi degli accessi.",
+    "why_wrong": {
+      "0": "/etc/passwd elenca gli account del sistema ma non registra i tentativi di autenticazione.",
+      "2": "/etc/fstab descrive i mount point dei filesystem e non contiene log di accesso.",
+      "3": "/proc/cpuinfo espone informazioni sulla CPU e non ha alcuna relazione con l'autenticazione."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-009",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In una timeline forense, cosa indicano rispettivamente i timestamp MACB (o MACE) di un file system?",
+    "options": [
+      "Il nome del programma, l'autore, la cartella e il backup del file",
+      "Modifica del contenuto, Accesso, cambio dei metadati/MFT, e Creazione (Birth) del file",
+      "La dimensione minima, massima e media del file nel tempo",
+      "I permessi di lettura, scrittura ed esecuzione assegnati al file"
+    ],
+    "correct": [1],
+    "explanation": "MACB sta per Modified (ultima modifica del contenuto), Accessed (ultimo accesso), Changed (modifica dei metadati, es. voce MFT su NTFS o inode su Linux) e Birth/Created (creazione). Analizzarli permette di ricostruire la sequenza temporale degli eventi.",
+    "why_wrong": {
+      "0": "MACB non riguarda nome, autore o backup: sono attributi temporali del file system.",
+      "2": "I timestamp non descrivono le dimensioni del file, ma i momenti di eventi come modifica e accesso.",
+      "3": "I permessi rwx sono informazioni di controllo accessi, distinte dai timestamp MACB."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-010",
+    "cert": ["Analisi Forense"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nell'analisi malware di base, cosa distingue l'analisi statica dall'analisi dinamica?",
+    "options": [
+      "L'analisi statica esamina il campione senza eseguirlo, quella dinamica lo esegue in un ambiente controllato osservandone il comportamento",
+      "L'analisi statica richiede sempre di eseguire il malware, quella dinamica no",
+      "L'analisi statica funziona solo su Linux, quella dinamica solo su Windows",
+      "L'analisi statica e dinamica sono sinonimi e producono gli stessi identici risultati"
+    ],
+    "correct": [0],
+    "explanation": "L'analisi statica ispeziona il file senza eseguirlo (stringhe, hash, header PE, disassemblato), mentre l'analisi dinamica detona il campione in una sandbox isolata per osservare processi, modifiche al filesystem, chiavi di registro e traffico di rete generati.",
+    "why_wrong": {
+      "1": "E il contrario: la statica NON esegue il codice; l'esecuzione e propria dell'analisi dinamica.",
+      "2": "Entrambe le tecniche sono applicabili a piu piattaforme; la distinzione non e legata al sistema operativo.",
+      "3": "Non sono sinonimi: forniscono informazioni complementari e possono dare risultati diversi, specie con malware che rileva la sandbox."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-011",
+    "cert": ["Analisi Forense"],
+    "topics": ["Incident Response"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti attivita appartengono alla fase di Contenimento, Eradicazione e Ripristino del NIST SP 800-61? (seleziona 2)",
+    "options": [
+      "Isolare dalla rete i sistemi compromessi per limitare la propagazione",
+      "Redigere il documento di lezioni apprese (lessons learned) settimane dopo l'incidente",
+      "Rimuovere il malware e ripristinare i sistemi da backup integri e verificati",
+      "Definire in anticipo le procedure e formare il team prima che accada un incidente"
+    ],
+    "correct": [0, 2],
+    "explanation": "Il contenimento include l'isolamento dei sistemi colpiti per fermare la diffusione; l'eradicazione e il ripristino comprendono la rimozione del malware e il ritorno a uno stato operativo sicuro da backup verificati. Entrambe rientrano nella terza fase del ciclo.",
+    "why_wrong": {
+      "1": "La stesura delle lezioni apprese appartiene alla fase di Attivita post-incidente, non a Contenimento/Eradicazione/Ripristino.",
+      "3": "La definizione delle procedure e la formazione del team sono attivita della fase di Preparazione, che precede l'incidente."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-012",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Crittografia"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali affermazioni sulle funzioni di hash usate in forense (MD5, SHA-1, SHA-256) sono corrette? (seleziona 2)",
+    "options": [
+      "Una modifica anche di un solo bit del file produce un valore di hash completamente diverso (effetto valanga)",
+      "MD5 e SHA-1 sono considerati robusti contro le collisioni e sono raccomandati come uniche garanzie per nuovi progetti critici",
+      "Se due file hanno lo stesso valore hash forte, si considerano con altissima probabilita identici bit per bit",
+      "L'hash permette di risalire e ricostruire il contenuto originale del file a partire dal digest"
+    ],
+    "correct": [0, 2],
+    "explanation": "Le funzioni di hash crittografico presentano l'effetto valanga: un minimo cambiamento nell'input stravolge l'output. Inoltre, con un algoritmo forte, l'uguaglianza dei digest implica con probabilita altissima l'identita dei contenuti, per questo si usano a verifica dell'integrita.",
+    "why_wrong": {
+      "1": "MD5 e SHA-1 sono ormai vulnerabili ad attacchi di collisione dimostrati; per nuovi progetti si preferisce SHA-256. In forense MD5/SHA-1 si usano ancora per compatibilita, ma non come unica garanzia in contesti critici.",
+      "3": "L'hash e una funzione a senso unico: dal digest non e possibile ricostruire l'input originale."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-013",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense", "Memory forensics"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Applicando l'ordine di volatilita, quali fonti vanno acquisite PRIMA del contenuto di un disco rigido? (seleziona 2)",
+    "options": [
+      "Il contenuto della memoria RAM del sistema attivo",
+      "Le tabelle di routing, la cache ARP e le connessioni di rete attive",
+      "I file archiviati su un disco USB esterno collegato",
+      "I nastri di backup conservati in un armadio ignifugo"
+    ],
+    "correct": [0, 1],
+    "explanation": "Secondo l'RFC 3227, RAM e stato di rete (tabelle di routing, cache ARP, connessioni attive) sono altamente volatili e vanno raccolti prima dei dati su disco, che sono relativamente persistenti.",
+    "why_wrong": {
+      "2": "I file su disco USB sono dati persistenti allo stesso livello di volatilita dei dischi: non precedono il disco rigido nell'ordine.",
+      "3": "I nastri di backup off-line sono tra le fonti meno volatili in assoluto e si acquisiscono per ultimi."
+    },
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-014",
+    "cert": ["Analisi Forense"],
+    "topics": ["Analisi forense"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Vero o Falso: in un'indagine forense e buona pratica analizzare direttamente il disco originale sequestrato, evitando di lavorare su copie.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Il principio cardine e lavorare su una copia forense (immagine bit-a-bit) verificata tramite hash, preservando l'originale intatto. Analizzare l'originale rischia di alterarlo e ne compromette l'ammissibilita come prova.",
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-015",
+    "cert": ["Analisi Forense"],
+    "topics": ["Catena di custodia"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Vero o Falso: un'interruzione o una lacuna nella catena di custodia puo portare all'inammissibilita della prova digitale in tribunale.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Se non si puo dimostrare in modo continuo chi ha avuto accesso alla prova e che non e stata alterata, la difesa puo contestarne l'integrita e il giudice puo dichiararla inammissibile. La continuita della catena di custodia e essenziale.",
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  },
+  {
+    "id": "for-016",
+    "cert": ["Analisi Forense"],
+    "topics": ["Memory forensics", "Malware"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Vero o Falso: il malware fileless che risiede solo in memoria non lascia tracce recuperabili se si acquisisce la RAM prima di spegnere il sistema.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Proprio perche il malware fileless vive in memoria, l'acquisizione della RAM del sistema ancora acceso e il modo migliore per catturarne le tracce (processi iniettati, codice, connessioni). Le tracce vanno perse spegnendo il sistema, non acquisendo la memoria.",
+    "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
+  }
+]

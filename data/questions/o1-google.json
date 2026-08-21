@@ -1,0 +1,364 @@
+[
+  {
+    "id": "g-001",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Threat e vulnerabilità"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Nella triade CIA, cosa rappresenta la lettera 'I' (Integrity)?",
+    "options": [
+      "I dati sono accessibili solo alle persone autorizzate",
+      "I dati sono corretti, autentici e affidabili, non alterati in modo non autorizzato",
+      "I dati sono sempre disponibili quando servono",
+      "I dati sono cifrati durante la trasmissione"
+    ],
+    "correct": [1],
+    "explanation": "L'integrità (Integrity) garantisce che i dati siano corretti, autentici e affidabili e che non vengano modificati in modo non autorizzato durante archiviazione o trasmissione.",
+    "why_wrong": {
+      "0": "Questa e' la riservatezza (Confidentiality), non l'integrita'.",
+      "2": "Questa e' la disponibilita' (Availability), non l'integrita'.",
+      "3": "La cifratura e' un controllo che supporta la riservatezza; non definisce l'integrita'."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-002",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Gestione del rischio"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Il NIST Cybersecurity Framework (CSF) definisce cinque funzioni core. Quale sequenza le elenca correttamente?",
+    "options": [
+      "Identify, Protect, Detect, Respond, Recover",
+      "Plan, Build, Test, Deploy, Monitor",
+      "Prevent, Analyze, Contain, Eradicate, Report",
+      "Assess, Mitigate, Transfer, Accept, Avoid"
+    ],
+    "correct": [0],
+    "explanation": "Le cinque funzioni core del NIST CSF sono Identify, Protect, Detect, Respond e Recover: coprono l'intero ciclo di gestione del rischio di cybersecurity.",
+    "why_wrong": {
+      "1": "Sono fasi generiche di sviluppo software, non le funzioni del NIST CSF.",
+      "2": "Ricordano le fasi di incident response, ma non sono le funzioni del CSF.",
+      "3": "Sono strategie di trattamento del rischio, non le funzioni del NIST CSF."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-003",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Modello OSI"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "A quale livello del modello OSI opera principalmente un protocollo come TCP?",
+    "options": [
+      "Livello 2 - Data Link",
+      "Livello 3 - Rete (Network)",
+      "Livello 4 - Trasporto (Transport)",
+      "Livello 7 - Applicazione (Application)"
+    ],
+    "correct": [2],
+    "explanation": "TCP opera al livello 4 (Trasporto) del modello OSI, dove gestisce la consegna affidabile dei segmenti, il controllo di flusso e la sequenzializzazione dei dati.",
+    "why_wrong": {
+      "0": "Il livello 2 gestisce l'indirizzamento MAC e i frame, non i segmenti TCP.",
+      "1": "Il livello 3 gestisce l'indirizzamento IP e l'instradamento, non il trasporto affidabile.",
+      "3": "Il livello 7 ospita protocolli applicativi come HTTP e DNS, non TCP."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-004",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Firewall", "Difesa in profondità"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni sui firewall sono corrette? (Seleziona due)",
+    "options": [
+      "Un firewall stateful tiene traccia dello stato delle connessioni di rete attive",
+      "Un firewall filtra il traffico in base a regole definite su porte, protocolli e indirizzi",
+      "Un firewall cifra automaticamente tutto il traffico che lo attraversa",
+      "Un firewall sostituisce completamente la necessita' di un antivirus sugli endpoint"
+    ],
+    "correct": [0, 1],
+    "explanation": "Un firewall stateful mantiene una tabella dello stato delle connessioni per decidere quali pacchetti ammettere, e in generale i firewall filtrano il traffico applicando regole su porte, protocolli e indirizzi IP.",
+    "why_wrong": {
+      "2": "Un firewall non cifra il traffico; la cifratura e' compito di protocolli come TLS o di una VPN.",
+      "3": "Il firewall e' un livello di difesa perimetrale/di rete e non sostituisce la protezione antivirus sugli endpoint."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-005",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Linux"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In Linux, quale comando visualizza il contenuto di un file di testo, ad esempio un file di log, direttamente sul terminale?",
+    "options": [
+      "chmod",
+      "cat",
+      "mkdir",
+      "grep"
+    ],
+    "correct": [1],
+    "explanation": "Il comando 'cat' concatena e stampa il contenuto di uno o piu' file di testo sullo standard output, quindi e' usato per visualizzare rapidamente un file.",
+    "why_wrong": {
+      "0": "'chmod' modifica i permessi di file e directory, non ne mostra il contenuto.",
+      "2": "'mkdir' crea nuove directory.",
+      "3": "'grep' cerca un pattern all'interno di file, ma non mostra semplicemente l'intero contenuto."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-006",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Linux", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "In Linux, i permessi di un file sono 'rwxr-x---'. Cosa puo' fare il gruppo proprietario del file?",
+    "options": [
+      "Leggere, scrivere ed eseguire il file",
+      "Leggere ed eseguire il file, ma non scriverlo",
+      "Solo leggere il file",
+      "Nessun accesso al file"
+    ],
+    "correct": [1],
+    "explanation": "I permessi sono divisi in tre gruppi da tre: proprietario (rwx), gruppo (r-x) e altri (---). Il gruppo ha 'r-x', quindi puo' leggere ed eseguire il file ma non scriverlo.",
+    "why_wrong": {
+      "0": "'rwx' (lettura, scrittura, esecuzione) e' il permesso del proprietario, non del gruppo.",
+      "2": "'r--' sarebbe sola lettura; il gruppo ha invece anche il permesso di esecuzione (x).",
+      "3": "Nessun accesso ('---') e' il permesso assegnato agli 'altri', non al gruppo."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-007",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Python"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "In Python, l'indentazione (i rientri) e' significativa e serve a definire i blocchi di codice, ad esempio il corpo di un ciclo o di una funzione.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Python usa l'indentazione per delimitare i blocchi di codice: un'indentazione errata provoca errori di sintassi o cambia la logica del programma.",
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-008",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["SQL"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale clausola SQL si usa per filtrare le righe restituite da una query in base a una condizione?",
+    "options": [
+      "ORDER BY",
+      "WHERE",
+      "GROUP BY",
+      "SELECT"
+    ],
+    "correct": [1],
+    "explanation": "La clausola WHERE filtra le righe restituite da una query mantenendo solo quelle che soddisfano la condizione specificata, ad esempio 'WHERE username = 'admin''.",
+    "why_wrong": {
+      "0": "ORDER BY ordina i risultati, non li filtra.",
+      "2": "GROUP BY raggruppa le righe per aggregazioni, non filtra le singole righe (per filtrare gruppi si usa HAVING).",
+      "3": "SELECT specifica quali colonne restituire, non applica la condizione di filtro."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-009",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["SIEM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e' la funzione principale di uno strumento SIEM in un SOC?",
+    "options": [
+      "Cifrare i dati sui dischi degli endpoint",
+      "Raccogliere, aggregare e analizzare log ed eventi di sicurezza da piu' fonti per generare avvisi",
+      "Assegnare automaticamente gli indirizzi IP ai dispositivi della rete",
+      "Bloccare fisicamente le porte USB dei computer"
+    ],
+    "correct": [1],
+    "explanation": "Un SIEM (Security Information and Event Management) centralizza la raccolta e l'aggregazione di log ed eventi da fonti diverse, li correla e genera avvisi, dando agli analisti visibilita' sulle minacce.",
+    "why_wrong": {
+      "0": "La cifratura dei dischi e' compito di strumenti come BitLocker o LUKS, non di un SIEM.",
+      "2": "L'assegnazione automatica degli IP e' compito del DHCP.",
+      "3": "Il controllo delle porte USB e' una funzione di device control/endpoint, non del SIEM."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-010",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Incident Response"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel ciclo di incident response del NIST (SP 800-61), quale fase segue immediatamente la fase di 'Detection and Analysis'?",
+    "options": [
+      "Preparation",
+      "Containment, Eradication and Recovery",
+      "Post-Incident Activity",
+      "Risk Assessment"
+    ],
+    "correct": [1],
+    "explanation": "Il ciclo NIST prevede: Preparation, Detection and Analysis, Containment/Eradication/Recovery e infine Post-Incident Activity. Dopo aver rilevato e analizzato l'incidente si passa a contenerlo, eradicarlo e ripristinare i sistemi.",
+    "why_wrong": {
+      "0": "Preparation e' la prima fase, precede Detection and Analysis.",
+      "2": "Post-Incident Activity e' l'ultima fase, non segue immediatamente Detection and Analysis.",
+      "3": "Risk Assessment non e' una fase del ciclo di incident response del NIST."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-011",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["TCP/IP", "NAT"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e' lo scopo principale della NAT (Network Address Translation) su un router domestico?",
+    "options": [
+      "Tradurre i nomi di dominio in indirizzi IP",
+      "Consentire a piu' dispositivi con IP privati di condividere un unico IP pubblico verso Internet",
+      "Cifrare il traffico tra il router e i dispositivi interni",
+      "Assegnare dinamicamente gli indirizzi IP ai dispositivi della LAN"
+    ],
+    "correct": [1],
+    "explanation": "La NAT traduce gli indirizzi IP privati della rete interna in un unico (o pochi) IP pubblico, permettendo a piu' dispositivi di condividere lo stesso indirizzo pubblico per accedere a Internet.",
+    "why_wrong": {
+      "0": "La traduzione nome-IP e' compito del DNS, non della NAT.",
+      "2": "La NAT non cifra il traffico; la cifratura e' compito di protocolli come TLS o IPsec.",
+      "3": "L'assegnazione dinamica degli IP interni e' compito del DHCP, non della NAT."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-012",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Gestione del rischio"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Trasferire il rischio (ad esempio stipulando una polizza assicurativa cyber) e' una delle strategie valide di trattamento del rischio.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Le strategie classiche di trattamento del rischio sono accettare, evitare, mitigare e trasferire. Trasferire significa spostare l'impatto a terzi, ad esempio tramite un'assicurazione o un contratto.",
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-013",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Malware"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale tipo di malware cifra i file della vittima e chiede un pagamento per fornire la chiave di decifratura?",
+    "options": [
+      "Spyware",
+      "Ransomware",
+      "Adware",
+      "Rootkit"
+    ],
+    "correct": [1],
+    "explanation": "Il ransomware cifra i dati della vittima e richiede un riscatto (ransom), tipicamente in criptovaluta, in cambio della chiave di decifratura.",
+    "why_wrong": {
+      "0": "Lo spyware raccoglie di nascosto informazioni sulla vittima, non cifra i file per estorsione.",
+      "2": "L'adware mostra pubblicita' indesiderata, non cifra i file.",
+      "3": "Un rootkit nasconde la presenza dell'attaccante e mantiene l'accesso, non e' definito dalla cifratura a scopo di riscatto."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-014",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Controllo accessi"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali dei seguenti principi appartengono a un modello di controllo degli accessi sicuro? (Seleziona due)",
+    "options": [
+      "Principio del privilegio minimo (least privilege)",
+      "Separazione dei compiti (separation of duties)",
+      "Condivisione di un unico account amministrativo tra tutto il team",
+      "Concessione di permessi permanenti massimi per evitare richieste future"
+    ],
+    "correct": [0, 1],
+    "explanation": "Il privilegio minimo assegna a ciascun utente solo i permessi strettamente necessari, mentre la separazione dei compiti divide le responsabilita' critiche tra piu' persone per ridurre frodi ed errori: entrambi sono principi cardine del controllo degli accessi.",
+    "why_wrong": {
+      "2": "Condividere un unico account amministrativo elimina la tracciabilita' e viola i principi di accountability e least privilege.",
+      "3": "Concedere permessi massimi permanenti viola il privilegio minimo e amplia inutilmente la superficie di attacco."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-015",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["VPN", "Crittografia"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Qual e' il beneficio principale di una VPN quando ci si collega a una rete Wi-Fi pubblica non affidabile?",
+    "options": [
+      "Aumenta la velocita' della connessione Internet",
+      "Crea un tunnel cifrato che protegge la riservatezza del traffico dell'utente",
+      "Elimina la necessita' di autenticarsi ai servizi online",
+      "Blocca automaticamente tutto il malware in arrivo"
+    ],
+    "correct": [1],
+    "explanation": "Una VPN incapsula il traffico dell'utente in un tunnel cifrato: anche su una rete pubblica non affidabile, chi intercetta il traffico non riesce a leggerne il contenuto, proteggendo la riservatezza.",
+    "why_wrong": {
+      "0": "Una VPN in genere non aumenta la velocita'; puo' anzi introdurre un lieve overhead.",
+      "2": "La VPN non sostituisce l'autenticazione ai singoli servizi online.",
+      "3": "Una VPN cifra il traffico ma non e' un antimalware e non blocca da sola tutte le minacce."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-016",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["IDS/IPS"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Riguardo a IDS e IPS, quali affermazioni sono corrette? (Seleziona due)",
+    "options": [
+      "Un IDS monitora il traffico e genera avvisi sulle attivita' sospette, ma non le blocca",
+      "Un IPS e' posizionato in linea e puo' bloccare attivamente il traffico malevolo",
+      "Sia IDS sia IPS hanno come funzione principale la cifratura del traffico",
+      "Un IDS assegna gli indirizzi IP mentre un IPS li traduce con la NAT"
+    ],
+    "correct": [0, 1],
+    "explanation": "Un IDS (Intrusion Detection System) rileva le attivita' sospette e genera avvisi senza intervenire, mentre un IPS (Intrusion Prevention System) e' in linea e puo' bloccare o scartare attivamente il traffico malevolo.",
+    "why_wrong": {
+      "2": "Ne' IDS ne' IPS hanno come funzione la cifratura del traffico.",
+      "3": "L'assegnazione degli IP e' del DHCP e la traduzione della NAT, non di IDS/IPS."
+    },
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-017",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Difesa in profondità"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "La difesa in profondita' (defense in depth) consiste nell'affidarsi a un unico controllo di sicurezza molto robusto per proteggere l'intera organizzazione.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. La difesa in profondita' prevede piu' livelli di controlli di sicurezza sovrapposti (fisici, tecnici, amministrativi), cosi' che se un livello viene superato gli altri continuino a proteggere: non si basa su un solo controllo.",
+    "source": "HACK/Google Cybersecurity"
+  },
+  {
+    "id": "g-018",
+    "cert": ["Google Cybersecurity"],
+    "topics": ["Threat e vulnerabilità", "Crittografia"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Riguardo alle funzioni di hash crittografiche (come SHA-256), quali affermazioni sono corrette? (Seleziona due)",
+    "options": [
+      "Sono progettate per essere unidirezionali: dall'hash e' computazionalmente difficile risalire all'input",
+      "Producono un output di lunghezza fissa indipendentemente dalla dimensione dell'input",
+      "Permettono di recuperare facilmente il testo originale invertendo l'hash",
+      "Sono usate principalmente per cifrare i dati in modo che possano poi essere decifrati con una chiave"
+    ],
+    "correct": [0, 1],
+    "explanation": "Una funzione di hash crittografica e' unidirezionale (dall'hash non si risale praticamente all'input) e produce un digest di lunghezza fissa qualunque sia la dimensione dell'input, proprieta' utili per verificare l'integrita' e memorizzare le password.",
+    "why_wrong": {
+      "2": "L'hashing e' unidirezionale: non e' progettato per recuperare il testo originale.",
+      "3": "L'hashing non e' cifratura reversibile; non prevede una chiave per 'decifrare' e ottenere di nuovo il dato in chiaro."
+    },
+    "source": "HACK/Google Cybersecurity"
+  }
+]

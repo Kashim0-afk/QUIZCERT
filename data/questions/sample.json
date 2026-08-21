@@ -1,7 +1,7 @@
 [
   {
     "id": "sc900-identity-001",
-    "cert": ["SC-900"],
+    "cert": ["Microsoft SC-900"],
     "topics": ["Identity", "Zero Trust"],
     "type": "single",
     "difficulty": 1,
