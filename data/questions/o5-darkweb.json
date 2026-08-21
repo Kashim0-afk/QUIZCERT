@@ -81,7 +81,7 @@
     "correct": [1],
     "explanation": "Negli hidden service v3 l'indirizzo .onion e ricavato dalla chiave pubblica Ed25519 del servizio. Questo lega l'indirizzo all'identita crittografica: chi si connette puo verificare di parlare davvero con il possessore della chiave corrispondente, senza bisogno di un'autorita di certificazione esterna. I v3 (56 caratteri) hanno sostituito i vecchi v2 (16 caratteri) proprio per crittografia piu robusta.",
     "why_wrong": {
-      "0": "I .onion non sono domdomini ICANN e non esistono nel DNS pubblico; sono risolti solo dentro la rete Tor.",
+      "0": "I .onion non sono domini ICANN e non esistono nel DNS pubblico; sono risolti solo dentro la rete Tor.",
       "2": "Non e un IP privato dietro NAT: e una stringa derivata da una chiave pubblica.",
       "3": "Non e un hash MD5 di un nome arbitrario; deriva dalla chiave pubblica del servizio (Ed25519)."
     },

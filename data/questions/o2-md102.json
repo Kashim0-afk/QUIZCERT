@@ -22,7 +22,7 @@
     "options": ["Distribuire applicazioni ai dispositivi gestiti", "Valutare lo stato del dispositivo rispetto a regole definite e segnalarlo come conforme o non conforme", "Imporre impostazioni di configurazione come le regole del firewall", "Cifrare il disco del dispositivo con BitLocker"],
     "correct": [1],
     "explanation": "Una compliance policy valuta lo stato di un dispositivo (es. versione OS minima, cifratura attiva, richiesta di password) e ne determina lo stato di conformità. Questo stato può poi essere usato come segnale, ad esempio dal Conditional Access, per consentire o bloccare l'accesso.",
-    "why_wrong": {"0": "La distribuzione di app avviene tramite i criteri di gestione app, non tramite compliance policy.", "2": "L'imposizione di impostazioni è compito dei configuration profile, non dei criteri di conformità che si limitano a valutare.", "3": "La cifablazione BitLocker si configura tramite un configuration profile di endpoint protection, non tramite una compliance policy."},
+    "why_wrong": {"0": "La distribuzione di app avviene tramite i criteri di gestione app, non tramite compliance policy.", "2": "L'imposizione di impostazioni è compito dei configuration profile, non dei criteri di conformità che si limitano a valutare.", "3": "La cifratura BitLocker si configura tramite un configuration profile di endpoint protection, non tramite una compliance policy."},
     "source": "Microsoft MD-102"
   },
   {
