@@ -324,15 +324,12 @@ function renderStudy(app) {
   const ambito = (app.scope.cert || 'Tutte le certificazioni') + ' · ' + (app.scope.topic || 'tutti gli argomenti');
 
   const items = pool.map((q, n) => {
+    const rispostaGiusta = q.correct.map(i => q.options[i]).join('  |  ');
     const parts = [
       el('p', { class: 'study-q' }, (n + 1) + '. ' + q.question),
+      el('p', { class: 'study-opt ok' }, '✓ ' + rispostaGiusta),
+      el('p', { class: 'study-exp' }, q.explanation),
     ];
-    q.options.forEach((opt, i) => {
-      const giusta = q.correct.includes(i);
-      parts.push(el('p', { class: giusta ? 'study-opt ok' : 'study-opt' },
-        (giusta ? '✓ ' : '• ') + opt));
-    });
-    parts.push(el('p', { class: 'study-exp' }, q.explanation));
     if (q.why_wrong) {
       for (const [idx, reason] of Object.entries(q.why_wrong)) {
         const oi = Number(idx);
