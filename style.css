@@ -179,3 +179,13 @@ select, input[type="file"] {
 
 .row { display: flex; gap: 10px; }
 .row .primary-btn { margin-top: 0; }
+
+/* studio */
+.study-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.study-item:first-child { border-top: none; padding-top: 0; }
+.study-q { font-weight: 600; margin: 0 0 8px; }
+.study-opt { margin: 3px 0; color: var(--muted); padding-left: 4px; }
+.study-opt.ok { color: var(--ok); font-weight: 600; }
+.study-exp { margin: 8px 0 0; padding: 8px 10px; background: var(--card2); border-left: 3px solid var(--accent); border-radius: 6px; }
+.study-wrong { margin: 4px 0 0; color: #fca5a5; font-size: 0.88rem; }
+.study-meta { margin: 6px 0 0; color: var(--muted); font-size: 0.75rem; }

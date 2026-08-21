@@ -91,7 +91,8 @@ function renderHome(app) {
       modeBtn('Allenamento', 'Domande in fila, feedback immediato', () => startPractice(app, 'practice')),
       modeBtn('Simulazione esame', 'A tempo, punteggio finale', () => renderExamConfig(app)),
       modeBtn('Ripasso errori', 'Solo le domande sbagliate', () => startPractice(app, 'review')),
-      modeBtn(doneToday ? 'Sfida giornaliera ✓' : 'Sfida giornaliera', doneToday ? 'Completata oggi' : 'Set del giorno', () => startDaily(app))),
+      modeBtn(doneToday ? 'Sfida giornaliera ✓' : 'Sfida giornaliera', doneToday ? 'Completata oggi' : 'Set del giorno', () => startDaily(app)),
+      modeBtn('Studio', 'Leggi domande e risposte', () => renderStudy(app))),
 
     el('button', { class: 'link-btn', onClick: () => renderStats(app) }, 'Statistiche'),
   );
@@ -310,6 +311,48 @@ async function finishExam(app, session) {
       el('h2', { class: passed ? 'verdict ok' : 'verdict ko' }, (passed ? 'SUPERATO' : 'NON superato') + ' — ' + correct + '/' + total + ' (' + pct + '%)'),
       el('p', { class: 'hint' }, 'Soglia: ' + PASS_THRESHOLD + '%')),
     el('div', { class: 'card' }, el('h2', {}, 'Revisione'), ...reviewList)));
+}
+
+// ---------- STUDIO (lettura domande + risposte) ----------
+function renderStudy(app) {
+  const pool = filterQuestions(app.questions, {
+    cert: app.scope.cert || undefined,
+    topic: app.scope.topic || undefined,
+    history: app.stats.history,
+  });
+
+  const ambito = (app.scope.cert || 'Tutte le certificazioni') + ' · ' + (app.scope.topic || 'tutti gli argomenti');
+
+  const items = pool.map((q, n) => {
+    const parts = [
+      el('p', { class: 'study-q' }, (n + 1) + '. ' + q.question),
+    ];
+    q.options.forEach((opt, i) => {
+      const giusta = q.correct.includes(i);
+      parts.push(el('p', { class: giusta ? 'study-opt ok' : 'study-opt' },
+        (giusta ? '✓ ' : '• ') + opt));
+    });
+    parts.push(el('p', { class: 'study-exp' }, q.explanation));
+    if (q.why_wrong) {
+      for (const [idx, reason] of Object.entries(q.why_wrong)) {
+        const oi = Number(idx);
+        if (!q.correct.includes(oi) && reason) {
+          parts.push(el('p', { class: 'study-wrong' }, '✗ "' + q.options[oi] + '": ' + reason));
+        }
+      }
+    }
+    parts.push(el('p', { class: 'study-meta' }, q.cert.join(', ') + ' · ' + q.topics.join(', ')));
+    return el('div', { class: 'study-item' }, ...parts);
+  });
+
+  app.root.replaceChildren(el('div', { class: 'screen' },
+    topBar(app, 'Studio', '', pool.length + ' domande'),
+    el('div', { class: 'card' },
+      el('h2', {}, 'Materiale di studio'),
+      el('p', { class: 'hint' }, 'Ambito: ' + ambito + '. Cambia certificazione o argomento dalla home per filtrare.')),
+    pool.length
+      ? el('div', { class: 'card study-list' }, ...items)
+      : el('div', { class: 'card' }, el('p', { class: 'hint' }, 'Nessuna domanda per questo ambito.'))));
 }
 
 // ---------- STATS ----------
