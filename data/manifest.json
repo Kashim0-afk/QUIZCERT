@@ -1,5 +1,15 @@
 {
   "files": [
+    "questions/mix-ad.json",
+    "questions/mix-backup.json",
+    "questions/mix-cloud.json",
+    "questions/mix-db.json",
+    "questions/mix-hardware.json",
+    "questions/mix-itops.json",
+    "questions/mix-linux.json",
+    "questions/mix-oswin.json",
+    "questions/mix-scripting.json",
+    "questions/mix-virt.json",
     "questions/o1-ccna.json",
     "questions/o1-crypto.json",
     "questions/o1-forense.json",

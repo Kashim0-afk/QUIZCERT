@@ -1,0 +1,308 @@
+[
+  {
+    "id": "oswin-001",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Un help desk deve creare un nuovo utente locale e aggiungerlo a un gruppo su una macchina Windows non appartenente a un dominio. Quale console MMC apre direttamente la gestione di utenti e gruppi locali?",
+    "options": ["lusrmgr.msc", "dsa.msc", "gpedit.msc", "services.msc"],
+    "correct": [0],
+    "explanation": "lusrmgr.msc apre lo snap-in 'Utenti e gruppi locali', usato per creare account locali, reimpostare password e gestire l'appartenenza ai gruppi su client e server non membri di dominio.",
+    "why_wrong": {
+      "1": "dsa.msc apre 'Active Directory Users and Computers', disponibile solo su domain controller o con gli strumenti RSAT, e gestisce account di dominio, non locali.",
+      "2": "gpedit.msc apre l'Editor Criteri di gruppo locali, che configura policy ma non crea utenti o gruppi.",
+      "3": "services.msc apre la console dei servizi di Windows, non c'entra con la gestione degli account."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-002",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Permessi NTFS", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un utente accede via rete a una cartella condivisa. I permessi di condivisione (Share) gli concedono 'Controllo completo', mentre i permessi NTFS gli concedono solo 'Lettura'. Quale sara' il permesso effettivo dell'utente sui file?",
+    "options": ["Controllo completo", "Lettura", "Modifica", "Nessun accesso"],
+    "correct": [1],
+    "explanation": "Quando si accede via rete, Windows applica l'intersezione tra permessi di condivisione e permessi NTFS: prevale il piu' restrittivo. Con Share 'Controllo completo' e NTFS 'Lettura', l'utente ottiene solo 'Lettura'.",
+    "why_wrong": {
+      "0": "Controllo completo sarebbe possibile solo se anche i permessi NTFS lo concedessero; qui NTFS limita a Lettura.",
+      "2": "Modifica non e' concessa da nessuno dei due set di permessi effettivi combinati.",
+      "3": "L'accesso non e' negato: entrambi i set concedono almeno la lettura, quindi l'utente puo' leggere."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-003",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un servizio Windows risulta bloccato e devi verificarne lo stato e riavviarlo da riga di comando (prompt classico). Quale comando mostra lo stato corrente del servizio chiamato 'Spooler'?",
+    "options": ["sc query Spooler", "net start", "tasklist /svc", "reg query Spooler"],
+    "correct": [0],
+    "explanation": "'sc query Spooler' interroga il Service Control Manager e restituisce lo stato (RUNNING, STOPPED, ecc.) del servizio specificato. Per riavviarlo si usano 'net stop Spooler' e 'net start Spooler' oppure 'sc start Spooler'.",
+    "why_wrong": {
+      "1": "'net start' senza argomenti elenca solo i servizi gia' avviati, non mostra lo stato dettagliato di un servizio specifico ne' quelli fermi.",
+      "2": "'tasklist /svc' associa i processi ai servizi ma non restituisce lo stato START/STOP del Service Control Manager.",
+      "3": "'reg query' interroga il registro di sistema, non lo stato di esecuzione di un servizio."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-004",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Devi modificare una chiave di configurazione valida per tutti gli utenti e per l'intero computer nel registro di sistema. In quale hive principale del registro dovresti operare?",
+    "options": ["HKEY_CURRENT_USER", "HKEY_LOCAL_MACHINE", "HKEY_CLASSES_ROOT", "HKEY_CURRENT_CONFIG"],
+    "correct": [1],
+    "explanation": "HKEY_LOCAL_MACHINE (HKLM) contiene le impostazioni globali di sistema, valide per tutti gli utenti e per l'intero computer, come configurazioni hardware, servizi e software installato a livello di macchina.",
+    "why_wrong": {
+      "0": "HKEY_CURRENT_USER contiene le impostazioni solo dell'utente attualmente connesso, non validi per tutti.",
+      "2": "HKEY_CLASSES_ROOT gestisce associazioni di file e registrazioni COM; e' una vista derivata, non le impostazioni globali di macchina.",
+      "3": "HKEY_CURRENT_CONFIG contiene solo informazioni sul profilo hardware corrente, un sottoinsieme limitato."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-005",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In Task Manager un'applicazione risulta 'Non risponde' e occupa CPU. Un utente ti chiede come identificarla in modo univoco per poterla terminare da riga di comando. Quale valore identifica in modo univoco un processo in esecuzione?",
+    "options": ["Il nome dell'eseguibile", "Il PID (Process ID)", "Il titolo della finestra", "La priorita' del processo"],
+    "correct": [1],
+    "explanation": "Il PID (Process ID) e' un numero univoco assegnato dal sistema a ogni processo in esecuzione. Consente di terminarlo con precisione, ad esempio con 'taskkill /PID <numero> /F', anche quando piu' istanze condividono lo stesso nome.",
+    "why_wrong": {
+      "0": "Piu' processi possono condividere lo stesso nome eseguibile (es. piu' schede del browser), quindi il nome non e' univoco.",
+      "2": "Il titolo della finestra puo' cambiare o mancare (processi senza interfaccia) e non identifica univocamente il processo.",
+      "3": "La priorita' indica solo lo scheduling della CPU e non serve a distinguere un processo dagli altri."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-006",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Log", "Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un utente segnala di non riuscire ad accedere e sospetti tentativi di accesso falliti. In Visualizzatore eventi (Event Viewer), in quale registro cercheresti gli eventi di accesso riuscito e non riuscito?",
+    "options": ["Applicazione", "Sistema", "Sicurezza", "Installazione (Setup)"],
+    "correct": [2],
+    "explanation": "Il registro 'Sicurezza' (Security) contiene gli eventi di audit, inclusi gli accessi riusciti (Event ID 4624) e falliti (Event ID 4625). E' il punto di partenza per analizzare problemi di autenticazione e possibili attacchi brute force.",
+    "why_wrong": {
+      "0": "Il registro 'Applicazione' raccoglie eventi generati dai programmi installati, non gli eventi di logon.",
+      "1": "Il registro 'Sistema' contiene eventi di componenti di Windows e driver, non l'audit degli accessi.",
+      "3": "Il registro 'Installazione' riguarda gli eventi relativi all'installazione di aggiornamenti e componenti, non gli accessi utente."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-007",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["PowerShell", "Windows"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "In PowerShell devi elencare tutti i servizi installati sul sistema con il relativo stato. Quale cmdlet e' quello corretto?",
+    "options": ["Get-Service", "Get-Process", "Get-Item", "Get-Content"],
+    "correct": [0],
+    "explanation": "Get-Service restituisce l'elenco dei servizi con nome, nome visualizzato e stato (Running/Stopped). E' possibile filtrare, ad esempio, con 'Get-Service | Where-Object {$_.Status -eq \"Running\"}'.",
+    "why_wrong": {
+      "1": "Get-Process elenca i processi in esecuzione, non i servizi registrati nel Service Control Manager.",
+      "2": "Get-Item recupera un oggetto (file, chiave di registro, ecc.) da un percorso, non i servizi.",
+      "3": "Get-Content legge il contenuto di un file di testo, non ha nulla a che vedere con i servizi."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-008",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows", "Controllo accessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Hai modificato un criterio di gruppo (Group Policy) e vuoi applicarlo immediatamente su un client senza attendere il refresh automatico o riavviare. Quale comando forza l'aggiornamento dei criteri?",
+    "options": ["gpresult /r", "gpupdate /force", "gpedit.msc", "rsop.msc"],
+    "correct": [1],
+    "explanation": "'gpupdate /force' rielabora e riapplica tutte le impostazioni dei Criteri di gruppo (utente e computer) immediatamente, senza attendere il ciclo di aggiornamento predefinito (circa 90 minuti).",
+    "why_wrong": {
+      "0": "'gpresult /r' mostra un report dei criteri risultanti applicati, ma non li aggiorna ne' li riapplica.",
+      "2": "'gpedit.msc' apre l'editor per modificare i criteri locali, ma non forza l'applicazione immediata su un refresh.",
+      "3": "'rsop.msc' visualizza il set di criteri risultante (Resultant Set of Policy) a scopo diagnostico, non forza l'aggiornamento."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-009",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Networking", "Windows"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Un utente lamenta problemi di rete e devi vedere l'indirizzo IP completo, il gateway predefinito, il server DNS e l'indirizzo MAC della scheda. Quale comando fornisce tutti questi dettagli?",
+    "options": ["ipconfig", "ipconfig /all", "ping localhost", "netstat -a"],
+    "correct": [1],
+    "explanation": "'ipconfig /all' mostra la configurazione completa di ogni scheda di rete: indirizzo IP, subnet mask, gateway predefinito, server DNS, indirizzo fisico (MAC), stato DHCP e lease.",
+    "why_wrong": {
+      "0": "'ipconfig' senza parametri mostra solo IP, subnet mask e gateway di base, senza DNS, MAC e dettagli DHCP.",
+      "2": "'ping localhost' verifica solo che lo stack TCP/IP locale risponda, non mostra la configurazione della scheda.",
+      "3": "'netstat -a' elenca le connessioni e le porte in ascolto, non la configurazione IP della scheda."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-010",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Networking", "Windows"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un sito web e' stato spostato su un nuovo server ma un utente continua a raggiungere il vecchio indirizzo. Sospetti una cache DNS locale obsoleta. Quale comando svuota la cache DNS del client Windows?",
+    "options": ["ipconfig /flushdns", "ipconfig /renew", "nslookup /clear", "netsh reset all"],
+    "correct": [0],
+    "explanation": "'ipconfig /flushdns' cancella la cache del resolver DNS locale, costringendo il client a interrogare nuovamente il server DNS alla successiva risoluzione, cosi' da ottenere il record aggiornato.",
+    "why_wrong": {
+      "1": "'ipconfig /renew' rinnova il lease DHCP dell'indirizzo IP, ma non tocca la cache DNS.",
+      "2": "'nslookup /clear' non e' un comando valido: nslookup interroga il DNS ma non gestisce la cache del resolver.",
+      "3": "'netsh reset all' non e' una sintassi corretta; il reset dello stack (es. 'netsh winsock reset') e' un'operazione piu' invasiva e non e' quella indicata per svuotare la cache DNS."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-011",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Networking"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Devi verificare quale indirizzo IP restituisce un nome di dominio e interrogare eventualmente un server DNS specifico per il troubleshooting. Quale strumento da riga di comando e' pensato proprio per interrogare i server DNS?",
+    "options": ["nslookup", "tracert", "arp -a", "route print"],
+    "correct": [0],
+    "explanation": "'nslookup' interroga i server DNS per risolvere nomi in indirizzi IP (e viceversa) e permette di specificare un server DNS diverso, utile per confrontare le risposte e diagnosticare problemi di risoluzione dei nomi.",
+    "why_wrong": {
+      "1": "'tracert' traccia il percorso dei router fino a una destinazione, non interroga specificamente i record DNS.",
+      "2": "'arp -a' mostra la tabella di corrispondenza tra indirizzi IP e MAC sulla rete locale, non i record DNS.",
+      "3": "'route print' mostra la tabella di routing IP locale, non serve per la risoluzione dei nomi DNS."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-012",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Permessi NTFS", "Controllo accessi"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti sono autorizzazioni NTFS standard (di base) assegnabili a un file o a una cartella? Seleziona le due opzioni corrette.",
+    "options": ["Controllo completo", "Modifica", "Condivisione avanzata", "Priorita' di accesso"],
+    "correct": [0, 1],
+    "explanation": "Le autorizzazioni NTFS standard includono Controllo completo, Modifica, Lettura ed esecuzione, Lettura e Scrittura. 'Controllo completo' consente ogni operazione inclusa la modifica dei permessi; 'Modifica' consente lettura, scrittura e cancellazione ma non il cambio dei permessi.",
+    "why_wrong": {
+      "2": "'Condivisione avanzata' e' una funzione della scheda Condivisione (Share) per esporre una cartella in rete, non un'autorizzazione NTSF sul file system.",
+      "3": "'Priorita' di accesso' non esiste come autorizzazione NTFS: i permessi si valutano per cumulo e con la regola che il Nega prevale sul Consenti."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-013",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["PowerShell", "Windows"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Vuoi visualizzare l'elenco dei processi attualmente in esecuzione su un client Windows. Quali dei seguenti comandi sono adatti allo scopo? Seleziona le due opzioni corrette.",
+    "options": ["Get-Process (PowerShell)", "tasklist (prompt dei comandi)", "chkdsk (prompt dei comandi)", "Get-ChildItem (PowerShell)"],
+    "correct": [0, 1],
+    "explanation": "Get-Process in PowerShell e 'tasklist' nel prompt dei comandi elencano entrambi i processi in esecuzione con nome, PID e utilizzo di memoria, utili per il troubleshooting delle prestazioni.",
+    "why_wrong": {
+      "2": "'chkdsk' controlla l'integrita' del file system e del disco, non elenca i processi in esecuzione.",
+      "3": "Get-ChildItem elenca il contenuto di un percorso (file, cartelle, chiavi di registro), non i processi."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-014",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Devi gestire gli aggiornamenti di sistema e i servizi correlati su un client Windows. Quali delle seguenti affermazioni sono corrette? Seleziona le due opzioni corrette.",
+    "options": [
+      "Windows Update puo' essere configurato tramite l'app Impostazioni oppure tramite Criteri di gruppo",
+      "Il servizio 'Windows Update' (wuauserv) deve essere in esecuzione per scaricare e installare gli aggiornamenti",
+      "Disinstallare un aggiornamento qualitativo problematico e' impossibile una volta installato",
+      "Gli aggiornamenti di Windows si applicano solo tramite modifica manuale del registro di sistema"
+    ],
+    "correct": [0, 1],
+    "explanation": "Windows Update si configura sia dall'app Impostazioni sia, in ambienti gestiti, tramite Criteri di gruppo. Il servizio wuauserv deve essere avviato perche' il client possa rilevare, scaricare e installare gli aggiornamenti.",
+    "why_wrong": {
+      "2": "Un aggiornamento problematico puo' essere rimosso da 'Cronologia aggiornamenti > Disinstalla aggiornamenti' o con 'wusa /uninstall', quindi l'affermazione e' falsa.",
+      "3": "Gli aggiornamenti si installano tramite il servizio Windows Update, WSUS o pacchetti .msu; la modifica manuale del registro non e' il meccanismo di applicazione."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-015",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Un help desk deve impostare una strategia di backup di base per i dati di un utente. Quali delle seguenti sono buone pratiche di backup? Seleziona le due opzioni corrette.",
+    "options": [
+      "Conservare almeno una copia dei dati su un supporto o percorso separato dal dispositivo originale",
+      "Verificare periodicamente che i backup siano ripristinabili con un test di restore",
+      "Salvare il backup nella stessa cartella dei dati originali sullo stesso disco",
+      "Eliminare i dati originali subito dopo aver avviato il backup, senza attenderne il completamento"
+    ],
+    "correct": [0, 1],
+    "explanation": "Una copia su supporto o percorso separato protegge dai guasti del dispositivo originale (principio della regola 3-2-1). Testare periodicamente il ripristino garantisce che il backup sia realmente utilizzabile in caso di emergenza.",
+    "why_wrong": {
+      "2": "Salvare il backup sullo stesso disco dei dati originali non protegge da un guasto del disco: se il disco si rompe, si perdono sia dati che backup.",
+      "3": "Eliminare gli originali prima che il backup sia completato e verificato espone a una perdita totale dei dati se il backup fallisce."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-016",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Permessi NTFS", "Controllo accessi"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nei permessi NTFS, un permesso di tipo 'Nega' (Deny) esplicito prevale su un permesso di tipo 'Consenti' (Allow) quando entrambi si applicano allo stesso utente.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Nella valutazione dei permessi NTFS, il Nega esplicito ha la precedenza sul Consenti. Se un utente riceve Consenti da un gruppo ma Nega da un altro (o direttamente), l'accesso viene negato.",
+    "why_wrong": {
+      "1": "E' falso affermare il contrario: la regola di Windows e' che il Nega esplicito vince sul Consenti, salvo casi particolari come un Consenti esplicito sull'oggetto rispetto a un Nega ereditato."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-017",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Windows", "Controllo accessi"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Per eseguire un comando o un programma con privilegi amministrativi da un account standard, e' sufficiente aprire il prompt dei comandi o PowerShell normalmente, senza mai selezionare 'Esegui come amministratore'.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Molte operazioni amministrative (installazioni, modifiche a HKLM, gestione servizi) richiedono un token elevato. Occorre avviare il prompt o PowerShell con 'Esegui come amministratore', superando il controllo UAC.",
+    "why_wrong": {
+      "0": "Un prompt aperto normalmente eredita un token standard: i comandi che richiedono privilegi elevati falliranno con 'Accesso negato' finche' non si esegue con elevazione."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "oswin-018",
+    "cert": ["IT Generale - Windows"],
+    "topics": ["Log", "Windows"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nel Visualizzatore eventi di Windows, ogni evento e' contrassegnato da un ID evento (Event ID) che identifica il tipo specifico di evento registrato.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Ogni voce del registro eventi riporta un Event ID numerico associato a un tipo di evento (es. 4624 accesso riuscito, 4625 accesso fallito, 7045 nuovo servizio installato), utile per filtrare e diagnosticare.",
+    "why_wrong": {
+      "1": "E' falso negarlo: l'Event ID e' un campo standard di ogni evento e viene usato quotidianamente per creare filtri e regole di monitoraggio."
+    },
+    "source": "IT generale"
+  }
+]

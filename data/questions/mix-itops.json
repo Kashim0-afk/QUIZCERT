@@ -1,0 +1,299 @@
+[
+  {
+    "id": "ops-001",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Troubleshooting"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Un utente segnala che 'la stampante non funziona'. Seguendo la metodologia di troubleshooting in stile CompTIA, qual è il PRIMO passo corretto da compiere?",
+    "options": [
+      "Stabilire una teoria sulla causa probabile del guasto",
+      "Identificare il problema raccogliendo informazioni dall'utente e riproducendo il sintomo",
+      "Riavviare direttamente la stampante sperando che si risolva",
+      "Documentare l'intervento nel sistema di ticketing"
+    ],
+    "correct": [1],
+    "explanation": "Il primo passo della metodologia strutturata (CompTIA) è 'Identificare il problema': raccogliere informazioni dall'utente, porre domande, identificare i sintomi e determinare se qualcosa è cambiato di recente. Solo dopo aver capito bene il problema si passa a formulare ipotesi sulla causa.",
+    "why_wrong": {
+      "0": "Stabilire una teoria sulla causa probabile è il SECONDO passo: viene dopo aver identificato e circoscritto il problema.",
+      "2": "Agire subito senza aver identificato il problema è un tentativo alla cieca che può peggiorare la situazione e non fa parte di un approccio metodico.",
+      "3": "La documentazione è l'ULTIMO passo del processo, non il primo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-002",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Troubleshooting"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Hai identificato il problema e formulato una teoria sulla causa probabile (un driver corrotto). Secondo la sequenza metodologica CompTIA, qual è il passo IMMEDIATAMENTE successivo?",
+    "options": [
+      "Documentare risultati, azioni ed esiti",
+      "Verificare la piena funzionalità del sistema",
+      "Testare la teoria per determinare/confermare la causa",
+      "Implementare direttamente la soluzione definitiva"
+    ],
+    "correct": [2],
+    "explanation": "Dopo aver stabilito una teoria sulla causa probabile, il passo successivo è 'Testare la teoria per confermare la causa'. Se il test conferma l'ipotesi si procede con un piano d'azione; se la smentisce, si formula una nuova teoria (o si esegue l'escalation).",
+    "why_wrong": {
+      "0": "La documentazione è l'ultimo passo, dopo aver risolto e verificato.",
+      "1": "La verifica della piena funzionalità avviene dopo aver implementato la soluzione, non subito dopo la teoria.",
+      "3": "Prima di implementare una soluzione bisogna confermare la causa e stabilire un piano d'azione; implementare senza test è prematuro."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-003",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Gestione ticket", "SLA"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Cosa definisce principalmente uno SLA (Service Level Agreement) nel contesto di un service desk?",
+    "options": [
+      "Gli obiettivi di servizio misurabili concordati, come i tempi massimi di risposta e di risoluzione per categoria di ticket",
+      "L'inventario completo di tutto l'hardware e software dell'azienda",
+      "La procedura tecnica passo-passo per riparare un guasto specifico",
+      "L'elenco dei permessi di accesso degli utenti ai sistemi"
+    ],
+    "correct": [0],
+    "explanation": "Uno SLA è un accordo che stabilisce i livelli di servizio attesi e misurabili tra fornitore e cliente: tipicamente tempi di risposta (response time) e di risoluzione (resolution time) differenziati per priorità, oltre a metriche di disponibilità. Serve a fissare aspettative chiare e a misurare le prestazioni del servizio.",
+    "why_wrong": {
+      "1": "L'inventario hardware/software è oggetto dell'asset management, non dello SLA.",
+      "2": "Le procedure tecniche di riparazione appartengono alla knowledge base / runbook, non allo SLA.",
+      "3": "La gestione dei permessi di accesso riguarda l'IAM/gestione identità, non lo SLA."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-004",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Gestione ticket", "ITSM"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un tecnico di primo livello riceve un ticket che richiede modifiche alla configurazione di un firewall, competenza che esula dalle sue autorizzazioni e conoscenze. Qual è l'azione corretta?",
+    "options": [
+      "Chiudere il ticket come 'non risolvibile'",
+      "Eseguire un'escalation funzionale verso il team specializzato (secondo/terzo livello) mantenendo aggiornato il ticket",
+      "Tentare comunque la modifica per non far attendere l'utente",
+      "Attendere che l'utente richiami per capire meglio"
+    ],
+    "correct": [1],
+    "explanation": "Quando un problema supera le competenze o le autorizzazioni del livello attuale, si effettua un'escalation funzionale (orizzontale) verso il team con le competenze adeguate, documentando nel ticket quanto già fatto. L'escalation gerarchica (verticale) verso un manager si usa invece per questioni di priorità, autorizzazioni o rischio di violazione dello SLA.",
+    "why_wrong": {
+      "0": "Il problema è risolvibile da un altro team: chiuderlo come non risolvibile è scorretto e non aiuta l'utente.",
+      "2": "Agire su un firewall senza competenze/autorizzazioni è pericoloso e viola le procedure di sicurezza e change management.",
+      "3": "Attendere passivamente ignora lo SLA e non instrada il ticket verso chi può risolverlo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-005",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Asset Management"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Durante l'assegnazione di un nuovo laptop a un dipendente, qual è la pratica corretta di gestione asset?",
+    "options": [
+      "Consegnare il laptop senza registrarlo, per velocizzare la procedura",
+      "Registrare l'asset nell'inventario (numero di serie, tag, modello) e associarlo all'utente e alla sua posizione",
+      "Annotare solo il nome dell'utente su un foglio cartaceo temporaneo",
+      "Registrare l'asset solo quando verrà dismesso"
+    ],
+    "correct": [1],
+    "explanation": "Un corretto asset management prevede che ogni dispositivo sia censito nell'inventario con identificativi univoci (numero di serie, asset tag, modello) e sia associato all'utente/reparto e alla sua posizione. Questo abilita tracciabilità, garanzia, ciclo di vita, sicurezza e supporto efficiente.",
+    "why_wrong": {
+      "0": "Non registrare l'asset crea perdita di tracciabilità: impossibile gestire garanzia, ciclo di vita e sicurezza.",
+      "2": "Un appunto cartaceo temporaneo non è integrato nel sistema di inventario e va facilmente perso o non aggiornato.",
+      "3": "Registrare solo alla dismissione impedisce di tracciare l'asset per tutta la sua vita utile, quando serve davvero."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-006",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Troubleshooting", "ITSM"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Stai per avviare una sessione di supporto remoto sul PC di un utente per risolvere un problema. Qual è il comportamento corretto?",
+    "options": [
+      "Connettersi silenziosamente senza avvisare, per non disturbare l'utente",
+      "Ottenere il consenso dell'utente, spiegare cosa farai e avvisarlo prima di prendere il controllo dello schermo",
+      "Chiedere all'utente la sua password di dominio per accedere più velocemente",
+      "Disattivare il monitor dell'utente durante l'intervento"
+    ],
+    "correct": [1],
+    "explanation": "Nel supporto remoto occorre ottenere il consenso esplicito dell'utente, informarlo su cosa verrà fatto e avvisarlo prima di prendere il controllo. Questo rispetta la privacy, mantiene la fiducia e permette all'utente di chiudere eventuali documenti riservati. Non si devono mai richiedere le credenziali dell'utente.",
+    "why_wrong": {
+      "0": "Connettersi senza avviso viola la privacy e la fiducia dell'utente e può esporre dati riservati.",
+      "2": "Un tecnico non deve mai chiedere la password dell'utente: è una grave cattiva pratica di sicurezza; si usano credenziali amministrative o strumenti dedicati.",
+      "3": "Disattivare il monitor dell'utente non è una prassi corretta e riduce trasparenza e controllo dell'utente sulla sessione."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-007",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Patch Management"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Prima di distribuire in produzione una patch critica appena rilasciata su tutti i server aziendali, qual è la prassi operativa corretta?",
+    "options": [
+      "Distribuirla immediatamente a tutti i server contemporaneamente per chiudere subito la vulnerabilità",
+      "Testarla prima in un ambiente di test/pilota e pianificare il deployment con finestre di manutenzione e piano di rollback",
+      "Installarla solo sui PC degli amministratori IT",
+      "Attendere sei mesi prima di applicarla per essere sicuri della sua stabilità"
+    ],
+    "correct": [1],
+    "explanation": "Il patch management operativo prevede di testare la patch in un ambiente di test o su un gruppo pilota, pianificare il rilascio in finestre di manutenzione concordate e disporre di un piano di rollback in caso di regressioni. Questo bilancia la riduzione del rischio (chiudere la vulnerabilità) con la stabilità dei servizi.",
+    "why_wrong": {
+      "0": "Applicare una patch a tutta la produzione senza test può causare downtime diffuso se la patch introduce regressioni.",
+      "2": "Applicarla solo ai PC degli amministratori lascia i server vulnerabili e non risolve il rischio.",
+      "3": "Aspettare sei mesi su una patch critica lascia i sistemi esposti a lungo: il ritardo va bilanciato ma non deve vanificare l'urgenza."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-008",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["ITSM", "Troubleshooting"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Il sistema di monitoraggio invia un alert perché l'uso del disco di un file server ha superato la soglia dell'85%. Nessun utente ha ancora segnalato problemi. Come va classificato correttamente questo evento in ottica ITSM?",
+    "options": [
+      "È già un incident maggiore con impatto sul servizio, va trattato in emergenza",
+      "È un evento/allerta proattiva: un potenziale problema da gestire prima che diventi un incident con impatto sugli utenti",
+      "È una richiesta di servizio (service request) inviata dagli utenti",
+      "Va ignorato finché un utente non apre un ticket"
+    ],
+    "correct": [1],
+    "explanation": "Un alert di soglia dal monitoraggio è un evento che segnala una condizione anomala potenziale ma non ancora un'interruzione di servizio. La gestione proattiva permette di intervenire (liberare spazio, aggiungere capacità) prima che si trasformi in un incident con impatto reale sugli utenti. È il valore chiave del monitoraggio.",
+    "why_wrong": {
+      "0": "Non c'è ancora impatto sul servizio né interruzione: non è (ancora) un incident maggiore, ma un rischio da prevenire.",
+      "2": "Una service request nasce da una richiesta dell'utente (es. nuovo accesso); qui l'origine è un sistema di monitoraggio automatico.",
+      "3": "Ignorare l'alert vanifica lo scopo del monitoraggio proattivo e porta a un probabile incident evitabile."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-009",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["ITSM", "Troubleshooting"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Dopo aver risolto un problema ricorrente con una soluzione efficace, qual è la migliore azione per l'organizzazione del supporto?",
+    "options": [
+      "Non documentare nulla, così i tecnici imparano risolvendo da soli ogni volta",
+      "Creare o aggiornare un articolo nella knowledge base (KB) descrivendo sintomo, causa e soluzione",
+      "Comunicare la soluzione solo a voce al collega di turno",
+      "Cancellare il ticket per liberare spazio nel sistema"
+    ],
+    "correct": [1],
+    "explanation": "Documentare la soluzione in un articolo di knowledge base rende il sapere riutilizzabile: velocizza la risoluzione futura di problemi simili, riduce le escalation, abilita la self-service degli utenti e standardizza la qualità del supporto. Un buon articolo KB descrive sintomi, causa e passi di risoluzione.",
+    "why_wrong": {
+      "0": "Non documentare fa ripetere lo stesso sforzo diagnostico ogni volta e allunga i tempi di risoluzione.",
+      "2": "La comunicazione solo verbale è volatile: si perde e non è accessibile agli altri turni o team.",
+      "3": "I ticket risolti sono una fonte di dati e storicità preziosa: non vanno cancellati ma conservati e valorizzati."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-010",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Troubleshooting"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Dopo aver implementato con successo una soluzione, quali DUE azioni fanno parte dei passi finali corretti della metodologia di troubleshooting?",
+    "options": [
+      "Verificare la piena funzionalità del sistema e, se necessario, applicare misure preventive",
+      "Documentare risultati, azioni intraprese ed esiti nel ticket",
+      "Chiudere immediatamente il ticket senza ulteriori controlli",
+      "Formulare una nuova teoria sulla causa probabile"
+    ],
+    "correct": [0, 1],
+    "explanation": "I passi finali della metodologia sono: verificare la piena funzionalità del sistema (ed eventualmente attuare misure preventive per evitare il ripetersi) e poi documentare risultati, azioni ed esiti. La verifica assicura che il problema sia realmente risolto; la documentazione alimenta la knowledge base e la tracciabilità.",
+    "why_wrong": {
+      "2": "Chiudere senza verificare la funzionalità rischia di lasciare il problema non risolto o parzialmente risolto.",
+      "3": "Formulare una nuova teoria è un passo iniziale/intermedio che serve solo se la soluzione non ha funzionato, non un passo finale dopo il successo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-011",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Gestione ticket", "ITSM"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Nella comunicazione con un utente durante la gestione di un ticket, quali DUE comportamenti rappresentano buone pratiche?",
+    "options": [
+      "Tenere aggiornato l'utente sullo stato di avanzamento, soprattutto se la risoluzione richiede tempo",
+      "Usare un linguaggio chiaro e comprensibile, evitando gergo tecnico non necessario",
+      "Rispondere solo alla chiusura del ticket, senza aggiornamenti intermedi",
+      "Attribuire la colpa all'utente per l'errore commesso"
+    ],
+    "correct": [0, 1],
+    "explanation": "Una buona comunicazione con l'utente prevede aggiornamenti proattivi sullo stato (gestendo le aspettative) e l'uso di un linguaggio chiaro e privo di gergo eccessivo, adattato al livello dell'interlocutore. Questo aumenta la fiducia, riduce le sollecitazioni ripetute e migliora la percezione del servizio.",
+    "why_wrong": {
+      "2": "Comunicare solo alla chiusura lascia l'utente all'oscuro: genera ansia, solleciti e insoddisfazione, soprattutto sui ticket lunghi.",
+      "3": "Colpevolizzare l'utente è controproducente e non professionale: il supporto deve essere empatico e orientato alla soluzione."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-012",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Gestione ticket", "ITSM"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "In molti framework ITSM la PRIORITÀ di un ticket viene determinata combinando due fattori. Quali DUE elementi concorrono tipicamente a definire la priorità?",
+    "options": [
+      "L'impatto (numero di utenti/servizi coinvolti e criticità per il business)",
+      "L'urgenza (velocità con cui il problema deve essere risolto)",
+      "L'ordine alfabetico del nome dell'utente che ha aperto il ticket",
+      "Il numero progressivo di apertura del ticket"
+    ],
+    "correct": [0, 1],
+    "explanation": "La priorità in ITSM si ricava incrociando IMPATTO (quanto è esteso/grave l'effetto sul business e sugli utenti) e URGENZA (quanto rapidamente serve la risoluzione), spesso tramite una matrice impatto/urgenza. La priorità così ottenita determina quale SLA e quale sequenza di gestione applicare.",
+    "why_wrong": {
+      "2": "L'ordine alfabetico del richiedente non ha alcuna rilevanza per stabilire la priorità di un ticket.",
+      "3": "Il numero progressivo indica solo l'ordine di apertura, non l'importanza né l'urgenza del problema."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-013",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Gestione ticket", "ITSM"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Nella gestione dei ticket, 'severità' e 'priorità' sono sempre sinonimi e possono essere usate in modo intercambiabile.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. La severità misura la gravità tecnica dell'impatto di un problema (quanto è grave il malfunzionamento in sé), mentre la priorità indica l'ordine con cui deve essere affrontato, combinando impatto e urgenza dal punto di vista del business. Un problema può avere alta severità ma priorità più bassa (es. su un sistema non critico) o viceversa.",
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-014",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["ITSM", "SLA"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "L'escalation gerarchica (verticale) verso un responsabile è appropriata quando un ticket rischia di violare lo SLA o richiede decisioni/autorizzazioni superiori.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. L'escalation gerarchica (verticale) coinvolge un livello di management superiore e si usa per questioni di autorizzazione, priorità o rischio di breach dello SLA. È diversa dall'escalation funzionale (orizzontale), che instrada il ticket verso un team con competenze tecniche più specializzate.",
+    "source": "IT generale"
+  },
+  {
+    "id": "ops-015",
+    "cert": ["IT Generale - Help Desk"],
+    "topics": ["Patch Management", "Asset Management"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Mantenere un inventario aggiornato degli asset è utile anche al patch management, perché consente di sapere quali sistemi e versioni software sono presenti e quindi da aggiornare.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Un inventario asset accurato (hardware, sistemi operativi, versioni software) è un prerequisito del patch management efficace: senza sapere quali dispositivi e versioni esistono nel parco IT non è possibile identificare i sistemi vulnerabili, pianificare i rilasci né verificare la copertura delle patch applicate.",
+    "source": "IT generale"
+  }
+]

@@ -1,0 +1,265 @@
+[
+  {
+    "id": "cld-001",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["IaaS/PaaS/SaaS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un team di sviluppo vuole distribuire un'applicazione web caricando solo il proprio codice, senza gestire sistema operativo, runtime o patch dei server. Quale modello di servizio cloud risponde meglio a questa esigenza?",
+    "options": ["IaaS (Infrastructure as a Service)", "PaaS (Platform as a Service)", "SaaS (Software as a Service)", "Data center on-premise"],
+    "correct": [1],
+    "explanation": "Il PaaS fornisce una piattaforma gestita (sistema operativo, runtime, middleware, scaling) su cui lo sviluppatore distribuisce solo il proprio codice, senza occuparsi dell'infrastruttura sottostante.",
+    "why_wrong": {
+      "0": "Con l'IaaS il cliente riceve macchine virtuali ma deve comunque installare e mantenere sistema operativo, runtime e patch: più responsabilità di quanto richiesto.",
+      "2": "Il SaaS è un'applicazione già pronta e finita usata dall'utente finale; non consente di distribuire codice applicativo proprio.",
+      "3": "L'on-premise richiede di acquistare e gestire hardware, alimentazione e infrastruttura fisica: l'opposto di ciò che si cerca."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-002",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["IaaS/PaaS/SaaS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un'azienda mantiene i dati sensibili nel proprio data center privato per motivi di conformità, ma utilizza risorse di un cloud pubblico per assorbire i picchi di traffico stagionali. Quale modello di deployment sta adottando?",
+    "options": ["Cloud pubblico", "Cloud privato", "Cloud ibrido", "Cloud della community"],
+    "correct": [2],
+    "explanation": "Il cloud ibrido combina infrastruttura privata (on-premise o cloud privato) e cloud pubblico, orchestrandoli insieme; il caso descritto, con dati sensibili on-premise e picchi gestiti sul pubblico (cloud bursting), è un esempio tipico.",
+    "why_wrong": {
+      "0": "Il cloud pubblico da solo non spiega la parte di dati mantenuti in un data center privato per conformità.",
+      "1": "Il cloud privato da solo non include l'uso del cloud pubblico per i picchi di traffico.",
+      "3": "Il community cloud è condiviso tra più organizzazioni con esigenze comuni, non è la combinazione privato + pubblico descritta."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-003",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["Scalabilita"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale caratteristica essenziale del cloud permette a un utente di attivare risorse di calcolo (es. una nuova macchina virtuale) autonomamente, tramite un portale o API, senza dover interagire con un operatore del provider?",
+    "options": ["On-demand self-service", "Misurazione del servizio", "Elasticità rapida", "Pooling delle risorse"],
+    "correct": [0],
+    "explanation": "L'on-demand self-service è la caratteristica per cui l'utente provisiona le risorse in autonomia, quando servono, senza intervento umano da parte del fornitore.",
+    "why_wrong": {
+      "1": "La misurazione del servizio riguarda il monitoraggio e la fatturazione a consumo delle risorse, non l'attivazione autonoma.",
+      "2": "L'elasticità rapida riguarda la capacità di aumentare e ridurre le risorse in base al carico, non l'auto-attivazione senza operatore.",
+      "3": "Il resource pooling indica che le risorse fisiche sono condivise tra più clienti in modo multi-tenant, un concetto diverso dal self-service."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-004",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["Responsabilita condivisa"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Nel modello di responsabilità condivisa, utilizzando un servizio IaaS, chi è responsabile dell'applicazione delle patch di sicurezza al sistema operativo della macchina virtuale?",
+    "options": ["Il provider cloud", "Il cliente", "Sempre suddiviso al 50% tra provider e cliente", "Nessuno: le patch sono automatiche in ogni caso"],
+    "correct": [1],
+    "explanation": "In IaaS il provider gestisce l'infrastruttura fisica e l'hypervisor, mentre il cliente è responsabile di sistema operativo, patch, applicazioni e dati della VM. Il confine di responsabilità si sposta verso il provider passando a PaaS e SaaS.",
+    "why_wrong": {
+      "0": "Il provider in IaaS gestisce hardware, rete fisica e virtualizzazione, ma non il sistema operativo guest della VM del cliente.",
+      "2": "La responsabilità non è una divisione fissa a percentuale, ma dipende dal livello di servizio (IaaS/PaaS/SaaS).",
+      "3": "In IaaS le patch del sistema operativo non sono applicate automaticamente dal provider: spetta al cliente pianificarle."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-005",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["Scalabilita"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Un servizio web viene potenziato aggiungendo più istanze identiche dietro un bilanciatore di carico per distribuire le richieste. Quale tipo di scalabilità è stato applicato?",
+    "options": ["Scalabilità verticale (scale up)", "Scalabilità orizzontale (scale out)", "Scalabilità diagonale automatica", "Riduzione verticale (scale down)"],
+    "correct": [1],
+    "explanation": "Aggiungere più istanze/nodi identici che lavorano in parallelo è scalabilità orizzontale (scale out). La scalabilità verticale, invece, aumenta le risorse (CPU/RAM) di una singola istanza.",
+    "why_wrong": {
+      "0": "La scalabilità verticale (scale up) consiste nell'aumentare la potenza di una singola macchina, non nell'aggiungere altre istanze.",
+      "2": "La scalabilità diagonale non è la definizione corretta del caso descritto ed è un termine non standard per questo scenario.",
+      "3": "Lo scale down è la riduzione delle risorse di una macchina, l'opposto di ciò che avviene aggiungendo istanze."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-006",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["Scalabilita"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Per proteggere un'applicazione dal guasto di un intero data center pur restando in un'area geografica, come è consigliabile distribuire i carichi di lavoro?",
+    "options": ["Su più zone di disponibilità (availability zone) all'interno della stessa regione", "Su una singola zona di disponibilità più capiente", "Su un solo server con hardware più potente", "Su più account cloud dello stesso provider"],
+    "correct": [0],
+    "explanation": "Una regione cloud contiene più zone di disponibilità, che sono data center isolati fisicamente ma vicini. Distribuire su più zone garantisce alta disponibilità: il guasto di una zona non ferma il servizio.",
+    "why_wrong": {
+      "1": "Una singola zona, per quanto capiente, resta un unico punto di guasto: se la zona cade, il servizio cade.",
+      "2": "Un solo server potente non offre ridondanza: il suo guasto interrompe comunque il servizio.",
+      "3": "Usare più account non fornisce di per sé isolamento fisico contro il guasto di un data center; conta la distribuzione su più zone."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-007",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["IaaS/PaaS/SaaS"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Adottando un modello cloud pay-as-you-go al posto dell'acquisto di server propri, come cambia tipicamente la natura della spesa IT?",
+    "options": ["Da spesa operativa (OpEx) a spesa in conto capitale (CapEx)", "Da spesa in conto capitale (CapEx) a spesa operativa (OpEx)", "Entrambe le spese vengono eliminate del tutto", "Nessun cambiamento: la spesa resta identica"],
+    "correct": [1],
+    "explanation": "Comprare hardware è una spesa in conto capitale (CapEx): un investimento iniziale ammortizzato nel tempo. Il cloud a consumo trasforma questo in spesa operativa (OpEx): si paga in base all'uso, senza grande investimento iniziale.",
+    "why_wrong": {
+      "0": "È il contrario: il cloud sposta la spesa da CapEx verso OpEx, non da OpEx a CapEx.",
+      "2": "Il cloud non elimina i costi: introduce un costo operativo ricorrente basato sul consumo.",
+      "3": "Il cambiamento c'è ed è sostanziale: cambia la struttura del costo da investimento iniziale a costo a consumo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-008",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["Serverless"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "In un modello serverless / FaaS (Function as a Service), quale aspetto NON deve essere gestito dallo sviluppatore?",
+    "options": ["Il codice della funzione da eseguire", "Il provisioning e lo scaling dei server", "La logica di business dell'applicazione", "La configurazione dei trigger/eventi che avviano la funzione"],
+    "correct": [1],
+    "explanation": "Nel serverless/FaaS il provider gestisce automaticamente provisioning, capacità e scaling dei server sottostanti; lo sviluppatore si concentra su codice, logica ed eventi. 'Serverless' non significa assenza di server, ma che la loro gestione è astratta dall'utente.",
+    "why_wrong": {
+      "0": "Il codice della funzione è esattamente ciò che lo sviluppatore deve scrivere e fornire.",
+      "2": "La logica di business è responsabilità dello sviluppatore, non del provider.",
+      "3": "I trigger ed eventi che invocano la funzione vanno configurati dallo sviluppatore."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-009",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["Cloud security"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale principio di sicurezza cloud prevede di concedere a utenti e servizi soltanto i permessi strettamente necessari a svolgere il proprio compito?",
+    "options": ["Difesa in profondità", "Privilegio minimo (least privilege)", "Ridondanza geografica", "Cifratura end-to-end"],
+    "correct": [1],
+    "explanation": "Il principio del privilegio minimo (least privilege) limita i permessi allo stretto necessario, riducendo la superficie d'attacco e l'impatto di eventuali credenziali compromesse.",
+    "why_wrong": {
+      "0": "La difesa in profondità è la stratificazione di più controlli di sicurezza, non la limitazione dei permessi al minimo.",
+      "2": "La ridondanza geografica riguarda disponibilità e continuità del servizio, non l'assegnazione dei permessi.",
+      "3": "La cifratura protegge la riservatezza dei dati, ma non è il principio che regola i permessi degli account."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-010",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["SLA"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Un provider offre uno SLA di disponibilità del 99,9% mensile per un servizio. A quanto downtime massimo corrisponde approssimativamente in un mese di 30 giorni?",
+    "options": ["Circa 43 minuti", "Circa 7 ore", "Circa 9 ore", "Zero: il 99,9% garantisce nessuna interruzione"],
+    "correct": [0],
+    "explanation": "Il 99,9% consente lo 0,1% di indisponibilità. Su 30 giorni (43.200 minuti) lo 0,1% è circa 43 minuti di downtime ammesso al mese. Ogni '9' aggiuntivo riduce di circa 10 volte il downtime consentito.",
+    "why_wrong": {
+      "1": "Circa 7 ore corrisponderebbe a uno SLA molto più basso (intorno al 99%), non al 99,9%.",
+      "2": "Circa 9 ore è ancora più lontano dal 99,9%: è tipico di disponibilità intorno al 98,8%.",
+      "3": "Nessuno SLA realistico garantisce zero downtime; il 99,9% ammette comunque circa 43 minuti al mese."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-011",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["IaaS/PaaS/SaaS", "Responsabilita condivisa"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni sul modello SaaS (Software as a Service) sono corrette? (Seleziona 2)",
+    "options": ["L'utente accede all'applicazione tramite browser o client leggero, senza installarla sui propri server", "Il cliente è responsabile di installare e aggiornare il sistema operativo sottostante", "Il provider gestisce manutenzione, aggiornamenti e disponibilità dell'applicazione", "Il cliente deve provisionare e scalare manualmente le macchine virtuali che eseguono il software"],
+    "correct": [0, 2],
+    "explanation": "Nel SaaS l'applicazione è completamente gestita dal provider ed erogata come servizio: l'utente la usa (tipicamente via browser) senza gestire infrastruttura, sistema operativo o aggiornamenti del software.",
+    "why_wrong": {
+      "1": "In SaaS il sistema operativo sottostante è gestito dal provider, non dal cliente.",
+      "3": "Provisioning e scaling delle VM non riguardano il cliente SaaS: sono astratti e gestiti dal provider."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-012",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["Scalabilita"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti sono caratteristiche essenziali del cloud computing secondo la definizione NIST? (Seleziona 2)",
+    "options": ["Elasticità rapida delle risorse", "Servizio misurato (pay-per-use monitorato)", "Contratto pluriennale obbligatorio con hardware riservato", "Hardware fisico dedicato in esclusiva a ogni singolo cliente"],
+    "correct": [0, 1],
+    "explanation": "Tra le cinque caratteristiche essenziali del cloud (NIST) ci sono l'elasticità rapida e il servizio misurato, insieme a on-demand self-service, ampio accesso di rete e pooling delle risorse.",
+    "why_wrong": {
+      "2": "Il cloud si basa su modelli a consumo e flessibili, non su contratti pluriennali obbligatori con hardware riservato.",
+      "3": "Il cloud usa il resource pooling multi-tenant: le risorse fisiche sono condivise, non dedicate in esclusiva a ciascun cliente."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-013",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["Cloud security"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti pratiche migliorano la sicurezza di un ambiente cloud? (Seleziona 2)",
+    "options": ["Abilitare l'autenticazione a più fattori (MFA) sugli account", "Cifrare i dati sia a riposo sia in transito", "Condividere le chiavi di accesso tramite email per comodità", "Disabilitare tutti i log di audit per risparmiare spazio"],
+    "correct": [0, 1],
+    "explanation": "MFA riduce fortemente il rischio di compromissione degli account anche in caso di password rubate, mentre la cifratura a riposo e in transito protegge la riservatezza dei dati: entrambe sono buone pratiche fondamentali.",
+    "why_wrong": {
+      "2": "Condividere le chiavi via email le espone a intercettazione e furto: è una pratica insicura da evitare.",
+      "3": "Disabilitare i log elimina la tracciabilità necessaria per rilevare e investigare incidenti: peggiora la sicurezza."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-014",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["Responsabilita condivisa"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Nel modello di responsabilità condivisa, la sicurezza fisica dei data center (edifici, hardware, accesso fisico) è responsabilità del provider cloud.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. La sicurezza 'del' cloud, inclusa la protezione fisica dei data center e dell'hardware, è sempre a carico del provider; al cliente spetta la sicurezza 'nel' cloud (dati, configurazioni, accessi).",
+    "why_wrong": {
+      "1": "È errato: la protezione fisica dei data center non è mai delegata al cliente, resta responsabilità del provider."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-015",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["Scalabilita"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "La scalabilità verticale consiste nell'aggiungere più macchine identiche al sistema per distribuire il carico.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. Aggiungere più macchine identiche è scalabilità orizzontale (scale out). La scalabilità verticale (scale up) consiste nell'aumentare le risorse (CPU, RAM) di una singola macchina.",
+    "why_wrong": {
+      "0": "È errato perché confonde i due tipi: aggiungere macchine è orizzontale, potenziare una macchina è verticale."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "cld-016",
+    "cert": ["IT Generale - Cloud"],
+    "topics": ["SLA"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Uno SLA (Service Level Agreement) è un accordo che definisce il livello di servizio garantito, ad esempio la percentuale di disponibilità (uptime) attesa.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Lo SLA formalizza gli obiettivi di servizio tra provider e cliente, come la disponibilità garantita, i tempi di risposta e spesso le penali o i crediti previsti in caso di mancato rispetto.",
+    "why_wrong": {
+      "1": "È errato: definire livelli di servizio garantiti come l'uptime è esattamente lo scopo di uno SLA."
+    },
+    "source": "IT generale"
+  }
+]

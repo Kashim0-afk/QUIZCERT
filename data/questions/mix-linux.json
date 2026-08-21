@@ -1,0 +1,289 @@
+[
+  {
+    "id": "lnx-001",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Linux"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Secondo il Filesystem Hierarchy Standard (FHS), in quale directory si trovano i file di configurazione a livello di sistema?",
+    "options": ["/home", "/etc", "/var", "/bin"],
+    "correct": [1],
+    "explanation": "Nel FHS la directory /etc contiene i file di configurazione statici dell'intero sistema, come /etc/passwd, /etc/fstab e /etc/ssh/sshd_config. Non contiene binari eseguibili.",
+    "why_wrong": {
+      "0": "/home ospita le directory personali degli utenti, non la configurazione di sistema.",
+      "2": "/var contiene dati variabili come log, cache e code di stampa, non i file di configurazione principali.",
+      "3": "/bin contiene i binari essenziali (comandi come ls, cp, cat), non file di configurazione."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-002",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Permessi"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale comando imposta su script.sh i permessi rwxr-xr-x (lettura/scrittura/esecuzione al proprietario, lettura ed esecuzione a gruppo e altri)?",
+    "options": ["chmod 644 script.sh", "chmod 777 script.sh", "chmod 755 script.sh", "chmod 750 script.sh"],
+    "correct": [2],
+    "explanation": "In notazione ottale rwx=7 (4+2+1), r-x=5 (4+0+1). Quindi rwxr-xr-x corrisponde a 755: proprietario 7, gruppo 5, altri 5.",
+    "why_wrong": {
+      "0": "644 corrisponde a rw-r--r-- e non concede alcun permesso di esecuzione.",
+      "1": "777 corrisponde a rwxrwxrwx, cioè scrittura ed esecuzione anche a gruppo e altri, permessi troppo ampi.",
+      "3": "750 corrisponde a rwxr-x---, che nega ogni accesso agli altri (l'ultimo campo è 0, non 5)."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-003",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Permessi", "Linux"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale comando cambia il proprietario a 'mario' e il gruppo a 'dev' del file relazione.txt?",
+    "options": ["chown mario:dev relazione.txt", "chmod mario:dev relazione.txt", "chown dev:mario relazione.txt", "chgrp mario:dev relazione.txt"],
+    "correct": [0],
+    "explanation": "La sintassi di chown è 'chown proprietario:gruppo file'. Quindi 'chown mario:dev relazione.txt' imposta mario come proprietario e dev come gruppo.",
+    "why_wrong": {
+      "1": "chmod modifica i permessi (rwx), non la proprietà; non accetta nomi utente/gruppo in questo formato.",
+      "2": "L'ordine è invertito: imposterebbe 'dev' come proprietario e 'mario' come gruppo.",
+      "3": "chgrp cambia solo il gruppo e non usa la sintassi utente:gruppo; imposterebbe un gruppo dal nome errato."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-004",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Bash", "Linux"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale comando cerca ricorsivamente la stringa 'error' in tutti i file sotto /var/log, ignorando maiuscole e minuscole?",
+    "options": ["grep error /var/log", "grep -ri \"error\" /var/log", "find /var/log -name error", "grep -v \"error\" /var/log"],
+    "correct": [1],
+    "explanation": "L'opzione -r rende la ricerca ricorsiva nelle sottodirectory e -i la rende case-insensitive. Quindi 'grep -ri \"error\" /var/log' trova 'error', 'Error', 'ERROR' in tutti i file.",
+    "why_wrong": {
+      "0": "Senza -r grep non attraversa le directory e restituisce un errore trattando /var/log come file.",
+      "2": "find -name cerca file per nome, non il contenuto testuale al loro interno.",
+      "3": "L'opzione -v inverte la corrispondenza, mostrando le righe che NON contengono 'error'."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-005",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Bash", "Linux"],
+    "type": "single",
+    "difficulty": 3,
+    "question": "Quale comando trova tutti i file con estensione .log sotto /var/log modificati più di 7 giorni fa?",
+    "options": ["find /var/log -name \"*.log\" -mtime +7", "find /var/log -name \"*.log\" -mtime -7", "grep -r \"*.log\" /var/log", "ls -l /var/log/*.log"],
+    "correct": [0],
+    "explanation": "In find, -mtime +7 seleziona i file la cui ultima modifica risale a più di 7 giorni fa (mentre -mtime 7 indica esattamente 7 giorni e -7 meno di 7). Combinato con -name \"*.log\" filtra per estensione.",
+    "why_wrong": {
+      "1": "-mtime -7 seleziona i file modificati NEGLI ultimi 7 giorni, cioè il contrario di quanto richiesto.",
+      "2": "grep cerca contenuto testuale, non file per data di modifica.",
+      "3": "ls elenca i file ma non permette di filtrare per età di modifica in modo diretto."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-006",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Linux"],
+    "type": "single",
+    "difficulty": 1,
+    "question": "Quale comando mostra un elenco statico e completo di tutti i processi in esecuzione con l'utente proprietario?",
+    "options": ["top", "ps aux", "jobs", "kill -l"],
+    "correct": [1],
+    "explanation": "'ps aux' produce un'istantanea (statica) di tutti i processi del sistema (a = di tutti gli utenti, x = anche senza terminale, u = formato con utente e uso risorse).",
+    "why_wrong": {
+      "0": "top mostra i processi in modo dinamico e interattivo, aggiornandoli in tempo reale, non un elenco statico.",
+      "2": "jobs elenca solo i job in background della shell corrente, non tutti i processi del sistema.",
+      "3": "kill -l elenca i segnali disponibili, non i processi."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-007",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Bash", "Linux"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale comando crea un archivio compresso con gzip della directory /home/dati chiamato backup.tar.gz?",
+    "options": ["tar -xzvf backup.tar.gz /home/dati", "tar -czvf backup.tar.gz /home/dati", "tar -tzvf backup.tar.gz /home/dati", "gzip -r backup.tar.gz /home/dati"],
+    "correct": [1],
+    "explanation": "Le opzioni di tar sono: c = crea, z = compressione gzip, v = verbose, f = nome file. Quindi 'tar -czvf backup.tar.gz /home/dati' crea l'archivio compresso della directory.",
+    "why_wrong": {
+      "0": "L'opzione x estrae (extract) un archivio esistente, non lo crea.",
+      "2": "L'opzione t elenca (list) il contenuto di un archivio senza crearlo né estrarlo.",
+      "3": "gzip comprime singoli file e non crea un archivio .tar; da solo non impacchetta una directory con questa sintassi."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-008",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Systemd"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale comando systemctl abilita un servizio all'avvio del sistema e contemporaneamente lo avvia subito?",
+    "options": ["systemctl start nginx", "systemctl enable nginx", "systemctl enable --now nginx", "systemctl status nginx"],
+    "correct": [2],
+    "explanation": "L'opzione --now combinata con enable abilita il servizio all'avvio (creando il link simbolico nel target) e lo avvia immediatamente, equivalente a 'enable' più 'start' in un solo comando.",
+    "why_wrong": {
+      "0": "start avvia il servizio nella sessione corrente ma non lo abilita all'avvio: dopo un riavvio resterebbe fermo.",
+      "1": "enable abilita il servizio all'avvio futuro ma non lo avvia nella sessione corrente.",
+      "3": "status mostra soltanto lo stato del servizio, senza avviarlo né abilitarlo."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-009",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Systemd", "Linux"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale comando mostra i log del servizio ssh gestiti da systemd, seguendoli in tempo reale?",
+    "options": ["journalctl -u ssh -f", "journalctl -f ssh", "systemctl log ssh", "tail -f /etc/ssh"],
+    "correct": [0],
+    "explanation": "journalctl interroga il journal di systemd: -u ssh filtra per la unit del servizio e -f (follow) mostra le nuove righe in tempo reale, come tail -f.",
+    "why_wrong": {
+      "1": "Senza -u il nome 'ssh' non viene interpretato come unit e la sintassi non filtra correttamente per servizio.",
+      "2": "systemctl non ha un sottocomando 'log'; la lettura dei log si fa con journalctl.",
+      "3": "/etc/ssh è una directory di configurazione, non un file di log; tail -f su una directory non funziona."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-010",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Gestione pacchetti"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Su un sistema Debian/Ubuntu, quale comando aggiorna l'indice locale dei pacchetti disponibili senza installare aggiornamenti?",
+    "options": ["apt upgrade", "apt update", "dnf update", "apt install"],
+    "correct": [1],
+    "explanation": "'apt update' sincronizza l'elenco dei pacchetti e delle versioni disponibili dai repository, senza modificare i pacchetti installati. L'aggiornamento effettivo si fa poi con 'apt upgrade'.",
+    "why_wrong": {
+      "0": "apt upgrade installa gli aggiornamenti già indicizzati, ma non aggiorna prima l'indice dei pacchetti.",
+      "2": "dnf è il gestore pacchetti di Fedora/RHEL, non di Debian/Ubuntu.",
+      "3": "apt install serve a installare uno o più pacchetti specifici, non ad aggiornare l'indice."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-011",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Networking"],
+    "type": "single",
+    "difficulty": 2,
+    "question": "Quale comando del pacchetto iproute2 mostra gli indirizzi IP configurati sulle interfacce di rete, sostituendo il vecchio ifconfig?",
+    "options": ["ip addr show", "ss -tuln", "ping -c 4 localhost", "route -n"],
+    "correct": [0],
+    "explanation": "'ip addr show' (o 'ip a') elenca le interfacce di rete con i relativi indirizzi IPv4 e IPv6; fa parte di iproute2 e ha sostituito ifconfig nelle distribuzioni moderne.",
+    "why_wrong": {
+      "1": "ss -tuln mostra socket e porte in ascolto (TCP/UDP), non gli indirizzi delle interfacce.",
+      "2": "ping verifica la raggiungibilità di un host, non mostra la configurazione delle interfacce.",
+      "3": "route -n mostra la tabella di instradamento, non gli indirizzi assegnati alle interfacce."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-012",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Bash"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni su redirezione e pipe nella shell sono corrette? (seleziona 2)",
+    "options": ["L'operatore > sovrascrive il contenuto del file di destinazione", "2>&1 reindirizza lo standard error sullo stesso flusso dello standard output", "L'operatore >> cancella il file prima di scrivere il nuovo output", "La pipe | scrive lo standard output direttamente su un file"],
+    "correct": [0, 1],
+    "explanation": "L'operatore > redirige lo standard output su un file sovrascrivendone il contenuto, mentre 2>&1 unisce lo standard error allo stesso flusso dello standard output (utile per catturare tutti i messaggi insieme).",
+    "why_wrong": {
+      "2": ">> NON cancella il file: aggiunge (append) il nuovo output in coda al contenuto esistente.",
+      "3": "La pipe | NON scrive su file: collega lo standard output di un comando allo standard input del comando successivo; per scrivere su file si usa >."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-013",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Cron", "Bash"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni sul crontab sono corrette? (seleziona 2)",
+    "options": ["La sintassi ha 5 campi temporali: minuto, ora, giorno del mese, mese, giorno della settimana", "Il comando crontab -e apre l'editor per modificare le pianificazioni dell'utente", "La riga * * * * * esegue il comando una sola volta al giorno", "L'opzione crontab -r serve a elencare le voci pianificate"],
+    "correct": [0, 1],
+    "explanation": "Una riga di crontab ha 5 campi temporali (minuto, ora, giorno del mese, mese, giorno della settimana) seguiti dal comando. 'crontab -e' apre l'editor per modificare le pianificazioni dell'utente corrente.",
+    "why_wrong": {
+      "2": "* * * * * significa 'ogni minuto', quindi il comando viene eseguito ogni minuto, non una volta al giorno.",
+      "3": "crontab -r RIMUOVE tutte le voci dell'utente; per elencarle si usa crontab -l."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-014",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Permessi", "Linux"],
+    "type": "multi",
+    "difficulty": 2,
+    "question": "Quali delle seguenti affermazioni sui permessi Unix sono corrette? (seleziona 2)",
+    "options": ["Il bit di esecuzione (x) su una directory ne consente l'attraversamento e l'accesso al contenuto", "Nella notazione ottale il valore 4 corrisponde al permesso di lettura (r)", "Il permesso di scrittura (w) su un file ne consente l'esecuzione", "Il valore ottale 777 concede solo il permesso di lettura a tutti"],
+    "correct": [0, 1],
+    "explanation": "Su una directory il bit x permette di attraversarla (cd) e accedere ai file al suo interno. In ottale i pesi sono r=4, w=2, x=1, quindi il valore 4 corrisponde alla lettura.",
+    "why_wrong": {
+      "2": "La scrittura (w) consente di modificare il file, non di eseguirlo: l'esecuzione richiede il bit x.",
+      "3": "777 corrisponde a rwxrwxrwx, cioè lettura, scrittura ed esecuzione per proprietario, gruppo e altri."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-015",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Systemd"],
+    "type": "multi",
+    "difficulty": 3,
+    "question": "Quali delle seguenti affermazioni su systemd sono corrette? (seleziona 2)",
+    "options": ["systemctl daemon-reload ricarica la configurazione delle unit dopo modifiche ai file .service", "I file unit personalizzati dell'amministratore si collocano tipicamente in /etc/systemd/system/", "systemctl mask serve ad avviare automaticamente un servizio", "systemctl status avvia il servizio indicato"],
+    "correct": [0, 1],
+    "explanation": "Dopo aver modificato o creato un file .service occorre eseguire 'systemctl daemon-reload' perché systemd rilegga le unit. I file unit locali dell'amministratore vanno in /etc/systemd/system/, che ha priorità sui percorsi di distribuzione.",
+    "why_wrong": {
+      "2": "systemctl mask NON avvia il servizio: crea un link a /dev/null rendendone impossibile l'avvio finché non viene rimosso con unmask.",
+      "3": "systemctl status mostra soltanto lo stato del servizio; per avviarlo si usa systemctl start."
+    },
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-016",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Linux"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "In una tipica distribuzione Linux, i file di log di sistema (come syslog o messages) si trovano nella directory /var/log.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. Secondo il FHS, /var/log contiene i file di log variabili del sistema e dei servizi, ad esempio /var/log/syslog, /var/log/messages, /var/log/auth.log.",
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-017",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Bash", "Linux"],
+    "type": "truefalse",
+    "difficulty": 1,
+    "question": "Nell'editor vi/vim, dalla modalità comando il comando :wq salva le modifiche ed esce dall'editor.",
+    "options": ["Vero", "Falso"],
+    "correct": [0],
+    "explanation": "Vero. In vi/vim :w salva (write) e :q esce (quit); combinati come :wq salvano le modifiche e chiudono l'editor. Per uscire senza salvare si usa invece :q!.",
+    "source": "IT generale"
+  },
+  {
+    "id": "lnx-018",
+    "cert": ["IT Generale - Linux"],
+    "topics": ["Linux", "Permessi"],
+    "type": "truefalse",
+    "difficulty": 2,
+    "question": "Il file /etc/shadow contiene le password degli utenti memorizzate in chiaro.",
+    "options": ["Vero", "Falso"],
+    "correct": [1],
+    "explanation": "Falso. /etc/shadow contiene gli hash delle password (non in chiaro), insieme a informazioni di scadenza. È leggibile solo da root, a differenza di /etc/passwd che è leggibile da tutti ma non contiene le password.",
+    "source": "IT generale"
+  }
+]
