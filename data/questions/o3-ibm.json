@@ -6,13 +6,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Nella Cyber Kill Chain di Lockheed Martin, in quale fase l'attaccante combina un exploit con una backdoor in un payload pronto per la consegna, senza avere ancora alcun contatto con la vittima?",
+    "question_en": "In Lockheed Martin's Cyber Kill Chain, in which phase does the attacker combine an exploit with a backdoor into a payload ready for delivery, without yet having any contact with the victim?",
     "options": ["Ricognizione", "Armamento (Weaponization)", "Consegna (Delivery)", "Comando e controllo (C2)"],
+    "options_en": ["Reconnaissance", "Weaponization", "Delivery", "Command and Control (C2)"],
     "correct": [1],
     "explanation": "L'Armamento è la fase in cui l'attaccante costruisce il payload (ad esempio un PDF contenente exploit e backdoor) prima di inviarlo. Avviene interamente lato attaccante, senza interazione con il bersaglio.",
+    "explanation_en": "Weaponization is the phase in which the attacker builds the payload (for example a PDF containing an exploit and a backdoor) before sending it. It happens entirely on the attacker's side, without interaction with the target.",
     "why_wrong": {
       "0": "La Ricognizione raccoglie informazioni sul bersaglio, ma non produce ancora il payload armato.",
       "2": "La Consegna è la trasmissione del payload alla vittima, quindi successiva all'armamento.",
       "3": "Il Comando e controllo apre il canale verso l'host già compromesso, una fase molto più avanzata."
+    },
+    "why_wrong_en": {
+      "0": "Reconnaissance gathers information about the target, but does not yet produce the weaponized payload.",
+      "2": "Delivery is the transmission of the payload to the victim, therefore subsequent to weaponization.",
+      "3": "Command and Control opens the channel toward the already compromised host, a much more advanced phase."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -23,18 +31,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Secondo il ciclo di gestione degli incidenti del NIST (SP 800-61), qual è la corretta sequenza delle fasi principali?",
+    "question_en": "According to the NIST incident handling life cycle (SP 800-61), what is the correct sequence of the main phases?",
     "options": [
       "Rilevamento, Preparazione, Contenimento, Ripristino",
       "Preparazione, Rilevamento e analisi, Contenimento eradicazione e ripristino, Attività post-incidente",
       "Preparazione, Contenimento, Rilevamento, Lezioni apprese",
       "Identificazione, Protezione, Rilevamento, Risposta, Ripristino"
     ],
+    "options_en": [
+      "Detection, Preparation, Containment, Recovery",
+      "Preparation, Detection and Analysis, Containment Eradication and Recovery, Post-Incident Activity",
+      "Preparation, Containment, Detection, Lessons Learned",
+      "Identify, Protect, Detect, Respond, Recover"
+    ],
     "correct": [1],
     "explanation": "Il NIST definisce quattro fasi in ordine: Preparazione, Rilevamento e analisi, Contenimento/eradicazione/ripristino e Attività post-incidente (lezioni apprese).",
+    "explanation_en": "NIST defines four phases in order: Preparation, Detection and Analysis, Containment/Eradication/Recovery, and Post-Incident Activity (lessons learned).",
     "why_wrong": {
       "0": "La Preparazione deve precedere il Rilevamento: qui l'ordine è invertito.",
       "2": "Non si può contenere un incidente prima di averlo rilevato e analizzato.",
       "3": "Queste sono le funzioni del NIST Cybersecurity Framework (Identify, Protect, Detect, Respond, Recover), non le fasi di gestione dell'incidente."
+    },
+    "why_wrong_en": {
+      "0": "Preparation must precede Detection: here the order is reversed.",
+      "2": "An incident cannot be contained before it has been detected and analyzed.",
+      "3": "These are the functions of the NIST Cybersecurity Framework (Identify, Protect, Detect, Respond, Recover), not the incident handling phases."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -45,18 +66,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Durante l'acquisizione forense di un sistema ancora acceso, secondo l'ordine di volatilità (RFC 3227) quale fonte di dati deve essere raccolta per prima?",
+    "question_en": "During the forensic acquisition of a system that is still powered on, according to the order of volatility (RFC 3227) which data source must be collected first?",
     "options": [
       "Il contenuto del disco rigido",
       "I file di log già archiviati su supporto esterno",
       "I registri e la cache della CPU",
       "I backup su nastro"
     ],
+    "options_en": [
+      "The contents of the hard drive",
+      "The log files already archived on external media",
+      "The CPU registers and cache",
+      "The tape backups"
+    ],
     "correct": [2],
     "explanation": "L'ordine di volatilità impone di acquisire per primi i dati più effimeri: registri e cache della CPU, poi la RAM, le tabelle di routing e le connessioni, e solo dopo i dati persistenti su disco.",
+    "explanation_en": "The order of volatility dictates acquiring the most ephemeral data first: CPU registers and cache, then RAM, routing tables and connections, and only afterward the persistent data on disk.",
     "why_wrong": {
       "0": "Il disco è memoria non volatile: i suoi dati sopravvivono allo spegnimento, quindi va acquisito dopo i dati volatili.",
       "1": "I log archiviati sono già persistenti e stabili, tra le fonti meno volatili.",
       "3": "I backup su nastro sono la fonte più stabile e duratura, l'ultima nell'ordine di volatilità."
+    },
+    "why_wrong_en": {
+      "0": "The disk is non-volatile memory: its data survives shutdown, so it is acquired after the volatile data.",
+      "1": "Archived logs are already persistent and stable, among the least volatile sources.",
+      "3": "Tape backups are the most stable and durable source, the last in the order of volatility."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -67,17 +101,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali dei seguenti attacchi compromettono principalmente la DISPONIBILITÀ (Availability) della triade CIA? (selezionane due)",
+    "question_en": "Which of the following attacks primarily compromise the AVAILABILITY of the CIA Triad? (select two)",
     "options": [
       "Attacco DDoS che satura un servizio web",
       "Sniffing del traffico trasmesso in chiaro",
       "Ransomware che cifra i file rendendoli inaccessibili",
       "Modifica non autorizzata di un record in un database"
     ],
+    "options_en": [
+      "A DDoS attack that saturates a web service",
+      "Sniffing of traffic transmitted in cleartext",
+      "Ransomware that encrypts the files, making them inaccessible",
+      "Unauthorized modification of a record in a database"
+    ],
     "correct": [0, 2],
     "explanation": "Il DDoS rende un servizio irraggiungibile e il ransomware blocca l'accesso ai dati cifrandoli: entrambi colpiscono direttamente la disponibilità.",
+    "explanation_en": "A DDoS makes a service unreachable and ransomware blocks access to the data by encrypting it: both directly affect availability.",
     "why_wrong": {
       "1": "Lo sniffing intercetta i dati e viola la riservatezza (confidentiality), non la disponibilità.",
       "3": "L'alterazione non autorizzata di un dato viola l'integrità (integrity)."
+    },
+    "why_wrong_en": {
+      "1": "Sniffing intercepts the data and violates confidentiality, not availability.",
+      "3": "The unauthorized alteration of data violates integrity."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -88,18 +134,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la differenza fondamentale tra un IDS e un IPS?",
+    "question_en": "What is the fundamental difference between an IDS and an IPS?",
     "options": [
       "L'IDS opera solo sul traffico cifrato, l'IPS solo su quello in chiaro",
       "L'IDS rileva e segnala le minacce ma non le blocca, mentre l'IPS può bloccare attivamente il traffico malevolo in linea",
       "L'IDS è sempre basato su hardware, l'IPS sempre su software",
       "L'IDS previene gli attacchi, l'IPS si limita a registrarli nei log"
     ],
+    "options_en": [
+      "The IDS operates only on encrypted traffic, the IPS only on cleartext traffic",
+      "The IDS detects and reports threats but does not block them, while the IPS can actively block malicious traffic inline",
+      "The IDS is always hardware-based, the IPS always software-based",
+      "The IDS prevents attacks, the IPS merely records them in the logs"
+    ],
     "correct": [1],
     "explanation": "L'IDS (Intrusion Detection System) è passivo: osserva e allerta. L'IPS (Intrusion Prevention System) è posizionato in linea e può scartare o bloccare attivamente il traffico riconosciuto come malevolo.",
+    "explanation_en": "The IDS (Intrusion Detection System) is passive: it observes and alerts. The IPS (Intrusion Prevention System) is placed inline and can actively drop or block traffic recognized as malicious.",
     "why_wrong": {
       "0": "La distinzione non riguarda traffico cifrato o in chiaro, ma la capacità di reazione (rilevare vs bloccare).",
       "2": "Entrambi possono essere implementati sia in hardware sia in software; non è questo il criterio distintivo.",
       "3": "È l'esatto contrario: è l'IPS a prevenire/bloccare, mentre l'IDS si limita a rilevare e segnalare."
+    },
+    "why_wrong_en": {
+      "0": "The distinction is not about encrypted or cleartext traffic, but about the ability to react (detect vs block).",
+      "2": "Both can be implemented in either hardware or software; this is not the distinguishing criterion.",
+      "3": "It is exactly the opposite: it is the IPS that prevents/blocks, while the IDS merely detects and reports."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -110,9 +169,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Una funzione chiave di un SIEM è la correlazione degli eventi: aggrega e mette in relazione log provenienti da fonti diverse per individuare pattern di attacco che i singoli eventi isolati non rivelerebbero.",
+    "question_en": "A key function of a SIEM is event correlation: it aggregates and relates logs from different sources to identify attack patterns that individual isolated events would not reveal.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. La correlazione è centrale in un SIEM: unendo eventi da firewall, endpoint, server e applicazioni, riesce a far emergere sequenze sospette (ad esempio molti login falliti seguiti da un accesso riuscito) invisibili nei log isolati.",
+    "explanation_en": "True. Correlation is central to a SIEM: by combining events from firewalls, endpoints, servers and applications, it can surface suspicious sequences (for example many failed logins followed by a successful access) that are invisible in isolated logs.",
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -122,18 +184,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In un sistema di crittografia asimmetrica, con quale chiave si cifra un messaggio affinché SOLO il destinatario previsto possa decifrarlo?",
+    "question_en": "In an asymmetric cryptography system, with which key is a message encrypted so that ONLY the intended recipient can decrypt it?",
     "options": [
       "La chiave privata del mittente",
       "La chiave pubblica del destinatario",
       "La chiave privata del destinatario",
       "Una chiave simmetrica condivisa in anticipo"
     ],
+    "options_en": [
+      "The sender's private key",
+      "The recipient's public key",
+      "The recipient's private key",
+      "A symmetric key shared in advance"
+    ],
     "correct": [1],
     "explanation": "Si cifra con la chiave pubblica del destinatario: solo la corrispondente chiave privata, in possesso del solo destinatario, può decifrare il messaggio, garantendo la riservatezza.",
+    "explanation_en": "You encrypt with the recipient's public key: only the corresponding private key, held solely by the recipient, can decrypt the message, ensuring confidentiality.",
     "why_wrong": {
       "0": "Cifrare con la chiave privata del mittente serve a firmare (autenticità/non ripudio), non a proteggere la riservatezza: chiunque potrebbe decifrare con la chiave pubblica del mittente.",
       "2": "Il destinatario usa la propria chiave privata per DECIFRARE; il mittente non la possiede e quindi non può usarla per cifrare.",
       "3": "Questo descriverebbe la crittografia simmetrica, non quella asimmetrica richiesta dalla domanda."
+    },
+    "why_wrong_en": {
+      "0": "Encrypting with the sender's private key serves to sign (authenticity/non-repudiation), not to protect confidentiality: anyone could decrypt with the sender's public key.",
+      "2": "The recipient uses their own private key to DECRYPT; the sender does not possess it and therefore cannot use it to encrypt.",
+      "3": "This would describe symmetric cryptography, not the asymmetric cryptography the question asks about."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -144,18 +219,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Quale caratteristica distingue il malware 'fileless' (senza file) dalle minacce tradizionali basate su file?",
+    "question_en": "Which characteristic distinguishes 'fileless' malware from traditional file-based threats?",
     "options": [
       "Si replica automaticamente via email come un worm classico",
       "Risiede ed esegue prevalentemente in memoria (RAM) sfruttando strumenti legittimi di sistema, senza scrivere un eseguibile su disco",
       "Richiede sempre privilegi di amministratore per potersi installare",
       "Cifra i file della vittima e chiede un riscatto per la decifratura"
     ],
+    "options_en": [
+      "It replicates automatically via email like a classic worm",
+      "It resides and executes mainly in memory (RAM) leveraging legitimate system tools, without writing an executable to disk",
+      "It always requires administrator privileges in order to install",
+      "It encrypts the victim's files and demands a ransom for decryption"
+    ],
     "correct": [1],
     "explanation": "Il malware fileless opera in memoria abusando di strumenti legittimi (living off the land), come PowerShell o WMI, evitando di lasciare un file eseguibile su disco e rendendo più difficile il rilevamento da parte degli antivirus tradizionali.",
+    "explanation_en": "Fileless malware operates in memory by abusing legitimate tools (living off the land), such as PowerShell or WMI, avoiding leaving an executable file on disk and making detection by traditional antivirus more difficult.",
     "why_wrong": {
       "0": "L'autoreplicazione via email descrive un worm, non la caratteristica distintiva del fileless.",
       "2": "Molte tecniche fileless girano nel contesto dell'utente corrente e non richiedono necessariamente privilegi di amministratore.",
       "3": "La cifratura con richiesta di riscatto descrive il ransomware, che è indipendente dall'essere fileless o meno."
+    },
+    "why_wrong_en": {
+      "0": "Self-replication via email describes a worm, not the distinguishing characteristic of fileless malware.",
+      "2": "Many fileless techniques run in the context of the current user and do not necessarily require administrator privileges.",
+      "3": "Encryption with a ransom demand describes ransomware, which is independent of being fileless or not."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -166,17 +254,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti affermazioni sulla strategia di difesa in profondità (defense in depth) sono CORRETTE? (selezionane due)",
+    "question_en": "Which of the following statements about the defense in depth strategy are CORRECT? (select two)",
     "options": [
       "Si affida a un unico controllo perimetrale molto robusto",
       "Combina controlli fisici, tecnici e amministrativi disposti su più livelli",
       "Se un livello viene superato, gli altri continuano comunque a fornire protezione",
       "Elimina del tutto la necessità di monitoraggio e risposta agli incidenti"
     ],
+    "options_en": [
+      "It relies on a single, very robust perimeter control",
+      "It combines physical, technical and administrative controls arranged in multiple layers",
+      "If one layer is bypassed, the others still continue to provide protection",
+      "It entirely eliminates the need for monitoring and incident response"
+    ],
     "correct": [1, 2],
     "explanation": "La difesa in profondità stratifica controlli di natura diversa (fisici, tecnici, amministrativi) così che il fallimento di un singolo livello non comprometta l'intero sistema: gli altri livelli mantengono la protezione.",
+    "explanation_en": "Defense in depth layers controls of different kinds (physical, technical, administrative) so that the failure of a single layer does not compromise the entire system: the other layers maintain protection.",
     "why_wrong": {
       "0": "È l'opposto: affidarsi a un solo controllo perimetrale è proprio il modello che la difesa in profondità intende superare.",
       "3": "La difesa in profondità non elimina il monitoraggio e la risposta agli incidenti, che restano livelli essenziali della strategia."
+    },
+    "why_wrong_en": {
+      "0": "It is the opposite: relying on a single perimeter control is precisely the model that defense in depth aims to overcome.",
+      "3": "Defense in depth does not eliminate monitoring and incident response, which remain essential layers of the strategy."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -187,18 +287,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Il principio del privilegio minimo (least privilege) stabilisce che:",
+    "question_en": "The principle of least privilege establishes that:",
     "options": [
       "ogni utente debba avere accesso amministrativo per ridurre le richieste all'help desk",
       "a un utente o processo vadano concessi solo i permessi strettamente necessari a svolgere il proprio compito",
       "i permessi vadano assegnati sempre ai singoli utenti anziché ai ruoli",
       "tutti gli account debbano condividere le stesse credenziali per semplicità di gestione"
     ],
+    "options_en": [
+      "every user should have administrative access to reduce help desk requests",
+      "a user or process should be granted only the permissions strictly necessary to perform their task",
+      "permissions should always be assigned to individual users rather than to roles",
+      "all accounts should share the same credentials for management simplicity"
+    ],
     "correct": [1],
     "explanation": "Il privilegio minimo limita i diritti di ciascun utente o processo allo stretto necessario, riducendo la superficie di attacco e l'impatto di un eventuale account compromesso.",
+    "explanation_en": "Least privilege limits the rights of each user or process to the strictly necessary, reducing the attack surface and the impact of a possibly compromised account.",
     "why_wrong": {
       "0": "Concedere accesso amministrativo a tutti viola direttamente il principio del privilegio minimo e amplia la superficie di attacco.",
       "2": "Assegnare i permessi ai ruoli (RBAC) è di norma preferibile; comunque non è questo il contenuto del principio del privilegio minimo.",
       "3": "Le credenziali condivise annullano la tracciabilità e la responsabilità individuale, in contrasto con le buone pratiche di controllo accessi."
+    },
+    "why_wrong_en": {
+      "0": "Granting administrative access to everyone directly violates the principle of least privilege and widens the attack surface.",
+      "2": "Assigning permissions to roles (RBAC) is generally preferable; in any case, this is not what the principle of least privilege is about.",
+      "3": "Shared credentials nullify traceability and individual accountability, in contrast with good access control practices."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -209,9 +322,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "In analisi forense, un write blocker (bloccatore di scrittura) viene usato per impedire qualsiasi modifica ai dati del supporto originale durante l'acquisizione della copia forense.",
+    "question_en": "In forensic analysis, a write blocker is used to prevent any modification to the data on the original media during the acquisition of the forensic copy.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Il write blocker consente la sola lettura del supporto originale, garantendo che l'evidenza non venga alterata durante la copia e preservando così l'integrità della prova e la catena di custodia.",
+    "explanation_en": "True. The write blocker allows read-only access to the original media, ensuring that the evidence is not altered during copying and thereby preserving the integrity of the evidence and the chain of custody.",
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -221,18 +337,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è lo scopo principale di una DMZ (zona demilitarizzata) in un'architettura di rete?",
+    "question_en": "What is the main purpose of a DMZ (demilitarized zone) in a network architecture?",
     "options": [
       "Ospitare i servizi esposti a Internet in una sottorete isolata, separandoli dalla rete interna fidata",
       "Cifrare automaticamente tutto il traffico scambiato tra i server interni",
       "Sostituire completamente la necessità di un firewall perimetrale",
       "Fornire una rete wireless ad accesso libero per gli ospiti"
     ],
+    "options_en": [
+      "Host the services exposed to the Internet in an isolated subnet, separating them from the trusted internal network",
+      "Automatically encrypt all traffic exchanged between internal servers",
+      "Completely replace the need for a perimeter firewall",
+      "Provide an open-access wireless network for guests"
+    ],
     "correct": [0],
     "explanation": "La DMZ è una sottorete intermedia che ospita i servizi accessibili dall'esterno (web, mail, DNS pubblici). Se uno di essi viene compromesso, l'attaccante resta confinato nella DMZ e non raggiunge direttamente la rete interna.",
+    "explanation_en": "The DMZ is an intermediate subnet that hosts the services accessible from outside (public web, mail, DNS). If one of them is compromised, the attacker remains confined to the DMZ and does not directly reach the internal network.",
     "why_wrong": {
       "1": "La DMZ è un concetto di segmentazione di rete, non un meccanismo di cifratura del traffico.",
       "2": "La DMZ non sostituisce il firewall: al contrario, è delimitata e protetta proprio da firewall.",
       "3": "Una rete ospiti wireless è tutt'altra cosa; la DMZ serve a isolare i servizi pubblici, non a offrire accesso libero."
+    },
+    "why_wrong_en": {
+      "1": "The DMZ is a network segmentation concept, not a traffic encryption mechanism.",
+      "2": "The DMZ does not replace the firewall: on the contrary, it is delimited and protected precisely by firewalls.",
+      "3": "A wireless guest network is an entirely different thing; the DMZ serves to isolate public services, not to offer open access."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -243,17 +372,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali delle seguenti sono funzionalità tipiche di una piattaforma SIEM? (selezionane due)",
+    "question_en": "Which of the following are typical features of a SIEM platform? (select two)",
     "options": [
       "Aggregazione e normalizzazione dei log provenienti da fonti eterogenee",
       "Generazione di alert in base a regole di correlazione",
       "Cifratura fisica dei dischi degli endpoint aziendali",
       "Sostituzione del firewall perimetrale della rete"
     ],
+    "options_en": [
+      "Aggregation and normalization of logs from heterogeneous sources",
+      "Generation of alerts based on correlation rules",
+      "Physical encryption of the disks of the company endpoints",
+      "Replacement of the network's perimeter firewall"
+    ],
     "correct": [0, 1],
     "explanation": "Un SIEM raccoglie, normalizza e centralizza i log da fonti diverse e genera alert applicando regole di correlazione, offrendo visibilità e rilevamento a livello di security operations.",
+    "explanation_en": "A SIEM collects, normalizes and centralizes logs from different sources and generates alerts by applying correlation rules, providing visibility and detection at the security operations level.",
     "why_wrong": {
       "2": "La cifratura dei dischi è un controllo di protezione dei dati sull'endpoint (es. BitLocker), non una funzione del SIEM.",
       "3": "Il SIEM monitora e analizza, ma non filtra il traffico né sostituisce il firewall perimetrale."
+    },
+    "why_wrong_en": {
+      "2": "Disk encryption is a data protection control on the endpoint (e.g. BitLocker), not a SIEM function.",
+      "3": "The SIEM monitors and analyzes, but it does not filter traffic nor replace the perimeter firewall."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -264,13 +405,21 @@
     "type": "single",
     "difficulty": 3,
     "question": "Durante la risposta a un incidente, il team isola immediatamente un segmento di rete infetto per fermare la propagazione del malware, accettando una parziale interruzione del servizio. A quale fase appartiene principalmente questa azione?",
+    "question_en": "During incident response, the team immediately isolates an infected network segment to stop the propagation of the malware, accepting a partial service disruption. To which phase does this action mainly belong?",
     "options": ["Preparazione", "Contenimento", "Attività post-incidente (lezioni apprese)", "Ricognizione"],
+    "options_en": ["Preparation", "Containment", "Post-Incident Activity (lessons learned)", "Reconnaissance"],
     "correct": [1],
     "explanation": "Isolare un segmento per bloccare la diffusione della minaccia è un'azione di contenimento, la fase che mira a limitare l'impatto dell'incidente prima dell'eradicazione e del ripristino.",
+    "explanation_en": "Isolating a segment to stop the spread of the threat is a containment action, the phase that aims to limit the impact of the incident before eradication and recovery.",
     "why_wrong": {
       "0": "La Preparazione avviene prima dell'incidente (piani, strumenti, formazione), non durante la reazione attiva.",
       "2": "Le attività post-incidente (lezioni apprese) seguono la chiusura dell'incidente, non la sua gestione in corso.",
       "3": "La Ricognizione è una fase dell'attaccante nella kill chain, non un'attività del team di risposta."
+    },
+    "why_wrong_en": {
+      "0": "Preparation happens before the incident (plans, tools, training), not during the active response.",
+      "2": "Post-incident activities (lessons learned) follow the closure of the incident, not its ongoing handling.",
+      "3": "Reconnaissance is an attacker phase in the kill chain, not an activity of the response team."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -281,9 +430,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Una funzione di hash crittografica è progettata per essere reversibile, in modo da poter ricostruire il messaggio originale a partire dal suo valore di hash.",
+    "question_en": "A cryptographic hash function is designed to be reversible, so that the original message can be reconstructed from its hash value.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. Un hash crittografico è una funzione a senso unico (one-way): dal digest non è computazionalmente fattibile risalire all'input originale. Serve a verificare l'integrità, non a cifrare o recuperare i dati.",
+    "explanation_en": "False. A cryptographic hash is a one-way function: it is not computationally feasible to recover the original input from the digest. It serves to verify integrity, not to encrypt or recover data.",
     "source": "HACK/IBM Cybersecurity"
   }
 ]

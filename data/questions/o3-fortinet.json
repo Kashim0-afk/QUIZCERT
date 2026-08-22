@@ -1,299 +1,579 @@
 [
   {
     "id": "fn3-001",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["Firewall Policy"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "Firewall Policy"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "In un FortiGate, come vengono valutate le firewall policy quando arriva un nuovo pacchetto che avvia una sessione?",
+    "question_en": "In a FortiGate, how are firewall policies evaluated when a new packet arrives that starts a session?",
     "options": [
       "Dall'alto verso il basso e viene applicata la prima policy corrispondente",
       "Viene sempre applicata la policy più specifica, indipendentemente dalla sua posizione nell'elenco",
       "Dal basso verso l'alto e viene applicata l'ultima policy corrispondente",
       "In ordine casuale finché una policy consente il traffico"
     ],
-    "correct": [0],
+    "options_en": [
+      "Top to bottom, and the first matching policy is applied",
+      "The most specific policy is always applied, regardless of its position in the list",
+      "Bottom to top, and the last matching policy is applied",
+      "In random order until a policy allows the traffic"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Il policy lookup avviene in sequenza dall'alto verso il basso: il FortiGate applica la prima policy le cui condizioni (interfaccia sorgente/destinazione, indirizzi, servizi, schedule) corrispondono al traffico e interrompe la ricerca. Per questo l'ordinamento delle regole è determinante.",
+    "explanation_en": "Policy lookup happens sequentially from top to bottom: the FortiGate applies the first policy whose conditions (source/destination interface, addresses, services, schedule) match the traffic and stops the search. This is why rule ordering is decisive.",
     "why_wrong": {
       "1": "Il FortiGate non ordina automaticamente le policy per specificità: conta la posizione nell'elenco, quindi una regola più generica posta in alto può 'oscurare' una più specifica sottostante (shadowing).",
       "2": "La valutazione parte dalla cima dell'elenco, non dal fondo, e si ferma alla prima corrispondenza, non all'ultima.",
       "3": "L'ordine di valutazione è deterministico (top-down), non casuale."
     },
+    "why_wrong_en": {
+      "1": "The FortiGate does not automatically sort policies by specificity: position in the list matters, so a more generic rule placed higher can 'shadow' a more specific one below it (shadowing).",
+      "2": "Evaluation starts from the top of the list, not the bottom, and stops at the first match, not the last.",
+      "3": "The evaluation order is deterministic (top-down), not random."
+    },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-002",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["NAT", "Firewall Policy"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "NAT",
+      "Firewall Policy"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In una firewall policy con NAT abilitato e l'opzione 'Use Outgoing Interface Address', quale tipo di traduzione viene eseguita sul traffico in uscita verso Internet?",
+    "question_en": "In a firewall policy with NAT enabled and the 'Use Outgoing Interface Address' option, what type of translation is performed on outbound traffic to the Internet?",
     "options": [
       "Source NAT (SNAT): l'IP sorgente privato viene tradotto nell'IP dell'interfaccia di uscita",
       "Destination NAT (DNAT): viene tradotto l'IP di destinazione del pacchetto",
       "NAT64: l'indirizzo IPv6 viene tradotto in IPv4",
       "Nessuna traduzione: il pacchetto mantiene l'IP sorgente originale"
     ],
-    "correct": [0],
+    "options_en": [
+      "Source NAT (SNAT): the private source IP is translated to the outgoing interface IP",
+      "Destination NAT (DNAT): the packet's destination IP is translated",
+      "NAT64: the IPv6 address is translated to IPv4",
+      "No translation: the packet keeps its original source IP"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Con NAT abilitato nella firewall policy e 'Use Outgoing Interface Address', il FortiGate esegue Source NAT: sostituisce l'indirizzo IP sorgente privato con l'indirizzo dell'interfaccia di uscita (port-based/PAT), permettendo agli host interni di raggiungere Internet.",
+    "explanation_en": "With NAT enabled in the firewall policy and 'Use Outgoing Interface Address', the FortiGate performs Source NAT: it replaces the private source IP address with the outgoing interface address (port-based/PAT), allowing internal hosts to reach the Internet.",
     "why_wrong": {
       "1": "Il DNAT non si configura con il NAT della policy in uscita ma tramite un Virtual IP (VIP) usato come destinazione per pubblicare un server interno.",
       "2": "Il NAT64 è una funzione specifica di transizione IPv6-IPv4 e richiede una configurazione dedicata, non è ciò che accade con l'opzione descritta.",
       "3": "Con NAT abilitato la traduzione avviene: l'IP sorgente viene proprio modificato, quindi affermare che resta invariato è errato."
     },
+    "why_wrong_en": {
+      "1": "DNAT is not configured through outbound policy NAT but via a Virtual IP (VIP) used as the destination to publish an internal server.",
+      "2": "NAT64 is a specific IPv6-to-IPv4 transition function and requires dedicated configuration; it is not what happens with the described option.",
+      "3": "With NAT enabled the translation does occur: the source IP is actually modified, so claiming it stays unchanged is wrong."
+    },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-003",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["Crittografia", "IDS/IPS"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "Crittografia",
+      "IDS/IPS"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale affermazione descrive correttamente la modalità SSL certificate inspection sul FortiGate?",
+    "question_en": "Which statement correctly describes the SSL certificate inspection mode on the FortiGate?",
     "options": [
       "Esamina solo le informazioni SSL non cifrate (SNI, certificato del server) senza decifrare il traffico applicativo",
       "Decifra e ispeziona l'intero payload HTTPS come un proxy man-in-the-middle",
       "Richiede l'installazione della CA del FortiGate su tutti i client per evitare avvisi",
       "Blocca automaticamente qualsiasi certificato scaduto senza alcuna configurazione delle policy"
     ],
-    "correct": [0],
+    "options_en": [
+      "It examines only the unencrypted SSL information (SNI, server certificate) without decrypting the application traffic",
+      "It decrypts and inspects the entire HTTPS payload like a man-in-the-middle proxy",
+      "It requires installing the FortiGate CA on all clients to avoid warnings",
+      "It automatically blocks any expired certificate without any policy configuration"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "La certificate inspection è un'ispezione 'leggera': il FortiGate legge solo i dati in chiaro dell'handshake TLS (Server Name Indication e certificato del server) per applicare filtri come il web filtering per categoria, ma NON decifra il contenuto della sessione. Per analizzare il payload serve la deep (full) SSL inspection.",
+    "explanation_en": "Certificate inspection is a 'lightweight' inspection: the FortiGate reads only the cleartext data of the TLS handshake (Server Name Indication and the server certificate) to apply filters such as category-based web filtering, but does NOT decrypt the session content. To analyze the payload, deep (full) SSL inspection is required.",
     "why_wrong": {
       "1": "La decifratura completa del payload è propria della deep/full SSL inspection, non della certificate inspection.",
       "2": "L'installazione della CA sui client è necessaria per la deep inspection (per evitare warning di certificato), non per la certificate inspection che non ri-firma i certificati.",
       "3": "La gestione dei certificati scaduti/non validi dipende dalle impostazioni del profilo SSL/SSH e non è un blocco automatico incondizionato."
     },
+    "why_wrong_en": {
+      "1": "Full payload decryption belongs to deep/full SSL inspection, not to certificate inspection.",
+      "2": "Installing the CA on clients is needed for deep inspection (to avoid certificate warnings), not for certificate inspection, which does not re-sign certificates.",
+      "3": "Handling of expired/invalid certificates depends on the SSL/SSH profile settings and is not an unconditional automatic block."
+    },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-004",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["VPN", "Crittografia"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "VPN",
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In una VPN IPsec site-to-site, cosa viene negoziato durante la Fase 1 (IKE) della trattativa?",
+    "question_en": "In a site-to-site IPsec VPN, what is negotiated during Phase 1 (IKE) of the negotiation?",
     "options": [
       "La SA IKE/ISAKMP e l'autenticazione reciproca dei peer (PSK o certificati)",
       "La SA IPsec (ESP) che protegge il traffico dati degli utenti",
       "I selettori di traffico (proxy ID) e la Perfect Forward Secrecy della fase dati",
       "Le rotte statiche verso la subnet remota da inserire nella routing table"
     ],
-    "correct": [0],
+    "options_en": [
+      "The IKE/ISAKMP SA and mutual peer authentication (PSK or certificates)",
+      "The IPsec (ESP) SA that protects user data traffic",
+      "The traffic selectors (proxy IDs) and Perfect Forward Secrecy of the data phase",
+      "The static routes to the remote subnet to add to the routing table"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "La Fase 1 stabilisce un canale sicuro di controllo negoziando la SA IKE (ISAKMP): autenticazione dei peer, algoritmi di cifratura/hash, gruppo Diffie-Hellman e scambio delle chiavi. Solo dopo, la Fase 2 negozia le SA IPsec (ESP) che proteggono il traffico dati.",
+    "explanation_en": "Phase 1 establishes a secure control channel by negotiating the IKE (ISAKMP) SA: peer authentication (PSK or certificates), encryption/hash algorithms, Diffie-Hellman group and key exchange. Only afterwards does Phase 2 negotiate the IPsec (ESP) SAs that protect the data traffic.",
     "why_wrong": {
       "1": "La SA IPsec/ESP per i dati utente è negoziata nella Fase 2, non nella Fase 1.",
       "2": "I selettori di traffico (proxy ID) e la PFS del traffico dati appartengono alla Fase 2 (quick mode).",
       "3": "Le rotte verso la rete remota si configurano o si apprendono a parte (statiche o dinamiche); non fanno parte della negoziazione IKE Fase 1."
     },
+    "why_wrong_en": {
+      "1": "The IPsec/ESP SA for user data is negotiated in Phase 2, not Phase 1.",
+      "2": "Traffic selectors (proxy IDs) and data-traffic PFS belong to Phase 2 (quick mode).",
+      "3": "Routes to the remote network are configured or learned separately (static or dynamic); they are not part of the IKE Phase 1 negotiation."
+    },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-005",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["Routing"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "Routing"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Su un FortiGate esistono due rotte statiche verso la stessa destinazione con identica subnet mask ma distanza amministrativa diversa. Quale entra nella routing table (FIB)?",
+    "question_en": "On a FortiGate there are two static routes to the same destination with an identical subnet mask but a different administrative distance. Which one enters the routing table (FIB)?",
     "options": [
       "Quella con la distanza amministrativa più bassa",
       "Quella con la priorità più alta (valore numerico maggiore)",
       "Quella con la metrica più alta",
       "Quella associata all'interfaccia con maggiore larghezza di banda"
     ],
-    "correct": [0],
+    "options_en": [
+      "The one with the lower administrative distance",
+      "The one with the higher priority (larger numeric value)",
+      "The one with the higher metric",
+      "The one bound to the interface with greater bandwidth"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "A parità di prefisso (longest match uguale), il FortiGate seleziona per la FIB la rotta con la distanza amministrativa (AD) più bassa, che indica la maggiore affidabilità della sorgente. La priorità interviene solo come tie-breaker quando anche la distanza è uguale.",
+    "explanation_en": "For an equal prefix (same longest match), the FortiGate selects for the FIB the route with the lower administrative distance (AD), which indicates greater trustworthiness of the source. Priority acts only as a tie-breaker when the distance is also equal.",
     "why_wrong": {
       "1": "La priorità è un discriminante solo tra rotte con stessa distanza; inoltre nel FortiGate una priorità più bassa è preferita, non più alta.",
       "2": "La metrica non è il criterio primario tra rotte statiche con distanza diversa; conta prima l'AD.",
       "3": "Il FortiGate non sceglie la rotta in base alla banda dell'interfaccia per le rotte statiche; il criterio è la distanza amministrativa."
     },
+    "why_wrong_en": {
+      "1": "Priority is a discriminator only among routes with the same distance; moreover, on the FortiGate a lower priority is preferred, not a higher one.",
+      "2": "Metric is not the primary criterion between static routes with different distances; the AD counts first.",
+      "3": "The FortiGate does not choose the route based on interface bandwidth for static routes; the criterion is the administrative distance."
+    },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-006",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["Firewall Policy"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "Firewall Policy"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In un cluster HA FGCP di due FortiGate, qual è la funzione principale delle interfacce heartbeat?",
+    "question_en": "In a two-FortiGate FGCP HA cluster, what is the main function of the heartbeat interfaces?",
     "options": [
       "Sincronizzare configurazione e tabella delle sessioni tra i membri e monitorare lo stato del cluster",
       "Instradare il traffico degli utenti finali verso Internet in load balancing",
       "Fornire l'accesso di gestione dedicato agli amministratori del firewall",
       "Terminare i tunnel IPsec e SSL VPN provenienti dai client remoti"
     ],
-    "correct": [0],
+    "options_en": [
+      "Synchronize configuration and the session table between members and monitor the cluster state",
+      "Route end-user traffic to the Internet with load balancing",
+      "Provide dedicated management access to the firewall administrators",
+      "Terminate the IPsec and SSL VPN tunnels coming from remote clients"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Le interfacce heartbeat trasportano il traffico di controllo FGCP: elezione del primario, sincronizzazione della configurazione e della session table, e rilevamento dei guasti tramite scambio continuo di heartbeat. Non trasportano traffico utente.",
+    "explanation_en": "The heartbeat interfaces carry FGCP control traffic: primary election, synchronization of the configuration and the session table, and failure detection through continuous heartbeat exchange. They do not carry user traffic.",
     "why_wrong": {
       "1": "Il traffico degli utenti passa dalle interfacce dati, non dai link heartbeat, che sono riservati alla comunicazione intra-cluster.",
       "2": "L'accesso di gestione può avvenire su interfacce dedicate o dati, ma non è lo scopo dell'heartbeat, che serve alla sincronizzazione HA.",
       "3": "La terminazione dei tunnel VPN è gestita dalle interfacce dati del membro attivo, non dai link heartbeat."
     },
+    "why_wrong_en": {
+      "1": "User traffic passes through the data interfaces, not the heartbeat links, which are reserved for intra-cluster communication.",
+      "2": "Management access can occur on dedicated or data interfaces, but that is not the purpose of the heartbeat, which serves HA synchronization.",
+      "3": "VPN tunnel termination is handled by the data interfaces of the active member, not by the heartbeat links."
+    },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-007",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["Firewall Policy"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "Firewall Policy"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Nei log del FortiGate, quale affermazione sui livelli di severità (severity) è corretta?",
+    "question_en": "In FortiGate logs, which statement about the severity levels is correct?",
     "options": [
       "Emergency (0) è il livello più critico e Debug (7) il meno critico",
       "Debug (0) è il livello più critico e Emergency (7) il meno critico",
       "Information ha una priorità maggiore di Critical",
       "Il livello di severità non ha alcun effetto su quali eventi vengono registrati"
     ],
-    "correct": [0],
+    "options_en": [
+      "Emergency (0) is the most critical level and Debug (7) the least critical",
+      "Debug (0) is the most critical level and Emergency (7) the least critical",
+      "Information has a higher priority than Critical",
+      "The severity level has no effect on which events are logged"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Il FortiGate usa la scala di severità in stile syslog da 0 a 7: Emergency (0), Alert (1), Critical (2), Error (3), Warning (4), Notification (5), Information (6), Debug (7). Il valore numerico più basso indica l'evento più grave. Impostando una soglia si registrano gli eventi di quel livello e superiori per gravità.",
+    "explanation_en": "The FortiGate uses the syslog-style severity scale from 0 to 7: Emergency (0), Alert (1), Critical (2), Error (3), Warning (4), Notification (5), Information (6), Debug (7). The lower numeric value indicates the more severe event. Setting a threshold logs events of that level and higher in severity.",
     "why_wrong": {
       "1": "L'ordine è invertito: 0 è Emergency (più critico) e 7 è Debug (meno critico), non il contrario.",
       "2": "Information (6) è meno prioritario di Critical (2): valori numerici più alti indicano minore gravità.",
       "3": "La soglia di severità determina proprio quali eventi vengono registrati: eventi meno gravi della soglia impostata non vengono loggati."
     },
+    "why_wrong_en": {
+      "1": "The order is reversed: 0 is Emergency (most critical) and 7 is Debug (least critical), not the other way around.",
+      "2": "Information (6) is lower priority than Critical (2): higher numeric values indicate lower severity.",
+      "3": "The severity threshold determines exactly which events are logged: events less severe than the set threshold are not logged."
+    },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-008",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["Firewall Policy"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "Firewall Policy"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "In un deployment FSSO (Fortinet Single Sign-On) con collector agent, come ottiene il FortiGate l'associazione utente-indirizzo IP per applicare policy basate sull'identità?",
+    "question_en": "In an FSSO (Fortinet Single Sign-On) deployment with a collector agent, how does the FortiGate obtain the user-to-IP-address mapping to apply identity-based policies?",
     "options": [
       "Rilevando gli eventi di logon dai Domain Controller e mappando l'utente all'indirizzo IP, in modo trasparente",
       "Obbligando ogni utente ad autenticarsi tramite captive portal a ogni sessione",
       "Cifrando il traffico tra client e FortiGate tramite un tunnel dedicato",
       "Sostituendo il server RADIUS per gestire l'autenticazione a due fattori"
     ],
-    "correct": [0],
+    "options_en": [
+      "By detecting logon events from the Domain Controllers and mapping the user to the IP address, transparently",
+      "By forcing every user to authenticate through a captive portal on each session",
+      "By encrypting the traffic between client and FortiGate through a dedicated tunnel",
+      "By replacing the RADIUS server to handle two-factor authentication"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "FSSO fornisce autenticazione trasparente: il collector agent raccoglie gli eventi di logon dai Domain Controller Active Directory (o dal DC agent), determina la mappatura utente-IP-gruppo e la comunica al FortiGate, che applica le policy basate sull'identità senza richiedere credenziali all'utente.",
+    "explanation_en": "FSSO provides transparent authentication: the collector agent gathers logon events from the Active Directory Domain Controllers (or from the DC agent), determines the user-IP-group mapping and communicates it to the FortiGate, which applies identity-based policies without prompting the user for credentials.",
     "why_wrong": {
       "1": "Il vantaggio di FSSO è proprio l'assenza del captive portal: l'autenticazione è trasparente e riusa il logon di dominio.",
       "2": "FSSO non cifra il traffico degli utenti; si occupa solo di veicolare le informazioni di identità al FortiGate.",
       "3": "FSSO non sostituisce RADIUS né gestisce il 2FA: fornisce il single sign-on mappando gli utenti già autenticati nel dominio."
     },
+    "why_wrong_en": {
+      "1": "The advantage of FSSO is precisely the absence of a captive portal: authentication is transparent and reuses the domain logon.",
+      "2": "FSSO does not encrypt user traffic; it only conveys the identity information to the FortiGate.",
+      "3": "FSSO does not replace RADIUS nor handle 2FA: it provides single sign-on by mapping users already authenticated in the domain."
+    },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-009",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["VPN"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "VPN"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la differenza tra SSL VPN in web mode e in tunnel mode su FortiGate?",
+    "question_en": "What is the difference between SSL VPN in web mode and in tunnel mode on the FortiGate?",
     "options": [
       "Il web mode dà accesso alle risorse tramite un portale nel browser senza client; il tunnel mode assegna un IP virtuale e richiede FortiClient",
       "Il web mode richiede sempre FortiClient, mentre il tunnel mode funziona solo dal browser",
       "Entrambe le modalità assegnano al client un indirizzo IP virtuale dalla pool address",
       "Il tunnel mode opera solo su HTTP in chiaro, mentre il web mode usa HTTPS"
     ],
-    "correct": [0],
+    "options_en": [
+      "Web mode gives access to resources through a browser portal without a client; tunnel mode assigns a virtual IP and requires FortiClient",
+      "Web mode always requires FortiClient, while tunnel mode works only from the browser",
+      "Both modes assign the client a virtual IP address from the address pool",
+      "Tunnel mode operates only over cleartext HTTP, while web mode uses HTTPS"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "In web mode l'utente accede tramite un portale HTTPS nel browser (clientless), utile per applicazioni web/bookmark; in tunnel mode il client FortiClient stabilisce un tunnel SSL e riceve un IP virtuale dalla tunnel address pool, ottenendo accesso a livello di rete come una VPN completa.",
+    "explanation_en": "In web mode the user connects through an HTTPS portal in the browser (clientless), useful for web applications/bookmarks; in tunnel mode the FortiClient client establishes an SSL tunnel and receives a virtual IP from the tunnel address pool, gaining network-level access like a full VPN.",
     "why_wrong": {
       "1": "È l'opposto: FortiClient serve al tunnel mode, mentre il web mode è clientless (solo browser).",
       "2": "Solo il tunnel mode assegna un IP virtuale dalla pool; il web mode non fornisce un indirizzo IP al client.",
       "3": "Entrambe le modalità viaggiano su SSL/TLS (HTTPS); il tunnel mode non usa HTTP in chiaro."
     },
+    "why_wrong_en": {
+      "1": "It is the opposite: FortiClient is used for tunnel mode, while web mode is clientless (browser only).",
+      "2": "Only tunnel mode assigns a virtual IP from the pool; web mode does not provide an IP address to the client.",
+      "3": "Both modes travel over SSL/TLS (HTTPS); tunnel mode does not use cleartext HTTP."
+    },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-010",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["VPN", "Crittografia"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "VPN",
+      "Crittografia"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali DUE elementi vengono negoziati durante la Fase 1 (IKE) di una VPN IPsec?",
+    "question_en": "Which TWO elements are negotiated during Phase 1 (IKE) of an IPsec VPN?",
     "options": [
       "L'autenticazione dei peer tramite pre-shared key o certificati",
       "Lo scambio di chiavi con l'algoritmo Diffie-Hellman",
       "La cifratura del traffico dati utente tramite l'header ESP",
       "La definizione dei selettori di traffico (proxy ID) per la rete protetta"
     ],
-    "correct": [0, 1],
+    "options_en": [
+      "Peer authentication via pre-shared key or certificates",
+      "Key exchange with the Diffie-Hellman algorithm",
+      "Encryption of user data traffic via the ESP header",
+      "The definition of traffic selectors (proxy IDs) for the protected network"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "La Fase 1 costruisce la SA IKE: autentica i peer (PSK o certificati) e stabilisce un segreto condiviso tramite lo scambio Diffie-Hellman, definendo cifratura e hash del canale di controllo. La protezione effettiva dei dati (ESP) e i selettori di traffico appartengono invece alla Fase 2.",
+    "explanation_en": "Phase 1 builds the IKE SA: it authenticates the peers (PSK or certificates) and establishes a shared secret through the Diffie-Hellman exchange, defining the encryption and hash of the control channel. The actual data protection (ESP) and the traffic selectors belong instead to Phase 2.",
     "why_wrong": {
       "2": "La cifratura del traffico dati utente con ESP avviene nella Fase 2 tramite le SA IPsec, non nella Fase 1.",
       "3": "I selettori di traffico/proxy ID sono negoziati nella Fase 2 (quick mode), non nella Fase 1."
+    },
+    "why_wrong_en": {
+      "2": "Encryption of user data traffic with ESP happens in Phase 2 through the IPsec SAs, not in Phase 1.",
+      "3": "Traffic selectors/proxy IDs are negotiated in Phase 2 (quick mode), not in Phase 1."
     },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-011",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["Firewall Policy"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "Firewall Policy"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Per formare un cluster HA FGCP, quali DUE condizioni devono essere soddisfatte dai FortiGate membri?",
+    "question_en": "To form an FGCP HA cluster, which TWO conditions must be met by the member FortiGates?",
     "options": [
       "Devono eseguire la stessa versione di firmware FortiOS",
       "Devono essere dello stesso modello hardware FortiGate",
       "Devono avere lo stesso hostname configurato",
       "Devono condividere lo stesso indirizzo IP di gestione sulle interfacce dati"
     ],
-    "correct": [0, 1],
+    "options_en": [
+      "They must run the same FortiOS firmware version",
+      "They must be the same FortiGate hardware model",
+      "They must have the same hostname configured",
+      "They must share the same management IP address on the data interfaces"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "FGCP richiede che i membri del cluster siano dello stesso modello hardware (stesse porte e caratteristiche) e con la stessa versione di firmware, così da poter sincronizzare configurazione e sessioni in modo coerente. Hostname e IP di gestione, al contrario, restano distinti per ogni unità.",
+    "explanation_en": "FGCP requires the cluster members to be the same hardware model (same ports and characteristics) and to run the same firmware version, so they can synchronize configuration and sessions consistently. Hostname and management IP, on the contrary, remain distinct for each unit.",
     "why_wrong": {
       "2": "L'hostname è tipicamente diverso per identificare ciascun membro; non è un requisito di uguaglianza per formare il cluster.",
       "3": "Gli indirizzi delle interfacce dati non devono coincidere; anzi ogni unità mantiene indirizzi di management dedicati per l'amministrazione out-of-band."
+    },
+    "why_wrong_en": {
+      "2": "The hostname is typically different to identify each member; it is not an equality requirement to form the cluster.",
+      "3": "The data-interface addresses must not coincide; in fact each unit keeps dedicated management addresses for out-of-band administration."
     },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-012",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["NAT", "Firewall Policy"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "NAT",
+      "Firewall Policy"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali DUE affermazioni sono corrette riguardo a un Virtual IP (VIP) sul FortiGate?",
+    "question_en": "Which TWO statements are correct regarding a Virtual IP (VIP) on the FortiGate?",
     "options": [
       "Esegue Destination NAT, mappando un indirizzo esterno verso un indirizzo interno",
       "Si utilizza come oggetto di destinazione in una firewall policy per pubblicare un server interno",
       "Esegue Source NAT sul traffico generato dagli host interni verso Internet",
       "Richiede obbligatoriamente l'abilitazione del Central NAT per funzionare"
     ],
-    "correct": [0, 1],
+    "options_en": [
+      "It performs Destination NAT, mapping an external address to an internal address",
+      "It is used as the destination object in a firewall policy to publish an internal server",
+      "It performs Source NAT on traffic generated by internal hosts toward the Internet",
+      "It mandatorily requires Central NAT to be enabled in order to work"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Un VIP realizza il Destination NAT: traduce un indirizzo/porta esterno verso l'indirizzo interno di un server e viene referenziato come destinazione nella firewall policy per pubblicare quel server (inbound). È indipendente dal Source NAT delle sessioni in uscita.",
+    "explanation_en": "A VIP implements Destination NAT: it translates an external address/port to the internal address of a server and is referenced as the destination in the firewall policy to publish that server (inbound). It is independent of the Source NAT of outbound sessions.",
     "why_wrong": {
       "2": "Il Source NAT sul traffico in uscita è gestito dall'opzione NAT della policy o dagli IP pool, non dal VIP, che si occupa del DNAT in ingresso.",
       "3": "Il VIP funziona con le firewall policy standard e non dipende dall'attivazione del Central NAT."
+    },
+    "why_wrong_en": {
+      "2": "Source NAT on outbound traffic is handled by the policy's NAT option or by IP pools, not by the VIP, which handles inbound DNAT.",
+      "3": "The VIP works with standard firewall policies and does not depend on enabling Central NAT."
     },
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-013",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["Crittografia", "IDS/IPS"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "Crittografia",
+      "IDS/IPS"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "In modalità SSL certificate inspection, il FortiGate è in grado di decifrare e analizzare il contenuto del payload HTTPS.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "question_en": "In SSL certificate inspection mode, the FortiGate is able to decrypt and analyze the content of the HTTPS payload.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. La certificate inspection esamina solo i dati in chiaro dell'handshake TLS (SNI e certificato del server) senza decifrare la sessione. Per ispezionare il payload cifrato è necessaria la deep (full) SSL inspection, che agisce come proxy e richiede la CA del FortiGate installata sui client.",
+    "explanation_en": "False. Certificate inspection examines only the cleartext data of the TLS handshake (SNI and server certificate) without decrypting the session. To inspect the encrypted payload, deep (full) SSL inspection is required, which acts as a proxy and requires the FortiGate CA installed on the clients.",
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-014",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["IDS/IPS", "Firewall Policy"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "IDS/IPS",
+      "Firewall Policy"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Nell'ispezione flow-based il FortiGate analizza i pacchetti mentre transitano, senza bufferizzare l'intero file come avviene nell'ispezione proxy-based.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "In flow-based inspection the FortiGate analyzes packets as they transit, without buffering the entire file as happens in proxy-based inspection.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Nell'inspection flow-based il traffico è esaminato pacchetto per pacchetto durante il transito, privilegiando prestazioni e latenza ridotta. La modalità proxy-based, invece, ricostruisce e bufferizza l'intero contenuto (es. un file) prima di ispezionarlo, offrendo un'analisi più approfondita a costo di maggiori risorse.",
+    "explanation_en": "True. In flow-based inspection the traffic is examined packet by packet during transit, favoring performance and reduced latency. Proxy-based mode, instead, reconstructs and buffers the entire content (e.g. a file) before inspecting it, offering a more thorough analysis at the cost of greater resources.",
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
     "id": "fn3-015",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["Firewall Policy"],
+    "cert": [
+      "Fortinet NSE4"
+    ],
+    "topics": [
+      "Firewall Policy"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "La regola implicita di deny (implicit deny) posta in fondo all'elenco delle firewall policy consente tutto il traffico che non corrisponde ad altre regole.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "question_en": "The implicit deny rule placed at the bottom of the firewall policy list allows all traffic that does not match other rules.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. L'implicit deny fa esattamente l'opposto: blocca (scarta) tutto il traffico che non corrisponde ad alcuna policy esplicita precedente. È il principio 'default deny', per cui serve almeno una policy che consenta esplicitamente il traffico desiderato.",
+    "explanation_en": "False. The implicit deny does exactly the opposite: it blocks (drops) all traffic that does not match any preceding explicit policy. This is the 'default deny' principle, so at least one policy that explicitly allows the desired traffic is needed.",
     "source": "HACK/Fortinet Network Security.rtf"
   }
 ]

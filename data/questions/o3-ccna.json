@@ -6,13 +6,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quanti indirizzi host utilizzabili fornisce una subnet con maschera /27?",
+    "question_en": "How many usable host addresses does a subnet with a /27 mask provide?",
     "options": ["30", "32", "62", "14"],
+    "options_en": ["30", "32", "62", "14"],
     "correct": [0],
     "explanation": "Una /27 lascia 5 bit per gli host (32 - 27 = 5). Gli indirizzi totali sono 2^5 = 32, ma si sottraggono l'indirizzo di rete e quello di broadcast, ottenendo 2^5 - 2 = 30 host utilizzabili.",
+    "explanation_en": "A /27 leaves 5 bits for hosts (32 - 27 = 5). The total number of addresses is 2^5 = 32, but you subtract the network address and the broadcast address, yielding 2^5 - 2 = 30 usable hosts.",
     "why_wrong": {
       "1": "32 è il numero totale di indirizzi del blocco, non quelli utilizzabili: bisogna escludere rete e broadcast.",
       "2": "62 host corrisponde a una /26 (2^6 - 2), non a una /27.",
       "3": "14 host corrisponde a una /28 (2^4 - 2), non a una /27."
+    },
+    "why_wrong_en": {
+      "1": "32 is the total number of addresses in the block, not the usable ones: you must exclude the network and broadcast addresses.",
+      "2": "62 hosts corresponds to a /26 (2^6 - 2), not a /27.",
+      "3": "14 hosts corresponds to a /28 (2^4 - 2), not a /27."
     },
     "source": "HACK/CCNA"
   },
@@ -23,13 +31,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la distanza amministrativa (AD) predefinita di OSPF su un router Cisco?",
+    "question_en": "What is the default administrative distance (AD) of OSPF on a Cisco router?",
     "options": ["90", "110", "120", "100"],
+    "options_en": ["90", "110", "120", "100"],
     "correct": [1],
     "explanation": "OSPF ha una distanza amministrativa predefinita di 110. La AD indica l'affidabilità della fonte di una rotta: più è bassa, più il router preferisce quella rotta quando esistono percorsi appresi da protocolli diversi.",
+    "explanation_en": "OSPF has a default administrative distance of 110. The AD indicates the trustworthiness of a route's source: the lower it is, the more the router prefers that route when paths are learned from different protocols.",
     "why_wrong": {
       "0": "90 è la AD di EIGRP per le rotte interne, non di OSPF.",
       "2": "120 è la AD di RIP, non di OSPF.",
       "3": "100 è la AD del vecchio protocollo IGRP, non di OSPF."
+    },
+    "why_wrong_en": {
+      "0": "90 is the AD of EIGRP for internal routes, not of OSPF.",
+      "2": "120 is the AD of RIP, not of OSPF.",
+      "3": "100 is the AD of the legacy IGRP protocol, not of OSPF."
     },
     "source": "HACK/CCNA"
   },
@@ -40,13 +56,21 @@
     "type": "single",
     "difficulty": 3,
     "question": "Quale wildcard mask corrisponde esattamente alla rete 192.168.16.0/20 in una ACL?",
+    "question_en": "Which wildcard mask exactly matches the network 192.168.16.0/20 in an ACL?",
     "options": ["0.0.15.255", "0.0.255.255", "0.0.0.255", "0.0.31.255"],
+    "options_en": ["0.0.15.255", "0.0.255.255", "0.0.0.255", "0.0.31.255"],
     "correct": [0],
     "explanation": "Una /20 ha maschera 255.255.240.0. La wildcard è il complemento a uno della maschera: 255.255.255.255 meno 255.255.240.0 dà 0.0.15.255, che copre correttamente il blocco di 16 valori nel terzo ottetto.",
+    "explanation_en": "A /20 has the mask 255.255.240.0. The wildcard is the one's complement of the mask: 255.255.255.255 minus 255.255.240.0 gives 0.0.15.255, which correctly covers the block of 16 values in the third octet.",
     "why_wrong": {
       "1": "0.0.255.255 corrisponde a una /16, un intervallo troppo ampio rispetto alla /20.",
       "2": "0.0.0.255 corrisponde a una /24, un intervallo troppo ristretto.",
       "3": "0.0.31.255 corrisponde a una /19, non alla /20 richiesta."
+    },
+    "why_wrong_en": {
+      "1": "0.0.255.255 corresponds to a /16, a range too wide compared to the /20.",
+      "2": "0.0.0.255 corresponds to a /24, a range too narrow.",
+      "3": "0.0.31.255 corresponds to a /19, not the required /20."
     },
     "source": "HACK/CCNA"
   },
@@ -57,13 +81,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "In base a quale criterio viene eletto il root bridge in Spanning Tree Protocol (STP)?",
+    "question_en": "By which criterion is the root bridge elected in Spanning Tree Protocol (STP)?",
     "options": ["Lo switch con il Bridge ID più basso", "Lo switch con il Bridge ID più alto", "Lo switch con l'indirizzo MAC più alto", "Lo switch con più porte attive"],
+    "options_en": ["The switch with the lowest Bridge ID", "The switch with the highest Bridge ID", "The switch with the highest MAC address", "The switch with the most active ports"],
     "correct": [0],
     "explanation": "Il root bridge è lo switch con il Bridge ID più basso. Il Bridge ID è composto dalla priorità (default 32768) seguita dall'indirizzo MAC; a parità di priorità vince il MAC più basso.",
+    "explanation_en": "The root bridge is the switch with the lowest Bridge ID. The Bridge ID is made up of the priority (default 32768) followed by the MAC address; with equal priority, the lowest MAC wins.",
     "why_wrong": {
       "1": "STP sceglie il Bridge ID più basso, non il più alto.",
       "2": "Il MAC viene usato solo come spareggio a parità di priorità, e vince comunque il valore più basso, non il più alto.",
       "3": "Il numero di porte attive non influisce sull'elezione del root bridge."
+    },
+    "why_wrong_en": {
+      "1": "STP selects the lowest Bridge ID, not the highest.",
+      "2": "The MAC is used only as a tiebreaker when priorities are equal, and the lowest value still wins, not the highest.",
+      "3": "The number of active ports has no bearing on the root bridge election."
     },
     "source": "HACK/CCNA"
   },
@@ -74,13 +106,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Come viene trasmesso il traffico della native VLAN su un trunk 802.1Q?",
+    "question_en": "How is native VLAN traffic transmitted over an 802.1Q trunk?",
     "options": ["Senza tag (untagged)", "Con doppio tag", "Con tag di priorità 802.1p", "Con VLAN ID 4095"],
+    "options_en": ["Untagged", "With a double tag", "With an 802.1p priority tag", "With VLAN ID 4095"],
     "correct": [0],
     "explanation": "Su un trunk 802.1Q il traffico appartenente alla native VLAN (per default la VLAN 1) viene inviato senza tag. Per questo è importante che la native VLAN coincida su entrambe le estremità del trunk, evitando incongruenze e attacchi di VLAN hopping.",
+    "explanation_en": "On an 802.1Q trunk, traffic belonging to the native VLAN (by default VLAN 1) is sent untagged. This is why it is important that the native VLAN matches on both ends of the trunk, avoiding mismatches and VLAN hopping attacks.",
     "why_wrong": {
       "1": "Il doppio tag (double tagging) è una tecnica di attacco, non il comportamento normale della native VLAN.",
       "2": "Il tag di priorità 802.1p è indipendente dal meccanismo della native VLAN untagged.",
       "3": "La VLAN 4095 è riservata e non viene usata per la native VLAN."
+    },
+    "why_wrong_en": {
+      "1": "Double tagging is an attack technique, not the normal behavior of the native VLAN.",
+      "2": "The 802.1p priority tag is independent of the untagged native VLAN mechanism.",
+      "3": "VLAN 4095 is reserved and is not used for the native VLAN."
     },
     "source": "HACK/CCNA"
   },
@@ -91,13 +131,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale tecnica NAT consente a più host interni di condividere un unico indirizzo IP pubblico distinguendo le connessioni tramite numeri di porta?",
+    "question_en": "Which NAT technique allows multiple internal hosts to share a single public IP address by distinguishing connections through port numbers?",
     "options": ["PAT (NAT overload)", "NAT statico", "NAT dinamico", "Esclusione NAT"],
+    "options_en": ["PAT (NAT overload)", "Static NAT", "Dynamic NAT", "NAT exclusion"],
     "correct": [0],
     "explanation": "Il PAT (Port Address Translation), configurato con la parola chiave 'overload', mappa molti indirizzi privati su un solo indirizzo pubblico usando numeri di porta sorgente diversi per tenere separate le sessioni.",
+    "explanation_en": "PAT (Port Address Translation), configured with the 'overload' keyword, maps many private addresses to a single public address by using different source port numbers to keep the sessions separate.",
     "why_wrong": {
       "1": "Il NAT statico crea una mappatura fissa uno a uno tra un indirizzo interno e uno pubblico, senza condivisione.",
       "2": "Il NAT dinamico assegna indirizzi da un pool, ma resta una traduzione uno a uno senza uso delle porte.",
       "3": "L'esclusione NAT serve a evitare la traduzione per determinato traffico, non a condividere un IP pubblico."
+    },
+    "why_wrong_en": {
+      "1": "Static NAT creates a fixed one-to-one mapping between an internal address and a public one, without sharing.",
+      "2": "Dynamic NAT assigns addresses from a pool, but it remains a one-to-one translation without using ports.",
+      "3": "NAT exclusion is used to avoid translation for certain traffic, not to share a public IP."
     },
     "source": "HACK/CCNA"
   },
@@ -108,13 +156,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale prefisso identifica gli indirizzi IPv6 link-local?",
+    "question_en": "Which prefix identifies IPv6 link-local addresses?",
     "options": ["FE80::/10", "FC00::/7", "FF00::/8", "2000::/3"],
+    "options_en": ["FE80::/10", "FC00::/7", "FF00::/8", "2000::/3"],
     "correct": [0],
     "explanation": "Gli indirizzi link-local IPv6 appartengono al prefisso FE80::/10 e sono validi solo sul collegamento locale. Ogni interfaccia IPv6 abilitata ne genera automaticamente uno e viene usato per protocolli come NDP e per il next-hop nel routing.",
+    "explanation_en": "IPv6 link-local addresses belong to the FE80::/10 prefix and are valid only on the local link. Every enabled IPv6 interface automatically generates one, and it is used for protocols such as NDP and for the next-hop in routing.",
     "why_wrong": {
       "1": "FC00::/7 identifica gli indirizzi Unique Local (ULA), l'equivalente degli indirizzi privati.",
       "2": "FF00::/8 identifica gli indirizzi multicast IPv6.",
       "3": "2000::/3 identifica gli indirizzi global unicast instradabili su Internet."
+    },
+    "why_wrong_en": {
+      "1": "FC00::/7 identifies Unique Local Addresses (ULA), the equivalent of private addresses.",
+      "2": "FF00::/8 identifies IPv6 multicast addresses.",
+      "3": "2000::/3 identifies global unicast addresses routable on the Internet."
     },
     "source": "HACK/CCNA"
   },
@@ -125,13 +181,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "A quale livello del modello OSI operano i protocolli TCP e UDP?",
+    "question_en": "At which layer of the OSI model do the TCP and UDP protocols operate?",
     "options": ["Trasporto (livello 4)", "Rete (livello 3)", "Collegamento dati (livello 2)", "Sessione (livello 5)"],
+    "options_en": ["Transport (Layer 4)", "Network (Layer 3)", "Data Link (Layer 2)", "Session (Layer 5)"],
     "correct": [0],
     "explanation": "TCP e UDP sono protocolli del livello 4 (Trasporto), responsabili della segmentazione, del controllo di flusso e dell'indirizzamento tramite numeri di porta. TCP è orientato alla connessione e affidabile, UDP è senza connessione.",
+    "explanation_en": "TCP and UDP are Layer 4 (Transport) protocols, responsible for segmentation, flow control, and addressing through port numbers. TCP is connection-oriented and reliable, while UDP is connectionless.",
     "why_wrong": {
       "1": "Il livello 3 (Rete) è dove opera IP, non TCP/UDP.",
       "2": "Il livello 2 (Collegamento dati) gestisce indirizzi MAC e frame, non i segmenti di trasporto.",
       "3": "Il livello 5 (Sessione) gestisce l'apertura e chiusura delle sessioni, non il trasporto affidabile dei dati."
+    },
+    "why_wrong_en": {
+      "1": "Layer 3 (Network) is where IP operates, not TCP/UDP.",
+      "2": "Layer 2 (Data Link) handles MAC addresses and frames, not transport segments.",
+      "3": "Layer 5 (Session) manages the opening and closing of sessions, not the reliable transport of data."
     },
     "source": "HACK/CCNA"
   },
@@ -142,13 +206,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la sequenza corretta dei messaggi nel processo di assegnazione DHCP (DORA)?",
+    "question_en": "What is the correct sequence of messages in the DHCP assignment process (DORA)?",
     "options": ["Discover, Offer, Request, Acknowledge", "Offer, Discover, Acknowledge, Request", "Request, Offer, Discover, Acknowledge", "Discover, Request, Offer, Acknowledge"],
+    "options_en": ["Discover, Offer, Request, Acknowledge", "Offer, Discover, Acknowledge, Request", "Request, Offer, Discover, Acknowledge", "Discover, Request, Offer, Acknowledge"],
     "correct": [0],
     "explanation": "Il processo DORA prevede: il client invia in broadcast un DHCPDISCOVER, il server risponde con un DHCPOFFER, il client conferma con un DHCPREQUEST e il server chiude con un DHCPACK assegnando la configurazione IP.",
+    "explanation_en": "The DORA process works as follows: the client broadcasts a DHCPDISCOVER, the server responds with a DHCPOFFER, the client confirms with a DHCPREQUEST, and the server closes with a DHCPACK, assigning the IP configuration.",
     "why_wrong": {
       "1": "Il Discover deve sempre precedere l'Offer: è il client a iniziare la comunicazione.",
       "2": "Il Request non può precedere Discover e Offer, che avviano lo scambio.",
       "3": "L'ordine Discover-Request-Offer inverte Offer e Request rispetto alla sequenza corretta."
+    },
+    "why_wrong_en": {
+      "1": "The Discover must always precede the Offer: the client initiates the communication.",
+      "2": "The Request cannot precede Discover and Offer, which start the exchange.",
+      "3": "The Discover-Request-Offer order swaps Offer and Request relative to the correct sequence."
     },
     "source": "HACK/CCNA"
   },
@@ -159,13 +231,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la distanza amministrativa predefinita di una rotta statica configurata con un indirizzo IP di next-hop?",
+    "question_en": "What is the default administrative distance of a static route configured with a next-hop IP address?",
     "options": ["0", "1", "5", "110"],
+    "options_en": ["0", "1", "5", "110"],
     "correct": [1],
     "explanation": "Una rotta statica ha AD predefinita pari a 1, valore molto basso che la rende preferita rispetto alle rotte apprese dinamicamente. Aumentando manualmente la AD si crea una floating static route usata come backup.",
+    "explanation_en": "A static route has a default AD of 1, a very low value that makes it preferred over dynamically learned routes. By manually increasing the AD you create a floating static route used as a backup.",
     "why_wrong": {
       "0": "La AD 0 è riservata alle reti direttamente connesse, non alle rotte statiche.",
       "2": "5 è la AD delle rotte summary di EIGRP, non delle rotte statiche.",
       "3": "110 è la AD di OSPF, un protocollo dinamico, non di una rotta statica."
+    },
+    "why_wrong_en": {
+      "0": "AD 0 is reserved for directly connected networks, not for static routes.",
+      "2": "5 is the AD of EIGRP summary routes, not of static routes.",
+      "3": "110 is the AD of OSPF, a dynamic protocol, not of a static route."
     },
     "source": "HACK/CCNA"
   },
@@ -176,12 +256,19 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali due affermazioni sulle ACL standard IPv4 sono corrette?",
+    "question_en": "Which two statements about standard IPv4 ACLs are correct?",
     "options": ["Filtrano il traffico solo in base all'indirizzo IP sorgente", "Andrebbero posizionate il più vicino possibile alla destinazione", "Usano l'intervallo di numeri 100-199", "Possono filtrare in base al numero di porta di destinazione"],
+    "options_en": ["They filter traffic based only on the source IP address", "They should be placed as close as possible to the destination", "They use the number range 100-199", "They can filter based on the destination port number"],
     "correct": [1, 0],
     "explanation": "Le ACL standard valutano esclusivamente l'indirizzo IP sorgente, quindi si collocano vicino alla destinazione per non bloccare traffico legittimo troppo presto. Gli intervalli standard sono 1-99 e 1300-1999.",
+    "explanation_en": "Standard ACLs evaluate only the source IP address, so they are placed close to the destination to avoid blocking legitimate traffic too early. The standard ranges are 1-99 and 1300-1999.",
     "why_wrong": {
       "2": "L'intervallo 100-199 (e 2000-2699) appartiene alle ACL estese, non alle standard.",
       "3": "Il filtraggio per numero di porta è possibile solo con le ACL estese, che esaminano anche protocollo e porte."
+    },
+    "why_wrong_en": {
+      "2": "The 100-199 range (and 2000-2699) belongs to extended ACLs, not standard ones.",
+      "3": "Filtering by port number is possible only with extended ACLs, which also examine protocol and ports."
     },
     "source": "HACK/CCNA"
   },
@@ -192,12 +279,19 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Nella subnet 192.168.10.64/26, quali due indirizzi sono host validi assegnabili?",
+    "question_en": "In the subnet 192.168.10.64/26, which two addresses are valid assignable hosts?",
     "options": ["192.168.10.64", "192.168.10.100", "192.168.10.126", "192.168.10.127"],
+    "options_en": ["192.168.10.64", "192.168.10.100", "192.168.10.126", "192.168.10.127"],
     "correct": [1, 2],
     "explanation": "Una /26 ha blocchi di 64 indirizzi. Per la subnet 192.168.10.64 la rete è .64, il broadcast è .127 e l'intervallo host valido va da .65 a .126. Quindi .100 e .126 sono host utilizzabili.",
+    "explanation_en": "A /26 has blocks of 64 addresses. For the subnet 192.168.10.64 the network is .64, the broadcast is .127, and the valid host range goes from .65 to .126. So .100 and .126 are usable hosts.",
     "why_wrong": {
       "0": "192.168.10.64 è l'indirizzo di rete della subnet e non può essere assegnato a un host.",
       "3": "192.168.10.127 è l'indirizzo di broadcast della subnet e non è assegnabile a un host."
+    },
+    "why_wrong_en": {
+      "0": "192.168.10.64 is the network address of the subnet and cannot be assigned to a host.",
+      "3": "192.168.10.127 is the broadcast address of the subnet and cannot be assigned to a host."
     },
     "source": "HACK/CCNA"
   },
@@ -208,12 +302,19 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali due affermazioni descrivono correttamente OSPF?",
+    "question_en": "Which two statements correctly describe OSPF?",
     "options": ["Usa l'algoritmo SPF (Dijkstra) per calcolare i percorsi", "La metrica di default si basa sul costo, derivato dalla larghezza di banda", "È un protocollo di tipo distance-vector", "Ha una distanza amministrativa di 120"],
+    "options_en": ["It uses the SPF (Dijkstra) algorithm to calculate paths", "The default metric is based on cost, derived from bandwidth", "It is a distance-vector protocol", "It has an administrative distance of 120"],
     "correct": [1, 0],
     "explanation": "OSPF è un protocollo link-state che esegue l'algoritmo SPF (Shortest Path First di Dijkstra) su un database topologico condiviso. La sua metrica è il costo, inversamente proporzionale alla larghezza di banda dell'interfaccia.",
+    "explanation_en": "OSPF is a link-state protocol that runs the SPF algorithm (Dijkstra's Shortest Path First) on a shared topological database. Its metric is cost, inversely proportional to the interface bandwidth.",
     "why_wrong": {
       "2": "OSPF è un protocollo link-state, non distance-vector (come lo sono invece RIP ed EIGRP nella sua componente DUAL).",
       "3": "La AD di OSPF è 110; il valore 120 appartiene a RIP."
+    },
+    "why_wrong_en": {
+      "2": "OSPF is a link-state protocol, not distance-vector (as RIP is, and EIGRP in its DUAL component).",
+      "3": "OSPF's AD is 110; the value 120 belongs to RIP."
     },
     "source": "HACK/CCNA"
   },
@@ -224,9 +325,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "In IPv6 il protocollo ARP viene sostituito dal Neighbor Discovery Protocol (NDP).",
+    "question_en": "In IPv6, the ARP protocol is replaced by the Neighbor Discovery Protocol (NDP).",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Corretto. IPv6 non utilizza ARP: la risoluzione degli indirizzi tra IPv6 e MAC è affidata a NDP, che usa messaggi ICMPv6 come Neighbor Solicitation e Neighbor Advertisement, oltre a Router Solicitation e Router Advertisement.",
+    "explanation_en": "Correct. IPv6 does not use ARP: address resolution between IPv6 and MAC is handled by NDP, which uses ICMPv6 messages such as Neighbor Solicitation and Neighbor Advertisement, as well as Router Solicitation and Router Advertisement.",
     "source": "HACK/CCNA"
   },
   {
@@ -236,9 +340,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Una maschera /30 fornisce esattamente 2 indirizzi host utilizzabili, ideale per i collegamenti punto-punto.",
+    "question_en": "A /30 mask provides exactly 2 usable host addresses, ideal for point-to-point links.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Corretto. Una /30 ha 2 bit host (2^2 = 4 indirizzi), da cui si escludono rete e broadcast, lasciando 2 host utilizzabili. È la scelta classica per i link punto-punto tra router, dove servono solo due indirizzi.",
+    "explanation_en": "Correct. A /30 has 2 host bits (2^2 = 4 addresses), from which the network and broadcast are excluded, leaving 2 usable hosts. It is the classic choice for point-to-point links between routers, where only two addresses are needed.",
     "source": "HACK/CCNA"
   },
   {
@@ -248,9 +355,12 @@
     "type": "truefalse",
     "difficulty": 3,
     "question": "In port security, la modalità di violazione 'restrict' disabilita (shutdown) automaticamente la porta appena rileva un indirizzo MAC non autorizzato.",
+    "question_en": "In port security, the 'restrict' violation mode automatically disables (shuts down) the port as soon as it detects an unauthorized MAC address.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. In modalità 'restrict' la porta rimane attiva: scarta il traffico dei MAC non autorizzati, incrementa il contatore delle violazioni e genera messaggi di log/SNMP. È invece la modalità 'shutdown' (default) a mettere la porta in stato err-disabled.",
+    "explanation_en": "False. In 'restrict' mode the port stays up: it drops traffic from unauthorized MACs, increments the violation counter, and generates log/SNMP messages. It is the 'shutdown' mode (the default) that puts the port into the err-disabled state.",
     "source": "HACK/CCNA"
   }
 ]

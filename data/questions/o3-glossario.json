@@ -1,329 +1,639 @@
 [
   {
     "id": "gl3-001",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Threat e vulnerabilità"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Threat e vulnerabilità"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Che cosa indica il termine APT (Advanced Persistent Threat)?",
+    "question_en": "What does the term APT (Advanced Persistent Threat) indicate?",
     "options": [
       "Un attacco automatico e rumoroso che si esaurisce in pochi minuti",
       "Un avversario sofisticato e ben finanziato che mantiene un accesso prolungato e furtivo alla rete bersaglio",
       "Un tipo di firewall di nuova generazione",
       "Un protocollo di cifratura per le e-mail"
     ],
-    "correct": [1],
+    "options_en": [
+      "An automated, noisy attack that is over in a few minutes",
+      "A sophisticated, well-funded adversary that maintains prolonged, stealthy access to the target network",
+      "A type of next-generation firewall",
+      "An email encryption protocol"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Una APT è una minaccia condotta da attori altamente capaci e spesso sponsorizzati da stati o gruppi organizzati, che puntano a mantenere un accesso persistente e discreto nel tempo per raggiungere obiettivi di spionaggio o sabotaggio.",
+    "explanation_en": "An APT is a threat carried out by highly capable actors, often sponsored by nation-states or organized groups, aiming to maintain persistent and discreet access over time to achieve espionage or sabotage objectives.",
     "why_wrong": {
       "0": "Al contrario, una APT è caratterizzata da persistenza e furtività: opera a lungo termine cercando di non essere rilevata, non si esaurisce in pochi minuti.",
       "2": "Un firewall di nuova generazione è una tecnologia difensiva, mentre APT indica un attore o una campagna di attacco.",
       "3": "APT non è un protocollo di cifratura; descrive un tipo di avversario e la sua modalità operativa."
     },
+    "why_wrong_en": {
+      "0": "On the contrary, an APT is characterized by persistence and stealth: it operates long-term trying not to be detected, and is not over in a few minutes.",
+      "2": "A next-generation firewall is a defensive technology, whereas APT indicates an actor or an attack campaign.",
+      "3": "APT is not an encryption protocol; it describes a type of adversary and its mode of operation."
+    },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-002",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["SIEM", "Threat e vulnerabilità"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "SIEM",
+      "Threat e vulnerabilità"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Che cos'è un Indicatore di Compromissione (IOC)?",
+    "question_en": "What is an Indicator of Compromise (IOC)?",
     "options": [
       "Una policy aziendale che vieta l'uso dei dispositivi USB",
       "Un artefatto osservabile, come un hash di file, un indirizzo IP o un dominio, che segnala una possibile intrusione",
       "Un ruolo all'interno del team di sicurezza",
       "Un algoritmo di hashing crittografico"
     ],
-    "correct": [1],
+    "options_en": [
+      "A corporate policy that bans the use of USB devices",
+      "An observable artifact, such as a file hash, an IP address or a domain, that signals a possible intrusion",
+      "A role within the security team",
+      "A cryptographic hashing algorithm"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Un IOC (Indicator of Compromise) è un dato forense osservabile, ad esempio un hash, un IP malevolo, un dominio o una chiave di registro, che indica che un sistema potrebbe essere stato compromesso e viene usato per il rilevamento e la caccia alle minacce.",
+    "explanation_en": "An IOC (Indicator of Compromise) is an observable forensic data point, for example a hash, a malicious IP, a domain or a registry key, that indicates a system may have been compromised and is used for detection and threat hunting.",
     "why_wrong": {
       "0": "Una policy sui dispositivi USB è una misura di sicurezza organizzativa, non un artefatto che segnala una compromissione.",
       "2": "Un IOC è un dato tecnico, non un ruolo professionale del team di sicurezza.",
       "3": "Un hash è solo uno dei possibili IOC; l'algoritmo di hashing in sé non è un indicatore di compromissione."
     },
+    "why_wrong_en": {
+      "0": "A USB device policy is an organizational security measure, not an artifact that signals a compromise.",
+      "2": "An IOC is a technical data point, not a professional role on the security team.",
+      "3": "A hash is only one of the possible IOCs; the hashing algorithm itself is not an indicator of compromise."
+    },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-003",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Malware"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Malware"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "A cosa serve una sandbox nell'analisi della sicurezza?",
+    "question_en": "What is a sandbox used for in security analysis?",
     "options": [
       "Eseguire codice sospetto in un ambiente isolato per osservarne il comportamento senza rischi per il sistema reale",
       "Aumentare la velocità di elaborazione della CPU",
       "Cifrare i dati memorizzati sul disco",
       "Gestire le password degli utenti aziendali"
     ],
-    "correct": [0],
+    "options_en": [
+      "Running suspicious code in an isolated environment to observe its behavior without risk to the real system",
+      "Increasing the processing speed of the CPU",
+      "Encrypting data stored on disk",
+      "Managing corporate user passwords"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Una sandbox è un ambiente isolato e controllato in cui è possibile eseguire e analizzare file o programmi potenzialmente dannosi, osservandone il comportamento senza mettere a rischio il sistema di produzione.",
+    "explanation_en": "A sandbox is an isolated, controlled environment in which potentially harmful files or programs can be run and analyzed, observing their behavior without putting the production system at risk.",
     "why_wrong": {
       "1": "La sandbox serve all'isolamento e all'analisi, non a incrementare le prestazioni della CPU.",
       "2": "La cifratura dei dati a riposo è compito di soluzioni crittografiche, non della sandbox.",
       "3": "La gestione delle credenziali è compito di un password manager o di un sistema IAM, non di una sandbox."
     },
+    "why_wrong_en": {
+      "1": "The sandbox is for isolation and analysis, not for boosting CPU performance.",
+      "2": "Encrypting data at rest is the job of cryptographic solutions, not the sandbox.",
+      "3": "Credential management is the job of a password manager or an IAM system, not a sandbox."
+    },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-004",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Threat e vulnerabilità", "IDS/IPS"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Threat e vulnerabilità",
+      "IDS/IPS"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Che cos'è una soluzione EDR (Endpoint Detection and Response)?",
+    "question_en": "What is an EDR (Endpoint Detection and Response) solution?",
     "options": [
       "Un sistema che monitora continuamente gli endpoint per rilevare, indagare e rispondere alle minacce",
       "Un router con funzioni di bilanciamento del carico",
       "Un servizio di backup automatico su cloud",
       "Un metodo di autenticazione a due fattori"
     ],
-    "correct": [0],
+    "options_en": [
+      "A system that continuously monitors endpoints to detect, investigate and respond to threats",
+      "A router with load-balancing functions",
+      "An automatic cloud backup service",
+      "A two-factor authentication method"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "L'EDR raccoglie e analizza in continuo la telemetria degli endpoint (processi, file, connessioni) per individuare comportamenti sospetti e consentire indagine e risposta rapida; l'XDR ne estende la logica a più fonti di dati come rete e cloud.",
+    "explanation_en": "EDR continuously collects and analyzes endpoint telemetry (processes, files, connections) to identify suspicious behavior and enable rapid investigation and response; XDR extends its logic to multiple data sources such as network and cloud.",
     "why_wrong": {
       "1": "Un router con bilanciamento del carico è un dispositivo di rete, non una soluzione di rilevamento sugli endpoint.",
       "2": "Il backup su cloud protegge i dati da perdita, ma non rileva né risponde alle minacce come fa l'EDR.",
       "3": "L'autenticazione a due fattori è un controllo di accesso, mentre l'EDR è una tecnologia di rilevamento e risposta."
     },
+    "why_wrong_en": {
+      "1": "A router with load balancing is a network device, not an endpoint detection solution.",
+      "2": "Cloud backup protects data from loss, but does not detect or respond to threats as EDR does.",
+      "3": "Two-factor authentication is an access control, whereas EDR is a detection and response technology."
+    },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-005",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Controllo accessi", "Threat e vulnerabilità"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Controllo accessi",
+      "Threat e vulnerabilità"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual è lo scopo principale di una soluzione DLP (Data Loss Prevention)?",
+    "question_en": "What is the main purpose of a DLP (Data Loss Prevention) solution?",
     "options": [
       "Prevenire l'esfiltrazione o la fuoriuscita non autorizzata di dati sensibili",
       "Rilevare i virus presenti nella memoria RAM",
       "Accelerare le query di un database",
       "Generare numeri casuali per la crittografia"
     ],
-    "correct": [0],
+    "options_en": [
+      "Prevent the unauthorized exfiltration or leakage of sensitive data",
+      "Detect viruses present in RAM memory",
+      "Speed up database queries",
+      "Generate random numbers for encryption"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Una soluzione DLP monitora e controlla il flusso dei dati (via e-mail, USB, cloud, stampa) per impedire che informazioni riservate lascino l'organizzazione in modo non autorizzato, sia per errore sia per azioni malevole.",
+    "explanation_en": "A DLP solution monitors and controls the flow of data (via email, USB, cloud, printing) to prevent confidential information from leaving the organization in an unauthorized way, whether by mistake or through malicious actions.",
     "why_wrong": {
       "1": "L'analisi della memoria RAM alla ricerca di malware è compito di antivirus o strumenti di memory forensics, non del DLP.",
       "2": "L'ottimizzazione delle query è una funzione dei sistemi di gestione dei database, non della prevenzione della perdita di dati.",
       "3": "La generazione di numeri casuali riguarda le librerie crittografiche, non lo scopo del DLP."
     },
+    "why_wrong_en": {
+      "1": "Analyzing RAM memory for malware is the job of antivirus or memory forensics tools, not DLP.",
+      "2": "Query optimization is a function of database management systems, not data loss prevention.",
+      "3": "Generating random numbers concerns cryptographic libraries, not the purpose of DLP."
+    },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-006",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Malware"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Malware"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Che cosa caratterizza un rootkit?",
+    "question_en": "What characterizes a rootkit?",
     "options": [
       "Un software che cifra i file della vittima chiedendo un riscatto",
       "Un insieme di strumenti malevoli progettati per ottenere privilegi elevati e nascondere la propria presenza nel sistema",
       "Una e-mail fraudolenta che imita un mittente affidabile",
       "Un dispositivo hardware usato per catturare le password"
     ],
-    "correct": [1],
+    "options_en": [
+      "Software that encrypts the victim's files demanding a ransom",
+      "A set of malicious tools designed to obtain elevated privileges and hide its own presence in the system",
+      "A fraudulent email that impersonates a trustworthy sender",
+      "A hardware device used to capture passwords"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Un rootkit è un tipo di malware che si annida in profondità nel sistema, spesso a livello di kernel, per mantenere l'accesso con privilegi elevati e occultare processi, file e connessioni agli strumenti di rilevamento.",
+    "explanation_en": "A rootkit is a type of malware that embeds itself deep in the system, often at the kernel level, to maintain access with elevated privileges and conceal processes, files and connections from detection tools.",
     "why_wrong": {
       "0": "La cifratura dei file con richiesta di riscatto descrive il ransomware, non il rootkit.",
       "2": "Una e-mail fraudolenta che imita un mittente affidabile è phishing, non un rootkit.",
       "3": "Un dispositivo hardware per catturare le password è un keylogger hardware, mentre il rootkit è software occultante."
     },
+    "why_wrong_en": {
+      "0": "Encrypting files with a ransom demand describes ransomware, not a rootkit.",
+      "2": "A fraudulent email impersonating a trustworthy sender is phishing, not a rootkit.",
+      "3": "A hardware device to capture passwords is a hardware keylogger, whereas a rootkit is concealing software."
+    },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-007",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Malware"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Malware"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Che cosa fa un keylogger?",
+    "question_en": "What does a keylogger do?",
     "options": [
       "Registra i tasti premuti dall'utente per sottrarre credenziali e informazioni riservate",
       "Blocca automaticamente l'accesso alla rete WiFi",
       "Ottimizza l'uso della memoria del sistema",
       "Firma digitalmente i documenti aziendali"
     ],
-    "correct": [0],
+    "options_en": [
+      "Records the keys pressed by the user to steal credentials and confidential information",
+      "Automatically blocks access to the WiFi network",
+      "Optimizes the system's memory usage",
+      "Digitally signs corporate documents"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Un keylogger è un componente malevolo, software o hardware, che intercetta e registra la sequenza dei tasti digitati, permettendo all'attaccante di rubare password, numeri di carte e altri dati sensibili.",
+    "explanation_en": "A keylogger is a malicious component, software or hardware, that intercepts and records the sequence of keystrokes typed, allowing the attacker to steal passwords, card numbers and other sensitive data.",
     "why_wrong": {
       "1": "Il blocco dell'accesso alla rete non è la funzione di un keylogger, che invece registra l'input della tastiera.",
       "2": "L'ottimizzazione della memoria è una funzione di sistema, non una caratteristica del keylogger.",
       "3": "La firma digitale è un meccanismo crittografico legittimo, del tutto estraneo allo scopo di un keylogger."
     },
+    "why_wrong_en": {
+      "1": "Blocking network access is not the function of a keylogger, which instead records keyboard input.",
+      "2": "Memory optimization is a system function, not a characteristic of the keylogger.",
+      "3": "Digital signing is a legitimate cryptographic mechanism, entirely unrelated to the purpose of a keylogger."
+    },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-008",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Crittografia", "Threat e vulnerabilità"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Crittografia",
+      "Threat e vulnerabilità"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In cosa consiste un attacco Man-in-the-Middle (MITM)?",
+    "question_en": "What does a Man-in-the-Middle (MITM) attack consist of?",
     "options": [
       "Un attaccante si interpone tra due parti intercettando o alterando la comunicazione a loro insaputa",
       "Un attacco che satura un server con un volume enorme di richieste",
       "L'inserimento di codice SQL malevolo in un modulo web",
       "La cifratura dei file della vittima per estorcere un pagamento"
     ],
-    "correct": [0],
+    "options_en": [
+      "An attacker interposes themselves between two parties, intercepting or altering the communication without their knowledge",
+      "An attack that saturates a server with a huge volume of requests",
+      "The insertion of malicious SQL code into a web form",
+      "Encrypting the victim's files to extort a payment"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "In un attacco Man-in-the-Middle l'attaccante si posiziona nel mezzo del canale di comunicazione tra due entità e può leggere, intercettare o modificare i messaggi scambiati senza che le vittime se ne accorgano.",
+    "explanation_en": "In a Man-in-the-Middle attack the attacker positions themselves in the middle of the communication channel between two entities and can read, intercept or modify the exchanged messages without the victims noticing.",
     "why_wrong": {
       "1": "La saturazione di un server con richieste descrive un attacco DoS/DDoS, non un MITM.",
       "2": "L'inserimento di codice SQL è una SQL injection, che attacca il database dell'applicazione.",
       "3": "La cifratura dei file per estorsione è tipica del ransomware, non dell'intercettazione MITM."
     },
+    "why_wrong_en": {
+      "1": "Saturating a server with requests describes a DoS/DDoS attack, not a MITM.",
+      "2": "Inserting SQL code is a SQL injection, which attacks the application's database.",
+      "3": "Encrypting files for extortion is typical of ransomware, not of MITM interception."
+    },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-009",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Social Engineering", "Threat e vulnerabilità"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Social Engineering",
+      "Threat e vulnerabilità"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Che cos'è il typosquatting?",
+    "question_en": "What is typosquatting?",
     "options": [
       "La registrazione di domini con errori di battitura simili a marchi noti per ingannare gli utenti",
       "L'uso di password troppo brevi e prevedibili",
       "Un tipo di scansione delle porte di rete",
       "La compressione dei log di sistema per risparmiare spazio"
     ],
-    "correct": [0],
+    "options_en": [
+      "Registering domains with typing errors similar to well-known brands to deceive users",
+      "The use of passwords that are too short and predictable",
+      "A type of network port scan",
+      "Compressing system logs to save space"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Il typosquatting sfrutta gli errori di digitazione degli utenti registrando domini molto simili a quelli legittimi (ad esempio gooogle.com), per dirottare le vittime verso siti malevoli, diffondere malware o rubare credenziali.",
+    "explanation_en": "Typosquatting exploits users' typing errors by registering domains very similar to legitimate ones (for example gooogle.com), to divert victims to malicious sites, spread malware or steal credentials.",
     "why_wrong": {
       "1": "L'uso di password deboli è un problema di igiene delle credenziali, non il typosquatting.",
       "2": "La scansione delle porte è una tecnica di ricognizione di rete, non legata alla registrazione di domini ingannevoli.",
       "3": "La compressione dei log è una pratica di gestione dei dati, senza alcun legame con il typosquatting."
     },
+    "why_wrong_en": {
+      "1": "The use of weak passwords is a credential hygiene problem, not typosquatting.",
+      "2": "Port scanning is a network reconnaissance technique, unrelated to registering deceptive domains.",
+      "3": "Log compression is a data management practice, with no connection to typosquatting."
+    },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-010",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Controllo accessi", "Threat e vulnerabilità"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Controllo accessi",
+      "Threat e vulnerabilità"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Che cosa indica la privilege escalation (escalation dei privilegi)?",
+    "question_en": "What does privilege escalation indicate?",
     "options": [
       "Il processo con cui un attaccante ottiene diritti o permessi superiori a quelli inizialmente concessi",
       "L'aumento della larghezza di banda disponibile sulla rete",
       "La rotazione periodica delle chiavi crittografiche",
       "La creazione di copie di backup incrementali"
     ],
-    "correct": [0],
+    "options_en": [
+      "The process by which an attacker obtains rights or permissions higher than those initially granted",
+      "The increase of the available bandwidth on the network",
+      "The periodic rotation of cryptographic keys",
+      "The creation of incremental backup copies"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "La privilege escalation è la tecnica con cui un attaccante, partendo da un accesso limitato, sfrutta vulnerabilità o configurazioni errate per acquisire permessi più elevati; è verticale quando si passa a un livello superiore (es. amministratore) e orizzontale quando si assume l'identità di un altro utente con pari livello.",
+    "explanation_en": "Privilege escalation is the technique by which an attacker, starting from limited access, exploits vulnerabilities or misconfigurations to acquire higher permissions; it is vertical when moving to a higher level (e.g. administrator) and horizontal when assuming the identity of another user at the same level.",
     "why_wrong": {
       "1": "L'aumento della larghezza di banda riguarda le prestazioni di rete, non l'acquisizione di privilegi.",
       "2": "La rotazione delle chiavi è una buona pratica crittografica difensiva, non un'escalation di privilegi.",
       "3": "Il backup incrementale è una strategia di protezione dei dati, estranea al concetto di escalation dei privilegi."
     },
+    "why_wrong_en": {
+      "1": "Increasing bandwidth concerns network performance, not the acquisition of privileges.",
+      "2": "Key rotation is a defensive cryptographic best practice, not a privilege escalation.",
+      "3": "Incremental backup is a data protection strategy, unrelated to the concept of privilege escalation."
+    },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-011",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Threat e vulnerabilità"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Threat e vulnerabilità"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti affermazioni sui team di sicurezza sono corrette? (seleziona due)",
+    "question_en": "Which of the following statements about security teams are correct? (select two)",
     "options": [
       "Il red team simula gli attacchi di un avversario reale per testare le difese dell'organizzazione",
       "Il blue team è responsabile della difesa, del rilevamento e della risposta agli incidenti",
       "Il red team si occupa esclusivamente della gestione dei backup aziendali",
       "Il blue team ha il compito di violare i sistemi delle aziende concorrenti"
     ],
-    "correct": [0, 1],
+    "options_en": [
+      "The red team simulates the attacks of a real adversary to test the organization's defenses",
+      "The blue team is responsible for defense, detection and incident response",
+      "The red team deals exclusively with managing corporate backups",
+      "The blue team's task is to breach the systems of competing companies"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Il red team assume il ruolo dell'attaccante ed emula tattiche e tecniche reali per mettere alla prova le difese, mentre il blue team è la squadra difensiva che monitora, rileva e risponde agli incidenti; il confronto tra i due (purple teaming) migliora la postura di sicurezza.",
+    "explanation_en": "The red team takes on the attacker's role and emulates real tactics and techniques to test the defenses, while the blue team is the defensive squad that monitors, detects and responds to incidents; the interaction between the two (purple teaming) improves the security posture.",
     "why_wrong": {
       "2": "La gestione dei backup è un'attività operativa IT, non il compito del red team, che si occupa di attacchi simulati.",
       "3": "Violare i sistemi dei concorrenti è illegale e non ha nulla a che vedere con il blue team, che è difensivo."
+    },
+    "why_wrong_en": {
+      "2": "Backup management is an IT operational activity, not the task of the red team, which deals with simulated attacks.",
+      "3": "Breaching competitors' systems is illegal and has nothing to do with the blue team, which is defensive."
     },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-012",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Threat e vulnerabilità"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Threat e vulnerabilità"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali affermazioni descrivono correttamente il movimento laterale (lateral movement) e il pivoting? (seleziona due)",
+    "question_en": "Which statements correctly describe lateral movement and pivoting? (select two)",
     "options": [
       "Il movimento laterale è lo spostamento dell'attaccante da un sistema compromesso ad altri sistemi della stessa rete",
       "Il pivoting usa un host già compromesso come punto di appoggio per raggiungere reti o sistemi altrimenti irraggiungibili",
       "Il movimento laterale consiste nel cifrare i dati della vittima per chiedere un riscatto",
       "Il pivoting è una tecnica di ottimizzazione delle prestazioni dei database"
     ],
-    "correct": [0, 1],
+    "options_en": [
+      "Lateral movement is the attacker's shift from a compromised system to other systems on the same network",
+      "Pivoting uses an already compromised host as a foothold to reach otherwise unreachable networks or systems",
+      "Lateral movement consists of encrypting the victim's data to demand a ransom",
+      "Pivoting is a database performance optimization technique"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Dopo l'accesso iniziale l'attaccante si muove lateralmente per estendere il controllo su altri host della rete; il pivoting è la tecnica correlata che sfrutta una macchina compromessa come ponte per instradare il traffico verso segmenti di rete non direttamente accessibili.",
+    "explanation_en": "After initial access the attacker moves laterally to extend control over other hosts on the network; pivoting is the related technique that leverages a compromised machine as a bridge to route traffic toward network segments that are not directly accessible.",
     "why_wrong": {
       "2": "Cifrare i dati per estorsione descrive il ransomware, non il movimento laterale, che riguarda lo spostamento tra sistemi.",
       "3": "Il pivoting è una tecnica offensiva di rete, non ha alcuna relazione con l'ottimizzazione dei database."
+    },
+    "why_wrong_en": {
+      "2": "Encrypting data for extortion describes ransomware, not lateral movement, which concerns moving between systems.",
+      "3": "Pivoting is an offensive network technique; it has no relation to database optimization."
     },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-013",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Threat e vulnerabilità", "Social Engineering"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Threat e vulnerabilità",
+      "Social Engineering"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali affermazioni sono corrette riguardo agli attacchi watering hole e supply chain? (seleziona due)",
+    "question_en": "Which statements are correct regarding watering hole and supply chain attacks? (select two)",
     "options": [
       "Un attacco watering hole compromette un sito web legittimo frequentato dalle vittime designate per infettarle",
       "Un attacco supply chain colpisce l'organizzazione attraverso un fornitore o un componente software di terze parti",
       "Un attacco watering hole consiste nell'indovinare le password tramite forza bruta",
       "Un attacco supply chain è un algoritmo di cifratura simmetrica"
     ],
-    "correct": [0, 1],
+    "options_en": [
+      "A watering hole attack compromises a legitimate website frequented by the intended victims in order to infect them",
+      "A supply chain attack strikes the organization through a supplier or a third-party software component",
+      "A watering hole attack consists of guessing passwords through brute force",
+      "A supply chain attack is a symmetric encryption algorithm"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Nel watering hole l'attaccante infetta un sito frequentato dal gruppo bersaglio, così da compromettere chi lo visita; nel supply chain attack la compromissione avviene indirettamente attraverso un anello fidato della catena di fornitura, come un aggiornamento software trojanizzato o una dipendenza malevola.",
+    "explanation_en": "In a watering hole attack, the attacker infects a site frequented by the target group, so as to compromise those who visit it; in a supply chain attack the compromise occurs indirectly through a trusted link in the supply chain, such as a trojanized software update or a malicious dependency.",
     "why_wrong": {
       "2": "Indovinare le password per forza bruta è un brute-force attack, non un watering hole.",
       "3": "Un attacco supply chain è un vettore di compromissione, non un algoritmo di cifratura simmetrica."
+    },
+    "why_wrong_en": {
+      "2": "Guessing passwords by brute force is a brute-force attack, not a watering hole.",
+      "3": "A supply chain attack is a compromise vector, not a symmetric encryption algorithm."
     },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-014",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Crittografia", "Controllo accessi"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Crittografia",
+      "Controllo accessi"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Un replay attack (attacco di replica) consiste nell'intercettare dati validi, come un token di autenticazione, e ritrasmetterli in un secondo momento per ottenere un accesso fraudolento. Vero o falso?",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "A replay attack consists of intercepting valid data, such as an authentication token, and retransmitting it at a later time to gain fraudulent access. True or false?",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Nel replay attack l'attaccante cattura messaggi legittimi (ad esempio credenziali cifrate o token di sessione) e li riproduce successivamente per farsi autenticare; contromisure efficaci sono i nonce, i timestamp e i token monouso.",
+    "explanation_en": "True. In a replay attack the attacker captures legitimate messages (for example encrypted credentials or session tokens) and replays them later to get authenticated; effective countermeasures are nonces, timestamps and one-time tokens.",
     "why_wrong": {
       "1": "È errato considerarlo falso: la definizione descrive esattamente il replay attack, che si basa sulla ritrasmissione di dati validi intercettati."
+    },
+    "why_wrong_en": {
+      "1": "It is wrong to consider it false: the definition describes exactly the replay attack, which is based on retransmitting intercepted valid data."
     },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-015",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Crittografia", "Controllo accessi"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Crittografia",
+      "Controllo accessi"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Il salting consiste nell'aggiungere un valore casuale a una password prima di calcolarne l'hash, così da rendere inefficaci le rainbow table e i confronti tra hash uguali. Vero o falso?",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "Salting consists of adding a random value to a password before computing its hash, so as to render rainbow tables and comparisons between identical hashes ineffective. True or false?",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Il salt è un valore casuale e unico concatenato alla password prima dell'hashing: fa sì che password identiche producano hash diversi, vanificando le rainbow table precalcolate e rallentando gli attacchi di massa.",
+    "explanation_en": "True. The salt is a random, unique value concatenated to the password before hashing: it makes identical passwords produce different hashes, defeating precomputed rainbow tables and slowing down mass attacks.",
     "why_wrong": {
       "1": "È errato considerarlo falso: l'aggiunta di un salt casuale prima dell'hash è proprio la definizione corretta di salting."
+    },
+    "why_wrong_en": {
+      "1": "It is wrong to consider it false: adding a random salt before the hash is precisely the correct definition of salting."
     },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   },
   {
     "id": "gl3-016",
-    "cert": ["Glossario Cybersecurity"],
-    "topics": ["Crittografia"],
+    "cert": [
+      "Glossario Cybersecurity"
+    ],
+    "topics": [
+      "Crittografia"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Un nonce è una chiave segreta permanente, condivisa tra client e server, che rimane invariata per tutta la durata della comunicazione. Vero o falso?",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "question_en": "A nonce is a permanent secret key, shared between client and server, that remains unchanged for the entire duration of the communication. True or false?",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. Un nonce (number used once) è un valore casuale o progressivo usato una sola volta in una specifica interazione crittografica; serve a garantire l'unicità dei messaggi e a prevenire i replay attack, quindi per definizione non è una chiave permanente e invariata.",
+    "explanation_en": "False. A nonce (number used once) is a random or incremental value used only once in a specific cryptographic interaction; it serves to guarantee the uniqueness of messages and to prevent replay attacks, so by definition it is not a permanent, unchanged key.",
     "why_wrong": {
       "0": "È errato considerarlo vero: il nonce non è una chiave segreta permanente, ma un valore usato una sola volta e destinato a cambiare a ogni interazione."
+    },
+    "why_wrong_en": {
+      "0": "It is wrong to consider it true: the nonce is not a permanent secret key, but a value used only once and meant to change with each interaction."
     },
     "source": "HACK/Cybersecurity-Certificate-glossary.docx"
   }

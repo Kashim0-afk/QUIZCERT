@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In un SIEM, un analista SOC nota che centinaia di eventi grezzi provenienti da fonti diverse vengono raggruppati in un unico avviso correlato. Quale funzione del SIEM rende possibile questo comportamento?",
+    "question_en": "In a SIEM, a SOC analyst notices that hundreds of raw events from different sources are grouped into a single correlated alert. Which SIEM function makes this behavior possible?",
     "options": [
       "L'indicizzazione dei log su disco",
       "La correlazione degli eventi tramite regole predefinite",
       "La rotazione periodica dei file di log",
       "La cifratura dei dati in transito verso il collector"
     ],
+    "options_en": [
+      "Indexing logs on disk",
+      "Event correlation through predefined rules",
+      "Periodic rotation of log files",
+      "Encryption of data in transit to the collector"
+    ],
     "correct": [1],
     "explanation": "La correlazione degli eventi mette in relazione log provenienti da fonti differenti applicando regole logiche, così da trasformare molti eventi grezzi in un numero ridotto di avvisi significativi e ridurre il rumore per l'analista.",
+    "explanation_en": "Event correlation relates logs from different sources by applying logical rules, turning many raw events into a small number of meaningful alerts and reducing noise for the analyst.",
     "why_wrong": {
       "0": "L'indicizzazione rende i log ricercabili ma non stabilisce relazioni logiche tra eventi diversi.",
       "2": "La rotazione dei log gestisce lo spazio di archiviazione, non l'aggregazione in un avviso.",
       "3": "La cifratura protegge la riservatezza del trasporto, non raggruppa gli eventi correlati."
+    },
+    "why_wrong_en": {
+      "0": "Indexing makes logs searchable but does not establish logical relationships between different events.",
+      "2": "Log rotation manages storage space, not aggregation into an alert.",
+      "3": "Encryption protects the confidentiality of the transport, it does not group correlated events."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -28,7 +41,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Su un sistema Linux, quale comando modifica i permessi del file report.txt concedendo lettura e scrittura al proprietario e sola lettura al gruppo e agli altri, usando la notazione numerica?",
+    "question_en": "On a Linux system, which command changes the permissions of the file report.txt granting read and write to the owner and read-only to the group and others, using numeric notation?",
     "options": [
+      "chmod 644 report.txt",
+      "chmod 777 report.txt",
+      "chown 644 report.txt",
+      "chmod 466 report.txt"
+    ],
+    "options_en": [
       "chmod 644 report.txt",
       "chmod 777 report.txt",
       "chown 644 report.txt",
@@ -36,10 +56,16 @@
     ],
     "correct": [0],
     "explanation": "Nella notazione ottale, 6 corrisponde a rw- (4+2), mentre 4 corrisponde a r--. Quindi 644 assegna rw- al proprietario e r-- a gruppo e altri, esattamente ciò che richiede la domanda.",
+    "explanation_en": "In octal notation, 6 corresponds to rw- (4+2), while 4 corresponds to r--. So 644 assigns rw- to the owner and r-- to group and others, exactly what the question requires.",
     "why_wrong": {
       "1": "777 concede lettura, scrittura ed esecuzione a tutti, molto più permissivo di quanto richiesto.",
       "2": "chown cambia il proprietario o il gruppo di un file, non i bit di permesso.",
       "3": "466 darebbe r-- al proprietario e rw- a gruppo e altri, invertendo i permessi richiesti."
+    },
+    "why_wrong_en": {
+      "1": "777 grants read, write and execute to everyone, far more permissive than required.",
+      "2": "chown changes the owner or group of a file, not the permission bits.",
+      "3": "466 would give r-- to the owner and rw- to group and others, inverting the required permissions."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -50,7 +76,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un analista deve estrarre dalla tabella employees tutti i record il cui campo department è 'Security' e il cui livello di accesso è superiore a 3. Quale clausola SQL combina correttamente le due condizioni?",
+    "question_en": "An analyst must extract from the employees table all records whose department field is 'Security' and whose access level is greater than 3. Which SQL clause correctly combines the two conditions?",
     "options": [
+      "WHERE department = 'Security' OR access_level > 3",
+      "WHERE department = 'Security' AND access_level > 3",
+      "WHERE department = 'Security' AND access_level = >3",
+      "HAVING department = 'Security' AND access_level > 3"
+    ],
+    "options_en": [
       "WHERE department = 'Security' OR access_level > 3",
       "WHERE department = 'Security' AND access_level > 3",
       "WHERE department = 'Security' AND access_level = >3",
@@ -58,10 +91,16 @@
     ],
     "correct": [1],
     "explanation": "L'operatore AND impone che entrambe le condizioni siano vere contemporaneamente, restituendo solo i dipendenti del reparto Security con livello di accesso maggiore di 3.",
+    "explanation_en": "The AND operator requires both conditions to be true at the same time, returning only the Security department employees with an access level greater than 3.",
     "why_wrong": {
       "0": "OR restituisce le righe che soddisfano anche una sola condizione, quindi include record indesiderati.",
       "2": "'= >3' non è una sintassi valida; l'operatore corretto di confronto è semplicemente >.",
       "3": "HAVING filtra i risultati di funzioni di aggregazione con GROUP BY, non le singole righe come fa WHERE."
+    },
+    "why_wrong_en": {
+      "0": "OR returns rows that satisfy even a single condition, so it includes unwanted records.",
+      "2": "'= >3' is not valid syntax; the correct comparison operator is simply >.",
+      "3": "HAVING filters the results of aggregate functions with GROUP BY, not individual rows as WHERE does."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Nel modello di gestione del rischio, quale espressione descrive meglio il rischio associato a un asset?",
+    "question_en": "In the risk management model, which expression best describes the risk associated with an asset?",
     "options": [
       "Rischio = Minaccia moltiplicata per il numero di dipendenti",
       "Rischio = probabilità che una minaccia sfrutti una vulnerabilità, combinata con l'impatto",
       "Rischio = numero di vulnerabilità presenti sull'asset",
       "Rischio = costo dei controlli di sicurezza implementati"
     ],
+    "options_en": [
+      "Risk = Threat multiplied by the number of employees",
+      "Risk = probability that a threat exploits a vulnerability, combined with the impact",
+      "Risk = number of vulnerabilities present on the asset",
+      "Risk = cost of the implemented security controls"
+    ],
     "correct": [1],
     "explanation": "Il rischio è funzione della probabilità che una minaccia sfrutti una vulnerabilità e dell'impatto conseguente sull'organizzazione. Senza vulnerabilità sfruttabili o senza impatto, il rischio effettivo è basso.",
+    "explanation_en": "Risk is a function of the probability that a threat exploits a vulnerability and of the resulting impact on the organization. Without exploitable vulnerabilities or without impact, the effective risk is low.",
     "why_wrong": {
       "0": "Il numero di dipendenti non è un fattore diretto nella definizione del rischio su un asset.",
       "2": "Il solo conteggio delle vulnerabilità ignora probabilità di sfruttamento e impatto.",
       "3": "Il costo dei controlli riguarda il trattamento del rischio, non la sua definizione."
+    },
+    "why_wrong_en": {
+      "0": "The number of employees is not a direct factor in defining the risk on an asset.",
+      "2": "Merely counting vulnerabilities ignores the probability of exploitation and the impact.",
+      "3": "The cost of controls concerns risk treatment, not its definition."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la differenza fondamentale tra un IDS e un IPS collocati nel percorso del traffico di rete?",
+    "question_en": "What is the fundamental difference between an IDS and an IPS placed in the path of network traffic?",
     "options": [
       "L'IDS cifra il traffico mentre l'IPS lo decifra",
       "L'IDS rileva e segnala l'attività sospetta, mentre l'IPS può bloccarla attivamente",
       "L'IDS opera solo su traffico interno e l'IPS solo su traffico esterno",
       "L'IDS lavora a livello applicativo e l'IPS solo a livello fisico"
     ],
+    "options_en": [
+      "The IDS encrypts traffic while the IPS decrypts it",
+      "The IDS detects and reports suspicious activity, while the IPS can actively block it",
+      "The IDS operates only on internal traffic and the IPS only on external traffic",
+      "The IDS works at the application layer and the IPS only at the physical layer"
+    ],
     "correct": [1],
     "explanation": "Un IDS (Intrusion Detection System) monitora e genera avvisi sull'attività sospetta senza intervenire, mentre un IPS (Intrusion Prevention System), essendo in linea, può scartare o bloccare il traffico dannoso in tempo reale.",
+    "explanation_en": "An IDS (Intrusion Detection System) monitors and generates alerts on suspicious activity without intervening, while an IPS (Intrusion Prevention System), being inline, can drop or block malicious traffic in real time.",
     "why_wrong": {
       "0": "Né IDS né IPS hanno come funzione primaria la cifratura o decifratura del traffico.",
       "2": "La distinzione non dipende dalla direzione interna o esterna del traffico.",
       "3": "Entrambi possono operare a livelli diversi; la differenza chiave è l'azione di blocco, non il livello."
+    },
+    "why_wrong_en": {
+      "0": "Neither IDS nor IPS has traffic encryption or decryption as its primary function.",
+      "2": "The distinction does not depend on the internal or external direction of the traffic.",
+      "3": "Both can operate at different layers; the key difference is the blocking action, not the layer."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In uno script Python di sicurezza, quale struttura dati è più adatta per verificare in modo efficiente se un indirizzo IP è presente in una lista di blocco di grandi dimensioni?",
+    "question_en": "In a Python security script, which data structure is best suited to efficiently check whether an IP address is present in a large block list?",
     "options": [
       "Una lista (list)",
       "Un insieme (set)",
       "Una stringa concatenata di tutti gli IP",
       "Una tupla (tuple)"
     ],
+    "options_en": [
+      "A list",
+      "A set",
+      "A concatenated string of all the IPs",
+      "A tuple"
+    ],
     "correct": [1],
     "explanation": "Un set in Python offre ricerca di appartenenza in tempo medio costante O(1) grazie all'hashing, rendendolo ideale per verificare rapidamente se un IP è nella lista di blocco anche con molti elementi.",
+    "explanation_en": "A set in Python offers membership lookup in average constant time O(1) thanks to hashing, making it ideal to quickly check whether an IP is in the block list even with many elements.",
     "why_wrong": {
       "0": "La ricerca in una lista richiede scansione lineare O(n), inefficiente su grandi volumi.",
       "2": "Cercare una sottostringa può generare falsi positivi e non è efficiente né affidabile.",
       "3": "La tupla, come la lista, richiede ricerca lineare e non è ottimizzata per l'appartenenza."
+    },
+    "why_wrong_en": {
+      "0": "Searching in a list requires a linear O(n) scan, inefficient on large volumes.",
+      "2": "Searching for a substring can generate false positives and is neither efficient nor reliable.",
+      "3": "A tuple, like a list, requires a linear search and is not optimized for membership testing."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -138,18 +216,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un firewall stateful si distingue da un firewall stateless perché:",
+    "question_en": "A stateful firewall differs from a stateless firewall because it:",
     "options": [
       "Ispeziona il payload applicativo di ogni pacchetto con firme antivirus",
       "Tiene traccia dello stato delle connessioni e valuta i pacchetti nel contesto della sessione",
       "Filtra esclusivamente in base all'indirizzo MAC di origine",
       "Non richiede alcuna regola configurata dall'amministratore"
     ],
+    "options_en": [
+      "Inspects the application payload of every packet with antivirus signatures",
+      "Tracks the state of connections and evaluates packets in the context of the session",
+      "Filters exclusively based on the source MAC address",
+      "Does not require any rule configured by the administrator"
+    ],
     "correct": [1],
     "explanation": "Un firewall stateful mantiene una tabella dello stato delle connessioni attive e valuta ogni pacchetto in relazione alla sessione a cui appartiene, mentre uno stateless esamina ogni pacchetto in modo isolato.",
+    "explanation_en": "A stateful firewall maintains a table of the state of active connections and evaluates each packet in relation to the session it belongs to, while a stateless one examines each packet in isolation.",
     "why_wrong": {
       "0": "L'ispezione profonda del payload con firme è tipica di un IPS o di un proxy applicativo, non definisce lo stateful.",
       "2": "Il filtraggio per MAC non è ciò che distingue uno stateful da uno stateless.",
       "3": "Entrambi i tipi di firewall richiedono regole configurate dall'amministratore."
+    },
+    "why_wrong_en": {
+      "0": "Deep payload inspection with signatures is typical of an IPS or an application proxy, it does not define stateful.",
+      "2": "MAC-based filtering is not what distinguishes a stateful from a stateless firewall.",
+      "3": "Both types of firewall require rules configured by the administrator."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Durante l'accesso a un sito HTTPS, quale meccanismo garantisce che la chiave simmetrica di sessione venga scambiata in modo sicuro tra client e server?",
+    "question_en": "When accessing an HTTPS site, which mechanism ensures that the symmetric session key is exchanged securely between client and server?",
     "options": [
       "L'hashing SHA-256 della password dell'utente",
       "La crittografia asimmetrica (a chiave pubblica) durante l'handshake TLS",
       "Il filtraggio dei pacchetti del firewall perimetrale",
       "La compressione dei dati prima dell'invio"
     ],
+    "options_en": [
+      "SHA-256 hashing of the user's password",
+      "Asymmetric (public-key) cryptography during the TLS handshake",
+      "Packet filtering by the perimeter firewall",
+      "Compression of the data before sending"
+    ],
     "correct": [1],
     "explanation": "Durante l'handshake TLS la crittografia asimmetrica permette di scambiare o negoziare in sicurezza la chiave simmetrica di sessione, che verrà poi usata per cifrare efficientemente il traffico applicativo.",
+    "explanation_en": "During the TLS handshake, asymmetric cryptography allows the symmetric session key to be securely exchanged or negotiated, which is then used to efficiently encrypt the application traffic.",
     "why_wrong": {
       "0": "L'hashing produce un digest a senso unico e non serve allo scambio di chiavi.",
       "2": "Il firewall controlla il traffico ma non partecipa allo scambio crittografico delle chiavi.",
       "3": "La compressione riduce la dimensione dei dati e non ha alcuna funzione di protezione della chiave."
+    },
+    "why_wrong_en": {
+      "0": "Hashing produces a one-way digest and is not used for key exchange.",
+      "2": "The firewall controls traffic but does not take part in the cryptographic key exchange.",
+      "3": "Compression reduces the size of the data and has no role in protecting the key."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Secondo il ciclo di vita della risposta agli incidenti del NIST, in quale fase si eliminano gli artefatti dell'attaccante e si ripristinano i sistemi a uno stato operativo sicuro?",
+    "question_en": "According to the NIST incident response life cycle, in which phase are the attacker's artifacts removed and systems restored to a secure operational state?",
     "options": [
       "Preparazione (Preparation)",
       "Rilevamento e analisi (Detection and Analysis)",
       "Contenimento, eradicazione e ripristino (Containment, Eradication and Recovery)",
       "Attività post-incidente (Post-Incident Activity)"
     ],
+    "options_en": [
+      "Preparation",
+      "Detection and Analysis",
+      "Containment, Eradication and Recovery",
+      "Post-Incident Activity"
+    ],
     "correct": [2],
     "explanation": "La fase di contenimento, eradicazione e ripristino include la rimozione di malware, backdoor e altri artefatti dell'attaccante (eradicazione) e il ritorno dei sistemi a uno stato operativo sicuro (ripristino).",
+    "explanation_en": "The containment, eradication and recovery phase includes the removal of malware, backdoors and other attacker artifacts (eradication) and the return of systems to a secure operational state (recovery).",
     "why_wrong": {
       "0": "La preparazione avviene prima dell'incidente, con policy, strumenti e formazione.",
       "1": "Il rilevamento e analisi serve a identificare e comprendere l'incidente, non a eliminarne gli artefatti.",
       "3": "L'attività post-incidente riguarda le lezioni apprese, successive al ripristino."
+    },
+    "why_wrong_en": {
+      "0": "Preparation happens before the incident, with policies, tools and training.",
+      "1": "Detection and analysis serves to identify and understand the incident, not to remove its artifacts.",
+      "3": "Post-incident activity concerns the lessons learned, following recovery."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -204,17 +321,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Nel framework di attacco a fasi (kill chain / catena di attacco), quali delle seguenti attività appartengono alle fasi INIZIALI, precedenti alla consegna del payload? (Seleziona due)",
+    "question_en": "In the phased attack framework (kill chain), which of the following activities belong to the INITIAL phases, preceding payload delivery? (Select two)",
     "options": [
       "Ricognizione (raccolta di informazioni sul bersaglio)",
       "Weaponization (creazione dell'artefatto dannoso abbinato a un exploit)",
       "Esfiltrazione dei dati verso un server esterno",
       "Azioni sugli obiettivi (obiettivi finali dell'attaccante)"
     ],
+    "options_en": [
+      "Reconnaissance (gathering information about the target)",
+      "Weaponization (creating the malicious artifact paired with an exploit)",
+      "Exfiltration of data to an external server",
+      "Actions on objectives (the attacker's final goals)"
+    ],
     "correct": [0, 1],
     "explanation": "La ricognizione e la weaponization sono le prime fasi della catena di attacco: prima si raccolgono informazioni sul bersaglio, poi si prepara l'artefatto dannoso, entrambe prima della consegna (delivery) del payload.",
+    "explanation_en": "Reconnaissance and weaponization are the first phases of the kill chain: first information about the target is gathered, then the malicious artifact is prepared, both before the delivery of the payload.",
     "why_wrong": {
       "2": "L'esfiltrazione dei dati avviene nelle fasi finali, dopo compromissione e installazione.",
       "3": "Le azioni sugli obiettivi rappresentano l'ultima fase della catena, non una fase iniziale."
+    },
+    "why_wrong_en": {
+      "2": "Data exfiltration occurs in the final phases, after compromise and installation.",
+      "3": "Actions on objectives represent the last phase of the chain, not an initial phase."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -225,17 +354,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali dei seguenti sono principi fondamentali per un controllo degli accessi sicuro? (Seleziona due)",
+    "question_en": "Which of the following are fundamental principles for secure access control? (Select two)",
     "options": [
       "Principio del privilegio minimo (least privilege)",
       "Separazione dei compiti (separation of duties)",
       "Condivisione degli account amministrativi tra i membri del team",
       "Disabilitazione permanente di tutti i registri di audit per migliorare le prestazioni"
     ],
+    "options_en": [
+      "Principle of least privilege",
+      "Separation of duties",
+      "Sharing administrative accounts among team members",
+      "Permanently disabling all audit logs to improve performance"
+    ],
     "correct": [0, 1],
     "explanation": "Il privilegio minimo concede solo i diritti strettamente necessari, mentre la separazione dei compiti distribuisce le operazioni critiche tra più persone per prevenire abusi: entrambi sono cardini del controllo degli accessi.",
+    "explanation_en": "Least privilege grants only the strictly necessary rights, while separation of duties distributes critical operations among several people to prevent abuse: both are cornerstones of access control.",
     "why_wrong": {
       "2": "Condividere gli account amministrativi elimina la responsabilità individuale e viola il principio di accountability.",
       "3": "Disabilitare i log di audit compromette la tracciabilità e la capacità di rilevare incidenti."
+    },
+    "why_wrong_en": {
+      "2": "Sharing administrative accounts eliminates individual accountability and violates the principle of accountability.",
+      "3": "Disabling audit logs compromises traceability and the ability to detect incidents."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -246,17 +387,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Un analista deve individuare i tentativi di accesso SSH falliti su un server Linux. Quali delle seguenti azioni sono appropriate? (Seleziona due)",
+    "question_en": "An analyst must identify failed SSH login attempts on a Linux server. Which of the following actions are appropriate? (Select two)",
     "options": [
       "Cercare la stringa 'Failed password' nel file /var/log/auth.log con grep",
       "Usare il comando grep con l'opzione -c per contare le occorrenze di righe corrispondenti",
       "Eseguire chmod 000 su /var/log per proteggere i log durante l'analisi",
       "Cancellare il file di log e riavviare per generare eventi puliti"
     ],
+    "options_en": [
+      "Search for the string 'Failed password' in the /var/log/auth.log file with grep",
+      "Use the grep command with the -c option to count the occurrences of matching lines",
+      "Run chmod 000 on /var/log to protect the logs during analysis",
+      "Delete the log file and reboot to generate clean events"
+    ],
     "correct": [0, 1],
     "explanation": "Cercare 'Failed password' in /var/log/auth.log (o /var/log/secure) individua i tentativi SSH falliti, e l'opzione -c di grep permette di contarne rapidamente le occorrenze, utile per rilevare attacchi brute force.",
+    "explanation_en": "Searching for 'Failed password' in /var/log/auth.log (or /var/log/secure) identifies failed SSH attempts, and grep's -c option lets you quickly count their occurrences, useful for detecting brute force attacks.",
     "why_wrong": {
       "2": "chmod 000 su /var/log renderebbe i log inaccessibili anche all'analista e ai servizi, interrompendo il logging.",
       "3": "Cancellare i log distrugge le prove dell'attività sospetta ed è controproducente in un'indagine."
+    },
+    "why_wrong_en": {
+      "2": "chmod 000 on /var/log would make the logs inaccessible even to the analyst and to services, interrupting logging.",
+      "3": "Deleting the logs destroys evidence of the suspicious activity and is counterproductive in an investigation."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -267,11 +420,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Un attacco DDoS di tipo SYN flood sfrutta il three-way handshake del TCP inviando numerose richieste SYN senza completare la connessione, esaurendo le risorse del server bersaglio.",
+    "question_en": "A SYN flood DDoS attack exploits the TCP three-way handshake by sending numerous SYN requests without completing the connection, exhausting the resources of the target server.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Nel SYN flood l'attaccante invia molti pacchetti SYN senza rispondere con l'ACK finale del three-way handshake, lasciando il server con numerose connessioni half-open che ne saturano la tabella e le risorse.",
+    "explanation_en": "In a SYN flood the attacker sends many SYN packets without responding with the final ACK of the three-way handshake, leaving the server with numerous half-open connections that saturate its table and resources.",
     "why_wrong": {
       "1": "È falso affermare il contrario: il SYN flood è proprio un abuso documentato dell'handshake TCP a tre vie."
+    },
+    "why_wrong_en": {
+      "1": "It is false to claim the opposite: the SYN flood is precisely a documented abuse of the TCP three-way handshake."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -282,11 +441,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Una funzione di hash crittografica è progettata per essere reversibile, così da poter recuperare il testo originale a partire dal digest prodotto.",
+    "question_en": "A cryptographic hash function is designed to be reversible, so that the original text can be recovered from the digest it produces.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Le funzioni di hash crittografiche sono unidirezionali (a senso unico): dal digest non è possibile risalire all'input originale. Questa proprietà è ciò che le rende adatte alla verifica di integrità e alla memorizzazione delle password.",
+    "explanation_en": "Cryptographic hash functions are one-way: the original input cannot be recovered from the digest. This property is what makes them suitable for integrity verification and password storage.",
     "why_wrong": {
       "0": "È errato: l'hashing non è cifratura e non è reversibile; per proteggere dati recuperabili si usa la crittografia."
+    },
+    "why_wrong_en": {
+      "0": "This is wrong: hashing is not encryption and is not reversible; to protect recoverable data, encryption is used."
     },
     "source": "HACK/Google Cybersecurity"
   },
@@ -297,11 +462,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "La chain of custody (catena di custodia) documenta chi ha gestito una prova digitale, quando e come, per garantirne l'integrità e l'ammissibilità in un procedimento.",
+    "question_en": "The chain of custody documents who handled a piece of digital evidence, when and how, to ensure its integrity and admissibility in a proceeding.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "La catena di custodia registra in modo cronologico e verificabile ogni passaggio, accesso e trasferimento di una prova digitale, dimostrando che non è stata alterata e preservandone il valore legale.",
+    "explanation_en": "The chain of custody records in a chronological and verifiable way every handling, access and transfer of a piece of digital evidence, demonstrating that it has not been altered and preserving its legal value.",
     "why_wrong": {
       "1": "È falso negarlo: senza una catena di custodia documentata l'integrità della prova non può essere dimostrata e la prova rischia di non essere ammissibile."
+    },
+    "why_wrong_en": {
+      "1": "It is false to deny it: without a documented chain of custody the integrity of the evidence cannot be demonstrated and the evidence risks being inadmissible."
     },
     "source": "HACK/Google Cybersecurity"
   }

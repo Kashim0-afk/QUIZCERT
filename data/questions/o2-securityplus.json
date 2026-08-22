@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un'azienda deve cifrare grandi volumi di dati garantendo alte prestazioni. Quale tipo di crittografia è più adatto per la cifratura in blocco dei dati e perché?",
+    "question_en": "A company needs to encrypt large volumes of data while ensuring high performance. Which type of cryptography is most suitable for bulk data encryption, and why?",
     "options": [
       "Crittografia asimmetrica, perché usa una coppia di chiavi pubblica/privata",
       "Crittografia simmetrica, perché usa un'unica chiave condivisa ed è computazionalmente più veloce",
       "Hashing, perché è irreversibile e garantisce la riservatezza",
       "Steganografia, perché nasconde i dati dentro altri file"
     ],
+    "options_en": [
+      "Asymmetric cryptography, because it uses a public/private key pair",
+      "Symmetric cryptography, because it uses a single shared key and is computationally faster",
+      "Hashing, because it is irreversible and ensures confidentiality",
+      "Steganography, because it hides data inside other files"
+    ],
     "correct": [1],
     "explanation": "La crittografia simmetrica (es. AES) usa la stessa chiave per cifrare e decifrare ed è molto più veloce di quella asimmetrica, quindi è ideale per cifrare grandi volumi di dati (bulk encryption). La crittografia asimmetrica viene tipicamente usata solo per scambiare in sicurezza la chiave simmetrica.",
+    "explanation_en": "Symmetric cryptography (e.g. AES) uses the same key to encrypt and decrypt and is much faster than asymmetric cryptography, so it is ideal for encrypting large volumes of data (bulk encryption). Asymmetric cryptography is typically used only to securely exchange the symmetric key.",
     "why_wrong": {
       "0": "La crittografia asimmetrica è molto più lenta ed è inadatta a cifrare grandi volumi; si usa soprattutto per lo scambio di chiavi e le firme digitali.",
       "2": "L'hashing è una funzione unidirezionale per l'integrità: non è reversibile e quindi non permette di recuperare i dati, non serve a cifrarli.",
       "3": "La steganografia nasconde l'esistenza di un messaggio ma non fornisce di per sé cifratura robusta né prestazioni adatte al bulk."
+    },
+    "why_wrong_en": {
+      "0": "Asymmetric cryptography is much slower and unsuitable for encrypting large volumes; it is used mainly for key exchange and digital signatures.",
+      "2": "Hashing is a one-way function for integrity: it is not reversible and therefore does not allow data to be recovered, it is not used to encrypt it.",
+      "3": "Steganography hides the existence of a message but does not by itself provide strong encryption or performance suitable for bulk data."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -28,18 +41,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Quale proprietà della triade CIA viene garantita principalmente dall'uso di funzioni di hashing come SHA-256 per verificare che un file non sia stato modificato?",
+    "question_en": "Which property of the CIA triad is primarily ensured by using hash functions such as SHA-256 to verify that a file has not been modified?",
     "options": [
       "Riservatezza (Confidentiality)",
       "Integrità (Integrity)",
       "Disponibilità (Availability)",
       "Non ripudio"
     ],
+    "options_en": [
+      "Confidentiality",
+      "Integrity",
+      "Availability",
+      "Non-repudiation"
+    ],
     "correct": [1],
     "explanation": "L'hashing produce un'impronta univoca del file: se anche un solo bit cambia, l'hash risultante è diverso. Confrontando l'hash calcolato con quello originale si verifica l'integrità del dato, cioè che non sia stato alterato.",
+    "explanation_en": "Hashing produces a unique fingerprint of the file: if even a single bit changes, the resulting hash is different. By comparing the computed hash with the original one, you verify the integrity of the data, that is, that it has not been altered.",
     "why_wrong": {
       "0": "La riservatezza si ottiene con la cifratura, che rende i dati illeggibili a chi non possiede la chiave, non con l'hashing.",
       "2": "La disponibilità riguarda l'accessibilità dei dati e dei servizi (ridondanza, backup), non la verifica di modifiche.",
       "3": "Il non ripudio richiede una firma digitale con chiave privata; l'hash da solo non lega la modifica a uno specifico soggetto."
+    },
+    "why_wrong_en": {
+      "0": "Confidentiality is achieved with encryption, which makes data unreadable to anyone who does not hold the key, not with hashing.",
+      "2": "Availability concerns the accessibility of data and services (redundancy, backups), not the verification of modifications.",
+      "3": "Non-repudiation requires a digital signature with a private key; the hash alone does not tie the modification to a specific party."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -50,18 +76,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In una PKI, con quale chiave un mittente cifra un messaggio per garantire che solo il destinatario previsto possa leggerlo?",
+    "question_en": "In a PKI, with which key does a sender encrypt a message to ensure that only the intended recipient can read it?",
     "options": [
       "Con la propria chiave privata",
       "Con la propria chiave pubblica",
       "Con la chiave pubblica del destinatario",
       "Con la chiave privata del destinatario"
     ],
+    "options_en": [
+      "With their own private key",
+      "With their own public key",
+      "With the recipient's public key",
+      "With the recipient's private key"
+    ],
     "correct": [2],
     "explanation": "Per garantire la riservatezza si cifra con la chiave pubblica del destinatario: solo quest'ultimo, con la corrispondente chiave privata, potrà decifrare il messaggio. Questo assicura che nessun altro possa leggerlo.",
+    "explanation_en": "To ensure confidentiality, you encrypt with the recipient's public key: only the recipient, with the corresponding private key, will be able to decrypt the message. This ensures that no one else can read it.",
     "why_wrong": {
       "0": "Cifrare con la propria chiave privata serve a firmare (autenticità/non ripudio), non a garantire la riservatezza, perché chiunque possiede la chiave pubblica può decifrare.",
       "1": "Cifrando con la propria chiave pubblica solo il mittente potrebbe decifrare, il che è inutile per inviare un messaggio ad altri.",
       "3": "Il mittente non possiede la chiave privata del destinatario: le chiavi private non vengono mai condivise."
+    },
+    "why_wrong_en": {
+      "0": "Encrypting with your own private key is used for signing (authenticity/non-repudiation), not for ensuring confidentiality, because anyone holding the public key can decrypt.",
+      "1": "Encrypting with your own public key means only the sender could decrypt, which is useless for sending a message to others.",
+      "3": "The sender does not hold the recipient's private key: private keys are never shared."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un amministratore assegna a ogni utente solo i permessi strettamente necessari per svolgere le proprie mansioni. Quale principio di sicurezza sta applicando?",
+    "question_en": "An administrator assigns each user only the permissions strictly necessary to perform their duties. Which security principle are they applying?",
     "options": [
       "Separazione dei compiti (Separation of duties)",
       "Privilegio minimo (Least privilege)",
       "Difesa in profondità (Defense in depth)",
       "Sicurezza tramite oscurità (Security through obscurity)"
     ],
+    "options_en": [
+      "Separation of duties",
+      "Least privilege",
+      "Defense in depth",
+      "Security through obscurity"
+    ],
     "correct": [1],
     "explanation": "Il principio del privilegio minimo (least privilege) prevede di concedere a ciascun utente, processo o sistema solo i permessi indispensabili a svolgere il proprio compito, riducendo la superficie di attacco e l'impatto di un eventuale compromissione dell'account.",
+    "explanation_en": "The principle of least privilege calls for granting each user, process, or system only the permissions essential to perform its task, reducing the attack surface and the impact of a potential account compromise.",
     "why_wrong": {
       "0": "La separazione dei compiti divide un'attività critica tra più persone per evitare frodi, ma non riguarda la quantità di permessi minimi assegnati al singolo.",
       "2": "La difesa in profondità stratifica più controlli di sicurezza, ma non descrive l'assegnazione dei permessi minimi.",
       "3": "La sicurezza tramite oscurità si basa sul nascondere i dettagli implementativi e non è un principio di controllo degli accessi affidabile."
+    },
+    "why_wrong_en": {
+      "0": "Separation of duties splits a critical task among several people to prevent fraud, but it does not concern the amount of minimal permissions assigned to an individual.",
+      "2": "Defense in depth layers multiple security controls, but it does not describe the assignment of minimal permissions.",
+      "3": "Security through obscurity relies on hiding implementation details and is not a reliable access control principle."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Una telecamera di videosorveglianza (CCTV) installata all'ingresso di un data center rientra principalmente in quale categoria di controllo di sicurezza?",
+    "question_en": "A CCTV surveillance camera installed at the entrance of a data center falls primarily into which category of security control?",
     "options": [
       "Preventivo (Preventive)",
       "Detective (Detective)",
       "Correttivo (Corrective)",
       "Compensativo (Compensating)"
     ],
+    "options_en": [
+      "Preventive",
+      "Detective",
+      "Corrective",
+      "Compensating"
+    ],
     "correct": [1],
     "explanation": "Una telecamera CCTV è un controllo di tipo detective (di rilevamento): serve a identificare e registrare attività o eventi di sicurezza, permettendo di accorgersi di un accesso non autorizzato. Non impedisce fisicamente l'accesso, ma lo documenta.",
+    "explanation_en": "A CCTV camera is a detective control: it serves to identify and record security activities or events, making it possible to notice unauthorized access. It does not physically prevent access, but it documents it.",
     "why_wrong": {
       "0": "Un controllo preventivo impedisce che l'evento accada (es. una serratura o un badge); la telecamera non blocca l'ingresso.",
       "2": "Un controllo correttivo ripristina la situazione dopo un incidente (es. un backup); la telecamera non corregge nulla.",
       "3": "Un controllo compensativo sostituisce un controllo primario non applicabile; qui la telecamera svolge una funzione di rilevamento, non compensativa."
+    },
+    "why_wrong_en": {
+      "0": "A preventive control stops the event from happening (e.g. a lock or a badge); the camera does not block entry.",
+      "2": "A corrective control restores the situation after an incident (e.g. a backup); the camera corrects nothing.",
+      "3": "A compensating control substitutes for a primary control that cannot be applied; here the camera performs a detective function, not a compensating one."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Quale tipo di malware si presenta come un programma legittimo e utile, ma nasconde al suo interno funzionalità dannose che si attivano una volta eseguito?",
+    "question_en": "Which type of malware presents itself as a legitimate and useful program, but hides malicious functionality inside that activates once it is run?",
     "options": [
       "Worm",
       "Trojan (Cavallo di Troia)",
       "Ransomware",
       "Rootkit"
     ],
+    "options_en": [
+      "Worm",
+      "Trojan (Trojan horse)",
+      "Ransomware",
+      "Rootkit"
+    ],
     "correct": [1],
     "explanation": "Un trojan si maschera da software legittimo per indurre l'utente a installarlo, ma una volta eseguito svolge azioni malevole (furto dati, backdoor, ecc.). A differenza di un worm, non si replica autonomamente e richiede l'azione dell'utente.",
+    "explanation_en": "A trojan disguises itself as legitimate software to trick the user into installing it, but once run it performs malicious actions (data theft, backdoor, etc.). Unlike a worm, it does not self-replicate and requires user action.",
     "why_wrong": {
       "0": "Un worm si propaga autonomamente in rete sfruttando vulnerabilità, senza fingersi un programma legittimo né richiedere l'esecuzione da parte dell'utente.",
       "2": "Il ransomware cifra i dati e chiede un riscatto; non è definito dall'inganno di apparire come software legittimo.",
       "3": "Un rootkit si nasconde nel sistema per mantenere accesso privilegiato e occultare attività, ma non è caratterizzato dal fingersi un'applicazione utile."
+    },
+    "why_wrong_en": {
+      "0": "A worm propagates autonomously across the network by exploiting vulnerabilities, without pretending to be a legitimate program or requiring the user to run it.",
+      "2": "Ransomware encrypts data and demands a ransom; it is not defined by the deception of appearing as legitimate software.",
+      "3": "A rootkit hides in the system to maintain privileged access and conceal activity, but it is not characterized by pretending to be a useful application."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -138,18 +216,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un dipendente riceve un'email urgente che sembra provenire dal CEO dell'azienda, in cui gli si chiede di effettuare immediatamente un bonifico riservato. Di quale attacco si tratta più precisamente?",
+    "question_en": "An employee receives an urgent email that appears to come from the company's CEO, asking them to immediately make a confidential wire transfer. Which attack is this, more precisely?",
     "options": [
       "Whaling",
       "Phishing generico",
       "Vishing",
       "Tailgating"
     ],
+    "options_en": [
+      "Whaling",
+      "Generic phishing",
+      "Vishing",
+      "Tailgating"
+    ],
     "correct": [0],
     "explanation": "Il whaling è una forma mirata di spear phishing che prende di mira figure di alto profilo o ne sfrutta l'identità (es. il CEO) per convincere i dipendenti a compiere azioni come bonifici. L'uso dell'autorità del dirigente e dell'urgenza è tipico di questo attacco (noto anche come CEO fraud).",
+    "explanation_en": "Whaling is a targeted form of spear phishing that goes after high-profile figures or exploits their identity (e.g. the CEO) to convince employees to perform actions such as wire transfers. The use of the executive's authority and of urgency is typical of this attack (also known as CEO fraud).",
     "why_wrong": {
       "1": "Il phishing generico è indiscriminato e non mirato; qui l'attacco impersona specificamente un dirigente di alto livello.",
       "2": "Il vishing avviene tramite telefono o messaggio vocale, mentre qui il vettore è un'email.",
       "3": "Il tailgating è un attacco fisico in cui si segue una persona autorizzata per entrare in un'area protetta, non ha nulla a che vedere con l'email."
+    },
+    "why_wrong_en": {
+      "1": "Generic phishing is indiscriminate and untargeted; here the attack specifically impersonates a high-level executive.",
+      "2": "Vishing takes place over the phone or via voice message, whereas here the vector is an email.",
+      "3": "Tailgating is a physical attack in which you follow an authorized person to enter a protected area; it has nothing to do with email."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale affermazione descrive meglio il principio fondante di un'architettura Zero Trust?",
+    "question_en": "Which statement best describes the founding principle of a Zero Trust architecture?",
     "options": [
       "Tutto il traffico interno alla rete aziendale è considerato affidabile per impostazione predefinita",
       "Non fidarsi mai e verificare sempre ogni richiesta di accesso, indipendentemente dalla posizione",
       "La sicurezza si basa esclusivamente sul firewall perimetrale",
       "Gli utenti autenticati una volta ottengono accesso permanente a tutte le risorse"
     ],
+    "options_en": [
+      "All traffic inside the corporate network is considered trusted by default",
+      "Never trust and always verify every access request, regardless of location",
+      "Security relies exclusively on the perimeter firewall",
+      "Users who authenticate once gain permanent access to all resources"
+    ],
     "correct": [1],
     "explanation": "Zero Trust si fonda sul principio never trust, always verify: nessun utente, dispositivo o richiesta è considerato affidabile a priori, nemmeno se già dentro il perimetro. Ogni accesso viene autenticato, autorizzato e verificato continuamente in base all'identità e al contesto.",
+    "explanation_en": "Zero Trust is based on the principle 'never trust, always verify': no user, device, or request is considered trusted a priori, not even if already inside the perimeter. Every access is authenticated, authorized, and continuously verified based on identity and context.",
     "why_wrong": {
       "0": "È l'esatto contrario di Zero Trust: il modello tradizionale a perimetro si fida della rete interna, approccio che Zero Trust rifiuta.",
       "2": "Zero Trust supera il modello centrato solo sul perimetro; la difesa non si basa esclusivamente sul firewall.",
       "3": "Zero Trust prevede verifica e rivalutazione continue, non un accesso permanente concesso una volta per tutte."
+    },
+    "why_wrong_en": {
+      "0": "It is the exact opposite of Zero Trust: the traditional perimeter model trusts the internal network, an approach that Zero Trust rejects.",
+      "2": "Zero Trust goes beyond the perimeter-only model; defense does not rely exclusively on the firewall.",
+      "3": "Zero Trust involves continuous verification and reassessment, not permanent access granted once and for all."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Nel processo di Incident Response, in quale fase l'obiettivo primario è isolare i sistemi compromessi per impedire la propagazione dell'attacco senza ancora eliminarne la causa?",
+    "question_en": "In the Incident Response process, in which phase is the primary objective to isolate compromised systems to prevent the attack from spreading, without yet eliminating its cause?",
     "options": [
       "Preparazione (Preparation)",
       "Contenimento (Containment)",
       "Eradicazione (Eradication)",
       "Ripristino (Recovery)"
     ],
+    "options_en": [
+      "Preparation",
+      "Containment",
+      "Eradication",
+      "Recovery"
+    ],
     "correct": [1],
     "explanation": "Il contenimento (containment) mira a limitare la diffusione e l'impatto dell'incidente, ad esempio isolando o segmentando i sistemi compromessi, prima di procedere con l'eradicazione della causa e il ripristino. È una fase intermedia critica per fermare l'emorragia.",
+    "explanation_en": "Containment aims to limit the spread and impact of the incident, for example by isolating or segmenting the compromised systems, before proceeding with eradicating the cause and recovery. It is a critical intermediate phase to stop the bleeding.",
     "why_wrong": {
       "0": "La preparazione avviene prima dell'incidente: definisce policy, strumenti e piani, non isola sistemi già compromessi.",
       "2": "L'eradicazione rimuove la causa dell'incidente (malware, account compromessi); avviene dopo il contenimento.",
       "3": "Il ripristino riporta i sistemi in produzione in sicurezza, dopo che la minaccia è stata eliminata."
+    },
+    "why_wrong_en": {
+      "0": "Preparation takes place before the incident: it defines policies, tools, and plans, it does not isolate already compromised systems.",
+      "2": "Eradication removes the cause of the incident (malware, compromised accounts); it happens after containment.",
+      "3": "Recovery brings systems back into production safely, after the threat has been eliminated."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -204,18 +321,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Un'organizzazione decide di acquistare una polizza assicurativa informatica per coprire le perdite economiche derivanti da un possibile attacco. Quale strategia di gestione del rischio sta adottando?",
+    "question_en": "An organization decides to purchase a cyber insurance policy to cover the financial losses arising from a possible attack. Which risk management strategy is it adopting?",
     "options": [
       "Accettazione del rischio (Risk acceptance)",
       "Evitamento del rischio (Risk avoidance)",
       "Trasferimento del rischio (Risk transference)",
       "Mitigazione del rischio (Risk mitigation)"
     ],
+    "options_en": [
+      "Risk acceptance",
+      "Risk avoidance",
+      "Risk transference",
+      "Risk mitigation"
+    ],
     "correct": [2],
     "explanation": "Stipulare un'assicurazione trasferisce l'impatto economico del rischio a una terza parte (l'assicuratore). Questa strategia è il trasferimento del rischio: non elimina la probabilità dell'evento, ma sposta le conseguenze finanziarie su un altro soggetto.",
+    "explanation_en": "Taking out insurance transfers the financial impact of the risk to a third party (the insurer). This strategy is risk transference: it does not eliminate the probability of the event, but shifts the financial consequences onto another party.",
     "why_wrong": {
       "0": "L'accettazione significa non fare nulla e assorbire eventuali perdite; qui invece si acquista attivamente una copertura.",
       "1": "L'evitamento elimina l'attività o l'asset che genera il rischio; la polizza non elimina il rischio, lo copre.",
       "3": "La mitigazione riduce probabilità o impatto con controlli tecnici/organizzativi; una polizza non riduce la probabilità dell'attacco."
+    },
+    "why_wrong_en": {
+      "0": "Acceptance means doing nothing and absorbing any losses; here, instead, coverage is actively purchased.",
+      "1": "Avoidance eliminates the activity or asset that generates the risk; the policy does not eliminate the risk, it covers it.",
+      "3": "Mitigation reduces probability or impact with technical/organizational controls; a policy does not reduce the probability of the attack."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -226,18 +356,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In un modello di servizio cloud IaaS (Infrastructure as a Service), chi è generalmente responsabile della sicurezza del sistema operativo e delle applicazioni installate sulle macchine virtuali?",
+    "question_en": "In an IaaS (Infrastructure as a Service) cloud service model, who is generally responsible for the security of the operating system and the applications installed on the virtual machines?",
     "options": [
       "Il provider cloud, che gestisce l'intero stack",
       "Il cliente, secondo il modello di responsabilità condivisa",
       "Nessuno, la sicurezza è automatica in cloud",
       "Un ente di certificazione esterno"
     ],
+    "options_en": [
+      "The cloud provider, which manages the entire stack",
+      "The customer, according to the shared responsibility model",
+      "No one, security is automatic in the cloud",
+      "An external certification body"
+    ],
     "correct": [1],
     "explanation": "Nel modello di responsabilità condivisa dell'IaaS, il provider è responsabile della sicurezza fisica e dell'infrastruttura sottostante (hypervisor, rete, storage), mentre il cliente è responsabile del sistema operativo, delle patch, delle applicazioni e dei dati. Nell'IaaS il cliente gestisce buona parte dello stack.",
+    "explanation_en": "In the IaaS shared responsibility model, the provider is responsible for physical security and the underlying infrastructure (hypervisor, network, storage), while the customer is responsible for the operating system, patches, applications, and data. In IaaS the customer manages a large part of the stack.",
     "why_wrong": {
       "0": "Nel IaaS il provider gestisce solo l'infrastruttura di base, non il sistema operativo e le applicazioni del cliente.",
       "2": "La sicurezza non è mai automatica: il cliente ha responsabilità precise anche in cloud.",
       "3": "Un ente di certificazione può verificare la conformità, ma non è responsabile della sicurezza operativa dei sistemi del cliente."
+    },
+    "why_wrong_en": {
+      "0": "In IaaS the provider manages only the base infrastructure, not the customer's operating system and applications.",
+      "2": "Security is never automatic: the customer has specific responsibilities even in the cloud.",
+      "3": "A certification body can verify compliance, but it is not responsible for the operational security of the customer's systems."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -248,9 +391,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "L'hardening di un server prevede di disabilitare servizi, porte e account inutilizzati per ridurre la superficie di attacco.",
+    "question_en": "Hardening a server involves disabling unused services, ports, and accounts to reduce the attack surface.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Affermazione vera. L'hardening consiste nel ridurre la superficie di attacco: disabilitare servizi, porte e account non necessari elimina potenziali punti di ingresso per un attaccante. Al contrario, abilitare tutti i servizi predefiniti o disattivare gli aggiornamenti aumenterebbe l'esposizione a vulnerabilità.",
+    "explanation_en": "True statement. Hardening consists of reducing the attack surface: disabling unnecessary services, ports, and accounts eliminates potential entry points for an attacker. Conversely, enabling all default services or disabling updates would increase exposure to vulnerabilities.",
     "source": "CompTIA Security+ SY0-701"
   },
   {
@@ -260,17 +406,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti affermazioni descrivono correttamente la differenza tra un IDS e un IPS? (Seleziona due)",
+    "question_en": "Which of the following statements correctly describe the difference between an IDS and an IPS? (Select two)",
     "options": [
       "Un IDS rileva e segnala le attività sospette ma non le blocca automaticamente",
       "Un IPS può bloccare o interrompere attivamente il traffico malevolo in linea",
       "Un IDS è sempre posizionato in linea (inline) e blocca il traffico",
       "Un IPS si limita a registrare gli eventi senza alcuna azione preventiva"
     ],
+    "options_en": [
+      "An IDS detects and reports suspicious activity but does not block it automatically",
+      "An IPS can actively block or interrupt malicious traffic inline",
+      "An IDS is always placed inline and blocks traffic",
+      "An IPS merely logs events without any preventive action"
+    ],
     "correct": [0, 1],
     "explanation": "Un IDS (Intrusion Detection System) monitora e genera allarmi sulle attività sospette, ma è passivo e non blocca il traffico. Un IPS (Intrusion Prevention System) è posizionato in linea e può intervenire attivamente bloccando o interrompendo il traffico malevolo in tempo reale.",
+    "explanation_en": "An IDS (Intrusion Detection System) monitors and raises alerts on suspicious activity, but it is passive and does not block traffic. An IPS (Intrusion Prevention System) is placed inline and can actively intervene by blocking or interrupting malicious traffic in real time.",
     "why_wrong": {
       "2": "È il contrario: l'IDS opera tipicamente in modalità passiva (out-of-band) e non blocca; è l'IPS a essere inline.",
       "3": "L'IPS non si limita a registrare: la sua caratteristica distintiva è proprio la capacità di prevenire e bloccare attivamente le minacce."
+    },
+    "why_wrong_en": {
+      "2": "It is the opposite: the IDS typically operates in passive mode (out-of-band) and does not block; it is the IPS that is inline.",
+      "3": "The IPS does not merely log: its distinctive feature is precisely the ability to actively prevent and block threats."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -281,17 +439,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali dei seguenti sono esempi validi di autenticazione a più fattori (MFA) che combinano fattori di categorie diverse? (Seleziona due)",
+    "question_en": "Which of the following are valid examples of multi-factor authentication (MFA) that combine factors from different categories? (Select two)",
     "options": [
       "Password più codice OTP generato da un'app authenticator",
       "PIN più impronta digitale",
       "Password più risposta a una domanda di sicurezza",
       "Due password diverse impostate dall'utente"
     ],
+    "options_en": [
+      "Password plus an OTP code generated by an authenticator app",
+      "PIN plus fingerprint",
+      "Password plus the answer to a security question",
+      "Two different passwords set by the user"
+    ],
     "correct": [0, 1],
     "explanation": "L'MFA richiede fattori di categorie differenti: qualcosa che sai (password/PIN), qualcosa che hai (token/OTP) e qualcosa che sei (biometria). Password + OTP combina sapere e possedere; PIN + impronta combina sapere ed essere: entrambi sono MFA validi.",
+    "explanation_en": "MFA requires factors from different categories: something you know (password/PIN), something you have (token/OTP), and something you are (biometrics). Password + OTP combines knowing and having; PIN + fingerprint combines knowing and being: both are valid MFA.",
     "why_wrong": {
       "2": "Password e domanda di sicurezza appartengono entrambe alla categoria qualcosa che sai: è un solo fattore, quindi non è vera MFA.",
       "3": "Due password sono entrambe qualcosa che sai: usare più elementi della stessa categoria non costituisce autenticazione multifattore."
+    },
+    "why_wrong_en": {
+      "2": "A password and a security question both belong to the 'something you know' category: it is a single factor, so it is not true MFA.",
+      "3": "Two passwords are both 'something you know': using multiple elements from the same category does not constitute multi-factor authentication."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -302,17 +472,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Un'organizzazione vuole ridurre il rischio legato allo sfruttamento delle vulnerabilità software. Quali due misure sono più efficaci a questo scopo? (Seleziona due)",
+    "question_en": "An organization wants to reduce the risk related to the exploitation of software vulnerabilities. Which two measures are most effective for this purpose? (Select two)",
     "options": [
       "Applicare tempestivamente le patch di sicurezza (patch management)",
       "Eseguire scansioni periodiche delle vulnerabilità",
       "Aumentare la lunghezza minima delle password degli utenti",
       "Disattivare i log di sistema per migliorare le prestazioni"
     ],
+    "options_en": [
+      "Promptly apply security patches (patch management)",
+      "Perform periodic vulnerability scans",
+      "Increase the minimum length of user passwords",
+      "Disable system logs to improve performance"
+    ],
     "correct": [0, 1],
     "explanation": "Il patch management applica le correzioni ai difetti noti eliminando le vulnerabilità sfruttabili, mentre le scansioni periodiche delle vulnerabilità le identificano prima che un attaccante le sfrutti. Insieme formano un ciclo efficace di gestione delle vulnerabilità.",
+    "explanation_en": "Patch management applies fixes to known flaws, eliminating exploitable vulnerabilities, while periodic vulnerability scans identify them before an attacker exploits them. Together they form an effective vulnerability management cycle.",
     "why_wrong": {
       "2": "Password più lunghe rafforzano l'autenticazione contro attacchi di forza bruta, ma non riducono le vulnerabilità del software.",
       "3": "Disattivare i log elimina la capacità di rilevare e investigare gli attacchi, peggiorando la postura di sicurezza anziché migliorarla."
+    },
+    "why_wrong_en": {
+      "2": "Longer passwords strengthen authentication against brute-force attacks, but they do not reduce software vulnerabilities.",
+      "3": "Disabling logs removes the ability to detect and investigate attacks, worsening the security posture rather than improving it."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -323,17 +505,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali due obiettivi di sicurezza vengono garantiti da una firma digitale apposta a un documento? (Seleziona due)",
+    "question_en": "Which two security objectives are ensured by a digital signature applied to a document? (Select two)",
     "options": [
       "Autenticità dell'origine del documento",
       "Non ripudio da parte del firmatario",
       "Riservatezza del contenuto del documento",
       "Disponibilità continua del documento"
     ],
+    "options_en": [
+      "Authenticity of the document's origin",
+      "Non-repudiation by the signer",
+      "Confidentiality of the document's content",
+      "Continuous availability of the document"
+    ],
     "correct": [0, 1],
     "explanation": "La firma digitale si crea cifrando l'hash del documento con la chiave privata del firmatario. Chiunque, usando la chiave pubblica, può verificarne l'autenticità (l'origine) e il non ripudio (il firmatario non può negare di averlo firmato); l'integrità è verificata tramite l'hash.",
+    "explanation_en": "A digital signature is created by encrypting the document's hash with the signer's private key. Anyone, using the public key, can verify its authenticity (the origin) and non-repudiation (the signer cannot deny having signed it); integrity is verified through the hash.",
     "why_wrong": {
       "2": "La firma digitale non cifra il contenuto: il documento resta leggibile. La riservatezza richiede una cifratura separata del testo.",
       "3": "La disponibilità riguarda l'accessibilità del documento (backup, ridondanza) e non è un obiettivo garantito dalla firma digitale."
+    },
+    "why_wrong_en": {
+      "2": "A digital signature does not encrypt the content: the document remains readable. Confidentiality requires separate encryption of the text.",
+      "3": "Availability concerns the accessibility of the document (backups, redundancy) and is not an objective ensured by the digital signature."
     },
     "source": "CompTIA Security+ SY0-701"
   },
@@ -344,9 +538,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Il rischio residuo è il rischio che rimane dopo che sono stati applicati i controlli di sicurezza per mitigare il rischio inerente.",
+    "question_en": "Residual risk is the risk that remains after security controls have been applied to mitigate the inherent risk.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Affermazione vera. Il rischio inerente è quello presente in assenza di controlli; dopo aver applicato le contromisure rimane il rischio residuo, che l'organizzazione deve decidere se accettare, trasferire o mitigare ulteriormente.",
+    "explanation_en": "True statement. Inherent risk is the risk present in the absence of controls; after applying countermeasures, the residual risk remains, which the organization must decide whether to accept, transfer, or mitigate further.",
     "source": "CompTIA Security+ SY0-701"
   },
   {
@@ -356,9 +553,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "L'hashing è un processo reversibile che permette di recuperare i dati originali applicando la chiave corretta.",
+    "question_en": "Hashing is a reversible process that allows the original data to be recovered by applying the correct key.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Affermazione falsa. L'hashing è una funzione unidirezionale e non reversibile: dall'hash non si può risalire ai dati originali, e non utilizza alcuna chiave per la decifratura. Serve a verificare l'integrità, non a proteggere e poi recuperare i dati come fa la cifratura.",
+    "explanation_en": "False statement. Hashing is a one-way, non-reversible function: from the hash you cannot recover the original data, and it uses no key for decryption. It serves to verify integrity, not to protect and then recover data the way encryption does.",
     "source": "CompTIA Security+ SY0-701"
   }
 ]
