@@ -19,7 +19,20 @@
       "2": "La disponibilità assicura che i dati e i servizi siano accessibili quando servono, ma non ne previene l'alterazione.",
       "3": "La ridondanza è una tecnica di resilienza e non è uno dei tre pilastri della triade CIA."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "A company applies controls to ensure that billing data cannot be altered by unauthorized personnel during transit and storage. Which pillar of the CIA triad is being protected as the priority in this scenario?",
+    "options_en": [
+      "Confidentiality",
+      "Integrity",
+      "Availability",
+      "Redundancy"
+    ],
+    "explanation_en": "Integrity ensures that data remains accurate, complete, and unmodified by unauthorized parties. Preventing alterations to billing data is the very definition of integrity protection.",
+    "why_wrong_en": {
+      "0": "Confidentiality concerns preventing the disclosure of data to those not authorized to see it, not its modification.",
+      "2": "Availability ensures that data and services are accessible when needed, but does not prevent their alteration.",
+      "3": "Redundancy is a resilience technique and is not one of the three pillars of the CIA triad."
+    }
   },
   {
     "id": "g4-002",
@@ -41,7 +54,20 @@
       "1": "Protect si occupa delle salvaguardie preventive per evitare o ridurre gli incidenti, non della reazione a uno già in corso.",
       "3": "Recover interviene dopo la fase di risposta per ripristinare capacità e servizi compromessi."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "In the NIST Cybersecurity Framework (CSF), which core function defines the activities to act on and contain an already detected security incident, limiting its impact?",
+    "options_en": [
+      "Identify",
+      "Protect",
+      "Respond",
+      "Recover"
+    ],
+    "explanation_en": "The Respond function of the NIST CSF comprises the activities to carry out when an incident has been detected: containment, analysis, mitigation, and communications, with the goal of limiting its effects.",
+    "why_wrong_en": {
+      "0": "Identify concerns understanding the context, assets, and risks; it precedes the occurrence of the incident.",
+      "1": "Protect deals with preventive safeguards to avoid or reduce incidents, not with reacting to one already underway.",
+      "3": "Recover comes after the response phase to restore compromised capabilities and services."
+    }
   },
   {
     "id": "g4-003",
@@ -63,7 +89,20 @@
       "2": "Un repeater rigenera il segnale a livello fisico e non prende alcuna decisione di filtraggio.",
       "3": "Un proxy inverso distribuisce le richieste ai server backend ma non è definito dal tracciamento dello stato delle connessioni."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "An administrator configures a firewall that tracks the state of active connections and decides whether to allow a packet based on whether it belongs to an already established session. What type of firewall is this?",
+    "options_en": [
+      "Stateless firewall",
+      "Stateful firewall",
+      "A simple physical-layer repeater",
+      "A reverse proxy server for load balancing"
+    ],
+    "explanation_en": "A stateful firewall maintains a connection table and evaluates each packet in the context of the session to which it belongs, allowing the return traffic of legitimate connections without additional rules.",
+    "why_wrong_en": {
+      "0": "A stateless firewall evaluates each packet in isolation, with no memory of the connection state.",
+      "2": "A repeater regenerates the signal at the physical layer and makes no filtering decisions.",
+      "3": "A reverse proxy distributes requests to backend servers but is not defined by tracking the connection state."
+    }
   },
   {
     "id": "g4-004",
@@ -85,7 +124,20 @@
       "2": "Telnet trasmette i dati, comprese le credenziali, in chiaro ed è considerato insicuro.",
       "3": "Un IP statico è solo un indirizzo fisso e non fornisce alcuna cifratura del traffico."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "A remote-working employee needs to access the corporate network over the public Internet. Which technology creates an encrypted tunnel between their device and the network, protecting the data from interception?",
+    "options_en": [
+      "A VPN (Virtual Private Network)",
+      "An unmanaged network hub",
+      "The Telnet protocol",
+      "A static IP address assigned to the laptop"
+    ],
+    "explanation_en": "A VPN encapsulates and encrypts the traffic in a tunnel between the client and the corporate gateway, ensuring confidentiality and integrity of the data even when it traverses untrusted public networks.",
+    "why_wrong_en": {
+      "1": "A hub forwards the traffic to all ports with no encryption or remote access control.",
+      "2": "Telnet transmits data, including credentials, in cleartext and is considered insecure.",
+      "3": "A static IP is just a fixed address and provides no encryption of the traffic."
+    }
   },
   {
     "id": "g4-005",
@@ -107,7 +159,20 @@
       "2": "rm cancellerebbe il file di log, distruggendo potenziali prove.",
       "3": "chmod 777 modifica i permessi rendendo il file scrivibile da tutti, non ne mostra il contenuto ed è insicuro."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "During an investigation on a Linux server, an analyst wants to view in real time the new lines being written to the file /var/log/syslog as they are added. Which command is most suitable?",
+    "options_en": [
+      "tail -f /var/log/syslog",
+      "head /var/log/syslog",
+      "rm /var/log/syslog",
+      "chmod 777 /var/log/syslog"
+    ],
+    "explanation_en": "The -f (follow) option of tail keeps the file open and displays the new lines as soon as they are added, ideal for monitoring a log in real time during an investigation.",
+    "why_wrong_en": {
+      "1": "head shows only the first lines of the file and does not follow subsequent updates.",
+      "2": "rm would delete the log file, destroying potential evidence.",
+      "3": "chmod 777 changes the permissions making the file writable by everyone, does not show its content, and is insecure."
+    }
   },
   {
     "id": "g4-006",
@@ -129,7 +194,20 @@
       "2": "DELETE eliminerebbe i record dalla tabella invece di visualizzarli, cancellando le prove.",
       "3": "GROUP BY con la sola colonna success aggrega i valori ma non restituisce le singole righe dei tentativi falliti."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "An analyst needs to extract from the login_attempts table all the rows where the login attempt was NOT successful (the success column has the value FALSE). Which SQL query is correct?",
+    "options_en": [
+      "SELECT * FROM login_attempts WHERE success = FALSE;",
+      "SELECT * FROM login_attempts ORDER BY success;",
+      "DELETE FROM login_attempts WHERE success = FALSE;",
+      "SELECT success FROM login_attempts GROUP BY success;"
+    ],
+    "explanation_en": "The WHERE clause filters rows based on a condition: WHERE success = FALSE returns exactly the failed login attempts, useful for spotting possible brute force attacks.",
+    "why_wrong_en": {
+      "1": "ORDER BY sorts the results but still returns all the rows, without filtering only the failed attempts.",
+      "2": "DELETE would remove the records from the table instead of displaying them, erasing the evidence.",
+      "3": "GROUP BY with only the success column aggregates the values but does not return the individual rows of the failed attempts."
+    }
   },
   {
     "id": "g4-007",
@@ -151,7 +229,20 @@
       "2": "Lo spazio occupato dai log riguarda la gestione dello storage, non i punti di ingresso attaccabili.",
       "3": "La velocità di connessione è un parametro prestazionale e non rappresenta la superficie di attacco."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "A security team wants to reduce the attack surface of a web application. Which of the following definitions correctly describes the concept of attack surface?",
+    "options_en": [
+      "The set of all entry points through which an attacker could try to access or extract data from a system",
+      "The total number of users registered in the application",
+      "The amount of disk space taken up by the log files",
+      "The maximum connection speed supported by the server"
+    ],
+    "explanation_en": "The attack surface is the set of all exposed points (ports, services, endpoints, inputs, accounts) through which an attacker can interact with the system. Reducing it means eliminating unnecessary entry points.",
+    "why_wrong_en": {
+      "1": "The number of registered users is an adoption metric; it does not describe the exposed attack vectors.",
+      "2": "The space taken up by logs concerns storage management, not the attackable entry points.",
+      "3": "Connection speed is a performance parameter and does not represent the attack surface."
+    }
   },
   {
     "id": "g4-008",
@@ -173,7 +264,20 @@
       "2": "Una funzione di hash è unidirezionale e non serve a cifrare o scambiare chiavi.",
       "3": "Base64 è una codifica, non una cifratura, ed è facilmente reversibile senza alcuna chiave."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "Two parties that have never previously shared a secret need to securely exchange a key over an untrusted channel. Which type of cryptography uses a public and private key pair to make this exchange possible?",
+    "options_en": [
+      "Symmetric cryptography",
+      "Asymmetric (public-key) cryptography",
+      "Hash function",
+      "Base64 encoding"
+    ],
+    "explanation_en": "Asymmetric cryptography uses a pair of related keys: what is encrypted with the public key can be decrypted only with the corresponding private key. This allows a secure exchange even without a pre-existing shared secret.",
+    "why_wrong_en": {
+      "0": "Symmetric cryptography uses a single shared key that must, however, be distributed securely, which is the problem that asymmetric cryptography solves.",
+      "2": "A hash function is one-way and is not used to encrypt or exchange keys.",
+      "3": "Base64 is an encoding, not encryption, and is easily reversible without any key."
+    }
   },
   {
     "id": "g4-009",
@@ -195,7 +299,20 @@
       "2": "Un server DNS risolve nomi in indirizzi IP e non ha funzioni di rilevamento o blocco delle intrusioni.",
       "3": "Un load balancer distribuisce il carico tra i server ma non ispeziona il traffico per bloccare minacce."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "An organization wants a device placed inline on the network traffic that does not just generate alerts but automatically blocks packets recognized as malicious. Which solution meets this requirement?",
+    "options_en": [
+      "An IDS (Intrusion Detection System)",
+      "An IPS (Intrusion Prevention System)",
+      "A recursive DNS server",
+      "A load balancer"
+    ],
+    "explanation_en": "An IPS operates inline on the traffic and can actively block or drop malicious packets in addition to detecting them, preventing the attack in real time.",
+    "why_wrong_en": {
+      "0": "An IDS detects and reports suspicious activity but does not block the traffic; it only generates alerts.",
+      "2": "A DNS server resolves names into IP addresses and has no intrusion detection or blocking functions.",
+      "3": "A load balancer distributes the load across servers but does not inspect the traffic to block threats."
+    }
   },
   {
     "id": "g4-010",
@@ -217,7 +334,20 @@
       "2": "os.remove() elimina un file dal filesystem e non ha nulla a che vedere con la ricerca di testo.",
       "3": "len() restituisce la lunghezza di un oggetto e non individua corrispondenze di pattern."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "An analyst needs to automatically extract all the IP addresses present in a log file using a regular expression in Python. Which function of the re module returns a list of all the matches found in a string?",
+    "options_en": [
+      "re.findall()",
+      "print()",
+      "os.remove()",
+      "len()"
+    ],
+    "explanation_en": "re.findall() applies a regex pattern to a string and returns a list with all the matching substrings, perfect for collecting all the IP addresses present in the log.",
+    "why_wrong_en": {
+      "1": "print() simply displays a value on screen and performs no pattern search.",
+      "2": "os.remove() deletes a file from the filesystem and has nothing to do with text search.",
+      "3": "len() returns the length of an object and does not find pattern matches."
+    }
   },
   {
     "id": "g4-011",
@@ -239,7 +369,20 @@
       "2": "Il manuale della stampante è documentazione tecnica di un dispositivo, irrilevante per la gestione degli incidenti.",
       "3": "Una brochure commerciale ha finalità di marketing e non definisce processi operativi di risposta."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "A tier-1 SOC analyst identifies a critical incident that exceeds their level of authority and competence. Which document defines who must be notified, within what timeframes, and based on what severity criteria?",
+    "options_en": [
+      "The escalation policy",
+      "The antivirus software license agreement",
+      "The network printer's user manual",
+      "The SIEM vendor's commercial brochure"
+    ],
+    "explanation_en": "The escalation policy establishes the criteria, timing, and recipients of communications when an incident must be transferred to higher-level figures, ensuring a prompt and coordinated response.",
+    "why_wrong_en": {
+      "1": "The license agreement governs the use of the software, not incident escalation procedures.",
+      "2": "The printer manual is technical documentation for a device, irrelevant to incident management.",
+      "3": "A commercial brochure has marketing purposes and does not define operational response processes."
+    }
   },
   {
     "id": "g4-012",
@@ -260,7 +403,19 @@
       "2": "Aumentare la superficie di attacco espande i vettori sfruttabili e accresce il rischio anziché gestirlo.",
       "3": "Disattivare i log di audit riduce la visibilità e la capacità di rilevare incidenti, peggiorando la postura di sicurezza."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "After assessing a risk, an organization must decide how to treat it. Which of the following are legitimate risk management strategies? (Select two)",
+    "options_en": [
+      "Transferring the risk to a third party, for example by taking out an insurance policy",
+      "Mitigating the risk by applying controls that reduce its likelihood or impact",
+      "Deliberately increasing the attack surface to make the system more attractive",
+      "Permanently disabling every audit log so as not to have to analyze them"
+    ],
+    "explanation_en": "Transferring (for example with insurance) and mitigating (by applying controls) are two of the four classic risk treatment strategies, together with accepting and avoiding.",
+    "why_wrong_en": {
+      "2": "Increasing the attack surface expands the exploitable vectors and increases the risk instead of managing it.",
+      "3": "Disabling audit logs reduces visibility and the ability to detect incidents, worsening the security posture."
+    }
   },
   {
     "id": "g4-013",
@@ -281,7 +436,19 @@
       "2": "HTTP è un protocollo di livello applicazione che si appoggia al trasporto sottostante (tipicamente TCP).",
       "3": "ARP opera al livello di collegamento/rete per associare indirizzi IP a indirizzi MAC, non a livello di trasporto."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "In the TCP/IP model, which of the following protocols operate at the transport layer? (Select two)",
+    "options_en": [
+      "TCP (Transmission Control Protocol)",
+      "UDP (User Datagram Protocol)",
+      "HTTP (HyperText Transfer Protocol)",
+      "ARP (Address Resolution Protocol)"
+    ],
+    "explanation_en": "TCP and UDP are the two transport-layer protocols: TCP provides reliable, ordered, connection-oriented delivery, while UDP provides fast, connectionless delivery.",
+    "why_wrong_en": {
+      "2": "HTTP is an application-layer protocol that relies on the underlying transport (typically TCP).",
+      "3": "ARP operates at the link/network layer to associate IP addresses with MAC addresses, not at the transport layer."
+    }
   },
   {
     "id": "g4-014",
@@ -302,7 +469,19 @@
       "2": "Negoziare il pagamento di un riscatto non è una fase del processo di risposta e viene generalmente sconsigliato.",
       "3": "Cancellare i log distrugge le prove, ostacola le lezioni apprese e non è una fase prevista del ciclo di risposta."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "The incident response lifecycle according to NIST comprises several phases. Which of the following are legitimate phases of this process? (Select two)",
+    "options_en": [
+      "Preparation",
+      "Containment, Eradication and Recovery",
+      "Negotiating the ransom payment with the attackers",
+      "Voluntarily deleting logs to hide the incident from auditors"
+    ],
+    "explanation_en": "The NIST incident response lifecycle includes Preparation; Detection and analysis; Containment, eradication and recovery; and Post-incident activity. Options 0 and 1 correspond to two of these phases.",
+    "why_wrong_en": {
+      "2": "Negotiating a ransom payment is not a phase of the response process and is generally discouraged.",
+      "3": "Deleting logs destroys evidence, hinders lessons learned, and is not a phase of the response cycle."
+    }
   },
   {
     "id": "g4-015",
@@ -323,7 +502,19 @@
       "2": "Le credenziali predefinite sono pubblicamente note e tra i primi bersagli degli attaccanti: vanno sempre cambiate.",
       "3": "Concedere privilegi di amministratore a tutti viola il principio del privilegio minimo e amplia notevolmente il rischio."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "An administrator must harden a new server before putting it into production. Which of the following are correct hardening practices? (Select two)",
+    "options_en": [
+      "Promptly applying the available security patches and updates",
+      "Disabling unnecessary services, ports and accounts",
+      "Keeping the factory default credentials for the team's convenience",
+      "Granting administrator privileges to all users to avoid support requests"
+    ],
+    "explanation_en": "Hardening reduces the attack surface by applying updates that close known vulnerabilities and disabling everything that is not essential (unnecessary services, ports, accounts).",
+    "why_wrong_en": {
+      "2": "Default credentials are publicly known and among the first targets of attackers: they must always be changed.",
+      "3": "Granting administrator privileges to everyone violates the principle of least privilege and greatly increases risk."
+    }
   },
   {
     "id": "g4-016",
@@ -338,7 +529,13 @@
     "why_wrong": {
       "1": "È errato negarlo: si tratta di due operatori distinti, uno di confronto (==) e uno di assegnazione (=)."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "In Python, the == operator compares two values to check their equality, whereas the single symbol = is used to assign a value to a variable.",
+    "options_en": ["True", "False"],
+    "explanation_en": "In Python, == is the comparison operator that returns True or False based on the equality of the values, whereas = is the assignment operator that binds a value to a variable. Confusing them is a frequent logical error.",
+    "why_wrong_en": {
+      "1": "It is wrong to deny it: these are two distinct operators, one for comparison (==) and one for assignment (=)."
+    }
   },
   {
     "id": "g4-017",
@@ -353,7 +550,13 @@
     "why_wrong": {
       "1": "È errato negarlo: HTTPS si basa proprio su TLS e la sua porta standard è la 443, mentre HTTP in chiaro usa la 80."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "The HTTPS protocol uses TLS to encrypt web traffic and typically operates on port 443.",
+    "options_en": ["True", "False"],
+    "explanation_en": "HTTPS is HTTP encapsulated in TLS: it encrypts the communication between browser and server, ensuring its confidentiality and integrity, and by convention uses TCP port 443.",
+    "why_wrong_en": {
+      "1": "It is wrong to deny it: HTTPS relies precisely on TLS and its standard port is 443, whereas cleartext HTTP uses 80."
+    }
   },
   {
     "id": "g4-018",
@@ -368,6 +571,12 @@
     "why_wrong": {
       "0": "È falso: concedere il massimo dei permessi contraddice il least privilege e amplia la superficie di attacco e l'impatto di un eventuale abuso."
     },
-    "source": "HACK/Google Cybersecurity"
+    "source": "HACK/Google Cybersecurity",
+    "question_en": "The principle of least privilege calls for granting each user as many permissions as possible, so that they never have to request them later and operational interruptions are avoided.",
+    "options_en": ["True", "False"],
+    "explanation_en": "Least privilege calls for the exact opposite: each user is granted only the permissions strictly necessary to perform their tasks, thereby reducing the potential damage in the event of an account compromise.",
+    "why_wrong_en": {
+      "0": "It is false: granting maximum permissions contradicts least privilege and widens the attack surface and the impact of any abuse."
+    }
   }
 ]

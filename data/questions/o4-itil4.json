@@ -19,6 +19,19 @@
       "2": "Questo descrive un accordo sui livelli di servizio (SLA), uno strumento della pratica Service Level Management, non il servizio stesso.",
       "3": "Questo è un output, cioè un deliverable di un'attività, non la definizione di servizio."
     },
+    "question_en": "According to ITIL 4, which definition correctly describes a 'service'?",
+    "options_en": [
+      "A set of hardware and software components managed by the provider on behalf of the customer",
+      "A means of enabling value co-creation by facilitating the outcomes that customers want to achieve, without them having to manage specific costs and risks",
+      "A documented formal agreement between provider and customer that defines the expected service levels",
+      "The tangible result produced at the end of an activity or a process"
+    ],
+    "explanation_en": "In ITIL 4 a service is defined as a means of enabling value co-creation by facilitating the outcomes that customers want to achieve, relieving them of the management of specific costs and risks. Value is not delivered by the provider alone, but co-created with the customer.",
+    "why_wrong_en": {
+      "0": "Hardware and software are components/resources (part of the Information and technology dimension), not the definition of a service.",
+      "2": "This describes a service level agreement (SLA), a tool of the Service Level Management practice, not the service itself.",
+      "3": "This is an output, i.e., a deliverable of an activity, not the definition of a service."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -41,6 +54,19 @@
       "2": "Il valore percepito è un concetto più ampio e soggettivo; non definisce la warranty.",
       "3": "I risultati di business sono outcome del cliente, non la definizione di garanzia."
     },
+    "question_en": "For a service to create value it must possess both utility and warranty. What does warranty represent?",
+    "options_en": [
+      "The functionality offered by a service to meet a particular need, i.e., fitness for purpose",
+      "The assurance that the service will meet the agreed requirements, i.e., fitness for use",
+      "The overall economic value perceived by the customer at the time of purchase",
+      "The list of business results the customer intends to achieve"
+    ],
+    "explanation_en": "Warranty is the assurance that a product or service will meet the agreed requirements (fitness for use), typically relating to aspects such as availability, capacity, continuity, and security. Utility, by contrast, is what the service does (fitness for purpose). Both are needed to create value.",
+    "why_wrong_en": {
+      "0": "This is the definition of utility (fitness for purpose), not warranty.",
+      "2": "Perceived value is a broader and more subjective concept; it does not define warranty.",
+      "3": "Business results are customer outcomes, not the definition of warranty."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -55,6 +81,12 @@
     "explanation": "L'affermazione è corretta. L'output è il prodotto diretto di un'attività (ad esempio un report generato), mentre l'outcome è il risultato che uno stakeholder ottiene grazie a quell'output (ad esempio decisioni migliori prese grazie al report). Distinguere i due concetti è fondamentale per focalizzarsi sul valore.",
     "why_wrong": {
       "1": "L'affermazione è vera: la distinzione tra output (deliverable dell'attività) e outcome (risultato per lo stakeholder abilitato dagli output) è esattamente quella descritta in ITIL 4."
+    },
+    "question_en": "An output is a tangible or intangible deliverable of an activity, whereas an outcome is a result for a stakeholder enabled by one or more outputs.",
+    "options_en": ["True", "False"],
+    "explanation_en": "The statement is correct. An output is the direct product of an activity (for example, a generated report), whereas an outcome is the result a stakeholder achieves thanks to that output (for example, better decisions made thanks to the report). Distinguishing the two concepts is fundamental for focusing on value.",
+    "why_wrong_en": {
+      "1": "The statement is true: the distinction between output (the deliverable of the activity) and outcome (the result for the stakeholder enabled by the outputs) is exactly the one described in ITIL 4."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -78,6 +110,19 @@
       "2": "'Mantenere le cose semplici e pratiche' invita a eliminare passaggi che non aggiungono valore, ma non riguarda specificamente il riutilizzo di ciò che già esiste.",
       "3": "'Ottimizzare e automatizzare' riguarda rendere efficaci le risorse prima di automatizzare, non la valutazione dello stato di partenza."
     },
+    "question_en": "An organization wants to improve a process and, before rebuilding it from scratch, measures and assesses what already exists so as not to lose valuable elements. Which guiding principle is it applying?",
+    "options_en": [
+      "Focus on value",
+      "Start where you are",
+      "Keep it simple and practical",
+      "Optimize and automate"
+    ],
+    "explanation_en": "The 'Start where you are' principle recommends not starting from scratch without first assessing what is already available and reusable. Measurements and direct observation of the current state guide improvement decisions.",
+    "why_wrong_en": {
+      "0": "'Focus on value' concerns the fact that everything done must contribute to value, not the assessment of the existing state before rebuilding.",
+      "2": "'Keep it simple and practical' calls for eliminating steps that add no value, but does not specifically concern reusing what already exists.",
+      "3": "'Optimize and automate' concerns making resources effective before automating, not assessing the starting state."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -98,6 +143,18 @@
     "why_wrong": {
       "1": "'Progettare per la massima disponibilità' non è un principio guida ITIL 4; la disponibilità è un aspetto della warranty.",
       "3": "'Massimizzare sempre l'utilizzo delle risorse' non è un principio guida; anzi 'Mantenere le cose semplici e pratiche' invita a evitare sprechi ma non parla di massimizzare l'utilizzo."
+    },
+    "question_en": "Which TWO of the following are ITIL 4 guiding principles? (select 2)",
+    "options_en": [
+      "Optimize and automate",
+      "Design for maximum availability",
+      "Collaborate and promote visibility",
+      "Always maximize resource utilization"
+    ],
+    "explanation_en": "The seven guiding principles are: Focus on value; Start where you are; Progress iteratively with feedback; Collaborate and promote visibility; Think and work holistically; Keep it simple and practical; Optimize and automate. Therefore the correct answers are 'Optimize and automate' and 'Collaborate and promote visibility'.",
+    "why_wrong_en": {
+      "1": "'Design for maximum availability' is not an ITIL 4 guiding principle; availability is an aspect of warranty.",
+      "3": "'Always maximize resource utilization' is not a guiding principle; on the contrary, 'Keep it simple and practical' calls for avoiding waste but says nothing about maximizing utilization."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -121,6 +178,19 @@
       "2": "Questi sono stadi del ciclo di vita del servizio in ITIL v3, non le quattro dimensioni.",
       "3": "Utility, warranty, costi e rischi sono concetti chiave del service management, ma non le quattro dimensioni."
     },
+    "question_en": "What are the four dimensions of service management in ITIL 4?",
+    "options_en": [
+      "People, Processes, Products, Partners",
+      "Organizations and people; Information and technology; Partners and suppliers; Value streams and processes",
+      "Service strategy, Design, Transition, Operation",
+      "Utility, Warranty, Costs, Risks"
+    ],
+    "explanation_en": "The four dimensions are: Organizations and people; Information and technology; Partners and suppliers; Value streams and processes. All of them must be considered to ensure a holistic and balanced approach to service management. External factors (PESTLE) affect all the dimensions.",
+    "why_wrong_en": {
+      "0": "The '4 Ps' (People, Processes, Products, Partners) belonged to ITIL v3 (service design); they are not the four dimensions of ITIL 4.",
+      "2": "These are stages of the service lifecycle in ITIL v3, not the four dimensions.",
+      "3": "Utility, warranty, costs, and risks are key service management concepts, but not the four dimensions."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -142,6 +212,19 @@
       "0": "I principi guida sono uno dei cinque componenti dell'SVS.",
       "1": "La governance è un componente dell'SVS, che dirige e controlla l'organizzazione.",
       "2": "La catena del valore del servizio è il modello operativo centrale dell'SVS."
+    },
+    "question_en": "Which of the following is NOT a component of the Service Value System (SVS)?",
+    "options_en": [
+      "The guiding principles",
+      "Governance",
+      "The Service Value Chain",
+      "The four dimensions of service management"
+    ],
+    "explanation_en": "The components of the SVS are: guiding principles, governance, the Service Value Chain, practices, and continual improvement. The four dimensions are not a component of the SVS: they are cross-cutting perspectives that apply to the entire SVS and all its parts.",
+    "why_wrong_en": {
+      "0": "The guiding principles are one of the five components of the SVS.",
+      "1": "Governance is a component of the SVS, directing and controlling the organization.",
+      "2": "The Service Value Chain is the central operating model of the SVS."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -165,6 +248,19 @@
       "2": "'Fornire e supportare' garantisce che i servizi siano erogati e supportati secondo le specifiche concordate.",
       "3": "'Migliorare' assicura il miglioramento continuo di prodotti, servizi e pratiche lungo tutta la catena del valore."
     },
+    "question_en": "Which Service Value Chain (SVC) activity is responsible for understanding stakeholder needs, ensuring transparency, and maintaining good relationships with all stakeholders?",
+    "options_en": [
+      "Plan",
+      "Engage",
+      "Deliver & support",
+      "Improve"
+    ],
+    "explanation_en": "The 'Engage' activity provides a good understanding of stakeholder needs, ensures transparency and continual engagement, and maintains good relationships with customers, users, suppliers, and partners. It is the point of contact with demand and with external stakeholders.",
+    "why_wrong_en": {
+      "0": "'Plan' ensures a shared understanding of the vision, current state, and improvement direction across all four dimensions; it is not the relationship-management activity.",
+      "2": "'Deliver & support' ensures that services are delivered and supported according to the agreed specifications.",
+      "3": "'Improve' ensures the continual improvement of products, services, and practices across the whole value chain."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -185,6 +281,18 @@
     "why_wrong": {
       "1": "'Ottimizzare e automatizzare' è un principio guida, non un'attività della catena del valore.",
       "3": "'Gestione degli incidenti' è una pratica ITIL, non un'attività della catena del valore (anche se le pratiche contribuiscono alle attività della SVC)."
+    },
+    "question_en": "Which TWO of the following are Service Value Chain (SVC) activities? (select 2)",
+    "options_en": [
+      "Design & transition",
+      "Optimize and automate",
+      "Obtain/build",
+      "Incident management"
+    ],
+    "explanation_en": "The six Service Value Chain activities are: Plan, Improve, Engage, Design & transition, Obtain/build, Deliver & support. Therefore 'Design & transition' and 'Obtain/build' are correct.",
+    "why_wrong_en": {
+      "1": "'Optimize and automate' is a guiding principle, not a value chain activity.",
+      "3": "'Incident management' is an ITIL practice, not a value chain activity (although practices contribute to the SVC activities)."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -208,6 +316,19 @@
       "2": "Questo è lo scopo del Change Enablement.",
       "3": "Questo è lo scopo del Service Request Management."
     },
+    "question_en": "What is the purpose of the Incident Management practice?",
+    "options_en": [
+      "To minimize the negative impact of incidents by restoring normal service operation as quickly as possible",
+      "To reduce the likelihood and impact of incidents by identifying actual and potential root causes",
+      "To ensure that changes are properly assessed, authorized, and scheduled",
+      "To record and fulfill predefined service requests from users"
+    ],
+    "explanation_en": "The purpose of Incident Management is to minimize the negative impact of incidents by restoring normal service operation as quickly as possible. An incident is an unplanned interruption or a reduction in the quality of a service.",
+    "why_wrong_en": {
+      "1": "This is the purpose of Problem Management, focused on root causes, known errors, and workarounds.",
+      "2": "This is the purpose of Change Enablement.",
+      "3": "This is the purpose of Service Request Management."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -229,6 +350,19 @@
       "0": "Questa è la definizione di incidente, gestito dall'Incident Management.",
       "2": "Una richiesta di modifica riguarda il Change Enablement, non è un errore noto.",
       "3": "Un rischio identificato in progettazione non è un errore noto: un errore noto deriva da un problema analizzato ma non risolto."
+    },
+    "question_en": "In the Problem Management practice, how is a 'known error' defined?",
+    "options_en": [
+      "An unplanned interruption of a service that requires immediate restoration",
+      "A problem that has been analyzed but not resolved, whose cause and possible workaround are known",
+      "A change request submitted by a user through the Service Desk",
+      "A risk identified during the design of a new service"
+    ],
+    "explanation_en": "A known error is a problem for which analysis and, often, cause identification have been completed, but which has not yet been resolved. Problem Management manages known errors and workarounds to reduce the likelihood and impact of the incidents that could arise from them.",
+    "why_wrong_en": {
+      "0": "This is the definition of an incident, handled by Incident Management.",
+      "2": "A change request concerns Change Enablement; it is not a known error.",
+      "3": "A risk identified during design is not a known error: a known error arises from a problem that has been analyzed but not resolved."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -252,6 +386,19 @@
       "2": "Questa descrive una modifica di emergenza, da implementare rapidamente per un incidente grave.",
       "3": "L'approvazione del CAB è tipica delle modifiche normali; le modifiche standard sono pre-autorizzate e non la richiedono."
     },
+    "question_en": "In the Change Enablement practice, how is a standard change described?",
+    "options_en": [
+      "A change that must be assessed, authorized, and scheduled by a designated change authority",
+      "A pre-authorized, low-risk, well-understood, and fully documented change that can be implemented without the need for further authorization",
+      "A change that must be implemented as soon as possible to resolve a high-impact incident",
+      "A change that always requires the approval of the Change Advisory Board (CAB)"
+    ],
+    "explanation_en": "A standard change is low-risk, pre-authorized, well-understood, and documented; it can be carried out following a procedure without requiring further authorization. The three types of change are: standard, normal, and emergency.",
+    "why_wrong_en": {
+      "0": "This describes a normal change, which must be assessed and authorized following a defined path.",
+      "2": "This describes an emergency change, to be implemented rapidly for a serious incident.",
+      "3": "CAB approval is typical of normal changes; standard changes are pre-authorized and do not require it."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -266,6 +413,12 @@
     "explanation": "L'affermazione è corretta. Lo scopo della pratica Service Desk è catturare la domanda relativa a risoluzione di incidenti e richieste di servizio, fungendo da punto di contatto unico (single point of contact) tra il fornitore di servizi e tutti i suoi utenti.",
     "why_wrong": {
       "1": "L'affermazione è vera: il Service Desk è per definizione il punto di contatto unico tra il fornitore di servizi e gli utenti."
+    },
+    "question_en": "The Service Desk is the single point of contact between the service provider and all of its users.",
+    "options_en": ["True", "False"],
+    "explanation_en": "The statement is correct. The purpose of the Service Desk practice is to capture demand for incident resolution and service requests, serving as the single point of contact between the service provider and all of its users.",
+    "why_wrong_en": {
+      "1": "The statement is true: the Service Desk is by definition the single point of contact between the service provider and users."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -289,6 +442,19 @@
       "2": "Questo è lo scopo del Change Enablement.",
       "3": "Questo è lo scopo del Supplier Management (gestione dei fornitori)."
     },
+    "question_en": "What is the purpose of the Service Level Management practice?",
+    "options_en": [
+      "To set clear, business-based targets for service levels and ensure that delivery is properly assessed, monitored, and managed against those targets",
+      "To protect the information the organization needs to conduct its business",
+      "To maximize the number of successful IT changes by ensuring proper risk assessment",
+      "To ensure that suppliers and their performance are managed appropriately"
+    ],
+    "explanation_en": "The purpose of Service Level Management is to define clear, business-oriented targets for service levels and to ensure that delivery is assessed, monitored, and managed against those targets. It requires a shared understanding and continual engagement with customers and stakeholders.",
+    "why_wrong_en": {
+      "1": "This is the purpose of Information Security Management.",
+      "2": "This is the purpose of Change Enablement.",
+      "3": "This is the purpose of Supplier Management."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -309,6 +475,18 @@
     "why_wrong": {
       "1": "'Gestione del budget di progetto' non è una pratica ITIL 4 standard; la gestione finanziaria e la gestione dei progetti esistono come pratiche di gestione generale, ma con nomi e scopi diversi.",
       "3": "'Gestione della qualità del codice sorgente' non è una pratica ITIL 4."
+    },
+    "question_en": "Which TWO of the following are ITIL 4 practices? (select 2)",
+    "options_en": [
+      "Service Request Management",
+      "Project Budget Management",
+      "IT Asset Management",
+      "Source Code Quality Management"
+    ],
+    "explanation_en": "Service Request Management and IT Asset Management are both ITIL 4 practices. Service Request Management manages the lifecycle of all predefined service requests; IT Asset Management plans and manages the full lifecycle of IT assets.",
+    "why_wrong_en": {
+      "1": "'Project Budget Management' is not a standard ITIL 4 practice; financial management and project management exist as general management practices, but with different names and purposes.",
+      "3": "'Source Code Quality Management' is not an ITIL 4 practice."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -332,6 +510,19 @@
       "2": "'Intraprendere azioni' è il quinto passo, dopo la pianificazione del percorso.",
       "3": "'Come manteniamo lo slancio?' è l'ultimo passo del modello."
     },
+    "question_en": "The ITIL continual improvement model involves a series of steps. What is the first step of the model?",
+    "options_en": [
+      "What is the vision?",
+      "Where are we now?",
+      "Take action",
+      "How do we keep the momentum going?"
+    ],
+    "explanation_en": "The first step of the continual improvement model is 'What is the vision?', which links the improvement initiative to the organization's vision and objectives. The subsequent steps are: Where are we now?, Where do we want to be?, How do we get there?, Take action, Did we get there?, How do we keep the momentum going?",
+    "why_wrong_en": {
+      "1": "'Where are we now?' is the second step, which assesses the current state.",
+      "2": "'Take action' is the fifth step, after planning the path.",
+      "3": "'How do we keep the momentum going?' is the last step of the model."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -346,6 +537,12 @@
     "explanation": "L'affermazione è corretta. 'Progredire in modo iterativo con feedback' raccomanda di suddividere le iniziative in iterazioni più piccole e gestibili, raccogliendo e utilizzando il feedback in modo continuo per garantire che le azioni restino pertinenti e reagiscano ai cambiamenti.",
     "why_wrong": {
       "1": "L'affermazione è vera: il lavoro iterativo con uso costante del feedback è esattamente ciò che descrive questo principio guida."
+    },
+    "question_en": "The guiding principle 'Progress iteratively with feedback' suggests organizing work into smaller, manageable sections, to be executed and completed in reasonable timeframes, using feedback before, during, and after each iteration.",
+    "options_en": ["True", "False"],
+    "explanation_en": "The statement is correct. 'Progress iteratively with feedback' recommends breaking initiatives into smaller, manageable iterations, gathering and using feedback continually to ensure that actions remain relevant and respond to change.",
+    "why_wrong_en": {
+      "1": "The statement is true: iterative work with the constant use of feedback is exactly what this guiding principle describes."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -367,6 +564,18 @@
     "why_wrong": {
       "1": "Il valore è soggettivo e co-creato: dipende dalla percezione e dagli outcome del consumatore, non è deciso solo dal fornitore.",
       "3": "Uno degli scopi di un servizio è proprio sollevare il consumatore da specifici costi e rischi; non tutti i costi e rischi ricadono sul cliente."
+    },
+    "question_en": "Regarding the key concepts of value co-creation, which TWO statements are correct? (select 2)",
+    "options_en": [
+      "A risk removed from the customer is a potential benefit derived from using a service",
+      "The value of a service is determined exclusively by the service provider",
+      "A service relationship comprises service provision, service consumption, and service relationship management",
+      "In the co-creation model, all costs and risks are always borne by the customer"
+    ],
+    "explanation_en": "A service can remove risks from the customer (removed risks = potential benefit), while it may also introduce new ones (imposed risks). Moreover, a service relationship is the set of collaborations between provider and consumer and includes provision, consumption, and relationship management. Value is co-created and subjective, so it is not determined by the provider alone.",
+    "why_wrong_en": {
+      "1": "Value is subjective and co-created: it depends on the consumer's perception and outcomes; it is not decided by the provider alone.",
+      "3": "One of the purposes of a service is precisely to relieve the consumer of specific costs and risks; not all costs and risks fall on the customer."
     },
     "source": "ITIL 4 Foundation"
   }

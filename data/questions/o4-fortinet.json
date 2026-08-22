@@ -19,7 +19,20 @@
       "2": "I profili di sicurezza come IPS sono opzionali; una policy ACCEPT funziona anche senza alcun security profile.",
       "3": "Le VIP servono al DNAT verso server interni e non sono un requisito per il traffico ACCEPT in uscita o generico."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "On a FortiGate 7.4, an administrator creates a firewall policy with the ACCEPT action but the traffic keeps being blocked. The traffic matches on interfaces, addresses and service. What is the most likely cause?",
+    "options_en": [
+      "There is a policy with the DENY action positioned higher in the table that intercepts the same traffic",
+      "Firewall policies are evaluated from bottom to top, so order does not matter",
+      "The ACCEPT action mandatorily requires an IPS profile to work",
+      "ACCEPT traffic is always dropped if no associated VIP is present"
+    ],
+    "explanation_en": "FortiGate firewall policies are evaluated from top to bottom and the first match is applied. A more specific DENY policy, or one positioned above, intercepts the traffic before it reaches the ACCEPT policy, blocking it. The solution is to reorder the policies or narrow the DENY one.",
+    "why_wrong_en": {
+      "1": "Policies are evaluated from top to bottom (top-down), not from bottom to top; order is decisive.",
+      "2": "Security profiles such as IPS are optional; an ACCEPT policy works even without any security profile.",
+      "3": "VIPs are used for DNAT toward internal servers and are not a requirement for outbound or generic ACCEPT traffic."
+    }
   },
   {
     "id": "fn4-002",
@@ -41,7 +54,20 @@
       "2": "Con NAT abilitato la traduzione avviene; senza NAT l'IP privato non sarebbe instradabile su Internet.",
       "3": "La traduzione della destinazione tramite VIP e' DNAT, mentre qui si trasforma la sorgente."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "In a FortiGate firewall policy with NAT enabled and the 'Use Outgoing Interface Address' option, which type of translation is applied to traffic from internal hosts toward the Internet?",
+    "options_en": [
+      "Source NAT (SNAT), replacing the source IP with the IP of the outgoing interface",
+      "Destination NAT (DNAT), replacing the destination IP",
+      "No translation, the packet is only routed",
+      "Destination port translation via VIP"
+    ],
+    "explanation_en": "With NAT enabled in the policy and 'Use Outgoing Interface Address', the FortiGate performs Source NAT (SNAT): the private source IP of the internal hosts is translated into the IP of the outgoing WAN interface, allowing the return traffic. This is the classic PAT/overload configuration toward the Internet.",
+    "why_wrong_en": {
+      "1": "DNAT applies to inbound traffic toward internal servers (typically via VIP), not to outbound traffic from hosts.",
+      "2": "With NAT enabled the translation occurs; without NAT the private IP would not be routable on the Internet.",
+      "3": "Destination translation via VIP is DNAT, whereas here the source is transformed."
+    }
   },
   {
     "id": "fn4-003",
@@ -63,7 +89,20 @@
       "2": "La VIP e' un oggetto di destinazione, va posta come destination address della policy in ingresso, non come sorgente.",
       "3": "Serve comunque una policy firewall che referenzi la VIP; senza policy che consente il traffico la connessione fallisce."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "An administrator publishes an internal web server (10.0.0.10:80) on a public IP using a Virtual IP (VIP) with port forwarding on port 8080. Which statement correctly describes the behavior?",
+    "options_en": [
+      "The VIP performs DNAT: traffic toward the public IP:8080 is translated to 10.0.0.10:80 and the VIP must be used as the destination in the policy",
+      "The VIP performs SNAT on the internal server's outbound traffic",
+      "The VIP must be entered as the source address in the inbound policy",
+      "The VIP works only if Central NAT is disabled and requires no policy"
+    ],
+    "explanation_en": "A VIP implements Destination NAT: it maps an external address/port to an internal address/port. With port forwarding, the public IP:8080 is translated to 10.0.0.10:80. The VIP must be referenced as the destination in the inbound policy that allows traffic toward the server.",
+    "why_wrong_en": {
+      "1": "The VIP handles DNAT on inbound traffic, not SNAT on the server's outbound traffic.",
+      "2": "The VIP is a destination object; it must be placed as the destination address of the inbound policy, not as the source.",
+      "3": "A firewall policy referencing the VIP is still needed; without a policy allowing the traffic, the connection fails."
+    }
   },
   {
     "id": "fn4-004",
@@ -85,7 +124,20 @@
       "2": "Il Central NAT si applica al traffico generico, incluso quello verso Internet, non solo a IPsec.",
       "3": "Proprio con il Central NAT il flag NAT per-policy non viene piu' usato; la traduzione e' governata dalle tabelle centrali."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "What fundamental difference distinguishes Central NAT from NAT configured in individual firewall policies (policy-based NAT) on FortiGate?",
+    "options_en": [
+      "With Central NAT the SNAT/DNAT rules are managed in separate Central SNAT and DNAT/VIP tables and evaluated independently of the firewall policies",
+      "Central NAT completely disables the ability to perform DNAT via VIP",
+      "Central NAT applies NAT only to IPsec traffic and never to Internet traffic",
+      "With Central NAT every firewall policy must have the NAT flag enabled individually"
+    ],
+    "explanation_en": "Central NAT moves the translation logic from individual policies to centralized tables: Central SNAT policy for the source and VIP/DNAT for the destination. These rules are evaluated separately from the firewall policies, which only allow/deny the traffic. It is useful for complex, centralized NAT management.",
+    "why_wrong_en": {
+      "1": "DNAT remains possible: VIPs continue to work as DNAT objects even in Central NAT mode.",
+      "2": "Central NAT applies to generic traffic, including traffic toward the Internet, not only IPsec.",
+      "3": "Precisely with Central NAT the per-policy NAT flag is no longer used; translation is governed by the central tables."
+    }
   },
   {
     "id": "fn4-005",
@@ -107,7 +159,20 @@
       "2": "L'autenticazione utente e' gestita dalla firewall authentication e dagli schemi di autenticazione, non dall'AntiVirus.",
       "3": "La creazione dei tunnel IPsec e' una funzione VPN, estranea al profilo AntiVirus."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "What function does the FortiGate AntiVirus profile perform when applied to a firewall policy?",
+    "options_en": [
+      "It inspects files transferred via supported protocols (HTTP, FTP, SMTP, etc.) and blocks those recognized as malware",
+      "It filters website categories based on FortiGuard reputation",
+      "It authenticates users before allowing network access",
+      "It creates the IPsec tunnel toward the remote peer"
+    ],
+    "explanation_en": "The AntiVirus profile examines files carried by the supported protocols (HTTP/HTTPS, FTP, SMTP, POP3, IMAP, etc.), comparing them with FortiGuard antivirus signatures and possibly with sandbox/heuristics, blocking files identified as malicious.",
+    "why_wrong_en": {
+      "1": "Filtering by site category and reputation is the job of the Web Filter profile, not AntiVirus.",
+      "2": "User authentication is handled by firewall authentication and the authentication schemes, not by AntiVirus.",
+      "3": "Creating IPsec tunnels is a VPN function, unrelated to the AntiVirus profile."
+    }
   },
   {
     "id": "fn4-006",
@@ -129,7 +194,20 @@
       "2": "Il Content Filter (parole chiave) non sostituisce URL filter e category filter, e' un controllo aggiuntivo.",
       "3": "La valutazione segue un ordine deterministico definito, non casuale."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "In the FortiGate Web Filter in FortiGuard category filter mode, what is the order in which the entries are evaluated when a URL matches both a static URL filter entry and a category?",
+    "options_en": [
+      "The Static URL Filter is evaluated first, then the FortiGuard Category Filter",
+      "The FortiGuard Category Filter first, then the Static URL Filter",
+      "The two lists are ignored in favor of the Content Filter alone",
+      "The order is random and depends on the URL hash"
+    ],
+    "explanation_en": "In the Web Filter the typical evaluation order is: URL Filter (static) first, then FortiGuard Category Filter. A static URL entry with an Allow/Block/Exempt action can therefore take precedence over category classification, allowing specific exceptions to the FortiGuard categories.",
+    "why_wrong_en": {
+      "1": "The order is reversed: static URL filters take precedence over FortiGuard categorization.",
+      "2": "The Content Filter (keywords) does not replace URL filter and category filter; it is an additional check.",
+      "3": "The evaluation follows a defined deterministic order, not a random one."
+    }
   },
   {
     "id": "fn4-007",
@@ -150,7 +228,19 @@
       "2": "Con la SSL/deep inspection attiva l'Application Control puo' identificare molte applicazioni anche dentro il traffico HTTPS.",
       "3": "L'Application Control identifica e controlla le applicazioni ma non esegue scansione antivirus dei file, compito dell'AntiVirus."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "Which TWO statements about FortiGate Application Control are correct?",
+    "options_en": [
+      "It uses the FortiGuard application signature database to identify applications regardless of the port used",
+      "It can block or allow specific applications and categories of applications within the allowed traffic",
+      "It works only on unencrypted traffic and can never recognize applications behind HTTPS",
+      "It completely replaces the AntiVirus profile for file scanning"
+    ],
+    "explanation_en": "Application Control uses the FortiGuard application signature database to recognize applications through deep pattern inspection, regardless of the port (port-based evasion). It allows applying actions (allow, block, monitor) to individual applications or categories. With SSL inspection enabled it can also recognize applications over HTTPS.",
+    "why_wrong_en": {
+      "2": "With SSL/deep inspection active, Application Control can identify many applications even inside HTTPS traffic.",
+      "3": "Application Control identifies and controls applications but does not perform antivirus scanning of files, which is the job of AntiVirus."
+    }
   },
   {
     "id": "fn4-008",
@@ -172,7 +262,20 @@
       "2": "Non sono identiche: differiscono per profondita' di ispezione e impatto su privacy/prestazioni.",
       "3": "Proprio la full inspection richiede che il certificato CA del FortiGate sia importato e considerato attendibile dai client."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "What is the main difference between 'SSL Certificate Inspection' and 'Full SSL Inspection' (deep inspection) on FortiGate?",
+    "options_en": [
+      "Certificate inspection reads only the SNI/certificate without decrypting the payload, whereas full inspection fully decrypts the traffic to inspect its content",
+      "Certificate inspection decrypts all traffic, whereas full inspection reads only the certificate",
+      "They are identical, only the commercial name changes",
+      "Full inspection requires no CA certificate installed on the clients"
+    ],
+    "explanation_en": "With Certificate Inspection the FortiGate examines only the TLS session metadata (SNI, CN/SAN of the server certificate) without decrypting the payload, so Web Filter/App Control operate in a limited way. With Full (Deep) Inspection the FortiGate acts as a man-in-the-middle, decrypts the traffic and re-encrypts it, allowing full scanning (AV, DLP, content); it requires the FortiGate CA to be trusted on the clients to avoid warnings.",
+    "why_wrong_en": {
+      "1": "The roles are reversed: it is full inspection that decrypts everything, not certificate inspection.",
+      "2": "They are not identical: they differ in depth of inspection and impact on privacy/performance.",
+      "3": "It is precisely full inspection that requires the FortiGate CA certificate to be imported and trusted by the clients."
+    }
   },
   {
     "id": "fn4-009",
@@ -194,7 +297,20 @@
       "2": "La definizione dei selettori (local/remote subnet) e' compito della Fase 2 (quick mode).",
       "3": "L'assegnazione IP agli utenti SSL VPN riguarda la SSL VPN, non la Fase 1 IPsec."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "In a site-to-site IPsec VPN on FortiGate, what task is performed by Phase 1 (IKE Phase 1) of the negotiation?",
+    "options_en": [
+      "Authenticating the peers and establishing a secure channel (ISAKMP/IKE SA) to protect the subsequent negotiations",
+      "Directly encrypting the user data that traverses the tunnel",
+      "Defining the local and remote subnets (selectors) that will use the data tunnel",
+      "Assigning IP addresses to SSL VPN users in tunnel mode"
+    ],
+    "explanation_en": "IKE Phase 1 authenticates the peers (pre-shared key or certificates) and negotiates an IKE/ISAKMP SA that establishes a secure channel. This channel protects Phase 2, where the IPsec SAs and the selectors for the actual data traffic are negotiated. Phase 1 does not yet carry user data.",
+    "why_wrong_en": {
+      "1": "Encryption of the data traffic occurs via the IPsec SAs negotiated in Phase 2, not in Phase 1.",
+      "2": "Defining the selectors (local/remote subnet) is the job of Phase 2 (quick mode).",
+      "3": "Assigning IPs to SSL VPN users concerns the SSL VPN, not IPsec Phase 1."
+    }
   },
   {
     "id": "fn4-010",
@@ -216,7 +332,20 @@
       "2": "La SSL VPN opera su TLS e non richiede un tunnel IPsec sottostante.",
       "3": "La modalita' tunnel supporta lo split tunneling, configurabile per instradare solo determinate subnet nel tunnel."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "Which statement correctly describes the 'tunnel' mode of the FortiGate SSL VPN compared to the 'web' mode?",
+    "options_en": [
+      "Tunnel mode uses the FortiClient/agent client to route IP traffic into the internal network by assigning a virtual IP, whereas web mode provides access to services through a browser portal without a client",
+      "Web mode assigns a virtual IP and routes all IP traffic, whereas tunnel mode works only from a browser",
+      "Both mandatorily require an underlying IPsec tunnel",
+      "Tunnel mode does not allow split tunneling under any circumstances"
+    ],
+    "explanation_en": "In tunnel mode the SSL VPN uses a client (FortiClient) that receives a virtual IP from the pool and routes IP traffic toward internal resources, behaving like a full VPN. In web mode the user accesses, through the portal in a browser, a predefined set of bookmarks/services (RDP, HTTP, SMB, etc.) without a dedicated client.",
+    "why_wrong_en": {
+      "1": "Roles reversed: it is tunnel mode that assigns the virtual IP and routes IP traffic.",
+      "2": "The SSL VPN operates over TLS and does not require an underlying IPsec tunnel.",
+      "3": "Tunnel mode supports split tunneling, configurable to route only certain subnets into the tunnel."
+    }
   },
   {
     "id": "fn4-011",
@@ -238,7 +367,20 @@
       "2": "L'ECMP richiede rotte con distanza (e priority) uguali; con distance diverse solo la migliore e' installata.",
       "3": "Piu' default route con distance diverse sono una configurazione valida e comune per il failover."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "On a FortiGate there are two static routes to the same destination 0.0.0.0/0: one with distance 10 and one with distance 20, both with an active link. Which route is installed in the routing table (FIB) and used?",
+    "options_en": [
+      "The one with distance 10, because a lower administrative distance indicates greater preference",
+      "The one with distance 20, because a higher distance has priority",
+      "Both simultaneously in ECMP regardless of the distances",
+      "Neither, because two default routes always generate a configuration error"
+    ],
+    "explanation_en": "The administrative distance determines the preference of a route: lower value = more preferred. With distance 10 vs 20, FortiGate installs in the FIB only the route with distance 10. The second remains on standby and takes over if the primary becomes inactive. ECMP activates only between routes with the same distance (and priority).",
+    "why_wrong_en": {
+      "1": "A higher administrative distance indicates lower preference, not priority.",
+      "2": "ECMP requires routes with equal distance (and priority); with different distances only the best is installed.",
+      "3": "Multiple default routes with different distances are a valid and common configuration for failover."
+    }
   },
   {
     "id": "fn4-012",
@@ -260,7 +402,20 @@
       "2": "Non sostituiscono la routing table; agiscono come override selettivo per il traffico che soddisfa i criteri.",
       "3": "Le policy route si applicano al traffico generico secondo i criteri definiti, non solo al traffico IPsec."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "An administrator configures a policy route on FortiGate. What is its relationship with the destination-based routing table?",
+    "options_en": [
+      "Policy routes are evaluated before the normal routing table lookup and can force the next-hop/interface based on criteria such as source, protocol or port",
+      "Policy routes are evaluated only after the routing table has found no match",
+      "Policy routes completely replace the static and dynamic routing table",
+      "Policy routes act only on IPsec VPN traffic"
+    ],
+    "explanation_en": "Policy routes (policy-based routing) take precedence over the destination-based routing table: FortiGate evaluates them first and, if the traffic matches the criteria (source address, protocol, port, incoming interface), forces the specified next-hop/interface. Only traffic that matches no policy route is routed with the normal destination lookup.",
+    "why_wrong_en": {
+      "1": "The order is reversed: policy routes are evaluated before, not after, the routing table.",
+      "2": "They do not replace the routing table; they act as a selective override for traffic that meets the criteria.",
+      "3": "Policy routes apply to generic traffic according to the defined criteria, not only to IPsec traffic."
+    }
   },
   {
     "id": "fn4-013",
@@ -272,7 +427,10 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. Affinche' due o piu' rotte statiche partecipino all'ECMP devono avere la stessa distanza amministrativa (finiscono nella FIB) e la stessa priority. Se la priority differisce, viene preferita la rotta con priority piu' bassa e non si attiva il bilanciamento. FortiGate offre vari metodi di load balancing ECMP (source IP, source-dest IP, weighted, ecc.).",
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "In FortiGate, ECMP (Equal Cost Multi-Path) distributes traffic across multiple routes to the same destination only when they have the same administrative distance and the same priority.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. For two or more static routes to participate in ECMP they must have the same administrative distance (so they end up in the FIB) and the same priority. If the priority differs, the route with the lower priority is preferred and load balancing does not activate. FortiGate offers various ECMP load balancing methods (source IP, source-dest IP, weighted, etc.)."
   },
   {
     "id": "fn4-014",
@@ -294,7 +452,20 @@
       "2": "FSSO non e' un servizio DNS ne' sostituisce la risoluzione dei nomi.",
       "3": "La scansione antivirus e' compito del profilo AntiVirus, non di FSSO."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "What role does FSSO (Fortinet Single Sign-On) play in an Active Directory environment integrated with FortiGate?",
+    "options_en": [
+      "It maps users authenticated in AD to their IP addresses to apply user/group-based policies without requiring a new login",
+      "It encrypts the traffic between FortiGate and the domain controllers via IPsec",
+      "It replaces the internal DNS server for name resolution",
+      "It performs antivirus scanning of network shared files"
+    ],
+    "explanation_en": "FSSO provides transparent authentication: it collects Active Directory logon events (via Collector Agent/DC Agent or polling) and maintains a user-IP-group mapping. FortiGate uses this mapping to apply firewall policies based on the user's or group's identity without requiring an additional login from the user.",
+    "why_wrong_en": {
+      "1": "FSSO handles identity and user-IP mapping, not encryption of the traffic toward the DCs.",
+      "2": "FSSO is not a DNS service and does not replace name resolution.",
+      "3": "Antivirus scanning is the job of the AntiVirus profile, not FSSO."
+    }
   },
   {
     "id": "fn4-015",
@@ -315,7 +486,19 @@
       "2": "L'elaborazione simultanea con bilanciamento di tutte le sessioni descrive l'Active-Active, non l'Active-Passive.",
       "3": "In HA le configurazioni vengono sincronizzate automaticamente tra le unita' del cluster; non restano indipendenti."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "Which TWO statements are correct regarding the HA Active-Passive mode (FGCP) on FortiGate?",
+    "options_en": [
+      "Only one unit (primary) actively processes the traffic while the secondary remains on standby and synchronizes the configuration and sessions",
+      "The primary election considers factors such as override, priority, number of monitored interfaces up, and uptime",
+      "Both units always process the traffic simultaneously, balancing all sessions",
+      "In HA the configurations of the two units remain independent and are not synchronized"
+    ],
+    "explanation_en": "In Active-Passive (FGCP) the primary handles the traffic and synchronizes the configuration and session table toward the standby secondary, which takes over in case of failover. The primary election follows a hierarchy of criteria: override status, priority, number of active monitored interfaces, uptime, and finally the serial number.",
+    "why_wrong_en": {
+      "2": "Simultaneous processing with balancing of all sessions describes Active-Active, not Active-Passive.",
+      "3": "In HA the configurations are automatically synchronized between the cluster units; they do not remain independent."
+    }
   },
   {
     "id": "fn4-016",
@@ -327,7 +510,10 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. FortiGuard e' il servizio cloud che fornisce firme AntiVirus e IPS, categorizzazione dei siti web (Web Filter) e classificazione applicativa (Application Control). Il FortiGate deve avere connettivita' verso i server FortiGuard (via FDS/UDP 8888/443) e abbonamenti attivi; senza raggiungibilita' o licenza gli aggiornamenti e le query di rating in tempo reale non funzionano correttamente.",
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "The FortiGuard services (AntiVirus/IPS signature updates and Web Filter and Application Control ratings) require the FortiGate to be able to reach the FortiGuard infrastructure and to have active licenses/subscriptions in order to receive updates and real-time queries.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. FortiGuard is the cloud service that provides AntiVirus and IPS signatures, website categorization (Web Filter), and application classification (Application Control). The FortiGate must have connectivity to the FortiGuard servers (via FDS/UDP 8888/443) and active subscriptions; without reachability or a license, the updates and real-time rating queries do not work correctly."
   },
   {
     "id": "fn4-017",
@@ -348,7 +534,19 @@
       "2": "Il riconoscimento dei virus nei file tramite firme/hash e' compito del profilo AntiVirus; l'IPS rileva pattern di attacco, non sostituisce l'AV.",
       "3": "L'IPS puo' operare in modalita' IPS (prevenzione) e bloccare/resettare attivamente il traffico, non solo rilevarlo."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "Which TWO elements correctly characterize the FortiGate IPS profile?",
+    "options_en": [
+      "It uses pattern-based signatures to detect and block known exploits and attacks in the traffic",
+      "The signatures can be grouped into filters by severity, target, protocol and operating system with configurable actions (block, pass, monitor)",
+      "It inspects files to recognize viruses via hash, replacing the AntiVirus profile",
+      "It works exclusively in detection mode and can never block the traffic"
+    ],
+    "explanation_en": "The IPS profile relies on the FortiGuard signature database to identify exploit attempts and known attacks at the network/application level. The signatures can be selected through filters by severity, target (server/client), protocol, OS, and application, with per-filter/per-signature actions such as block, pass, monitor, reset, or quarantine.",
+    "why_wrong_en": {
+      "2": "Recognizing viruses in files via signatures/hash is the job of the AntiVirus profile; IPS detects attack patterns, it does not replace the AV.",
+      "3": "IPS can operate in IPS (prevention) mode and actively block/reset the traffic, not just detect it."
+    }
   },
   {
     "id": "fn4-018",
@@ -370,7 +568,20 @@
       "2": "Il DNS Filter filtra le query, non le cifra ne' crea tunnel IPsec.",
       "3": "Il DNS Filter non gestisce il routing ne' sostituisce il gateway predefinito."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "What main function does the FortiGate DNS Filter profile provide when applied to a firewall policy?",
+    "options_en": [
+      "It inspects DNS queries and blocks or redirects the resolution of domains belonging to unwanted categories/botnets according to FortiGuard",
+      "It dynamically assigns IP addresses to internal hosts via DHCP",
+      "It encrypts DNS queries, automatically turning them into IPsec tunnels",
+      "It replaces the default gateway for traffic routing"
+    ],
+    "explanation_en": "The DNS Filter examines DNS requests and applies policies based on FortiGuard categories and C&C/botnet lists, being able to block, monitor, or redirect (redirect to a block portal/IP) the resolution of unwanted or malicious domains. It is an effective control against access to harmful domains even before the connection is established.",
+    "why_wrong_en": {
+      "1": "IP assignment is the job of the DHCP service, not the DNS Filter.",
+      "2": "The DNS Filter filters queries; it does not encrypt them or create IPsec tunnels.",
+      "3": "The DNS Filter does not handle routing and does not replace the default gateway."
+    }
   },
   {
     "id": "fn4-019",
@@ -382,7 +593,10 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. La proxy-based inspection ricostruisce e bufferizza il contenuto completo (es. un file o una pagina) prima di ispezionarlo, offrendo controlli piu' approfonditi ma con maggiore latenza e uso di memoria. La flow-based inspection analizza il flusso in transito pacchetto per pacchetto senza bufferizzazione completa, riducendo la latenza e aumentando il throughput a scapito di alcune funzionalita' avanzate.",
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "In FortiGate, 'proxy-based' inspection buffers the entire object/content before inspecting and forwarding it, whereas 'flow-based' mode analyzes the traffic packet by packet as it passes through, favoring performance.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. Proxy-based inspection reconstructs and buffers the complete content (e.g. a file or a page) before inspecting it, offering more in-depth checks but with higher latency and memory usage. Flow-based inspection analyzes the flow in transit packet by packet without full buffering, reducing latency and increasing throughput at the expense of some advanced features."
   },
   {
     "id": "fn4-020",
@@ -403,6 +617,18 @@
       "2": "L'autenticazione basata su captive portal si appoggia a protocolli come HTTP/HTTPS per richiedere le credenziali; non e' limitata a ICMP (che anzi non trasporta credenziali).",
       "3": "L'autenticazione e i security profile sono indipendenti: abilitare l'autenticazione non disabilita AV, Web Filter, IPS o altri profili della policy."
     },
-    "source": "HACK/Fortinet Network Security.rtf"
+    "source": "HACK/Fortinet Network Security.rtf",
+    "question_en": "Which TWO statements are correct regarding firewall authentication (user authentication in policy) on FortiGate?",
+    "options_en": [
+      "It can rely on local users/groups or on remote servers such as LDAP, RADIUS and TACACS+ referenced in the policy",
+      "If a policy requires authentication, the unidentified user's traffic is intercepted to request the credentials (e.g. captive portal) before allowing access",
+      "User authentication in policy works only for ICMP traffic and not for HTTP",
+      "Once enabled, authentication automatically disables all the policy's security profiles"
+    ],
+    "explanation_en": "Firewall authentication can use local users/groups or remote backends (LDAP, RADIUS, TACACS+) referenced in the policy's user groups. When a policy requires authentication, the traffic of the not-yet-identified user is intercepted (typically via captive portal for HTTP/HTTPS) to collect the credentials before applying the ACCEPT action.",
+    "why_wrong_en": {
+      "2": "Captive portal-based authentication relies on protocols such as HTTP/HTTPS to request the credentials; it is not limited to ICMP (which, indeed, does not carry credentials).",
+      "3": "Authentication and security profiles are independent: enabling authentication does not disable AV, Web Filter, IPS, or other profiles of the policy."
+    }
   }
 ]

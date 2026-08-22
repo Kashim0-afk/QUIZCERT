@@ -26,7 +26,20 @@
       "2": "Hot e Cold sono termini generici di storage tiering, non la terminologia di FortiAnalyzer.",
       "3": "Primary e Secondary non sono categorie di log; richiamano piuttosto scenari di ridondanza/HA."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "In FortiAnalyzer, received logs are divided into two categories with separately managed retention. What are the two phases of the log lifecycle called?",
+    "options_en": [
+      "Analytics logs and Archive logs",
+      "Raw logs and Compressed logs",
+      "Hot logs and Cold logs",
+      "Primary logs and Secondary logs"
+    ],
+    "explanation_en": "FortiAnalyzer distinguishes between Analytics logs (logs indexed in the SQL database, used for FortiView, reports and drill-down) and Archive logs (compressed logs retained for compliance). Retention is configured separately for the two phases through the ADOM Data Policy settings.",
+    "why_wrong_en": {
+      "1": "Raw and Compressed describe storage formats, not the two official phases of the log lifecycle in FortiAnalyzer.",
+      "2": "Hot and Cold are generic storage-tiering terms, not FortiAnalyzer terminology.",
+      "3": "Primary and Secondary are not log categories; they rather evoke redundancy/HA scenarios."
+    }
   },
   {
     "id": "nse53-002",
@@ -55,7 +68,20 @@
       "2": "Gli ADOM non sostituiscono il policy package: sono contenitori amministrativi, mentre il policy package resta l'unità installata sui device.",
       "3": "La modalità workflow è un'opzione separata attivabile per ADOM, non una conseguenza automatica della loro esistenza."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "What is the main purpose of ADOMs (Administrative Domains) in FortiManager?",
+    "options_en": [
+      "Increase the indexing speed of SQL logs",
+      "Isolate the management and data of separate device groups per customer or department",
+      "Replace the role of the policy package during installation",
+      "Automatically enable workflow mode on all devices"
+    ],
+    "explanation_en": "ADOMs segment the environment into separate administrative domains: each ADOM contains its own devices, policy packages and objects, allowing data and management to be isolated between customers, departments or different firmware versions (for example in MSSP scenarios).",
+    "why_wrong_en": {
+      "0": "SQL indexing concerns FortiAnalyzer; ADOMs are not meant to speed it up.",
+      "2": "ADOMs do not replace the policy package: they are administrative containers, while the policy package remains the unit installed on devices.",
+      "3": "Workflow mode is a separate option that can be enabled per ADOM, not an automatic consequence of their existence."
+    }
   },
   {
     "id": "nse53-003",
@@ -84,7 +110,20 @@
       "2": "FortiAnalyzer riceve log, non policy package da installare.",
       "3": "L'import serve a portare la config dei device dentro FortiManager, è il flusso opposto all'installazione."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "In FortiManager, where is the centrally defined firewall policy and object configuration actually applied?",
+    "options_en": [
+      "It stays only on the FortiManager and never reaches the devices",
+      "It is installed on the managed devices through the policy package installation",
+      "It is sent directly to FortiAnalyzer for analysis",
+      "It is applied exclusively through automatic import from the devices"
+    ],
+    "explanation_en": "The policy package is the unit that groups firewall policies and object references. The configuration becomes operational only when you run the installation (Install Wizard) of the policy package to the managed devices, which generates and applies the corresponding CLI.",
+    "why_wrong_en": {
+      "0": "The purpose of centralized management is precisely to distribute the configuration to the devices; without installation it stays in a modified state on the FortiManager.",
+      "2": "FortiAnalyzer receives logs, not policy packages to install.",
+      "3": "Import serves to bring the devices' config into FortiManager; it is the opposite flow to installation."
+    }
   },
   {
     "id": "nse53-004",
@@ -113,7 +152,20 @@
       "2": "L'Import Policy Wizard porta la configurazione dal device verso FortiManager, non mostra l'anteprima di un'installazione.",
       "3": "Device Blueprint è un modello di provisioning per nuovi device, non un'anteprima dei comandi di install."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "Before installing a policy package, which FortiManager function lets you preview the CLI commands that will be sent to the device without applying them?",
+    "options_en": [
+      "Revision Diff on the historical archive",
+      "Install Preview",
+      "Import Policy Wizard",
+      "Device Blueprint"
+    ],
+    "explanation_en": "During the Install Wizard, the Install Preview shows the CLI commands that FortiManager will send to the device, allowing you to verify the changes before confirming the installation. It is useful to prevent errors and understand the impact of the deployment.",
+    "why_wrong_en": {
+      "0": "Revision Diff compares two saved configuration revisions; it does not anticipate the commands of an installation in progress.",
+      "2": "The Import Policy Wizard brings the configuration from the device to FortiManager; it does not show a preview of an installation.",
+      "3": "Device Blueprint is a provisioning template for new devices, not a preview of install commands."
+    }
   },
   {
     "id": "nse53-006",
@@ -142,7 +194,20 @@
       "2": "FortiView drill-down è uno strumento di analisi log/traffico, non di provisioning.",
       "3": "SQL Rebuild ricostruisce il database dei log ed è un'operazione di manutenzione, non di provisioning."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "Which FortiManager function lets you pre-configure a FortiGate that will register in the future, automatically applying templates and policies at connection time (zero-touch)?",
+    "options_en": [
+      "Model Device with provisioning template",
+      "Log Fetching from the remote device",
+      "FortiView drill-down",
+      "SQL Rebuild of the ADOM"
+    ],
+    "explanation_en": "A Model Device is a placeholder device created in FortiManager with the expected serial number and associated provisioning templates. When the real FortiGate connects (including via FortiDeploy/zero-touch), FortiManager automatically applies the prepared configuration, simplifying mass rollout.",
+    "why_wrong_en": {
+      "1": "Log Fetching retrieves historical logs from a device; it is not used to pre-configure devices that are not yet connected.",
+      "2": "FortiView drill-down is a log/traffic analysis tool, not a provisioning tool.",
+      "3": "SQL Rebuild rebuilds the log database and is a maintenance operation, not a provisioning one."
+    }
   },
   {
     "id": "nse53-007",
@@ -171,7 +236,20 @@
       "2": "JSON e YAML sono formati dati, non linguaggi di scripting supportati per l'esecuzione di comandi sui device.",
       "3": "Perl e PowerShell non sono i tipi di script gestiti da FortiManager."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "In FortiManager, scripts can be written in two main formats. What are they?",
+    "options_en": [
+      "Python and Bash",
+      "CLI Script and TCL Script",
+      "JSON and YAML",
+      "Perl and PowerShell"
+    ],
+    "explanation_en": "FortiManager supports CLI-type scripts (a sequence of FortiOS commands) and TCL scripts, which add programmatic logic (variables, loops, conditions). Scripts can be run on the Device Database, directly on the remote device, or on the Policy Package as needed.",
+    "why_wrong_en": {
+      "0": "Python and Bash are not the native script formats of FortiManager.",
+      "2": "JSON and YAML are data formats, not scripting languages supported for executing commands on devices.",
+      "3": "Perl and PowerShell are not the script types handled by FortiManager."
+    }
   },
   {
     "id": "nse53-008",
@@ -200,7 +278,20 @@
       "2": "Il Policy Package appartiene a FortiManager e riguarda le policy, non i report.",
       "3": "Il Provisioning Template è un elemento di FortiManager per la configurazione dei device."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "In FortiAnalyzer, which element is the reusable building block that aggregates data (tables and charts) and is inserted into a report layout?",
+    "options_en": [
+      "Chart/Dataset",
+      "Event Handler",
+      "Policy Package",
+      "Provisioning Template"
+    ],
+    "explanation_en": "In FortiAnalyzer, reports are built starting from Datasets (SQL queries on the logs) that feed the Charts; these are then inserted into the report layout. By modifying datasets and charts you customize the content without recreating the entire report.",
+    "why_wrong_en": {
+      "1": "The Event Handler generates events/alerts; it is not a component of the report layout.",
+      "2": "The Policy Package belongs to FortiManager and concerns policies, not reports.",
+      "3": "The Provisioning Template is a FortiManager element for device configuration."
+    }
   },
   {
     "id": "nse53-009",
@@ -229,7 +320,20 @@
       "2": "L'eliminazione del policy package è un'azione distinta e non è ciò che segnala lo stato Modified.",
       "3": "L'assenza di log riguarda FortiAnalyzer e non lo stato di sync della configurazione in FortiManager."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "A managed device shows the 'Modified' (or 'Out of Sync') synchronization status in FortiManager. What does this condition typically indicate?",
+    "options_en": [
+      "The device has been removed from the ADOM",
+      "The configuration on the FortiGate differs from the one saved in FortiManager's Device Database",
+      "The policy package has been permanently deleted",
+      "FortiAnalyzer has stopped receiving logs from the device"
+    ],
+    "explanation_en": "The Modified/Out of Sync status signals that the configuration present on the FortiGate does not match the one stored in FortiManager's Device Database, often due to changes made directly on the device. You need to import or reinstall to realign the two copies.",
+    "why_wrong_en": {
+      "0": "A device removed from the ADOM would not appear with a synchronization status; it simply would no longer be managed.",
+      "2": "Deleting the policy package is a distinct action and is not what the Modified status signals.",
+      "3": "The absence of logs concerns FortiAnalyzer and not the configuration sync status in FortiManager."
+    }
   },
   {
     "id": "nse53-010",
@@ -258,7 +362,19 @@
       "0": "Un ADOM è tipicamente vincolato a una versione firmware; device con versioni diverse richiedono ADOM distinti o gestione specifica, quindi l'affermazione 'senza vincoli' è errata.",
       "3": "Disabilitare gli ADOM non cancella i log; è un'affermazione falsa e non è il comportamento del sistema."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "Which of the following statements about ADOMs in FortiManager are correct? (Select 2)",
+    "options_en": [
+      "An ADOM can contain devices with different firmware versions only if in Normal mode without constraints",
+      "Each ADOM has its own Device Database, its own policy packages and objects isolated from the other ADOMs",
+      "ADOMs must be enabled globally before they can be created and assigned",
+      "Disabling ADOMs automatically deletes all logs on FortiAnalyzer"
+    ],
+    "explanation_en": "ADOMs isolate devices, policy packages and objects from one another, and you must enable the ADOM feature at the system level (System Settings) before you can create and assign domains to administrators. This ensures separation of data and management.",
+    "why_wrong_en": {
+      "0": "An ADOM is typically bound to a firmware version; devices with different versions require distinct ADOMs or specific handling, so the 'without constraints' statement is wrong.",
+      "3": "Disabling ADOMs does not delete the logs; it is a false statement and not the system's behavior."
+    }
   },
   {
     "id": "nse53-011",
@@ -287,7 +403,19 @@
       "0": "L'installazione firmware e il provisioning sono compiti di FortiManager, non di FortiAnalyzer.",
       "3": "La distribuzione dei policy package è una funzione di FortiManager; FortiAnalyzer non installa policy sui device."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "Which of the following are typical FortiAnalyzer functions in log analysis? (Select 2)",
+    "options_en": [
+      "Install firmware on FortiGates through provisioning templates",
+      "Provide interactive drill-down of traffic and threats through FortiView",
+      "Generate scheduled reports based on datasets and charts",
+      "Distribute policy packages to the ADOMs of managed devices"
+    ],
+    "explanation_en": "FortiAnalyzer is the analysis and logging platform: FortiView allows interactive drill-down on traffic, applications and threats, while the Reports module generates scheduled reports built on datasets and charts. Both leverage the indexed analytics logs.",
+    "why_wrong_en": {
+      "0": "Firmware installation and provisioning are FortiManager tasks, not FortiAnalyzer's.",
+      "3": "Distributing policy packages is a FortiManager function; FortiAnalyzer does not install policies on devices."
+    }
   },
   {
     "id": "nse53-012",
@@ -316,7 +444,19 @@
       "2": "I dataset SQL appartengono a FortiAnalyzer e al motore di reporting, non al policy package di FortiManager.",
       "3": "Le immagini firmware sono gestite nel repository firmware e nei task di upgrade, non come contenuto del policy package."
     },
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "Which of the following elements can be part of, or linked to, a policy package in FortiManager? (Select 2)",
+    "options_en": [
+      "Firewall policies and rule sequences",
+      "Referenced objects such as address, service and schedule",
+      "The SQL datasets used for FortiAnalyzer reports",
+      "The firmware revisions archived in the repository"
+    ],
+    "explanation_en": "A policy package groups the firewall policies (with their ordering) and references shared objects such as address, service and schedule. At installation time, FortiManager resolves the references and distributes the policies and objects needed to the devices.",
+    "why_wrong_en": {
+      "2": "SQL datasets belong to FortiAnalyzer and the reporting engine, not to the FortiManager policy package.",
+      "3": "Firmware images are managed in the firmware repository and upgrade tasks, not as content of the policy package."
+    }
   },
   {
     "id": "nse53-013",
@@ -338,7 +478,13 @@
       0
     ],
     "explanation": "La Workflow mode aggiunge una sessione di modifica soggetta ad approvazione: un amministratore effettua le modifiche al policy package e un approvatore deve accettarle prima che diventino installabili. Serve a introdurre controllo e tracciabilità dei cambiamenti (change management).",
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "In FortiManager, Workflow mode introduces an approval process for policy changes before they can be installed on devices.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "Workflow mode adds an editing session subject to approval: an administrator makes changes to the policy package and an approver must accept them before they become installable. It serves to introduce control and traceability of changes (change management)."
   },
   {
     "id": "nse53-014",
@@ -360,7 +506,13 @@
       0
     ],
     "explanation": "FortiAnalyzer applica una Data Policy con soglie di retention e di occupazione disco: al superamento dei limiti configurati (per analytics e archive), i log più vecchi vengono ruotati ed eliminati automaticamente per non bloccare la ricezione di nuovi log. Le soglie sono configurabili per ADOM.",
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "In FortiAnalyzer, when the disk space allocated for logs runs out, by default the oldest logs are automatically deleted to make room for new ones (rolling/auto-deletion).",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "FortiAnalyzer applies a Data Policy with retention and disk-usage thresholds: when the configured limits are exceeded (for analytics and archive), the oldest logs are automatically rotated and deleted so as not to block the reception of new logs. The thresholds are configurable per ADOM."
   },
   {
     "id": "nse53-015",
@@ -382,6 +534,12 @@
       0
     ],
     "explanation": "Il Device Manager mantiene una Revision History per ogni device: ad ogni installazione o import viene creata una revisione. È possibile confrontare (diff), consultare e ripristinare una revisione precedente nel Device Database, utile per il rollback dopo modifiche indesiderate.",
-    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)"
+    "source": "Fortinet NSE5 (FortiAnalyzer/FortiManager)",
+    "question_en": "In FortiManager, the Revision History allows you to save and restore previous versions of a managed device's configuration.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "The Device Manager maintains a Revision History for each device: a revision is created at every installation or import. You can compare (diff), review and restore a previous revision in the Device Database, useful for rollback after unwanted changes."
   }
 ]

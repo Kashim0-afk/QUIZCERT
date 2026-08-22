@@ -14,6 +14,14 @@
       "2": "Un rootkit serve a nascondere la presenza dell'attaccante mantenendo un accesso privilegiato e furtivo, non a chiedere un riscatto.",
       "3": "L'adware mostra pubblicità indesiderata e non cifra i dati né richiede pagamenti per liberarli."
     },
+    "question_en": "An employee opens an attachment that encrypts all the documents on their computer and displays a demand for a cryptocurrency payment to obtain the decryption key. What type of malware is this?",
+    "options_en": ["Worm", "Ransomware", "Rootkit", "Adware"],
+    "explanation_en": "Ransomware encrypts the victim's files and demands a ransom (often in cryptocurrency) in exchange for the decryption key. The described behavior (encryption + payment demand) is its classic signature.",
+    "why_wrong_en": {
+      "0": "A worm self-replicates and spreads autonomously across a network, but its primary goal is not encrypting files for extortion.",
+      "2": "A rootkit is used to hide the attacker's presence while maintaining privileged, stealthy access, not to demand a ransom.",
+      "3": "Adware displays unwanted advertising and neither encrypts data nor demands payment to release it."
+    },
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -30,6 +38,14 @@
       "0": "La Riservatezza riguarda la protezione dei dati da accessi non autorizzati; in un DDoS i dati non vengono necessariamente letti o divulgati.",
       "1": "L'Integrita riguarda la non alterazione dei dati; un DDoS non modifica il contenuto delle informazioni, ne blocca solo l'accesso.",
       "3": "Il non ripudio riguarda l'impossibilita di negare un'azione compiuta e non e la proprieta interessata da un'interruzione del servizio."
+    },
+    "question_en": "A DDoS attack floods a company's e-commerce server with requests, making it unreachable to legitimate customers for several hours. Which property of the CIA Triad is primarily compromised?",
+    "options_en": ["Confidentiality", "Integrity", "Availability", "Non-repudiation"],
+    "explanation_en": "Availability ensures that systems and data are accessible to authorized users when needed. A DDoS that makes a service unreachable strikes exactly this property.",
+    "why_wrong_en": {
+      "0": "Confidentiality concerns protecting data from unauthorized access; in a DDoS the data is not necessarily read or disclosed.",
+      "1": "Integrity concerns keeping data unaltered; a DDoS does not modify the content of the information, it only blocks access to it.",
+      "3": "Non-repudiation concerns the inability to deny an action that was performed, and it is not the property affected by a service outage."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -48,6 +64,14 @@
       "2": "Un hacktivista agisce per motivazioni ideologiche o politiche, tipicamente con azioni dimostrative e visibili, non con spionaggio industriale silenzioso.",
       "3": "Un insider accidentale causa danni per errore o negligenza, senza l'intenzionalita e l'organizzazione di una campagna di spionaggio."
     },
+    "question_en": "A well-funded, nation-state-sponsored group of attackers conducts a stealthy, targeted campaign for months to steal industrial secrets from a defense company, maintaining access without being detected. How is this threat actor best classified?",
+    "options_en": ["Script kiddie", "APT (Advanced Persistent Threat)", "Hacktivist", "Accidental insider"],
+    "explanation_en": "An APT is a highly capable, well-resourced actor (often state-backed) that carries out prolonged, targeted, and stealthy intrusions for strategic objectives such as espionage. The described persistence and sophistication identify it.",
+    "why_wrong_en": {
+      "0": "A script kiddie uses ready-made tools without deep skills and is unable to sustain a prolonged, stealthy campaign.",
+      "2": "A hacktivist acts on ideological or political motives, typically with visible, demonstrative actions, not silent industrial espionage.",
+      "3": "An accidental insider causes damage through error or negligence, without the intent and organization of an espionage campaign."
+    },
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -63,6 +87,13 @@
     "why_wrong": {
       "1": "La contabilita generale e una funzione amministrativa aziendale, non un dominio dell'architettura di sicurezza.",
       "3": "Il marketing digitale e un'attivita di business e non costituisce un dominio di sicurezza da proteggere architetturalmente."
+    },
+    "question_en": "In IBM's approach to security architecture, the information system is protected by functional domains. Which of the following are among these security domains? (select two)",
+    "options_en": ["Identity and Access Management (IAM)", "General accounting", "Endpoint security", "Digital marketing"],
+    "explanation_en": "IBM's security architecture organizes defenses into domains such as IAM, endpoint security, network, application, and data security. IAM and endpoint security are two of these fundamental domains.",
+    "why_wrong_en": {
+      "1": "General accounting is a corporate administrative function, not a domain of the security architecture.",
+      "3": "Digital marketing is a business activity and does not constitute a security domain to be protected architecturally."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -81,6 +112,14 @@
       "2": "La ridondanza geografica riguarda la continuita operativa e la disponibilita, non l'assegnazione dei permessi.",
       "3": "Il fail-open descrive un comportamento in caso di guasto (consentire l'accesso) ed e generalmente insicuro, non un principio di assegnazione dei privilegi."
     },
+    "question_en": "In an Identity and Access Management (IAM) system, which principle requires granting each user or process only the permissions strictly necessary to perform their functions, nothing more?",
+    "options_en": ["Least privilege", "Defense in depth", "Geographic redundancy", "Fail-open"],
+    "explanation_en": "The principle of least privilege limits each subject's rights to the strict minimum, reducing the attack surface and the impact of a potentially compromised account.",
+    "why_wrong_en": {
+      "1": "Defense in depth relies on multiple overlapping layers of control, but it does not define how many permissions to assign to an individual user.",
+      "2": "Geographic redundancy concerns operational continuity and availability, not permission assignment.",
+      "3": "Fail-open describes a behavior on failure (allowing access) and is generally insecure, not a principle for assigning privileges."
+    },
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -98,6 +137,14 @@
       "2": "Il NAT traduce gli indirizzi di rete e non rileva ne risponde alle minacce sugli endpoint.",
       "3": "Il RAID 5 e una tecnica di ridondanza dei dischi per la disponibilita dei dati, non uno strumento di rilevamento delle minacce."
     },
+    "question_en": "A company wants to strengthen endpoint security beyond signature-based antivirus, in order to detect and respond even to unknown threats by continuously monitoring process behavior. Which technology is most suitable?",
+    "options_en": ["EDR (Endpoint Detection and Response)", "DHCP", "NAT", "RAID 5"],
+    "explanation_en": "An EDR continuously monitors endpoint activity, detects anomalous behavior (including zero-day threats not covered by signatures), and enables responses such as host isolation or process termination.",
+    "why_wrong_en": {
+      "1": "DHCP automatically assigns IP addresses to devices and has no endpoint security functions.",
+      "2": "NAT translates network addresses and neither detects nor responds to endpoint threats.",
+      "3": "RAID 5 is a disk redundancy technique for data availability, not a threat-detection tool."
+    },
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -110,6 +157,9 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. Suddividere la rete in segmenti isolati e controllare il traffico tra di essi impedisce a un attaccante che ha compromesso un host di raggiungere liberamente altri sistemi, contenendo la propagazione della minaccia.",
+    "question_en": "Network segmentation via VLANs and internal firewalls helps limit the lateral movement of an attacker who has already compromised a host inside the perimeter.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. Dividing the network into isolated segments and controlling traffic between them prevents an attacker who has compromised one host from freely reaching other systems, containing the spread of the threat.",
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -127,6 +177,14 @@
       "2": "Disabilitare i log riduce la visibilita e la capacita di indagine, peggiorando la sicurezza invece di risolvere la vulnerabilita.",
       "3": "Assegnare un IP pubblico non ha alcun effetto sulla validazione dell'input e, anzi, aumenta l'esposizione del server."
     },
+    "question_en": "A test reveals that a web application does not validate user-supplied data and allows malicious SQL commands to be injected into the login form fields. Which application security countermeasure is the most appropriate?",
+    "options_en": ["Input validation/sanitization and parameterized queries", "Increasing the server's RAM", "Disabling application logs", "Assigning the server a public IP address"],
+    "explanation_en": "SQL injection is prevented by validating and sanitizing input and, above all, by using parameterized queries (prepared statements) that separate the SQL code from user-supplied data.",
+    "why_wrong_en": {
+      "1": "Increasing RAM improves performance but does not prevent the injection of SQL commands.",
+      "2": "Disabling logs reduces visibility and investigative capability, worsening security instead of fixing the vulnerability.",
+      "3": "Assigning a public IP has no effect on input validation and, if anything, increases the server's exposure."
+    },
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -143,6 +201,14 @@
       "1": "Un salvaschermo con password blocca solo la sessione: chi estrae il disco e lo collega a un altro sistema legge comunque i dati non cifrati.",
       "2": "La compressione riduce lo spazio occupato ma non rende i dati illeggibili a chi li ottiene.",
       "3": "Backup frequenti proteggono dalla perdita dei dati, ma non impediscono che i dati sul disco rubato vengano letti."
+    },
+    "question_en": "To protect data at rest on an employee's corporate laptop so that it remains unreadable if the device is stolen, which control is most effective?",
+    "options_en": ["Full disk encryption", "A password-protected screensaver", "File compression", "Increasing backup frequency"],
+    "explanation_en": "Full disk encryption makes data unreadable without the correct key/credential: even by physically removing the disk, a thief cannot access the information.",
+    "why_wrong_en": {
+      "1": "A password-protected screensaver only locks the session: whoever removes the disk and connects it to another system can still read the unencrypted data.",
+      "2": "Compression reduces the space used but does not make data unreadable to whoever obtains it.",
+      "3": "Frequent backups protect against data loss, but do not prevent the data on the stolen disk from being read."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -164,6 +230,18 @@
     "why_wrong": {
       "1": "L'uso di un'unica chiave segreta condivisa per cifrare e decifrare descrive la crittografia simmetrica, non quella asimmetrica.",
       "3": "La crittografia asimmetrica e computazionalmente piu lenta di quella simmetrica; per grandi volumi si usa spesso un approccio ibrido in cui l'asimmetrica protegge solo la chiave simmetrica di sessione."
+    },
+    "question_en": "Which of the following statements about asymmetric (public-key) cryptography are correct? (select two)",
+    "options_en": [
+      "It uses a mathematically related key pair: one public and one private",
+      "It uses a single shared secret key both to encrypt and to decrypt",
+      "A message encrypted with the public key can be decrypted only by the corresponding private key",
+      "It is always faster than symmetric cryptography for encrypting large volumes of data"
+    ],
+    "explanation_en": "Asymmetric cryptography is based on a key pair (public and private): what is encrypted with the public key can be decrypted only by the associated private key, and vice versa. This enables secure key exchange and digital signatures.",
+    "why_wrong_en": {
+      "1": "Using a single shared secret key to encrypt and decrypt describes symmetric cryptography, not asymmetric.",
+      "3": "Asymmetric cryptography is computationally slower than symmetric; for large volumes a hybrid approach is often used, where the asymmetric algorithm protects only the symmetric session key."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -187,6 +265,19 @@
       "2": "La distribuzione delle patch spetta a strumenti di patch/endpoint management, non al SIEM.",
       "3": "La formazione degli utenti e un'attivita di security awareness, distinta dalla raccolta e correlazione degli eventi."
     },
+    "question_en": "What is the primary function of a SIEM platform within a Security Operations Center?",
+    "options_en": [
+      "To collect, normalize, and correlate logs and events from different sources in real time to generate security alerts",
+      "To encrypt all corporate VPN traffic",
+      "To distribute operating system updates to endpoints",
+      "To deliver security training courses to employees"
+    ],
+    "explanation_en": "A SIEM (Security Information and Event Management) centralizes logs from many sources, normalizes them, and correlates them to identify suspicious patterns, generating alerts and supporting analysis and investigations in the SOC.",
+    "why_wrong_en": {
+      "1": "Encrypting VPN traffic is the job of VPN/gateway solutions, not a SIEM.",
+      "2": "Patch distribution is handled by patch/endpoint management tools, not the SIEM.",
+      "3": "User training is a security awareness activity, distinct from the collection and correlation of events."
+    },
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -204,6 +295,14 @@
       "2": "Un honeypot e un'esca per attirare e osservare gli attaccanti, non uno strumento di automazione della risposta.",
       "3": "Un proxy web filtra e media la navigazione, senza funzioni di orchestrazione e automazione della risposta."
     },
+    "question_en": "A SOC wants to reduce response times by automating repetitive actions such as isolating a host, enriching indicators, and blocking an IP, orchestrating multiple tools through predefined playbooks. Which technology meets this need?",
+    "options_en": ["SOAR (Security Orchestration, Automation and Response)", "DLP (Data Loss Prevention)", "A simple honeypot", "A web browsing proxy"],
+    "explanation_en": "SOAR orchestrates and automates incident response workflows through playbooks, integrating different tools and reducing analysts' repetitive manual work, and therefore response times.",
+    "why_wrong_en": {
+      "1": "DLP prevents the leakage of sensitive data, but does not orchestrate or automate incident response workflows.",
+      "2": "A honeypot is a decoy to lure and observe attackers, not a response-automation tool.",
+      "3": "A web proxy filters and mediates browsing, with no response orchestration and automation functions."
+    },
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -216,6 +315,9 @@
     "options": ["Vero", "Falso"],
     "correct": [1],
     "explanation": "Falso. Le lezioni apprese sono una fase strutturale del ciclo NIST e vanno applicate a tutti gli incidenti significativi (non solo ai critici) per migliorare processi, controlli e capacita di risposta future.",
+    "question_en": "According to the NIST incident handling cycle (SP 800-61), the post-incident activity phase (lessons learned) must be carried out only for incidents classified as critical.",
+    "options_en": ["True", "False"],
+    "explanation_en": "False. Lessons learned are a structural phase of the NIST cycle and should be applied to all significant incidents (not only critical ones) to improve future processes, controls, and response capabilities.",
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -232,6 +334,14 @@
       "1": "Il disciplinare tecnico descrive configurazioni e specifiche di un sistema, non la tracciabilita del reperto di prova.",
       "2": "La politica di backup regola le copie di sicurezza, ma non traccia gli accessi alle prove durante un'indagine.",
       "3": "Il registro DHCP puo aiutare a correlare IP e dispositivi, ma non documenta la custodia e l'integrita dei reperti."
+    },
+    "question_en": "In a digital forensics investigation, to ensure that digital evidence is admissible in court, which element documents in a traceable way who accessed each exhibit, when, where, and for what reason, from collection through to presentation?",
+    "options_en": ["The chain of custody", "The server's technical specification document", "The corporate backup policy", "The DHCP lease log"],
+    "explanation_en": "The chain of custody documents every step and access to the digital exhibit, preserving its integrity and demonstrating that the evidence has not been altered: it is essential for admissibility in legal proceedings.",
+    "why_wrong_en": {
+      "1": "A technical specification document describes a system's configurations and specifications, not the traceability of the evidentiary exhibit.",
+      "2": "The backup policy governs security copies, but does not track access to evidence during an investigation.",
+      "3": "The DHCP log can help correlate IPs and devices, but does not document the custody and integrity of exhibits."
     },
     "source": "HACK/IBM Cybersecurity"
   },
@@ -254,6 +364,18 @@
       "1": "Il colore del logo aziendale e un elemento di branding e non ha alcuna relazione con un'attivita malevola rilevabile.",
       "3": "Il numero di dipendenti e un dato organizzativo e non costituisce un artefatto tecnico indicativo di compromissione."
     },
+    "question_en": "In threat intelligence, Indicators of Compromise (IoCs) are observable artifacts that signal a possible intrusion. Which of the following are valid examples of IoCs? (select two)",
+    "options_en": [
+      "The hash (e.g., SHA-256) of a known malicious file",
+      "The color of the company logo",
+      "A domain or IP address associated with a command-and-control (C2) server",
+      "The total number of the company's employees"
+    ],
+    "explanation_en": "IoCs are observable technical elements linked to malicious activity: hashes of harmful files, C2 domains/IPs, URLs, registry keys, or mutexes. A malware hash and a C2 IP/domain are typical examples used for detection and blocking.",
+    "why_wrong_en": {
+      "1": "The color of the company logo is a branding element and has no relationship to detectable malicious activity.",
+      "3": "The number of employees is organizational data and does not constitute a technical artifact indicative of compromise."
+    },
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -271,6 +393,14 @@
       "2": "Il post-sfruttamento avviene dopo aver ottenuto l'accesso, per mantenere la presenza ed espandere il controllo.",
       "3": "La redazione del report e la fase conclusiva in cui si documentano i risultati, non la raccolta iniziale di informazioni."
     },
+    "question_en": "During an authorized penetration test, in which phase does the tester gather publicly available information about the organization (domains, email addresses, employee names) without directly interacting with the target systems?",
+    "options_en": ["Passive reconnaissance (OSINT)", "Exploitation", "Post-exploitation", "Final report writing"],
+    "explanation_en": "Passive reconnaissance (OSINT) gathers information from public sources without touching the target's systems, reducing the risk of detection and preparing for the subsequent phases of the test.",
+    "why_wrong_en": {
+      "1": "Exploitation is the active phase in which vulnerabilities are used to gain access, so it involves direct interaction with the systems.",
+      "2": "Post-exploitation occurs after gaining access, to maintain presence and expand control.",
+      "3": "Report writing is the final phase in which findings are documented, not the initial gathering of information."
+    },
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -283,6 +413,9 @@
     "options": ["Vero", "Falso"],
     "correct": [1],
     "explanation": "Falso. In un modello IaaS il fornitore protegge l'infrastruttura fisica, la virtualizzazione e la rete di base, mentre il cliente resta responsabile di sistema operativo, patch, configurazioni, applicazioni e dati.",
+    "question_en": "In the cloud shared responsibility model, in an IaaS (Infrastructure as a Service) service it is the cloud provider that is responsible for securing the operating system and the applications installed by the customer.",
+    "options_en": ["True", "False"],
+    "explanation_en": "False. In an IaaS model the provider secures the physical infrastructure, virtualization, and base network, while the customer remains responsible for the operating system, patches, configurations, applications, and data.",
     "source": "HACK/IBM Cybersecurity"
   },
   {
@@ -303,6 +436,18 @@
     "why_wrong": {
       "2": "Un IDS non ha funzioni di cifratura del traffico: si limita a ispezionare e segnalare gli eventi sospetti.",
       "3": "L'IPS e un livello di difesa complementare, non sostitutivo: firewall e antivirus restano necessari in un'architettura a difesa in profondita."
+    },
+    "question_en": "Which statements correctly distinguish an IDS from an IPS? (select two)",
+    "options_en": [
+      "An IDS detects and reports suspicious traffic but does not block it on its own",
+      "An IPS, positioned inline, can actively block or drop malicious traffic",
+      "An IDS automatically encrypts all network traffic that crosses the segment",
+      "An IPS makes firewalls and antivirus entirely unnecessary"
+    ],
+    "explanation_en": "The IDS (Intrusion Detection System) is passive: it observes and alerts. The IPS (Intrusion Prevention System) is positioned inline and can intervene by blocking or dropping harmful traffic in real time.",
+    "why_wrong_en": {
+      "2": "An IDS has no traffic-encryption functions: it only inspects and reports suspicious events.",
+      "3": "An IPS is a complementary layer of defense, not a replacement: firewalls and antivirus remain necessary in a defense-in-depth architecture."
     },
     "source": "HACK/IBM Cybersecurity"
   }

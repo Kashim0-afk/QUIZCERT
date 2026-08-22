@@ -19,6 +19,19 @@
       "2": "Il pre-provisioning (white glove) prepara il dispositivo lato IT ma prevede comunque una fase user-driven finale con accesso dell'utente.",
       "3": "L'Hybrid join user-driven richiede credenziali utente e connettività alla rete on-premises con un domain controller, non adatto a un chiosco cloud."
     },
+    "question_en": "A company must deploy 40 devices that will act as shared kiosks at reception, with no assigned user and without anyone having to enter credentials during initial setup. Which Windows Autopilot mode is most suitable?",
+    "options_en": [
+      "Autopilot user-driven with Microsoft Entra join",
+      "Autopilot self-deploying mode",
+      "Autopilot pre-provisioning (white glove)",
+      "Autopilot user-driven with Hybrid Microsoft Entra join"
+    ],
+    "explanation_en": "Autopilot self-deploying mode fully configures the device with no user intervention and no credentials, joining it to Microsoft Entra ID and applying policies: it is designed for kiosks, shared devices, and digital signage. It requires TPM 2.0 for device attestation.",
+    "why_wrong_en": {
+      "0": "User-driven mode requires a user to sign in with their own credentials during OOBE, which is not suitable for a kiosk with no user.",
+      "2": "Pre-provisioning (white glove) prepares the device on the IT side but still includes a final user-driven phase with user sign-in.",
+      "3": "User-driven Hybrid join requires user credentials and connectivity to the on-premises network with a domain controller, which is not suitable for a cloud kiosk."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -41,6 +54,19 @@
       "2": "Il product key di Windows non è richiesto per registrare un dispositivo in Autopilot; la licenza è gestita separatamente.",
       "3": "Il nome NetBIOS non serve a identificare univocamente l'hardware ai fini della registrazione Autopilot."
     },
+    "question_en": "You must register in Windows Autopilot some devices the company already owns but that were not purchased through an OEM reseller. Which piece of information is essential to collect from each device for registration?",
+    "options_en": [
+      "The device's static IP address",
+      "The device's hardware hash (4K Hardware Hash)",
+      "The Windows product key",
+      "The device's NetBIOS name"
+    ],
+    "explanation_en": "To manually register existing devices in Autopilot you must collect the hardware hash (4K HH), obtainable with the Get-WindowsAutopilotInfo PowerShell script, and upload it (CSV) to the Autopilot service. The hash uniquely identifies the device's hardware.",
+    "why_wrong_en": {
+      "0": "The IP address does not identify the hardware and is not used for Autopilot registration.",
+      "2": "The Windows product key is not required to register a device in Autopilot; licensing is managed separately.",
+      "3": "The NetBIOS name does not uniquely identify the hardware for the purposes of Autopilot registration."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -53,6 +79,9 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. I provisioning package permettono di applicare configurazioni (rete, join a un dominio o Entra, app, policy) a un dispositivo già installato, sia durante l'OOBE sia da un dispositivo in esecuzione, senza ricorrere a un'immagine personalizzata. È un metodo di provisioning leggero alternativo all'imaging tradizionale.",
+    "question_en": "A provisioning package (.ppkg) created with Windows Configuration Designer can be applied during OOBE to configure an existing Windows device without having to reimage it.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. Provisioning packages allow configurations (network, domain or Entra join, apps, policies) to be applied to an already-installed device, both during OOBE and from a running device, without resorting to a custom image. It is a lightweight provisioning method as an alternative to traditional imaging.",
     "source": "Microsoft MD-102"
   },
   {
@@ -73,6 +102,18 @@
     "why_wrong": {
       "2": "I Quality updates riguardano gli aggiornamenti mensili di sicurezza e qualità, non l'upgrade di versione/funzionalità a Windows 11.",
       "3": "BitLocker è una soluzione di cifratura del disco e non ha alcun ruolo nel forzare o abilitare l'installazione di un feature update."
+    },
+    "question_en": "An administrator must plan the upgrade of a fleet of Windows 10 PCs to Windows 11 23H2 using Intune. Which TWO actions are correct and appropriate?",
+    "options_en": [
+      "Create a Feature updates for Windows 10 and later profile specifying the target version 23H2",
+      "Verify the Windows 11 hardware requirements (TPM 2.0, Secure Boot, supported CPU) before assignment",
+      "Create a Quality updates for Windows 10 and later profile to deploy Windows 11",
+      "Enable BitLocker to force the installation of the feature update"
+    ],
+    "explanation_en": "The feature update to Windows 11 23H2 is deployed with a Feature updates for Windows 10 and later profile specifying the target version. It is also essential to verify the Windows 11 hardware requirements (TPM 2.0, Secure Boot, supported CPU); otherwise, ineligible devices will not receive the upgrade.",
+    "why_wrong_en": {
+      "2": "Quality updates concern the monthly security and quality updates, not the version/feature upgrade to Windows 11.",
+      "3": "BitLocker is a disk encryption solution and has no role in forcing or enabling the installation of a feature update."
     },
     "source": "Microsoft MD-102"
   },
@@ -96,6 +137,19 @@
       "2": "L'aggiunta a un dominio AD locale richiede un domain controller on-premises, assente in un'organizzazione cloud-only.",
       "3": "La registrazione (Workplace join) è pensata per dispositivi personali BYOD e non fornisce lo stesso livello di gestione aziendale del Entra join."
     },
+    "question_en": "A cloud-only startup has no on-premises Active Directory or domain controller. It wants the new Windows 11 laptops to be managed by Intune and to use corporate cloud identities. Which device join type is correct?",
+    "options_en": [
+      "Microsoft Entra hybrid join",
+      "Microsoft Entra join",
+      "Joining a local Active Directory domain",
+      "Microsoft Entra registration (Workplace join)"
+    ],
+    "explanation_en": "With no on-premises infrastructure, the correct model is Microsoft Entra join: the device is joined directly to Entra ID, users sign in with cloud accounts, and the device can be managed by Intune (often automatically via MDM auto-enrollment).",
+    "why_wrong_en": {
+      "0": "Hybrid join requires an on-premises Active Directory synchronized with Entra ID, which does not exist here.",
+      "2": "Joining a local AD domain requires an on-premises domain controller, absent in a cloud-only organization.",
+      "3": "Registration (Workplace join) is intended for personal BYOD devices and does not provide the same level of corporate management as Entra join."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -118,6 +172,19 @@
       "2": "Gli scope tag servono a delimitare la gestione amministrativa e la visibilità della policy, non a concedere periodi di tolleranza.",
       "3": "La firma del codice non è un'impostazione delle policy di conformità e non gestisce alcun grace period."
     },
+    "question_en": "In an Intune compliance policy, which setting allows users to be granted a grace period before the device is actually flagged as noncompliant?",
+    "options_en": [
+      "Actions for noncompliance with a Mark device noncompliant value set to a number of days",
+      "The encryption level required in the device settings",
+      "The scope tag assigned to the policy",
+      "The code signing setting in the profile properties"
+    ],
+    "explanation_en": "In the Actions for noncompliance section you can set Mark device noncompliant after a number of days (grace period), send reminder emails to the user, and schedule additional actions. This gives the user time to remediate before consequences such as access blocking via Conditional Access take effect.",
+    "why_wrong_en": {
+      "1": "The encryption level defines a compliance requirement, not the grace period before marking the device noncompliant.",
+      "2": "Scope tags are used to scope administrative management and the visibility of the policy, not to grant grace periods.",
+      "3": "Code signing is not a compliance policy setting and does not manage any grace period."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -138,6 +205,18 @@
     "why_wrong": {
       "2": "Il blocco dell'autenticazione legacy si ottiene creando una policy separata che blocca i client legacy, non è un grant control di sessione di cifratura come descritto.",
       "3": "Non esiste un grant control di Accesso condizionale che richieda una specifica chiave di ripristino BitLocker; BitLocker è una funzione di cifratura del disco."
+    },
+    "question_en": "You want to ensure that access to Exchange Online is allowed only from managed and healthy devices, with strong authentication. Which TWO Conditional Access grant controls would you use together?",
+    "options_en": [
+      "Require multifactor authentication",
+      "Require device to be marked as compliant",
+      "Block legacy authentication via an encryption session control",
+      "Require a specific BitLocker recovery key"
+    ],
+    "explanation_en": "By combining Require multifactor authentication and Require device to be marked as compliant, you enforce both strong authentication and that the device is compliant with Intune policies. Device compliance is evaluated by Intune and made available to Conditional Access through the compliance state in Entra ID.",
+    "why_wrong_en": {
+      "2": "Blocking legacy authentication is achieved by creating a separate policy that blocks legacy clients; it is not an encryption session grant control as described.",
+      "3": "There is no Conditional Access grant control that requires a specific BitLocker recovery key; BitLocker is a disk encryption feature."
     },
     "source": "Microsoft MD-102"
   },
@@ -161,6 +240,19 @@
       "2": "Gli Administrative templates coprono solo le impostazioni ADMX, un sottoinsieme rispetto all'ampiezza del Settings catalog.",
       "3": "Una compliance policy valuta lo stato di conformità del dispositivo, non configura impostazioni di sistema."
     },
+    "question_en": "You need to granularly configure hundreds of individual Windows settings, searching for them by name and composing a custom profile in Intune. Which type of configuration profile is most suitable?",
+    "options_en": [
+      "A profile based on a Device restrictions template",
+      "A Settings catalog profile",
+      "A limited Administrative templates (ADMX) profile",
+      "A compliance policy profile"
+    ],
+    "explanation_en": "The Settings catalog lets you search for and add individual settings from an extensive list of Windows policies, building a tailored profile. It is the most flexible and granular method compared to the predefined templates that expose only a fixed subset of settings.",
+    "why_wrong_en": {
+      "0": "The Device restrictions template exposes only a predefined, curated set of settings, less granular than the Settings catalog.",
+      "2": "Administrative templates cover only ADMX settings, a subset compared to the breadth of the Settings catalog.",
+      "3": "A compliance policy evaluates the device's compliance state; it does not configure system settings."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -182,6 +274,19 @@
       "0": "Salvare la chiave in chiaro sul dispositivo stesso è insicuro e non è il comportamento della policy Intune.",
       "2": "La chiave non viene archiviata nel registro locale per il recupero; questo non fornirebbe un backup centralizzato accessibile all'help desk.",
       "3": "Non è previsto alcun salvataggio automatico su condivisioni SMB per dispositivo; l'escrow avviene in Entra ID."
+    },
+    "question_en": "You deploy a BitLocker disk encryption policy through Intune on Microsoft Entra joined Windows devices. Where is the recovery key automatically stored so that the help desk can retrieve it in case of a lockout?",
+    "options_en": [
+      "In a text file in the user's folder on the device",
+      "In Microsoft Entra ID, associated with the device object",
+      "In the device's local system registry",
+      "In an SMB network share manually configured on each PC"
+    ],
+    "explanation_en": "With an Intune policy configured to escrow the key, the BitLocker recovery key is saved in Microsoft Entra ID and associated with the device object. Administrators and authorized users can retrieve it from the portal (or the user from myaccount), ensuring recovery without manual storage.",
+    "why_wrong_en": {
+      "0": "Storing the key in clear text on the device itself is insecure and is not the behavior of the Intune policy.",
+      "2": "The key is not stored in the local registry for recovery; this would not provide a centralized backup accessible to the help desk.",
+      "3": "There is no automatic saving to per-device SMB shares; the escrow occurs in Entra ID."
     },
     "source": "Microsoft MD-102"
   },
@@ -205,6 +310,19 @@
       "2": "Il profilo EDR riguarda l'onboarding a Defender for Endpoint, non la gestione degli anelli di aggiornamento.",
       "3": "Delivery Optimization ottimizza la larghezza di banda del download tra peer, ma non definisce la tempistica di rilascio degli aggiornamenti."
     },
+    "question_en": "You want a pilot group to receive Windows quality updates before the rest of the company, so as to identify any problems. Which Intune feature do you configure?",
+    "options_en": [
+      "Update rings for Windows 10 and later with different deferral periods per group",
+      "A compliance policy with a notification action",
+      "An Endpoint detection and response profile",
+      "A Delivery Optimization profile with peer caching"
+    ],
+    "explanation_en": "Update rings for Windows 10 and later let you create multiple rings (for example Pilot and Broad) with different deferral periods for quality and feature updates. By assigning the pilot ring with a lower deferral to a group, that group receives updates earlier, enabling gradual testing.",
+    "why_wrong_en": {
+      "1": "A compliance policy evaluates compliance and sends notifications, but does not schedule the staggered distribution of updates.",
+      "2": "The EDR profile concerns onboarding to Defender for Endpoint, not managing update rings.",
+      "3": "Delivery Optimization optimizes download bandwidth between peers, but does not define the timing of update release."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -227,6 +345,19 @@
       "2": "Bloccare tutti i dispositivi con Accesso condizionale impedirebbe l'accesso e non ha relazione con l'attivazione del connector.",
       "3": "Un provisioning package non ha alcun ruolo nell'integrazione tra Intune e Defender for Endpoint."
     },
+    "question_en": "Before you can onboard Intune-managed Windows devices into Microsoft Defender for Endpoint via an EDR policy, which preliminary step is necessary in the console?",
+    "options_en": [
+      "Enable the connection (connector) between Microsoft Defender for Endpoint and Intune",
+      "Disable Microsoft Defender Antivirus on all devices",
+      "Configure a Conditional Access rule that blocks all devices",
+      "Create a provisioning package with Windows Configuration Designer"
+    ],
+    "explanation_en": "You must first establish the service connection between Microsoft Defender for Endpoint and Intune (by enabling the connector in the Endpoint security settings). Once active, Intune can deploy the onboarding package via the EDR policy and receive the devices' risk score.",
+    "why_wrong_en": {
+      "1": "Disabling antivirus would weaken protection and is not a prerequisite for onboarding to Defender for Endpoint.",
+      "2": "Blocking all devices with Conditional Access would prevent access and has no relation to enabling the connector.",
+      "3": "A provisioning package has no role in the integration between Intune and Defender for Endpoint."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -239,6 +370,9 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. I report di monitoraggio della conformità in Intune mostrano lo stato di ciascun dispositivo (conforme, non conforme, in errore) e permettono di analizzare il dettaglio, incluse le singole impostazioni di policy fallite, per intervenire sulla causa specifica della non conformità.",
+    "question_en": "In the Intune admin center, the device compliance report allows you to identify which devices are noncompliant and for which specific setting (reason) they failed the evaluation.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. The compliance monitoring reports in Intune show the state of each device (compliant, noncompliant, in error) and allow you to drill into the detail, including the individual failed policy settings, to act on the specific cause of noncompliance.",
     "source": "Microsoft MD-102"
   },
   {
@@ -259,6 +393,18 @@
     "why_wrong": {
       "2": "Un profilo Wi-Fi con certificato configura la connettività di rete, non riduce la superficie di attacco degli endpoint.",
       "3": "Delivery Optimization gestisce l'ottimizzazione della banda per i download, senza alcun effetto di hardening sulla sicurezza."
+    },
+    "question_en": "You want to strengthen the attack surface of Windows endpoints through Intune (Endpoint security). Which TWO tools are appropriate for this purpose?",
+    "options_en": [
+      "Attack surface reduction (ASR) rules",
+      "Intune security baselines",
+      "A Wi-Fi profile with a SCEP certificate",
+      "A Delivery Optimization policy"
+    ],
+    "explanation_en": "ASR rules block risky behaviors commonly used by malware (for example, the execution of obfuscated content or Office macros that launch processes). Security baselines apply a set of Microsoft-recommended settings to harden the system. Both concretely reduce the attack surface.",
+    "why_wrong_en": {
+      "2": "A Wi-Fi profile with a certificate configures network connectivity; it does not reduce the endpoints' attack surface.",
+      "3": "Delivery Optimization manages bandwidth optimization for downloads, with no security hardening effect."
     },
     "source": "Microsoft MD-102"
   },
@@ -282,6 +428,19 @@
       "2": "Il differimento non provoca la disinstallazione degli aggiornamenti; per rimuovere un update si usa un'apposita azione di uninstall/rollback.",
       "3": "Il differimento è basato sul tempo (giorni dal rilascio), non sul numero di riavvii del dispositivo."
     },
+    "question_en": "In an Intune Update ring you set the deferral of quality updates to 7 days. What is the practical effect of this setting on the assigned devices?",
+    "options_en": [
+      "Quality updates are installed 7 days after their official release by Microsoft",
+      "The devices receive only feature updates and not quality ones",
+      "The updates are automatically uninstalled after 7 days",
+      "The devices will never receive quality updates until they are restarted 7 times"
+    ],
+    "explanation_en": "The deferral period postpones the offering and installation of quality updates by the specified number of days relative to the Microsoft release date. With 7 days, devices receive the update one week after release, useful for testing its stability before broad deployment.",
+    "why_wrong_en": {
+      "1": "Deferring quality updates does not prevent devices from receiving the updates: it only delays them.",
+      "2": "Deferral does not cause updates to be uninstalled; to remove an update, a dedicated uninstall/rollback action is used.",
+      "3": "Deferral is time-based (days from release), not based on the number of device restarts."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -303,6 +462,19 @@
       "0": "Il formato .appx è per app UWP moderne, non per il wrapping di installer Win32 come app Win32.",
       "2": "Intune non converte automaticamente un setup in .msix; il tipo app Win32 richiede il formato .intunewin.",
       "3": "Un file .cab non è il formato di pacchetto usato per il tipo di applicazione Win32 in Intune."
+    },
+    "question_en": "You need to deploy a traditional Win32 desktop application (with an .exe setup) using Intune. Which package format must you generate to upload it as a Win32 app?",
+    "options_en": [
+      "A signed .appx file",
+      "An .intunewin file created with the Microsoft Win32 Content Prep Tool",
+      "An .msix file automatically converted by Intune",
+      "A .cab file extracted from the original setup"
+    ],
+    "explanation_en": "To deploy a Win32 app with Intune you must convert the installation files into an .intunewin package using the Microsoft Win32 Content Prep Tool. In the portal you then specify install/uninstall commands and detection rules.",
+    "why_wrong_en": {
+      "0": "The .appx format is for modern UWP apps, not for wrapping Win32 installers as Win32 apps.",
+      "2": "Intune does not automatically convert a setup to .msix; the Win32 app type requires the .intunewin format.",
+      "3": "A .cab file is not the package format used for the Win32 application type in Intune."
     },
     "source": "Microsoft MD-102"
   },
@@ -326,6 +498,19 @@
       "2": "L'escrow della chiave BitLocker riguarda la cifratura del disco del dispositivo, non la protezione dei dati a livello di app mobile.",
       "3": "L'assegnazione dell'app determina come viene resa disponibile, ma non impone restrizioni sul copia/incolla dei dati aziendali."
     },
+    "question_en": "An Intune App protection policy (APP) for a mobile app such as Outlook prevents corporate data from being copied into unmanaged personal apps. Which setting directly applies this restriction?",
+    "options_en": [
+      "Restrict cut, copy, and paste with other apps",
+      "Require device to be marked as compliant",
+      "Escrow of the BitLocker key in Entra ID",
+      "Assignment of the app as Available for enrolled devices"
+    ],
+    "explanation_en": "The Restrict cut, copy, and paste with other apps setting of an App protection policy controls the transfer of data via the clipboard between the managed app and other apps, being able to restrict it to managed apps only. It is a typical application-level (MAM) data protection control.",
+    "why_wrong_en": {
+      "1": "Require device to be marked as compliant is a Conditional Access/device compliance control, not an APP data protection setting.",
+      "2": "BitLocker key escrow concerns device disk encryption, not data protection at the mobile app level.",
+      "3": "The app assignment determines how it is made available, but does not impose restrictions on the copy/paste of corporate data."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -338,6 +523,9 @@
     "options": ["Vero", "Falso"],
     "correct": [1],
     "explanation": "Falso. L'intento Available rende l'app disponibile nel Portale aziendale, dove l'utente può scegliere se installarla: non è un'installazione automatica. Per l'installazione forzata e silenziosa si usa l'intento Required, che distribuisce l'app senza intervento dell'utente.",
+    "question_en": "In Intune, assigning an application with the Available for enrolled devices intent causes the app to be installed automatically and silently on all devices in the target group.",
+    "options_en": ["True", "False"],
+    "explanation_en": "False. The Available intent makes the app available in the Company Portal, where the user can choose whether to install it: it is not an automatic installation. For forced, silent installation, the Required intent is used, which deploys the app without user intervention.",
     "source": "Microsoft MD-102"
   },
   {
@@ -358,6 +546,18 @@
     "why_wrong": {
       "2": "Il MAM senza iscrizione non richiede alcun tipo di join del dispositivo; funziona proprio per evitare l'iscrizione e il join.",
       "3": "Le App protection policy agiscono a livello di app e dati aziendali, non cifrano l'intero disco del dispositivo (BitLocker è una funzione a livello di dispositivo gestito)."
+    },
+    "question_en": "A company wants to protect corporate data in mobile apps on users' personal (BYOD) devices, without requiring them to enroll the device in Intune (MDM). Which TWO statements are correct regarding App protection policies without enrollment (MAM-WE)?",
+    "options_en": [
+      "App protection policies can be applied even to devices not enrolled in Intune",
+      "A selective wipe can be performed that removes only the corporate data from the app, leaving personal data intact",
+      "They mandatorily require the device to be Microsoft Entra hybrid joined",
+      "They allow the entire disk of the personal device to be encrypted via BitLocker"
+    ],
+    "explanation_en": "App protection policies (MAM without enrollment) protect data at the application level even on devices not enrolled in Intune, ideal for BYOD scenarios. If needed, a selective wipe is possible that deletes only the corporate data contained in the app, without touching the user's personal data.",
+    "why_wrong_en": {
+      "2": "MAM without enrollment does not require any kind of device join; it works precisely to avoid enrollment and join.",
+      "3": "App protection policies act at the level of the app and corporate data; they do not encrypt the entire disk of the device (BitLocker is a feature at the managed-device level)."
     },
     "source": "Microsoft MD-102"
   }

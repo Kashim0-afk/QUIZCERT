@@ -1,71 +1,162 @@
 [
   {
     "id": "net4-001",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Modello OSI"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Modello OSI"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un tecnico deve identificare a quale livello del modello OSI opera uno switch che prende le decisioni di inoltro (forwarding) basandosi sull'indirizzo MAC di destinazione dei frame. A quale livello opera questa funzione?",
-    "options": ["Livello 1 - Fisico", "Livello 2 - Data Link", "Livello 3 - Rete", "Livello 4 - Trasporto"],
-    "correct": [1],
+    "options": [
+      "Livello 1 - Fisico",
+      "Livello 2 - Data Link",
+      "Livello 3 - Rete",
+      "Livello 4 - Trasporto"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Gli switch tradizionali operano al Livello 2 (Data Link) del modello OSI, dove si trovano gli indirizzi MAC. Lo switch costruisce una tabella MAC (CAM) e inoltra i frame verso la porta corretta in base all'indirizzo MAC di destinazione.",
     "why_wrong": {
       "0": "Il Livello 1 (Fisico) gestisce solo la trasmissione di bit grezzi sul mezzo (cavi, segnali elettrici/ottici) e non interpreta indirizzi MAC. Gli hub, non gli switch, operano puramente a questo livello.",
       "2": "Il Livello 3 (Rete) usa gli indirizzi IP per l'instradamento tra reti diverse; è il livello dei router, non dello switch che decide in base al MAC.",
       "3": "Il Livello 4 (Trasporto) gestisce segmenti, porte TCP/UDP e affidabilità end-to-end, non l'inoltro dei frame basato su MAC."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A technician must identify at which layer of the OSI model a switch operates when it makes forwarding decisions based on the destination MAC address of the frames. At which layer does this function operate?",
+    "options_en": [
+      "Layer 1 - Physical",
+      "Layer 2 - Data Link",
+      "Layer 3 - Network",
+      "Layer 4 - Transport"
+    ],
+    "explanation_en": "Traditional switches operate at Layer 2 (Data Link) of the OSI model, where MAC addresses reside. The switch builds a MAC table (CAM) and forwards frames to the correct port based on the destination MAC address.",
+    "why_wrong_en": {
+      "0": "Layer 1 (Physical) handles only the transmission of raw bits over the medium (cables, electrical/optical signals) and does not interpret MAC addresses. Hubs, not switches, operate purely at this layer.",
+      "2": "Layer 3 (Network) uses IP addresses to route between different networks; it is the layer of routers, not of a switch that decides based on MAC.",
+      "3": "Layer 4 (Transport) handles segments, TCP/UDP ports and end-to-end reliability, not MAC-based frame forwarding."
+    }
   },
   {
     "id": "net4-002",
-    "cert": ["CompTIA Network+"],
-    "topics": ["TCP/IP"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "TCP/IP"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Il protocollo UDP garantisce la consegna affidabile dei pacchetti tramite conferme (ACK), numeri di sequenza e ritrasmissione dei dati persi.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. UDP è un protocollo senza connessione (connectionless) e non affidabile: non usa handshake, ACK, numeri di sequenza o ritrasmissioni. La consegna affidabile con questi meccanismi è invece una caratteristica di TCP. UDP è preferito quando la velocità e la bassa latenza sono prioritarie rispetto all'affidabilità, come in VoIP, streaming e DNS.",
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "The UDP protocol guarantees the reliable delivery of packets through acknowledgments (ACKs), sequence numbers and retransmission of lost data.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. UDP is a connectionless and unreliable protocol: it does not use handshakes, ACKs, sequence numbers or retransmissions. Reliable delivery with these mechanisms is instead a characteristic of TCP. UDP is preferred when speed and low latency take priority over reliability, as in VoIP, streaming and DNS."
   },
   {
     "id": "net4-003",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Subnetting"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Subnetting"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un amministratore assegna la sottorete 192.168.10.0/26 a un reparto. Quanti indirizzi IP host utilizzabili (assegnabili ai dispositivi) fornisce questa sottorete?",
-    "options": ["62", "64", "30", "126"],
-    "correct": [0],
+    "options": [
+      "62",
+      "64",
+      "30",
+      "126"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Una maschera /26 lascia 6 bit host (32 - 26 = 6). Il numero totale di indirizzi è 2^6 = 64, ma occorre sottrarre l'indirizzo di rete e l'indirizzo di broadcast, ottenendo 64 - 2 = 62 host utilizzabili.",
     "why_wrong": {
       "1": "64 è il numero totale di indirizzi nel blocco, ma non tiene conto dell'indirizzo di rete e di broadcast, che non sono assegnabili agli host.",
       "2": "30 host utilizzabili corrisponde a una maschera /27 (2^5 - 2), non a una /26.",
       "3": "126 host utilizzabili corrisponde a una maschera /25 (2^7 - 2), non a una /26."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "An administrator assigns the subnet 192.168.10.0/26 to a department. How many usable host IP addresses (assignable to devices) does this subnet provide?",
+    "options_en": [
+      "62",
+      "64",
+      "30",
+      "126"
+    ],
+    "explanation_en": "A /26 mask leaves 6 host bits (32 - 26 = 6). The total number of addresses is 2^6 = 64, but you must subtract the network address and the broadcast address, giving 64 - 2 = 62 usable hosts.",
+    "why_wrong_en": {
+      "1": "64 is the total number of addresses in the block, but it does not account for the network and broadcast addresses, which are not assignable to hosts.",
+      "2": "30 usable hosts corresponds to a /27 mask (2^5 - 2), not a /26.",
+      "3": "126 usable hosts corresponds to a /25 mask (2^7 - 2), not a /26."
+    }
   },
   {
     "id": "net4-004",
-    "cert": ["CompTIA Network+"],
-    "topics": ["DNS"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "DNS"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Un tecnico configura la risoluzione dei nomi per un nuovo server che utilizza indirizzamento IPv6. Quale tipo di record DNS deve creare per mappare il nome host all'indirizzo IPv6?",
-    "options": ["Record A", "Record AAAA", "Record MX", "Record CNAME"],
-    "correct": [1],
+    "options": [
+      "Record A",
+      "Record AAAA",
+      "Record MX",
+      "Record CNAME"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Il record AAAA (detto 'quad-A') mappa un nome host a un indirizzo IPv6 a 128 bit. È l'equivalente IPv6 del record A.",
     "why_wrong": {
       "0": "Il record A mappa un nome host a un indirizzo IPv4 a 32 bit, non a un indirizzo IPv6.",
       "2": "Il record MX (Mail Exchanger) indica i server di posta responsabili per un dominio, non risolve indirizzi host.",
       "3": "Il record CNAME crea un alias che punta a un altro nome canonico, non a un indirizzo IP direttamente."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A technician configures name resolution for a new server that uses IPv6 addressing. Which type of DNS record must be created to map the hostname to the IPv6 address?",
+    "options_en": [
+      "A record",
+      "AAAA record",
+      "MX record",
+      "CNAME record"
+    ],
+    "explanation_en": "The AAAA record (called 'quad-A') maps a hostname to a 128-bit IPv6 address. It is the IPv6 equivalent of the A record.",
+    "why_wrong_en": {
+      "0": "The A record maps a hostname to a 32-bit IPv4 address, not to an IPv6 address.",
+      "2": "The MX (Mail Exchanger) record indicates the mail servers responsible for a domain; it does not resolve host addresses.",
+      "3": "The CNAME record creates an alias that points to another canonical name, not directly to an IP address."
+    }
   },
   {
     "id": "net4-005",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Cloud/SDN"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Cloud/SDN"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Un'azienda sta valutando l'adozione della Software-Defined Networking (SDN) per centralizzare la gestione della rete. Quali DUE affermazioni descrivono correttamente l'architettura SDN? (Seleziona due)",
@@ -75,85 +166,200 @@
       "Utilizza un controller centralizzato che programma il comportamento di forwarding dei dispositivi",
       "Elimina la necessità di utilizzare indirizzi IP all'interno della rete"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "L'SDN separa il piano di controllo (le decisioni sull'instradamento) dal piano dati (l'inoltro effettivo dei pacchetti) e centralizza l'intelligenza in un controller SDN, che programma via software (ad es. tramite OpenFlow/API) il comportamento dei dispositivi. Questo consente automazione, agilità e gestione centralizzata.",
     "why_wrong": {
       "1": "L'SDN elimina proprio la necessità di configurare manualmente ogni dispositivo tramite CLI: le policy vengono distribuite centralmente dal controller.",
       "3": "L'SDN non elimina l'indirizzamento IP; i pacchetti continuano a usare indirizzi IP. L'SDN cambia solo come vengono gestite le decisioni di forwarding."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A company is evaluating the adoption of Software-Defined Networking (SDN) to centralize network management. Which TWO statements correctly describe the SDN architecture? (Select two)",
+    "options_en": [
+      "It separates the control plane from the data plane",
+      "It requires manual CLI configuration on each individual switch for every change",
+      "It uses a centralized controller that programs the forwarding behavior of the devices",
+      "It eliminates the need to use IP addresses within the network"
+    ],
+    "explanation_en": "SDN separates the control plane (the routing decisions) from the data plane (the actual forwarding of packets) and centralizes the intelligence in an SDN controller, which programs device behavior via software (e.g. through OpenFlow/API). This enables automation, agility and centralized management.",
+    "why_wrong_en": {
+      "1": "SDN specifically eliminates the need to manually configure each device via CLI: policies are distributed centrally by the controller.",
+      "3": "SDN does not eliminate IP addressing; packets continue to use IP addresses. SDN only changes how forwarding decisions are managed."
+    }
   },
   {
     "id": "net4-006",
-    "cert": ["CompTIA Network+"],
-    "topics": ["VLAN"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "VLAN"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un tecnico configura un collegamento trunk tra due switch per trasportare il traffico di più VLAN. Quale standard IEEE aggiunge un tag di 4 byte al frame Ethernet per identificare la VLAN di appartenenza?",
-    "options": ["IEEE 802.1X", "IEEE 802.1Q", "IEEE 802.3af", "IEEE 802.11ac"],
-    "correct": [1],
+    "options": [
+      "IEEE 802.1X",
+      "IEEE 802.1Q",
+      "IEEE 802.3af",
+      "IEEE 802.11ac"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Lo standard IEEE 802.1Q definisce il tagging delle VLAN, inserendo un tag di 4 byte nell'header del frame Ethernet. Questo tag contiene il VLAN ID (12 bit), permettendo agli switch di distinguere il traffico delle diverse VLAN su un unico link trunk.",
     "why_wrong": {
       "0": "802.1X è uno standard di controllo dell'accesso alla rete basato su porta (autenticazione), non il tagging delle VLAN.",
       "2": "802.3af è lo standard PoE (Power over Ethernet) originale, che riguarda l'alimentazione tramite cavo, non il tagging VLAN.",
       "3": "802.11ac è uno standard Wi-Fi (Wireless LAN), non riguarda il trunking VLAN cablato."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A technician configures a trunk link between two switches to carry the traffic of multiple VLANs. Which IEEE standard adds a 4-byte tag to the Ethernet frame to identify the VLAN membership?",
+    "options_en": [
+      "IEEE 802.1X",
+      "IEEE 802.1Q",
+      "IEEE 802.3af",
+      "IEEE 802.11ac"
+    ],
+    "explanation_en": "The IEEE 802.1Q standard defines VLAN tagging, inserting a 4-byte tag into the Ethernet frame header. This tag contains the VLAN ID (12 bits), allowing switches to distinguish the traffic of different VLANs over a single trunk link.",
+    "why_wrong_en": {
+      "0": "802.1X is a port-based network access control (authentication) standard, not VLAN tagging.",
+      "2": "802.3af is the original PoE (Power over Ethernet) standard, which concerns power delivery over the cable, not VLAN tagging.",
+      "3": "802.11ac is a Wi-Fi (Wireless LAN) standard; it does not concern wired VLAN trunking."
+    }
   },
   {
     "id": "net4-007",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Routing"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Routing"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un ingegnere deve implementare un protocollo di routing interno (IGP) che sia uno standard aperto, di tipo link-state, e che calcoli il percorso migliore in base a un costo derivato dalla larghezza di banda dell'interfaccia. Quale protocollo soddisfa questi requisiti?",
-    "options": ["RIP", "OSPF", "BGP", "EIGRP"],
-    "correct": [1],
+    "options": [
+      "RIP",
+      "OSPF",
+      "BGP",
+      "EIGRP"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "OSPF (Open Shortest Path First) è un protocollo IGP link-state, standard aperto, che usa l'algoritmo SPF (Dijkstra) e calcola il costo dei percorsi in base alla larghezza di banda delle interfacce.",
     "why_wrong": {
       "0": "RIP è un protocollo distance-vector che usa il conteggio degli hop (max 15) come metrica, non un costo basato sulla larghezza di banda, e non è link-state.",
       "2": "BGP è un protocollo di routing esterno (EGP) path-vector usato tra sistemi autonomi su Internet, non un IGP link-state.",
       "3": "EIGRP è un protocollo advanced distance-vector proprietario Cisco (usa una metrica composita), non uno standard aperto link-state."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "An engineer must implement an interior gateway protocol (IGP) that is an open standard, of link-state type, and that calculates the best path based on a cost derived from the interface bandwidth. Which protocol meets these requirements?",
+    "options_en": [
+      "RIP",
+      "OSPF",
+      "BGP",
+      "EIGRP"
+    ],
+    "explanation_en": "OSPF (Open Shortest Path First) is a link-state IGP, an open standard, that uses the SPF (Dijkstra) algorithm and calculates path cost based on interface bandwidth.",
+    "why_wrong_en": {
+      "0": "RIP is a distance-vector protocol that uses hop count (max 15) as its metric, not a bandwidth-based cost, and it is not link-state.",
+      "2": "BGP is an exterior gateway protocol (EGP) of path-vector type used between autonomous systems on the Internet, not a link-state IGP.",
+      "3": "EIGRP is a Cisco-proprietary advanced distance-vector protocol (it uses a composite metric), not an open-standard link-state protocol."
+    }
   },
   {
     "id": "net4-008",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Sicurezza Wireless"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Sicurezza Wireless"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Un tecnico installa access point conformi allo standard Wi-Fi 6 (IEEE 802.11ax). Quali DUE bande di frequenza sono utilizzate da questo standard? (Seleziona due)",
-    "options": ["2,4 GHz", "5 GHz", "60 GHz", "900 MHz"],
-    "correct": [0, 1],
+    "options": [
+      "2,4 GHz",
+      "5 GHz",
+      "60 GHz",
+      "900 MHz"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Il Wi-Fi 6 (802.11ax) opera sia nella banda a 2,4 GHz sia in quella a 5 GHz, garantendo compatibilità retroattiva e migliori prestazioni tramite tecnologie come OFDMA. (L'estensione Wi-Fi 6E aggiunge la banda a 6 GHz.)",
     "why_wrong": {
       "2": "La banda a 60 GHz è utilizzata dallo standard 802.11ad (WiGig) per collegamenti a brevissima distanza ad altissima velocità, non dal Wi-Fi 6 di base.",
       "3": "La banda a 900 MHz è associata a tecnologie IoT come 802.11ah (HaLow), non allo standard 802.11ax."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A technician installs access points compliant with the Wi-Fi 6 standard (IEEE 802.11ax). Which TWO frequency bands are used by this standard? (Select two)",
+    "options_en": [
+      "2.4 GHz",
+      "5 GHz",
+      "60 GHz",
+      "900 MHz"
+    ],
+    "explanation_en": "Wi-Fi 6 (802.11ax) operates in both the 2.4 GHz band and the 5 GHz band, ensuring backward compatibility and better performance through technologies such as OFDMA. (The Wi-Fi 6E extension adds the 6 GHz band.)",
+    "why_wrong_en": {
+      "2": "The 60 GHz band is used by the 802.11ad (WiGig) standard for very-short-range, very-high-speed links, not by base Wi-Fi 6.",
+      "3": "The 900 MHz band is associated with IoT technologies such as 802.11ah (HaLow), not with the 802.11ax standard."
+    }
   },
   {
     "id": "net4-009",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Sicurezza Wireless"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Sicurezza Wireless"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un access point wireless richiede fino a 25,5 W di potenza al dispositivo per funzionare correttamente. Quale standard Power over Ethernet deve supportare lo switch per alimentare adeguatamente questo AP?",
-    "options": ["802.3af (PoE)", "802.3at (PoE+)", "802.3ab", "802.11n"],
-    "correct": [1],
+    "options": [
+      "802.3af (PoE)",
+      "802.3at (PoE+)",
+      "802.3ab",
+      "802.11n"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Lo standard 802.3at (PoE+) fornisce fino a 30 W dalla porta dello switch, di cui circa 25,5 W disponibili al dispositivo, soddisfacendo il requisito dell'AP.",
     "why_wrong": {
       "0": "802.3af (PoE) fornisce solo circa 15,4 W dalla porta (circa 12,95 W al dispositivo), insufficienti per i 25,5 W richiesti.",
       "2": "802.3ab è lo standard 1000BASE-T (Gigabit Ethernet su rame), non riguarda l'alimentazione PoE.",
       "3": "802.11n è uno standard Wi-Fi, non ha nulla a che vedere con l'erogazione di potenza tramite cavo."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A wireless access point requires up to 25.5 W of power at the device to function correctly. Which Power over Ethernet standard must the switch support to adequately power this AP?",
+    "options_en": [
+      "802.3af (PoE)",
+      "802.3at (PoE+)",
+      "802.3ab",
+      "802.11n"
+    ],
+    "explanation_en": "The 802.3at (PoE+) standard provides up to 30 W from the switch port, of which about 25.5 W are available at the device, meeting the AP's requirement.",
+    "why_wrong_en": {
+      "0": "802.3af (PoE) provides only about 15.4 W from the port (about 12.95 W at the device), insufficient for the required 25.5 W.",
+      "2": "802.3ab is the 1000BASE-T standard (Gigabit Ethernet over copper); it does not concern PoE power delivery.",
+      "3": "802.11n is a Wi-Fi standard; it has nothing to do with power delivery over the cable."
+    }
   },
   {
     "id": "net4-010",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Modello OSI"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Modello OSI"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Un progettista di rete deve scegliere tra fibra monomodale (SMF) e multimodale (MMF) per un collegamento dorsale. Quali DUE affermazioni descrivono correttamente la fibra monomodale rispetto alla multimodale? (Seleziona due)",
@@ -163,35 +369,78 @@
       "Utilizza tipicamente un laser come sorgente luminosa",
       "È generalmente meno costosa e più semplice da terminare"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "La fibra monomodale ha un core molto piccolo (circa 9 micron) che permette a un solo raggio di luce, generato tipicamente da un laser, di propagarsi con minima dispersione modale. Questo consente distanze molto maggiori (decine o centinaia di km) rispetto alla multimodale.",
     "why_wrong": {
       "1": "Il core più grande (50 o 62,5 micron) è una caratteristica della fibra multimodale, non della monomodale, che ha un core piccolo (~9 micron).",
       "3": "La fibra monomodale è generalmente più costosa e richiede componenti (laser, connettori) più precisi; è la multimodale a essere tipicamente più economica su corte distanze."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A network designer must choose between single-mode fiber (SMF) and multimode fiber (MMF) for a backbone link. Which TWO statements correctly describe single-mode fiber compared to multimode? (Select two)",
+    "options_en": [
+      "It supports notably greater distances (tens of km)",
+      "It has a larger core diameter (50 or 62.5 microns)",
+      "It typically uses a laser as its light source",
+      "It is generally cheaper and simpler to terminate"
+    ],
+    "explanation_en": "Single-mode fiber has a very small core (about 9 microns) that allows a single ray of light, typically generated by a laser, to propagate with minimal modal dispersion. This enables much greater distances (tens or hundreds of km) compared to multimode.",
+    "why_wrong_en": {
+      "1": "The larger core (50 or 62.5 microns) is a characteristic of multimode fiber, not of single-mode, which has a small core (~9 microns).",
+      "3": "Single-mode fiber is generally more expensive and requires more precise components (lasers, connectors); it is multimode that is typically cheaper over short distances."
+    }
   },
   {
     "id": "net4-011",
-    "cert": ["CompTIA Network+"],
-    "topics": ["DHCP"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "DHCP"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Un client appena avviato, senza un indirizzo IP configurato, deve ottenerne uno automaticamente. Nel processo DHCP (DORA), quale messaggio invia il client per PRIMO per individuare i server DHCP disponibili sulla rete?",
-    "options": ["DHCPOFFER", "DHCPDISCOVER", "DHCPREQUEST", "DHCPACK"],
-    "correct": [1],
+    "options": [
+      "DHCPOFFER",
+      "DHCPDISCOVER",
+      "DHCPREQUEST",
+      "DHCPACK"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Il processo DHCP segue la sequenza DORA: Discover, Offer, Request, Acknowledge. Il client inizia inviando un messaggio DHCPDISCOVER in broadcast per trovare i server DHCP disponibili.",
     "why_wrong": {
       "0": "Il DHCPOFFER è la risposta inviata dal server (non dal client) che propone un indirizzo IP disponibile.",
       "2": "Il DHCPREQUEST è inviato dal client dopo aver ricevuto un'offerta, per richiedere formalmente l'indirizzo proposto; non è il primo messaggio.",
       "3": "Il DHCPACK è la conferma finale inviata dal server che assegna definitivamente l'indirizzo IP (lease)."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A newly started client, without a configured IP address, must obtain one automatically. In the DHCP process (DORA), which message does the client send FIRST to locate the available DHCP servers on the network?",
+    "options_en": [
+      "DHCPOFFER",
+      "DHCPDISCOVER",
+      "DHCPREQUEST",
+      "DHCPACK"
+    ],
+    "explanation_en": "The DHCP process follows the DORA sequence: Discover, Offer, Request, Acknowledge. The client begins by sending a DHCPDISCOVER message as a broadcast to find the available DHCP servers.",
+    "why_wrong_en": {
+      "0": "The DHCPOFFER is the response sent by the server (not by the client) that proposes an available IP address.",
+      "2": "The DHCPREQUEST is sent by the client after receiving an offer, to formally request the proposed address; it is not the first message.",
+      "3": "The DHCPACK is the final confirmation sent by the server that definitively assigns the IP address (lease)."
+    }
   },
   {
     "id": "net4-012",
-    "cert": ["CompTIA Network+"],
-    "topics": ["TCP/IP"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "TCP/IP"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Un amministratore vuole monitorare i dispositivi di rete in modo sicuro utilizzando SNMPv3 anziché SNMPv2c. Quali DUE affermazioni riguardo a SNMPv3 sono corrette? (Seleziona due)",
@@ -201,47 +450,105 @@
       "Garantisce l'integrità dei messaggi tramite funzioni di hashing",
       "Opera esclusivamente sulla porta TCP 443 per la gestione"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "SNMPv3 introduce il modello di sicurezza USM, che fornisce autenticazione (verifica dell'identità), integrità (tramite hashing come HMAC-SHA) e riservatezza (cifratura, ad es. AES). Questo lo rende molto più sicuro delle versioni precedenti.",
     "why_wrong": {
       "1": "Le community string in chiaro sono il debole meccanismo di sicurezza di SNMPv1 e SNMPv2c, proprio ciò che SNMPv3 supera introducendo autenticazione e cifratura.",
       "3": "SNMP utilizza tipicamente le porte UDP 161 (query/polling) e 162 (trap), non la porta TCP 443, che è associata a HTTPS."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "An administrator wants to monitor network devices securely using SNMPv3 instead of SNMPv2c. Which TWO statements about SNMPv3 are correct? (Select two)",
+    "options_en": [
+      "It provides payload encryption and user authentication",
+      "It uses cleartext community strings as its only security mechanism",
+      "It ensures message integrity through hashing functions",
+      "It operates exclusively on TCP port 443 for management"
+    ],
+    "explanation_en": "SNMPv3 introduces the USM security model, which provides authentication (identity verification), integrity (through hashing such as HMAC-SHA) and confidentiality (encryption, e.g. AES). This makes it much more secure than the previous versions.",
+    "why_wrong_en": {
+      "1": "Cleartext community strings are the weak security mechanism of SNMPv1 and SNMPv2c, precisely what SNMPv3 overcomes by introducing authentication and encryption.",
+      "3": "SNMP typically uses UDP ports 161 (query/polling) and 162 (trap), not TCP port 443, which is associated with HTTPS."
+    }
   },
   {
     "id": "net4-013",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Troubleshooting"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Troubleshooting"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Nella documentazione di rete, un diagramma logico ha lo scopo di mostrare l'esatto cablaggio fisico dei cavi, la disposizione dei dispositivi nei rack e le posizioni delle prese a muro.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. Il diagramma logico rappresenta il flusso dei dati, gli indirizzi IP, le subnet, le VLAN e le relazioni tra i dispositivi a livello logico. La rappresentazione del cablaggio fisico, la disposizione nei rack e le posizioni delle prese sono invece proprie del diagramma fisico.",
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "In network documentation, a logical diagram is intended to show the exact physical cabling of the cables, the layout of devices in the racks and the locations of the wall outlets.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. The logical diagram represents the data flow, the IP addresses, the subnets, the VLANs and the relationships between devices at a logical level. The representation of the physical cabling, the rack layout and the outlet locations belong instead to the physical diagram."
   },
   {
     "id": "net4-014",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Routing"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Routing"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un'azienda vuole implementare la ridondanza del gateway predefinito per evitare un singolo punto di guasto. Necessita di un protocollo First Hop Redundancy Protocol (FHRP) che sia uno standard aperto e permetta a più router di condividere un indirizzo IP virtuale. Quale protocollo deve scegliere?",
-    "options": ["HSRP", "VRRP", "STP", "LACP"],
-    "correct": [1],
+    "options": [
+      "HSRP",
+      "VRRP",
+      "STP",
+      "LACP"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "VRRP (Virtual Router Redundancy Protocol) è un FHRP standard aperto (RFC) che consente a più router di condividere un indirizzo IP virtuale come gateway. Se il router master si guasta, un router di backup assume il ruolo, garantendo continuità.",
     "why_wrong": {
       "0": "HSRP (Hot Standby Router Protocol) svolge la stessa funzione, ma è un protocollo proprietario Cisco, quindi non è uno standard aperto come richiesto.",
       "2": "STP (Spanning Tree Protocol) previene i loop di Livello 2 negli ambienti switch, non fornisce ridondanza del gateway.",
       "3": "LACP aggrega più link fisici in un unico canale logico (link aggregation), non fornisce ridondanza del gateway di Livello 3."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A company wants to implement default gateway redundancy to avoid a single point of failure. It needs a First Hop Redundancy Protocol (FHRP) that is an open standard and allows multiple routers to share a virtual IP address. Which protocol should it choose?",
+    "options_en": [
+      "HSRP",
+      "VRRP",
+      "STP",
+      "LACP"
+    ],
+    "explanation_en": "VRRP (Virtual Router Redundancy Protocol) is an open-standard FHRP (RFC) that allows multiple routers to share a virtual IP address as a gateway. If the master router fails, a backup router takes over the role, ensuring continuity.",
+    "why_wrong_en": {
+      "0": "HSRP (Hot Standby Router Protocol) performs the same function, but it is a Cisco-proprietary protocol, so it is not an open standard as required.",
+      "2": "STP (Spanning Tree Protocol) prevents Layer 2 loops in switched environments; it does not provide gateway redundancy.",
+      "3": "LACP aggregates multiple physical links into a single logical channel (link aggregation); it does not provide Layer 3 gateway redundancy."
+    }
   },
   {
     "id": "net4-015",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Firewall"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Firewall"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Durante la progettazione della sicurezza perimetrale, un tecnico deve spiegare la differenza principale tra un firewall stateful e uno stateless. Quale affermazione descrive correttamente il firewall stateful?",
@@ -251,36 +558,79 @@
       "Non è in grado di bloccare alcun tipo di traffico in uscita",
       "Opera unicamente al Livello 1 (Fisico) del modello OSI"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un firewall stateful mantiene una tabella di stato che traccia le connessioni attive (indirizzi, porte, stato della sessione TCP). Questo gli permette di consentire automaticamente il traffico di ritorno di una connessione legittima già stabilita, prendendo decisioni basate sul contesto, a differenza del firewall stateless che valuta ogni pacchetto isolatamente.",
     "why_wrong": {
       "0": "Il filtraggio basato solo sull'indirizzo MAC è tipico del port security a Livello 2, non è ciò che distingue un firewall stateful da uno stateless.",
       "2": "Un firewall, sia stateful sia stateless, è progettato proprio per poter bloccare il traffico secondo le regole configurate, incluso quello in uscita.",
       "3": "I firewall operano ai livelli superiori (rete/trasporto e, per i NGFW, applicazione), non al Livello 1 Fisico."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "During the design of perimeter security, a technician must explain the main difference between a stateful and a stateless firewall. Which statement correctly describes the stateful firewall?",
+    "options_en": [
+      "It filters traffic exclusively based on the source MAC address",
+      "It keeps track of the state of active connections in a state table and automatically allows the return traffic",
+      "It is unable to block any type of outbound traffic",
+      "It operates only at Layer 1 (Physical) of the OSI model"
+    ],
+    "explanation_en": "A stateful firewall maintains a state table that tracks active connections (addresses, ports, TCP session state). This allows it to automatically permit the return traffic of a legitimate, already-established connection, making decisions based on context, unlike the stateless firewall that evaluates each packet in isolation.",
+    "why_wrong_en": {
+      "0": "Filtering based only on the MAC address is typical of Layer 2 port security; it is not what distinguishes a stateful firewall from a stateless one.",
+      "2": "A firewall, whether stateful or stateless, is specifically designed to be able to block traffic according to the configured rules, including outbound traffic.",
+      "3": "Firewalls operate at the higher layers (network/transport and, for NGFWs, application), not at Layer 1 Physical."
+    }
   },
   {
     "id": "net4-016",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Sicurezza Wireless"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Sicurezza Wireless"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un'azienda aggiorna la sicurezza della rete wireless per proteggersi dagli attacchi di forza bruta offline sulla password. Quale protocollo di sicurezza utilizza SAE (Simultaneous Authentication of Equals) al posto del PSK a 4 vie tradizionale?",
-    "options": ["WEP", "WPA2-PSK", "WPA3", "WPA (originale)"],
-    "correct": [2],
+    "options": [
+      "WEP",
+      "WPA2-PSK",
+      "WPA3",
+      "WPA (originale)"
+    ],
+    "correct": [
+      2
+    ],
     "explanation": "WPA3 sostituisce lo scambio di chiavi PSK con SAE (Simultaneous Authentication of Equals), un handshake basato su Dragonfly che offre forward secrecy e resiste agli attacchi di dizionario/forza bruta offline anche con password deboli.",
     "why_wrong": {
       "0": "WEP è un protocollo obsoleto e gravemente insicuro basato su RC4, facilmente violabile; non usa SAE.",
       "1": "WPA2-PSK usa il classico handshake a 4 vie, vulnerabile alla cattura e al successivo cracking offline, ed è proprio ciò che SAE mira a superare.",
       "3": "Il WPA originale usa TKIP ed è deprecato; non implementa SAE."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A company upgrades its wireless network security to protect against offline brute-force attacks on the password. Which security protocol uses SAE (Simultaneous Authentication of Equals) in place of the traditional 4-way PSK?",
+    "options_en": [
+      "WEP",
+      "WPA2-PSK",
+      "WPA3",
+      "WPA (original)"
+    ],
+    "explanation_en": "WPA3 replaces the PSK key exchange with SAE (Simultaneous Authentication of Equals), a Dragonfly-based handshake that offers forward secrecy and resists offline dictionary/brute-force attacks even with weak passwords.",
+    "why_wrong_en": {
+      "0": "WEP is an obsolete and severely insecure protocol based on RC4, easily broken; it does not use SAE.",
+      "1": "WPA2-PSK uses the classic 4-way handshake, vulnerable to capture and subsequent offline cracking, and it is precisely what SAE aims to overcome.",
+      "3": "The original WPA uses TKIP and is deprecated; it does not implement SAE."
+    }
   },
   {
     "id": "net4-017",
-    "cert": ["CompTIA Network+"],
-    "topics": ["VLAN"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "VLAN"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Durante un audit di sicurezza, un tecnico deve rafforzare gli switch contro gli attacchi di VLAN hopping. Quali DUE misure aiutano a mitigare efficacemente questo tipo di attacco? (Seleziona due)",
@@ -290,18 +640,37 @@
       "Cambiare la native VLAN predefinita (VLAN 1) assegnando una VLAN non utilizzata e dedicata",
       "Sostituire tutti gli switch gestiti con hub non gestiti"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Il VLAN hopping sfrutta lo switch spoofing (negoziazione DTP che crea trunk indesiderati) e il double tagging (che abusa della native VLAN). Disabilitare DTP e forzare le porte in modalità access blocca lo switch spoofing, mentre cambiare la native VLAN da quella predefinita e non usarla per il traffico dati mitiga il double tagging.",
     "why_wrong": {
       "1": "Il proxy ARP riguarda la risoluzione degli indirizzi tra sottoreti e non ha alcun effetto sulla mitigazione del VLAN hopping; può anzi introdurre altri rischi.",
       "3": "Sostituire gli switch con hub eliminerebbe le VLAN ma degraderebbe drasticamente sicurezza e prestazioni (dominio di collisione unico, traffico visibile a tutti): non è una mitigazione valida."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "During a security audit, a technician must harden the switches against VLAN hopping attacks. Which TWO measures help to effectively mitigate this type of attack? (Select two)",
+    "options_en": [
+      "Disable DTP negotiation and explicitly configure the ports as access ports",
+      "Enable proxy ARP on all management interfaces",
+      "Change the default native VLAN (VLAN 1) by assigning an unused, dedicated VLAN",
+      "Replace all managed switches with unmanaged hubs"
+    ],
+    "explanation_en": "VLAN hopping exploits switch spoofing (DTP negotiation that creates unwanted trunks) and double tagging (which abuses the native VLAN). Disabling DTP and forcing the ports into access mode blocks switch spoofing, while changing the native VLAN from the default and not using it for data traffic mitigates double tagging.",
+    "why_wrong_en": {
+      "1": "Proxy ARP concerns address resolution between subnets and has no effect on mitigating VLAN hopping; it may in fact introduce other risks.",
+      "3": "Replacing the switches with hubs would eliminate VLANs but would drastically degrade security and performance (single collision domain, traffic visible to everyone): it is not a valid mitigation."
+    }
   },
   {
     "id": "net4-018",
-    "cert": ["CompTIA Network+"],
-    "topics": ["NAT"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "NAT"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Una piccola azienda dispone di un solo indirizzo IP pubblico fornito dall'ISP, ma ha circa 40 dispositivi interni che devono accedere contemporaneamente a Internet. Quale tecnologia consente a tutti questi dispositivi di condividere l'unico IP pubblico?",
@@ -311,19 +680,38 @@
       "Una DMZ",
       "Il subnetting VLSM"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "La PAT (Port Address Translation), nota anche come NAT Overload, mappa molti indirizzi IP privati su un unico indirizzo IP pubblico distinguendo le sessioni tramite numeri di porta diversi. È la soluzione ideale quando si dispone di un solo IP pubblico per molti host interni.",
     "why_wrong": {
       "0": "Il NAT statico crea una mappatura fissa uno-a-uno tra un indirizzo privato e uno pubblico: con un solo IP pubblico non potrebbe servire 40 dispositivi contemporaneamente.",
       "2": "Una DMZ è una zona di rete separata per esporre servizi pubblici in modo controllato, non un meccanismo per condividere un IP pubblico tra molti client.",
       "3": "Il subnetting VLSM suddivide gli indirizzi in sottoreti di dimensioni variabili, ma non traduce indirizzi privati in pubblici per l'accesso a Internet."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A small company has only one public IP address provided by the ISP, but has about 40 internal devices that must access the Internet simultaneously. Which technology allows all these devices to share the single public IP?",
+    "options_en": [
+      "Static one-to-one NAT",
+      "PAT (Port Address Translation / NAT Overload)",
+      "A DMZ",
+      "VLSM subnetting"
+    ],
+    "explanation_en": "PAT (Port Address Translation), also known as NAT Overload, maps many private IP addresses onto a single public IP address by distinguishing the sessions through different port numbers. It is the ideal solution when you have only one public IP for many internal hosts.",
+    "why_wrong_en": {
+      "0": "Static NAT creates a fixed one-to-one mapping between a private and a public address: with only one public IP it could not serve 40 devices simultaneously.",
+      "2": "A DMZ is a separate network zone for exposing public services in a controlled way, not a mechanism for sharing a public IP among many clients.",
+      "3": "VLSM subnetting divides addresses into subnets of variable size, but it does not translate private addresses into public ones for Internet access."
+    }
   },
   {
     "id": "net4-019",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Troubleshooting"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Troubleshooting"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Gli utenti collegati a una specifica porta dello switch segnalano rallentamenti e ritrasmissioni. Analizzando i contatori dell'interfaccia, il tecnico nota un elevato numero di errori CRC in ingresso. Quale è la causa più probabile del problema?",
@@ -333,48 +721,107 @@
       "Interferenze elettromagnetiche (EMI) o un cavo/connettore danneggiato",
       "Una maschera di sottorete errata sui client"
     ],
-    "correct": [2],
+    "correct": [
+      2
+    ],
     "explanation": "Gli errori CRC indicano che i frame ricevuti hanno un checksum non valido, sintomo tipico di problemi al Livello 1 (Fisico): interferenze elettromagnetiche (EMI/crosstalk), cavo danneggiato o piegato, connettore mal crimpato o eccessiva lunghezza del cavo. La corruzione fisica dei frame causa ritrasmissioni e rallentamenti.",
     "why_wrong": {
       "0": "Un DNS errato causa problemi di risoluzione dei nomi (impossibile raggiungere siti per nome), non errori CRC di frame a livello fisico.",
       "1": "Un IP duplicato genera conflitti di indirizzamento e perdita intermittente di connettività, ma non produce errori CRC sui contatori dell'interfaccia.",
       "3": "Una maschera di sottorete errata causa problemi di comunicazione tra sottoreti, non la corruzione fisica dei frame indicata dagli errori CRC."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "Users connected to a specific switch port report slowdowns and retransmissions. Analyzing the interface counters, the technician notices a high number of inbound CRC errors. What is the most likely cause of the problem?",
+    "options_en": [
+      "An incorrectly configured DNS server",
+      "A duplicate IP address on the LAN",
+      "Electromagnetic interference (EMI) or a damaged cable/connector",
+      "An incorrect subnet mask on the clients"
+    ],
+    "explanation_en": "CRC errors indicate that the received frames have an invalid checksum, a typical symptom of Layer 1 (Physical) problems: electromagnetic interference (EMI/crosstalk), a damaged or bent cable, a poorly crimped connector or excessive cable length. Physical corruption of the frames causes retransmissions and slowdowns.",
+    "why_wrong_en": {
+      "0": "An incorrect DNS causes name resolution problems (unable to reach sites by name), not CRC errors of frames at the physical level.",
+      "1": "A duplicate IP generates addressing conflicts and intermittent loss of connectivity, but it does not produce CRC errors on the interface counters.",
+      "3": "An incorrect subnet mask causes communication problems between subnets, not the physical corruption of frames indicated by CRC errors."
+    }
   },
   {
     "id": "net4-020",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Troubleshooting"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Troubleshooting"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Un utente non riesce a raggiungere un server remoto e il tecnico sospetta che il problema si trovi in un punto intermedio del percorso. Quale comando permette di visualizzare tutti gli hop (router) attraversati dai pacchetti verso la destinazione, evidenziando dove il traffico si interrompe?",
-    "options": ["ping", "tracert / traceroute", "nslookup", "ipconfig / ifconfig"],
-    "correct": [1],
+    "options": [
+      "ping",
+      "tracert / traceroute",
+      "nslookup",
+      "ipconfig / ifconfig"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "tracert (Windows) o traceroute (Linux/macOS) mostra la sequenza di router (hop) attraversati per raggiungere una destinazione, con i tempi di risposta per ciascuno. Consente di isolare in quale punto del percorso il traffico si blocca o rallenta.",
     "why_wrong": {
       "0": "ping verifica solo la raggiungibilità end-to-end e la latenza verso un singolo host, senza mostrare i router intermedi del percorso.",
       "2": "nslookup interroga il DNS per risolvere nomi in indirizzi IP, non traccia il percorso dei pacchetti.",
       "3": "ipconfig/ifconfig mostra la configurazione IP locale dell'host, non il percorso verso una destinazione remota."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A user is unable to reach a remote server and the technician suspects that the problem lies at an intermediate point along the path. Which command allows you to display all the hops (routers) traversed by the packets toward the destination, highlighting where the traffic stops?",
+    "options_en": [
+      "ping",
+      "tracert / traceroute",
+      "nslookup",
+      "ipconfig / ifconfig"
+    ],
+    "explanation_en": "tracert (Windows) or traceroute (Linux/macOS) shows the sequence of routers (hops) traversed to reach a destination, with the response times for each one. It allows you to isolate at which point along the path the traffic stops or slows down.",
+    "why_wrong_en": {
+      "0": "ping only verifies end-to-end reachability and latency toward a single host, without showing the intermediate routers along the path.",
+      "2": "nslookup queries DNS to resolve names into IP addresses; it does not trace the path of the packets.",
+      "3": "ipconfig/ifconfig shows the local IP configuration of the host, not the path toward a remote destination."
+    }
   },
   {
     "id": "net4-021",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Troubleshooting", "DHCP"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Troubleshooting",
+      "DHCP"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Se un client ottiene un indirizzo IP nell'intervallo 169.254.0.0/16 (APIPA), significa che ha ricevuto correttamente la configurazione da un server DHCP raggiungibile.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. Un indirizzo APIPA (169.254.x.x) viene auto-assegnato dal client proprio quando NON riesce a contattare un server DHCP. È un chiaro segnale di un problema DHCP (server irraggiungibile, scope esaurito, VLAN/link errato o assenza di IP helper/relay), non di una configurazione riuscita.",
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "If a client obtains an IP address in the range 169.254.0.0/16 (APIPA), it means it has correctly received the configuration from a reachable DHCP server.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. An APIPA address (169.254.x.x) is self-assigned by the client precisely when it CANNOT contact a DHCP server. It is a clear sign of a DHCP problem (unreachable server, exhausted scope, wrong VLAN/link or absence of an IP helper/relay), not of a successful configuration."
   },
   {
     "id": "net4-022",
-    "cert": ["CompTIA Network+"],
-    "topics": ["Troubleshooting"],
+    "cert": [
+      "CompTIA Network+"
+    ],
+    "topics": [
+      "Troubleshooting"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Un collegamento tra un PC e uno switch presenta prestazioni scadenti. I contatori dell'interfaccia mostrano un numero elevato di late collisions (collisioni tardive) e runts sul lato full-duplex. Quale è la causa più probabile?",
@@ -384,13 +831,28 @@
       "Il valore TTL dei pacchetti scaduto lungo il percorso",
       "Una MTU configurata troppo alta (jumbo frame)"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "Le late collisions su un link full-duplex sono un classico sintomo di duplex mismatch: un lato opera in full-duplex (non ascolta le collisioni) mentre l'altro è in half-duplex (applica CSMA/CD e rileva collisioni). Il risultato sono collisioni tardive, runts, frame scartati e prestazioni fortemente degradate. La correzione consiste nell'allineare le impostazioni di velocità/duplex su entrambe le estremità.",
     "why_wrong": {
       "1": "Una VLAN errata impedirebbe o dirotterebbe la comunicazione, ma non genera late collisions, che sono un fenomeno di Livello 1/2 legato al duplex.",
       "2": "Un TTL scaduto causa lo scarto dei pacchetti a livello di routing (Livello 3), non collisioni tardive su un singolo link locale.",
       "3": "Una MTU/jumbo frame non concordata provoca frammentazione o scarto dei frame oversize, non late collisions e runts tipici del duplex mismatch."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "A link between a PC and a switch shows poor performance. The interface counters show a high number of late collisions and runts on the full-duplex side. What is the most likely cause?",
+    "options_en": [
+      "A duplex mismatch (one side full-duplex and the other half-duplex)",
+      "The wrong VLAN assignment on the access port",
+      "The packets' TTL value expired along the path",
+      "An MTU configured too high (jumbo frame)"
+    ],
+    "explanation_en": "Late collisions on a full-duplex link are a classic symptom of a duplex mismatch: one side operates in full-duplex (does not listen for collisions) while the other is in half-duplex (applies CSMA/CD and detects collisions). The result is late collisions, runts, discarded frames and heavily degraded performance. The fix consists of aligning the speed/duplex settings on both ends.",
+    "why_wrong_en": {
+      "1": "A wrong VLAN would prevent or misroute communication, but it does not generate late collisions, which are a Layer 1/2 phenomenon related to duplex.",
+      "2": "An expired TTL causes packets to be discarded at the routing level (Layer 3), not late collisions on a single local link.",
+      "3": "A mismatched MTU/jumbo frame causes fragmentation or discarding of oversized frames, not the late collisions and runts typical of a duplex mismatch."
+    }
   }
 ]
