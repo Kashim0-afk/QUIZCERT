@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In un modello IaaS (Infrastructure as a Service), quale componente e responsabilita del CLIENTE e NON del fornitore cloud?",
+    "question_en": "In an IaaS (Infrastructure as a Service) model, which component is the responsibility of the CUSTOMER and NOT of the cloud provider?",
     "options": [
       "L'hardware fisico dei server nel data center",
       "Il sistema operativo, le patch e le applicazioni installate sulle macchine virtuali",
       "L'alimentazione elettrica e il raffreddamento del data center",
       "La virtualizzazione dell'hypervisor sottostante"
     ],
+    "options_en": [
+      "The physical server hardware in the data center",
+      "The operating system, patches, and applications installed on the virtual machines",
+      "The electrical power and cooling of the data center",
+      "The virtualization of the underlying hypervisor"
+    ],
     "correct": [1],
     "explanation": "Nel modello IaaS il fornitore gestisce l'infrastruttura fisica (hardware, rete, storage, virtualizzazione), mentre il cliente e responsabile del sistema operativo, degli aggiornamenti, del middleware, dei runtime e delle applicazioni. E il modello che lascia piu controllo (e piu responsabilita) all'utente.",
+    "explanation_en": "In the IaaS model the provider manages the physical infrastructure (hardware, network, storage, virtualization), while the customer is responsible for the operating system, updates, middleware, runtimes, and applications. It is the model that leaves the most control (and the most responsibility) to the user.",
     "why_wrong": {
       "0": "L'hardware fisico e sempre gestito dal fornitore cloud, non dal cliente.",
       "2": "Alimentazione e raffreddamento del data center sono parte dell'infrastruttura fisica gestita dal provider.",
       "3": "L'hypervisor e lo strato di virtualizzazione sono gestiti dal fornitore anche in IaaS."
+    },
+    "why_wrong_en": {
+      "0": "The physical hardware is always managed by the cloud provider, not by the customer.",
+      "2": "Data center power and cooling are part of the physical infrastructure managed by the provider.",
+      "3": "The hypervisor and the virtualization layer are managed by the provider even in IaaS."
     },
     "source": "IT generale"
   },
@@ -28,18 +41,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale affermazione descrive correttamente il modello FaaS (Function as a Service), tipico del serverless?",
+    "question_en": "Which statement correctly describes the FaaS (Function as a Service) model, typical of serverless?",
     "options": [
       "Il cliente deve dimensionare e gestire manualmente i server sempre accesi che eseguono le funzioni",
       "Il codice viene eseguito su richiesta in risposta a eventi e si paga solo per il tempo di esecuzione effettivo",
       "E obbligatorio installare e mantenere un sistema operativo dedicato per ogni funzione",
       "Le funzioni restano in esecuzione continua 24 ore su 24 indipendentemente dalle richieste"
     ],
+    "options_en": [
+      "The customer must manually size and manage the always-on servers that run the functions",
+      "The code runs on demand in response to events, and you pay only for the actual execution time",
+      "You are required to install and maintain a dedicated operating system for each function",
+      "The functions stay running continuously 24/7 regardless of requests"
+    ],
     "correct": [1],
     "explanation": "In FaaS (es. AWS Lambda, Azure Functions, Google Cloud Functions) il codice e organizzato in funzioni attivate da eventi (una richiesta HTTP, un file caricato, un messaggio in coda). Il provider gestisce interamente l'infrastruttura e la scalabilita; il cliente paga solo per l'effettivo tempo di calcolo consumato, senza server sempre accesi.",
+    "explanation_en": "In FaaS (e.g. AWS Lambda, Azure Functions, Google Cloud Functions) code is organized into functions triggered by events (an HTTP request, an uploaded file, a message in a queue). The provider fully manages the infrastructure and scaling; the customer pays only for the actual compute time consumed, with no always-on servers.",
     "why_wrong": {
       "0": "L'assenza di gestione dei server e proprio il punto del serverless: non si dimensionano macchine.",
       "2": "Il provider astrae il sistema operativo: lo sviluppatore carica solo il codice della funzione.",
       "3": "Le funzioni vengono avviate solo quando serve; restare sempre attive contraddirebbe il modello pay-per-use."
+    },
+    "why_wrong_en": {
+      "0": "The absence of server management is exactly the point of serverless: you don't size machines.",
+      "2": "The provider abstracts away the operating system: the developer only uploads the function's code.",
+      "3": "Functions are started only when needed; staying always active would contradict the pay-per-use model."
     },
     "source": "IT generale"
   },
@@ -50,18 +76,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Secondo le 5 caratteristiche essenziali del cloud definite dal NIST, cosa indica il 'resource pooling' (raggruppamento delle risorse)?",
+    "question_en": "According to the 5 essential characteristics of the cloud defined by NIST, what does 'resource pooling' mean?",
     "options": [
       "L'utente puo attivare risorse in autonomia senza interazione umana con il fornitore",
       "Le risorse di calcolo del provider sono condivise tra piu clienti tramite un modello multi-tenant, assegnate dinamicamente secondo la domanda",
       "Il sistema misura e riporta il consumo delle risorse per la fatturazione",
       "Le risorse si espandono e riducono rapidamente in base al carico"
     ],
+    "options_en": [
+      "The user can provision resources on their own without human interaction with the provider",
+      "The provider's compute resources are shared among multiple customers through a multi-tenant model, dynamically assigned according to demand",
+      "The system measures and reports resource consumption for billing",
+      "Resources expand and shrink rapidly based on load"
+    ],
     "correct": [1],
     "explanation": "Il resource pooling significa che il fornitore mette in comune (pool) le proprie risorse fisiche e virtuali per servire piu clienti in modalita multi-tenant, assegnandole e riassegnandole dinamicamente in base alla domanda. Il cliente in genere non conosce la posizione fisica esatta delle risorse che sta usando.",
+    "explanation_en": "Resource pooling means that the provider pools its physical and virtual resources to serve multiple customers in a multi-tenant fashion, assigning and reassigning them dynamically based on demand. The customer generally does not know the exact physical location of the resources being used.",
     "why_wrong": {
       "0": "Quella descrizione corrisponde all'on-demand self-service, non al resource pooling.",
       "2": "La misurazione del consumo per la fatturazione e la caratteristica 'measured service'.",
       "3": "L'espansione e riduzione rapida delle risorse e la 'rapid elasticity'."
+    },
+    "why_wrong_en": {
+      "0": "That description corresponds to on-demand self-service, not resource pooling.",
+      "2": "Measuring consumption for billing is the 'measured service' characteristic.",
+      "3": "The rapid expansion and reduction of resources is 'rapid elasticity'."
     },
     "source": "IT generale"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual e la differenza tra scalabilita VERTICALE e scalabilita ORIZZONTALE?",
+    "question_en": "What is the difference between VERTICAL scalability and HORIZONTAL scalability?",
     "options": [
       "La verticale aggiunge piu macchine identiche, l'orizzontale potenzia una singola macchina",
       "La verticale potenzia una singola risorsa (piu CPU/RAM), l'orizzontale aggiunge piu istanze che lavorano in parallelo",
       "Sono sinonimi e indicano la stessa operazione di aumento delle risorse",
       "La verticale riguarda solo lo storage, l'orizzontale solo la rete"
     ],
+    "options_en": [
+      "Vertical adds more identical machines, horizontal upgrades a single machine",
+      "Vertical upgrades a single resource (more CPU/RAM), horizontal adds more instances working in parallel",
+      "They are synonyms and denote the same operation of increasing resources",
+      "Vertical concerns only storage, horizontal only the network"
+    ],
     "correct": [1],
     "explanation": "La scalabilita verticale (scale up/down) aumenta la potenza di una singola macchina aggiungendo CPU, RAM o disco. La scalabilita orizzontale (scale out/in) aggiunge o rimuove istanze/nodi che lavorano in parallelo, distribuendo il carico (spesso con un load balancer). L'orizzontale e in genere piu adatta al cloud perche piu elastica e resiliente.",
+    "explanation_en": "Vertical scalability (scale up/down) increases the power of a single machine by adding CPU, RAM, or disk. Horizontal scalability (scale out/in) adds or removes instances/nodes working in parallel, distributing the load (often with a load balancer). Horizontal is generally better suited to the cloud because it is more elastic and resilient.",
     "why_wrong": {
       "0": "Le definizioni sono invertite: aggiungere macchine e orizzontale, potenziare una macchina e verticale.",
       "2": "Sono due approcci distinti con implicazioni diverse su costo, disponibilita e limiti fisici.",
       "3": "Entrambe possono riguardare CPU, RAM, storage o rete; la distinzione non e per tipo di risorsa."
+    },
+    "why_wrong_en": {
+      "0": "The definitions are reversed: adding machines is horizontal, upgrading a machine is vertical.",
+      "2": "They are two distinct approaches with different implications for cost, availability, and physical limits.",
+      "3": "Both can concern CPU, RAM, storage, or network; the distinction is not by type of resource."
     },
     "source": "IT generale"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In un'architettura cloud ad alta disponibilita, cos'e una 'availability zone' (zona di disponibilita)?",
+    "question_en": "In a highly available cloud architecture, what is an 'availability zone'?",
     "options": [
       "Un singolo server ridondato all'interno di un rack",
       "Un data center (o gruppo di data center) isolato all'interno di una regione, con alimentazione e rete indipendenti, per tollerare guasti localizzati",
       "Una copia di backup dei dati archiviata a freddo",
       "Un indirizzo IP pubblico assegnato all'applicazione"
     ],
+    "options_en": [
+      "A single redundant server within a rack",
+      "A data center (or group of data centers) isolated within a region, with independent power and network, to tolerate localized failures",
+      "A cold-stored backup copy of the data",
+      "A public IP address assigned to the application"
+    ],
     "correct": [1],
     "explanation": "Una availability zone e una o piu strutture fisiche isolate all'interno di una regione, con alimentazione, raffreddamento e rete indipendenti. Distribuendo le istanze su piu zone, se una zona subisce un guasto le altre continuano a servire il traffico, garantendo alta disponibilita. Piu zone formano una regione.",
+    "explanation_en": "An availability zone is one or more isolated physical facilities within a region, with independent power, cooling, and network. By distributing instances across multiple zones, if one zone fails the others keep serving traffic, ensuring high availability. Multiple zones make up a region.",
     "why_wrong": {
       "0": "Una availability zone e molto piu di un singolo server: e un'infrastruttura isolata a livello di data center.",
       "2": "Un backup a freddo e un meccanismo di ripristino, non una zona di disponibilita.",
       "3": "Un indirizzo IP e un elemento di rete, non ha nulla a che vedere con l'isolamento fisico delle zone."
+    },
+    "why_wrong_en": {
+      "0": "An availability zone is much more than a single server: it is an isolated data-center-level infrastructure.",
+      "2": "A cold backup is a recovery mechanism, not an availability zone.",
+      "3": "An IP address is a network element and has nothing to do with the physical isolation of zones."
     },
     "source": "IT generale"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un'azienda deve archiviare milioni di immagini e video accessibili via web tramite API, con costi bassi e scalabilita virtualmente illimitata. Quale tipo di storage cloud e piu adatto?",
+    "question_en": "A company needs to store millions of images and videos accessible over the web via API, with low costs and virtually unlimited scalability. Which type of cloud storage is most suitable?",
     "options": [
       "Block storage (archiviazione a blocchi)",
       "Object storage (archiviazione a oggetti)",
       "File storage con montaggio NFS su una singola VM",
       "Memoria RAM di un'istanza di calcolo"
     ],
+    "options_en": [
+      "Block storage",
+      "Object storage",
+      "File storage with an NFS mount on a single VM",
+      "The RAM of a compute instance"
+    ],
     "correct": [1],
     "explanation": "L'object storage (es. Amazon S3, Azure Blob, Google Cloud Storage) e ideale per grandi volumi di dati non strutturati come immagini, video e backup. Ogni oggetto ha metadati e un identificatore univoco, e accessibile via API/HTTP, scala in modo praticamente illimitato e ha costi per GB molto bassi.",
+    "explanation_en": "Object storage (e.g. Amazon S3, Azure Blob, Google Cloud Storage) is ideal for large volumes of unstructured data such as images, videos, and backups. Each object has metadata and a unique identifier, is accessible via API/HTTP, scales virtually without limit, and has very low per-GB costs.",
     "why_wrong": {
       "0": "Il block storage e pensato per dischi di VM e database che richiedono bassa latenza, non per servire file via web su larga scala.",
       "2": "Il file storage condiviso e adatto a file system tradizionali, ma non scala altrettanto bene ne offre API HTTP native per oggetti.",
       "3": "La RAM e volatile e costosa: non e un sistema di archiviazione persistente per grandi volumi."
+    },
+    "why_wrong_en": {
+      "0": "Block storage is designed for VM disks and databases that require low latency, not for serving files over the web at large scale.",
+      "2": "Shared file storage suits traditional file systems, but it does not scale as well nor offer native HTTP APIs for objects.",
+      "3": "RAM is volatile and expensive: it is not a persistent storage system for large volumes."
     },
     "source": "IT generale"
   },
@@ -138,18 +216,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In una rete cloud virtuale (VPC), qual e la funzione principale di un 'security group'?",
+    "question_en": "In a virtual cloud network (VPC), what is the main function of a 'security group'?",
     "options": [
       "Suddividere la VPC in intervalli di indirizzi IP piu piccoli",
       "Agire come firewall virtuale a livello di istanza, controllando il traffico in ingresso e in uscita",
       "Distribuire i contenuti statici su server geograficamente vicini agli utenti",
       "Assegnare automaticamente indirizzi IP privati alle istanze"
     ],
+    "options_en": [
+      "Subdivide the VPC into smaller IP address ranges",
+      "Act as a virtual firewall at the instance level, controlling inbound and outbound traffic",
+      "Distribute static content on servers geographically close to users",
+      "Automatically assign private IP addresses to instances"
+    ],
     "correct": [1],
     "explanation": "Un security group e un firewall virtuale che opera a livello di istanza (o di interfaccia di rete): definisce regole che consentono o bloccano il traffico in ingresso (inbound) e in uscita (outbound) in base a porte, protocolli e sorgenti/destinazioni. E uno dei controlli fondamentali per la sicurezza di rete nel cloud.",
+    "explanation_en": "A security group is a virtual firewall that operates at the instance level (or network interface level): it defines rules that allow or block inbound and outbound traffic based on ports, protocols, and sources/destinations. It is one of the fundamental controls for network security in the cloud.",
     "why_wrong": {
       "0": "La suddivisione in intervalli IP e il compito delle subnet, non dei security group.",
       "2": "La distribuzione geografica dei contenuti statici e il ruolo di una CDN.",
       "3": "L'assegnazione automatica di IP privati e gestita dal DHCP/servizio della subnet, non dal security group."
+    },
+    "why_wrong_en": {
+      "0": "Subdividing into IP ranges is the job of subnets, not security groups.",
+      "2": "The geographic distribution of static content is the role of a CDN.",
+      "3": "The automatic assignment of private IPs is handled by the subnet's DHCP/service, not by the security group."
     },
     "source": "IT generale"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un'azienda vuole ridurre i costi eseguendo carichi di lavoro batch tolleranti alle interruzioni, che possono essere fermati con breve preavviso. Quale modello di pricing e piu conveniente?",
+    "question_en": "A company wants to reduce costs by running interruption-tolerant batch workloads that can be stopped on short notice. Which pricing model is most cost-effective?",
     "options": [
       "Istanze on-demand (pay-as-you-go) a tariffa piena",
       "Istanze riservate (reserved) con impegno pluriennale",
       "Istanze spot, che usano capacita in eccesso a prezzo scontato ma possono essere revocate",
       "Un piano SaaS ad abbonamento mensile fisso"
     ],
+    "options_en": [
+      "On-demand (pay-as-you-go) instances at full price",
+      "Reserved instances with a multi-year commitment",
+      "Spot instances, which use excess capacity at a discounted price but can be reclaimed",
+      "A SaaS plan with a fixed monthly subscription"
+    ],
     "correct": [2],
     "explanation": "Le istanze spot sfruttano la capacita di calcolo inutilizzata del provider a sconti molto elevati rispetto all'on-demand, ma possono essere revocate con brevissimo preavviso quando la capacita serve altrove. Sono ideali per carichi batch, elaborazioni parallele e lavori tolleranti alle interruzioni, dove il basso costo prevale sulla continuita.",
+    "explanation_en": "Spot instances leverage the provider's unused compute capacity at very steep discounts compared to on-demand, but they can be reclaimed on very short notice when the capacity is needed elsewhere. They are ideal for batch workloads, parallel processing, and interruption-tolerant jobs, where low cost outweighs continuity.",
     "why_wrong": {
       "0": "L'on-demand a tariffa piena e il modello piu costoso: non ottimizza i costi per carichi flessibili.",
       "1": "Le istanze riservate convengono per carichi stabili e prevedibili nel tempo, non per lavori sporadici e interrompibili.",
       "3": "Un abbonamento SaaS non e un modello di calcolo per eseguire batch personalizzati."
+    },
+    "why_wrong_en": {
+      "0": "Full-price on-demand is the most expensive model: it does not optimize costs for flexible workloads.",
+      "1": "Reserved instances are worthwhile for stable, predictable workloads over time, not for sporadic, interruptible jobs.",
+      "3": "A SaaS subscription is not a compute model for running custom batch jobs."
     },
     "source": "IT generale"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Cosa si intende per migrazione 'lift-and-shift' (rehost) verso il cloud?",
+    "question_en": "What is meant by a 'lift-and-shift' (rehost) migration to the cloud?",
     "options": [
       "Riscrivere completamente l'applicazione con un'architettura cloud-native a microservizi",
       "Spostare l'applicazione esistente sul cloud cosi com'e, senza modifiche significative al codice",
       "Sostituire l'applicazione con un prodotto SaaS di terze parti",
       "Modificare parte della piattaforma sottostante mantenendo il codice principale (replatform)"
     ],
+    "options_en": [
+      "Completely rewrite the application with a cloud-native microservices architecture",
+      "Move the existing application to the cloud as-is, with no significant changes to the code",
+      "Replace the application with a third-party SaaS product",
+      "Modify part of the underlying platform while keeping the core code (replatform)"
+    ],
     "correct": [1],
     "explanation": "Il lift-and-shift (o rehost) consiste nello spostare un'applicazione dal data center on-premise al cloud senza riprogettarla: si 'solleva' e 'sposta' cosi com'e. E la strategia piu rapida e a basso rischio iniziale, ma non sfrutta appieno i vantaggi cloud-native (elasticita, servizi gestiti).",
+    "explanation_en": "Lift-and-shift (or rehost) consists of moving an application from the on-premises data center to the cloud without redesigning it: you 'lift' and 'shift' it as-is. It is the fastest strategy with low initial risk, but it does not fully exploit cloud-native advantages (elasticity, managed services).",
     "why_wrong": {
       "0": "La riscrittura completa in ottica cloud-native e il 'refactor/re-architect', l'opposto del lift-and-shift.",
       "2": "Sostituire con un SaaS e la strategia 'repurchase/replace', non un rehost.",
       "3": "Modificare la piattaforma mantenendo il codice e il 'replatform', un livello intermedio diverso dal semplice rehost."
+    },
+    "why_wrong_en": {
+      "0": "A full rewrite with a cloud-native approach is 'refactor/re-architect', the opposite of lift-and-shift.",
+      "2": "Replacing with a SaaS is the 'repurchase/replace' strategy, not a rehost.",
+      "3": "Modifying the platform while keeping the code is 'replatform', an intermediate level different from a plain rehost."
     },
     "source": "IT generale"
   },
@@ -204,18 +321,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Un servizio cloud dichiara uno SLA di uptime del 99,9% mensile. Quale affermazione e corretta riguardo al downtime tollerato?",
+    "question_en": "A cloud service declares a monthly uptime SLA of 99.9%. Which statement is correct regarding the tolerated downtime?",
     "options": [
       "Il servizio non puo mai essere indisponibile, altrimenti lo SLA e violato",
       "Consente circa 43-44 minuti di indisponibilita al mese senza violare lo SLA",
       "Consente circa 8 ore di indisponibilita al mese",
       "Il 99,9% si riferisce alla velocita della rete, non alla disponibilita"
     ],
+    "options_en": [
+      "The service can never be unavailable, otherwise the SLA is breached",
+      "It allows about 43-44 minutes of unavailability per month without breaching the SLA",
+      "It allows about 8 hours of unavailability per month",
+      "The 99.9% refers to network speed, not availability"
+    ],
     "correct": [1],
     "explanation": "Un uptime del 99,9% (spesso detto 'tre nove') tollera circa lo 0,1% di downtime. Su un mese di circa 30 giorni (43.200 minuti), lo 0,1% equivale a circa 43-44 minuti di indisponibilita ammessa. Piu 'nove' si aggiungono (99,99%, 99,999%), meno downtime e consentito e piu alta e la disponibilita garantita.",
+    "explanation_en": "An uptime of 99.9% (often called 'three nines') tolerates about 0.1% of downtime. Over a month of roughly 30 days (43,200 minutes), 0.1% equals about 43-44 minutes of allowed unavailability. The more 'nines' you add (99.99%, 99.999%), the less downtime is permitted and the higher the guaranteed availability.",
     "why_wrong": {
       "0": "Uno SLA del 99,9% ammette esplicitamente una piccola quota di downtime; solo il 100% (irrealistico) non ne consentirebbe.",
       "2": "8 ore al mese corrisponderebbero a circa il 98,9% di uptime, molto inferiore al 99,9%.",
       "3": "Lo SLA di uptime misura la disponibilita del servizio nel tempo, non la velocita della rete."
+    },
+    "why_wrong_en": {
+      "0": "A 99.9% SLA explicitly allows a small amount of downtime; only 100% (unrealistic) would allow none.",
+      "2": "8 hours per month would correspond to about 98.9% uptime, far below 99.9%.",
+      "3": "An uptime SLA measures the availability of the service over time, not network speed."
     },
     "source": "IT generale"
   },
@@ -226,17 +356,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Nel modello di responsabilita condivisa per il cloud IaaS, quali DUE elementi sono tipicamente a carico del CLIENTE?",
+    "question_en": "In the shared responsibility model for IaaS cloud, which TWO elements are typically the responsibility of the CUSTOMER?",
     "options": [
       "La sicurezza fisica dei data center del provider",
       "La configurazione del sistema operativo guest e l'applicazione delle patch",
       "La gestione degli accessi e delle identita (IAM) e delle credenziali degli utenti",
       "La manutenzione dell'hypervisor e dell'hardware di rete sottostante"
     ],
+    "options_en": [
+      "The physical security of the provider's data centers",
+      "The configuration of the guest operating system and applying patches",
+      "Identity and access management (IAM) and user credentials",
+      "The maintenance of the hypervisor and the underlying network hardware"
+    ],
     "correct": [1, 2],
     "explanation": "Nel modello di responsabilita condivisa il provider e responsabile della sicurezza 'del' cloud (hardware, data center, hypervisor, rete fisica), mentre il cliente e responsabile della sicurezza 'nel' cloud. In IaaS cio include il sistema operativo guest e le sue patch, la configurazione delle applicazioni, e soprattutto la gestione di identita, accessi e credenziali (IAM).",
+    "explanation_en": "In the shared responsibility model the provider is responsible for security 'of' the cloud (hardware, data centers, hypervisor, physical network), while the customer is responsible for security 'in' the cloud. In IaaS this includes the guest operating system and its patches, application configuration, and above all identity, access, and credential management (IAM).",
     "why_wrong": {
       "0": "La sicurezza fisica dei data center e sempre responsabilita del provider.",
       "3": "Hypervisor e hardware di rete sottostante fanno parte dell'infrastruttura gestita dal provider."
+    },
+    "why_wrong_en": {
+      "0": "The physical security of data centers is always the provider's responsibility.",
+      "3": "The hypervisor and underlying network hardware are part of the infrastructure managed by the provider."
     },
     "source": "IT generale"
   },
@@ -247,17 +389,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali DUE delle seguenti sono tra le cinque caratteristiche essenziali del cloud secondo il NIST?",
+    "question_en": "Which TWO of the following are among the five essential characteristics of the cloud according to NIST?",
     "options": [
       "On-demand self-service (autoservizio su richiesta)",
       "Obbligo di contratto pluriennale con il fornitore",
       "Rapid elasticity (elasticita rapida)",
       "Localizzazione fisica delle risorse sempre nota al cliente"
     ],
+    "options_en": [
+      "On-demand self-service",
+      "A mandatory multi-year contract with the provider",
+      "Rapid elasticity",
+      "The physical location of resources always known to the customer"
+    ],
     "correct": [0, 2],
     "explanation": "Le cinque caratteristiche essenziali NIST sono: on-demand self-service, broad network access, resource pooling, rapid elasticity e measured service. L'on-demand self-service permette all'utente di provisionare risorse in autonomia, mentre la rapid elasticity consente di espandere e ridurre le risorse rapidamente in base alla domanda.",
+    "explanation_en": "The five essential NIST characteristics are: on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service. On-demand self-service lets the user provision resources independently, while rapid elasticity allows resources to be expanded and reduced quickly based on demand.",
     "why_wrong": {
       "1": "Il cloud si basa su modelli flessibili pay-as-you-go, non su obblighi di contratto pluriennale; questo contraddice l'on-demand.",
       "3": "Al contrario, con il resource pooling la posizione fisica esatta delle risorse e in genere astratta e non nota al cliente."
+    },
+    "why_wrong_en": {
+      "1": "The cloud is based on flexible pay-as-you-go models, not on multi-year contract obligations; this contradicts on-demand.",
+      "3": "On the contrary, with resource pooling the exact physical location of resources is generally abstracted and unknown to the customer."
     },
     "source": "IT generale"
   },
@@ -268,17 +422,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Riguardo ai modelli di deployment del cloud, quali DUE affermazioni sono corrette?",
+    "question_en": "Regarding cloud deployment models, which TWO statements are correct?",
     "options": [
       "Il cloud pubblico offre risorse condivise erogate da un provider su Internet a piu clienti",
       "Il cloud ibrido combina risorse on-premise/private e cloud pubblico, con integrazione tra i due ambienti",
       "Il cloud privato e per definizione sempre piu economico del cloud pubblico",
       "Il multi-cloud e possibile solo utilizzando un unico fornitore"
     ],
+    "options_en": [
+      "The public cloud offers shared resources delivered by a provider over the Internet to multiple customers",
+      "The hybrid cloud combines on-premises/private resources and public cloud, with integration between the two environments",
+      "The private cloud is by definition always cheaper than the public cloud",
+      "Multi-cloud is possible only by using a single provider"
+    ],
     "correct": [0, 1],
     "explanation": "Il cloud pubblico eroga risorse condivise multi-tenant tramite un provider su Internet. Il cloud ibrido integra ambienti privati/on-premise con cloud pubblico, permettendo di spostare carichi tra i due e mantenere dati sensibili in locale. Esistono anche il cloud privato, il community cloud e le strategie multi-cloud.",
+    "explanation_en": "The public cloud delivers shared multi-tenant resources through a provider over the Internet. The hybrid cloud integrates private/on-premises environments with public cloud, allowing workloads to move between the two and sensitive data to be kept locally. There are also the private cloud, the community cloud, and multi-cloud strategies.",
     "why_wrong": {
       "2": "Il cloud privato comporta costi di infrastruttura e gestione propri e non e necessariamente piu economico; spesso ha CapEx maggiore.",
       "3": "Il multi-cloud, per definizione, prevede l'uso di piu fornitori cloud diversi, non uno solo."
+    },
+    "why_wrong_en": {
+      "2": "The private cloud entails its own infrastructure and management costs and is not necessarily cheaper; it often has higher CapEx.",
+      "3": "Multi-cloud, by definition, involves the use of multiple different cloud providers, not just one."
     },
     "source": "IT generale"
   },
@@ -289,9 +455,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Vero o Falso: l'elasticita indica la capacita di aggiungere E rimuovere risorse automaticamente e rapidamente in base alla domanda in tempo reale, mentre la scalabilita e piu in generale la capacita di gestire un aumento del carico.",
+    "question_en": "True or False: elasticity denotes the ability to add AND remove resources automatically and rapidly based on demand in real time, while scalability is more generally the ability to handle an increase in load.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. L'elasticita e la capacita di adattarsi in modo automatico e rapido alle variazioni del carico, aggiungendo risorse quando la domanda cresce e rimuovendole quando cala (spesso tramite auto-scaling), tipicamente in tempo reale. La scalabilita e il concetto piu ampio di poter crescere per sostenere un carico maggiore, non necessariamente in modo automatico o bidirezionale immediato.",
+    "explanation_en": "True. Elasticity is the ability to adapt automatically and rapidly to variations in load, adding resources when demand grows and removing them when it falls (often through auto-scaling), typically in real time. Scalability is the broader concept of being able to grow to sustain a greater load, not necessarily in an automatic or immediately bidirectional way.",
     "source": "IT generale"
   },
   {
@@ -301,9 +470,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Vero o Falso: nel modello SaaS (Software as a Service), come Gmail o Microsoft 365, il fornitore gestisce l'intero stack applicativo e infrastrutturale, e l'utente si limita a usare l'applicazione tramite browser o client.",
+    "question_en": "True or False: in the SaaS (Software as a Service) model, such as Gmail or Microsoft 365, the provider manages the entire application and infrastructure stack, and the user merely uses the application through a browser or client.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Nel SaaS il provider gestisce tutto lo stack: infrastruttura, sistema operativo, runtime, e l'applicazione stessa, comprese manutenzione e aggiornamenti. L'utente consuma il software gia pronto (di solito via browser o app) e resta responsabile principalmente dei propri dati, della configurazione degli accessi e delle credenziali.",
+    "explanation_en": "True. In SaaS the provider manages the entire stack: infrastructure, operating system, runtime, and the application itself, including maintenance and updates. The user consumes the ready-made software (usually via browser or app) and remains responsible mainly for their own data, access configuration, and credentials.",
     "source": "IT generale"
   },
   {
@@ -313,9 +485,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Vero o Falso: passare dal modello CapEx al modello OpEx nel cloud significa sostenere grandi investimenti iniziali in hardware proprio invece di pagare le risorse come spesa operativa a consumo.",
+    "question_en": "True or False: moving from the CapEx model to the OpEx model in the cloud means incurring large upfront investments in your own hardware instead of paying for resources as operating expenses on a consumption basis.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. E vero il contrario: il cloud sposta la spesa da CapEx (Capital Expenditure, grandi investimenti anticipati in hardware e data center) verso OpEx (Operating Expenditure, spesa operativa a consumo pay-as-you-go). Si evitano gli acquisti iniziali di infrastruttura e si paga solo per le risorse effettivamente utilizzate, con maggiore flessibilita finanziaria.",
+    "explanation_en": "False. The opposite is true: the cloud shifts spending from CapEx (Capital Expenditure, large upfront investments in hardware and data centers) toward OpEx (Operating Expenditure, consumption-based pay-as-you-go operating spend). You avoid the initial infrastructure purchases and pay only for the resources actually used, with greater financial flexibility.",
     "source": "IT generale"
   }
 ]

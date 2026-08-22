@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Durante l'onboarding di una nuova sorgente di log verso il SIEM, i timestamp dei firewall arrivano in orario locale mentre quelli dei server sono in UTC, rendendo impossibile ricostruire la sequenza degli eventi. Quale attività di gestione dei log risolve alla radice questo problema?",
+    "question_en": "While onboarding a new log source into the SIEM, firewall timestamps arrive in local time while server timestamps are in UTC, making it impossible to reconstruct the sequence of events. Which log management activity solves this problem at its root?",
     "options": [
       "La normalizzazione dei log, che converte i campi eterogenei (incluso il fuso orario) in un formato e in una time zone comuni",
       "L'aggregazione dei log, che riduce lo spazio di archiviazione unendo eventi duplicati",
       "La ritenzione dei log, che stabilisce per quanto tempo conservare gli eventi",
       "La cifratura dei log in transito, che protegge la riservatezza durante l'invio"
     ],
+    "options_en": [
+      "Log normalization, which converts heterogeneous fields (including the time zone) into a common format and time zone",
+      "Log aggregation, which reduces storage space by merging duplicate events",
+      "Log retention, which sets how long to keep events",
+      "Encryption of logs in transit, which protects confidentiality during transmission"
+    ],
     "correct": [0],
     "explanation": "La normalizzazione trasforma i log provenienti da sorgenti eterogenee in uno schema comune, allineando anche i timestamp a un'unica time zone (tipicamente UTC): è il passaggio che permette la correlazione e la ricostruzione cronologica affidabile degli eventi.",
+    "explanation_en": "Normalization transforms logs from heterogeneous sources into a common schema, also aligning timestamps to a single time zone (typically UTC): it is the step that enables reliable correlation and chronological reconstruction of events.",
     "why_wrong": {
       "1": "L'aggregazione raccoglie e consolida gli eventi ma non uniforma i formati dei campi né allinea i fusi orari.",
       "2": "La ritenzione riguarda la durata di conservazione, non la coerenza del formato o dell'orario degli eventi.",
       "3": "La cifratura in transito tutela la riservatezza dei dati inviati ma non incide sul formato o sul fuso orario dei timestamp."
+    },
+    "why_wrong_en": {
+      "1": "Aggregation collects and consolidates events but does not standardize field formats nor align time zones.",
+      "2": "Retention concerns the duration of storage, not the consistency of the format or timing of events.",
+      "3": "Encryption in transit protects the confidentiality of transmitted data but does not affect the format or time zone of the timestamps."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -28,18 +41,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Secondo la Pyramid of Pain di David Bianco, bloccare quale tipo di indicatore causa il maggior 'dolore' all'attaccante, costringendolo a riprogettare le proprie operazioni?",
+    "question_en": "According to David Bianco's Pyramid of Pain, blocking which type of indicator causes the most 'pain' to the attacker, forcing them to redesign their operations?",
     "options": [
       "Gli hash dei file malevoli",
       "Gli indirizzi IP di command and control",
       "I nomi di dominio usati dal malware",
       "Le TTP (tattiche, tecniche e procedure) dell'avversario"
     ],
+    "options_en": [
+      "The hashes of malicious files",
+      "The command and control IP addresses",
+      "The domain names used by the malware",
+      "The adversary's TTPs (tactics, techniques and procedures)"
+    ],
     "correct": [3],
     "explanation": "In cima alla Pyramid of Pain ci sono le TTP: rappresentano il comportamento dell'avversario. Rilevarle e contrastarle obbliga l'attaccante a cambiare il proprio modo di operare, un costo molto elevato, mentre gli indicatori atomici in basso sono facilmente e rapidamente sostituibili.",
+    "explanation_en": "At the top of the Pyramid of Pain are the TTPs: they represent the adversary's behavior. Detecting and countering them forces the attacker to change how they operate, a very high cost, whereas the atomic indicators at the bottom are easily and quickly replaced.",
     "why_wrong": {
       "0": "Gli hash sono in fondo alla piramide: basta modificare un byte del file per generare un nuovo hash, quindi bloccarli infastidisce pochissimo l'attaccante.",
       "1": "Gli indirizzi IP sono facilmente cambiabili ruotando l'infrastruttura, perciò il loro blocco causa un dolore limitato.",
       "2": "I domini richiedono un po' più di sforzo degli IP ma restano indicatori facilmente rigenerabili rispetto alle TTP."
+    },
+    "why_wrong_en": {
+      "0": "Hashes are at the bottom of the pyramid: changing a single byte of the file generates a new hash, so blocking them bothers the attacker very little.",
+      "1": "IP addresses are easily changed by rotating infrastructure, so blocking them causes limited pain.",
+      "2": "Domains require slightly more effort than IPs but remain easily regenerated indicators compared to TTPs."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -50,18 +76,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In un CVSS v3.1 il vettore riporta AV:N. Cosa indica questa metrica base per un analista che valuta la gravità di una vulnerabilità?",
+    "question_en": "In CVSS v3.1 the vector shows AV:N. What does this base metric indicate to an analyst assessing the severity of a vulnerability?",
     "options": [
       "La vulnerabilità è sfruttabile in rete (Network), anche remotamente attraverso Internet",
       "L'attacco richiede accesso fisico al dispositivo bersaglio",
       "Lo sfruttamento necessita di privilegi amministrativi già ottenuti",
       "Per lo sfruttamento è richiesta l'interazione di un utente"
     ],
+    "options_en": [
+      "The vulnerability is exploitable over the network (Network), even remotely across the Internet",
+      "The attack requires physical access to the target device",
+      "Exploitation requires administrative privileges already obtained",
+      "Exploitation requires user interaction"
+    ],
     "correct": [0],
     "explanation": "AV sta per Attack Vector e AV:N significa Network: la vulnerabilità è sfruttabile da remoto attraverso una rete, incluso Internet. È lo scenario più grave per questa metrica perché massimizza il bacino di potenziali attaccanti.",
+    "explanation_en": "AV stands for Attack Vector and AV:N means Network: the vulnerability is exploitable remotely over a network, including the Internet. It is the most severe scenario for this metric because it maximizes the pool of potential attackers.",
     "why_wrong": {
       "1": "L'accesso fisico corrisponderebbe ad AV:P (Physical), non ad AV:N.",
       "2": "I privilegi richiesti sono descritti dalla metrica PR (Privileges Required), non da AV.",
       "3": "L'interazione dell'utente è descritta dalla metrica UI (User Interaction), non da AV."
+    },
+    "why_wrong_en": {
+      "1": "Physical access would correspond to AV:P (Physical), not AV:N.",
+      "2": "Required privileges are described by the PR (Privileges Required) metric, not by AV.",
+      "3": "User interaction is described by the UI (User Interaction) metric, not by AV."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Il team ha un backlog di centinaia di vulnerabilità con punteggio CVSS elevato e risorse limitate. Quale approccio riflette meglio l'uso di EPSS per la prioritizzazione della remediation?",
+    "question_en": "The team has a backlog of hundreds of vulnerabilities with high CVSS scores and limited resources. Which approach best reflects the use of EPSS for remediation prioritization?",
     "options": [
       "Correggere per prime le vulnerabilità con maggiore probabilità stimata di essere sfruttate nei prossimi 30 giorni",
       "Correggere le vulnerabilità in ordine cronologico di pubblicazione della CVE",
       "Correggere solo le vulnerabilità con CVSS pari a 10.0, ignorando le altre",
       "Correggere per prime quelle scoperte dagli scanner con il maggior numero di falsi positivi"
     ],
+    "options_en": [
+      "Remediate first the vulnerabilities with the highest estimated probability of being exploited in the next 30 days",
+      "Remediate the vulnerabilities in chronological order of CVE publication",
+      "Remediate only the vulnerabilities with a CVSS of 10.0, ignoring the others",
+      "Remediate first those found by the scanners with the highest number of false positives"
+    ],
     "correct": [0],
     "explanation": "EPSS (Exploit Prediction Scoring System) stima la probabilità che una vulnerabilità venga sfruttata nei 30 giorni successivi. Combinando EPSS con CVSS l'analista dà priorità alle falle che sono sia gravi sia realisticamente sfruttabili, ottimizzando risorse limitate.",
+    "explanation_en": "EPSS (Exploit Prediction Scoring System) estimates the probability that a vulnerability will be exploited in the following 30 days. By combining EPSS with CVSS, the analyst prioritizes flaws that are both severe and realistically exploitable, optimizing limited resources.",
     "why_wrong": {
       "1": "L'ordine cronologico non riflette il rischio reale: una CVE vecchia può essere molto più sfruttata di una recente.",
       "2": "Limitarsi al solo CVSS 10.0 ignora il contesto di sfruttabilità e lascia scoperte falle a rischio elevato con punteggio inferiore.",
       "3": "I falsi positivi non sono un criterio di priorità; anzi vanno validati e scartati, non messi in cima alla lista."
+    },
+    "why_wrong_en": {
+      "1": "Chronological order does not reflect real risk: an old CVE may be far more exploited than a recent one.",
+      "2": "Limiting to only CVSS 10.0 ignores the exploitability context and leaves high-risk flaws with lower scores unaddressed.",
+      "3": "False positives are not a prioritization criterion; on the contrary they should be validated and discarded, not put at the top of the list."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un analista consulta il catalogo KEV (Known Exploited Vulnerabilities) della CISA durante la pianificazione delle patch. Qual è il significato principale della presenza di una CVE in questo catalogo?",
+    "question_en": "An analyst consults CISA's KEV (Known Exploited Vulnerabilities) catalog while planning patches. What is the main significance of a CVE appearing in this catalog?",
     "options": [
       "Esiste evidenza confermata che la vulnerabilità è attivamente sfruttata in attacchi reali",
       "La vulnerabilità è solo teorica e non dispone ancora di un exploit funzionante",
       "La vulnerabilità è stata ritirata perché considerata un falso positivo",
       "La vulnerabilità riguarda esclusivamente software non più supportato"
     ],
+    "options_en": [
+      "There is confirmed evidence that the vulnerability is actively exploited in real-world attacks",
+      "The vulnerability is only theoretical and does not yet have a working exploit",
+      "The vulnerability was withdrawn because it was considered a false positive",
+      "The vulnerability concerns exclusively software that is no longer supported"
+    ],
     "correct": [0],
     "explanation": "Il catalogo KEV della CISA elenca vulnerabilità per cui esiste prova di sfruttamento attivo nel mondo reale. La loro presenza è un forte segnale per dare priorità immediata alla remediation, indipendentemente dal solo punteggio CVSS.",
+    "explanation_en": "CISA's KEV catalog lists vulnerabilities for which there is proof of active exploitation in the real world. Their presence is a strong signal to give immediate priority to remediation, regardless of the CVSS score alone.",
     "why_wrong": {
       "1": "È l'opposto: una CVE entra nel KEV proprio perché è sfruttata attivamente, non perché resta teorica.",
       "2": "Il KEV non è un elenco di falsi positivi ritirati, ma di minacce reali e confermate.",
       "3": "Il KEV include vulnerabilità di prodotti anche pienamente supportati; il supporto del software non è il criterio di inclusione."
+    },
+    "why_wrong_en": {
+      "1": "It is the opposite: a CVE enters the KEV precisely because it is actively exploited, not because it remains theoretical.",
+      "2": "The KEV is not a list of withdrawn false positives, but of real and confirmed threats.",
+      "3": "The KEV includes vulnerabilities in fully supported products as well; software support is not the inclusion criterion."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Durante un'infezione da worm che si sta diffondendo lateralmente, il team isola i segmenti di rete compromessi tramite VLAN e disabilita gli account coinvolti. In quale fase del ciclo di incident response del NIST si colloca questa azione?",
+    "question_en": "During a worm infection spreading laterally, the team isolates the compromised network segments via VLANs and disables the accounts involved. In which phase of the NIST incident response cycle does this action fall?",
     "options": [
       "Contenimento (Containment)",
       "Rilevamento e analisi (Detection and Analysis)",
       "Preparazione (Preparation)",
       "Attività post-incidente (Post-Incident Activity)"
     ],
+    "options_en": [
+      "Containment",
+      "Detection and Analysis",
+      "Preparation",
+      "Post-Incident Activity"
+    ],
     "correct": [0],
     "explanation": "Isolare i sistemi, segmentare la rete e disabilitare gli account colpiti sono azioni di contenimento: mirano a fermare la propagazione della minaccia e limitare i danni prima di eradicare e ripristinare.",
+    "explanation_en": "Isolating systems, segmenting the network and disabling affected accounts are containment actions: they aim to stop the propagation of the threat and limit damage before eradication and recovery.",
     "why_wrong": {
       "1": "Rilevamento e analisi riguarda l'identificazione dell'incidente e la comprensione della sua portata, non l'azione di arrestare la diffusione.",
       "2": "La preparazione avviene prima dell'incidente e comprende policy, strumenti e formazione, non l'intervento in corso d'opera.",
       "3": "Le attività post-incidente (lessons learned) avvengono dopo il ripristino, non durante la propagazione attiva."
+    },
+    "why_wrong_en": {
+      "1": "Detection and Analysis concerns identifying the incident and understanding its scope, not the action of stopping the spread.",
+      "2": "Preparation occurs before the incident and includes policies, tools and training, not intervention while it is ongoing.",
+      "3": "Post-Incident Activity (lessons learned) occurs after recovery, not during active propagation."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -138,18 +216,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Mappando l'attività di un avversario sul framework MITRE ATT&CK, un analista osserva l'uso di 'OS Credential Dumping'. All'interno della struttura del framework, cosa rappresenta questo elemento?",
+    "question_en": "Mapping an adversary's activity onto the MITRE ATT&CK framework, an analyst observes the use of 'OS Credential Dumping'. Within the framework's structure, what does this element represent?",
     "options": [
       "Una tecnica, cioè il modo specifico con cui viene raggiunto l'obiettivo della tattica Credential Access",
       "Una tattica, cioè l'obiettivo di alto livello dell'avversario",
       "Un gruppo APT, cioè l'attore responsabile della campagna",
       "Un indicatore di compromissione atomico da inserire nelle blocklist"
     ],
+    "options_en": [
+      "A technique, that is, the specific way in which the goal of the Credential Access tactic is achieved",
+      "A tactic, that is, the adversary's high-level goal",
+      "An APT group, that is, the actor responsible for the campaign",
+      "An atomic indicator of compromise to add to blocklists"
+    ],
     "correct": [0],
     "explanation": "In MITRE ATT&CK le tattiche sono i 'perché' (gli obiettivi, es. Credential Access) e le tecniche sono i 'come'. 'OS Credential Dumping' è una tecnica che realizza la tattica Credential Access.",
+    "explanation_en": "In MITRE ATT&CK, tactics are the 'why' (the goals, e.g. Credential Access) and techniques are the 'how'. 'OS Credential Dumping' is a technique that achieves the Credential Access tactic.",
     "why_wrong": {
       "1": "La tattica è l'obiettivo di alto livello (Credential Access); OS Credential Dumping è il metodo con cui la si consegue, quindi una tecnica.",
       "2": "I gruppi APT sono attori catalogati a parte in ATT&CK, non tecniche di comportamento.",
       "3": "Un IoC atomico (hash, IP, dominio) è un dato osservabile, non un comportamento descritto come tecnica ATT&CK."
+    },
+    "why_wrong_en": {
+      "1": "The tactic is the high-level goal (Credential Access); OS Credential Dumping is the method by which it is achieved, hence a technique.",
+      "2": "APT groups are actors cataloged separately in ATT&CK, not behavioral techniques.",
+      "3": "An atomic IoC (hash, IP, domain) is an observable data point, not a behavior described as an ATT&CK technique."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Analizzando un'email di phishing, l'header mostra che il messaggio proviene da un server che non è autorizzato a inviare posta per il dominio del mittente dichiarato. Quale meccanismo di autenticazione email verifica specificamente questa autorizzazione dell'IP di invio?",
+    "question_en": "Analyzing a phishing email, the header shows that the message comes from a server that is not authorized to send mail for the claimed sender's domain. Which email authentication mechanism specifically verifies this authorization of the sending IP?",
     "options": [
       "SPF (Sender Policy Framework)",
       "DKIM (DomainKeys Identified Mail)",
       "S/MIME per la firma del corpo del messaggio",
       "TLS opportunistico sulla connessione SMTP"
     ],
+    "options_en": [
+      "SPF (Sender Policy Framework)",
+      "DKIM (DomainKeys Identified Mail)",
+      "S/MIME for signing the message body",
+      "Opportunistic TLS on the SMTP connection"
+    ],
     "correct": [0],
     "explanation": "SPF pubblica nel DNS l'elenco degli host autorizzati a inviare posta per un dominio; il server ricevente confronta l'IP mittente con questo elenco. Un fallimento SPF indica che l'IP non è autorizzato per il dominio dichiarato.",
+    "explanation_en": "SPF publishes in DNS the list of hosts authorized to send mail for a domain; the receiving server compares the sending IP with this list. An SPF failure indicates that the IP is not authorized for the claimed domain.",
     "why_wrong": {
       "1": "DKIM verifica l'integrità e l'origine tramite firma crittografica dell'header/corpo, non l'autorizzazione dell'indirizzo IP di invio.",
       "2": "S/MIME cifra e firma il contenuto a livello utente ma non stabilisce quali server possono inviare per il dominio.",
       "3": "Il TLS protegge la riservatezza del trasporto SMTP ma non autentica il dominio mittente né l'IP autorizzato."
+    },
+    "why_wrong_en": {
+      "1": "DKIM verifies integrity and origin through a cryptographic signature of the header/body, not the authorization of the sending IP address.",
+      "2": "S/MIME encrypts and signs the content at the user level but does not establish which servers may send for the domain.",
+      "3": "TLS protects the confidentiality of the SMTP transport but does not authenticate the sending domain nor the authorized IP."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Un analista deve esaminare un campione di malware sconosciuto ma non vuole rischiare l'esecuzione del codice sul proprio sistema. Quale attività di analisi statica di base può eseguire in sicurezza senza detonare il campione?",
+    "question_en": "An analyst needs to examine an unknown malware sample but does not want to risk executing the code on their own system. Which basic static analysis activity can they safely perform without detonating the sample?",
     "options": [
       "Estrarre le stringhe leggibili e calcolare gli hash del file",
       "Eseguire il campione in una sandbox e osservare le connessioni C2",
       "Monitorare le chiamate di sistema durante l'esecuzione del processo",
       "Analizzare in tempo reale le modifiche al registro create dal malware in esecuzione"
     ],
+    "options_en": [
+      "Extract the readable strings and compute the file's hashes",
+      "Run the sample in a sandbox and observe the C2 connections",
+      "Monitor system calls during the execution of the process",
+      "Analyze in real time the registry changes made by the running malware"
+    ],
     "correct": [0],
     "explanation": "L'analisi statica esamina il file senza eseguirlo: estrarre stringhe, calcolare hash, ispezionare header PE e import table sono attività sicure che non detonano il campione. Le altre opzioni descrivono analisi dinamica, che richiede l'esecuzione del codice.",
+    "explanation_en": "Static analysis examines the file without running it: extracting strings, computing hashes, inspecting the PE header and import table are safe activities that do not detonate the sample. The other options describe dynamic analysis, which requires executing the code.",
     "why_wrong": {
       "1": "Eseguire in sandbox e osservare il C2 è analisi dinamica: comporta la detonazione del campione.",
       "2": "Monitorare le chiamate di sistema durante l'esecuzione richiede che il processo giri, quindi è analisi dinamica.",
       "3": "Osservare le modifiche al registro create dal malware in esecuzione implica detonarlo, quindi non è analisi statica."
+    },
+    "why_wrong_en": {
+      "1": "Running it in a sandbox and observing the C2 is dynamic analysis: it involves detonating the sample.",
+      "2": "Monitoring system calls during execution requires the process to run, so it is dynamic analysis.",
+      "3": "Observing the registry changes made by the running malware implies detonating it, so it is not static analysis."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -204,18 +321,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Un analista avvia una caccia alle minacce partendo dall'ipotesi 'se un avversario ha ottenuto persistenza, potrebbe aver creato scheduled task malevoli sugli endpoint critici'. Come si definisce questo approccio al threat hunting?",
+    "question_en": "An analyst begins a threat hunt starting from the hypothesis 'if an adversary has gained persistence, they may have created malicious scheduled tasks on the critical endpoints'. How is this threat hunting approach defined?",
     "options": [
       "Threat hunting basato su ipotesi (hypothesis-driven)",
       "Rilevamento automatico basato esclusivamente su firme note",
       "Risposta reattiva innescata da un alert del SIEM",
       "Scansione delle vulnerabilità autenticata sugli endpoint"
     ],
+    "options_en": [
+      "Hypothesis-driven threat hunting",
+      "Automatic detection based exclusively on known signatures",
+      "Reactive response triggered by a SIEM alert",
+      "Authenticated vulnerability scanning on the endpoints"
+    ],
     "correct": [0],
     "explanation": "Il threat hunting hypothesis-driven parte da un'ipotesi informata (spesso derivata da threat intelligence o TTP note) e cerca proattivamente le prove nei dati, prima e indipendentemente da qualsiasi alert. È un approccio proattivo, non reattivo.",
+    "explanation_en": "Hypothesis-driven threat hunting starts from an informed hypothesis (often derived from threat intelligence or known TTPs) and proactively searches for evidence in the data, before and independently of any alert. It is a proactive, not reactive, approach.",
     "why_wrong": {
       "1": "Il rilevamento basato solo su firme note è automatico e non proattivo; il threat hunting cerca proprio ciò che le firme non colgono.",
       "2": "Una risposta innescata da un alert è reattiva; l'hunting parte prima che ci sia un alert.",
       "3": "La scansione delle vulnerabilità cerca debolezze note, non tracce di attività avversaria già in corso."
+    },
+    "why_wrong_en": {
+      "1": "Detection based only on known signatures is automatic and not proactive; threat hunting looks precisely for what signatures miss.",
+      "2": "A response triggered by an alert is reactive; hunting starts before there is an alert.",
+      "3": "Vulnerability scanning looks for known weaknesses, not traces of adversary activity already underway."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -226,18 +356,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Durante la raccolta di evidenze su un host compromesso ancora acceso, seguendo l'ordine di volatilità (order of volatility) del RFC 3227, quale fonte di dati deve essere acquisita per prima?",
+    "question_en": "During evidence collection on a compromised host that is still powered on, following the order of volatility of RFC 3227, which data source must be acquired first?",
     "options": [
       "La memoria RAM e lo stato dei processi e delle connessioni di rete attive",
       "I file di log archiviati sul disco rigido",
       "I dati di backup conservati su nastro offline",
       "La configurazione del BIOS/UEFI della macchina"
     ],
+    "options_en": [
+      "The RAM and the state of active processes and network connections",
+      "The log files stored on the hard disk",
+      "The backup data kept on offline tape",
+      "The machine's BIOS/UEFI configuration"
+    ],
     "correct": [0],
     "explanation": "L'ordine di volatilità impone di raccogliere prima i dati più volatili: contenuto della RAM, cache, tabelle di processo e connessioni di rete attive, perché vanno persi allo spegnimento. I dati su disco e i backup sono molto più persistenti e si acquisiscono dopo.",
+    "explanation_en": "The order of volatility requires collecting the most volatile data first: RAM contents, cache, process tables and active network connections, because they are lost at shutdown. Data on disk and backups are far more persistent and are acquired later.",
     "why_wrong": {
       "1": "I log su disco sono relativamente persistenti e si raccolgono dopo i dati volatili in memoria.",
       "2": "I backup su nastro offline sono tra le fonti meno volatili e più durature, quindi ultime nell'ordine.",
       "3": "La configurazione BIOS/UEFI è persistente e non viene persa allo spegnimento, quindi non ha priorità sui dati in RAM."
+    },
+    "why_wrong_en": {
+      "1": "Logs on disk are relatively persistent and are collected after the volatile data in memory.",
+      "2": "Offline tape backups are among the least volatile and most durable sources, hence last in the order.",
+      "3": "The BIOS/UEFI configuration is persistent and is not lost at shutdown, so it does not take priority over the data in RAM."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -248,17 +391,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Analizzando i log di traffico di rete verso un dominio esterno sospetto, quali due caratteristiche sono indicatori tipici di beaconing di command and control (C2)? (Seleziona due)",
+    "question_en": "Analyzing network traffic logs to a suspicious external domain, which two characteristics are typical indicators of command and control (C2) beaconing? (Select two)",
     "options": [
       "Connessioni ripetute a intervalli regolari e prevedibili verso lo stesso endpoint",
       "Piccoli volumi di dati periodici, spesso con jitter, verso un dominio a bassa reputazione",
       "Un unico download di grandi dimensioni durante l'orario di lavoro da un CDN noto",
       "Traffico HTTPS verso servizi cloud aziendali approvati e ampiamente utilizzati"
     ],
+    "options_en": [
+      "Repeated connections at regular and predictable intervals to the same endpoint",
+      "Small periodic volumes of data, often with jitter, to a low-reputation domain",
+      "A single large download during working hours from a known CDN",
+      "HTTPS traffic to approved and widely used corporate cloud services"
+    ],
     "correct": [0, 1],
     "explanation": "Il beaconing C2 si riconosce da callback periodici e regolari (spesso con lieve jitter per eludere il rilevamento) e da piccoli volumi di dati scambiati con infrastruttura sospetta a bassa reputazione. La regolarità temporale e la destinazione sono i segnali chiave.",
+    "explanation_en": "C2 beaconing is recognized by periodic and regular callbacks (often with slight jitter to evade detection) and by small volumes of data exchanged with suspicious low-reputation infrastructure. The temporal regularity and the destination are the key signals.",
     "why_wrong": {
       "2": "Un singolo download voluminoso da un CDN noto è un pattern legittimo comune e non riflette la periodicità del beaconing.",
       "3": "Il traffico verso servizi cloud aziendali approvati e molto usati è atteso e non costituisce di per sé un indicatore di C2."
+    },
+    "why_wrong_en": {
+      "2": "A single large download from a known CDN is a common legitimate pattern and does not reflect the periodicity of beaconing.",
+      "3": "Traffic to approved and heavily used corporate cloud services is expected and does not in itself constitute a C2 indicator."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -269,17 +424,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Uno scanner ha segnalato una vulnerabilità critica su un server applicativo di produzione. Prima di dichiararla risolta, quali due attività appartengono a una corretta gestione della remediation? (Seleziona due)",
+    "question_en": "A scanner flagged a critical vulnerability on a production application server. Before declaring it resolved, which two activities belong to a correct remediation process? (Select two)",
     "options": [
       "Validare il risultato per escludere un falso positivo prima di intervenire",
       "Eseguire una nuova scansione (rescan) dopo la patch per confermare la chiusura",
       "Chiudere immediatamente il ticket appena la patch risulta scaricata, senza verifiche",
       "Disattivare in modo permanente lo scanner per evitare futuri allarmi sullo stesso host"
     ],
+    "options_en": [
+      "Validate the finding to rule out a false positive before acting",
+      "Run a new scan (rescan) after the patch to confirm the closure",
+      "Close the ticket immediately as soon as the patch appears downloaded, without verification",
+      "Permanently disable the scanner to avoid future alerts on the same host"
+    ],
     "correct": [0, 1],
     "explanation": "Una remediation corretta prevede prima la validazione del finding (per non sprecare risorse su falsi positivi) e, dopo l'intervento, una rescan di verifica che confermi l'effettiva eliminazione della vulnerabilità. Questo chiude in modo verificabile il ciclo.",
+    "explanation_en": "A correct remediation first involves validating the finding (to avoid wasting resources on false positives) and, after acting, a verification rescan that confirms the actual elimination of the vulnerability. This closes the cycle in a verifiable way.",
     "why_wrong": {
       "2": "Chiudere il ticket al solo download della patch, senza verifica, non prova che la vulnerabilità sia stata effettivamente rimediata.",
       "3": "Disattivare lo scanner nasconde il problema anziché risolverlo e riduce pericolosamente la visibilità sull'host."
+    },
+    "why_wrong_en": {
+      "2": "Closing the ticket on the mere download of the patch, without verification, does not prove that the vulnerability has actually been remediated.",
+      "3": "Disabling the scanner hides the problem instead of solving it and dangerously reduces visibility on the host."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -290,17 +457,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Dopo aver contenuto un incidente, il team passa all'eradicazione su un host compromesso da malware persistente. Quali due azioni sono proprie della fase di eradicazione? (Seleziona due)",
+    "question_en": "After containing an incident, the team moves to eradication on a host compromised by persistent malware. Which two actions belong to the eradication phase? (Select two)",
     "options": [
       "Rimuovere il malware e i meccanismi di persistenza (es. scheduled task, chiavi di registro Run)",
       "Reimmagine del sistema da un'immagine gold verificata e pulita",
       "Redigere il report finale con le lessons learned per il management",
       "Isolare l'host dalla rete staccando il cavo o applicando regole di quarantena"
     ],
+    "options_en": [
+      "Remove the malware and the persistence mechanisms (e.g. scheduled tasks, Run registry keys)",
+      "Reimage the system from a verified and clean gold image",
+      "Write the final report with the lessons learned for management",
+      "Isolate the host from the network by unplugging the cable or applying quarantine rules"
+    ],
     "correct": [0, 1],
     "explanation": "L'eradicazione elimina la causa dell'incidente: rimuovere il malware e ogni meccanismo di persistenza, oppure ricostruire il sistema da un'immagine gold pulita e verificata quando la bonifica completa non è garantibile. Sono azioni che azzerano la presenza dell'attaccante.",
+    "explanation_en": "Eradication eliminates the cause of the incident: removing the malware and every persistence mechanism, or rebuilding the system from a clean, verified gold image when complete cleanup cannot be guaranteed. These are actions that eliminate the attacker's presence.",
     "why_wrong": {
       "2": "Il report con le lessons learned appartiene alla fase post-incidente, non all'eradicazione.",
       "3": "Isolare l'host dalla rete è un'azione di contenimento, che precede l'eradicazione."
+    },
+    "why_wrong_en": {
+      "2": "The report with lessons learned belongs to the post-incident phase, not to eradication.",
+      "3": "Isolating the host from the network is a containment action, which precedes eradication."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -311,17 +490,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Il responsabile SOC deve presentare al management metriche che misurino l'efficacia operativa del team di rilevamento e risposta. Quali due tra le seguenti sono KPI appropriati a questo scopo? (Seleziona due)",
+    "question_en": "The SOC manager needs to present management with metrics that measure the operational effectiveness of the detection and response team. Which two of the following are appropriate KPIs for this purpose? (Select two)",
     "options": [
       "MTTD (Mean Time To Detect), il tempo medio per rilevare un incidente",
       "MTTR (Mean Time To Respond/Recover), il tempo medio per rispondere o ripristinare",
       "Il numero totale di caffè consumati dagli analisti durante i turni",
       "Il costo di acquisto della licenza del SIEM per l'anno in corso"
     ],
+    "options_en": [
+      "MTTD (Mean Time To Detect), the average time to detect an incident",
+      "MTTR (Mean Time To Respond/Recover), the average time to respond or recover",
+      "The total number of coffees consumed by analysts during shifts",
+      "The purchase cost of the SIEM license for the current year"
+    ],
     "correct": [0, 1],
     "explanation": "MTTD e MTTR sono KPI centrali per valutare l'efficacia di rilevamento e risposta: misurano quanto velocemente il SOC individua e gestisce gli incidenti. Ridurre questi tempi indica un miglioramento concreto delle capacità operative.",
+    "explanation_en": "MTTD and MTTR are central KPIs for assessing detection and response effectiveness: they measure how quickly the SOC identifies and handles incidents. Reducing these times indicates a concrete improvement in operational capabilities.",
     "why_wrong": {
       "2": "Il consumo di caffè non ha alcuna correlazione con l'efficacia di sicurezza e non è un KPI valido.",
       "3": "Il costo della licenza del SIEM è una voce di spesa, non una metrica di prestazione operativa del rilevamento e della risposta."
+    },
+    "why_wrong_en": {
+      "2": "Coffee consumption has no correlation with security effectiveness and is not a valid KPI.",
+      "3": "The cost of the SIEM license is an expense item, not an operational performance metric for detection and response."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -332,11 +523,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Un punteggio CVSS elevato garantisce da solo che una vulnerabilità sia effettivamente sfruttata in attacchi reali e debba quindi avere sempre la priorità assoluta rispetto a qualsiasi altra.",
+    "question_en": "A high CVSS score alone guarantees that a vulnerability is actually exploited in real-world attacks and must therefore always take absolute priority over any other.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. Il CVSS misura la gravità tecnica potenziale, non la probabilità reale di sfruttamento. Per una prioritizzazione basata sul rischio va combinato con contesto operativo, EPSS e cataloghi come il KEV, che indicano quali vulnerabilità sono davvero sfruttate.",
+    "explanation_en": "False. CVSS measures potential technical severity, not the real probability of exploitation. For risk-based prioritization it must be combined with operational context, EPSS and catalogs like the KEV, which indicate which vulnerabilities are actually exploited.",
     "why_wrong": {
       "0": "È errato: un CVSS alto segnala impatto potenziale, ma senza dati di sfruttabilità e contesto può portare a prioritizzare falle mai attaccate trascurandone altre attivamente sfruttate."
+    },
+    "why_wrong_en": {
+      "0": "This is wrong: a high CVSS signals potential impact, but without exploitability data and context it can lead to prioritizing flaws never attacked while neglecting others that are actively exploited."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -347,11 +544,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Mantenere una chain of custody documentata e verificare gli hash delle immagini forensi è essenziale per preservare l'integrità e l'ammissibilità delle evidenze in un'eventuale sede legale.",
+    "question_en": "Maintaining a documented chain of custody and verifying the hashes of forensic images is essential to preserve the integrity and admissibility of evidence in a possible court of law.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. La chain of custody traccia chi ha maneggiato l'evidenza, quando e come, mentre gli hash (es. SHA-256) dimostrano che l'immagine non è stata alterata. Insieme garantiscono integrità e ammissibilità delle prove in tribunale.",
+    "explanation_en": "True. The chain of custody tracks who handled the evidence, when and how, while the hashes (e.g. SHA-256) prove that the image was not altered. Together they guarantee the integrity and admissibility of the evidence in court.",
     "why_wrong": {
       "1": "È errato: senza catena di custodia e verifica degli hash, l'integrità delle evidenze non è dimostrabile e le prove rischiano di essere respinte."
+    },
+    "why_wrong_en": {
+      "1": "This is wrong: without a chain of custody and hash verification, the integrity of the evidence cannot be demonstrated and the evidence risks being rejected."
     },
     "source": "CompTIA CySA+ CS0-003"
   },
@@ -362,11 +565,17 @@
     "type": "truefalse",
     "difficulty": 3,
     "question": "La threat intelligence strategica è pensata principalmente per un pubblico tecnico operativo, come indicatori di compromissione da inserire immediatamente nelle regole del SIEM.",
+    "question_en": "Strategic threat intelligence is intended primarily for a technical operational audience, such as indicators of compromise to insert immediately into SIEM rules.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. La threat intelligence strategica è di alto livello e destinata a dirigenti e decisori, per orientare investimenti e postura di rischio. Gli IoC pronti all'uso nel SIEM sono invece tipici della threat intelligence tattica/operativa.",
+    "explanation_en": "False. Strategic threat intelligence is high-level and intended for executives and decision-makers, to guide investments and risk posture. Ready-to-use IoCs in the SIEM are instead typical of tactical/operational threat intelligence.",
     "why_wrong": {
       "0": "È errato: gli IoC destinati all'uso immediato nel SIEM appartengono alla intelligence tattica, non a quella strategica orientata al management."
+    },
+    "why_wrong_en": {
+      "0": "This is wrong: IoCs intended for immediate use in the SIEM belong to tactical intelligence, not to strategic intelligence oriented toward management."
     },
     "source": "CompTIA CySA+ CS0-003"
   }

@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In un'architettura di difesa in profondità, un analista SOC deve classificare i controlli. Quale insieme rappresenta correttamente controlli AMMINISTRATIVI (non tecnici né fisici)?",
+    "question_en": "In a defense-in-depth architecture, a SOC analyst must classify controls. Which set correctly represents ADMINISTRATIVE controls (neither technical nor physical)?",
     "options": [
       "Regole del firewall e liste di controllo accessi sui router",
       "Policy di sicurezza, procedure operative e programmi di formazione del personale",
       "Serrature delle porte, badge e telecamere di videosorveglianza",
       "Crittografia dei dischi e sistemi di prevenzione delle intrusioni"
     ],
+    "options_en": [
+      "Firewall rules and access control lists on routers",
+      "Security policies, operating procedures and staff training programs",
+      "Door locks, badges and video surveillance cameras",
+      "Disk encryption and intrusion prevention systems"
+    ],
     "correct": [1],
     "explanation": "I controlli amministrativi sono costituiti da policy, procedure, standard, linee guida e formazione: agiscono sul comportamento delle persone e sui processi organizzativi. Insieme ai controlli tecnici (logici) e fisici formano i tre pilastri della difesa in profondità.",
+    "explanation_en": "Administrative controls consist of policies, procedures, standards, guidelines and training: they act on people's behavior and organizational processes. Together with technical (logical) and physical controls they form the three pillars of defense in depth.",
     "why_wrong": {
       "0": "Firewall e ACL sono controlli tecnici (logici), applicati tramite tecnologia, non controlli amministrativi.",
       "2": "Serrature, badge e telecamere sono controlli fisici, che proteggono l'accesso materiale alle risorse.",
       "3": "Crittografia e IPS sono controlli tecnici che operano sui sistemi informativi, non policy o procedure."
+    },
+    "why_wrong_en": {
+      "0": "Firewalls and ACLs are technical (logical) controls, enforced through technology, not administrative controls.",
+      "2": "Locks, badges and cameras are physical controls, which protect material access to resources.",
+      "3": "Encryption and IPS are technical controls that operate on information systems, not policies or procedures."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -28,7 +41,14 @@
     "type": "single",
     "difficulty": 3,
     "question": "Un'azienda vuole che l'accesso ai file sia governato da etichette di sensibilità (es. Riservato, Segreto) assegnate centralmente dall'organizzazione, senza che il proprietario del file possa concedere accesso a piacimento. Quale modello di controllo degli accessi descrive questo requisito?",
+    "question_en": "A company wants file access to be governed by sensitivity labels (e.g. Confidential, Secret) assigned centrally by the organization, without the file owner being able to grant access at will. Which access control model describes this requirement?",
     "options": [
+      "DAC (Discretionary Access Control)",
+      "MAC (Mandatory Access Control)",
+      "RBAC (Role-Based Access Control)",
+      "ABAC (Attribute-Based Access Control)"
+    ],
+    "options_en": [
       "DAC (Discretionary Access Control)",
       "MAC (Mandatory Access Control)",
       "RBAC (Role-Based Access Control)",
@@ -36,10 +56,16 @@
     ],
     "correct": [1],
     "explanation": "Il MAC applica etichette di classificazione a soggetti e oggetti; l'accesso è deciso dal sistema in base a regole centrali e clearance, non dal proprietario della risorsa. È tipico di ambienti militari e ad alta sicurezza.",
+    "explanation_en": "MAC applies classification labels to subjects and objects; access is decided by the system based on central rules and clearance, not by the resource owner. It is typical of military and high-security environments.",
     "why_wrong": {
       "0": "Nel DAC è proprio il proprietario dell'oggetto a decidere discrezionalmente chi può accedere, l'opposto del requisito descritto.",
       "2": "Il RBAC assegna i permessi in base ai ruoli lavorativi, non a etichette di classificazione centrali applicate agli oggetti.",
       "3": "L'ABAC valuta attributi dinamici (utente, risorsa, contesto) tramite policy, ma non si basa sul sistema di etichette mandatorie descritto."
+    },
+    "why_wrong_en": {
+      "0": "In DAC it is precisely the object's owner who discretionarily decides who may access it, the opposite of the described requirement.",
+      "2": "RBAC assigns permissions based on job roles, not on central classification labels applied to objects.",
+      "3": "ABAC evaluates dynamic attributes (user, resource, context) through policies, but it is not based on the mandatory labeling system described."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -50,17 +76,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Analizzando un CVSS Base Score v3.1, quali DUE affermazioni sulle metriche di base sono corrette?",
+    "question_en": "When analyzing a CVSS Base Score v3.1, which TWO statements about the base metrics are correct?",
     "options": [
       "Attack Vector (AV) con valore Network indica che la vulnerabilità è sfruttabile da remoto attraverso la rete",
       "La metrica Scope indica se una vulnerabilità sfruttata può impattare risorse oltre l'ambito di sicurezza del componente vulnerabile",
       "Il gruppo di metriche Temporal fa parte del Base Score ed è obbligatorio per calcolarlo",
       "Un valore alto di Privileges Required (High) aumenta la gravità perché richiede più privilegi"
     ],
+    "options_en": [
+      "Attack Vector (AV) with a value of Network indicates that the vulnerability is exploitable remotely across the network",
+      "The Scope metric indicates whether an exploited vulnerability can impact resources beyond the security scope of the vulnerable component",
+      "The Temporal metric group is part of the Base Score and is mandatory to compute it",
+      "A high Privileges Required (High) value increases severity because it requires more privileges"
+    ],
     "correct": [0, 1],
     "explanation": "AV:Network segnala sfruttabilità remota attraverso la rete (il valore più grave del vettore). La metrica Scope (S) indica se l'exploit può superare il confine di sicurezza del componente vulnerabile impattando altri componenti (Scope Changed). Entrambe appartengono al gruppo Base.",
+    "explanation_en": "AV:Network signals remote exploitability across the network (the most severe value of the vector). The Scope (S) metric indicates whether the exploit can cross the security boundary of the vulnerable component, impacting other components (Scope Changed). Both belong to the Base group.",
     "why_wrong": {
       "2": "Le metriche Temporal sono un gruppo separato e opzionale; il Base Score si calcola solo con le metriche di base.",
       "3": "Privileges Required High ABBASSA il punteggio, perché richiedere privilegi elevati rende l'attacco più difficile; è None a massimizzare la gravità."
+    },
+    "why_wrong_en": {
+      "2": "The Temporal metrics are a separate and optional group; the Base Score is computed only with the base metrics.",
+      "3": "Privileges Required High LOWERS the score, because requiring elevated privileges makes the attack harder; it is None that maximizes severity."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -71,11 +109,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "In un SOC, un runbook (o playbook) definisce una sequenza di passi ripetibili e predeterminati che l'analista segue per gestire un tipo specifico di evento o incidente.",
+    "question_en": "In a SOC, a runbook (or playbook) defines a sequence of repeatable and predetermined steps that the analyst follows to handle a specific type of event or incident.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Un runbook/playbook codifica procedure operative standardizzate per rispondere a scenari ricorrenti (es. phishing, malware, brute force), riducendo tempi di risposta ed errori e garantendo coerenza tra analisti.",
+    "explanation_en": "A runbook/playbook codifies standardized operating procedures to respond to recurring scenarios (e.g. phishing, malware, brute force), reducing response times and errors and ensuring consistency across analysts.",
     "why_wrong": {
       "1": "È falso negarlo: lo scopo del runbook è proprio fornire passi ripetibili e predeterminati per la gestione degli eventi."
+    },
+    "why_wrong_en": {
+      "1": "Denying it is false: the very purpose of a runbook is to provide repeatable and predetermined steps for handling events."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -86,18 +130,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Un analista deve stabilire QUALI host hanno comunicato tra loro, su quali porte, per quanto tempo e con quanti byte trasferiti, ma senza avere lo spazio di archiviazione per conservare l'intero contenuto dei pacchetti. Quale tipo di dato di monitoraggio è più adatto?",
+    "question_en": "An analyst must determine WHICH hosts communicated with each other, on which ports, for how long and with how many bytes transferred, but without having the storage space to retain the full content of the packets. Which type of monitoring data is most suitable?",
     "options": [
       "Full packet capture (dati completi del pacchetto)",
       "Session data / NetFlow",
       "Transaction data (dati applicativi transazionali)",
       "Statistical data (dati statistici aggregati)"
     ],
+    "options_en": [
+      "Full packet capture (complete packet data)",
+      "Session data / NetFlow",
+      "Transaction data (transactional application data)",
+      "Statistical data (aggregated statistical data)"
+    ],
     "correct": [1],
     "explanation": "I session data (tipicamente NetFlow) registrano i metadati della conversazione: IP e porte sorgente/destinazione, protocollo, timestamp, durata e byte/pacchetti scambiati, senza salvare il payload. Sono compatti e ideali quando lo storage è limitato.",
+    "explanation_en": "Session data (typically NetFlow) records the metadata of the conversation: source/destination IPs and ports, protocol, timestamp, duration and bytes/packets exchanged, without saving the payload. It is compact and ideal when storage is limited.",
     "why_wrong": {
       "0": "Il full packet capture conserva l'intero contenuto dei pacchetti, richiedendo enormi quantità di storage: proprio ciò che l'analista non può permettersi.",
       "2": "I transaction data catturano gli eventi a livello applicativo (es. richieste HTTP, query), non il quadro connessione-per-connessione richiesto.",
       "3": "I dati statistici forniscono aggregati e baseline, non il dettaglio di chi ha parlato con chi su quale porta e per quanto."
+    },
+    "why_wrong_en": {
+      "0": "Full packet capture retains the entire content of the packets, requiring enormous amounts of storage: exactly what the analyst cannot afford.",
+      "2": "Transaction data captures application-layer events (e.g. HTTP requests, queries), not the required connection-by-connection picture.",
+      "3": "Statistical data provides aggregates and baselines, not the detail of who talked to whom on which port and for how long."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -108,18 +165,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Durante un'indagine, un analista nota query DNS anomale con sottodomini lunghi e ad alta entropia (es. stringhe base32 casuali) verso un dominio esterno. Quale tecnica di evasione/esfiltrazione è più probabile?",
+    "question_en": "During an investigation, an analyst notices anomalous DNS queries with long, high-entropy subdomains (e.g. random base32 strings) toward an external domain. Which evasion/exfiltration technique is most likely?",
     "options": [
       "Frammentazione dei pacchetti IP per eludere l'IDS",
       "DNS tunneling per creare un canale nascosto di C2/esfiltrazione",
       "Fast flux per ruotare gli indirizzi IP dei server C2",
       "Cifratura TLS del traffico per nascondere il payload"
     ],
+    "options_en": [
+      "IP packet fragmentation to evade the IDS",
+      "DNS tunneling to create a covert C2/exfiltration channel",
+      "Fast flux to rotate the IP addresses of the C2 servers",
+      "TLS encryption of the traffic to hide the payload"
+    ],
     "correct": [1],
     "explanation": "Il DNS tunneling codifica dati (spesso in base32/base64) nei sottodomini delle query DNS, sfruttando un protocollo raramente bloccato per creare un canale nascosto di comando e controllo o di esfiltrazione. Sottodomini lunghi ad alta entropia e volumi elevati sono indicatori classici.",
+    "explanation_en": "DNS tunneling encodes data (often in base32/base64) into the subdomains of DNS queries, exploiting a rarely blocked protocol to create a covert command-and-control or exfiltration channel. Long, high-entropy subdomains and high volumes are classic indicators.",
     "why_wrong": {
       "0": "La frammentazione altera la struttura dei pacchetti per eludere il pattern matching, ma non spiega sottodomini DNS codificati ad alta entropia.",
       "2": "Il fast flux cambia rapidamente i record A/IP associati a un dominio, non genera sottodomini casuali codificati nelle query.",
       "3": "La cifratura TLS opera su HTTPS/porta 443, non produce query DNS con sottodomini base32 anomali."
+    },
+    "why_wrong_en": {
+      "0": "Fragmentation alters the structure of packets to evade pattern matching, but it does not explain high-entropy encoded DNS subdomains.",
+      "2": "Fast flux rapidly changes the A/IP records associated with a domain; it does not generate random encoded subdomains in the queries.",
+      "3": "TLS encryption operates over HTTPS/port 443; it does not produce DNS queries with anomalous base32 subdomains."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -130,17 +200,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Esaminando un certificato X.509 presentato durante un handshake TLS, quali DUE elementi permettono di valutarne l'affidabilità?",
+    "question_en": "When examining an X.509 certificate presented during a TLS handshake, which TWO elements allow its trustworthiness to be assessed?",
     "options": [
       "La catena di certificati fino a una Certificate Authority (CA) radice attendibile",
       "Il periodo di validità (Not Before / Not After) confrontato con la data corrente",
       "Il numero di pacchetti SYN ricevuti dal server durante l'handshake",
       "La dimensione della finestra TCP negoziata nel three-way handshake"
     ],
+    "options_en": [
+      "The certificate chain up to a trusted root Certificate Authority (CA)",
+      "The validity period (Not Before / Not After) compared against the current date",
+      "The number of SYN packets received by the server during the handshake",
+      "The size of the TCP window negotiated in the three-way handshake"
+    ],
     "correct": [0, 1],
     "explanation": "Un certificato è affidabile se la catena di firma risale a una CA radice fidata (validazione del trust) e se è ancora nel suo periodo di validità. Un certificato scaduto o auto-firmato/non tracciabile a una CA nota è un indicatore sospetto, spesso associato a C2 o intercettazioni.",
+    "explanation_en": "A certificate is trustworthy if its signature chain traces back to a trusted root CA (trust validation) and if it is still within its validity period. An expired or self-signed certificate, or one not traceable to a known CA, is a suspicious indicator, often associated with C2 or interception.",
     "why_wrong": {
       "2": "Il conteggio dei pacchetti SYN riguarda la connessione TCP di trasporto, non la validità crittografica del certificato.",
       "3": "La finestra TCP è un parametro di controllo di flusso del trasporto, del tutto irrilevante per valutare l'attendibilità di un certificato X.509."
+    },
+    "why_wrong_en": {
+      "2": "The SYN packet count concerns the TCP transport connection, not the cryptographic validity of the certificate.",
+      "3": "The TCP window is a transport flow-control parameter, entirely irrelevant to assessing the trustworthiness of an X.509 certificate."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -151,18 +233,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un analista rileva traffico Telnet (porta 23) tra un client e un dispositivo di rete interno. Perché questo rappresenta un punto debole rilevante dal punto di vista del monitoraggio della sicurezza?",
+    "question_en": "An analyst detects Telnet traffic (port 23) between a client and an internal network device. Why does this represent a significant weakness from a security monitoring standpoint?",
     "options": [
       "Telnet cifra le credenziali ma non i comandi, esponendo solo questi ultimi",
       "Telnet trasmette credenziali e sessione in chiaro, quindi sono intercettabili con uno sniffer",
       "Telnet usa UDP e quindi non garantisce la consegna affidabile dei pacchetti",
       "Telnet negozia automaticamente TLS 1.3 rendendo impossibile l'ispezione"
     ],
+    "options_en": [
+      "Telnet encrypts credentials but not commands, exposing only the latter",
+      "Telnet transmits credentials and the session in cleartext, so they can be intercepted with a sniffer",
+      "Telnet uses UDP and therefore does not guarantee reliable delivery of packets",
+      "Telnet automatically negotiates TLS 1.3, making inspection impossible"
+    ],
     "correct": [1],
     "explanation": "Telnet non prevede alcuna cifratura: username, password e l'intera sessione viaggiano in chiaro. Chi effettua sniffing sul segmento può leggere le credenziali. Per questo è considerato un protocollo debole e va sostituito con SSH.",
+    "explanation_en": "Telnet provides no encryption at all: username, password and the entire session travel in cleartext. Anyone sniffing the segment can read the credentials. For this reason it is considered a weak protocol and should be replaced with SSH.",
     "why_wrong": {
       "0": "Telnet non cifra nulla, né credenziali né comandi: l'intera sessione è in chiaro.",
       "2": "Telnet opera su TCP (porta 23), non su UDP; la debolezza è l'assenza di cifratura, non l'affidabilità del trasporto.",
       "3": "Telnet non supporta nativamente TLS; è proprio la mancanza di cifratura a renderlo insicuro."
+    },
+    "why_wrong_en": {
+      "0": "Telnet encrypts nothing, neither credentials nor commands: the entire session is in cleartext.",
+      "2": "Telnet operates over TCP (port 23), not UDP; the weakness is the absence of encryption, not transport reliability.",
+      "3": "Telnet does not natively support TLS; it is precisely the lack of encryption that makes it insecure."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -173,11 +268,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "I session data (dati di sessione) contengono l'intero payload applicativo di ogni connessione, e per questo richiedono più spazio di archiviazione del full packet capture.",
+    "question_en": "Session data contains the entire application payload of every connection, and for this reason requires more storage space than full packet capture.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "È falso: i session data (es. NetFlow) contengono solo i metadati della conversazione (IP, porte, byte, durata), non il payload. Sono molto più compatti del full packet capture, che invece salva il contenuto completo dei pacchetti e richiede lo storage maggiore.",
+    "explanation_en": "It is false: session data (e.g. NetFlow) contains only the metadata of the conversation (IPs, ports, bytes, duration), not the payload. It is much more compact than full packet capture, which instead saves the complete content of the packets and requires the most storage.",
     "why_wrong": {
       "0": "Affermarlo vero è errato: i dati di sessione NON contengono il payload e occupano molto meno spazio del full packet capture."
+    },
+    "why_wrong_en": {
+      "0": "Stating it as true is wrong: session data does NOT contain the payload and takes up much less space than full packet capture."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -188,18 +289,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Durante l'analisi host-based di un sistema Windows compromesso, l'analista cerca prove di autenticazioni fallite ripetute seguite da un accesso riuscito. Quale coppia di Event ID del log Security è più pertinente?",
+    "question_en": "During host-based analysis of a compromised Windows system, the analyst looks for evidence of repeated failed authentications followed by a successful logon. Which pair of Security log Event IDs is most relevant?",
     "options": [
       "Event ID 4624 (logon riuscito) e 4625 (logon fallito)",
       "Event ID 7045 (installazione servizio) e 1102 (log svuotato)",
       "Event ID 4688 (creazione processo) e 5156 (connessione consentita dal filtro)",
       "Event ID 4720 (account creato) e 4726 (account eliminato)"
     ],
+    "options_en": [
+      "Event ID 4624 (successful logon) and 4625 (failed logon)",
+      "Event ID 7045 (service installation) and 1102 (log cleared)",
+      "Event ID 4688 (process creation) and 5156 (connection permitted by the filter)",
+      "Event ID 4720 (account created) and 4726 (account deleted)"
+    ],
     "correct": [0],
     "explanation": "L'Event ID 4625 registra i logon falliti e il 4624 i logon riusciti. Una serie di 4625 seguita da un 4624 dallo stesso IP/utente è un pattern tipico di brute force o password spraying andato a segno.",
+    "explanation_en": "Event ID 4625 records failed logons and 4624 records successful logons. A series of 4625 followed by a 4624 from the same IP/user is a typical pattern of a successful brute force or password spraying attack.",
     "why_wrong": {
       "1": "7045 e 1102 riguardano rispettivamente l'installazione di servizi e la cancellazione del log, utili per persistenza/anti-forense ma non per tracciare i tentativi di logon.",
       "2": "4688 e 5156 tracciano creazione processi e connessioni di rete consentite, non l'esito delle autenticazioni.",
       "3": "4720 e 4726 riguardano il ciclo di vita degli account, non i tentativi di logon falliti e riusciti."
+    },
+    "why_wrong_en": {
+      "1": "7045 and 1102 concern service installation and log clearing respectively, useful for persistence/anti-forensics but not for tracking logon attempts.",
+      "2": "4688 and 5156 track process creation and permitted network connections, not the outcome of authentications.",
+      "3": "4720 and 4726 concern the account lifecycle, not failed and successful logon attempts."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -210,18 +324,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un allegato sospetto viene detonato in una sandbox automatizzata. Qual è il principale vantaggio dell'analisi dinamica in sandbox rispetto alla sola analisi statica?",
+    "question_en": "A suspicious attachment is detonated in an automated sandbox. What is the main advantage of dynamic sandbox analysis over static analysis alone?",
     "options": [
       "Permette di calcolare l'hash del file senza eseguirlo",
       "Osserva il comportamento reale a runtime, come modifiche al registro, file creati e connessioni C2",
       "Elimina la necessità di aggiornare le firme antivirus",
       "Garantisce che il malware non possa mai rilevare l'ambiente di analisi"
     ],
+    "options_en": [
+      "It allows the file's hash to be computed without executing it",
+      "It observes real runtime behavior, such as registry modifications, files created and C2 connections",
+      "It eliminates the need to update antivirus signatures",
+      "It guarantees that the malware can never detect the analysis environment"
+    ],
     "correct": [1],
     "explanation": "La sandbox esegue il campione in un ambiente isolato e ne osserva il comportamento dinamico: processi generati, chiavi di registro modificate, file scritti, mutex creati e traffico di rete verso server C2. Questo rivela indicatori che l'analisi statica del solo binario non mostra.",
+    "explanation_en": "The sandbox runs the sample in an isolated environment and observes its dynamic behavior: spawned processes, modified registry keys, files written, mutexes created and network traffic toward C2 servers. This reveals indicators that static analysis of the binary alone does not show.",
     "why_wrong": {
       "0": "Il calcolo dell'hash è un'operazione di analisi statica, non richiede l'esecuzione né una sandbox.",
       "2": "La sandbox aiuta a produrre IOC e firme, ma non elimina la necessità di mantenere aggiornate le firme antivirus.",
       "3": "È il contrario: molti malware includono tecniche di sandbox evasion per rilevare l'ambiente virtuale e non attivarsi."
+    },
+    "why_wrong_en": {
+      "0": "Computing the hash is a static analysis operation; it requires neither execution nor a sandbox.",
+      "2": "The sandbox helps produce IOCs and signatures, but it does not eliminate the need to keep antivirus signatures up to date.",
+      "3": "It is the opposite: many malware samples include sandbox evasion techniques to detect the virtual environment and stay dormant."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -232,17 +359,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Nell'attribuzione di un artefatto durante un'analisi forense host-based, quali DUE elementi sono considerati artefatti attribuibili a un'AZIONE o a un'IDENTITÀ specifica sul sistema?",
+    "question_en": "In attributing an artifact during a host-based forensic analysis, which TWO elements are considered artifacts attributable to a specific ACTION or IDENTITY on the system?",
     "options": [
       "L'account utente che ha eseguito un processo malevolo, tracciato nei log di sicurezza",
       "Una chiave di registro di persistenza (Run key) con timestamp di creazione",
       "La temperatura della CPU registrata dal sensore hardware durante l'esecuzione",
       "Il numero di ventole attive nel case durante l'analisi"
     ],
+    "options_en": [
+      "The user account that executed a malicious process, tracked in the security logs",
+      "A persistence registry key (Run key) with a creation timestamp",
+      "The CPU temperature recorded by the hardware sensor during execution",
+      "The number of fans active in the case during the analysis"
+    ],
     "correct": [0, 1],
     "explanation": "Gli artefatti attribuibili collegano un evento a un attore o a un'azione: l'account che ha lanciato un processo (attribuzione all'identità) e una Run key di persistenza con timestamp (attribuzione a un'azione di persistenza e alla sua tempistica) sono prove forensi valide.",
+    "explanation_en": "Attributable artifacts link an event to an actor or an action: the account that launched a process (attribution to identity) and a persistence Run key with a timestamp (attribution to a persistence action and its timing) are valid forensic evidence.",
     "why_wrong": {
       "2": "La temperatura della CPU è un dato ambientale hardware, privo di valore forense per attribuire azioni o identità.",
       "3": "Il numero di ventole attive non ha alcuna relazione con l'attività di un attaccante sul sistema."
+    },
+    "why_wrong_en": {
+      "2": "CPU temperature is an environmental hardware datum, with no forensic value for attributing actions or identities.",
+      "3": "The number of active fans has no relationship to an attacker's activity on the system."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -253,18 +392,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la differenza operativa fondamentale tra un IDS e un IPS distribuiti in un segmento di rete?",
+    "question_en": "What is the fundamental operational difference between an IDS and an IPS deployed on a network segment?",
     "options": [
       "L'IDS è posto in-line e blocca il traffico, mentre l'IPS opera solo in modalità passiva",
       "L'IDS rileva e allerta operando tipicamente in modalità passiva (mirror/tap), mentre l'IPS è in-line e può bloccare attivamente il traffico",
       "L'IDS ispeziona solo il livello 2, l'IPS solo il livello 7",
       "Non c'è differenza: i termini sono sinonimi"
     ],
+    "options_en": [
+      "The IDS is placed in-line and blocks traffic, while the IPS operates only in passive mode",
+      "The IDS detects and alerts, typically operating in passive mode (mirror/tap), while the IPS is in-line and can actively block traffic",
+      "The IDS inspects only layer 2, the IPS only layer 7",
+      "There is no difference: the terms are synonyms"
+    ],
     "correct": [1],
     "explanation": "Un IDS lavora tipicamente in modalità passiva su una copia del traffico (SPAN/tap): rileva e genera allarmi ma non interviene sul flusso. Un IPS è posizionato in-line nel percorso del traffico e può bloccare, scartare o resettare le connessioni malevole in tempo reale.",
+    "explanation_en": "An IDS typically works in passive mode on a copy of the traffic (SPAN/tap): it detects and generates alerts but does not act on the flow. An IPS is positioned in-line in the traffic path and can block, drop or reset malicious connections in real time.",
     "why_wrong": {
       "0": "È invertito: è l'IPS a essere in-line e a bloccare, mentre l'IDS opera in modalità passiva.",
       "2": "Entrambi possono ispezionare più livelli dello stack; la distinzione riguarda il posizionamento (passivo vs in-line) e la capacità di bloccare, non un livello OSI fisso.",
       "3": "Non sono sinonimi: differiscono proprio per la capacità dell'IPS di intervenire attivamente sul traffico."
+    },
+    "why_wrong_en": {
+      "0": "It is reversed: it is the IPS that is in-line and blocks, while the IDS operates in passive mode.",
+      "2": "Both can inspect multiple layers of the stack; the distinction concerns placement (passive vs in-line) and the ability to block, not a fixed OSI layer.",
+      "3": "They are not synonyms: they differ precisely in the IPS's ability to actively act on the traffic."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -275,18 +427,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Un IPS non genera alcun allarme mentre un attacco reale attraversa la rete e compromette un host. Come si classifica questo esito e qual è il rischio principale?",
+    "question_en": "An IPS generates no alert while a real attack crosses the network and compromises a host. How is this outcome classified and what is the main risk?",
     "options": [
       "Falso positivo: si spreca tempo dell'analista su un evento benigno",
       "Falso negativo: una minaccia reale non viene rilevata, lasciando l'attacco invisibile al SOC",
       "Vero positivo: il sistema ha correttamente identificato l'attacco",
       "Vero negativo: nessun attacco era presente e nessun allarme è stato generato"
     ],
+    "options_en": [
+      "False positive: analyst time is wasted on a benign event",
+      "False negative: a real threat is not detected, leaving the attack invisible to the SOC",
+      "True positive: the system correctly identified the attack",
+      "True negative: no attack was present and no alert was generated"
+    ],
     "correct": [1],
     "explanation": "Un falso negativo si verifica quando un evento realmente malevolo NON viene rilevato dal sensore. È l'esito più pericoloso perché l'attacco procede senza essere notato dal SOC, a differenza del falso positivo che comporta solo spreco di risorse.",
+    "explanation_en": "A false negative occurs when a truly malicious event is NOT detected by the sensor. It is the most dangerous outcome because the attack proceeds unnoticed by the SOC, unlike the false positive which only entails a waste of resources.",
     "why_wrong": {
       "0": "Il falso positivo è un allarme su evento benigno; qui invece l'attacco è reale e non è stato rilevato.",
       "2": "Un vero positivo avrebbe generato un allarme corretto sull'attacco, ma qui nessun allarme è stato prodotto.",
       "3": "Un vero negativo presuppone assenza di attacco; nel caso descritto l'attacco è reale e ha compromesso un host."
+    },
+    "why_wrong_en": {
+      "0": "A false positive is an alert on a benign event; here instead the attack is real and was not detected.",
+      "2": "A true positive would have generated a correct alert on the attack, but here no alert was produced.",
+      "3": "A true negative presupposes the absence of an attack; in the described case the attack is real and compromised a host."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -297,18 +462,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Analizzando un PCAP, l'analista deve estrarre un file eseguibile che è stato trasferito via HTTP per calcolarne l'hash e confrontarlo con la threat intelligence. Quale capacità del NGFW/IDS gli consente di ispezionare il contenuto applicativo fino a ricostruire l'oggetto?",
+    "question_en": "When analyzing a PCAP, the analyst must extract an executable file that was transferred via HTTP in order to compute its hash and compare it against threat intelligence. Which NGFW/IDS capability lets them inspect the application content down to reconstructing the object?",
     "options": [
       "Deep Packet Inspection (DPI) con ricostruzione dello stream applicativo",
       "Il conteggio dei pacchetti tramite le statistiche di NetFlow",
       "Il filtro basato solo su indirizzi IP e numeri di porta (packet filtering stateless)",
       "L'analisi dei soli header di livello 3 (IP)"
     ],
+    "options_en": [
+      "Deep Packet Inspection (DPI) with reconstruction of the application stream",
+      "Packet counting through NetFlow statistics",
+      "Filtering based only on IP addresses and port numbers (stateless packet filtering)",
+      "Analysis of layer 3 (IP) headers only"
+    ],
     "correct": [0],
     "explanation": "La Deep Packet Inspection ispeziona il payload fino al livello applicativo (L7) e, ricostruendo lo stream TCP/HTTP, permette di estrarre gli oggetti trasferiti (come un eseguibile) per calcolarne l'hash e confrontarlo con IOC noti.",
+    "explanation_en": "Deep Packet Inspection inspects the payload up to the application layer (L7) and, by reconstructing the TCP/HTTP stream, allows the transferred objects (such as an executable) to be extracted to compute their hash and compare it against known IOCs.",
     "why_wrong": {
       "1": "NetFlow fornisce solo metadati statistici della connessione, non il payload né il file trasferito.",
       "2": "Il filtraggio stateless su IP e porte non guarda dentro il payload e non può ricostruire un file applicativo.",
       "3": "L'analisi dei soli header IP di livello 3 non accede al contenuto applicativo necessario per estrarre l'eseguibile."
+    },
+    "why_wrong_en": {
+      "1": "NetFlow provides only statistical metadata of the connection, not the payload or the transferred file.",
+      "2": "Stateless filtering on IPs and ports does not look inside the payload and cannot reconstruct an application file.",
+      "3": "Analysis of layer 3 IP headers only does not access the application content needed to extract the executable."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -319,11 +497,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Secondo il ciclo di vita della gestione degli incidenti del NIST SP 800-61, la fase 'Containment, Eradication & Recovery' precede la fase 'Detection & Analysis'.",
+    "question_en": "According to the incident handling lifecycle of NIST SP 800-61, the 'Containment, Eradication & Recovery' phase precedes the 'Detection & Analysis' phase.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "È falso: l'ordine corretto del NIST SP 800-61 è Preparation, poi Detection & Analysis, poi Containment/Eradication/Recovery, infine Post-Incident Activity. Non si può contenere ed eradicare un incidente prima di averlo rilevato e analizzato.",
+    "explanation_en": "It is false: the correct order in NIST SP 800-61 is Preparation, then Detection & Analysis, then Containment/Eradication/Recovery, and finally Post-Incident Activity. You cannot contain and eradicate an incident before having detected and analyzed it.",
     "why_wrong": {
       "0": "Affermarlo vero inverte l'ordine: la rilevazione e analisi devono necessariamente precedere il contenimento e l'eradicazione."
+    },
+    "why_wrong_en": {
+      "0": "Stating it as true reverses the order: detection and analysis must necessarily precede containment and eradication."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -334,17 +518,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Il responsabile del SOC vuole misurare l'efficacia del team. Quali DUE metriche misurano rispettivamente la rapidità di rilevamento e la rapidità di risposta agli incidenti?",
+    "question_en": "The SOC manager wants to measure the team's effectiveness. Which TWO metrics measure, respectively, the speed of detection and the speed of response to incidents?",
     "options": [
       "MTTD (Mean Time To Detect)",
       "MTTR (Mean Time To Respond/Remediate)",
       "TTL (Time To Live) dei pacchetti IP",
       "MTU (Maximum Transmission Unit) del segmento"
     ],
+    "options_en": [
+      "MTTD (Mean Time To Detect)",
+      "MTTR (Mean Time To Respond/Remediate)",
+      "TTL (Time To Live) of IP packets",
+      "MTU (Maximum Transmission Unit) of the segment"
+    ],
     "correct": [0, 1],
     "explanation": "Il MTTD misura il tempo medio impiegato per rilevare un incidente dal suo inizio, mentre il MTTR misura il tempo medio per rispondere/rimediare dopo il rilevamento. Sono KPI centrali per valutare le prestazioni di un SOC.",
+    "explanation_en": "MTTD measures the average time taken to detect an incident from its onset, while MTTR measures the average time to respond/remediate after detection. They are central KPIs for evaluating a SOC's performance.",
     "why_wrong": {
       "2": "Il TTL è un campo dell'header IP che limita la vita del pacchetto in rete, non una metrica di performance del SOC.",
       "3": "La MTU è la dimensione massima del pacchetto trasmissibile su un segmento, un parametro di rete, non un KPI del SOC."
+    },
+    "why_wrong_en": {
+      "2": "TTL is an IP header field that limits a packet's lifetime on the network, not a SOC performance metric.",
+      "3": "MTU is the maximum packet size transmittable on a segment, a network parameter, not a SOC KPI."
     },
     "source": "Cisco CyberOps 200-201"
   },
@@ -355,18 +551,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Un analista di threat intelligence sta collegando una serie di eventi correlando quattro elementi fondamentali: l'avversario, la vittima, l'infrastruttura utilizzata e la capacità (malware/exploit). Quale modello di analisi delle intrusioni sta applicando?",
+    "question_en": "A threat intelligence analyst is linking a series of events by correlating four fundamental elements: the adversary, the victim, the infrastructure used and the capability (malware/exploit). Which intrusion analysis model are they applying?",
     "options": [
       "Cyber Kill Chain di Lockheed Martin",
       "Diamond Model of Intrusion Analysis",
       "Schema VERIS (Vocabulary for Event Recording and Incident Sharing)",
       "CVSS (Common Vulnerability Scoring System)"
     ],
+    "options_en": [
+      "Lockheed Martin Cyber Kill Chain",
+      "Diamond Model of Intrusion Analysis",
+      "VERIS schema (Vocabulary for Event Recording and Incident Sharing)",
+      "CVSS (Common Vulnerability Scoring System)"
+    ],
     "correct": [1],
     "explanation": "Il Diamond Model rappresenta ogni evento di intrusione tramite quattro vertici correlati: Adversary (avversario), Victim (vittima), Infrastructure (infrastruttura) e Capability (capacità). Consente il pivoting tra questi elementi per correlare eventi e campagne.",
+    "explanation_en": "The Diamond Model represents each intrusion event through four correlated vertices: Adversary, Victim, Infrastructure and Capability. It enables pivoting among these elements to correlate events and campaigns.",
     "why_wrong": {
       "0": "La Cyber Kill Chain descrive le sette fasi sequenziali di un attacco (dalla ricognizione alle azioni sull'obiettivo), non i quattro vertici avversario-vittima-infrastruttura-capacità.",
       "2": "VERIS è uno schema per registrare e condividere in modo strutturato i dati degli incidenti (usato nel DBIR), non il modello a quattro vertici descritto.",
       "3": "CVSS è un sistema per assegnare un punteggio di gravità alle vulnerabilità, non un framework di analisi delle intrusioni."
+    },
+    "why_wrong_en": {
+      "0": "The Cyber Kill Chain describes the seven sequential phases of an attack (from reconnaissance to actions on the objective), not the four adversary-victim-infrastructure-capability vertices.",
+      "2": "VERIS is a schema for recording and sharing incident data in a structured way (used in the DBIR), not the four-vertex model described.",
+      "3": "CVSS is a system for assigning a severity score to vulnerabilities, not an intrusion analysis framework."
     },
     "source": "Cisco CyberOps 200-201"
   }

@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Un amministratore usa raramente il ruolo Global Administrator ma deve poterlo attivare all'occorrenza con approvazione e per un tempo limitato. Quale configurazione di Microsoft Entra soddisfa questa esigenza?",
+    "question_en": "An administrator rarely uses the Global Administrator role but must be able to activate it when needed, with approval and for a limited time. Which Microsoft Entra configuration meets this need?",
     "options": [
       "Assegnare il ruolo come idoneo (eligible) in Privileged Identity Management con attivazione just-in-time e workflow di approvazione",
       "Assegnare il ruolo in modo permanente (active) e proteggerlo con una policy di Conditional Access",
       "Creare un ruolo RBAC personalizzato che concede gli stessi permessi solo per otto ore",
       "Aggiungere l'utente a un gruppo di sicurezza dinamico basato sul dipartimento"
     ],
+    "options_en": [
+      "Assign the role as eligible in Privileged Identity Management with just-in-time activation and an approval workflow",
+      "Assign the role permanently (active) and protect it with a Conditional Access policy",
+      "Create a custom RBAC role that grants the same permissions for only eight hours",
+      "Add the user to a dynamic security group based on department"
+    ],
     "correct": [0],
     "explanation": "Privileged Identity Management (PIM) consente assegnazioni eligible: l'utente non detiene il ruolo in modo permanente ma lo attiva just-in-time, con requisiti come MFA, giustificazione, durata massima e approvazione. Questo riduce l'esposizione dei privilegi permanenti (zero standing privilege).",
+    "explanation_en": "Privileged Identity Management (PIM) allows eligible assignments: the user does not hold the role permanently but activates it just-in-time, with requirements such as MFA, justification, maximum duration, and approval. This reduces the exposure of standing privileges (zero standing privilege).",
     "why_wrong": {
       "1": "Un'assegnazione permanente lascia i privilegi sempre attivi: Conditional Access controlla l'accesso ma non elimina il privilegio permanente ne fornisce attivazione temporizzata con approvazione.",
       "2": "I ruoli RBAC governano risorse Azure (piano dati/gestione delle risorse), non i ruoli di directory di Entra come Global Administrator, e non offrono attivazione JIT con approvazione.",
       "3": "Un gruppo dinamico automatizza l'appartenenza ma continua a concedere privilegi permanenti, senza attivazione temporanea ne approvazione."
+    },
+    "why_wrong_en": {
+      "1": "A permanent assignment leaves the privileges always active: Conditional Access controls access but does not eliminate the standing privilege nor provide time-bound activation with approval.",
+      "2": "RBAC roles govern Azure resources (data/resource management plane), not Entra directory roles such as Global Administrator, and they do not offer JIT activation with approval.",
+      "3": "A dynamic group automates membership but continues to grant standing privileges, without temporary activation or approval."
     },
     "source": "Microsoft AZ-500"
   },
@@ -28,18 +41,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In una VNet vuoi filtrare il traffico in uscita verso Internet consentendo solo alcuni FQDN (es. *.microsoft.com) e centralizzare il logging. Quale servizio e piu adatto?",
+    "question_en": "In a VNet you want to filter outbound traffic to the Internet allowing only certain FQDNs (e.g. *.microsoft.com) and centralize logging. Which service is most suitable?",
     "options": [
       "Azure Firewall con regole applicative basate su FQDN",
       "Un Network Security Group (NSG) applicato alla subnet",
       "Un Application Security Group (ASG) associato alle NIC",
       "Azure DDoS Protection Standard sulla VNet"
     ],
+    "options_en": [
+      "Azure Firewall with FQDN-based application rules",
+      "A Network Security Group (NSG) applied to the subnet",
+      "An Application Security Group (ASG) associated with the NICs",
+      "Azure DDoS Protection Standard on the VNet"
+    ],
     "correct": [0],
     "explanation": "Azure Firewall e un firewall stateful gestito che supporta application rules con filtro per FQDN, consentendo di autorizzare il traffico in uscita solo verso nomi di dominio specifici, con logging centralizzato tramite Azure Monitor.",
+    "explanation_en": "Azure Firewall is a managed stateful firewall that supports application rules with FQDN filtering, allowing outbound traffic to be authorized only toward specific domain names, with centralized logging through Azure Monitor.",
     "why_wrong": {
       "1": "Un NSG filtra in base a IP, porte e protocolli (livello 3/4) e non comprende gli FQDN come *.microsoft.com.",
       "2": "Un ASG e solo un raggruppamento logico di NIC da usare come sorgente/destinazione nelle regole NSG: non filtra per FQDN.",
       "3": "DDoS Protection mitiga attacchi volumetrici, non filtra il traffico in uscita verso FQDN specifici."
+    },
+    "why_wrong_en": {
+      "1": "An NSG filters based on IP, ports, and protocols (layer 3/4) and does not understand FQDNs such as *.microsoft.com.",
+      "2": "An ASG is only a logical grouping of NICs to be used as source/destination in NSG rules: it does not filter by FQDN.",
+      "3": "DDoS Protection mitigates volumetric attacks; it does not filter outbound traffic to specific FQDNs."
     },
     "source": "Microsoft AZ-500"
   },
@@ -50,18 +76,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Devi proteggere un Azure Key Vault che contiene chiavi di crittografia critiche in modo che, anche eseguendo un'eliminazione, sia impossibile rimuovere definitivamente gli oggetti prima del periodo di ritenzione. Quale funzionalita attivi?",
+    "question_en": "You need to protect an Azure Key Vault containing critical encryption keys so that, even if a deletion is performed, it is impossible to permanently remove the objects before the retention period. Which feature do you enable?",
     "options": [
       "Purge protection insieme a soft delete",
       "Solo soft delete, disabilitando la purge protection",
       "Una risorsa lock di tipo ReadOnly sul Key Vault",
       "Azure Backup del Key Vault con ritenzione a lungo termine"
     ],
+    "options_en": [
+      "Purge protection together with soft delete",
+      "Only soft delete, disabling purge protection",
+      "A ReadOnly resource lock on the Key Vault",
+      "Azure Backup of the Key Vault with long-term retention"
+    ],
     "correct": [0],
     "explanation": "Soft delete conserva gli oggetti eliminati per un periodo di ritenzione consentendone il recupero; la purge protection impedisce che, durante tale periodo, un attore (anche con privilegi) esegua il purge definitivo. Insieme garantiscono che gli oggetti non possano essere distrutti irreversibilmente.",
+    "explanation_en": "Soft delete retains deleted objects for a retention period, allowing their recovery; purge protection prevents an actor (even a privileged one) from performing the permanent purge during that period. Together they ensure that objects cannot be irreversibly destroyed.",
     "why_wrong": {
       "1": "Con il solo soft delete un amministratore compromesso puo comunque eseguire il purge e cancellare definitivamente gli oggetti prima della scadenza.",
       "2": "Un lock ReadOnly limita le modifiche alla risorsa ma non e il meccanismo dedicato a impedire il purge degli oggetti gia eliminati.",
       "3": "Azure Backup aiuta il ripristino ma non impedisce l'eliminazione definitiva degli oggetti nel Key Vault."
+    },
+    "why_wrong_en": {
+      "1": "With soft delete alone, a compromised administrator can still perform the purge and permanently delete the objects before expiry.",
+      "2": "A ReadOnly lock limits changes to the resource but is not the dedicated mechanism for preventing the purge of already deleted objects.",
+      "3": "Azure Backup helps with restore but does not prevent the permanent deletion of objects in the Key Vault."
     },
     "source": "Microsoft AZ-500"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Il team SOC vuole abilitare l'accesso RDP alle VM di produzione solo per finestre temporanee limitate e su richiesta, riducendo l'esposizione delle porte di gestione. Quale funzionalita di Microsoft Defender for Cloud usi?",
+    "question_en": "The SOC team wants to enable RDP access to production VMs only for limited time windows and on demand, reducing the exposure of management ports. Which Microsoft Defender for Cloud feature do you use?",
     "options": [
       "Just-in-Time (JIT) VM access",
       "Adaptive application controls",
       "Secure Score con raccomandazioni automatiche",
       "File Integrity Monitoring"
     ],
+    "options_en": [
+      "Just-in-Time (JIT) VM access",
+      "Adaptive application controls",
+      "Secure Score with automatic recommendations",
+      "File Integrity Monitoring"
+    ],
     "correct": [0],
     "explanation": "Just-in-Time VM access di Defender for Cloud mantiene chiuse le porte di gestione (RDP/SSH) tramite regole NSG e le apre solo quando richiesto, per un intervallo limitato e verso IP specifici, riducendo la superficie d'attacco.",
+    "explanation_en": "Just-in-Time VM access in Defender for Cloud keeps management ports (RDP/SSH) closed through NSG rules and opens them only when requested, for a limited interval and toward specific IPs, reducing the attack surface.",
     "why_wrong": {
       "1": "Gli adaptive application controls creano allowlist di applicazioni consentite sulle VM, non gestiscono l'apertura temporizzata delle porte di gestione.",
       "2": "Il Secure Score misura e suggerisce miglioramenti della postura, ma non e il meccanismo che apre/chiude le porte on demand.",
       "3": "File Integrity Monitoring rileva modifiche a file e registri, non controlla l'accesso RDP alle VM."
+    },
+    "why_wrong_en": {
+      "1": "Adaptive application controls create allowlists of permitted applications on VMs; they do not manage the timed opening of management ports.",
+      "2": "The Secure Score measures and suggests posture improvements, but is not the mechanism that opens/closes ports on demand.",
+      "3": "File Integrity Monitoring detects changes to files and registries; it does not control RDP access to VMs."
     },
     "source": "Microsoft AZ-500"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Vuoi che una VM Azure raggiunga un account di storage tramite la rete backbone Microsoft, senza esporre lo storage su un endpoint pubblico e assegnandogli un indirizzo IP privato all'interno della tua VNet. Quale soluzione scegli?",
+    "question_en": "You want an Azure VM to reach a storage account over the Microsoft backbone network, without exposing the storage on a public endpoint and assigning it a private IP address within your VNet. Which solution do you choose?",
     "options": [
       "Un Private Endpoint (Azure Private Link) verso l'account di storage",
       "Un Service Endpoint sulla subnet verso Microsoft.Storage",
       "Una regola NSG che consente il traffico verso l'IP pubblico dello storage",
       "Il peering tra la VNet e la rete dell'account di storage"
     ],
+    "options_en": [
+      "A Private Endpoint (Azure Private Link) to the storage account",
+      "A Service Endpoint on the subnet toward Microsoft.Storage",
+      "An NSG rule that allows traffic to the storage's public IP",
+      "Peering between the VNet and the storage account's network"
+    ],
     "correct": [0],
     "explanation": "Un Private Endpoint assegna alla risorsa PaaS (storage) una NIC con IP privato nella tua VNet tramite Private Link: il traffico resta sul backbone Microsoft e la risorsa non e piu raggiungibile dall'endpoint pubblico se combinata con le opportune restrizioni.",
+    "explanation_en": "A Private Endpoint assigns the PaaS resource (storage) a NIC with a private IP in your VNet through Private Link: the traffic stays on the Microsoft backbone and the resource is no longer reachable from the public endpoint when combined with the appropriate restrictions.",
     "why_wrong": {
       "1": "Il Service Endpoint estende l'identita della VNet allo storage ma il servizio continua a usare il suo IP pubblico: non assegna un IP privato nella tua VNet.",
       "2": "Consentire il traffico verso l'IP pubblico mantiene comunque l'esposizione pubblica dello storage.",
       "3": "Il VNet peering connette due VNet tra loro; gli account di storage PaaS non sono in una VNet da mettere in peering."
+    },
+    "why_wrong_en": {
+      "1": "The Service Endpoint extends the VNet's identity to the storage, but the service continues to use its public IP: it does not assign a private IP in your VNet.",
+      "2": "Allowing traffic to the public IP still keeps the storage publicly exposed.",
+      "3": "VNet peering connects two VNets to each other; PaaS storage accounts are not in a VNet that can be peered."
     },
     "source": "Microsoft AZ-500"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un requisito di conformita impone di cifrare i dischi del sistema operativo e dati delle VM Windows a livello di volume, con chiavi gestibili nel tuo Key Vault. Quale tecnologia usi?",
+    "question_en": "A compliance requirement mandates encrypting the OS and data disks of Windows VMs at the volume level, with keys manageable in your Key Vault. Which technology do you use?",
     "options": [
       "Azure Disk Encryption (basata su BitLocker) integrata con Key Vault",
       "Transparent Data Encryption (TDE)",
       "Storage Service Encryption con chiavi gestite da Microsoft",
       "Always Encrypted con enclave sicure"
     ],
+    "options_en": [
+      "Azure Disk Encryption (based on BitLocker) integrated with Key Vault",
+      "Transparent Data Encryption (TDE)",
+      "Storage Service Encryption with Microsoft-managed keys",
+      "Always Encrypted with secure enclaves"
+    ],
     "correct": [0],
     "explanation": "Azure Disk Encryption cifra i volumi OS e dati delle VM usando BitLocker (Windows) o dm-crypt (Linux) e integra le chiavi di cifratura con Azure Key Vault, soddisfacendo requisiti di cifratura a livello di volume con chiavi sotto il tuo controllo.",
+    "explanation_en": "Azure Disk Encryption encrypts the OS and data volumes of VMs using BitLocker (Windows) or dm-crypt (Linux) and integrates the encryption keys with Azure Key Vault, satisfying volume-level encryption requirements with keys under your control.",
     "why_wrong": {
       "1": "TDE cifra database SQL a riposo (file di dati e log), non i volumi delle VM.",
       "2": "Storage Service Encryption riguarda i dati negli account di storage, non i dischi montati come volumi nelle VM.",
       "3": "Always Encrypted protegge colonne specifiche nei database SQL, non i volumi delle VM."
+    },
+    "why_wrong_en": {
+      "1": "TDE encrypts SQL databases at rest (data and log files), not VM volumes.",
+      "2": "Storage Service Encryption concerns data in storage accounts, not the disks mounted as volumes in VMs.",
+      "3": "Always Encrypted protects specific columns in SQL databases, not VM volumes."
     },
     "source": "Microsoft AZ-500"
   },
@@ -138,7 +216,14 @@
     "type": "single",
     "difficulty": 3,
     "question": "In Microsoft Sentinel vuoi scrivere una query che restituisca i tentativi di accesso falliti raggruppati per account nelle ultime 24 ore. Quale linguaggio usi per interrogare i dati nel workspace di Log Analytics?",
+    "question_en": "In Microsoft Sentinel you want to write a query that returns failed sign-in attempts grouped by account in the last 24 hours. Which language do you use to query the data in the Log Analytics workspace?",
     "options": [
+      "KQL (Kusto Query Language)",
+      "T-SQL",
+      "PromQL",
+      "SPL (Search Processing Language)"
+    ],
+    "options_en": [
       "KQL (Kusto Query Language)",
       "T-SQL",
       "PromQL",
@@ -146,10 +231,16 @@
     ],
     "correct": [0],
     "explanation": "Microsoft Sentinel si basa su Log Analytics e utilizza KQL (Kusto Query Language) per interrogare, filtrare e aggregare i dati, ad esempio con operatori come where, summarize e count su tabelle come SigninLogs.",
+    "explanation_en": "Microsoft Sentinel is based on Log Analytics and uses KQL (Kusto Query Language) to query, filter, and aggregate data, for example with operators such as where, summarize, and count on tables like SigninLogs.",
     "why_wrong": {
       "1": "T-SQL e il linguaggio dei database SQL Server/Azure SQL, non del motore Kusto di Sentinel.",
       "2": "PromQL e il linguaggio di Prometheus per metriche, non usato in Sentinel/Log Analytics.",
       "3": "SPL e il linguaggio di Splunk, non di Microsoft Sentinel."
+    },
+    "why_wrong_en": {
+      "1": "T-SQL is the language of SQL Server/Azure SQL databases, not of Sentinel's Kusto engine.",
+      "2": "PromQL is the Prometheus language for metrics, not used in Sentinel/Log Analytics.",
+      "3": "SPL is the Splunk language, not that of Microsoft Sentinel."
     },
     "source": "Microsoft AZ-500"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Devi concedere a un utente il permesso di gestire solo le macchine virtuali di un singolo resource group, senza dargli controllo sull'intera subscription. Qual e l'approccio RBAC corretto?",
+    "question_en": "You need to grant a user permission to manage only the virtual machines of a single resource group, without giving them control over the entire subscription. What is the correct RBAC approach?",
     "options": [
       "Assegnare il ruolo Virtual Machine Contributor con scope sul resource group",
       "Assegnare il ruolo Owner con scope sulla subscription",
       "Assegnare il ruolo Reader con scope sul management group",
       "Aggiungere l'utente al ruolo di directory User Administrator in Entra ID"
     ],
+    "options_en": [
+      "Assign the Virtual Machine Contributor role scoped to the resource group",
+      "Assign the Owner role scoped to the subscription",
+      "Assign the Reader role scoped to the management group",
+      "Add the user to the User Administrator directory role in Entra ID"
+    ],
     "correct": [0],
     "explanation": "In Azure RBAC si applica il principio del minimo privilegio combinando un ruolo appropriato (Virtual Machine Contributor) con lo scope piu ristretto necessario (il resource group), cosi l'utente gestisce le VM solo li.",
+    "explanation_en": "In Azure RBAC you apply the principle of least privilege by combining an appropriate role (Virtual Machine Contributor) with the narrowest necessary scope (the resource group), so the user manages the VMs only there.",
     "why_wrong": {
       "1": "Owner sulla subscription concede il controllo completo su tutte le risorse, ben oltre le VM di un resource group.",
       "2": "Reader consente solo la visualizzazione e uno scope su management group e piu ampio: non permette di gestire le VM.",
       "3": "User Administrator e un ruolo di directory Entra per gestire utenti, non concede permessi sulle VM in Azure."
+    },
+    "why_wrong_en": {
+      "1": "Owner on the subscription grants full control over all resources, well beyond the VMs of one resource group.",
+      "2": "Reader allows only viewing, and a management group scope is broader: it does not allow managing the VMs.",
+      "3": "User Administrator is an Entra directory role for managing users; it does not grant permissions on VMs in Azure."
     },
     "source": "Microsoft AZ-500"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un'applicazione web pubblicata tramite Azure Application Gateway deve essere protetta da attacchi come SQL injection e cross-site scripting a livello applicativo (L7). Quale componente abiliti?",
+    "question_en": "A web application published through Azure Application Gateway must be protected from attacks such as SQL injection and cross-site scripting at the application layer (L7). Which component do you enable?",
     "options": [
       "Web Application Firewall (WAF) sull'Application Gateway",
       "Azure DDoS Protection Standard",
       "Un Network Security Group sulla subnet del gateway",
       "Azure Firewall in modalita SNAT"
     ],
+    "options_en": [
+      "Web Application Firewall (WAF) on the Application Gateway",
+      "Azure DDoS Protection Standard",
+      "A Network Security Group on the gateway's subnet",
+      "Azure Firewall in SNAT mode"
+    ],
     "correct": [0],
     "explanation": "Il Web Application Firewall, integrabile con Application Gateway o Front Door, ispeziona il traffico HTTP/HTTPS a livello 7 e blocca attacchi comuni (OWASP Top 10) come SQL injection e XSS tramite ruleset gestiti (OWASP CRS).",
+    "explanation_en": "The Web Application Firewall, which can be integrated with Application Gateway or Front Door, inspects HTTP/HTTPS traffic at layer 7 and blocks common attacks (OWASP Top 10) such as SQL injection and XSS through managed rulesets (OWASP CRS).",
     "why_wrong": {
       "1": "DDoS Protection mitiga attacchi volumetrici di rete (L3/L4), non attacchi applicativi come SQL injection.",
       "2": "Un NSG filtra a livello 3/4 per IP e porte e non ispeziona il payload HTTP per rilevare XSS o SQL injection.",
       "3": "Azure Firewall opera principalmente a L3/L4 (con filtro FQDN); non fornisce protezione WAF L7 per le web app."
+    },
+    "why_wrong_en": {
+      "1": "DDoS Protection mitigates volumetric network attacks (L3/L4), not application attacks such as SQL injection.",
+      "2": "An NSG filters at layer 3/4 by IP and ports and does not inspect the HTTP payload to detect XSS or SQL injection.",
+      "3": "Azure Firewall operates mainly at L3/L4 (with FQDN filtering); it does not provide L7 WAF protection for web apps."
     },
     "source": "Microsoft AZ-500"
   },
@@ -204,18 +321,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Vuoi concedere a un'applicazione esterna l'accesso temporaneo in sola lettura a un singolo blob in un account di storage, con scadenza a 2 ore e senza condividere la chiave dell'account. Quale meccanismo usi?",
+    "question_en": "You want to grant an external application temporary read-only access to a single blob in a storage account, expiring in 2 hours and without sharing the account key. Which mechanism do you use?",
     "options": [
       "Una Shared Access Signature (SAS) a livello di servizio con permessi di lettura e scadenza definita",
       "La chiave di accesso primaria dell'account di storage",
       "Un Private Endpoint verso il blob",
       "Una managed identity assegnata all'applicazione esterna"
     ],
+    "options_en": [
+      "A service-level Shared Access Signature (SAS) with read permissions and a defined expiry",
+      "The primary access key of the storage account",
+      "A Private Endpoint to the blob",
+      "A managed identity assigned to the external application"
+    ],
     "correct": [0],
     "explanation": "Una SAS consente accesso granulare e temporaneo a risorse dello storage specificando permessi (es. sola lettura), risorsa e finestra di validita, senza rivelare le chiavi dell'account. Una SAS di servizio (o meglio una user delegation SAS) e adatta a delegare l'accesso a un singolo blob.",
+    "explanation_en": "A SAS allows granular, temporary access to storage resources by specifying permissions (e.g. read-only), resource, and validity window, without revealing the account keys. A service SAS (or better, a user delegation SAS) is suitable for delegating access to a single blob.",
     "why_wrong": {
       "1": "Condividere la chiave dell'account concede accesso completo e permanente a tutto lo storage: viola il minimo privilegio.",
       "2": "Un Private Endpoint controlla la rete di accesso, non rilascia un token temporaneo a scadenza per un singolo blob a un'app esterna.",
       "3": "Le managed identity sono per carichi di lavoro in Azure/Entra; un'app esterna non gestita nel tuo tenant non le puo usare cosi."
+    },
+    "why_wrong_en": {
+      "1": "Sharing the account key grants full and permanent access to all storage: it violates least privilege.",
+      "2": "A Private Endpoint controls the access network; it does not issue a temporary expiring token for a single blob to an external app.",
+      "3": "Managed identities are for workloads in Azure/Entra; an external app not managed in your tenant cannot use them this way."
     },
     "source": "Microsoft AZ-500"
   },
@@ -226,17 +356,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "L'organizzazione vuole governare la conformita delle risorse con Azure Policy su tutte le subscription. Quali DUE affermazioni su Azure Policy sono corrette? (scegli due)",
+    "question_en": "The organization wants to govern resource compliance with Azure Policy across all subscriptions. Which TWO statements about Azure Policy are correct? (choose two)",
     "options": [
       "L'effetto Deny puo bloccare in modo preventivo la creazione di risorse non conformi (es. storage senza HTTPS obbligatorio)",
       "L'effetto DeployIfNotExists puo distribuire automaticamente configurazioni per rendere conforme una risorsa",
       "Azure Policy sostituisce RBAC nel controllare quali utenti possono accedere alle risorse",
       "Azure Policy cifra automaticamente a riposo i dati di tutte le risorse valutate"
     ],
+    "options_en": [
+      "The Deny effect can preemptively block the creation of non-compliant resources (e.g. storage without mandatory HTTPS)",
+      "The DeployIfNotExists effect can automatically deploy configurations to make a resource compliant",
+      "Azure Policy replaces RBAC in controlling which users can access resources",
+      "Azure Policy automatically encrypts at rest the data of all evaluated resources"
+    ],
     "correct": [0, 1],
     "explanation": "Azure Policy valuta le proprieta delle risorse: con l'effetto Deny blocca la creazione/modifica di risorse non conformi (es. supportsHttpsTrafficOnly a false), mentre con DeployIfNotExists puo rimediare distribuendo automaticamente le configurazioni mancanti. E' governance preventiva e correttiva su larga scala.",
+    "explanation_en": "Azure Policy evaluates resource properties: with the Deny effect it blocks the creation/modification of non-compliant resources (e.g. supportsHttpsTrafficOnly set to false), while with DeployIfNotExists it can remediate by automatically deploying the missing configurations. It is preventive and corrective governance at scale.",
     "why_wrong": {
       "2": "Azure Policy governa la conformita della configurazione delle risorse, non chi puo accedervi: quello resta compito di RBAC.",
       "3": "Azure Policy non cifra i dati; puo al piu imporre o verificare che la cifratura sia configurata, ma non la esegue essa stessa."
+    },
+    "why_wrong_en": {
+      "2": "Azure Policy governs the compliance of resource configuration, not who can access them: that remains the task of RBAC.",
+      "3": "Azure Policy does not encrypt data; at most it can enforce or verify that encryption is configured, but it does not perform it itself."
     },
     "source": "Microsoft AZ-500"
   },
@@ -247,18 +389,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Devi connetterti in RDP/SSH a VM prive di indirizzo IP pubblico direttamente dal portale Azure, tramite TLS, senza esporre le porte di gestione a Internet. Quale servizio usi?",
+    "question_en": "You need to connect via RDP/SSH to VMs without a public IP address directly from the Azure portal, over TLS, without exposing the management ports to the Internet. Which service do you use?",
     "options": [
       "Azure Bastion",
       "Un jump box con IP pubblico e regola NSG",
       "Un Service Endpoint verso Microsoft.Network",
       "Azure Firewall con DNAT"
     ],
+    "options_en": [
+      "Azure Bastion",
+      "A jump box with a public IP and an NSG rule",
+      "A Service Endpoint toward Microsoft.Network",
+      "Azure Firewall with DNAT"
+    ],
     "correct": [0],
     "explanation": "Azure Bastion e un servizio PaaS gestito che fornisce connettivita RDP/SSH sicura alle VM direttamente dal portale via TLS (443), senza necessita di IP pubblici sulle VM ne di aprire le porte 3389/22 verso Internet.",
+    "explanation_en": "Azure Bastion is a managed PaaS service that provides secure RDP/SSH connectivity to VMs directly from the portal over TLS (443), without needing public IPs on the VMs or opening ports 3389/22 to the Internet.",
     "why_wrong": {
       "1": "Un jump box con IP pubblico introduce comunque un host esposto e regole NSG da gestire, aumentando la superficie d'attacco.",
       "2": "Un Service Endpoint protegge l'accesso a servizi PaaS da una subnet, non fornisce sessioni RDP/SSH alle VM.",
       "3": "Azure Firewall con DNAT puo inoltrare traffico ma espone le porte di gestione: Bastion e la soluzione dedicata e piu sicura."
+    },
+    "why_wrong_en": {
+      "1": "A jump box with a public IP still introduces an exposed host and NSG rules to manage, increasing the attack surface.",
+      "2": "A Service Endpoint protects access to PaaS services from a subnet; it does not provide RDP/SSH sessions to VMs.",
+      "3": "Azure Firewall with DNAT can forward traffic but exposes the management ports: Bastion is the dedicated and more secure solution."
     },
     "source": "Microsoft AZ-500"
   },
@@ -269,9 +424,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Vero o Falso: Transparent Data Encryption (TDE) su Azure SQL Database cifra a riposo i file di dati, di log e i backup in modo trasparente per l'applicazione, ed e abilitata per default sui nuovi database.",
+    "question_en": "True or False: Transparent Data Encryption (TDE) on Azure SQL Database encrypts data files, log files, and backups at rest transparently to the application, and is enabled by default on new databases.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. TDE cifra a riposo i file di dati e di log e i backup in modo trasparente, senza modifiche al codice applicativo, ed e attiva di default sui database Azure SQL creati di recente. Si distingue da Always Encrypted, che protegge singole colonne end-to-end con gestione delle chiavi lato client.",
+    "explanation_en": "True. TDE encrypts data and log files and backups at rest transparently, without changes to application code, and is active by default on recently created Azure SQL databases. It differs from Always Encrypted, which protects individual columns end-to-end with client-side key management.",
     "source": "Microsoft AZ-500"
   },
   {
@@ -281,17 +439,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Vuoi verificare periodicamente che gli utenti conservino solo gli accessi necessari, con revoca automatica di quelli non confermati. Quali DUE elementi caratterizzano una access review in Microsoft Entra ID Governance? (scegli due)",
+    "question_en": "You want to periodically verify that users retain only the necessary access, with automatic revocation of unconfirmed access. Which TWO elements characterize an access review in Microsoft Entra ID Governance? (choose two)",
     "options": [
       "Puo essere assegnata a revisori designati, ai manager degli utenti o agli utenti stessi (self-review)",
       "Puo rimuovere automaticamente l'accesso agli utenti non approvati al termine della review",
       "Cifra a riposo i dati delle risorse verificate durante la review",
       "Sostituisce la necessita di definire ruoli RBAC sulle risorse Azure"
     ],
+    "options_en": [
+      "It can be assigned to designated reviewers, the users' managers, or the users themselves (self-review)",
+      "It can automatically remove access for unapproved users at the end of the review",
+      "It encrypts at rest the data of the resources verified during the review",
+      "It replaces the need to define RBAC roles on Azure resources"
+    ],
     "correct": [0, 1],
     "explanation": "Le access review consentono di scegliere i revisori (revisori specifici, i manager o gli utenti stessi) e di applicare esiti automatici, ad esempio rimuovere l'accesso agli utenti non approvati alla scadenza, supportando la governance e il minimo privilegio.",
+    "explanation_en": "Access reviews allow you to choose the reviewers (specific reviewers, the managers, or the users themselves) and to apply automatic outcomes, for example removing access for unapproved users at expiry, supporting governance and least privilege.",
     "why_wrong": {
       "2": "Le access review governano gli accessi, non forniscono cifratura a riposo dei dati delle risorse.",
       "3": "Le access review verificano l'appropriatezza degli accessi assegnati, ma non eliminano la necessita di definire i ruoli RBAC."
+    },
+    "why_wrong_en": {
+      "2": "Access reviews govern access; they do not provide encryption at rest of resource data.",
+      "3": "Access reviews verify the appropriateness of assigned access, but do not eliminate the need to define RBAC roles."
     },
     "source": "Microsoft AZ-500"
   },
@@ -302,17 +472,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Stai configurando i Network Security Group per segmentare una VNet. Quali DUE affermazioni sono corrette sul funzionamento degli NSG? (scegli due)",
+    "question_en": "You are configuring Network Security Groups to segment a VNet. Which TWO statements are correct about how NSGs work? (choose two)",
     "options": [
       "Le regole vengono valutate in ordine di priorita e la prima corrispondenza determina l'esito",
       "Un NSG puo essere associato a una subnet oppure alla NIC di una VM",
       "Un NSG puo filtrare il traffico in base agli FQDN dei siti web",
       "Un NSG esegue ispezione TLS del payload applicativo"
     ],
+    "options_en": [
+      "Rules are evaluated in priority order and the first match determines the outcome",
+      "An NSG can be associated with a subnet or with the NIC of a VM",
+      "An NSG can filter traffic based on the FQDNs of websites",
+      "An NSG performs TLS inspection of the application payload"
+    ],
     "correct": [0, 1],
     "explanation": "Gli NSG contengono regole con priorita numerica: vengono valutate dalla priorita piu bassa (numero minore) e la prima regola che corrisponde stabilisce se consentire o negare. Un NSG puo essere associato a subnet o a NIC per applicare il filtraggio L3/L4.",
+    "explanation_en": "NSGs contain rules with numeric priority: they are evaluated from the lowest priority (smallest number) and the first matching rule determines whether to allow or deny. An NSG can be associated with a subnet or a NIC to apply L3/L4 filtering.",
     "why_wrong": {
       "2": "Il filtro per FQDN e una capacita di Azure Firewall (application rules), non degli NSG che operano su IP, porte e protocolli.",
       "3": "Gli NSG non ispezionano il payload ne eseguono terminazione/ispezione TLS: filtrano solo a livello 3/4."
+    },
+    "why_wrong_en": {
+      "2": "FQDN filtering is a capability of Azure Firewall (application rules), not of NSGs, which operate on IP, ports, and protocols.",
+      "3": "NSGs do not inspect the payload nor perform TLS termination/inspection: they filter only at layer 3/4."
     },
     "source": "Microsoft AZ-500"
   },
@@ -323,17 +505,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Il team di sicurezza vuole rafforzare l'uso di Microsoft Defender for Cloud. Quali DUE affermazioni descrivono correttamente le sue funzionalita? (scegli due)",
+    "question_en": "The security team wants to strengthen the use of Microsoft Defender for Cloud. Which TWO statements correctly describe its features? (choose two)",
     "options": [
       "Il Secure Score misura la postura di sicurezza e fornisce raccomandazioni prioritizzate per migliorarla",
       "I piani Defender (es. Defender for Servers, for Storage) abilitano protezione avanzata e rilevamento minacce sulle risorse",
       "Sostituisce completamente Microsoft Sentinel come piattaforma SIEM/SOAR",
       "Applica automaticamente policy RBAC per bloccare tutti gli accessi anonimi"
     ],
+    "options_en": [
+      "The Secure Score measures the security posture and provides prioritized recommendations to improve it",
+      "The Defender plans (e.g. Defender for Servers, for Storage) enable advanced protection and threat detection on resources",
+      "It completely replaces Microsoft Sentinel as a SIEM/SOAR platform",
+      "It automatically applies RBAC policies to block all anonymous access"
+    ],
     "correct": [0, 1],
     "explanation": "Defender for Cloud fornisce il Secure Score, che quantifica la postura e suggerisce miglioramenti prioritizzati, e piani Defender specifici per tipo di risorsa (server, storage, SQL, container, ecc.) che aggiungono protezione dai workload e rilevamento delle minacce.",
+    "explanation_en": "Defender for Cloud provides the Secure Score, which quantifies the posture and suggests prioritized improvements, and resource-type-specific Defender plans (server, storage, SQL, container, etc.) that add workload protection and threat detection.",
     "why_wrong": {
       "2": "Defender for Cloud e complementare a Sentinel: e una piattaforma CWPP/CSPM che invia segnali al SIEM, ma non lo sostituisce.",
       "3": "Defender for Cloud raccomanda miglioramenti ma non applica automaticamente policy RBAC per bloccare tutti gli accessi anonimi."
+    },
+    "why_wrong_en": {
+      "2": "Defender for Cloud is complementary to Sentinel: it is a CWPP/CSPM platform that sends signals to the SIEM, but does not replace it.",
+      "3": "Defender for Cloud recommends improvements but does not automatically apply RBAC policies to block all anonymous access."
     },
     "source": "Microsoft AZ-500"
   },
@@ -344,9 +538,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Vero o Falso: assegnando una managed identity a una VM Azure e concedendole l'accesso a un Key Vault, l'applicazione sulla VM puo ottenere segreti senza memorizzare alcuna credenziale nella configurazione.",
+    "question_en": "True or False: by assigning a managed identity to an Azure VM and granting it access to a Key Vault, the application on the VM can obtain secrets without storing any credentials in the configuration.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Con una managed identity, Entra ID gestisce l'identita e il rilascio dei token: l'applicazione richiede un token all'endpoint dell'identita (IMDS) e accede al Key Vault senza segreti memorizzati, eliminando la gestione e la rotazione di credenziali statiche.",
+    "explanation_en": "True. With a managed identity, Entra ID manages the identity and the issuing of tokens: the application requests a token from the identity endpoint (IMDS) and accesses the Key Vault without stored secrets, eliminating the management and rotation of static credentials.",
     "source": "Microsoft AZ-500"
   },
   {
@@ -356,9 +553,12 @@
     "type": "truefalse",
     "difficulty": 3,
     "question": "Vero o Falso: una policy di Conditional Access di Microsoft Entra puo richiedere che il dispositivo sia conforme (compliant) o Hybrid Entra joined come condizione per concedere l'accesso a un'applicazione cloud.",
+    "question_en": "True or False: a Microsoft Entra Conditional Access policy can require that the device be compliant or Hybrid Entra joined as a condition for granting access to a cloud application.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Tra i grant control di Conditional Access e possibile richiedere che il dispositivo sia marcato come compliant (tramite Intune) o Hybrid Entra joined, integrando i segnali di stato del dispositivo nella decisione di accesso.",
+    "explanation_en": "True. Among the Conditional Access grant controls, it is possible to require that the device be marked as compliant (via Intune) or Hybrid Entra joined, integrating the device state signals into the access decision.",
     "source": "Microsoft AZ-500"
   }
 ]

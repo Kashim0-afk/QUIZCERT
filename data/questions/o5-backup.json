@@ -19,7 +19,20 @@
       "2": "Questo e il comportamento del backup differenziale, non dell'incrementale: nell'incrementale ogni notte salva solo il delta rispetto alla notte precedente, quindi servono tutti gli anelli della catena.",
       "3": "Senza il backup completo di base gli incrementali non hanno un punto di partenza su cui applicare i delta e il ripristino e impossibile."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "A company runs a full backup on Sunday and incremental backups every evening from Monday to Friday. If the failure occurs on Thursday morning, which data sets are needed for a complete restore?",
+    "options_en": [
+      "Only Sunday's full backup",
+      "Sunday's full backup plus all the incrementals from Monday, Tuesday and Wednesday",
+      "Sunday's full backup plus only Wednesday's incremental",
+      "Only the incrementals from Monday, Tuesday and Wednesday"
+    ],
+    "explanation_en": "An incremental backup saves only the data changed since the last backup of any type. The restore chain therefore requires the base full backup plus every incremental in sequence up to the desired point: Sunday + Monday + Tuesday + Wednesday.",
+    "why_wrong_en": {
+      "0": "The full alone would bring the data back to Sunday's state, losing all the changes from Monday, Tuesday and Wednesday.",
+      "2": "This is the behavior of a differential backup, not an incremental one: with an incremental, each night saves only the delta relative to the previous night, so all the links in the chain are needed.",
+      "3": "Without the base full backup the incrementals have no starting point on which to apply the deltas, and the restore is impossible."
+    }
   },
   {
     "id": "bkpb-002",
@@ -41,7 +54,20 @@
       "2": "Retention, verifica e test sono buone pratiche ma non sono cio che definisce i numeri 3-2-1.",
       "3": "E un'implementazione possibile ma troppo specifica: la regola parla genericamente di copie, supporti e una copia offsite, non impone datacenter o provider cloud."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What does the 3-2-1 backup rule prescribe?",
+    "options_en": [
+      "3 full backups, 2 incrementals and 1 differential every week",
+      "3 copies of the data, on 2 different types of media, with 1 kept offsite",
+      "3 days of retention, 2 verifications and 1 restore test per month",
+      "3 datacenters, 2 cloud providers and 1 archive tape"
+    ],
+    "explanation_en": "The 3-2-1 rule is a classic guideline: keep at least 3 copies of the data (the original plus two backups), on at least 2 different types of media, with at least 1 copy kept offsite to protect against local disasters such as fires or theft.",
+    "why_wrong_en": {
+      "0": "The rule is about the number of copies and their placement, not a fixed scheme of full/incremental/differential backup types.",
+      "2": "Retention, verification and testing are good practices but are not what the numbers 3-2-1 define.",
+      "3": "It is a possible implementation but too specific: the rule speaks generically of copies, media and one offsite copy, and does not mandate datacenters or cloud providers."
+    }
   },
   {
     "id": "bkpb-003",
@@ -63,7 +89,20 @@
       "2": "RPO e RTO sono obiettivi di tolleranza, non frequenze operative di esecuzione o verifica dei backup.",
       "3": "Non descrivono un fermo giornaliero programmato ne una cadenza di aggiornamento, ma i limiti accettabili in caso di incidente."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "A continuity plan sets RPO = 1 hour and RTO = 4 hours. What does this mean in practice?",
+    "options_en": [
+      "It is acceptable to lose at most 1 hour of data and to take at most 4 hours to become operational again",
+      "It is acceptable to lose at most 4 hours of data and to take at most 1 hour to become operational again",
+      "The backup must be run every 4 hours and verified every hour",
+      "The system can stay down 1 hour per day and must be updated every 4 hours"
+    ],
+    "explanation_en": "The RPO (Recovery Point Objective) measures the maximum amount of data that can be lost, expressed as the time interval since the last usable backup: here 1 hour. The RTO (Recovery Time Objective) measures the maximum tolerated time to restore the service: here 4 hours.",
+    "why_wrong_en": {
+      "1": "The two values are swapped: the RPO (data loss) is 1 hour and the RTO (recovery time) is 4 hours, not the other way around.",
+      "2": "RPO and RTO are tolerance objectives, not operational frequencies for running or verifying backups.",
+      "3": "They do not describe a scheduled daily downtime nor an update cadence, but the acceptable limits in the event of an incident."
+    }
   },
   {
     "id": "bkpb-004",
@@ -85,7 +124,20 @@
       "2": "RAID 5 ha eccome ridondanza: una parita singola che consente di ricostruire un disco perso.",
       "3": "E il contrario: RAID 6 calcola una parita in piu, quindi ha un overhead di scrittura maggiore, non minore, rispetto a RAID 5."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What is the fundamental difference between RAID 5 and RAID 6?",
+    "options_en": [
+      "RAID 5 uses mirroring, RAID 6 uses pure striping",
+      "RAID 5 tolerates the failure of one disk (single parity), RAID 6 tolerates the failure of two disks simultaneously (dual parity)",
+      "RAID 5 has no redundancy, RAID 6 has single parity",
+      "RAID 6 is faster at writing because it computes less parity than RAID 5"
+    ],
+    "explanation_en": "RAID 5 distributes the data with a single parity and survives the loss of only one disk. RAID 6 adds a second independent parity, so it tolerates the simultaneous failure of two disks, which is useful with large arrays where the risk of a second failure during rebuild is high.",
+    "why_wrong_en": {
+      "0": "Neither RAID 5 nor RAID 6 uses mirroring (that is RAID 1); both use striping with distributed parity.",
+      "2": "RAID 5 most certainly has redundancy: a single parity that allows a lost disk to be rebuilt.",
+      "3": "It is the opposite: RAID 6 computes one more parity, so it has a greater, not smaller, write overhead compared to RAID 5."
+    }
   },
   {
     "id": "bkpb-005",
@@ -107,7 +159,20 @@
       "2": "La velocita di esecuzione non c'entra: la protezione deriva dall'impossibilita di alterare o raggiungere la copia, non da quanto e rapida.",
       "3": "Immutabilita e air-gap sono complementari alle difese endpoint, non un sostituto dell'antivirus o dell'EDR."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Why are immutable backups (WORM) and air-gap backups considered key defenses against ransomware?",
+    "options_en": [
+      "Because they encrypt the data with a key that the ransomware does not know",
+      "Because once written they cannot be modified or deleted for a defined period, nor reached by the malware over the network, remaining available for the restore",
+      "Because they run faster and so the ransomware does not have time to hit them",
+      "Because they replace the need to have an antivirus on the servers"
+    ],
+    "explanation_en": "Modern ransomware tries to encrypt or delete the backups too. WORM (Write Once Read Many) immutability prevents any modification or deletion of the copy for a preset retention period, while the air-gap keeps the copy physically or logically disconnected from the network: in both cases a clean copy remains from which to restore.",
+    "why_wrong_en": {
+      "0": "Encryption protects confidentiality, not the integrity of the backups against deletion: an encrypted but deletable backup remains vulnerable to ransomware.",
+      "2": "Execution speed is irrelevant: the protection comes from the impossibility of altering or reaching the copy, not from how fast it is.",
+      "3": "Immutability and air-gap are complementary to endpoint defenses, not a substitute for antivirus or EDR."
+    }
   },
   {
     "id": "bkpb-006",
@@ -129,7 +194,20 @@
       "2": "Un deposito di soli nastri senza hardware non e un hot site: manca l'infrastruttura attiva pronta all'uso.",
       "3": "E il contrario: l'hot site, tenendo hardware acceso e dati sincronizzati, e la soluzione piu costosa da mantenere, mentre il cold site e la piu economica."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In a disaster recovery plan, what characterizes a hot site compared to a cold site?",
+    "options_en": [
+      "A hot site is an empty room with only power and connectivity, to be equipped at the time of the disaster",
+      "A hot site is an already fully operational facility, with active hardware and synchronized data, ready to take over within very short times",
+      "A hot site holds only the backup tapes without any hardware",
+      "A hot site is always cheaper to maintain than a cold site"
+    ],
+    "explanation_en": "A hot site is a recovery site that is fully equipped and aligned with production data (often via replication), able to resume the service in minutes or a few hours. A cold site, by contrast, is only a prepared space (floor space, power, network) to be equipped and loaded with data when needed, with a much longer RTO.",
+    "why_wrong_en": {
+      "0": "That description corresponds to a cold site, not a hot site.",
+      "2": "A store of tapes only, without hardware, is not a hot site: it lacks the active infrastructure ready for use.",
+      "3": "It is the opposite: the hot site, keeping hardware powered on and data synchronized, is the most expensive solution to maintain, while the cold site is the cheapest."
+    }
   },
   {
     "id": "bkpb-007",
@@ -151,7 +229,20 @@
       "2": "La replica puo benissimo essere verso un sito remoto; il limite non e la posizione geografica ma la propagazione immediata di errori e cancellazioni.",
       "3": "Gli snapshot incrementali tendono a occupare poco spazio; l'occupazione non e la ragione per cui non equivalgono a un backup."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "A storage snapshot and synchronous replication are not a substitute for a true backup. What is the main reason?",
+    "options_en": [
+      "Because snapshots and replication are always slower to restore than a backup",
+      "Because a corruption, a logical deletion or a ransomware encryption propagates immediately to the dependent snapshot or the replicated copy, which do not provide an independent copy over time",
+      "Because snapshots and replication can never be kept offsite",
+      "Because snapshots take up more space than a full backup"
+    ],
+    "explanation_en": "A snapshot often depends on the original volume (it stores only the changed blocks) and synchronous replication copies every write in real time, including malicious or erroneous ones. A backup, by contrast, is an independent and historicized copy: precisely the separation in time and from the primary storage makes it possible to return to a state prior to an error or an attack.",
+    "why_wrong_en": {
+      "0": "In reality snapshots and replication are often faster to restore; the problem is not speed but the lack of independence from the primary data.",
+      "2": "Replication can perfectly well be to a remote site; the limitation is not the geographic location but the immediate propagation of errors and deletions.",
+      "3": "Incremental snapshots tend to take up little space; space usage is not the reason why they are not equivalent to a backup."
+    }
   },
   {
     "id": "bkpb-008",
@@ -173,7 +264,20 @@
       "2": "GFS e uno schema di rotazione dei backup, non ha nulla a che vedere con l'annidamento di livelli RAID.",
       "3": "Non descrive incrementali che si sovrascrivono, ma una gerarchia di set conservati con retention crescente."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What does the GFS (Grandfather-Father-Son) backup rotation consist of?",
+    "options_en": [
+      "Three identical copies made every day on three different tapes",
+      "A hierarchical set of backups with daily (Son), weekly (Father) and monthly (Grandfather) cycles to balance restore granularity and long-term retention",
+      "Three nested RAID levels to increase redundancy",
+      "A chain of three incremental backups that overwrite one another"
+    ],
+    "explanation_en": "GFS is a media rotation scheme: the daily backups (Son) provide recent granularity, the weekly ones (Father) cover the weeks and the monthly ones (Grandfather) provide long-term retention. This achieves good temporal coverage without keeping every single backup forever.",
+    "why_wrong_en": {
+      "0": "It is not about three identical daily copies, but about three distinct time levels (day, week, month).",
+      "2": "GFS is a backup rotation scheme; it has nothing to do with the nesting of RAID levels.",
+      "3": "It does not describe incrementals that overwrite each other, but a hierarchy of sets kept with increasing retention."
+    }
   },
   {
     "id": "bkpb-009",
@@ -195,7 +299,20 @@
       "2": "La BIA puo informare decisioni di spesa ma non e un esercizio di budgeting del reparto IT.",
       "3": "La configurazione del firewall e un'attivita tecnica di sicurezza operativa, estranea allo scopo della BIA."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What is the main purpose of a Business Impact Analysis (BIA)?",
+    "options_en": [
+      "To list the technical vulnerabilities of the servers in order to plan patches",
+      "To identify the critical business processes and estimate the impact of their interruption over time, in order to define recovery priorities and values such as RTO and RPO",
+      "To define the annual budget of the IT department",
+      "To configure the perimeter firewall rules"
+    ],
+    "explanation_en": "The BIA is the analytical step of business continuity: it identifies the critical functions and processes, assesses the consequences (financial, legal, reputational) of an outage as a function of its duration, and provides the basis for setting recovery priorities and objectives such as RTO and RPO.",
+    "why_wrong_en": {
+      "0": "Listing the technical vulnerabilities belongs to the vulnerability assessment, not to the BIA, which reasons about business impact.",
+      "2": "The BIA can inform spending decisions but is not an IT department budgeting exercise.",
+      "3": "Configuring the firewall is a technical operational-security activity, unrelated to the purpose of the BIA."
+    }
   },
   {
     "id": "bkpb-010",
@@ -217,7 +334,20 @@
       "2": "Non sono conteggi di backup o ripristini, ma medie temporali di affidabilita e riparazione.",
       "3": "La quantita di dati perdibili e l'RPO, non MTBF ne MTTR."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In reliability metrics, what do MTBF and MTTR respectively measure?",
+    "options_en": [
+      "MTBF the average recovery time, MTTR the average time between two failures",
+      "MTBF the average time between one failure and the next, MTTR the average time to repair and return to service after a failure",
+      "MTBF the number of backups per month, MTTR the number of successful restores",
+      "MTBF and MTTR both indicate the amount of data that can be lost in a disaster"
+    ],
+    "explanation_en": "MTBF (Mean Time Between Failures) is the average time that elapses between two failures of a component and measures reliability: the higher the better. MTTR (Mean Time To Repair/Recover) is the average time needed to repair and return to service after a failure: the lower the better.",
+    "why_wrong_en": {
+      "0": "The definitions are swapped: MTBF concerns the interval between failures, MTTR the repair time.",
+      "2": "They are not counts of backups or restores, but time averages of reliability and repair.",
+      "3": "The amount of data that can be lost is the RPO, not MTBF nor MTTR."
+    }
   },
   {
     "id": "bkpb-011",
@@ -238,7 +368,19 @@
       "2": "E il contrario: il full occupa piu spazio e richiede piu tempo di un incrementale, che salva solo i dati cambiati.",
       "3": "Falso: il backup completo e esattamente il punto di partenza su cui si appoggiano gli incrementali e i differenziali successivi."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Which statements about the full backup are correct? (select two)",
+    "options_en": [
+      "It copies the entire set of selected data on every run",
+      "It enables the simplest and fastest restore because it does not depend on other backup sets",
+      "It takes up less space and runs faster than an incremental",
+      "It can never be used as a base for subsequent incremental or differential backups"
+    ],
+    "explanation_en": "A full backup always copies all the selected data, so it is self-sufficient: to restore, a single set is enough, with no chains, which makes it the simplest and fastest restore. The price is greater space occupied and a longer run time, and it is precisely the full that serves as the base for the incrementals and differentials that follow.",
+    "why_wrong_en": {
+      "2": "It is the opposite: the full takes up more space and requires more time than an incremental, which saves only the changed data.",
+      "3": "False: the full backup is exactly the starting point on which the subsequent incrementals and differentials rely."
+    }
   },
   {
     "id": "bkpb-012",
@@ -259,7 +401,19 @@
       "2": "La regola non impone una cadenza oraria di full: parla di isolamento della copia e di verifica, non di frequenza.",
       "3": "Il nastro e anzi un ottimo supporto per la copia offline; la regola non vieta i nastri."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "The 3-2-1-1-0 rule extends 3-2-1. Which two elements does it add compared to the classic version? (select two)",
+    "options_en": [
+      "1 offline/air-gap or immutable copy, isolated from the network and unmodifiable",
+      "0 errors in the backups, that is, verified copies and restores tested with a positive outcome",
+      "1 mandatory full backup every hour",
+      "0 tape media allowed in the infrastructure"
+    ],
+    "explanation_en": "The 3-2-1-1-0 rule strengthens 3-2-1 by adding the final 1, that is, at least one offline/air-gap or immutable copy isolated from the network (an anti-ransomware defense), and the 0, that is, zero errors: the backups must be verified and the restores tested until a positive outcome is obtained, ensuring genuinely usable copies.",
+    "why_wrong_en": {
+      "2": "The rule does not impose an hourly cadence of fulls: it speaks of isolating the copy and of verification, not of frequency.",
+      "3": "Tape is in fact an excellent medium for the offline copy; the rule does not forbid tapes."
+    }
   },
   {
     "id": "bkpb-013",
@@ -280,7 +434,19 @@
       "2": "Nessun livello RAID sostituisce il backup: RAID 10 protegge dai guasti disco ma non da cancellazioni, corruzioni, ransomware o disastri del sito.",
       "3": "RAID 0 non ha alcuna parita ne tolleranza ai guasti; il guasto di un solo disco compromette l'intero array."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Which of the following statements about RAID levels are correct? (select two)",
+    "options_en": [
+      "RAID 0 (striping) increases performance but offers no redundancy: the failure of one disk loses all the data",
+      "RAID 1 (mirroring) keeps an identical copy of the data on two disks, tolerating the failure of one of them",
+      "RAID 10 eliminates the need to make backups because it is totally immune to failures",
+      "RAID 0 tolerates the failure of one disk thanks to distributed parity"
+    ],
+    "explanation_en": "RAID 0 stripes the data across multiple disks to increase speed and capacity, but without redundancy: lose one disk and everything is lost. RAID 1 keeps a mirror copy on a second disk, surviving the failure of one of the two. RAID 10 combines mirroring and striping for performance and tolerance, but it is still redundancy, not a backup.",
+    "why_wrong_en": {
+      "2": "No RAID level is a substitute for a backup: RAID 10 protects against disk failures but not against deletions, corruptions, ransomware or site disasters.",
+      "3": "RAID 0 has no parity nor fault tolerance; the failure of a single disk compromises the entire array."
+    }
   },
   {
     "id": "bkpb-014",
@@ -292,7 +458,10 @@
     "options": ["Vero", "Falso"],
     "correct": [1],
     "explanation": "Affermazione falsa. Il RAID e ridondanza contro il guasto fisico di uno o piu dischi, ma non protegge da cancellazioni accidentali, corruzione dei file, ransomware, errori software o disastri che colpiscono l'intero sistema o il sito. Il backup, come copia indipendente e storicizzata, resta indispensabile e complementare al RAID.",
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Having the disks in a RAID configuration makes it unnecessary to run backups, because RAID already protects against every type of data loss.",
+    "options_en": ["True", "False"],
+    "explanation_en": "False statement. RAID is redundancy against the physical failure of one or more disks, but it does not protect against accidental deletions, file corruption, ransomware, software errors or disasters that strike the entire system or site. The backup, as an independent and historicized copy, remains indispensable and complementary to RAID."
   },
   {
     "id": "bkpb-015",
@@ -304,7 +473,10 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Affermazione vera. Nella replica sincrona la scrittura e considerata completata solo quando entrambi i siti l'hanno registrata, il che azzera quasi del tutto la perdita di dati (RPO vicino a zero). Il rovescio della medaglia e la latenza: piu i siti sono distanti, piu ogni operazione attende la conferma remota, motivo per cui su lunghe distanze si preferisce spesso la replica asincrona.",
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In synchronous replication, every write is confirmed only after it has also been recorded at the secondary site, ensuring an RPO close to zero but introducing latency tied to distance.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True statement. In synchronous replication the write is considered complete only when both sites have recorded it, which almost entirely eliminates data loss (RPO close to zero). The downside is latency: the farther apart the sites are, the more each operation waits for the remote confirmation, which is why over long distances asynchronous replication is often preferred."
   },
   {
     "id": "bkpb-016",
@@ -316,6 +488,9 @@
     "options": ["Vero", "Falso"],
     "correct": [1],
     "explanation": "Affermazione falsa. Il BCP e piu ampio: definisce come l'intera organizzazione mantiene operative le funzioni critiche di business durante e dopo un evento avverso (persone, processi, sedi, comunicazioni). Il DRP e un sottoinsieme del BCP focalizzato sul ripristino specifico dei sistemi IT, dei dati e dell'infrastruttura tecnologica. Il DRP e quindi una parte del BCP, non un suo sinonimo.",
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "The Business Continuity Plan (BCP) and the Disaster Recovery Plan (DRP) are the same thing and the two terms are perfectly interchangeable.",
+    "options_en": ["True", "False"],
+    "explanation_en": "False statement. The BCP is broader: it defines how the entire organization keeps its critical business functions operational during and after an adverse event (people, processes, sites, communications). The DRP is a subset of the BCP focused on the specific recovery of IT systems, data and technological infrastructure. The DRP is therefore a part of the BCP, not a synonym for it."
   }
 ]
