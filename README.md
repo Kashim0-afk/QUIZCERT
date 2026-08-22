@@ -44,8 +44,7 @@ node --test
 
 ### Add questions
 
-1. Create a JSON file in `data/questions/` with an array of questions (see any existing file and
-   `docs/superpowers/specs/2026-08-21-quizcert-design.md`).
+1. Create a JSON file in `data/questions/` with an array of questions (see any existing file).
 2. Add the file name to `data/manifest.json` (the `files` list).
 3. Add the same path to the `SHELL` list in `service-worker.js` **and** bump the cache name
    (`quizcert-vN` → `quizcert-vN+1`) so the offline cache refreshes.
@@ -125,8 +124,7 @@ node --test
 
 ### Aggiungere domande
 
-1. Crea un file JSON in `data/questions/` con un array di domande (vedi un file esistente e
-   `docs/superpowers/specs/2026-08-21-quizcert-design.md`).
+1. Crea un file JSON in `data/questions/` con un array di domande (vedi un file esistente).
 2. Aggiungi il nome del file in `data/manifest.json` (lista `files`).
 3. Aggiungi lo stesso percorso alla lista `SHELL` in `service-worker.js` **e** incrementa il nome
    della cache (`quizcert-vN` → `quizcert-vN+1`) così l'offline si aggiorna.
@@ -153,5 +151,4 @@ test/                 test unitari (node --test)
 manifest.webmanifest  metadati PWA
 service-worker.js     cache offline
 Avvia-QuizCert.bat    avvio locale su Windows
-docs/superpowers/     spec di design + piano di implementazione
 ```

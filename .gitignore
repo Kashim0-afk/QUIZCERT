@@ -1,3 +1,27 @@
+# Dipendenze / build
 node_modules/
-.DS_Store
+
+# Log e temporanei
 *.log
+*.tmp
+*.orig
+*.bak
+*.original.md
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Editor
+*.swp
+*~
+.vscode/
+.idea/
+
+# Backup statistiche esportate dall'utente (non vanno nel repo)
+quizcert-stats.json
+
+# Note di processo interne (non necessarie per usare o mantenere l'app)
+docs/
