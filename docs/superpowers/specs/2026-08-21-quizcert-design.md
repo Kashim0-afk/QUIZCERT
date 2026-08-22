@@ -1,7 +1,7 @@
 # QuizCert — Design
 
 Data: 2026-08-21
-Autore: Matteo Zordan
+Autore: (anonimizzato)
 
 ## Scopo
 
