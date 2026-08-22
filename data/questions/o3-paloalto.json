@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In che modo App-ID identifica principalmente il traffico su un NGFW Palo Alto?",
+    "question_en": "How does App-ID primarily identify traffic on a Palo Alto NGFW?",
     "options": [
       "Esclusivamente in base alla porta TCP/UDP e al protocollo di trasporto",
       "Applicando firme applicative, decodifica dei protocolli ed euristica, indipendentemente da porta, protocollo o cifratura",
       "Solo in base all'indirizzo IP di destinazione",
       "In base al sistema operativo rilevato sul client"
     ],
+    "options_en": [
+      "Solely based on the TCP/UDP port and the transport protocol",
+      "By applying application signatures, protocol decoding and heuristics, regardless of port, protocol or encryption",
+      "Only based on the destination IP address",
+      "Based on the operating system detected on the client"
+    ],
     "correct": [1],
     "explanation": "App-ID usa piu meccanismi (signature, decodifica protocollo, decrittazione ed euristica) per identificare l'applicazione reale a prescindere dalla porta usata, superando il modello classico basato solo sulle porte.",
+    "explanation_en": "App-ID uses multiple mechanisms (signatures, protocol decoding, decryption and heuristics) to identify the actual application regardless of the port used, going beyond the classic port-only model.",
     "why_wrong": {
       "0": "Questo e il modello dei firewall stateful tradizionali basato su porte, proprio cio che App-ID supera.",
       "2": "L'IP di destinazione da solo non identifica l'applicazione applicativa.",
       "3": "App-ID identifica l'applicazione, non il sistema operativo del client (compito semmai di funzioni di profiling separate)."
+    },
+    "why_wrong_en": {
+      "0": "This is the port-based model of traditional stateful firewalls, exactly what App-ID overcomes.",
+      "2": "The destination IP alone does not identify the application.",
+      "3": "App-ID identifies the application, not the client operating system (which is instead a task for separate profiling functions)."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -28,18 +41,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale componente di User-ID e responsabile di associare gli utenti ai loro gruppi di appartenenza?",
+    "question_en": "Which User-ID component is responsible for associating users with the groups they belong to?",
     "options": [
       "Il Group Mapping, tramite query LDAP alla directory (es. Active Directory)",
       "WildFire, tramite analisi in sandbox",
       "La decrittazione SSL forward proxy",
       "App-ID, tramite firme applicative"
     ],
+    "options_en": [
+      "Group Mapping, through LDAP queries to the directory (e.g. Active Directory)",
+      "WildFire, through sandbox analysis",
+      "SSL forward proxy decryption",
+      "App-ID, through application signatures"
+    ],
     "correct": [0],
     "explanation": "User-ID distingue User Mapping (utente-IP) e Group Mapping. Il Group Mapping interroga la directory via LDAP per ricavare l'appartenenza ai gruppi, permettendo policy basate sui gruppi.",
+    "explanation_en": "User-ID distinguishes User Mapping (user-to-IP) from Group Mapping. Group Mapping queries the directory via LDAP to derive group membership, enabling group-based policies.",
     "why_wrong": {
       "1": "WildFire analizza file sconosciuti in sandbox, non gestisce l'appartenenza ai gruppi.",
       "2": "La decrittazione SSL ispeziona il traffico cifrato, non mappa gli utenti ai gruppi.",
       "3": "App-ID identifica le applicazioni, non gli utenti o i loro gruppi."
+    },
+    "why_wrong_en": {
+      "1": "WildFire analyzes unknown files in a sandbox; it does not handle group membership.",
+      "2": "SSL decryption inspects encrypted traffic; it does not map users to groups.",
+      "3": "App-ID identifies applications, not users or their groups."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -50,18 +76,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Quali funzionalita fornisce principalmente Content-ID su un NGFW Palo Alto?",
+    "question_en": "What capabilities does Content-ID primarily provide on a Palo Alto NGFW?",
     "options": [
       "Solo la traduzione degli indirizzi (NAT) del traffico in uscita",
       "Prevenzione delle minacce (IPS), antivirus, filtraggio URL e protezione da fughe di file e dati",
       "Esclusivamente l'autenticazione multifattore degli utenti",
       "Il bilanciamento del carico tra piu server interni"
     ],
+    "options_en": [
+      "Only address translation (NAT) of outbound traffic",
+      "Threat prevention (IPS), antivirus, URL filtering and protection against file and data leakage",
+      "Solely multi-factor authentication of users",
+      "Load balancing across multiple internal servers"
+    ],
     "correct": [1],
     "explanation": "Content-ID e il motore di ispezione dei contenuti che unisce IPS, antivirus/anti-spyware, URL Filtering e File/Data Blocking in un unico flusso a passata singola.",
+    "explanation_en": "Content-ID is the content inspection engine that combines IPS, antivirus/anti-spyware, URL Filtering and File/Data Blocking into a single-pass flow.",
     "why_wrong": {
       "0": "La NAT e una funzione di rete distinta, non fa parte di Content-ID.",
       "2": "L'autenticazione MFA e gestita da altri componenti (es. GlobalProtect/Authentication Policy), non da Content-ID.",
       "3": "Il bilanciamento del carico non e una funzione di Content-ID."
+    },
+    "why_wrong_en": {
+      "0": "NAT is a distinct network function; it is not part of Content-ID.",
+      "2": "MFA authentication is handled by other components (e.g. GlobalProtect/Authentication Policy), not by Content-ID.",
+      "3": "Load balancing is not a Content-ID function."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Per impostazione predefinita, in PAN-OS come viene gestito il traffico tra due interfacce appartenenti alla STESSA security zone (intrazona)?",
+    "question_en": "By default, in PAN-OS how is traffic between two interfaces belonging to the SAME security zone (intrazone) handled?",
     "options": [
       "Bloccato di default dalla regola implicita",
       "Consentito di default dalla regola implicita intrazona",
       "Sempre obbligatoriamente sottoposto a decrittazione SSL",
       "Instradato solo dopo una NAT obbligatoria"
     ],
+    "options_en": [
+      "Blocked by default by the implicit rule",
+      "Allowed by default by the implicit intrazone rule",
+      "Always mandatorily subjected to SSL decryption",
+      "Routed only after a mandatory NAT"
+    ],
     "correct": [1],
     "explanation": "PAN-OS include due regole implicite: intrazone-default consente il traffico all'interno della stessa zona, mentre interzone-default blocca il traffico tra zone diverse non esplicitamente permesso.",
+    "explanation_en": "PAN-OS includes two implicit rules: intrazone-default allows traffic within the same zone, while interzone-default blocks traffic between different zones that is not explicitly permitted.",
     "why_wrong": {
       "0": "E il traffico interzona a essere bloccato di default, non quello intrazona.",
       "2": "La decrittazione SSL non e mai automatica: va configurata con apposite policy.",
       "3": "La NAT non e obbligatoria per il traffico intrazona."
+    },
+    "why_wrong_en": {
+      "0": "It is interzone traffic that is blocked by default, not intrazone traffic.",
+      "2": "SSL decryption is never automatic: it must be configured with dedicated policies.",
+      "3": "NAT is not mandatory for intrazone traffic."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Qual e la funzione principale del servizio WildFire?",
+    "question_en": "What is the primary function of the WildFire service?",
     "options": [
       "Eseguire l'analisi in sandbox cloud di file e link sconosciuti per rilevare malware zero-day",
       "Gestire le identita e l'autenticazione degli utenti aziendali",
       "Segmentare la rete tramite VLAN dedicate",
       "Comprimere il traffico dei tunnel VPN site-to-site"
     ],
+    "options_en": [
+      "Perform cloud sandbox analysis of unknown files and links to detect zero-day malware",
+      "Manage the identities and authentication of enterprise users",
+      "Segment the network through dedicated VLANs",
+      "Compress the traffic of site-to-site VPN tunnels"
+    ],
     "correct": [0],
     "explanation": "WildFire detona i campioni sconosciuti in un ambiente sandbox cloud, analizzandone il comportamento per identificare minacce mai viste prima e distribuire nuove firme a tutti i firewall.",
+    "explanation_en": "WildFire detonates unknown samples in a cloud sandbox environment, analyzing their behavior to identify never-before-seen threats and distribute new signatures to all firewalls.",
     "why_wrong": {
       "1": "La gestione delle identita e compito di User-ID e dei sistemi IAM, non di WildFire.",
       "2": "La segmentazione VLAN e una funzione di rete, non della sandbox.",
       "3": "WildFire non gestisce la compressione del traffico VPN."
+    },
+    "why_wrong_en": {
+      "1": "Identity management is a task for User-ID and IAM systems, not WildFire.",
+      "2": "VLAN segmentation is a network function, not a sandbox function.",
+      "3": "WildFire does not handle VPN traffic compression."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Che cosa e Prisma Access nell'ecosistema Palo Alto Networks?",
+    "question_en": "What is Prisma Access in the Palo Alto Networks ecosystem?",
     "options": [
       "Una soluzione SASE erogata dal cloud che protegge utenti remoti e filiali",
       "Una sandbox per l'analisi comportamentale del malware",
       "Un sistema SIEM on-premise per la raccolta dei log",
       "Uno strumento di code review per applicazioni web"
     ],
+    "options_en": [
+      "A cloud-delivered SASE solution that protects remote users and branch offices",
+      "A sandbox for behavioral malware analysis",
+      "An on-premise SIEM system for log collection",
+      "A code review tool for web applications"
+    ],
     "correct": [0],
     "explanation": "Prisma Access e la componente cloud-delivered dell'offerta SASE di Palo Alto: fornisce sicurezza di rete (FWaaS, SWG, ZTNA, CASB) come servizio a utenti mobili e sedi remote.",
+    "explanation_en": "Prisma Access is the cloud-delivered component of Palo Alto's SASE offering: it provides network security (FWaaS, SWG, ZTNA, CASB) as a service to mobile users and remote sites.",
     "why_wrong": {
       "1": "La sandbox e WildFire, non Prisma Access.",
       "2": "Il SIEM/analytics e Cortex XSIAM/XDR; Prisma Access e una piattaforma SASE.",
       "3": "Prisma Access non e uno strumento di code review."
+    },
+    "why_wrong_en": {
+      "1": "The sandbox is WildFire, not Prisma Access.",
+      "2": "SIEM/analytics is Cortex XSIAM/XDR; Prisma Access is a SASE platform.",
+      "3": "Prisma Access is not a code review tool."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -138,18 +216,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "A cosa serve principalmente Cortex XSOAR?",
+    "question_en": "What is Cortex XSOAR primarily used for?",
     "options": [
       "Orchestrazione, automazione e risposta della sicurezza (SOAR) tramite playbook",
       "Ispezione applicativa del traffico come firewall di nuova generazione",
       "Detonazione dei file in sandbox cloud",
       "Protezione degli endpoint mobili con MDM"
     ],
+    "options_en": [
+      "Security orchestration, automation and response (SOAR) through playbooks",
+      "Application-level traffic inspection as a next-generation firewall",
+      "Detonation of files in a cloud sandbox",
+      "Protection of mobile endpoints with MDM"
+    ],
     "correct": [0],
     "explanation": "Cortex XSOAR e la piattaforma SOAR di Palo Alto: automatizza i processi del SOC tramite playbook, integra centinaia di prodotti e coordina la gestione dei casi per accelerare la risposta agli incidenti.",
+    "explanation_en": "Cortex XSOAR is Palo Alto's SOAR platform: it automates SOC processes through playbooks, integrates hundreds of products and coordinates case management to speed up incident response.",
     "why_wrong": {
       "1": "L'ispezione applicativa e compito dell'NGFW (App-ID/Content-ID), non di XSOAR.",
       "2": "La sandbox e WildFire.",
       "3": "La gestione dei dispositivi mobili (MDM) non e la funzione di XSOAR."
+    },
+    "why_wrong_en": {
+      "1": "Application inspection is a task for the NGFW (App-ID/Content-ID), not XSOAR.",
+      "2": "The sandbox is WildFire.",
+      "3": "Mobile device management (MDM) is not the function of XSOAR."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Quale principio e alla base del modello Zero Trust?",
+    "question_en": "Which principle underlies the Zero Trust model?",
     "options": [
       "Fidarsi implicitamente di tutto il traffico che proviene dalla rete interna",
       "Never trust, always verify: verificare esplicitamente ogni accesso indipendentemente dalla posizione",
       "Consentire per default e ispezionare solo il traffico che attraversa il perimetro",
       "Basare la fiducia esclusivamente sul segmento di rete di origine"
     ],
+    "options_en": [
+      "Implicitly trust all traffic that comes from the internal network",
+      "Never trust, always verify: explicitly verify every access regardless of location",
+      "Allow by default and inspect only the traffic that crosses the perimeter",
+      "Base trust solely on the source network segment"
+    ],
     "correct": [1],
     "explanation": "Zero Trust elimina la fiducia implicita: ogni richiesta di accesso viene verificata esplicitamente in base a identita, dispositivo e contesto, applicando il minimo privilegio a prescindere dalla posizione di rete.",
+    "explanation_en": "Zero Trust eliminates implicit trust: every access request is explicitly verified based on identity, device and context, applying least privilege regardless of network location.",
     "why_wrong": {
       "0": "Fidarsi del traffico interno e esattamente il modello perimetrale che Zero Trust rifiuta.",
       "2": "Zero Trust nega per default e verifica ogni flusso, non solo quello perimetrale.",
       "3": "In Zero Trust la fiducia non deriva dalla posizione o dal segmento di rete."
+    },
+    "why_wrong_en": {
+      "0": "Trusting internal traffic is exactly the perimeter model that Zero Trust rejects.",
+      "2": "Zero Trust denies by default and verifies every flow, not only perimeter traffic.",
+      "3": "In Zero Trust, trust does not derive from location or network segment."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "In PAN-OS, con una Destination NAT, come deve essere configurata la regola di sicurezza che consente il traffico verso il server pubblicato?",
+    "question_en": "In PAN-OS, with a Destination NAT, how must the security rule that allows traffic to the published server be configured?",
     "options": [
       "Con indirizzo di destinazione pre-NAT (originale) e zona di destinazione post-NAT",
       "Con indirizzo e zona di destinazione entrambi post-NAT",
       "Con indirizzo e zona di destinazione entrambi pre-NAT",
       "La regola di sicurezza non e necessaria quando e presente una regola NAT"
     ],
+    "options_en": [
+      "With the pre-NAT (original) destination address and the post-NAT destination zone",
+      "With both the destination address and zone post-NAT",
+      "With both the destination address and zone pre-NAT",
+      "The security rule is not needed when a NAT rule is present"
+    ],
     "correct": [0],
     "explanation": "Il firewall valuta prima la NAT per determinare la zona reale, ma applica la policy di sicurezza usando l'indirizzo di destinazione originale (pre-NAT) e la zona in cui risiede l'indirizzo tradotto (post-NAT).",
+    "explanation_en": "The firewall first evaluates NAT to determine the real zone, but applies the security policy using the original destination address (pre-NAT) and the zone where the translated address resides (post-NAT).",
     "why_wrong": {
       "1": "L'indirizzo di destinazione nella regola deve restare quello pre-NAT, non quello tradotto.",
       "2": "La zona deve essere quella post-NAT (dove sta il server reale), non quella pre-NAT.",
       "3": "NAT e Security Policy sono valutate separatamente: serve comunque una regola di sicurezza che permetta il flusso."
+    },
+    "why_wrong_en": {
+      "1": "The destination address in the rule must remain the pre-NAT one, not the translated one.",
+      "2": "The zone must be the post-NAT one (where the real server sits), not the pre-NAT one.",
+      "3": "NAT and Security Policy are evaluated separately: a security rule that permits the flow is still required."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -204,7 +321,14 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali dei seguenti sono Security Profile applicabili a una regola di sicurezza su un NGFW Palo Alto? (Seleziona 2)",
+    "question_en": "Which of the following are Security Profiles applicable to a security rule on a Palo Alto NGFW? (Select 2)",
     "options": [
+      "Antivirus",
+      "Anti-Spyware",
+      "Spanning Tree Profile",
+      "OSPF Profile"
+    ],
+    "options_en": [
       "Antivirus",
       "Anti-Spyware",
       "Spanning Tree Profile",
@@ -212,9 +336,14 @@
     ],
     "correct": [0, 1],
     "explanation": "I Security Profile (Antivirus, Anti-Spyware, Vulnerability Protection, URL Filtering, File Blocking, WildFire Analysis, Data Filtering) applicano l'ispezione Content-ID al traffico gia consentito da una regola.",
+    "explanation_en": "Security Profiles (Antivirus, Anti-Spyware, Vulnerability Protection, URL Filtering, File Blocking, WildFire Analysis, Data Filtering) apply Content-ID inspection to traffic already allowed by a rule.",
     "why_wrong": {
       "2": "Lo Spanning Tree e un protocollo di livello 2 per switch, non un Security Profile.",
       "3": "OSPF e un protocollo di routing, non un Security Profile di ispezione dei contenuti."
+    },
+    "why_wrong_en": {
+      "2": "Spanning Tree is a Layer 2 protocol for switches, not a Security Profile.",
+      "3": "OSPF is a routing protocol, not a content-inspection Security Profile."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -225,17 +354,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali capacita fornisce la piattaforma Prisma Cloud? (Seleziona 2)",
+    "question_en": "Which capabilities does the Prisma Cloud platform provide? (Select 2)",
     "options": [
       "Cloud Security Posture Management (CSPM) per rilevare configurazioni errate",
       "Cloud Workload Protection (CWPP) per host, container e funzioni serverless",
       "Stampa e gestione dei badge di accesso fisico ai data center",
       "Gestione dell'alimentazione elettrica dei rack in sala macchine"
     ],
+    "options_en": [
+      "Cloud Security Posture Management (CSPM) to detect misconfigurations",
+      "Cloud Workload Protection (CWPP) for hosts, containers and serverless functions",
+      "Printing and management of physical access badges to data centers",
+      "Management of the electrical power of racks in the server room"
+    ],
     "correct": [0, 1],
     "explanation": "Prisma Cloud e una piattaforma CNAPP che integra CSPM (posture e compliance) e CWPP (protezione dei workload), oltre a CIEM, sicurezza dei container e scansione del codice/IaC.",
+    "explanation_en": "Prisma Cloud is a CNAPP platform that integrates CSPM (posture and compliance) and CWPP (workload protection), as well as CIEM, container security and code/IaC scanning.",
     "why_wrong": {
       "2": "La gestione dei badge fisici e sicurezza fisica, estranea a Prisma Cloud.",
       "3": "La gestione elettrica dei rack e una funzione di facility, non di sicurezza cloud."
+    },
+    "why_wrong_en": {
+      "2": "Physical badge management is physical security, unrelated to Prisma Cloud.",
+      "3": "Electrical rack management is a facility function, not a cloud security function."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -246,17 +387,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali vantaggi offre App-ID rispetto al filtraggio basato solo sulle porte? (Seleziona 2)",
+    "question_en": "What advantages does App-ID offer over port-only filtering? (Select 2)",
     "options": [
       "Identifica le applicazioni anche quando usano porte non standard o evasive",
       "Consente policy basate sull'applicazione reale invece che sul solo numero di porta",
       "Elimina del tutto la necessita di decrittare il traffico SSL/TLS",
       "Aumenta automaticamente la larghezza di banda disponibile"
     ],
+    "options_en": [
+      "It identifies applications even when they use non-standard or evasive ports",
+      "It enables policies based on the actual application instead of just the port number",
+      "It completely eliminates the need to decrypt SSL/TLS traffic",
+      "It automatically increases the available bandwidth"
+    ],
     "correct": [0, 1],
     "explanation": "App-ID riconosce l'applicazione a prescindere dalla porta (anche su port-hopping o tunneling) e permette regole applicative granulari, elemento chiave per il minimo privilegio e Zero Trust.",
+    "explanation_en": "App-ID recognizes the application regardless of the port (even with port-hopping or tunneling) and allows granular application rules, a key element for least privilege and Zero Trust.",
     "why_wrong": {
       "2": "Per ispezionare applicazioni cifrate spesso serve comunque la decrittazione SSL; App-ID non la rende superflua.",
       "3": "App-ID non aumenta la banda: e un motore di classificazione e controllo, non di ottimizzazione delle prestazioni."
+    },
+    "why_wrong_en": {
+      "2": "Inspecting encrypted applications often still requires SSL decryption; App-ID does not make it unnecessary.",
+      "3": "App-ID does not increase bandwidth: it is a classification and control engine, not a performance-optimization engine."
     },
     "source": "HACK/Palo Alto.rtf"
   },
@@ -267,9 +420,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "In PAN-OS, in fondo al rule base esiste una regola implicita interzone-default che blocca tutto il traffico tra zone diverse non esplicitamente consentito.",
+    "question_en": "In PAN-OS, at the bottom of the rule base there is an implicit interzone-default rule that blocks all traffic between different zones that is not explicitly allowed.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "E vero: la regola implicita interzone-default nega il traffico interzona non corrispondente ad alcuna regola, mentre intrazone-default consente il traffico all'interno della stessa zona.",
+    "explanation_en": "True: the implicit interzone-default rule denies interzone traffic that does not match any rule, while intrazone-default allows traffic within the same zone.",
     "source": "HACK/Palo Alto.rtf"
   },
   {
@@ -279,9 +435,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "WildFire puo assegnare a un campione il verdetto grayware, oltre ai verdetti benigno e dannoso.",
+    "question_en": "WildFire can assign a sample the grayware verdict, in addition to the benign and malicious verdicts.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "E vero: WildFire restituisce verdetti tra cui benign, grayware, phishing e malicious. Il grayware indica software non chiaramente dannoso ma indesiderato (es. adware).",
+    "explanation_en": "True: WildFire returns verdicts including benign, grayware, phishing and malicious. Grayware indicates software that is not clearly malicious but is unwanted (e.g. adware).",
     "source": "HACK/Palo Alto.rtf"
   },
   {
@@ -291,9 +450,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "In un'architettura Zero Trust la microsegmentazione e irrilevante, perche la fiducia si basa comunque sul perimetro di rete.",
+    "question_en": "In a Zero Trust architecture, microsegmentation is irrelevant, because trust is based on the network perimeter anyway.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "E falso: la microsegmentazione e un pilastro dello Zero Trust perche limita il movimento laterale creando confini granulari; Zero Trust rifiuta esplicitamente il modello di fiducia basato sul perimetro.",
+    "explanation_en": "False: microsegmentation is a pillar of Zero Trust because it limits lateral movement by creating granular boundaries; Zero Trust explicitly rejects the perimeter-based trust model.",
     "source": "HACK/Palo Alto.rtf"
   }
 ]

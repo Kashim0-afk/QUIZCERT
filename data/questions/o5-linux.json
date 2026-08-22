@@ -1,265 +1,637 @@
 [
   {
     "id": "lnxb-001",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Linux", "Permessi"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Linux",
+      "Permessi"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Devi assegnare al file script.sh i permessi rwxr-x--- (lettura, scrittura ed esecuzione per il proprietario; lettura ed esecuzione per il gruppo; nessun permesso per gli altri). Quale comando usi?",
-    "options": ["chmod 750 script.sh", "chmod 640 script.sh", "chmod 755 script.sh", "chmod 705 script.sh"],
-    "correct": [0],
+    "options": [
+      "chmod 750 script.sh",
+      "chmod 640 script.sh",
+      "chmod 755 script.sh",
+      "chmod 705 script.sh"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "In notazione ottale rwx vale 7 (4+2+1), r-x vale 5 (4+0+1) e --- vale 0. Quindi rwxr-x--- corrisponde esattamente a 750.",
     "why_wrong": {
       "1": "640 corrisponde a rw-r----- : mancano i bit di esecuzione per proprietario e gruppo.",
       "2": "755 corrisponde a rwxr-xr-x : concede lettura ed esecuzione anche agli altri, che invece devono avere zero permessi.",
       "3": "705 corrisponde a rwx---r-x : nega ogni permesso al gruppo e concede r-x agli altri, l'opposto di quanto richiesto."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "You need to assign the file script.sh the permissions rwxr-x--- (read, write and execute for the owner; read and execute for the group; no permissions for others). Which command do you use?",
+    "options_en": [
+      "chmod 750 script.sh",
+      "chmod 640 script.sh",
+      "chmod 755 script.sh",
+      "chmod 705 script.sh"
+    ],
+    "explanation_en": "In octal notation rwx is 7 (4+2+1), r-x is 5 (4+0+1) and --- is 0. So rwxr-x--- corresponds exactly to 750.",
+    "why_wrong_en": {
+      "1": "640 corresponds to rw-r----- : the execute bits for owner and group are missing.",
+      "2": "755 corresponds to rwxr-xr-x : it also grants read and execute to others, who instead must have zero permissions.",
+      "3": "705 corresponds to rwx---r-x : it denies all permissions to the group and grants r-x to others, the opposite of what is required."
+    }
   },
   {
     "id": "lnxb-002",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Linux", "Permessi"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Linux",
+      "Permessi"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Con la umask impostata a 022, quali permessi avrà un nuovo file di testo appena creato (i file non ricevono automaticamente il bit di esecuzione)?",
-    "options": ["644 (rw-r--r--)", "755 (rwxr-xr-x)", "664 (rw-rw-r--)", "600 (rw-------)"],
-    "correct": [0],
+    "options": [
+      "644 (rw-r--r--)",
+      "755 (rwxr-xr-x)",
+      "664 (rw-rw-r--)",
+      "600 (rw-------)"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "I file vengono creati partendo dalla base 666; la umask 022 sottrae il bit di scrittura a gruppo e altri (666 meno 022 = 644), risultando in rw-r--r--.",
     "why_wrong": {
       "1": "755 include i bit di esecuzione: i nuovi file non li ricevono mai automaticamente, indipendentemente dalla umask.",
       "2": "664 si otterrebbe con umask 002, che non rimuove la scrittura al gruppo.",
       "3": "600 si otterrebbe con umask 066, che toglie ogni permesso a gruppo e altri."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "With umask set to 022, what permissions will a newly created text file have (files do not automatically receive the execute bit)?",
+    "options_en": [
+      "644 (rw-r--r--)",
+      "755 (rwxr-xr-x)",
+      "664 (rw-rw-r--)",
+      "600 (rw-------)"
+    ],
+    "explanation_en": "Files are created starting from base 666; umask 022 subtracts the write bit from group and others (666 minus 022 = 644), resulting in rw-r--r--.",
+    "why_wrong_en": {
+      "1": "755 includes the execute bits: new files never receive them automatically, regardless of the umask.",
+      "2": "664 would be obtained with umask 002, which does not remove write from the group.",
+      "3": "600 would be obtained with umask 066, which removes all permissions from group and others."
+    }
   },
   {
     "id": "lnxb-003",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Bash", "Permessi"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Bash",
+      "Permessi"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Quale comando individua tutti i file regolari con il bit SUID impostato a partire dalla directory /usr?",
-    "options": ["find /usr -perm -4000 -type f", "find /usr -perm -2000 -type f", "find /usr -perm -1000 -type f", "find /usr -perm 4000 -type f"],
-    "correct": [0],
+    "options": [
+      "find /usr -perm -4000 -type f",
+      "find /usr -perm -2000 -type f",
+      "find /usr -perm -1000 -type f",
+      "find /usr -perm 4000 -type f"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Il bit SUID vale 4000 in notazione ottale. Usando -perm -4000 (con il segno meno) find restituisce tutti i file in cui quel bit è impostato, a prescindere dagli altri permessi.",
     "why_wrong": {
       "1": "2000 è il bit SGID, non SUID.",
       "2": "1000 è lo sticky bit, non SUID.",
       "3": "Senza il segno meno, -perm 4000 cerca file che abbiano ESATTAMENTE quei bit e nessun altro, quindi mancherebbe la maggior parte dei binari SUID reali (che hanno anche rwx)."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Which command finds all regular files with the SUID bit set starting from the /usr directory?",
+    "options_en": [
+      "find /usr -perm -4000 -type f",
+      "find /usr -perm -2000 -type f",
+      "find /usr -perm -1000 -type f",
+      "find /usr -perm 4000 -type f"
+    ],
+    "explanation_en": "The SUID bit is 4000 in octal notation. Using -perm -4000 (with the minus sign) find returns all files in which that bit is set, regardless of the other permissions.",
+    "why_wrong_en": {
+      "1": "2000 is the SGID bit, not SUID.",
+      "2": "1000 is the sticky bit, not SUID.",
+      "3": "Without the minus sign, -perm 4000 looks for files that have EXACTLY those bits and no others, so it would miss most real SUID binaries (which also have rwx)."
+    }
   },
   {
     "id": "lnxb-004",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Linux"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Linux"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Secondo lo standard FHS (Filesystem Hierarchy Standard), in quale directory si trovano tipicamente i file di configurazione a livello di sistema dei servizi installati?",
-    "options": ["/etc", "/var", "/proc", "/opt"],
-    "correct": [0],
+    "options": [
+      "/etc",
+      "/var",
+      "/proc",
+      "/opt"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "La directory /etc è destinata dallo standard FHS ai file di configurazione statici, specifici dell'host e a livello di sistema.",
     "why_wrong": {
       "1": "/var contiene dati variabili come log, code di stampa, cache e spool, non le configurazioni.",
       "2": "/proc è un filesystem virtuale che espone informazioni sul kernel e sui processi in esecuzione, non file di configurazione persistenti.",
       "3": "/opt ospita pacchetti software aggiuntivi di terze parti; non è la sede standard delle configurazioni di sistema."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "According to the FHS (Filesystem Hierarchy Standard), in which directory are the system-wide configuration files of installed services typically found?",
+    "options_en": [
+      "/etc",
+      "/var",
+      "/proc",
+      "/opt"
+    ],
+    "explanation_en": "The /etc directory is intended by the FHS standard for static, host-specific, system-wide configuration files.",
+    "why_wrong_en": {
+      "1": "/var contains variable data such as logs, print queues, cache and spool, not configurations.",
+      "2": "/proc is a virtual filesystem that exposes information about the kernel and running processes, not persistent configuration files.",
+      "3": "/opt hosts additional third-party software packages; it is not the standard location for system configurations."
+    }
   },
   {
     "id": "lnxb-005",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Linux"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Linux"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In un sistema Linux moderno, in quale file sono memorizzati gli hash delle password degli utenti?",
-    "options": ["/etc/shadow", "/etc/passwd", "/etc/group", "/etc/gshadow"],
-    "correct": [0],
+    "options": [
+      "/etc/shadow",
+      "/etc/passwd",
+      "/etc/group",
+      "/etc/gshadow"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Gli hash delle password degli utenti risiedono in /etc/shadow, file leggibile solo da root, insieme alle informazioni di aging della password.",
     "why_wrong": {
       "1": "/etc/passwd elenca gli account ma nel campo password mostra soltanto una 'x', che rimanda a /etc/shadow.",
       "2": "/etc/group definisce i gruppi e i loro membri, non le password degli utenti.",
       "3": "/etc/gshadow contiene le password dei gruppi, non quelle degli utenti."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "On a modern Linux system, in which file are the users' password hashes stored?",
+    "options_en": [
+      "/etc/shadow",
+      "/etc/passwd",
+      "/etc/group",
+      "/etc/gshadow"
+    ],
+    "explanation_en": "Users' password hashes reside in /etc/shadow, a file readable only by root, together with password aging information.",
+    "why_wrong_en": {
+      "1": "/etc/passwd lists accounts but in the password field shows only an 'x', which points to /etc/shadow.",
+      "2": "/etc/group defines groups and their members, not users' passwords.",
+      "3": "/etc/gshadow contains group passwords, not those of users."
+    }
   },
   {
     "id": "lnxb-006",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Systemd"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Systemd"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Vuoi che il servizio nginx venga avviato automaticamente a ogni avvio del sistema. Quale comando systemd usi?",
-    "options": ["systemctl enable nginx", "systemctl start nginx", "systemctl status nginx", "systemctl restart nginx"],
-    "correct": [0],
+    "options": [
+      "systemctl enable nginx",
+      "systemctl start nginx",
+      "systemctl status nginx",
+      "systemctl restart nginx"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "systemctl enable crea i link simbolici nel target appropriato in modo che il servizio venga avviato automaticamente al boot; per avviarlo anche subito si usa 'enable --now'.",
     "why_wrong": {
       "1": "start avvia il servizio nella sessione corrente ma non lo abilita all'avvio automatico dopo un riavvio.",
       "2": "status mostra soltanto lo stato attuale del servizio, senza modificarne l'avvio.",
       "3": "restart ferma e riavvia il servizio, ma non ne configura l'avvio automatico al boot."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "You want the nginx service to start automatically at every system boot. Which systemd command do you use?",
+    "options_en": [
+      "systemctl enable nginx",
+      "systemctl start nginx",
+      "systemctl status nginx",
+      "systemctl restart nginx"
+    ],
+    "explanation_en": "systemctl enable creates the symbolic links in the appropriate target so that the service starts automatically at boot; to also start it immediately use 'enable --now'.",
+    "why_wrong_en": {
+      "1": "start starts the service in the current session but does not enable it for automatic startup after a reboot.",
+      "2": "status shows only the current state of the service, without changing its startup.",
+      "3": "restart stops and restarts the service, but does not configure its automatic startup at boot."
+    }
   },
   {
     "id": "lnxb-007",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Cron"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Cron"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Nel formato di una riga di crontab, i cinque campi temporali (da sinistra a destra) rappresentano nell'ordine:",
-    "options": ["minuto, ora, giorno del mese, mese, giorno della settimana", "ora, minuto, giorno del mese, mese, giorno della settimana", "secondo, minuto, ora, giorno del mese, mese", "giorno della settimana, mese, giorno del mese, ora, minuto"],
-    "correct": [0],
+    "options": [
+      "minuto, ora, giorno del mese, mese, giorno della settimana",
+      "ora, minuto, giorno del mese, mese, giorno della settimana",
+      "secondo, minuto, ora, giorno del mese, mese",
+      "giorno della settimana, mese, giorno del mese, ora, minuto"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "La sintassi standard di crontab prevede cinque campi nell'ordine: minuto (0-59), ora (0-23), giorno del mese (1-31), mese (1-12), giorno della settimana (0-7), seguiti dal comando.",
     "why_wrong": {
       "1": "L'ordine corretto inizia con il minuto e poi l'ora, non il contrario.",
       "2": "crontab classico non prevede un campo per i secondi: i campi temporali sono cinque, non sei.",
       "3": "L'ordine è invertito: si parte dal minuto e si termina con il giorno della settimana."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In the format of a crontab line, the five time fields (from left to right) represent, in order:",
+    "options_en": [
+      "minute, hour, day of month, month, day of week",
+      "hour, minute, day of month, month, day of week",
+      "second, minute, hour, day of month, month",
+      "day of week, month, day of month, hour, minute"
+    ],
+    "explanation_en": "The standard crontab syntax provides five fields in the order: minute (0-59), hour (0-23), day of month (1-31), month (1-12), day of week (0-7), followed by the command.",
+    "why_wrong_en": {
+      "1": "The correct order starts with the minute and then the hour, not the other way around.",
+      "2": "Classic crontab does not have a field for seconds: the time fields are five, not six.",
+      "3": "The order is reversed: it starts with the minute and ends with the day of the week."
+    }
   },
   {
     "id": "lnxb-008",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["SSH"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "SSH"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Per abilitare l'accesso SSH tramite chiave, dove deve essere copiata la chiave PUBBLICA dell'utente sul server remoto?",
-    "options": ["~/.ssh/authorized_keys", "~/.ssh/id_rsa", "~/.ssh/known_hosts", "/etc/ssh/sshd_config"],
-    "correct": [0],
+    "options": [
+      "~/.ssh/authorized_keys",
+      "~/.ssh/id_rsa",
+      "~/.ssh/known_hosts",
+      "/etc/ssh/sshd_config"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Il server SSH consente l'autenticazione a chiave se la chiave pubblica del client è elencata nel file ~/.ssh/authorized_keys dell'utente sul server.",
     "why_wrong": {
       "1": "id_rsa è la chiave PRIVATA: risiede sul client e non va mai copiata sul server.",
       "2": "known_hosts memorizza sul client le chiavi host dei server già contattati, per verificarne l'identità.",
       "3": "sshd_config è il file di configurazione del demone SSH, non il deposito delle chiavi pubbliche autorizzate degli utenti."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "To enable SSH access via key, where must the user's PUBLIC key be copied on the remote server?",
+    "options_en": [
+      "~/.ssh/authorized_keys",
+      "~/.ssh/id_rsa",
+      "~/.ssh/known_hosts",
+      "/etc/ssh/sshd_config"
+    ],
+    "explanation_en": "The SSH server allows key authentication if the client's public key is listed in the user's ~/.ssh/authorized_keys file on the server.",
+    "why_wrong_en": {
+      "1": "id_rsa is the PRIVATE key: it resides on the client and must never be copied to the server.",
+      "2": "known_hosts stores on the client the host keys of servers already contacted, to verify their identity.",
+      "3": "sshd_config is the configuration file of the SSH daemon, not the store of users' authorized public keys."
+    }
   },
   {
     "id": "lnxb-009",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Linux", "Bash"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Linux",
+      "Bash"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un processo non risponde e continua a ignorare la richiesta di terminazione. Quale segnale ne forza la chiusura immediata senza che il processo possa intercettarlo o ignorarlo?",
-    "options": ["SIGKILL (kill -9)", "SIGTERM (kill -15)", "SIGHUP (kill -1)", "SIGINT (kill -2)"],
-    "correct": [0],
+    "options": [
+      "SIGKILL (kill -9)",
+      "SIGTERM (kill -15)",
+      "SIGHUP (kill -1)",
+      "SIGINT (kill -2)"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "SIGKILL (segnale 9) viene gestito direttamente dal kernel e non può essere catturato, bloccato o ignorato dal processo, che viene quindi terminato forzatamente.",
     "why_wrong": {
       "1": "SIGTERM (15) è il segnale predefinito di terminazione, ma il processo può intercettarlo o ignorarlo.",
       "2": "SIGHUP (1) segnala la chiusura del terminale ed è spesso usato per far ricaricare la configurazione a un demone; è gestibile.",
       "3": "SIGINT (2) è l'interruzione da tastiera (Ctrl+C) e può essere gestita o ignorata dal processo."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "A process is unresponsive and keeps ignoring the termination request. Which signal forces its immediate closure without the process being able to intercept or ignore it?",
+    "options_en": [
+      "SIGKILL (kill -9)",
+      "SIGTERM (kill -15)",
+      "SIGHUP (kill -1)",
+      "SIGINT (kill -2)"
+    ],
+    "explanation_en": "SIGKILL (signal 9) is handled directly by the kernel and cannot be caught, blocked or ignored by the process, which is therefore forcibly terminated.",
+    "why_wrong_en": {
+      "1": "SIGTERM (15) is the default termination signal, but the process can intercept or ignore it.",
+      "2": "SIGHUP (1) signals the closing of the terminal and is often used to make a daemon reload its configuration; it is manageable.",
+      "3": "SIGINT (2) is the keyboard interrupt (Ctrl+C) and can be handled or ignored by the process."
+    }
   },
   {
     "id": "lnxb-010",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Gestione pacchetti"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Gestione pacchetti"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Su un sistema Debian/Ubuntu hai scaricato localmente un file pacchetto.deb e vuoi installarlo risolvendo automaticamente le sue dipendenze. Quale comando è più appropriato?",
-    "options": ["apt install ./pacchetto.deb", "dpkg -i pacchetto.deb", "rpm -i pacchetto.deb", "snap install pacchetto.deb"],
-    "correct": [0],
+    "options": [
+      "apt install ./pacchetto.deb",
+      "dpkg -i pacchetto.deb",
+      "rpm -i pacchetto.deb",
+      "snap install pacchetto.deb"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "apt install applicato a un percorso locale (con ./) installa il pacchetto .deb e recupera automaticamente dai repository le dipendenze mancanti.",
     "why_wrong": {
       "1": "dpkg -i installa il .deb ma NON risolve automaticamente le dipendenze: se mancano, lascia il pacchetto in stato non configurato.",
       "2": "rpm gestisce pacchetti RPM (Red Hat/Fedora/SUSE), non i .deb di Debian/Ubuntu.",
       "3": "snap installa pacchetti snap dallo store, non file .deb locali."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "On a Debian/Ubuntu system you have locally downloaded a package file pacchetto.deb and want to install it while automatically resolving its dependencies. Which command is most appropriate?",
+    "options_en": [
+      "apt install ./pacchetto.deb",
+      "dpkg -i pacchetto.deb",
+      "rpm -i pacchetto.deb",
+      "snap install pacchetto.deb"
+    ],
+    "explanation_en": "apt install applied to a local path (with ./) installs the .deb package and automatically retrieves the missing dependencies from the repositories.",
+    "why_wrong_en": {
+      "1": "dpkg -i installs the .deb but does NOT automatically resolve dependencies: if any are missing, it leaves the package in an unconfigured state.",
+      "2": "rpm manages RPM packages (Red Hat/Fedora/SUSE), not Debian/Ubuntu .deb files.",
+      "3": "snap installs snap packages from the store, not local .deb files."
+    }
   },
   {
     "id": "lnxb-011",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Linux"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Linux"
+    ],
     "type": "multi",
     "difficulty": 1,
     "question": "Quali dei seguenti comandi permettono di visualizzare i processi in esecuzione sul sistema? (seleziona due)",
-    "options": ["ps aux", "top", "chmod 644 file", "df -h"],
-    "correct": [0, 1],
+    "options": [
+      "ps aux",
+      "top",
+      "chmod 644 file",
+      "df -h"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "ps aux fornisce un'istantanea di tutti i processi, mentre top (come htop) ne mostra l'elenco aggiornato in tempo reale con l'uso di CPU e memoria.",
     "why_wrong": {
       "2": "chmod modifica i permessi dei file, non ha nulla a che vedere con l'elenco dei processi.",
       "3": "df -h mostra lo spazio disponibile sui filesystem montati, non i processi."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Which of the following commands allow you to view the processes running on the system? (select two)",
+    "options_en": [
+      "ps aux",
+      "top",
+      "chmod 644 file",
+      "df -h"
+    ],
+    "explanation_en": "ps aux provides a snapshot of all processes, while top (like htop) shows a real-time updated list with CPU and memory usage.",
+    "why_wrong_en": {
+      "2": "chmod changes file permissions; it has nothing to do with listing processes.",
+      "3": "df -h shows the available space on mounted filesystems, not the processes."
+    }
   },
   {
     "id": "lnxb-012",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Permessi"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Permessi"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali affermazioni sui permessi e sulla proprietà dei file in Linux sono corrette? (seleziona due)",
-    "options": ["chown utente:gruppo file cambia sia il proprietario sia il gruppo del file", "Lo sticky bit su una directory (es. /tmp) impedisce a un utente di cancellare i file di cui non è proprietario", "chmod +x rimuove il permesso di esecuzione da un file", "Il permesso di scrittura su una directory non influisce sulla possibilità di creare o eliminare file al suo interno"],
-    "correct": [0, 1],
+    "options": [
+      "chown utente:gruppo file cambia sia il proprietario sia il gruppo del file",
+      "Lo sticky bit su una directory (es. /tmp) impedisce a un utente di cancellare i file di cui non è proprietario",
+      "chmod +x rimuove il permesso di esecuzione da un file",
+      "Il permesso di scrittura su una directory non influisce sulla possibilità di creare o eliminare file al suo interno"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "La sintassi chown proprietario:gruppo aggiorna entrambi in un solo comando; lo sticky bit su una directory condivisa fa sì che solo il proprietario di un file (o root) possa eliminarlo o rinominarlo.",
     "why_wrong": {
       "2": "chmod +x AGGIUNGE il permesso di esecuzione; per rimuoverlo si usa chmod -x.",
       "3": "È proprio il permesso di scrittura sulla directory (unito a quello di esecuzione) a consentire la creazione e l'eliminazione dei file al suo interno."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Which statements about file permissions and ownership in Linux are correct? (select two)",
+    "options_en": [
+      "chown user:group file changes both the owner and the group of the file",
+      "The sticky bit on a directory (e.g. /tmp) prevents a user from deleting files they do not own",
+      "chmod +x removes the execute permission from a file",
+      "Write permission on a directory does not affect the ability to create or delete files within it"
+    ],
+    "explanation_en": "The syntax chown owner:group updates both in a single command; the sticky bit on a shared directory ensures that only the owner of a file (or root) can delete or rename it.",
+    "why_wrong_en": {
+      "2": "chmod +x ADDS the execute permission; to remove it you use chmod -x.",
+      "3": "It is precisely the write permission on the directory (combined with execute) that allows the creation and deletion of files within it."
+    }
   },
   {
     "id": "lnxb-013",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Networking", "Linux"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Networking",
+      "Linux"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali file sono coinvolti nella risoluzione dei nomi host su un sistema Linux? (seleziona due)",
-    "options": ["/etc/hosts", "/etc/resolv.conf", "/etc/fstab", "/etc/crontab"],
-    "correct": [0, 1],
+    "options": [
+      "/etc/hosts",
+      "/etc/resolv.conf",
+      "/etc/fstab",
+      "/etc/crontab"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "/etc/hosts contiene mappature statiche nome-indirizzo consultate localmente, mentre /etc/resolv.conf indica i server DNS (nameserver) da interrogare per la risoluzione dei nomi.",
     "why_wrong": {
       "2": "/etc/fstab definisce i filesystem da montare all'avvio, non la risoluzione dei nomi.",
       "3": "/etc/crontab pianifica i job cron di sistema, senza alcun ruolo nella risoluzione DNS."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Which files are involved in hostname resolution on a Linux system? (select two)",
+    "options_en": [
+      "/etc/hosts",
+      "/etc/resolv.conf",
+      "/etc/fstab",
+      "/etc/crontab"
+    ],
+    "explanation_en": "/etc/hosts contains static name-address mappings consulted locally, while /etc/resolv.conf indicates the DNS servers (nameserver) to query for name resolution.",
+    "why_wrong_en": {
+      "2": "/etc/fstab defines the filesystems to mount at boot, not name resolution.",
+      "3": "/etc/crontab schedules system cron jobs, with no role in DNS resolution."
+    }
   },
   {
     "id": "lnxb-014",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Permessi"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Permessi"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Il comando 'chmod 777 file' assegna i permessi di lettura, scrittura ed esecuzione a proprietario, gruppo e a tutti gli altri utenti.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Ogni cifra 7 vale rwx (4+2+1). Con 777 tutte e tre le categorie (proprietario, gruppo, altri) ottengono lettura, scrittura ed esecuzione: è il permesso massimamente aperto e generalmente sconsigliato.",
     "why_wrong": {
       "1": "L'affermazione è corretta: 777 corrisponde a rwxrwxrwx, quindi la risposta non è Falso."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "The command 'chmod 777 file' assigns read, write and execute permissions to owner, group and all other users.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "Each digit 7 is rwx (4+2+1). With 777 all three categories (owner, group, others) get read, write and execute: it is the maximally open permission and generally discouraged.",
+    "why_wrong_en": {
+      "1": "The statement is correct: 777 corresponds to rwxrwxrwx, so the answer is not False."
+    }
   },
   {
     "id": "lnxb-015",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Systemd"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Systemd"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Il comando 'systemctl start servizio' garantisce che il servizio venga avviato automaticamente a ogni riavvio del sistema.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "start avvia il servizio soltanto nella sessione corrente. Per l'avvio automatico al boot è necessario abilitarlo con 'systemctl enable' (o 'enable --now' per fare entrambe le cose).",
     "why_wrong": {
       "0": "start non rende persistente l'avvio: dopo un riavvio il servizio resterebbe fermo se non è stato abilitato con enable."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "The command 'systemctl start service' guarantees that the service starts automatically at every system reboot.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "start starts the service only in the current session. For automatic startup at boot you must enable it with 'systemctl enable' (or 'enable --now' to do both).",
+    "why_wrong_en": {
+      "0": "start does not make startup persistent: after a reboot the service would remain stopped if it has not been enabled with enable."
+    }
   },
   {
     "id": "lnxb-016",
-    "cert": ["IT Generale - Linux"],
-    "topics": ["Bash", "Linux"],
+    "cert": [
+      "IT Generale - Linux"
+    ],
+    "topics": [
+      "Bash",
+      "Linux"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Avviare un comando con 'nohup comando &' permette al processo di continuare l'esecuzione anche dopo la chiusura del terminale.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "nohup rende il processo immune al segnale SIGHUP inviato alla chiusura del terminale, mentre '&' lo esegue in background; così il processo sopravvive al logout e reindirizza l'output su nohup.out.",
     "why_wrong": {
       "1": "L'affermazione è corretta: proprio ignorando SIGHUP il processo continua dopo la chiusura del terminale, quindi la risposta non è Falso."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Starting a command with 'nohup command &' allows the process to continue running even after the terminal is closed.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "nohup makes the process immune to the SIGHUP signal sent when the terminal is closed, while '&' runs it in the background; thus the process survives logout and redirects output to nohup.out.",
+    "why_wrong_en": {
+      "1": "The statement is correct: precisely by ignoring SIGHUP the process continues after the terminal is closed, so the answer is not False."
+    }
   }
 ]

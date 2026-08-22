@@ -1,8 +1,13 @@
 [
   {
     "id": "sc300b-001",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Entra ID", "Identity"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Entra ID",
+      "Identity"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In Microsoft Entra ID vuoi che gli utenti del reparto Vendite vengano aggiunti e rimossi automaticamente da un gruppo in base al valore dell'attributo 'department'. Quale tipo di gruppo devi creare?",
@@ -12,19 +17,39 @@
       "Un gruppo Microsoft 365 con appartenenza assegnata",
       "Un'unità amministrativa (administrative unit)"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "I gruppi dinamici usano regole di appartenenza basate sugli attributi degli utenti (es. department eq 'Sales'): Entra ID valuta la regola e aggiunge o rimuove automaticamente i membri quando gli attributi cambiano. Richiede almeno una licenza Entra ID P1.",
     "why_wrong": {
       "0": "L'appartenenza assegnata richiede l'aggiunta e la rimozione manuale dei membri, non si aggiorna in base agli attributi.",
       "2": "Anche un gruppo M365 può essere dinamico, ma qui è specificato 'assegnata', quindi resta manuale.",
       "3": "Le unità amministrative delimitano l'ambito amministrativo, non gestiscono l'appartenenza automatica a un gruppo."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "In Microsoft Entra ID you want users from the Sales department to be automatically added to and removed from a group based on the value of the 'department' attribute. Which type of group must you create?",
+    "options_en": [
+      "A security group with assigned membership",
+      "A security group with dynamic membership (dynamic user)",
+      "A Microsoft 365 group with assigned membership",
+      "An administrative unit"
+    ],
+    "explanation_en": "Dynamic groups use membership rules based on user attributes (e.g. department eq 'Sales'): Entra ID evaluates the rule and automatically adds or removes members when attributes change. It requires at least an Entra ID P1 license.",
+    "why_wrong_en": {
+      "0": "Assigned membership requires manually adding and removing members; it does not update based on attributes.",
+      "2": "A M365 group can also be dynamic, but here 'assigned' is specified, so it stays manual.",
+      "3": "Administrative units scope administrative permissions; they do not manage automatic group membership."
+    }
   },
   {
     "id": "sc300b-002",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Identity", "Governance"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Identity",
+      "Governance"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un fornitore esterno deve collaborare a un progetto per 90 giorni. Vuoi invitarlo come utente guest e garantire che il suo accesso venga revocato automaticamente alla scadenza, senza intervento manuale. Quale funzionalità di Entra ID è più adatta?",
@@ -34,19 +59,39 @@
       "Conditional Access con blocco per utenti guest",
       "Self-service password reset (SSPR)"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "L'entitlement management consente di creare access package con policy che invitano automaticamente utenti esterni, assegnano risorse e impostano una scadenza dell'assegnazione: al termine l'accesso (e anche l'account guest, se configurato) viene rimosso automaticamente.",
     "why_wrong": {
       "0": "Una access review una tantum richiede un revisore che decida manualmente, non garantisce la revoca automatica alla data prevista.",
       "2": "Conditional Access controlla le condizioni di accesso in tempo reale ma non gestisce il ciclo di vita né la scadenza dell'account guest.",
       "3": "SSPR permette agli utenti di reimpostare la password, non ha alcun ruolo nella scadenza dell'accesso guest."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "An external vendor must collaborate on a project for 90 days. You want to invite them as a guest user and ensure their access is automatically revoked at expiration, without manual intervention. Which Entra ID feature is most suitable?",
+    "options_en": [
+      "One-time access review on guests",
+      "Entitlement management with an expiring access package",
+      "Conditional Access with a block for guest users",
+      "Self-service password reset (SSPR)"
+    ],
+    "explanation_en": "Entitlement management lets you create access packages with policies that automatically invite external users, assign resources and set an assignment expiration: at the end, access (and even the guest account, if configured) is automatically removed.",
+    "why_wrong_en": {
+      "0": "A one-time access review requires a reviewer to decide manually; it does not guarantee automatic revocation on the planned date.",
+      "2": "Conditional Access controls access conditions in real time but does not manage the lifecycle or the expiration of the guest account.",
+      "3": "SSPR lets users reset their password; it plays no role in guest access expiration."
+    }
   },
   {
     "id": "sc300b-003",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["PIM", "Governance"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "PIM",
+      "Governance"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Con Privileged Identity Management (PIM) vuoi che l'attivazione del ruolo Global Administrator richieda l'approvazione di un manager e sia limitata a 4 ore. Dove configuri questi requisiti?",
@@ -56,19 +101,39 @@
       "Nelle proprietà del gruppo di sicurezza degli amministratori",
       "Nei metodi di autenticazione del tenant"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "In PIM ogni ruolo Entra ha delle 'role settings' dove si definiscono durata massima dell'attivazione, requisito di MFA, giustificazione, requisito di approvazione e gli approvatori. È qui che si imposta l'approvazione obbligatoria e la finestra di 4 ore.",
     "why_wrong": {
       "0": "Conditional Access può richiedere MFA all'attivazione, ma non definisce il workflow di approvazione né la durata dell'attivazione eleggibile.",
       "2": "Le proprietà del gruppo non controllano l'attivazione just-in-time dei ruoli tramite PIM.",
       "3": "I metodi di autenticazione stabiliscono come gli utenti si autenticano, non le regole di attivazione dei ruoli privilegiati."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "With Privileged Identity Management (PIM) you want activation of the Global Administrator role to require a manager's approval and be limited to 4 hours. Where do you configure these requirements?",
+    "options_en": [
+      "In the Conditional Access policies applied to administrators",
+      "In the role settings in PIM for Global Administrator",
+      "In the properties of the administrators' security group",
+      "In the tenant's authentication methods"
+    ],
+    "explanation_en": "In PIM each Entra role has 'role settings' where you define maximum activation duration, MFA requirement, justification, approval requirement and the approvers. This is where you set mandatory approval and the 4-hour window.",
+    "why_wrong_en": {
+      "0": "Conditional Access can require MFA at activation, but it does not define the approval workflow or the duration of the eligible activation.",
+      "2": "Group properties do not control just-in-time role activation via PIM.",
+      "3": "Authentication methods establish how users authenticate, not the activation rules for privileged roles."
+    }
   },
   {
     "id": "sc300b-004",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Conditional Access", "Controllo accessi"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Conditional Access",
+      "Controllo accessi"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Vuoi consentire l'accesso a Exchange Online da dispositivi non gestiti solo tramite sessione browser con restrizioni (nessun download di file), bloccando i client desktop. Quale controllo di Conditional Access ti permette di applicare queste restrizioni di sessione?",
@@ -78,19 +143,39 @@
       "Grant control 'Require multifactor authentication'",
       "Session control 'Sign-in frequency'"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Il session control 'Use Conditional Access App Control' instrada la sessione attraverso Microsoft Defender for Cloud Apps, dove si applicano policy in tempo reale come blocco del download, sola lettura o monitoraggio, ideale per dispositivi non gestiti.",
     "why_wrong": {
       "0": "'Require compliant device' bloccherebbe del tutto i dispositivi non gestiti, non consentirebbe una sessione limitata in sola lettura.",
       "2": "L'MFA verifica l'identità ma non impone restrizioni sulle azioni durante la sessione, come impedire i download.",
       "3": "'Sign-in frequency' controlla la frequenza di riautenticazione, non le azioni consentite nella sessione."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "You want to allow access to Exchange Online from unmanaged devices only through a restricted browser session (no file downloads), blocking desktop clients. Which Conditional Access control lets you apply these session restrictions?",
+    "options_en": [
+      "Grant control 'Require compliant device'",
+      "Session control 'Use Conditional Access App Control' (integration with Defender for Cloud Apps)",
+      "Grant control 'Require multifactor authentication'",
+      "Session control 'Sign-in frequency'"
+    ],
+    "explanation_en": "The session control 'Use Conditional Access App Control' routes the session through Microsoft Defender for Cloud Apps, where real-time policies such as block download, read-only or monitoring are applied, ideal for unmanaged devices.",
+    "why_wrong_en": {
+      "0": "'Require compliant device' would block unmanaged devices entirely; it would not allow a limited read-only session.",
+      "2": "MFA verifies identity but does not impose restrictions on actions during the session, such as preventing downloads.",
+      "3": "'Sign-in frequency' controls how often reauthentication occurs, not the actions allowed within the session."
+    }
   },
   {
     "id": "sc300b-005",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["MFA", "Controllo accessi"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "MFA",
+      "Controllo accessi"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "L'azienda vuole adottare l'autenticazione senza password resistente al phishing per gli amministratori. Quale metodo di autenticazione soddisfa questo requisito?",
@@ -100,19 +185,39 @@
       "Domande di sicurezza",
       "Chiamata vocale al telefono"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Le chiavi di sicurezza FIDO2 forniscono autenticazione senza password e resistente al phishing perché usano crittografia a chiave pubblica legata al dominio e non trasmettono segreti riutilizzabili come le OTP.",
     "why_wrong": {
       "0": "L'SMS è vulnerabile a phishing, SIM swapping e intercettazione, non è resistente al phishing.",
       "2": "Le domande di sicurezza sono un fattore di conoscenza debole, usate per SSPR e non resistenti al phishing.",
       "3": "La chiamata vocale può essere intercettata o soggetta a social engineering e non è resistente al phishing."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "The company wants to adopt phishing-resistant passwordless authentication for administrators. Which authentication method meets this requirement?",
+    "options_en": [
+      "SMS as a second factor",
+      "FIDO2 security key",
+      "Security questions",
+      "Voice call to the phone"
+    ],
+    "explanation_en": "FIDO2 security keys provide passwordless, phishing-resistant authentication because they use public-key cryptography bound to the domain and do not transmit reusable secrets like OTPs.",
+    "why_wrong_en": {
+      "0": "SMS is vulnerable to phishing, SIM swapping and interception; it is not phishing-resistant.",
+      "2": "Security questions are a weak knowledge factor, used for SSPR and not phishing-resistant.",
+      "3": "A voice call can be intercepted or subject to social engineering and is not phishing-resistant."
+    }
   },
   {
     "id": "sc300b-006",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Entra ID", "Identity"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Entra ID",
+      "Identity"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Devi delegare a un help desk regionale la gestione (reset password, gestione utenti) dei soli utenti della filiale di Milano, senza dargli permessi sull'intero tenant. Quale funzionalità di Entra ID usi?",
@@ -122,19 +227,39 @@
       "Conditional Access con named location Milano",
       "Access package dedicato alla filiale di Milano"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "Le unità amministrative (AU) permettono di raggruppare utenti/gruppi e assegnare ruoli amministrativi con ambito limitato a quella AU. Assegnando il ruolo Password Administrator o User Administrator con scope sull'AU di Milano, l'help desk gestisce solo quegli utenti.",
     "why_wrong": {
       "1": "Un gruppo dinamico raccoglie gli utenti ma da solo non delega permessi amministrativi con ambito ristretto.",
       "2": "Le named location definiscono posizioni di rete per Conditional Access, non delegano amministrazione.",
       "3": "Gli access package gestiscono l'accesso alle risorse degli utenti finali, non la delega amministrativa dell'help desk."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "You need to delegate to a regional help desk the management (password reset, user management) of only the users in the Milan branch, without giving them permissions over the entire tenant. Which Entra ID feature do you use?",
+    "options_en": [
+      "Administrative unit with a scoped role",
+      "Dynamic group containing the Milan users",
+      "Conditional Access with a Milan named location",
+      "Access package dedicated to the Milan branch"
+    ],
+    "explanation_en": "Administrative units (AUs) let you group users/groups and assign administrative roles scoped to that AU. By assigning the Password Administrator or User Administrator role scoped to the Milan AU, the help desk manages only those users.",
+    "why_wrong_en": {
+      "1": "A dynamic group collects the users but on its own does not delegate scoped administrative permissions.",
+      "2": "Named locations define network locations for Conditional Access; they do not delegate administration.",
+      "3": "Access packages manage end-user resource access, not administrative delegation for the help desk."
+    }
   },
   {
     "id": "sc300b-007",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Entra ID", "Identity"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Entra ID",
+      "Identity"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Un'applicazione SaaS di terze parti supporta il provisioning automatico degli utenti tramite standard SCIM. In Entra ID, in quale sezione dell'enterprise application configuri la sincronizzazione automatica degli account?",
@@ -144,19 +269,39 @@
       "Users and groups",
       "Conditional Access"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "La scheda 'Provisioning' dell'enterprise application configura il provisioning automatico basato su SCIM: si imposta la modalità Automatic, le credenziali/endpoint del tenant SCIM e i mapping degli attributi per creare, aggiornare e disabilitare gli account nell'app.",
     "why_wrong": {
       "0": "'Single sign-on' configura l'autenticazione federata (SAML/OIDC), non la creazione/aggiornamento degli account.",
       "2": "'Users and groups' assegna chi può usare l'app, ma non definisce il motore di provisioning SCIM né i mapping.",
       "3": "Conditional Access applica policy di accesso, non gestisce il ciclo di vita degli account nell'app."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "A third-party SaaS application supports automatic user provisioning via the SCIM standard. In Entra ID, in which section of the enterprise application do you configure automatic account synchronization?",
+    "options_en": [
+      "Single sign-on",
+      "Provisioning",
+      "Users and groups",
+      "Conditional Access"
+    ],
+    "explanation_en": "The 'Provisioning' tab of the enterprise application configures automatic SCIM-based provisioning: you set Automatic mode, the SCIM tenant credentials/endpoint and the attribute mappings to create, update and disable accounts in the app.",
+    "why_wrong_en": {
+      "0": "'Single sign-on' configures federated authentication (SAML/OIDC), not account creation/update.",
+      "2": "'Users and groups' assigns who can use the app, but does not define the SCIM provisioning engine or the mappings.",
+      "3": "Conditional Access applies access policies; it does not manage the account lifecycle in the app."
+    }
   },
   {
     "id": "sc300b-008",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Identity", "Zero Trust"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Identity",
+      "Zero Trust"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Identity Protection ha rilevato che le credenziali di alcuni utenti compaiono in una fuga di dati (leaked credentials). Vuoi che, quando il rischio utente è High, venga forzato automaticamente il cambio password sicuro. Cosa configuri?",
@@ -166,19 +311,39 @@
       "Una policy di Password Protection con lista personalizzata",
       "Una access review sugli utenti a rischio"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Le leaked credentials sono un segnale di rischio utente. Una user risk policy (in Identity Protection o come parte del Conditional Access) impostata su rischio High può richiedere il cambio password sicuro, che è possibile solo dopo aver completato l'MFA, sanando il rischio.",
     "why_wrong": {
       "0": "La sign-in risk policy reagisce al rischio del singolo accesso, non al rischio utente cumulativo derivante da credenziali trapelate.",
       "2": "Password Protection blocca password deboli/vietate durante l'impostazione, ma non reagisce a un rischio utente rilevato.",
       "3": "Un'access review verifica periodicamente gli accessi, non forza in automatico il cambio password in risposta al rischio."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "Identity Protection has detected that some users' credentials appear in a data leak (leaked credentials). You want that, when the user risk is High, a secure password change is automatically enforced. What do you configure?",
+    "options_en": [
+      "A sign-in risk policy that requires MFA",
+      "A user risk policy that requires a password change",
+      "A Password Protection policy with a custom list",
+      "An access review on at-risk users"
+    ],
+    "explanation_en": "Leaked credentials are a user risk signal. A user risk policy (in Identity Protection or as part of Conditional Access) set to High risk can require a secure password change, which is possible only after completing MFA, remediating the risk.",
+    "why_wrong_en": {
+      "0": "The sign-in risk policy reacts to the risk of a single sign-in, not to the cumulative user risk derived from leaked credentials.",
+      "2": "Password Protection blocks weak/banned passwords when setting them, but does not react to a detected user risk.",
+      "3": "An access review periodically verifies access; it does not automatically force a password change in response to risk."
+    }
   },
   {
     "id": "sc300b-009",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Controllo accessi", "Entra ID"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Controllo accessi",
+      "Entra ID"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un'applicazione web legacy on-premises usa l'autenticazione integrata di Windows e non può essere modificata, ma vuoi pubblicarla in sicurezza per gli utenti remoti tramite Entra ID con pre-autenticazione. Quale soluzione usi?",
@@ -188,19 +353,39 @@
       "Registrazione dell'app (app registration) con OIDC",
       "Seamless SSO con pass-through authentication"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "Entra ID Application Proxy pubblica applicazioni web on-premises verso l'esterno tramite un connettore, applicando la pre-autenticazione di Entra ID (e quindi Conditional Access/MFA) e supportando il Kerberos Constrained Delegation per il SSO verso app che usano l'autenticazione integrata di Windows.",
     "why_wrong": {
       "1": "Il SSO SAML richiede che l'app supporti SAML; un'app legacy con Windows Integrated Auth non modificabile non lo supporta.",
       "2": "OIDC richiede di modificare/registrare l'app come client moderno, impossibile se l'app non può essere cambiata.",
       "3": "Seamless SSO riguarda il sign-in trasparente in rete aziendale, non pubblica un'app on-premises verso Internet."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "A legacy on-premises web application uses Windows Integrated Authentication and cannot be modified, but you want to publish it securely for remote users through Entra ID with pre-authentication. Which solution do you use?",
+    "options_en": [
+      "Entra ID Application Proxy",
+      "SAML-based single sign-on",
+      "App registration with OIDC",
+      "Seamless SSO with pass-through authentication"
+    ],
+    "explanation_en": "Entra ID Application Proxy publishes on-premises web applications externally through a connector, applying Entra ID pre-authentication (and therefore Conditional Access/MFA) and supporting Kerberos Constrained Delegation for SSO to apps that use Windows Integrated Authentication.",
+    "why_wrong_en": {
+      "1": "SAML SSO requires the app to support SAML; a legacy app with Windows Integrated Auth that cannot be modified does not support it.",
+      "2": "OIDC requires modifying/registering the app as a modern client, impossible if the app cannot be changed.",
+      "3": "Seamless SSO is about transparent sign-in on the corporate network; it does not publish an on-premises app to the Internet."
+    }
   },
   {
     "id": "sc300b-010",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Identity", "Governance"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Identity",
+      "Governance"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Vuoi automatizzare l'onboarding dei nuovi dipendenti: due giorni prima della data di assunzione, generare una password temporanea, inviare una email di benvenuto e aggiungere l'utente ai gruppi corretti, in base ai dati provenienti dal sistema HR. Quale funzionalità di Entra ID Governance usi?",
@@ -210,19 +395,39 @@
       "Dynamic groups",
       "Access reviews"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "I Lifecycle workflows automatizzano gli scenari Joiner-Mover-Leaver: attivati da attributi come employeeHireDate, eseguono task (generare TAP/password temporanea, inviare email di benvenuto, aggiungere a gruppi/team) in finestre temporali relative alla data di assunzione.",
     "why_wrong": {
       "0": "Gli access package gestiscono richieste e assegnazioni di accesso alle risorse, non orchestrano task temporizzati di onboarding basati su date HR.",
       "2": "I gruppi dinamici aggiornano l'appartenenza in base agli attributi, ma non inviano email né generano password temporanee.",
       "3": "Le access review certificano periodicamente gli accessi esistenti, non gestiscono l'onboarding."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "You want to automate onboarding of new employees: two days before the hire date, generate a temporary password, send a welcome email and add the user to the correct groups, based on data coming from the HR system. Which Entra ID Governance feature do you use?",
+    "options_en": [
+      "Entitlement management access packages",
+      "Lifecycle workflows",
+      "Dynamic groups",
+      "Access reviews"
+    ],
+    "explanation_en": "Lifecycle workflows automate Joiner-Mover-Leaver scenarios: triggered by attributes like employeeHireDate, they run tasks (generate TAP/temporary password, send a welcome email, add to groups/teams) in time windows relative to the hire date.",
+    "why_wrong_en": {
+      "0": "Access packages manage requests and assignments of resource access, they do not orchestrate time-scheduled onboarding tasks based on HR dates.",
+      "2": "Dynamic groups update membership based on attributes, but do not send emails or generate temporary passwords.",
+      "3": "Access reviews periodically certify existing access; they do not handle onboarding."
+    }
   },
   {
     "id": "sc300b-011",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Controllo accessi", "Entra ID"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Controllo accessi",
+      "Entra ID"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Un'applicazione multi-tenant richiede una permission Microsoft Graph di tipo application (es. User.Read.All) che consente l'accesso a livello di tutta l'organizzazione. Chi deve concedere il consenso affinché l'app funzioni per tutti gli utenti del tenant?",
@@ -232,19 +437,39 @@
       "Il proprietario dell'applicazione nel tenant di origine",
       "Nessuno: le permission application non richiedono consenso"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Le permission di tipo application (accesso senza utente, spesso ad ampio raggio) richiedono sempre l'admin consent concesso da un ruolo idoneo (es. Privileged Role Administrator/Global Administrator). Il consenso vale per l'intero tenant e non può essere dato dai singoli utenti.",
     "why_wrong": {
       "0": "Gli utenti possono dare consenso solo a permission delegated a basso rischio; mai a permission application.",
       "2": "Il proprietario nel tenant di origine non può concedere il consenso nel tenant del cliente che consuma l'app.",
       "3": "Le permission application richiedono sempre il consenso amministrativo, non sono automatiche."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "A multi-tenant application requires an application-type Microsoft Graph permission (e.g. User.Read.All) that allows organization-wide access. Who must grant consent so that the app works for all users in the tenant?",
+    "options_en": [
+      "Each individual user at first sign-in",
+      "An administrator with adequate privileges via admin consent",
+      "The application owner in the home tenant",
+      "No one: application permissions do not require consent"
+    ],
+    "explanation_en": "Application-type permissions (access without a user, often broad in scope) always require admin consent granted by a suitable role (e.g. Privileged Role Administrator/Global Administrator). The consent applies to the entire tenant and cannot be granted by individual users.",
+    "why_wrong_en": {
+      "0": "Users can only consent to low-risk delegated permissions; never to application permissions.",
+      "2": "The owner in the home tenant cannot grant consent in the customer tenant that consumes the app.",
+      "3": "Application permissions always require administrative consent; they are not automatic."
+    }
   },
   {
     "id": "sc300b-012",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["MFA", "Controllo accessi"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "MFA",
+      "Controllo accessi"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali DUE affermazioni sui metodi di Self-Service Password Reset (SSPR) di Entra ID sono corrette?",
@@ -254,18 +479,38 @@
       "SSPR non è compatibile con la scrittura password verso Active Directory on-premises",
       "SSPR e MFA non possono mai condividere gli stessi metodi di registrazione"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Le domande di sicurezza sono ammesse per SSPR ma non per l'MFA. Inoltre l'amministratore può configurare il numero di metodi richiesti per la registrazione e per il reset. Con Password Writeback SSPR scrive le nuove password anche verso AD on-premises, e la registrazione combinata condivide i metodi tra SSPR e MFA.",
     "why_wrong": {
       "2": "Falso: con Password Writeback SSPR può reimpostare le password degli account sincronizzati anche in Active Directory on-premises.",
       "3": "Falso: con la registrazione combinata (combined registration) SSPR e MFA condividono gli stessi metodi registrati."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "Which TWO statements about Entra ID Self-Service Password Reset (SSPR) methods are correct?",
+    "options_en": [
+      "Security questions can be used as a method for SSPR but are not allowed as a second factor for MFA",
+      "You can require users to register a minimum number of authentication methods to use SSPR",
+      "SSPR is not compatible with writing passwords back to on-premises Active Directory",
+      "SSPR and MFA can never share the same registration methods"
+    ],
+    "explanation_en": "Security questions are allowed for SSPR but not for MFA. In addition, the administrator can configure the number of methods required for registration and for reset. With Password Writeback, SSPR also writes new passwords back to on-premises AD, and combined registration shares the methods between SSPR and MFA.",
+    "why_wrong_en": {
+      "2": "False: with Password Writeback, SSPR can reset the passwords of synchronized accounts in on-premises Active Directory as well.",
+      "3": "False: with combined registration, SSPR and MFA share the same registered methods."
+    }
   },
   {
     "id": "sc300b-013",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Conditional Access", "Controllo accessi"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Conditional Access",
+      "Controllo accessi"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Stai progettando policy di Conditional Access. Quali DUE elementi sono considerati 'assignments' (condizioni) di una policy, e non 'access controls'?",
@@ -275,18 +520,38 @@
       "Require multifactor authentication",
       "Grant / Block access"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "In una policy di Conditional Access le assignments definiscono a chi e cosa si applica: utenti/gruppi/workload identities, cloud app o azioni, e condizioni (rischio, dispositivo, posizione). Gli access controls sono invece i controlli Grant/Block e Session applicati quando la policy scatta.",
     "why_wrong": {
       "2": "'Require multifactor authentication' è un grant control (access control), non un assignment.",
       "3": "'Grant / Block access' è la decisione finale della policy, cioè un access control, non una condizione."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "You are designing Conditional Access policies. Which TWO elements are considered 'assignments' (conditions) of a policy, and not 'access controls'?",
+    "options_en": [
+      "Users or workload identities",
+      "Cloud apps or actions",
+      "Require multifactor authentication",
+      "Grant / Block access"
+    ],
+    "explanation_en": "In a Conditional Access policy, assignments define to whom and to what it applies: users/groups/workload identities, cloud apps or actions, and conditions (risk, device, location). Access controls are instead the Grant/Block and Session controls applied when the policy triggers.",
+    "why_wrong_en": {
+      "2": "'Require multifactor authentication' is a grant control (access control), not an assignment.",
+      "3": "'Grant / Block access' is the policy's final decision, i.e. an access control, not a condition."
+    }
   },
   {
     "id": "sc300b-014",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["PIM", "Governance"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "PIM",
+      "Governance"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali DUE affermazioni su Privileged Identity Management (PIM) in Entra ID sono corrette?",
@@ -296,18 +561,38 @@
       "PIM elimina la necessità di licenze Entra ID P2 nel tenant",
       "PIM impedisce agli utenti eleggibili di attivare qualsiasi ruolo senza approvazione, in tutti i casi"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "PIM fornisce accesso just-in-time per i ruoli Entra ID e per i ruoli delle risorse Azure, e con PIM for Groups gestisce l'appartenenza/ownership eleggibile di gruppi (utili per raggruppare più ruoli o accessi ad app). Richiede licenze Entra ID P2.",
     "why_wrong": {
       "2": "Falso: PIM è una funzionalità che richiede Entra ID P2, non elimina il fabbisogno di licenze.",
       "3": "Falso: l'approvazione è configurabile per ruolo; non tutti i ruoli richiedono approvazione, dipende dalle role settings."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "Which TWO statements about Privileged Identity Management (PIM) in Entra ID are correct?",
+    "options_en": [
+      "PIM can manage just-in-time activation for both Entra ID roles and Azure resource roles",
+      "PIM can assign eligible membership to role-assignable groups (PIM for Groups)",
+      "PIM eliminates the need for Entra ID P2 licenses in the tenant",
+      "PIM prevents eligible users from activating any role without approval, in all cases"
+    ],
+    "explanation_en": "PIM provides just-in-time access for Entra ID roles and Azure resource roles, and with PIM for Groups it manages eligible membership/ownership of groups (useful to bundle multiple roles or app access). It requires Entra ID P2 licenses.",
+    "why_wrong_en": {
+      "2": "False: PIM is a feature that requires Entra ID P2; it does not eliminate the need for licenses.",
+      "3": "False: approval is configurable per role; not all roles require approval, it depends on the role settings."
+    }
   },
   {
     "id": "sc300b-015",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Identity", "Entra ID"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Identity",
+      "Entra ID"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "In uno scenario di collaborazione B2B con Entra ID, quali DUE affermazioni sono corrette riguardo agli utenti guest?",
@@ -317,48 +602,111 @@
       "Gli utenti guest non possono mai essere assegnati a ruoli di Entra ID nel tenant ospitante",
       "Invitare un guest richiede sempre di creare per lui una nuova password nel tenant ospitante"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Nella collaborazione B2B il guest si autentica presso il proprio identity provider di origine ed è rappresentato da un oggetto guest nel tenant ospite (userType Guest). Le External collaboration settings e le Cross-tenant access settings governano inviti, provider consentiti e trust su MFA/dispositivi.",
     "why_wrong": {
       "2": "Falso: i guest possono ricevere ruoli Entra ID (anche se è buona pratica limitarli); non c'è un divieto assoluto.",
       "3": "Falso: il guest usa le credenziali del proprio tenant di origine, non si crea una password nel tenant ospitante."
     },
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "In a B2B collaboration scenario with Entra ID, which TWO statements are correct regarding guest users?",
+    "options_en": [
+      "A guest user authenticates in their own home tenant/identity provider and is represented as a guest object in the hosting tenant",
+      "External collaboration settings and Cross-tenant access settings control who can invite guests and which tenants are allowed",
+      "Guest users can never be assigned to Entra ID roles in the hosting tenant",
+      "Inviting a guest always requires creating a new password for them in the hosting tenant"
+    ],
+    "explanation_en": "In B2B collaboration the guest authenticates at their own home identity provider and is represented by a guest object in the host tenant (userType Guest). External collaboration settings and Cross-tenant access settings govern invitations, allowed providers and trust on MFA/devices.",
+    "why_wrong_en": {
+      "2": "False: guests can be granted Entra ID roles (although it is good practice to limit them); there is no absolute prohibition.",
+      "3": "False: the guest uses the credentials of their own home tenant; no password is created in the hosting tenant."
+    }
   },
   {
     "id": "sc300b-016",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Governance", "Identity"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Governance",
+      "Identity"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "In Entra ID è possibile configurare una access review in modo che, se un revisore non risponde entro la scadenza, gli utenti non revisionati perdano automaticamente l'accesso (rimozione).",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Vero. Nelle access review si può impostare l'azione automatica 'If reviewers don't respond': una delle opzioni è 'Remove access', che rimuove automaticamente l'accesso degli utenti non esaminati alla scadenza della review.",
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "In Entra ID it is possible to configure an access review so that, if a reviewer does not respond by the deadline, the unreviewed users automatically lose access (removal).",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. In access reviews you can set the automatic action 'If reviewers don't respond': one of the options is 'Remove access', which automatically removes access for unreviewed users when the review expires."
   },
   {
     "id": "sc300b-017",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Conditional Access", "MFA"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Conditional Access",
+      "MFA"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "I default di sicurezza (security defaults) e le policy di Conditional Access possono essere abilitati contemporaneamente nello stesso tenant Entra ID.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. I security defaults e il Conditional Access sono mutuamente esclusivi: per usare le policy di Conditional Access è necessario disattivare i security defaults. Non possono essere attivi contemporaneamente nello stesso tenant.",
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "Security defaults and Conditional Access policies can be enabled at the same time in the same Entra ID tenant.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. Security defaults and Conditional Access are mutually exclusive: to use Conditional Access policies you must disable security defaults. They cannot be active at the same time in the same tenant."
   },
   {
     "id": "sc300b-018",
-    "cert": ["Microsoft SC-300"],
-    "topics": ["Zero Trust", "Controllo accessi"],
+    "cert": [
+      "Microsoft SC-300"
+    ],
+    "topics": [
+      "Zero Trust",
+      "Controllo accessi"
+    ],
     "type": "truefalse",
     "difficulty": 3,
     "question": "In Microsoft Entra ID, la funzionalità Continuous Access Evaluation (CAE) consente di revocare o forzare in modo quasi immediato la riautenticazione di una sessione quando si verificano eventi critici, come la disabilitazione dell'utente o un cambio password, senza attendere la scadenza del token di accesso.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. La Continuous Access Evaluation permette a Entra ID e ai resource provider compatibili (es. Exchange Online, SharePoint Online, Teams) di reagire quasi in tempo reale a eventi critici (account disabilitato, password cambiata, rischio elevato, cambio di posizione), invalidando la sessione senza aspettare la scadenza tipica del token (circa 1 ora).",
-    "source": "Microsoft SC-300"
+    "source": "Microsoft SC-300",
+    "question_en": "In Microsoft Entra ID, the Continuous Access Evaluation (CAE) feature allows a session to be revoked or forced to reauthenticate almost immediately when critical events occur, such as the user being disabled or a password change, without waiting for the access token to expire.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Continuous Access Evaluation allows Entra ID and compatible resource providers (e.g. Exchange Online, SharePoint Online, Teams) to react almost in real time to critical events (disabled account, changed password, elevated risk, location change), invalidating the session without waiting for the typical token expiration (about 1 hour)."
   }
 ]

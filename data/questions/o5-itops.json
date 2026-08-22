@@ -1,8 +1,12 @@
 [
   {
     "id": "opsb-001",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Troubleshooting"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Troubleshooting"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Nella metodologia di troubleshooting CompTIA in 6 passi, qual e' il PRIMO passo da eseguire?",
@@ -12,19 +16,38 @@
       "Testare la teoria per determinare la causa",
       "Verificare la piena funzionalita' del sistema"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Il primo passo e' sempre 'Identificare il problema': raccogliere informazioni dall'utente, interrogare sui cambiamenti recenti e riprodurre il sintomo. Senza aver definito con precisione il problema, ogni ipotesi successiva rischia di essere fuori bersaglio.",
     "why_wrong": {
       "0": "La teoria della causa probabile e' il secondo passo: si formula solo dopo aver identificato con chiarezza il problema.",
       "2": "Testare la teoria e' il terzo passo e presuppone che una teoria sia gia' stata formulata.",
       "3": "La verifica della funzionalita' e' uno degli ultimi passi, dopo aver implementato la soluzione."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In the 6-step CompTIA troubleshooting methodology, what is the FIRST step to perform?",
+    "options_en": [
+      "Establish a theory of probable cause",
+      "Identify the problem",
+      "Test the theory to determine the cause",
+      "Verify full system functionality"
+    ],
+    "explanation_en": "The first step is always 'Identify the problem': gather information from the user, ask about recent changes, and reproduce the symptom. Without a precise definition of the problem, every subsequent hypothesis risks missing the target.",
+    "why_wrong_en": {
+      "0": "The theory of probable cause is the second step: it is formulated only after the problem has been clearly identified.",
+      "2": "Testing the theory is the third step and assumes a theory has already been formulated.",
+      "3": "Verifying functionality is one of the last steps, after implementing the solution."
+    }
   },
   {
     "id": "opsb-002",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Troubleshooting"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Troubleshooting"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un tecnico ha appena confermato la causa di un problema testando la propria teoria. Secondo la metodologia CompTIA in 6 passi, qual e' il passo IMMEDIATAMENTE successivo?",
@@ -34,19 +57,38 @@
       "Riavviare l'identificazione del problema da capo",
       "Verificare la piena funzionalita' del sistema"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Una volta confermata la teoria (passo 3), si passa a 'Stabilire un piano d'azione per risolvere il problema e implementare la soluzione' (passo 4). Solo dopo l'implementazione si verifica la funzionalita' e infine si documenta.",
     "why_wrong": {
       "0": "La documentazione e' l'ultimo passo (passo 6), dopo aver implementato e verificato la soluzione.",
       "2": "Si torna all'identificazione solo se il test smentisce la teoria; qui la teoria e' stata confermata.",
       "3": "La verifica della funzionalita' e' il passo 5, successivo all'implementazione del piano d'azione."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "A technician has just confirmed the cause of a problem by testing their theory. According to the 6-step CompTIA methodology, what is the IMMEDIATELY following step?",
+    "options_en": [
+      "Document findings and lessons learned",
+      "Establish a plan of action to resolve the problem and implement the solution",
+      "Restart problem identification from scratch",
+      "Verify full system functionality"
+    ],
+    "explanation_en": "Once the theory is confirmed (step 3), you move to 'Establish a plan of action to resolve the problem and implement the solution' (step 4). Only after implementation do you verify functionality and finally document.",
+    "why_wrong_en": {
+      "0": "Documentation is the last step (step 6), after implementing and verifying the solution.",
+      "2": "You return to identification only if the test disproves the theory; here the theory has been confirmed.",
+      "3": "Verifying functionality is step 5, following the implementation of the action plan."
+    }
   },
   {
     "id": "opsb-003",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Gestione ticket"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Gestione ticket"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In una matrice di prioritizzazione dei ticket, in che modo si determina tipicamente la PRIORITA' di un ticket?",
@@ -56,19 +98,38 @@
       "In base a chi ha aperto il ticket, dando precedenza ai dirigenti",
       "In base al tempo stimato di risoluzione tecnica"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "La priorita' si ricava dalla matrice impatto x urgenza: l'impatto misura quanti utenti o servizi sono coinvolti e la portata sul business, mentre l'urgenza misura la rapidita' con cui l'effetto negativo cresce. La loro combinazione posiziona il ticket nella scala di priorita'.",
     "why_wrong": {
       "0": "Il FIFO ignora la gravita': un incidente critico che arriva dopo uno banale deve comunque avere priorita' superiore.",
       "2": "Il ruolo del richiedente puo' influenzare l'impatto, ma non e' da solo il criterio di priorita' in una matrice ITIL.",
       "3": "Il tempo di risoluzione e' una stima di effort, non ne' l'impatto ne' l'urgenza che definiscono la priorita'."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In a ticket prioritization matrix, how is the PRIORITY of a ticket typically determined?",
+    "options_en": [
+      "Solely based on the ticket's order of arrival (FIFO)",
+      "As a combination of impact and urgency",
+      "Based on who opened the ticket, giving precedence to executives",
+      "Based on the estimated technical resolution time"
+    ],
+    "explanation_en": "Priority is derived from the impact x urgency matrix: impact measures how many users or services are involved and the scope on the business, while urgency measures how quickly the negative effect grows. Their combination positions the ticket on the priority scale.",
+    "why_wrong_en": {
+      "0": "FIFO ignores severity: a critical incident arriving after a trivial one must still have higher priority.",
+      "2": "The requester's role may influence impact, but on its own it is not the priority criterion in an ITIL matrix.",
+      "3": "Resolution time is an effort estimate, neither the impact nor the urgency that define priority."
+    }
   },
   {
     "id": "opsb-004",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["SLA"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "SLA"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual e' la differenza corretta tra SLA, OLA e Underpinning Contract (UC)?",
@@ -78,19 +139,38 @@
       "Sono tre nomi diversi per lo stesso accordo di servizio",
       "Lo SLA e' sempre informale, mentre OLA e UC sono contratti legali vincolanti con penali"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "Lo SLA (Service Level Agreement) e' l'accordo tra l'organizzazione IT e il cliente/business. L'OLA (Operational Level Agreement) e' interno, tra i vari team IT che concorrono a erogare il servizio. L'UC (Underpinning Contract) e' il contratto con un fornitore terzo esterno che supporta lo SLA.",
     "why_wrong": {
       "1": "I ruoli sono invertiti: lo SLA e' verso il cliente e l'OLA e' interno, non il contrario.",
       "2": "Sono tre accordi distinti per parti diverse, non sinonimi.",
       "3": "Lo SLA e' un accordo formale e strutturato; la distinzione riguarda le parti coinvolte, non la formalita'."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What is the correct difference between SLA, OLA and Underpinning Contract (UC)?",
+    "options_en": [
+      "The SLA is between the IT provider and the customer, the OLA between internal teams within the same provider, the UC with an external third-party supplier",
+      "The SLA is between internal teams, the OLA with the end customer, the UC between two customers",
+      "They are three different names for the same service agreement",
+      "The SLA is always informal, while OLA and UC are legally binding contracts with penalties"
+    ],
+    "explanation_en": "The SLA (Service Level Agreement) is the agreement between the IT organization and the customer/business. The OLA (Operational Level Agreement) is internal, between the various IT teams that contribute to delivering the service. The UC (Underpinning Contract) is the contract with an external third-party supplier that supports the SLA.",
+    "why_wrong_en": {
+      "1": "The roles are reversed: the SLA is toward the customer and the OLA is internal, not the other way around.",
+      "2": "They are three distinct agreements for different parties, not synonyms.",
+      "3": "The SLA is a formal and structured agreement; the distinction concerns the parties involved, not formality."
+    }
   },
   {
     "id": "opsb-005",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["ITSM"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "ITSM"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Un utente chiama il service desk chiedendo l'installazione di un nuovo software approvato sul proprio PC. Secondo ITIL, come va classificata questa richiesta?",
@@ -100,19 +180,38 @@
       "Service Request (richiesta di servizio)",
       "Major Incident (incidente grave)"
     ],
-    "correct": [2],
+    "correct": [
+      2
+    ],
     "explanation": "L'installazione di un software approvato e' una Service Request (richiesta di servizio): l'utente chiede qualcosa di standard e pianificato, non c'e' alcuna interruzione o degrado di un servizio esistente. Le richieste di servizio seguono un flusso di Request Fulfillment.",
     "why_wrong": {
       "0": "Un incident e' un'interruzione non pianificata o un degrado di un servizio; qui nulla e' guasto.",
       "1": "Un problem e' la causa radice sottostante a uno o piu' incident, non una semplice richiesta dell'utente.",
       "3": "Un major incident e' un incidente ad alto impatto e urgenza; qui non c'e' alcun disservizio."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "A user calls the service desk requesting the installation of a new approved software on their PC. According to ITIL, how should this request be classified?",
+    "options_en": [
+      "Incident",
+      "Problem",
+      "Service Request",
+      "Major Incident"
+    ],
+    "explanation_en": "Installing approved software is a Service Request: the user asks for something standard and planned, there is no interruption or degradation of an existing service. Service requests follow a Request Fulfillment flow.",
+    "why_wrong_en": {
+      "0": "An incident is an unplanned interruption or degradation of a service; here nothing is broken.",
+      "1": "A problem is the underlying root cause of one or more incidents, not a simple user request.",
+      "3": "A major incident is a high-impact, high-urgency incident; here there is no service disruption."
+    }
   },
   {
     "id": "opsb-006",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["ITSM"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "ITSM"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual e' la differenza fondamentale tra Incident Management e Problem Management in ITIL?",
@@ -122,19 +221,38 @@
       "Sono due nomi per lo stesso processo di risoluzione dei guasti",
       "L'Incident Management si applica solo all'hardware, il Problem Management solo al software"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "L'Incident Management ha come obiettivo il ripristino rapido del servizio (anche con soluzioni temporanee o workaround), minimizzando l'impatto sul business. Il Problem Management, invece, ha un orizzonte piu' ampio: individua e rimuove la causa radice per prevenire il ripetersi degli incident.",
     "why_wrong": {
       "0": "I ruoli sono invertiti: e' il Problem Management a cercare la causa radice, non l'Incident Management.",
       "2": "Sono processi distinti con obiettivi diversi: ripristino rapido contro eliminazione della causa.",
       "3": "La distinzione non dipende da hardware o software, ma dall'obiettivo del processo."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What is the fundamental difference between Incident Management and Problem Management in ITIL?",
+    "options_en": [
+      "Incident Management looks for the root cause, Problem Management restores the service",
+      "Incident Management restores the service as quickly as possible, Problem Management investigates and removes the root cause",
+      "They are two names for the same fault-resolution process",
+      "Incident Management applies only to hardware, Problem Management only to software"
+    ],
+    "explanation_en": "Incident Management aims to restore the service as quickly as possible (even with temporary solutions or workarounds), minimizing business impact. Problem Management, on the other hand, has a broader horizon: it identifies and removes the root cause to prevent incidents from recurring.",
+    "why_wrong_en": {
+      "0": "The roles are reversed: it is Problem Management that looks for the root cause, not Incident Management.",
+      "2": "They are distinct processes with different objectives: rapid restoration versus elimination of the cause.",
+      "3": "The distinction does not depend on hardware or software, but on the objective of the process."
+    }
   },
   {
     "id": "opsb-007",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Gestione ticket"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Gestione ticket"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un tecnico di primo livello non riesce a risolvere un ticket perche' richiede competenze specialistiche di rete. Passa il ticket al team di networking di secondo livello. Che tipo di escalation e' questa?",
@@ -144,19 +262,38 @@
       "Escalation al management esecutivo",
       "Chiusura per impossibilita' tecnica"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Questa e' un'escalation funzionale: il ticket viene inoltrato a un team con maggiori competenze tecniche specialistiche (dal primo al secondo livello). L'escalation gerarchica, invece, coinvolge livelli superiori di autorita' manageriale, tipicamente per decisioni o per violazioni di SLA.",
     "why_wrong": {
       "0": "L'escalation gerarchica sale nella catena di comando manageriale, non verso un team piu' specializzato allo stesso livello operativo.",
       "2": "Coinvolgere il management esecutivo e' una forma di escalation gerarchica, non cio' che accade passando a un team tecnico.",
       "3": "Il ticket non viene chiuso: viene trasferito a chi ha le competenze per risolverlo."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "A first-level technician cannot resolve a ticket because it requires specialized networking skills. They pass the ticket to the second-level networking team. What type of escalation is this?",
+    "options_en": [
+      "Hierarchical (vertical) escalation",
+      "Functional (horizontal) escalation",
+      "Escalation to executive management",
+      "Closure due to technical impossibility"
+    ],
+    "explanation_en": "This is a functional escalation: the ticket is forwarded to a team with greater specialized technical skills (from first to second level). Hierarchical escalation, on the other hand, involves higher levels of managerial authority, typically for decisions or SLA breaches.",
+    "why_wrong_en": {
+      "0": "Hierarchical escalation moves up the managerial chain of command, not toward a more specialized team at the same operational level.",
+      "2": "Involving executive management is a form of hierarchical escalation, not what happens when passing to a technical team.",
+      "3": "The ticket is not closed: it is transferred to whoever has the skills to resolve it."
+    }
   },
   {
     "id": "opsb-008",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["KPI"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "KPI"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Cosa misura il KPI 'First Call Resolution' (FCR) in un service desk?",
@@ -166,19 +303,38 @@
       "Il numero totale di chiamate ricevute in un giorno",
       "Il grado di soddisfazione del cliente dopo la chiusura del ticket"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "La First Call Resolution (FCR) misura la percentuale di richieste risolte gia' al primo contatto con l'utente, senza bisogno di escalation, follow-up o ulteriori chiamate. Un FCR elevato indica efficienza e migliora la soddisfazione dell'utente.",
     "why_wrong": {
       "0": "Il tempo medio di riparazione e' il MTTR (Mean Time To Repair/Resolve), un KPI diverso.",
       "2": "Il volume di chiamate e' una metrica di carico, non misura la capacita' di risoluzione al primo contatto.",
       "3": "La soddisfazione del cliente e' il CSAT, che e' correlato all'FCR ma ne e' distinto."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What does the 'First Call Resolution' (FCR) KPI measure in a service desk?",
+    "options_en": [
+      "The average time needed to repair a fault",
+      "The percentage of tickets resolved on the first contact, without escalation or callbacks",
+      "The total number of calls received in a day",
+      "The customer's level of satisfaction after the ticket is closed"
+    ],
+    "explanation_en": "First Call Resolution (FCR) measures the percentage of requests resolved on the first contact with the user, without the need for escalation, follow-up or further calls. A high FCR indicates efficiency and improves user satisfaction.",
+    "why_wrong_en": {
+      "0": "The average repair time is the MTTR (Mean Time To Repair/Resolve), a different KPI.",
+      "2": "Call volume is a load metric; it does not measure the ability to resolve on first contact.",
+      "3": "Customer satisfaction is the CSAT, which is correlated with FCR but distinct from it."
+    }
   },
   {
     "id": "opsb-009",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Asset Management"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Asset Management"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Che cosa contiene principalmente un CMDB (Configuration Management Database)?",
@@ -188,19 +344,38 @@
       "Esclusivamente le password degli account amministrativi",
       "Il log delle chiamate telefoniche al service desk"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un CMDB memorizza i Configuration Item (CI), cioe' gli elementi di configurazione dell'infrastruttura (server, applicazioni, dispositivi, servizi) insieme alle loro relazioni e dipendenze. Questo consente, per esempio, di valutare l'impatto di un cambiamento o di un guasto su altri componenti.",
     "why_wrong": {
       "0": "Il CMDB descrive la configurazione degli asset, non conserva i backup dei dati.",
       "2": "Le credenziali vanno in vault dedicati e cifrati, non nel CMDB.",
       "3": "I log delle chiamate risiedono nel sistema di ticketing/telefonia, non nel CMDB."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What does a CMDB (Configuration Management Database) mainly contain?",
+    "options_en": [
+      "Only backups of user data",
+      "The Configuration Items (CIs) and their relationships and dependencies",
+      "Exclusively the passwords of administrative accounts",
+      "The log of phone calls to the service desk"
+    ],
+    "explanation_en": "A CMDB stores the Configuration Items (CIs), that is, the configuration elements of the infrastructure (servers, applications, devices, services) together with their relationships and dependencies. This allows, for example, assessing the impact of a change or fault on other components.",
+    "why_wrong_en": {
+      "0": "The CMDB describes the configuration of assets; it does not store data backups.",
+      "2": "Credentials belong in dedicated, encrypted vaults, not in the CMDB.",
+      "3": "Call logs reside in the ticketing/telephony system, not in the CMDB."
+    }
   },
   {
     "id": "opsb-010",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Troubleshooting"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Troubleshooting"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Durante la fase 'stabilire una teoria della causa probabile', quale principio guida e' consigliato dalla metodologia CompTIA?",
@@ -210,19 +385,39 @@
       "Sostituire immediatamente l'hardware sospetto senza ulteriori verifiche",
       "Documentare la soluzione prima ancora di identificarla"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Nel formulare la teoria della causa probabile si parte dalle cause piu' ovvie e semplici ('question the obvious'): un cavo scollegato, un caps lock attivo, una password scaduta. Questo approccio evita di sprecare tempo su ipotesi complesse quando la causa e' banale.",
     "why_wrong": {
       "0": "Partire dalla soluzione piu' complessa contraddice il principio di semplicita' e allunga i tempi.",
       "2": "Sostituire hardware senza verifica salta la fase di test della teoria e puo' mascherare la vera causa.",
       "3": "La documentazione e' l'ultimo passo; non si documenta una soluzione non ancora individuata."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "During the 'establish a theory of probable cause' phase, which guiding principle is recommended by the CompTIA methodology?",
+    "options_en": [
+      "Always apply the most complex and complete solution possible",
+      "Consider the most obvious and simple causes first (question the obvious)",
+      "Immediately replace the suspect hardware without further checks",
+      "Document the solution even before identifying it"
+    ],
+    "explanation_en": "When formulating the theory of probable cause, you start with the most obvious and simple causes ('question the obvious'): a disconnected cable, an active caps lock, an expired password. This approach avoids wasting time on complex hypotheses when the cause is trivial.",
+    "why_wrong_en": {
+      "0": "Starting with the most complex solution contradicts the principle of simplicity and lengthens the process.",
+      "2": "Replacing hardware without verification skips the theory-testing phase and can mask the true cause.",
+      "3": "Documentation is the last step; you do not document a solution that has not yet been identified."
+    }
   },
   {
     "id": "opsb-011",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Gestione ticket", "ITSM"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Gestione ticket",
+      "ITSM"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti sono buone pratiche di comunicazione con l'utente durante la gestione di un ticket? (seleziona 2)",
@@ -232,18 +427,38 @@
       "Fornire aggiornamenti proattivi sullo stato del ticket, anche se non ancora risolto",
       "Chiudere il ticket senza confermare con l'utente che il problema e' risolto"
     ],
-    "correct": [1, 2],
+    "correct": [
+      1,
+      2
+    ],
     "explanation": "Una comunicazione efficace richiede empatia (riconoscere la frustrazione dell'utente e rassicurarlo) e aggiornamenti proattivi (informare sullo stato anche in assenza di soluzione, per mantenere fiducia e trasparenza). Entrambe migliorano la percezione del servizio e il CSAT.",
     "why_wrong": {
       "0": "Il gergo tecnico e gli acronimi confondono l'utente non tecnico; occorre adattare il linguaggio all'interlocutore.",
       "3": "Un ticket va chiuso solo dopo aver verificato con l'utente che il problema sia effettivamente risolto e che sia soddisfatto."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Which of the following are good practices for communicating with the user during ticket handling? (select 2)",
+    "options_en": [
+      "Use technical language and complex acronyms to demonstrate competence",
+      "Practice empathetic listening and acknowledge the user's discomfort",
+      "Provide proactive updates on the ticket status, even if not yet resolved",
+      "Close the ticket without confirming with the user that the problem is resolved"
+    ],
+    "explanation_en": "Effective communication requires empathy (acknowledging the user's frustration and reassuring them) and proactive updates (informing about the status even in the absence of a solution, to maintain trust and transparency). Both improve the perception of the service and the CSAT.",
+    "why_wrong_en": {
+      "0": "Technical jargon and acronyms confuse the non-technical user; you must adapt the language to the person you are speaking with.",
+      "3": "A ticket should be closed only after verifying with the user that the problem is actually resolved and that they are satisfied."
+    }
   },
   {
     "id": "opsb-012",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Patch Management", "ITSM"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Patch Management",
+      "ITSM"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Nell'ambito del change e patch management operativo, quali delle seguenti pratiche sono corrette? (seleziona 2)",
@@ -253,18 +468,38 @@
       "Prevedere sempre un piano di rollback in caso la patch causi problemi",
       "Distribuire le patch senza registrare alcun record di change per velocizzare"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Un buon change/patch management prevede il test in un ambiente di staging prima della produzione e la predisposizione di un piano di rollback (back-out plan) per ripristinare lo stato precedente se la patch introduce problemi. Cosi' si riduce il rischio di disservizi.",
     "why_wrong": {
       "1": "Applicare patch direttamente in produzione senza finestra pianificata ne' test espone a interruzioni impreviste dei servizi.",
       "3": "Ogni change deve essere tracciato con un record (RFC) per audit, ripristino e analisi d'impatto; saltarlo viola il processo."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In the context of operational change and patch management, which of the following practices are correct? (select 2)",
+    "options_en": [
+      "Test patches in a staging/test environment before deploying them to production",
+      "Apply every patch directly in production without any planned window",
+      "Always provide a rollback plan in case the patch causes problems",
+      "Deploy patches without recording any change record to speed things up"
+    ],
+    "explanation_en": "Good change/patch management involves testing in a staging environment before production and preparing a rollback plan (back-out plan) to restore the previous state if the patch introduces problems. This reduces the risk of service disruptions.",
+    "why_wrong_en": {
+      "1": "Applying patches directly in production without a planned window or testing exposes you to unexpected service interruptions.",
+      "3": "Every change must be tracked with a record (RFC) for audit, restoration and impact analysis; skipping it violates the process."
+    }
   },
   {
     "id": "opsb-013",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["KPI", "Gestione ticket"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "KPI",
+      "Gestione ticket"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti sono metriche (KPI) tipiche per misurare le prestazioni di un service desk? (seleziona 2)",
@@ -274,48 +509,110 @@
       "CSAT (Customer Satisfaction Score)",
       "Colore del tema dell'interfaccia del sistema di ticketing"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Il MTTR misura il tempo medio di risoluzione/riparazione degli incident, indicatore chiave di efficienza operativa. Il CSAT misura la soddisfazione dell'utente dopo l'assistenza. Insieme ad FCR e ticket backlog, formano il cruscotto tipico di un service desk.",
     "why_wrong": {
       "1": "Il consumo di caffe' non ha alcuna relazione con le prestazioni del servizio e non e' una metrica ITSM.",
       "3": "L'aspetto estetico dell'interfaccia non e' un indicatore di performance del service desk."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Which of the following are typical metrics (KPIs) for measuring the performance of a service desk? (select 2)",
+    "options_en": [
+      "MTTR (Mean Time To Resolve/Repair)",
+      "Number of coffees consumed by the support team",
+      "CSAT (Customer Satisfaction Score)",
+      "Color theme of the ticketing system interface"
+    ],
+    "explanation_en": "MTTR measures the average resolution/repair time of incidents, a key indicator of operational efficiency. CSAT measures user satisfaction after support. Together with FCR and ticket backlog, they form the typical dashboard of a service desk.",
+    "why_wrong_en": {
+      "1": "Coffee consumption has no relation to service performance and is not an ITSM metric.",
+      "3": "The aesthetic appearance of the interface is not a performance indicator of the service desk."
+    }
   },
   {
     "id": "opsb-014",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Troubleshooting"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Troubleshooting"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Nella metodologia CompTIA in 6 passi, la verifica della piena funzionalita' del sistema e l'implementazione di misure preventive avvengono PRIMA di implementare la soluzione.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. L'ordine corretto prevede prima di implementare la soluzione (passo 4) e solo DOPO verificare la piena funzionalita' del sistema ed eventualmente applicare misure preventive (passo 5). Non si puo' verificare la funzionalita' di una soluzione non ancora implementata.",
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In the 6-step CompTIA methodology, verifying full system functionality and implementing preventive measures occur BEFORE implementing the solution.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. The correct order is to first implement the solution (step 4) and only AFTER verify full system functionality and possibly apply preventive measures (step 5). You cannot verify the functionality of a solution that has not yet been implemented."
   },
   {
     "id": "opsb-015",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Gestione ticket", "ITSM"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Gestione ticket",
+      "ITSM"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Prima di eseguire un reset della password o comunicare informazioni sensibili, il tecnico del service desk deve verificare l'identita' dell'utente richiedente.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. La verifica dell'identita' e' un controllo di sicurezza operativa fondamentale: un attaccante potrebbe fingersi un dipendente per ottenere un reset password (social engineering). Il tecnico deve autenticare l'utente tramite domande di sicurezza, codici o procedure aziendali prima di procedere.",
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Before performing a password reset or communicating sensitive information, the service desk technician must verify the identity of the requesting user.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Identity verification is a fundamental operational security control: an attacker could impersonate an employee to obtain a password reset (social engineering). The technician must authenticate the user through security questions, codes or company procedures before proceeding."
   },
   {
     "id": "opsb-016",
-    "cert": ["IT Generale - Help Desk"],
-    "topics": ["Asset Management", "ITSM"],
+    "cert": [
+      "IT Generale - Help Desk"
+    ],
+    "topics": [
+      "Asset Management",
+      "ITSM"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Una knowledge base ben mantenuta, con articoli e soluzioni documentate, contribuisce ad aumentare il tasso di First Call Resolution del service desk.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Una knowledge base aggiornata permette ai tecnici (e agli utenti tramite self-service) di trovare rapidamente soluzioni gia' documentate, risolvendo piu' problemi al primo contatto senza escalation. Questo aumenta l'FCR, riduce il MTTR e migliora la coerenza delle risposte.",
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "A well-maintained knowledge base, with documented articles and solutions, helps increase the service desk's First Call Resolution rate.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. An up-to-date knowledge base allows technicians (and users through self-service) to quickly find already-documented solutions, resolving more problems on first contact without escalation. This increases FCR, reduces MTTR and improves the consistency of responses."
   }
 ]

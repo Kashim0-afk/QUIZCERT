@@ -14,7 +14,15 @@
       "2": "TCP 20 è la porta dati di FTP in modalità attiva.",
       "3": "UDP 53 è utilizzata da DNS per le query."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "Which port and transport protocol does TFTP (Trivial File Transfer Protocol) use by default?",
+    "options_en": ["TCP 21", "UDP 69", "TCP 20", "UDP 53"],
+    "explanation_en": "TFTP uses UDP port 69. It is a simple file transfer protocol without authentication, often used for network boot (PXE) and loading configurations onto devices.",
+    "why_wrong_en": {
+      "0": "TCP 21 is the FTP control port, not TFTP.",
+      "2": "TCP 20 is the FTP data port in active mode.",
+      "3": "UDP 53 is used by DNS for queries."
+    }
   },
   {
     "id": "net3-002",
@@ -31,7 +39,15 @@
       "2": "30 host corrisponde a una /27 (2^5 - 2).",
       "3": "126 host corrisponde a una /25 (2^7 - 2)."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "In a subnet with a /26 mask (255.255.255.192), how many usable host addresses are available?",
+    "options_en": ["64", "62", "30", "126"],
+    "explanation_en": "A /26 leaves 6 bits for hosts: 2^6 = 64 total addresses, minus the network address and the broadcast address, giving 62 usable hosts.",
+    "why_wrong_en": {
+      "0": "64 is the total number of addresses in the block, but it does not subtract the network and broadcast addresses.",
+      "2": "30 hosts corresponds to a /27 (2^5 - 2).",
+      "3": "126 hosts corresponds to a /25 (2^7 - 2)."
+    }
   },
   {
     "id": "net3-003",
@@ -48,7 +64,15 @@
       "1": "Il record MX indica i server di posta del dominio.",
       "3": "Il record CNAME crea un alias verso un altro nome host."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "Which type of DNS record is used for reverse resolution, that is, to associate an IP address with a host name?",
+    "options_en": ["A", "MX", "PTR", "CNAME"],
+    "explanation_en": "The PTR (pointer) record performs reverse resolution by mapping an IP address to the corresponding host name; it resides in the in-addr.arpa (IPv4) or ip6.arpa (IPv6) zones.",
+    "why_wrong_en": {
+      "0": "The A record maps a host name to an IPv4 address (forward resolution), not reverse.",
+      "1": "The MX record indicates the domain's mail servers.",
+      "3": "The CNAME record creates an alias to another host name."
+    }
   },
   {
     "id": "net3-004",
@@ -65,7 +89,15 @@
       "2": "8 byte non corrisponde alla dimensione del tag 802.1Q.",
       "3": "12 è il numero di bit del solo campo VLAN ID, non la dimensione in byte del tag completo."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "How many bytes does the 802.1Q tag add to an Ethernet frame header to identify the VLAN?",
+    "options_en": ["2 bytes", "4 bytes", "8 bytes", "12 bytes"],
+    "explanation_en": "The 802.1Q tag inserts 4 bytes into the Ethernet header: 2 bytes of TPID (0x8100) and 2 bytes of TCI, which contain the 12-bit VLAN ID, the priority (PCP), and the DEI flag.",
+    "why_wrong_en": {
+      "0": "2 bytes are not enough: the TPID alone already occupies 2 bytes.",
+      "2": "8 bytes does not match the size of the 802.1Q tag.",
+      "3": "12 is the number of bits of the VLAN ID field alone, not the byte size of the complete tag."
+    }
   },
   {
     "id": "net3-005",
@@ -82,7 +114,15 @@
       "2": "In 2, 7, 12 il canale 12 non è utilizzabile in Nord America e la combinazione non è lo standard consigliato.",
       "3": "I canali 1, 4, 8 hanno spaziatura insufficiente e si sovrappongono."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "In the 2.4 GHz band, which channels are considered non-overlapping in North America?",
+    "options_en": ["1, 5, 9", "1, 6, 11", "2, 7, 12", "1, 4, 8"],
+    "explanation_en": "In the 2.4 GHz band, channels 1, 6, and 11 are the only three 20 MHz channels that do not overlap, reducing co-channel interference between nearby access points.",
+    "why_wrong_en": {
+      "0": "Channels 1, 5, 9 overlap because the 4-channel spacing is less than the 5 required.",
+      "2": "In 2, 7, 12 channel 12 is not usable in North America and the combination is not the recommended standard.",
+      "3": "Channels 1, 4, 8 have insufficient spacing and overlap."
+    }
   },
   {
     "id": "net3-006",
@@ -99,7 +139,15 @@
       "2": "STP previene i loop di livello 2 e non gestisce la ridondanza del gateway.",
       "3": "LACP aggrega link fisici e non fornisce ridondanza del gateway."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "Which gateway redundancy protocol (FHRP) is an open standard defined by the IETF, as an alternative to Cisco's proprietary HSRP protocol?",
+    "options_en": ["VRRP", "GLBP", "STP", "LACP"],
+    "explanation_en": "VRRP (Virtual Router Redundancy Protocol, RFC 5798) is the open IETF standard for default gateway redundancy, the open equivalent to Cisco's HSRP.",
+    "why_wrong_en": {
+      "1": "GLBP is also Cisco proprietary, not an open standard.",
+      "2": "STP prevents layer 2 loops and does not handle gateway redundancy.",
+      "3": "LACP aggregates physical links and does not provide gateway redundancy."
+    }
   },
   {
     "id": "net3-007",
@@ -116,7 +164,15 @@
       "2": "Il piano dati esegue l'inoltro, non prende le decisioni di controllo.",
       "3": "L'hypervisor virtualizza i server e non è il componente di controllo SDN."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "In SDN (Software-Defined Networking) architecture, which component centralizes the control plane by making the routing decisions that the devices execute?",
+    "options_en": ["The SDN controller", "The access switch", "The data plane", "The hypervisor"],
+    "explanation_en": "In SDN the controller centralizes the control plane and communicates with the devices (data plane) through southbound interfaces such as OpenFlow, while applications interact with it through northbound APIs.",
+    "why_wrong_en": {
+      "1": "The access switch belongs to the data plane and merely forwards packets according to the rules it receives.",
+      "2": "The data plane performs forwarding, it does not make control decisions.",
+      "3": "The hypervisor virtualizes servers and is not the SDN control component."
+    }
   },
   {
     "id": "net3-008",
@@ -133,7 +189,15 @@
       "1": "Cat6 supporta 10GBASE-T solo fino a circa 37-55 metri, non sull'intera tratta di 100 m.",
       "3": "Cat3 è limitato a 10 Mbps ed è usato storicamente per la telefonia."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "What minimum category of copper cabling is required to support 10GBASE-T over a full 100-meter run?",
+    "options_en": ["Cat5e", "Cat6", "Cat6a", "Cat3"],
+    "explanation_en": "Cat6a supports 10GBASE-T up to 100 meters thanks to its 500 MHz bandwidth and reduced alien crosstalk. Cat6 reaches 10G only on shorter runs.",
+    "why_wrong_en": {
+      "0": "Cat5e is certified for 1GBASE-T, not for 10 Gbps.",
+      "1": "Cat6 supports 10GBASE-T only up to about 37-55 meters, not over the full 100 m run.",
+      "3": "Cat3 is limited to 10 Mbps and was historically used for telephony."
+    }
   },
   {
     "id": "net3-009",
@@ -150,7 +214,15 @@
       "2": "443 è la porta di HTTPS.",
       "3": "3268 è la porta del Global Catalog LDAP di Active Directory (non cifrato)."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "On which TCP port does LDAPS (LDAP over SSL/TLS) operate by default?",
+    "options_en": ["389", "636", "443", "3268"],
+    "explanation_en": "LDAPS uses TCP port 636. Cleartext LDAP instead uses port 389.",
+    "why_wrong_en": {
+      "0": "389 is the port for unencrypted LDAP.",
+      "2": "443 is the HTTPS port.",
+      "3": "3268 is the port for the Active Directory LDAP Global Catalog (unencrypted)."
+    }
   },
   {
     "id": "net3-010",
@@ -167,7 +239,15 @@
       "2": "Il load balancing distribuisce il traffico su più percorsi, ma non previene i loop.",
       "3": "Il proxy ARP risponde alle richieste ARP per conto di altri host e non riguarda i loop di routing."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "Which mechanism in distance-vector routing protocols prevents loops by preventing a route from being re-advertised on the interface from which it was learned?",
+    "options_en": ["Split horizon", "Flooding", "Load balancing", "Proxy ARP"],
+    "explanation_en": "Split horizon avoids routing loops by not re-advertising a route on the interface from which it was received; it is often paired with poison reverse to speed up convergence.",
+    "why_wrong_en": {
+      "1": "Flooding forwards packets on all ports and does not prevent routing loops.",
+      "2": "Load balancing distributes traffic across multiple paths, but does not prevent loops.",
+      "3": "Proxy ARP responds to ARP requests on behalf of other hosts and does not concern routing loops."
+    }
   },
   {
     "id": "net3-011",
@@ -183,7 +263,14 @@
       "1": "SNMP utilizza UDP (porte 161/162).",
       "3": "TFTP utilizza UDP (porta 69)."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "Which TWO of the following protocols use TCP as their transport protocol? (Select two)",
+    "options_en": ["SSH", "SNMP", "HTTPS", "TFTP"],
+    "explanation_en": "SSH (port 22) and HTTPS (port 443) use TCP to ensure reliable, connection-oriented delivery. SNMP and TFTP instead use UDP.",
+    "why_wrong_en": {
+      "1": "SNMP uses UDP (ports 161/162).",
+      "3": "TFTP uses UDP (port 69)."
+    }
   },
   {
     "id": "net3-012",
@@ -199,7 +286,14 @@
       "2": "IPv6 non richiede NAT: lo spazio di indirizzi è così ampio da rendere superfluo il mascheramento tipico di IPv4.",
       "3": "IPv6 non usa il broadcast; impiega indirizzi multicast e anycast al suo posto."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "Which TWO statements are correct regarding IPv6? (Select two)",
+    "options_en": ["It uses 128-bit addresses", "It supports stateless autoconfiguration (SLAAC)", "It always requires NAT to route traffic", "It uses broadcast like IPv4"],
+    "explanation_en": "IPv6 uses 128-bit addresses and supports SLAAC, with which hosts autonomously generate their own address via Router Advertisements. IPv6 eliminates broadcast (replaced by multicast) and does not require NAT thanks to its large address space.",
+    "why_wrong_en": {
+      "2": "IPv6 does not require NAT: the address space is so large that the masquerading typical of IPv4 is unnecessary.",
+      "3": "IPv6 does not use broadcast; it employs multicast and anycast addresses in its place."
+    }
   },
   {
     "id": "net3-013",
@@ -215,7 +309,14 @@
       "2": "nslookup è un'utilità software per interrogare il DNS, non uno strumento fisico per il cablaggio.",
       "3": "ipconfig mostra la configurazione IP dell'host, non diagnostica problemi fisici del cavo."
     },
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "Which TWO tools are used for physical diagnostics of network cabling? (Select two)",
+    "options_en": ["Cable tester", "Tone generator and probe (toner probe)", "nslookup", "ipconfig"],
+    "explanation_en": "The cable tester verifies continuity, pin mapping, and short circuits, while the tone generator with probe is used to locate and trace a specific cable within a bundle. nslookup and ipconfig are software utilities.",
+    "why_wrong_en": {
+      "2": "nslookup is a software utility to query DNS, not a physical cabling tool.",
+      "3": "ipconfig shows the host's IP configuration, it does not diagnose physical cable problems."
+    }
   },
   {
     "id": "net3-014",
@@ -227,7 +328,10 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. UDP è connectionless e non prevede handshake né conferme di consegna; è più veloce ma meno affidabile di TCP, ideale per traffico in tempo reale come VoIP e streaming.",
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "UDP is a connectionless transport protocol that does not guarantee packet delivery.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. UDP is connectionless and provides neither handshake nor delivery acknowledgments; it is faster but less reliable than TCP, ideal for real-time traffic such as VoIP and streaming."
   },
   {
     "id": "net3-015",
@@ -239,7 +343,10 @@
     "options": ["Vero", "Falso"],
     "correct": [1],
     "explanation": "Falso. L'indirizzamento MAC (fisico) appartiene al livello 2 (Data Link). Il livello 3 (Rete) gestisce l'indirizzamento logico IP e l'instradamento tra reti.",
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "In the OSI model, layer 3 (Network) is responsible for physical MAC addressing.",
+    "options_en": ["True", "False"],
+    "explanation_en": "False. MAC (physical) addressing belongs to layer 2 (Data Link). Layer 3 (Network) handles logical IP addressing and routing between networks."
   },
   {
     "id": "net3-016",
@@ -251,6 +358,9 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. 802.1X è un framework di autenticazione port-based che coinvolge supplicant, authenticator (switch/AP) e server di autenticazione (tipicamente RADIUS), spesso usato con EAP.",
-    "source": "CompTIA Network+ N10-009"
+    "source": "CompTIA Network+ N10-009",
+    "question_en": "The 802.1X standard provides port-based network access control, authenticating devices before granting access.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. 802.1X is a port-based authentication framework that involves supplicant, authenticator (switch/AP), and authentication server (typically RADIUS), often used with EAP."
   }
 ]

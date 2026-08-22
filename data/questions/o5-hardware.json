@@ -14,6 +14,14 @@
       "2": "La cache L3 riduce la latenza degli accessi ai dati, ma non definisce il grado di parallelismo del processore.",
       "3": "Il socket indica solo la compatibilita fisica con la scheda madre, non la potenza di calcolo parallelo."
     },
+    "question_en": "A customer wants a CPU for video rendering that maximizes multi-threaded software. Among these specifications, which characteristic indicates the greatest parallel processing capacity?",
+    "options_en": ["Clock frequency of 5.2 GHz", "16 cores and 32 threads", "32 MB L3 cache", "LGA1700 socket"],
+    "explanation_en": "Parallelism depends on the number of cores and threads: 16 cores / 32 threads allow many operations to run simultaneously, ideal for multi-threaded software such as rendering.",
+    "why_wrong_en": {
+      "0": "A high frequency improves single-thread performance, but it does not indicate how many tasks can be executed in parallel.",
+      "2": "The L3 cache reduces data access latency, but it does not define the processor's degree of parallelism.",
+      "3": "The socket indicates only physical compatibility with the motherboard, not parallel computing power."
+    },
     "source": "IT generale"
   },
   {
@@ -30,6 +38,14 @@
       "0": "A1 e A2 appartengono spesso allo stesso canale: cosi si resta in single channel.",
       "2": "Il dual channel non e automatico: dipende dal corretto abbinamento degli slot dei due canali.",
       "3": "Riempire due slot vicini senza rispettare i canali puo lasciare la RAM in single channel; occorre seguire lo schema di colori del manuale."
+    },
+    "question_en": "You are assembling a desktop PC and want to enable dual channel with two DDR4 modules. On a motherboard with four slots (often colored A1, A2, B1, B2), how should they be installed to ensure dual channel?",
+    "options_en": ["In the two physically adjacent slots, A1 and A2", "In the slots of the same color, typically A2 and B2", "Any of them, dual channel is always automatic", "Both in the first two slots near the CPU"],
+    "explanation_en": "Dual channel requires one module per channel (A and B). Motherboards color the slots by channel, so you populate the slots of the same color (e.g. A2 and B2) as indicated by the manual.",
+    "why_wrong_en": {
+      "0": "A1 and A2 often belong to the same channel: this way you stay in single channel.",
+      "2": "Dual channel is not automatic: it depends on the correct pairing of the two channels' slots.",
+      "3": "Filling two adjacent slots without respecting the channels can leave the RAM in single channel; you must follow the color scheme in the manual."
     },
     "source": "IT generale"
   },
@@ -48,6 +64,14 @@
       "2": "Anche un HDD a 10000 RPM e ordini di grandezza piu lento di un SSD NVMe in accesso casuale.",
       "3": "Con 16 GB gia presenti, aumentare la RAM raramente migliora i tempi di caricamento se il collo di bottiglia e il disco."
     },
+    "question_en": "A user complains of slowness at system startup and when opening programs. They have a limited budget and only one free M.2 NVMe slot. Which upgrade offers the most noticeable improvement in load times?",
+    "options_en": ["Install an NVMe M.2 SSD as the system drive", "Add a 7200 RPM HDD", "Replace the HDD with a 10000 RPM one", "Increase the RAM from 16 to 32 GB"],
+    "explanation_en": "An NVMe M.2 SSD offers extremely low latencies and transfer rates far higher than any mechanical drive, drastically reducing boot and program-opening times.",
+    "why_wrong_en": {
+      "1": "A 7200 RPM HDD is still a mechanical drive, much slower than an SSD in access times.",
+      "2": "Even a 10000 RPM HDD is orders of magnitude slower than an NVMe SSD in random access.",
+      "3": "With 16 GB already present, increasing the RAM rarely improves load times if the bottleneck is the drive."
+    },
     "source": "IT generale"
   },
   {
@@ -64,6 +88,14 @@
       "0": "RAID 0 (striping) non offre alcuna ridondanza: il guasto di un disco fa perdere tutti i dati.",
       "2": "RAID 5 richiede almeno tre dischi per la parita distribuita, quindi non e realizzabile con due soli dischi.",
       "3": "JBOD unisce i dischi senza ridondanza: un guasto puo causare perdita di dati."
+    },
+    "question_en": "A small server must tolerate the failure of a single disk without losing data and maintain good read performance, with only two disks available. Which RAID level is suitable?",
+    "options_en": ["RAID 0", "RAID 1", "RAID 5", "JBOD"],
+    "explanation_en": "RAID 1 performs mirroring: the data is duplicated on two disks, so the failure of one does not cause data loss and it can be achieved with just two disks.",
+    "why_wrong_en": {
+      "0": "RAID 0 (striping) offers no redundancy: the failure of one disk loses all data.",
+      "2": "RAID 5 requires at least three disks for distributed parity, so it cannot be achieved with only two disks.",
+      "3": "JBOD combines the disks without redundancy: a failure can cause data loss."
     },
     "source": "IT generale"
   },
@@ -82,6 +114,14 @@
       "1": "Micro-ATX e piu piccolo dell'ATX ma comunque piu grande del Mini-ITX e spesso non entra nei case Mini-ITX.",
       "3": "E-ATX e ancora piu grande dell'ATX, destinato a workstation e server."
     },
+    "question_en": "You need to fit a motherboard into a very compact Mini-ITX case for an HTPC. Which motherboard form factor is best suited for small dimensions?",
+    "options_en": ["ATX", "Micro-ATX", "Mini-ITX", "E-ATX"],
+    "explanation_en": "Mini-ITX (17x17 cm) is the smallest form factor among the common ones and is designed precisely for compact builds such as HTPCs.",
+    "why_wrong_en": {
+      "0": "ATX (30.5x24.4 cm) is a full-size format, too large for a Mini-ITX case.",
+      "1": "Micro-ATX is smaller than ATX but still larger than Mini-ITX and often does not fit in Mini-ITX cases.",
+      "3": "E-ATX is even larger than ATX, intended for workstations and servers."
+    },
     "source": "IT generale"
   },
   {
@@ -98,6 +138,14 @@
       "0": "USB 2.0 arriva a soli 480 Mbps e non trasporta segnale video nativo.",
       "2": "HDMI trasporta video e audio ma non dati generici ne alimentazione del dispositivo, e non usa il connettore USB-C in questo contesto.",
       "3": "VGA e un'interfaccia analogica solo video, senza dati ne alimentazione."
+    },
+    "question_en": "A user needs to connect an external monitor to a modern laptop using a cable that simultaneously carries video, high-speed data and power over a USB-C connector. Which interface offers this combination up to 40 Gbps?",
+    "options_en": ["USB 2.0", "Thunderbolt 3/4", "HDMI 1.4", "VGA"],
+    "explanation_en": "Thunderbolt 3/4 uses the USB-C connector and integrates video (DisplayPort), data up to 40 Gbps and Power Delivery over a single cable.",
+    "why_wrong_en": {
+      "0": "USB 2.0 reaches only 480 Mbps and does not carry a native video signal.",
+      "2": "HDMI carries video and audio but not generic data or device power, and it does not use the USB-C connector in this context.",
+      "3": "VGA is an analog video-only interface, without data or power."
     },
     "source": "IT generale"
   },
@@ -116,6 +164,14 @@
       "1": "Il caricamento applica una carica uniforme al tamburo, prima della scrittura del laser.",
       "3": "La pulizia rimuove il toner residuo dal tamburo dopo il trasferimento."
     },
+    "question_en": "During the maintenance of a laser printer, in which phase of the printing process does the laser selectively discharge the photosensitive drum to form the latent image?",
+    "options_en": ["Fusing", "Charging", "Exposing/writing", "Cleaning"],
+    "explanation_en": "In the 7-phase laser process (processing, charging, exposing, developing, transferring, fusing, cleaning), during exposure the laser writes the image by selectively discharging the drum areas to create the latent image.",
+    "why_wrong_en": {
+      "0": "Fusing fixes the toner onto the paper with heat and pressure, and occurs at the end.",
+      "1": "Charging applies a uniform charge to the drum, before the laser writing.",
+      "3": "Cleaning removes the residual toner from the drum after the transfer."
+    },
     "source": "IT generale"
   },
   {
@@ -132,6 +188,14 @@
       "0": "MBR e limitato a dischi da massimo 2 TB e all'avvio BIOS legacy, non adatto a un disco da 4 TB con UEFI.",
       "2": "FAT16 e un file system, non uno schema di partizionamento del disco.",
       "3": "exFAT e un file system per volumi, non uno schema di partizionamento come MBR o GPT."
+    },
+    "question_en": "You need to install Windows on a 4 TB disk and use UEFI boot with Secure Boot. Which disk partitioning scheme is required?",
+    "options_en": ["MBR", "GPT", "FAT16", "exFAT"],
+    "explanation_en": "GPT supports disks over 2 TB and is required by UEFI boot (with Secure Boot). MBR is limited to 2 TB and to legacy BIOS boot.",
+    "why_wrong_en": {
+      "0": "MBR is limited to disks of at most 2 TB and to legacy BIOS boot, unsuitable for a 4 TB disk with UEFI.",
+      "2": "FAT16 is a file system, not a disk partitioning scheme.",
+      "3": "exFAT is a file system for volumes, not a partitioning scheme like MBR or GPT."
     },
     "source": "IT generale"
   },
@@ -150,6 +214,14 @@
       "2": "Senza output video il sistema non arriva nemmeno al caricamento dell'OS: reinstallarlo non ha senso.",
       "3": "Senza POST completato non si puo caricare il sistema per aggiornare i driver; il problema e a livello hardware/POST."
     },
+    "question_en": "You turn on a PC: the fans spin but nothing appears on screen and the motherboard emits a sequence of beep codes. What is the correct approach to diagnose the problem?",
+    "options_en": ["Immediately replace the power supply", "Consult the motherboard manual to interpret the beep sequence", "Reinstall the operating system", "Update the GPU drivers"],
+    "explanation_en": "Beep codes are generated by the POST and their sequence indicates the failing component (often RAM or GPU). The meaning varies by manufacturer/BIOS, so it must be interpreted with the manual or the vendor's documentation.",
+    "why_wrong_en": {
+      "0": "If the fans spin, the power supply is delivering current; replacing it blindly ignores the information from the beeps.",
+      "2": "Without video output the system does not even reach OS loading: reinstalling it makes no sense.",
+      "3": "Without a completed POST you cannot load the system to update drivers; the problem is at the hardware/POST level."
+    },
     "source": "IT generale"
   },
   {
@@ -166,6 +238,14 @@
       "0": "La moquette genera cariche statiche: aumenta il rischio di ESD invece di ridurlo.",
       "2": "Si lavora con il sistema spento e scollegato; tenere l'alimentatore acceso e pericoloso e non e una corretta messa a terra.",
       "3": "Toccare i contatti dorati (pin) e proprio da evitare: si lasciano residui e si rischia di scaricarvi ESD; si maneggia il modulo dai bordi."
+    },
+    "question_en": "You are about to replace a RAM stick on a workstation. What is the correct practice to prevent damage from electrostatic discharge (ESD)?",
+    "options_en": ["Working on a carpet mat to insulate yourself", "Wearing an antistatic wrist strap connected to ground", "Keeping the power supply on for grounding", "Touching the component only on the gold contacts"],
+    "explanation_en": "The antistatic wrist strap connected to a ground point keeps the technician and the equipment at the same potential, safely discharging charges and preventing ESD on the components.",
+    "why_wrong_en": {
+      "0": "Carpet generates static charges: it increases the risk of ESD instead of reducing it.",
+      "2": "You work with the system off and unplugged; keeping the power supply on is dangerous and is not proper grounding.",
+      "3": "Touching the gold contacts (pins) is exactly what to avoid: you leave residue and risk discharging ESD onto them; you handle the module by its edges."
     },
     "source": "IT generale"
   },
@@ -184,6 +264,14 @@
       "2": "Non ha nulla a che vedere con il numero di pin dei connettori.",
       "3": "Non e un indicatore di durata della garanzia."
     },
+    "question_en": "A customer wants an efficient power supply to reduce heat and consumption. What does the 80 PLUS certification on a PSU indicate?",
+    "options_en": ["That it delivers at least 80 watts of power", "A minimum level of energy efficiency at certain loads", "That it supports 80-pin connectors", "That it has an 80-month warranty"],
+    "explanation_en": "The 80 PLUS certifications (Bronze, Silver, Gold, Platinum, Titanium) guarantee a minimum efficiency (e.g. at least 80% or more) at various load levels (20%, 50%, 100%), reducing energy lost as heat.",
+    "why_wrong_en": {
+      "0": "80 PLUS does not refer to the delivered wattage but to conversion efficiency.",
+      "2": "It has nothing to do with the number of connector pins.",
+      "3": "It is not an indicator of warranty duration."
+    },
     "source": "IT generale"
   },
   {
@@ -199,6 +287,13 @@
     "why_wrong": {
       "2": "L'ECC non e piu veloce; anzi introduce un leggero overhead per il controllo, quindi tende a essere marginalmente piu lenta a parita di frequenza.",
       "3": "L'ECC non funziona ovunque: serve una piattaforma (CPU e scheda madre) che la supporti, tipica di workstation e server."
+    },
+    "question_en": "A server must ensure data integrity in memory and correct single-bit errors. Which two statements about ECC RAM are correct? (select 2)",
+    "options_en": ["ECC RAM can detect and correct single-bit errors", "ECC RAM requires the support of a compatible CPU and motherboard", "ECC RAM is faster than normal non-ECC RAM at the same frequency", "ECC RAM works in any consumer desktop PC with no requirements"],
+    "explanation_en": "ECC (Error Correcting Code) memory uses additional bits to detect and correct single-bit errors and is used in servers. However, it requires a CPU and chipset/motherboard that explicitly support it.",
+    "why_wrong_en": {
+      "2": "ECC is not faster; on the contrary it introduces a slight overhead for the check, so it tends to be marginally slower at the same frequency.",
+      "3": "ECC does not work everywhere: it needs a platform (CPU and motherboard) that supports it, typical of workstations and servers."
     },
     "source": "IT generale"
   },
@@ -216,6 +311,13 @@
       "2": "Non tutti gli slot M.2 supportano entrambe le interfacce: alcuni sono solo SATA, altri solo NVMe; va verificato sul manuale.",
       "3": "La chiave (key B, M o B+M) determina la compatibilita fisica ed elettrica dello slot con il modulo, quindi influisce eccome."
     },
+    "question_en": "A technician must choose an M.2 SSD. Which two statements are correct regarding M.2 SSDs and their interfaces? (select 2)",
+    "options_en": ["An M.2 SSD can use the SATA or NVMe (PCIe) interface", "NVMe M.2 SSDs use the PCIe bus for performance superior to SATA", "All M.2 slots automatically support both SATA and NVMe", "The B or M key of the connector does not affect compatibility"],
+    "explanation_en": "The M.2 form factor can host SSDs with a SATA or NVMe interface over the PCIe bus; NVMe drives use PCIe, reaching speeds far higher than SATA (limited to about 6 Gbps).",
+    "why_wrong_en": {
+      "2": "Not all M.2 slots support both interfaces: some are SATA only, others NVMe only; it must be checked in the manual.",
+      "3": "The key (B, M or B+M) determines the physical and electrical compatibility of the slot with the module, so it does matter a great deal."
+    },
     "source": "IT generale"
   },
   {
@@ -232,6 +334,13 @@
       "2": "Un cavo Ethernet difettoso causa problemi di rete, non surriscaldamento o spegnimenti termici.",
       "3": "Una password del BIOS dimenticata impedisce l'accesso alle impostazioni, non provoca surriscaldamento."
     },
+    "question_en": "A PC shuts down suddenly under load after a few minutes of gaming. Which two overheating causes are the most likely to check? (select 2)",
+    "options_en": ["Fans clogged with dust or not working", "Degraded or poorly applied thermal paste on the CPU/GPU", "A faulty Ethernet network cable", "A forgotten BIOS password"],
+    "explanation_en": "Shutdown under load is typical of thermal protection: clogged/faulty fans reduce airflow and degraded thermal paste worsens dissipation between chip and heatsink, causing temperatures to rise until shutdown.",
+    "why_wrong_en": {
+      "2": "A faulty Ethernet cable causes network problems, not overheating or thermal shutdowns.",
+      "3": "A forgotten BIOS password prevents access to the settings, it does not cause overheating."
+    },
     "source": "IT generale"
   },
   {
@@ -244,6 +353,9 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "ARM adotta un approccio RISC ottimizzato per basso consumo e buon rapporto prestazioni/watt, per questo domina nei dispositivi mobili alimentati a batteria. Le architetture x86/x64 (CISC) privilegiano prestazioni assolute con consumi tipicamente superiori.",
+    "question_en": "ARM architectures are generally more energy-efficient than traditional x86/x64, which is why they are very widespread in smartphones and tablets.",
+    "options_en": ["True", "False"],
+    "explanation_en": "ARM adopts a RISC approach optimized for low power consumption and a good performance-per-watt ratio, which is why it dominates in battery-powered mobile devices. The x86/x64 (CISC) architectures prioritize absolute performance with typically higher consumption.",
     "source": "IT generale"
   },
   {
@@ -256,6 +368,9 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "All'accensione il firmware (BIOS/UEFI) esegue il POST per controllare componenti come CPU, RAM e dispositivi essenziali. Solo se il test ha successo prosegue passando il controllo al bootloader del sistema operativo; in caso di errore segnala il problema (es. beep code).",
+    "question_en": "The POST (Power-On Self-Test) is the phase in which the firmware checks the essential hardware components before starting to load the operating system.",
+    "options_en": ["True", "False"],
+    "explanation_en": "At power-on the firmware (BIOS/UEFI) runs the POST to check components such as CPU, RAM and essential devices. Only if the test succeeds does it proceed, handing control to the operating system's bootloader; in case of error it signals the problem (e.g. beep codes).",
     "source": "IT generale"
   }
 ]

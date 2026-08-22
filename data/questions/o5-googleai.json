@@ -19,6 +19,19 @@
       "2": "Sono due fasi distinte con scopi diversi: apprendere e poi applicare.",
       "3": "L'inferenza avviene dopo l'addestramento, non prima."
     },
+    "question_en": "In a machine learning model, what is the difference between the training phase and the inference phase?",
+    "options_en": [
+      "During training the model learns patterns from the data; during inference it uses what it has learned to make predictions on new data",
+      "During training the model makes predictions; during inference it collects data from scratch",
+      "They are two different names for the exact same operation",
+      "Inference happens before training in order to prepare the data"
+    ],
+    "explanation_en": "During training the model adjusts its own parameters by learning from the data; during inference it applies what it has learned to generate predictions or answers on inputs it has never seen before.",
+    "why_wrong_en": {
+      "1": "It is reversed: predictions happen during inference, not during training, and data is not collected in that phase.",
+      "2": "They are two distinct phases with different purposes: learning and then applying.",
+      "3": "Inference happens after training, not before."
+    },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
   {
@@ -40,6 +53,19 @@
       "1": "L'underfitting e' l'opposto: il modello sbaglia anche sui dati di training perche' troppo semplice.",
       "2": "L'inferenza e' una fase d'uso, non un difetto di apprendimento.",
       "3": "L'etichettatura riguarda la preparazione dei dati, non il divario tra training e dati nuovi."
+    },
+    "question_en": "A model learns the training examples very well but makes many mistakes on new data. What is this problem called?",
+    "options_en": [
+      "Overfitting: the model has memorized the training data instead of generalizing",
+      "Underfitting: the model is too simple for any data",
+      "Inference: the model is just applying what it knows",
+      "Labeling: the data is missing labels"
+    ],
+    "explanation_en": "Overfitting occurs when the model adapts too closely to the details and noise of the training data, losing the ability to generalize to new examples.",
+    "why_wrong_en": {
+      "1": "Underfitting is the opposite: the model gets even the training data wrong because it is too simple.",
+      "2": "Inference is a usage phase, not a learning defect.",
+      "3": "Labeling concerns data preparation, not the gap between training and new data."
     },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
@@ -63,6 +89,19 @@
       "2": "Un LLM di base non naviga il web in tempo reale; usa cio' che ha appreso durante l'addestramento.",
       "3": "Non si basa su regole grammaticali scritte a mano, ma su pattern statistici appresi dai dati."
     },
+    "question_en": "In simplified terms, how does a large language model (LLM) generate text?",
+    "options_en": [
+      "It predicts the most likely next token, one after another, based on the preceding context",
+      "It searches for the exact sentence in a database of pre-written answers and copies it",
+      "It consults every website in real time to find the official answer",
+      "It follows a set of fixed grammar rules hand-written by the programmers"
+    ],
+    "explanation_en": "An LLM works by predicting the most likely next token (word or piece of a word) given the text already present, repeating the process to build the answer.",
+    "why_wrong_en": {
+      "1": "An LLM does not copy sentences from an archive: it generates new text token by token.",
+      "2": "A basic LLM does not browse the web in real time; it uses what it learned during training.",
+      "3": "It is not based on hand-written grammar rules, but on statistical patterns learned from the data."
+    },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
   {
@@ -84,6 +123,19 @@
       "1": "La brevita' del prompt non c'entra: few-shot si riferisce agli esempi forniti, non alla lunghezza.",
       "2": "Ripetere la domanda e' un'altra tecnica (iterazione), non few-shot.",
       "3": "Il termine non riguarda la velocita' di risposta ma il numero di esempi inclusi."
+    },
+    "question_en": "What does using 'few-shot prompting' mean when writing a prompt?",
+    "options_en": [
+      "Including a few examples of the desired inputs and outputs in the prompt to guide the model's response",
+      "Writing the shortest possible prompt, with few words",
+      "Repeating the same question several times until the answer changes",
+      "Asking the model to respond within a few seconds"
+    ],
+    "explanation_en": "Few-shot prompting consists of providing one or more examples of the expected format or style in the prompt, so the model better understands what to produce.",
+    "why_wrong_en": {
+      "1": "Prompt brevity is not relevant: few-shot refers to the examples provided, not to the length.",
+      "2": "Repeating the question is another technique (iteration), not few-shot.",
+      "3": "The term is not about response speed but about the number of examples included."
     },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
@@ -107,6 +159,19 @@
       "2": "Ambiguita' e abbreviazioni aumentano il rischio di fraintendimenti.",
       "3": "Lasciare tutto al modello riduce il controllo; specificare il tono di solito migliora il risultato."
     },
+    "question_en": "You ask an AI assistant to help you write an email. Which measure most likely improves the quality of the response?",
+    "options_en": [
+      "Providing context and clear instructions: recipient, desired tone, goal and points to include",
+      "Writing only 'write an email' with no other details",
+      "Using abbreviations and ambiguous phrases to be quick",
+      "Not specifying the tone, so the model always decides better on its own"
+    ],
+    "explanation_en": "An effective prompt provides context, goal, tone and constraints: the more relevant information you give, the more targeted and useful the response will be.",
+    "why_wrong_en": {
+      "1": "A prompt that is too vague produces generic and often off-target responses.",
+      "2": "Ambiguity and abbreviations increase the risk of misunderstandings.",
+      "3": "Leaving everything to the model reduces control; specifying the tone usually improves the result."
+    },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
   {
@@ -128,6 +193,19 @@
       "1": "Le macchine non provano emozioni; il bias deriva da dati e progettazione.",
       "2": "Il modello non 'sceglie' consapevolmente: riflette pattern presenti nei dati.",
       "3": "Nessun modello e' automaticamente immune dal bias, indipendentemente dalla sua novita'."
+    },
+    "question_en": "Why can an AI system produce biased or unfair results toward some groups of people?",
+    "options_en": [
+      "Because it learns from historical data that may contain prejudices or poorly represent some groups",
+      "Because computers feel negative emotions toward certain people",
+      "Because the AI voluntarily chooses to favor some users",
+      "Because the most recent models are immune to any bias"
+    ],
+    "explanation_en": "Bias often stems from the training data: if it reflects prejudices or underrepresents some groups, the model can reproduce and amplify those distortions.",
+    "why_wrong_en": {
+      "1": "Machines do not feel emotions; bias comes from data and design.",
+      "2": "The model does not consciously 'choose': it reflects patterns present in the data.",
+      "3": "No model is automatically immune to bias, regardless of how new it is."
     },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
@@ -151,6 +229,19 @@
       "2": "Condividere segreti aziendali espone l'organizzazione a rischi di riservatezza e sicurezza.",
       "3": "I dati spesso vengono inviati a server esterni: non e' corretto presumere che restino privati."
     },
+    "question_en": "You are using a public AI tool for work. Which behavior is most prudent regarding the data you enter?",
+    "options_en": [
+      "Avoiding entering confidential or sensitive personal data, because it could be stored or used for training",
+      "Freely entering passwords and customer data, since they are deleted immediately anyway",
+      "Sharing secret company documents to get more precise answers",
+      "Assuming that everything you write always stays private and never leaves your device"
+    ],
+    "explanation_en": "Data entered into public AI tools can be stored or used to improve the models: it is best not to share confidential, personal or sensitive information.",
+    "why_wrong_en": {
+      "1": "Passwords and customer data must never be entered: there is no guarantee of immediate deletion.",
+      "2": "Sharing company secrets exposes the organization to confidentiality and security risks.",
+      "3": "Data is often sent to external servers: it is incorrect to assume it stays private."
+    },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
   {
@@ -173,6 +264,19 @@
       "2": "Riformulare un testo esistente e' un compito adatto all'IA generativa.",
       "3": "Il brainstorming di titoli e' un uso creativo tipico e a basso rischio."
     },
+    "question_en": "In which work situation is it NOT appropriate to rely blindly on the output of a generative AI?",
+    "options_en": [
+      "When an important fact-based decision is needed: the output must always be verified by a person",
+      "When you want to generate initial ideas or drafts to refine",
+      "When you ask it to rephrase an already written text",
+      "When you use it to brainstorm possible titles"
+    ],
+    "explanation_en": "For important decisions or factual information the AI output must always be checked by a person, because it may contain errors or hallucinations. For ideas and drafts, on the other hand, it is an excellent aid.",
+    "why_wrong_en": {
+      "1": "Generating ideas and drafts is an appropriate use: they are starting points to refine, not final decisions.",
+      "2": "Rephrasing an existing text is a task suited to generative AI.",
+      "3": "Brainstorming titles is a typical, low-risk creative use."
+    },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
   {
@@ -193,6 +297,18 @@
     "why_wrong": {
       "2": "Rimuovere il contesto peggiora le risposte: il contesto pertinente e' fondamentale.",
       "3": "L'ambiguita' aumenta i fraintendimenti; la chiarezza produce risultati migliori."
+    },
+    "question_en": "Which of the following are valid prompt engineering techniques for getting better answers? (Select 2)",
+    "options_en": [
+      "Assigning the model a role (role prompting), e.g. 'Act as a marketing expert'",
+      "Asking the model to reason step by step (chain of thought) for complex problems",
+      "Removing all context so as not to confuse the model",
+      "Always using ambiguous words to leave the model freedom"
+    ],
+    "explanation_en": "Assigning a role helps steer the style and perspective of the answer, while inviting the model to reason step by step (chain-of-thought) improves quality on complex problems.",
+    "why_wrong_en": {
+      "2": "Removing context worsens the answers: relevant context is essential.",
+      "3": "Ambiguity increases misunderstandings; clarity produces better results."
     },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
@@ -215,6 +331,18 @@
       "2": "Automatizzare decisioni critiche senza controllo umano contraddice il principio di supervisione.",
       "3": "Nascondere l'uso dell'IA viola la trasparenza e mina la fiducia degli utenti."
     },
+    "question_en": "Which principles are part of a responsible use of artificial intelligence? (Select 2)",
+    "options_en": [
+      "Transparency: making clear when and how AI is used and its limitations",
+      "Human oversight (human-in-the-loop): keeping a person who checks and can correct the decisions",
+      "Automating every critical decision with no human oversight",
+      "Hiding from users that they are interacting with an AI system"
+    ],
+    "explanation_en": "Responsible AI is based on transparency (explaining when and how AI is used) and human oversight, keeping a person able to verify and correct the outcomes.",
+    "why_wrong_en": {
+      "2": "Automating critical decisions without human oversight contradicts the principle of supervision.",
+      "3": "Hiding the use of AI violates transparency and undermines user trust."
+    },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
   {
@@ -230,6 +358,12 @@
     "why_wrong": {
       "1": "E' vero: la context window definisce quanto testo il modello puo' tenere presente in una volta sola."
     },
+    "question_en": "The 'context window' of a language model indicates the maximum amount of text (in tokens) that the model can consider at the same time in a conversation.",
+    "options_en": ["True", "False"],
+    "explanation_en": "The context window is the token limit that the model can process together: if the conversation exceeds this limit, the oldest parts can fall out of context and be 'forgotten'.",
+    "why_wrong_en": {
+      "1": "It is true: the context window defines how much text the model can keep in mind at one time."
+    },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   },
   {
@@ -244,6 +378,12 @@
     "explanation": "La temperatura regola la casualita' nella scelta dei token: valori bassi rendono le risposte piu' prevedibili e deterministiche, valori alti le rendono piu' varie e creative.",
     "why_wrong": {
       "1": "E' vero: una temperatura piu' alta aumenta variabilita' e creativita' delle risposte."
+    },
+    "question_en": "The 'temperature' parameter of a generative model affects how creative and varied the responses are: higher values tend to produce more varied and unpredictable output.",
+    "options_en": ["True", "False"],
+    "explanation_en": "Temperature regulates the randomness in token selection: low values make the responses more predictable and deterministic, high values make them more varied and creative.",
+    "why_wrong_en": {
+      "1": "It is true: a higher temperature increases the variability and creativity of the responses."
     },
     "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
   }

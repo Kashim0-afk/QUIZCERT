@@ -6,13 +6,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "Nel cifrario di Cesare con chiave 3, la lettera 'A' viene cifrata come 'D'. Come viene cifrata la lettera 'Y' (alfabeto inglese di 26 lettere)?",
+    "question_en": "In the Caesar cipher with key 3, the letter 'A' is encrypted as 'D'. How is the letter 'Y' encrypted (26-letter English alphabet)?",
     "options": ["W", "B", "V", "Z"],
+    "options_en": ["W", "B", "V", "Z"],
     "correct": [1],
     "explanation": "Il cifrario di Cesare sposta ogni lettera di un numero fisso di posizioni con aritmetica modulo 26. 'Y' è in posizione 24 (0-based); 24+3 = 27, e 27 mod 26 = 1, che corrisponde a 'B'. Lo scorrimento 'torna' all'inizio dell'alfabeto.",
+    "explanation_en": "The Caesar cipher shifts each letter by a fixed number of positions using modulo-26 arithmetic. 'Y' is at position 24 (0-based); 24+3 = 27, and 27 mod 26 = 1, which corresponds to 'B'. The shift 'wraps around' to the start of the alphabet.",
     "why_wrong": {
       "0": "'W' si otterrebbe spostando all'indietro di 2, non in avanti di 3.",
       "2": "'V' è a distanza sbagliata; non tiene conto del modulo 26.",
       "3": "'Z' sarebbe uno spostamento di solo 1 posizione, non 3."
+    },
+    "why_wrong_en": {
+      "0": "'W' would result from shifting backward by 2, not forward by 3.",
+      "2": "'V' is at the wrong distance; it does not account for modulo 26.",
+      "3": "'Z' would be a shift of only 1 position, not 3."
     },
     "source": "HACK/Script"
   },
@@ -23,18 +31,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la differenza fondamentale tra il cifrario di Cesare e il cifrario di Vigenere?",
+    "question_en": "What is the fundamental difference between the Caesar cipher and the Vigenere cipher?",
     "options": [
       "Vigenere usa numeri invece di lettere come chiave",
       "Vigenere è polialfabetico: usa una parola chiave che applica scorrimenti diversi a lettere diverse",
       "Cesare cifra solo le vocali, Vigenere anche le consonanti",
       "Vigenere non richiede una chiave, deduce lo scorrimento dal testo"
     ],
+    "options_en": [
+      "Vigenere uses numbers instead of letters as the key",
+      "Vigenere is polyalphabetic: it uses a keyword that applies different shifts to different letters",
+      "Caesar encrypts only vowels, Vigenere also consonants",
+      "Vigenere does not require a key; it deduces the shift from the text"
+    ],
     "correct": [1],
     "explanation": "Il cifrario di Vigenere è polialfabetico: una parola chiave ripetuta determina scorrimenti diversi per posizioni diverse del messaggio. Questo maschera la firma delle frequenze delle lettere, rendendolo molto più resistente del monoalfabetico Cesare, che applica sempre lo stesso scorrimento.",
+    "explanation_en": "The Vigenere cipher is polyalphabetic: a repeated keyword determines different shifts for different positions in the message. This masks the letter-frequency signature, making it far more resistant than the monoalphabetic Caesar, which always applies the same shift.",
     "why_wrong": {
       "0": "La chiave di Vigenere è tipicamente una parola/lettere, non numeri; e Cesare può essere espresso come numero.",
       "2": "Entrambi i cifrari operano su tutte le lettere, non solo sulle vocali.",
       "3": "Vigenere richiede assolutamente una chiave: senza di essa non si può cifrare né decifrare."
+    },
+    "why_wrong_en": {
+      "0": "The Vigenere key is typically a word/letters, not numbers; and Caesar can be expressed as a number.",
+      "2": "Both ciphers operate on all letters, not just vowels.",
+      "3": "Vigenere absolutely requires a key: without it you can neither encrypt nor decrypt."
     },
     "source": "HACK/Script"
   },
@@ -45,18 +66,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "La crittanalisi a frequenze è efficace contro i cifrari a sostituzione monoalfabetica. Perché il cifrario di Vigenere resiste meglio a questa tecnica?",
+    "question_en": "Frequency analysis is effective against monoalphabetic substitution ciphers. Why does the Vigenere cipher resist this technique better?",
     "options": [
       "Perché cifra il testo due volte di seguito",
       "Perché una stessa lettera del testo in chiaro può diventare simboli diversi, appiattendo la distribuzione delle frequenze",
       "Perché comprime il testo prima di cifrarlo eliminando le ripetizioni",
       "Perché usa chiavi lunghe almeno 256 bit"
     ],
+    "options_en": [
+      "Because it encrypts the text twice in a row",
+      "Because the same plaintext letter can become different symbols, flattening the frequency distribution",
+      "Because it compresses the text before encrypting it, removing repetitions",
+      "Because it uses keys at least 256 bits long"
+    ],
     "correct": [1],
     "explanation": "In Vigenere la stessa lettera in chiaro viene cifrata in modo diverso a seconda della sua posizione rispetto alla chiave. Questo distribuisce le frequenze su più simboli, appiattendo la curva statistica su cui si basa l'analisi a frequenze. Servono tecniche come l'esame di Kasiski o l'indice di coincidenza per stimare la lunghezza della chiave.",
+    "explanation_en": "In Vigenere the same plaintext letter is encrypted differently depending on its position relative to the key. This spreads the frequencies across multiple symbols, flattening the statistical curve on which frequency analysis relies. Techniques such as the Kasiski examination or the index of coincidence are needed to estimate the key length.",
     "why_wrong": {
       "0": "Vigenere non applica una doppia cifratura; usa una chiave ripetuta a scorrimento variabile.",
       "2": "Vigenere non comprime il testo; la compressione non fa parte del cifrario.",
       "3": "La robustezza di Vigenere non deriva da chiavi a 256 bit: è un cifrario classico con chiavi tipicamente brevi."
+    },
+    "why_wrong_en": {
+      "0": "Vigenere does not apply double encryption; it uses a repeated key with a variable shift.",
+      "2": "Vigenere does not compress the text; compression is not part of the cipher.",
+      "3": "Vigenere's strength does not come from 256-bit keys: it is a classical cipher with typically short keys."
     },
     "source": "HACK/Script"
   },
@@ -67,9 +101,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Vero o Falso: codificare un testo in Base64 è una forma di cifratura che ne protegge la riservatezza.",
+    "question_en": "True or False: encoding a text in Base64 is a form of encryption that protects its confidentiality.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. Base64 è una codifica, non una cifratura: converte dati binari in caratteri ASCII stampabili in modo completamente reversibile e senza alcuna chiave segreta. Chiunque può decodificarla istantaneamente, quindi non fornisce riservatezza. Serve per il trasporto dei dati, non per proteggerli.",
+    "explanation_en": "False. Base64 is an encoding, not encryption: it converts binary data into printable ASCII characters in a fully reversible way and without any secret key. Anyone can decode it instantly, so it provides no confidentiality. It is used for transporting data, not for protecting it.",
     "source": "HACK/Script"
   },
   {
@@ -79,18 +116,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un'analista trova la stringa '48 65 6c 6c 6f' in un file. Di che cosa si tratta con maggiore probabilità?",
+    "question_en": "An analyst finds the string '48 65 6c 6c 6f' in a file. What is it most likely?",
     "options": [
       "Un hash MD5 troncato",
       "La codifica esadecimale (hex) del testo ASCII 'Hello'",
       "Un testo cifrato con AES",
       "Una chiave privata RSA"
     ],
+    "options_en": [
+      "A truncated MD5 hash",
+      "The hexadecimal (hex) encoding of the ASCII text 'Hello'",
+      "A ciphertext encrypted with AES",
+      "An RSA private key"
+    ],
     "correct": [1],
     "explanation": "Ogni coppia di cifre esadecimali rappresenta un byte: 0x48='H', 0x65='e', 0x6c='l', 0x6c='l', 0x6f='o'. È quindi la rappresentazione hex dei codici ASCII della parola 'Hello'. Come Base64, l'hex è una codifica reversibile senza chiave, non una cifratura.",
+    "explanation_en": "Each pair of hexadecimal digits represents a byte: 0x48='H', 0x65='e', 0x6c='l', 0x6c='l', 0x6f='o'. It is therefore the hex representation of the ASCII codes of the word 'Hello'. Like Base64, hex is a reversible encoding without a key, not encryption.",
     "why_wrong": {
       "0": "Un hash MD5 è lungo 32 caratteri hex (128 bit) ed è non reversibile; questi 5 byte decodificano direttamente in testo leggibile.",
       "2": "Il testo cifrato AES non decodifica in parole ASCII di senso compiuto come 'Hello'.",
       "3": "Una chiave privata RSA è molto più lunga e strutturata (es. formato PEM), non 5 byte."
+    },
+    "why_wrong_en": {
+      "0": "An MD5 hash is 32 hex characters long (128 bits) and is non-reversible; these 5 bytes decode directly into readable text.",
+      "2": "AES ciphertext does not decode into meaningful ASCII words like 'Hello'.",
+      "3": "An RSA private key is much longer and more structured (e.g. PEM format), not 5 bytes."
     },
     "source": "HACK/Script"
   },
@@ -101,18 +151,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "A cosa serve principalmente il 'salt' aggiunto a una password prima dell'hashing?",
+    "question_en": "What is the main purpose of the 'salt' added to a password before hashing?",
     "options": [
       "A rendere l'hash reversibile in caso di necessità",
       "A rendere inefficaci le rainbow table e a differenziare gli hash di password identiche",
       "A comprimere l'hash per occupare meno spazio nel database",
       "A cifrare l'hash con una chiave simmetrica"
     ],
+    "options_en": [
+      "To make the hash reversible when needed",
+      "To render rainbow tables ineffective and differentiate the hashes of identical passwords",
+      "To compress the hash so it takes up less space in the database",
+      "To encrypt the hash with a symmetric key"
+    ],
     "correct": [1],
     "explanation": "Il salt è un valore casuale unico aggiunto a ogni password prima dell'hashing. Poiché ogni utente ha un salt diverso, due password identiche producono hash diversi, e le rainbow table (tabelle precalcolate hash->password) diventano inutili perché dovrebbero essere ricalcolate per ogni singolo salt.",
+    "explanation_en": "The salt is a unique random value added to each password before hashing. Since each user has a different salt, two identical passwords produce different hashes, and rainbow tables (precomputed hash->password tables) become useless because they would have to be recomputed for each individual salt.",
     "why_wrong": {
       "0": "L'hashing con salt resta unidirezionale: il salt non rende l'hash reversibile.",
       "2": "Il salt non comprime nulla; anzi aggiunge dati da memorizzare accanto all'hash.",
       "3": "Il salt non cifra: viene concatenato all'input dell'hash, non applica alcuna chiave segreta."
+    },
+    "why_wrong_en": {
+      "0": "Salted hashing remains one-way: the salt does not make the hash reversible.",
+      "2": "The salt does not compress anything; on the contrary it adds data to store alongside the hash.",
+      "3": "The salt does not encrypt: it is concatenated to the hash input; it does not apply any secret key."
     },
     "source": "HACK/Script"
   },
@@ -123,9 +186,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Vero o Falso: una funzione di hash crittografica come SHA-256 è progettata per essere non invertibile, quindi non è possibile ricostruire in modo diretto l'input a partire dall'hash.",
+    "question_en": "True or False: a cryptographic hash function such as SHA-256 is designed to be non-invertible, so it is not possible to directly reconstruct the input from the hash.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Le funzioni di hash crittografiche sono unidirezionali: dato l'hash non esiste un metodo diretto per calcolare l'input originale. Gli attacchi pratici (dizionario, brute force) non 'invertono' la funzione ma provano molti input e confrontano gli hash, motivo per cui salt e funzioni lente come bcrypt aumentano la difficoltà.",
+    "explanation_en": "True. Cryptographic hash functions are one-way: given the hash, there is no direct method to compute the original input. Practical attacks (dictionary, brute force) do not 'invert' the function but try many inputs and compare the hashes, which is why salt and slow functions like bcrypt increase the difficulty.",
     "source": "HACK/Script"
   },
   {
@@ -135,18 +201,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In un attacco a forza bruta (brute force) contro una chiave, cosa comporta aggiungere un solo bit alla lunghezza della chiave?",
+    "question_en": "In a brute force attack against a key, what does adding a single bit to the key length entail?",
     "options": [
       "Non cambia nulla, il tempo dipende solo dall'algoritmo",
       "Raddoppia il numero di chiavi possibili da provare",
       "Aumenta il numero di chiavi del 10 per cento",
       "Dimezza lo spazio delle chiavi da provare"
     ],
+    "options_en": [
+      "It changes nothing; the time depends only on the algorithm",
+      "It doubles the number of possible keys to try",
+      "It increases the number of keys by 10 percent",
+      "It halves the key space to try"
+    ],
     "correct": [1],
     "explanation": "Lo spazio delle chiavi è 2^n dove n è il numero di bit. Aggiungere un bit passa da 2^n a 2^(n+1), cioè raddoppia il numero totale di combinazioni possibili. Per questo la lunghezza della chiave cresce la resistenza al brute force in modo esponenziale, non lineare.",
+    "explanation_en": "The key space is 2^n where n is the number of bits. Adding a bit goes from 2^n to 2^(n+1), i.e. it doubles the total number of possible combinations. This is why key length increases brute force resistance exponentially, not linearly.",
     "why_wrong": {
       "0": "La lunghezza della chiave influenza direttamente lo spazio da esplorare, indipendentemente dall'algoritmo.",
       "2": "La crescita è esponenziale (x2 per bit), non un aumento lineare del 10 per cento.",
       "3": "Aggiungere un bit aumenta lo spazio, non lo dimezza: sarebbe il contrario."
+    },
+    "why_wrong_en": {
+      "0": "Key length directly affects the space to explore, regardless of the algorithm.",
+      "2": "The growth is exponential (x2 per bit), not a linear 10 percent increase.",
+      "3": "Adding a bit increases the space, it does not halve it: that would be the opposite."
     },
     "source": "HACK/Script"
   },
@@ -157,18 +236,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Durante uno scan TCP SYN (half-open), come interpreta lo scanner una risposta SYN-ACK ricevuta dalla porta target?",
+    "question_en": "During a TCP SYN scan (half-open), how does the scanner interpret a SYN-ACK response received from the target port?",
     "options": [
       "La porta è chiusa",
       "La porta è aperta e in ascolto",
       "La porta è filtrata da un firewall",
       "L'host non esiste"
     ],
+    "options_en": [
+      "The port is closed",
+      "The port is open and listening",
+      "The port is filtered by a firewall",
+      "The host does not exist"
+    ],
     "correct": [1],
     "explanation": "Nello scan SYN lo scanner invia un pacchetto SYN. Se la porta è aperta, il servizio risponde con SYN-ACK. Lo scanner allora invia un RST per non completare l'handshake (da cui 'half-open'), risultando più furtivo. Una risposta RST indicherebbe porta chiusa, mentre nessuna risposta suggerisce una porta filtrata.",
+    "explanation_en": "In a SYN scan the scanner sends a SYN packet. If the port is open, the service responds with SYN-ACK. The scanner then sends an RST so as not to complete the handshake (hence 'half-open'), being stealthier. An RST response would indicate a closed port, while no response suggests a filtered port.",
     "why_wrong": {
       "0": "Una porta chiusa risponde con un pacchetto RST, non con SYN-ACK.",
       "2": "Una porta filtrata tipicamente non risponde (drop) o restituisce un errore ICMP, non un SYN-ACK.",
       "3": "Ricevere un SYN-ACK dimostra che l'host esiste ed è raggiungibile."
+    },
+    "why_wrong_en": {
+      "0": "A closed port responds with an RST packet, not with SYN-ACK.",
+      "2": "A filtered port typically does not respond (drop) or returns an ICMP error, not a SYN-ACK.",
+      "3": "Receiving a SYN-ACK proves that the host exists and is reachable."
     },
     "source": "HACK/Script"
   },
@@ -179,18 +271,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In un semplice port scanner scritto in Python con il modulo socket, quale metodo viene tipicamente usato per verificare se una porta TCP è aperta senza rimanere bloccati troppo a lungo?",
+    "question_en": "In a simple port scanner written in Python with the socket module, which method is typically used to check whether a TCP port is open without blocking for too long?",
     "options": [
       "socket.bind() su ogni porta remota",
       "socket.connect_ex() dopo aver impostato settimeout(), controllando se restituisce 0",
       "socket.listen() verso l'host di destinazione",
       "socket.gethostname() per ogni porta"
     ],
+    "options_en": [
+      "socket.bind() on each remote port",
+      "socket.connect_ex() after setting settimeout(), checking whether it returns 0",
+      "socket.listen() toward the destination host",
+      "socket.gethostname() for each port"
+    ],
     "correct": [1],
     "explanation": "connect_ex() tenta la connessione e restituisce un codice di errore invece di sollevare un'eccezione: un valore di ritorno 0 indica connessione riuscita, quindi porta aperta. Impostare prima settimeout() evita che il tentativo resti bloccato indefinitamente su porte filtrate o host lenti.",
+    "explanation_en": "connect_ex() attempts the connection and returns an error code instead of raising an exception: a return value of 0 indicates a successful connection, hence an open port. Setting settimeout() first prevents the attempt from blocking indefinitely on filtered ports or slow hosts.",
     "why_wrong": {
       "0": "bind() serve ad associare un socket locale a un indirizzo/porta per l'ascolto, non a sondare porte remote.",
       "2": "listen() mette un socket in ascolto di connessioni in ingresso; non serve a connettersi a un target.",
       "3": "gethostname() restituisce il nome della macchina locale e non ha nulla a che vedere con il test di una porta."
+    },
+    "why_wrong_en": {
+      "0": "bind() is used to associate a local socket with an address/port for listening, not to probe remote ports.",
+      "2": "listen() puts a socket into listening mode for incoming connections; it is not used to connect to a target.",
+      "3": "gethostname() returns the name of the local machine and has nothing to do with testing a port."
     },
     "source": "HACK/Script"
   },
@@ -201,18 +306,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Nella programmazione con socket in Python, cosa indica il parametro SOCK_STREAM passato a socket.socket()?",
+    "question_en": "In Python socket programming, what does the SOCK_STREAM parameter passed to socket.socket() indicate?",
     "options": [
       "Che si vuole usare il protocollo UDP",
       "Che si vuole una connessione TCP orientata al flusso e affidabile",
       "Che il socket lavora solo in modalità raw",
       "Che il socket userà la cifratura TLS automaticamente"
     ],
+    "options_en": [
+      "That you want to use the UDP protocol",
+      "That you want a reliable, stream-oriented TCP connection",
+      "That the socket works only in raw mode",
+      "That the socket will use TLS encryption automatically"
+    ],
     "correct": [1],
     "explanation": "SOCK_STREAM specifica un socket di tipo stream, che in combinazione con AF_INET corrisponde a TCP: una connessione affidabile, orientata alla connessione e al flusso di byte ordinato. Per UDP si userebbe invece SOCK_DGRAM.",
+    "explanation_en": "SOCK_STREAM specifies a stream-type socket, which in combination with AF_INET corresponds to TCP: a reliable, connection-oriented connection with an ordered byte stream. For UDP you would instead use SOCK_DGRAM.",
     "why_wrong": {
       "0": "UDP corrisponde a SOCK_DGRAM, non a SOCK_STREAM.",
       "2": "La modalità raw si ottiene con SOCK_RAW, non con SOCK_STREAM.",
       "3": "SOCK_STREAM non aggiunge alcuna cifratura: TLS va implementato separatamente (es. modulo ssl)."
+    },
+    "why_wrong_en": {
+      "0": "UDP corresponds to SOCK_DGRAM, not SOCK_STREAM.",
+      "2": "Raw mode is obtained with SOCK_RAW, not with SOCK_STREAM.",
+      "3": "SOCK_STREAM does not add any encryption: TLS must be implemented separately (e.g. the ssl module)."
     },
     "source": "HACK/Script"
   },
@@ -223,9 +341,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Vero o Falso: eseguire un port scanning su sistemi o reti per cui non si ha autorizzazione esplicita può costituire attività illecita e va evitato senza permesso.",
+    "question_en": "True or False: performing port scanning on systems or networks for which you do not have explicit authorization can constitute unlawful activity and should be avoided without permission.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Anche se tecnicamente semplice, la scansione di porte su infrastrutture altrui senza autorizzazione è considerata attività di ricognizione non consentita e in molte giurisdizioni può avere rilevanza legale. L'automazione della sicurezza va sempre eseguita solo su sistemi propri o con permesso scritto (es. in ambito pentest autorizzato).",
+    "explanation_en": "True. Although technically simple, scanning ports on someone else's infrastructure without authorization is considered unauthorized reconnaissance activity and in many jurisdictions can have legal implications. Security automation must always be carried out only on your own systems or with written permission (e.g. within an authorized pentest).",
     "source": "HACK/Script"
   },
   {
@@ -235,17 +356,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali delle seguenti affermazioni sono CORRETTE riguardo alla differenza tra encoding, hashing e cifratura? (Seleziona 2)",
+    "question_en": "Which of the following statements are CORRECT regarding the difference between encoding, hashing and encryption? (Select 2)",
     "options": [
       "L'encoding (es. Base64) è reversibile senza chiave e non fornisce riservatezza",
       "L'hashing crittografico è progettato per essere unidirezionale e a lunghezza fissa in uscita",
       "La cifratura è sempre irreversibile, esattamente come l'hashing",
       "L'encoding richiede una chiave segreta per essere decodificato"
     ],
+    "options_en": [
+      "Encoding (e.g. Base64) is reversible without a key and provides no confidentiality",
+      "Cryptographic hashing is designed to be one-way and fixed-length in output",
+      "Encryption is always irreversible, exactly like hashing",
+      "Encoding requires a secret key to be decoded"
+    ],
     "correct": [0, 1],
     "explanation": "Encoding, hashing e cifratura sono concetti distinti. L'encoding (Base64, hex) è una trasformazione reversibile senza chiave, pensata per il trasporto dei dati e non per la segretezza. L'hashing crittografico è unidirezionale e produce un output di lunghezza fissa indipendente dall'input. La cifratura, invece, è reversibile con la chiave corretta.",
+    "explanation_en": "Encoding, hashing and encryption are distinct concepts. Encoding (Base64, hex) is a keyless reversible transformation, intended for transporting data and not for secrecy. Cryptographic hashing is one-way and produces a fixed-length output independent of the input. Encryption, on the other hand, is reversible with the correct key.",
     "why_wrong": {
       "2": "La cifratura è reversibile con la chiave corretta (è il suo scopo: decifrare); solo l'hashing è progettato come unidirezionale.",
       "3": "L'encoding non usa alcuna chiave segreta: chiunque può decodificarlo con l'algoritmo pubblico."
+    },
+    "why_wrong_en": {
+      "2": "Encryption is reversible with the correct key (that is its purpose: to decrypt); only hashing is designed to be one-way.",
+      "3": "Encoding uses no secret key: anyone can decode it with the public algorithm."
     },
     "source": "HACK/Script"
   },
@@ -256,17 +389,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali delle seguenti sono debolezze reali dei cifrari a sostituzione monoalfabetica (incluso il Cesare)? (Seleziona 2)",
+    "question_en": "Which of the following are real weaknesses of monoalphabetic substitution ciphers (including Caesar)? (Select 2)",
     "options": [
       "Preservano la distribuzione delle frequenze delle lettere del testo in chiaro",
       "Lo spazio delle chiavi del Cesare è minuscolo (solo 25 scorrimenti utili), facilmente attaccabile a forza bruta",
       "Richiedono computazione quantistica per essere violati",
       "Producono sempre un testo cifrato più corto dell'originale, rivelando informazioni"
     ],
+    "options_en": [
+      "They preserve the letter-frequency distribution of the plaintext",
+      "The Caesar key space is tiny (only 25 useful shifts), easily attacked by brute force",
+      "They require quantum computing to be broken",
+      "They always produce a ciphertext shorter than the original, revealing information"
+    ],
     "correct": [0, 1],
     "explanation": "I cifrari monoalfabetici mappano ogni lettera sempre nello stesso simbolo, quindi conservano la firma statistica delle frequenze (la 'e' resta la più comune), rendendoli vulnerabili all'analisi a frequenze. Inoltre il Cesare ha solo 25 chiavi utili, per cui basta provarle tutte (brute force) per romperlo in pochi istanti.",
+    "explanation_en": "Monoalphabetic ciphers always map each letter to the same symbol, so they preserve the statistical frequency signature (the 'e' remains the most common), making them vulnerable to frequency analysis. Moreover, Caesar has only 25 useful keys, so it is enough to try them all (brute force) to break it in an instant.",
     "why_wrong": {
       "2": "Questi cifrari classici si rompono con carta e penna o un semplice script: non serve alcuna computazione quantistica.",
       "3": "La sostituzione monoalfabetica mantiene la stessa lunghezza del testo; non lo accorcia."
+    },
+    "why_wrong_en": {
+      "2": "These classical ciphers are broken with pen and paper or a simple script: no quantum computing is needed.",
+      "3": "Monoalphabetic substitution keeps the same text length; it does not shorten it."
     },
     "source": "HACK/Script"
   }

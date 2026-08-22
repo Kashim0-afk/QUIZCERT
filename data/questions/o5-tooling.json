@@ -1,25 +1,54 @@
 [
   {
     "id": "tool4-001",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Cifrario di Cesare", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Cifrario di Cesare",
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Applichi il cifrario di Cesare con shift 3 alla lettera 'A' (alfabeto italiano di 21 lettere, ma qui usa l'alfabeto inglese di 26). Quale lettera ottieni come testo cifrato?",
-    "options": ["C", "D", "X", "B"],
-    "correct": [1],
+    "options": [
+      "C",
+      "D",
+      "X",
+      "B"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Il cifrario di Cesare sposta ogni lettera di un numero fisso di posizioni. Con shift 3, 'A' (posizione 0) diventa la lettera in posizione 3, cioe 'D'. E' un cifrario a sostituzione monoalfabetica banale da rompere.",
     "why_wrong": {
       "0": "'C' corrisponde a uno shift di 2, non di 3. Serve contare esattamente le posizioni spostate.",
       "2": "'X' si ottiene con uno shift negativo (indietro di 3), cioe la decifratura, non la cifratura.",
       "3": "'B' e' solo uno shift di 1 posizione, non di 3."
     },
-    "source": "HACK"
+    "source": "HACK",
+    "question_en": "You apply the Caesar cipher with shift 3 to the letter 'A' (the Italian alphabet has 21 letters, but here use the English 26-letter alphabet). Which letter do you get as ciphertext?",
+    "options_en": [
+      "C",
+      "D",
+      "X",
+      "B"
+    ],
+    "explanation_en": "The Caesar cipher shifts each letter by a fixed number of positions. With shift 3, 'A' (position 0) becomes the letter at position 3, that is 'D'. It is a trivial monoalphabetic substitution cipher, easy to break.",
+    "why_wrong_en": {
+      "0": "'C' corresponds to a shift of 2, not 3. You must count exactly the shifted positions.",
+      "2": "'X' is obtained with a negative shift (back by 3), that is decryption, not encryption.",
+      "3": "'B' is only a shift of 1 position, not 3."
+    }
   },
   {
     "id": "tool4-002",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Perche il cifrario di Vigenere e' storicamente piu robusto di una semplice sostituzione monoalfabetica come il Cesare?",
@@ -29,19 +58,38 @@
       "Perche cifra i dati in blocchi da 128 bit come AES",
       "Perche comprime il testo prima di cifrarlo rendendolo illeggibile"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Vigenere e' polialfabetico: usa una parola chiave ripetuta e applica shift diversi a seconda della posizione. Cosi la stessa lettera in chiaro produce cifrati diversi, appiattendo le frequenze e rendendo inefficace l'analisi delle frequenze semplice usata contro il Cesare.",
     "why_wrong": {
       "0": "La natura numerica o alfabetica della chiave non e' il punto: internamente ogni lettera della chiave e' comunque uno shift numerico. La robustezza deriva dall'uso di piu alfabeti.",
       "2": "Vigenere e' un cifrario classico carta-e-matita, non ha nulla a che vedere con i blocchi da 128 bit di AES.",
       "3": "Vigenere non comprime nulla: cifra lettera per lettera. La compressione non e' una proprieta del cifrario."
     },
-    "source": "HACK"
+    "source": "HACK",
+    "question_en": "Why is the Vigenere cipher historically more robust than a simple monoalphabetic substitution like Caesar?",
+    "options_en": [
+      "Because it uses a numeric key instead of an alphabetic one",
+      "Because it is polyalphabetic: the same plaintext letter can become different ciphertext letters depending on the position",
+      "Because it encrypts data in 128-bit blocks like AES",
+      "Because it compresses the text before encrypting it, making it unreadable"
+    ],
+    "explanation_en": "Vigenere is polyalphabetic: it uses a repeated keyword and applies different shifts depending on the position. Thus the same plaintext letter produces different ciphertexts, flattening the frequencies and making the simple frequency analysis used against Caesar ineffective.",
+    "why_wrong_en": {
+      "0": "Whether the key is numeric or alphabetic is not the point: internally each key letter is still a numeric shift. The robustness comes from using multiple alphabets.",
+      "2": "Vigenere is a classic pen-and-paper cipher, it has nothing to do with the 128-bit blocks of AES.",
+      "3": "Vigenere compresses nothing: it encrypts letter by letter. Compression is not a property of the cipher."
+    }
   },
   {
     "id": "tool4-003",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Hai intercettato un lungo testo cifrato con una sostituzione monoalfabetica in italiano. Qual e' l'approccio piu efficace per la crittanalisi senza conoscere la chiave?",
@@ -51,31 +99,66 @@
       "Applicare l'operazione XOR con una chiave casuale finche il testo diventa leggibile",
       "Calcolare l'hash SHA-256 del testo per rivelare il messaggio originale"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "In una sostituzione monoalfabetica ogni simbolo cifrato corrisponde sempre alla stessa lettera in chiaro, quindi le frequenze si conservano. L'analisi delle frequenze associa i simboli piu ricorrenti alle lettere piu comuni della lingua (in italiano 'e', 'a', 'i', 'o') permettendo di ricostruire la chiave.",
     "why_wrong": {
       "0": "Provare 26 shift funziona solo per il Cesare. Una sostituzione monoalfabetica generica ha 26! chiavi possibili, non 26.",
       "2": "Lo XOR con chiave casuale non ha relazione con una sostituzione alfabetica e provare a caso e' inefficiente.",
       "3": "SHA-256 e' una funzione unidirezionale: non 'rivela' nulla e non decifra alcun testo."
     },
-    "source": "HACK"
+    "source": "HACK",
+    "question_en": "You have intercepted a long ciphertext encrypted with a monoalphabetic substitution in Italian. What is the most effective approach for cryptanalysis without knowing the key?",
+    "options_en": [
+      "Try all 26 shift combinations one by one",
+      "Analyze the frequency of the symbols and associate the most common ones with the most frequent letters of the language",
+      "Apply the XOR operation with a random key until the text becomes readable",
+      "Compute the SHA-256 hash of the text to reveal the original message"
+    ],
+    "explanation_en": "In a monoalphabetic substitution each ciphertext symbol always corresponds to the same plaintext letter, so frequencies are preserved. Frequency analysis associates the most recurring symbols with the most common letters of the language (in Italian 'e', 'a', 'i', 'o'), allowing the key to be reconstructed.",
+    "why_wrong_en": {
+      "0": "Trying 26 shifts works only for Caesar. A generic monoalphabetic substitution has 26! possible keys, not 26.",
+      "2": "XOR with a random key has no relation to an alphabetic substitution and trying at random is inefficient.",
+      "3": "SHA-256 is a one-way function: it does not 'reveal' anything and does not decrypt any text."
+    }
   },
   {
     "id": "tool4-004",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Encoding", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Encoding",
+      "Crittografia"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Vero o Falso: codificare una stringa in Base64 la protegge come una cifratura, perche il risultato non e' leggibile a occhio nudo.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. Base64 e' una codifica (encoding), non una cifratura: serve solo a rappresentare dati binari in caratteri ASCII. Non usa alcuna chiave segreta ed e' reversibile da chiunque con una semplice funzione di decodifica. Non offre riservatezza.",
-    "source": "Script"
+    "source": "Script",
+    "question_en": "True or False: encoding a string in Base64 protects it like encryption, because the result is not readable to the naked eye.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. Base64 is an encoding, not encryption: it only serves to represent binary data in ASCII characters. It uses no secret key and is reversible by anyone with a simple decoding function. It provides no confidentiality."
   },
   {
     "id": "tool4-005",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual e' la differenza concettuale principale tra un cifrario a blocchi e un cifrario a flusso (stream)?",
@@ -85,19 +168,38 @@
       "Il cifrario a blocchi non usa una chiave, lo stream si",
       "Il cifrario a blocchi produce sempre un output piu corto del testo in chiaro"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "Un cifrario a blocchi (come AES) elabora il messaggio in blocchi di dimensione fissa (es. 128 bit). Un cifrario a flusso cifra i dati un bit o un byte alla volta, tipicamente combinando il testo con un keystream generato dalla chiave. E' la distinzione fondamentale sull'unita di elaborazione.",
     "why_wrong": {
       "1": "Entrambi i tipi sono tipicamente simmetrici. La distinzione blocchi/stream non coincide con simmetrico/asimmetrico.",
       "2": "Entrambi usano una chiave: senza chiave non ci sarebbe cifratura.",
       "3": "La cifratura non ha lo scopo di comprimere: l'output ha generalmente dimensione simile o maggiore (per padding), non piu corto."
     },
-    "source": "HACK"
+    "source": "HACK",
+    "question_en": "What is the main conceptual difference between a block cipher and a stream cipher?",
+    "options_en": [
+      "The block cipher operates on fixed-size groups of bits, the stream cipher encrypts the data bit/byte by bit/byte",
+      "The block cipher is always asymmetric, the stream cipher is always symmetric",
+      "The block cipher does not use a key, the stream cipher does",
+      "The block cipher always produces an output shorter than the plaintext"
+    ],
+    "explanation_en": "A block cipher (like AES) processes the message in fixed-size blocks (e.g. 128 bits). A stream cipher encrypts data one bit or byte at a time, typically combining the plaintext with a keystream generated from the key. It is the fundamental distinction about the processing unit.",
+    "why_wrong_en": {
+      "1": "Both types are typically symmetric. The block/stream distinction does not coincide with symmetric/asymmetric.",
+      "2": "Both use a key: without a key there would be no encryption.",
+      "3": "Encryption is not meant to compress: the output is generally similar in size or larger (due to padding), not shorter."
+    }
   },
   {
     "id": "tool4-006",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Perche la modalita ECB (Electronic Codebook) e' considerata insicura rispetto a CBC (Cipher Block Chaining) quando si cifra un'immagine con blocchi ripetuti?",
@@ -107,19 +209,39 @@
       "Perche ECB non e' un cifrario simmetrico mentre CBC lo e'",
       "Perche CBC comprime i dati mentre ECB no"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "In ECB ogni blocco viene cifrato in modo indipendente con la stessa chiave, quindi blocchi in chiaro uguali generano blocchi cifrati uguali. I pattern (come le aree uniformi di un'immagine) restano visibili. CBC concatena ogni blocco col cifrato precedente tramite XOR e usa un IV, mascherando i pattern.",
     "why_wrong": {
       "0": "ECB e CBC sono modalita d'uso dello stesso cifrario (es. AES) e usano chiavi della stessa lunghezza.",
       "2": "Sono entrambe modalita di un cifrario simmetrico a blocchi, non differiscono su questo.",
       "3": "Nessuna delle due modalita comprime i dati; la differenza sta nel concatenamento dei blocchi."
     },
-    "source": "HACK"
+    "source": "HACK",
+    "question_en": "Why is ECB (Electronic Codebook) mode considered insecure compared to CBC (Cipher Block Chaining) when encrypting an image with repeated blocks?",
+    "options_en": [
+      "Because ECB uses a shorter key than CBC",
+      "Because in ECB identical plaintext blocks produce identical ciphertext blocks, leaving patterns visible",
+      "Because ECB is not a symmetric cipher while CBC is",
+      "Because CBC compresses the data while ECB does not"
+    ],
+    "explanation_en": "In ECB each block is encrypted independently with the same key, so identical plaintext blocks generate identical ciphertext blocks. Patterns (like the uniform areas of an image) remain visible. CBC chains each block with the previous ciphertext via XOR and uses an IV, masking the patterns.",
+    "why_wrong_en": {
+      "0": "ECB and CBC are modes of operation of the same cipher (e.g. AES) and use keys of the same length.",
+      "2": "They are both modes of a symmetric block cipher, they do not differ on this.",
+      "3": "Neither mode compresses the data; the difference is in the chaining of the blocks."
+    }
   },
   {
     "id": "tool4-007",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Hashing", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Hashing",
+      "Crittografia"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti affermazioni sulle funzioni di hash crittografiche (come SHA-256) sono corrette? (seleziona 2)",
@@ -129,18 +251,37 @@
       "Sono reversibili applicando la chiave di decifratura",
       "Producono un output di lunghezza variabile a seconda dell'input"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Le funzioni di hash crittografiche sono unidirezionali (non invertibili in pratica) e servono a verificare l'integrita: confrontando gli hash si rileva se i dati sono stati alterati. Non forniscono riservatezza perche non nascondono il contenuto, lo trasformano solo in un'impronta.",
     "why_wrong": {
       "2": "Un hash non e' reversibile e non esiste alcuna 'chiave di decifratura': non e' una cifratura.",
       "3": "SHA-256 produce sempre un output di lunghezza fissa (256 bit) indipendentemente dalla dimensione dell'input."
     },
-    "source": "Script"
+    "source": "Script",
+    "question_en": "Which of the following statements about cryptographic hash functions (such as SHA-256) are correct? (select 2)",
+    "options_en": [
+      "They are one-way: from the hash you cannot practically recover the original input",
+      "They serve to guarantee data integrity, not confidentiality",
+      "They are reversible by applying the decryption key",
+      "They produce an output of variable length depending on the input"
+    ],
+    "explanation_en": "Cryptographic hash functions are one-way (not practically invertible) and serve to verify integrity: by comparing hashes you can detect whether the data has been altered. They do not provide confidentiality because they do not hide the content, they only transform it into a fingerprint.",
+    "why_wrong_en": {
+      "2": "A hash is not reversible and there is no 'decryption key': it is not encryption.",
+      "3": "SHA-256 always produces a fixed-length output (256 bits) regardless of the input size."
+    }
   },
   {
     "id": "tool4-008",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Hashing"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Hashing"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un sito memorizza le password come hash. Perche aggiungere un 'salt' univoco per ogni utente prima dell'hashing e' un'ottima difesa contro le rainbow table?",
@@ -150,19 +291,38 @@
       "Perche il salt accorcia l'hash risparmiando spazio nel database",
       "Perche il salt sostituisce del tutto la necessita di usare una funzione di hash"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Una rainbow table e' un archivio di hash precalcolati per password comuni. Aggiungendo un salt casuale e univoco a ogni password prima dell'hashing, due utenti con la stessa password ottengono hash diversi e le tabelle precalcolate diventano inutili: l'attaccante dovrebbe ricalcolare tutto per ogni singolo salt.",
     "why_wrong": {
       "0": "Il salt non cifra nulla e l'hash resta comunque irreversibile: il salt e' solo un valore aggiunto in input.",
       "2": "Il salt non accorcia l'hash; anzi va memorizzato insieme all'hash, occupando spazio in piu.",
       "3": "Il salt si aggiunge ALLA funzione di hash, non la sostituisce: serve comunque hashare la password salata."
     },
-    "source": "Script"
+    "source": "Script",
+    "question_en": "A website stores passwords as hashes. Why is adding a unique 'salt' for each user before hashing an excellent defense against rainbow tables?",
+    "options_en": [
+      "Because the salt encrypts the password making it reversible only by the server",
+      "Because the salt makes each user's hash different even for the same password, defeating precomputed tables",
+      "Because the salt shortens the hash saving space in the database",
+      "Because the salt entirely replaces the need to use a hash function"
+    ],
+    "explanation_en": "A rainbow table is an archive of precomputed hashes for common passwords. By adding a random, unique salt to each password before hashing, two users with the same password get different hashes and the precomputed tables become useless: the attacker would have to recompute everything for each individual salt.",
+    "why_wrong_en": {
+      "0": "The salt does not encrypt anything and the hash remains irreversible: the salt is just an added input value.",
+      "2": "The salt does not shorten the hash; on the contrary it must be stored together with the hash, taking up extra space.",
+      "3": "The salt is added TO the hash function, it does not replace it: you still need to hash the salted password."
+    }
   },
   {
     "id": "tool4-009",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Port Scanning"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Port Scanning"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Durante una ricognizione autorizzata esegui un port scan TCP e trovi la porta 22 aperta. Fai poi 'banner grabbing'. Cosa stai ottenendo con quest'ultima operazione?",
@@ -172,31 +332,67 @@
       "Stai cifrando il traffico verso la porta 22 con AES",
       "Stai calcolando l'hash del server per verificarne l'integrita"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Il banner grabbing consiste nel connettersi a un servizio in ascolto e leggere il 'banner', cioe la stringa iniziale che molti servizi inviano identificando nome e versione del software (es. 'SSH-2.0-OpenSSH_8.9'). E' utile per l'inventario e per individuare versioni vulnerabili.",
     "why_wrong": {
       "0": "Il banner grabbing e' un'operazione di lettura passiva del servizio, non chiude alcuna porta.",
       "2": "Non stai cifrando il traffico: stai solo leggendo l'intestazione di risposta del servizio.",
       "3": "Non si calcola alcun hash di integrita: si raccoglie solo l'informazione testuale di versione."
     },
-    "source": "HACK"
+    "source": "HACK",
+    "question_en": "During an authorized reconnaissance you run a TCP port scan and find port 22 open. You then do 'banner grabbing'. What are you obtaining with this last operation?",
+    "options_en": [
+      "You are closing the port to prevent further connections",
+      "You are reading the identifying string that the service sends, to recognize software and version (e.g. OpenSSH)",
+      "You are encrypting the traffic to port 22 with AES",
+      "You are computing the hash of the server to verify its integrity"
+    ],
+    "explanation_en": "Banner grabbing consists of connecting to a listening service and reading the 'banner', that is the initial string that many services send identifying the software name and version (e.g. 'SSH-2.0-OpenSSH_8.9'). It is useful for inventory and for spotting vulnerable versions.",
+    "why_wrong_en": {
+      "0": "Banner grabbing is a passive read operation on the service, it does not close any port.",
+      "2": "You are not encrypting the traffic: you are only reading the service's response header.",
+      "3": "No integrity hash is computed: only the textual version information is collected."
+    }
   },
   {
     "id": "tool4-010",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Crittografia", "Cifrario di Cesare"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Crittografia",
+      "Cifrario di Cesare"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Vero o Falso: a differenza del cifrario di Cesare, il cifrario di Vigenere e' polialfabetico perche usa piu alfabeti di sostituzione guidati da una parola chiave.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Il Cesare e' monoalfabetico (un solo shift fisso per tutto il testo), mentre Vigenere e' polialfabetico: la parola chiave ripetuta seleziona uno shift diverso posizione per posizione, di fatto usando piu alfabeti di sostituzione e rendendo piu difficile l'analisi delle frequenze.",
-    "source": "HACK"
+    "source": "HACK",
+    "question_en": "True or False: unlike the Caesar cipher, the Vigenere cipher is polyalphabetic because it uses multiple substitution alphabets driven by a keyword.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Caesar is monoalphabetic (a single fixed shift for the whole text), while Vigenere is polyalphabetic: the repeated keyword selects a different shift position by position, effectively using multiple substitution alphabets and making frequency analysis more difficult."
   },
   {
     "id": "tool4-011",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Hashing", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Hashing",
+      "Crittografia"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Riguardo alla sicurezza delle password, quali affermazioni sono corrette? (seleziona 2)",
@@ -206,18 +402,38 @@
       "Il server dovrebbe salvare le password in chiaro per poterle verificare velocemente",
       "Una password corta ma con molti simboli e' sempre piu forte di una lunga passphrase"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "L'entropia misura quanto una password sia imprevedibile ed e' il vero indicatore di robustezza. Allungare la password aumenta lo spazio di ricerca in modo esponenziale rispetto alla lunghezza, spesso piu efficacemente che aggiungere qualche simbolo. Per questo le passphrase lunghe sono molto forti.",
     "why_wrong": {
       "2": "Le password non vanno mai salvate in chiaro: si salva un hash con salt, cosi un data breach non espone direttamente le credenziali.",
       "3": "Non e' sempre vero: una passphrase lunga puo avere entropia molto maggiore di una password corta piena di simboli, che resta vulnerabile al brute force per la sua brevita."
     },
-    "source": "Script"
+    "source": "Script",
+    "question_en": "Regarding password security, which statements are correct? (select 2)",
+    "options_en": [
+      "Entropy (unpredictability) matters more than the mere presence of special characters",
+      "For the same character set, increasing the length grows the combination space exponentially",
+      "The server should store passwords in plaintext to be able to verify them quickly",
+      "A short password with many symbols is always stronger than a long passphrase"
+    ],
+    "explanation_en": "Entropy measures how unpredictable a password is and is the true indicator of strength. Lengthening the password increases the search space exponentially with respect to the length, often more effectively than adding a few symbols. That is why long passphrases are very strong.",
+    "why_wrong_en": {
+      "2": "Passwords must never be stored in plaintext: a salted hash is stored, so that a data breach does not directly expose the credentials.",
+      "3": "It is not always true: a long passphrase can have much higher entropy than a short password full of symbols, which remains vulnerable to brute force due to its shortness."
+    }
   },
   {
     "id": "tool4-012",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Python", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Python",
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "In uno script Python per la sicurezza vuoi verificare l'autenticita E l'integrita di un messaggio usando una chiave segreta condivisa. Quale primitiva usi?",
@@ -227,13 +443,28 @@
       "Un semplice SHA-256 del solo messaggio senza chiave",
       "Un cifrario di Cesare con shift pari alla lunghezza della chiave"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "HMAC (Hash-based Message Authentication Code) combina una funzione di hash con una chiave segreta condivisa. Verificando l'HMAC il destinatario conferma sia l'integrita (il messaggio non e' stato alterato) sia l'autenticita (proviene da chi conosce la chiave), cosa che un hash semplice da solo non garantisce.",
     "why_wrong": {
       "0": "Base64 e' solo una codifica reversibile senza chiave: non offre ne autenticita ne integrita.",
       "2": "Un SHA-256 del solo messaggio verifica l'integrita ma non l'autenticita: un attaccante che altera il messaggio puo ricalcolare anche l'hash, mancando la chiave segreta.",
       "3": "Il cifrario di Cesare e' un cifrario classico banale e non fornisce alcuna garanzia di autenticazione del messaggio."
     },
-    "source": "Script"
+    "source": "Script",
+    "question_en": "In a Python security script you want to verify the authenticity AND integrity of a message using a shared secret key. Which primitive do you use?",
+    "options_en": [
+      "A Base64 encoding of the message",
+      "An HMAC, which combines a hash function with the secret key",
+      "A simple SHA-256 of the message alone without a key",
+      "A Caesar cipher with a shift equal to the key length"
+    ],
+    "explanation_en": "HMAC (Hash-based Message Authentication Code) combines a hash function with a shared secret key. By verifying the HMAC the recipient confirms both integrity (the message has not been altered) and authenticity (it comes from someone who knows the key), something a simple hash alone does not guarantee.",
+    "why_wrong_en": {
+      "0": "Base64 is just a reversible encoding without a key: it provides neither authenticity nor integrity.",
+      "2": "A SHA-256 of the message alone verifies integrity but not authenticity: an attacker who alters the message can also recompute the hash, since there is no secret key.",
+      "3": "The Caesar cipher is a trivial classic cipher and provides no message authentication guarantee."
+    }
   }
 ]
