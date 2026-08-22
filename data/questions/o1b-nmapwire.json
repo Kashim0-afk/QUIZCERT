@@ -1,256 +1,615 @@
 [
   {
     "id": "nw-001",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Port Scanning"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Port Scanning"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Quale opzione di nmap esegue una scansione SYN (half-open)?",
-    "options": ["-sT", "-sS", "-sU", "-sn"],
-    "correct": [1],
+    "question_en": "Which nmap option performs a SYN scan (half-open)?",
+    "options": [
+      "-sT",
+      "-sS",
+      "-sU",
+      "-sn"
+    ],
+    "options_en": [
+      "-sT",
+      "-sS",
+      "-sU",
+      "-sn"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "L'opzione -sS avvia una SYN scan (half-open): nmap invia un pacchetto SYN e, se riceve SYN-ACK, considera la porta aperta senza completare il three-way handshake, rendendola veloce e relativamente furtiva.",
+    "explanation_en": "The -sS option launches a SYN scan (half-open): nmap sends a SYN packet and, if it receives SYN-ACK, considers the port open without completing the three-way handshake, making it fast and relatively stealthy.",
     "why_wrong": {
       "0": "-sT esegue un TCP connect scan che completa l'intero handshake tramite la chiamata di sistema connect(), quindi non è half-open.",
       "2": "-sU esegue una scansione UDP, non TCP SYN.",
       "3": "-sn esegue solo host discovery (ping scan) senza scansionare le porte."
     },
+    "why_wrong_en": {
+      "0": "-sT performs a TCP connect scan that completes the entire handshake via the connect() system call, so it is not half-open.",
+      "2": "-sU performs a UDP scan, not TCP SYN.",
+      "3": "-sn performs only host discovery (ping scan) without scanning the ports."
+    },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-002",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Port Scanning"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Port Scanning"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale flag di nmap esegue solo l'host discovery (ping sweep) senza scansionare le porte?",
-    "options": ["-sn", "-Pn", "-sS", "-p-"],
-    "correct": [0],
+    "question_en": "Which nmap flag performs only host discovery (ping sweep) without scanning the ports?",
+    "options": [
+      "-sn",
+      "-Pn",
+      "-sS",
+      "-p-"
+    ],
+    "options_en": [
+      "-sn",
+      "-Pn",
+      "-sS",
+      "-p-"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "L'opzione -sn (in passato -sP) esegue solo la fase di host discovery per determinare quali host sono attivi, senza effettuare alcuna scansione delle porte.",
+    "explanation_en": "The -sn option (formerly -sP) performs only the host discovery phase to determine which hosts are up, without carrying out any port scan.",
     "why_wrong": {
       "1": "-Pn fa l'opposto: salta l'host discovery e tratta tutti gli host come attivi, procedendo comunque con la scansione delle porte.",
       "2": "-sS esegue una SYN scan completa delle porte, non un semplice ping sweep.",
       "3": "-p- indica a nmap di scansionare tutte le 65535 porte TCP, quindi esegue una scansione delle porte."
     },
+    "why_wrong_en": {
+      "1": "-Pn does the opposite: it skips host discovery and treats all hosts as up, proceeding with the port scan anyway.",
+      "2": "-sS performs a full SYN scan of the ports, not a simple ping sweep.",
+      "3": "-p- tells nmap to scan all 65535 TCP ports, so it does perform a port scan."
+    },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-003",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["TCP/IP"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "TCP/IP"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Qual è la corretta sequenza del three-way handshake TCP?",
-    "options": ["SYN, ACK, SYN-ACK", "SYN, SYN-ACK, ACK", "ACK, SYN, SYN-ACK", "SYN-ACK, SYN, ACK"],
-    "correct": [1],
+    "question_en": "What is the correct sequence of the TCP three-way handshake?",
+    "options": [
+      "SYN, ACK, SYN-ACK",
+      "SYN, SYN-ACK, ACK",
+      "ACK, SYN, SYN-ACK",
+      "SYN-ACK, SYN, ACK"
+    ],
+    "options_en": [
+      "SYN, ACK, SYN-ACK",
+      "SYN, SYN-ACK, ACK",
+      "ACK, SYN, SYN-ACK",
+      "SYN-ACK, SYN, ACK"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Il three-way handshake TCP avviene in tre passi: il client invia SYN, il server risponde con SYN-ACK, e il client conferma con ACK, stabilendo così la connessione.",
+    "explanation_en": "The TCP three-way handshake happens in three steps: the client sends SYN, the server responds with SYN-ACK, and the client confirms with ACK, thus establishing the connection.",
     "why_wrong": {
       "0": "L'ordine è errato: il SYN-ACK del server deve precedere l'ACK finale del client.",
       "2": "L'handshake non inizia con un ACK; il primo segmento è sempre il SYN del client.",
       "3": "Il primo segmento deve essere un SYN puro inviato dal client, non un SYN-ACK."
     },
+    "why_wrong_en": {
+      "0": "The order is wrong: the server's SYN-ACK must precede the client's final ACK.",
+      "2": "The handshake does not start with an ACK; the first segment is always the client's SYN.",
+      "3": "The first segment must be a pure SYN sent by the client, not a SYN-ACK."
+    },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-004",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Analisi del traffico"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Analisi del traffico"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Quale display filter di Wireshark mostra solo il traffico TCP sulla porta 80?",
-    "options": ["tcp.port==80", "port 80", "http.port=80", "tcp.80"],
-    "correct": [0],
+    "question_en": "Which Wireshark display filter shows only TCP traffic on port 80?",
+    "options": [
+      "tcp.port==80",
+      "port 80",
+      "http.port=80",
+      "tcp.80"
+    ],
+    "options_en": [
+      "tcp.port==80",
+      "port 80",
+      "http.port=80",
+      "tcp.80"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Nei display filter di Wireshark si usa la sintassi campo==valore: tcp.port==80 mostra tutti i pacchetti TCP con porta di origine o destinazione uguale a 80.",
+    "explanation_en": "In Wireshark display filters you use the field==value syntax: tcp.port==80 shows all TCP packets with source or destination port equal to 80.",
     "why_wrong": {
       "1": "\"port 80\" è la sintassi BPF dei capture filter, non valida come display filter.",
       "2": "http.port non è un campo valido e il confronto usa == non =; la sintassi è errata.",
       "3": "tcp.80 non è un campo valido: il campo corretto è tcp.port con l'operatore di uguaglianza."
     },
+    "why_wrong_en": {
+      "1": "\"port 80\" is the BPF syntax of capture filters, not valid as a display filter.",
+      "2": "http.port is not a valid field and the comparison uses == not =; the syntax is wrong.",
+      "3": "tcp.80 is not a valid field: the correct field is tcp.port with the equality operator."
+    },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-005",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Port Scanning"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Port Scanning"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale flag di nmap abilita il rilevamento del sistema operativo (OS detection)?",
-    "options": ["-O", "-sV", "-sC", "-oN"],
-    "correct": [0],
+    "question_en": "Which nmap flag enables operating system detection (OS detection)?",
+    "options": [
+      "-O",
+      "-sV",
+      "-sC",
+      "-oN"
+    ],
+    "options_en": [
+      "-O",
+      "-sV",
+      "-sC",
+      "-oN"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "L'opzione -O attiva l'OS detection: nmap analizza le caratteristiche dello stack TCP/IP (fingerprinting) per stimare il sistema operativo dell'host remoto.",
+    "explanation_en": "The -O option enables OS detection: nmap analyzes the characteristics of the TCP/IP stack (fingerprinting) to estimate the operating system of the remote host.",
     "why_wrong": {
       "1": "-sV esegue il rilevamento di versione dei servizi in ascolto, non del sistema operativo.",
       "2": "-sC esegue gli script NSE della categoria default, non l'OS detection.",
       "3": "-oN salva l'output in formato normale su file e non ha alcun ruolo nel fingerprinting del sistema operativo."
     },
+    "why_wrong_en": {
+      "1": "-sV performs version detection of the listening services, not of the operating system.",
+      "2": "-sC runs the NSE scripts of the default category, not OS detection.",
+      "3": "-oN saves the output in normal format to a file and has no role in operating system fingerprinting."
+    },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-006",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Analisi del traffico"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Analisi del traffico"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "In Wireshark, quale funzione permette di ricostruire l'intera conversazione di una sessione TCP?",
-    "options": ["Follow > TCP Stream", "Statistics > Endpoints", "Analyze > Expert Information", "Capture > Options"],
-    "correct": [0],
+    "question_en": "In Wireshark, which feature allows you to reconstruct the entire conversation of a TCP session?",
+    "options": [
+      "Follow > TCP Stream",
+      "Statistics > Endpoints",
+      "Analyze > Expert Information",
+      "Capture > Options"
+    ],
+    "options_en": [
+      "Follow > TCP Stream",
+      "Statistics > Endpoints",
+      "Analyze > Expert Information",
+      "Capture > Options"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "La funzione Follow > TCP Stream riassembla tutti i segmenti di una connessione TCP mostrando il flusso applicativo completo (ad esempio richiesta e risposta HTTP) in un'unica finestra leggibile.",
+    "explanation_en": "The Follow > TCP Stream feature reassembles all the segments of a TCP connection, showing the complete application flow (for example HTTP request and response) in a single readable window.",
     "why_wrong": {
       "1": "Statistics > Endpoints elenca gli host coinvolti nella cattura, ma non ricostruisce il flusso di una singola conversazione.",
       "2": "Analyze > Expert Information segnala anomalie e note sul traffico, non riassembla lo stream.",
       "3": "Capture > Options configura i parametri di cattura prima di avviarla, non analizza una sessione esistente."
     },
+    "why_wrong_en": {
+      "1": "Statistics > Endpoints lists the hosts involved in the capture, but does not reconstruct the flow of a single conversation.",
+      "2": "Analyze > Expert Information reports anomalies and notes about the traffic, it does not reassemble the stream.",
+      "3": "Capture > Options configures the capture parameters before starting it, it does not analyze an existing session."
+    },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-007",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Port Scanning"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Port Scanning"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale opzione di nmap esegue una scansione delle porte UDP?",
-    "options": ["-sU", "-sS", "-sT", "-sA"],
-    "correct": [0],
+    "question_en": "Which nmap option performs a scan of UDP ports?",
+    "options": [
+      "-sU",
+      "-sS",
+      "-sT",
+      "-sA"
+    ],
+    "options_en": [
+      "-sU",
+      "-sS",
+      "-sT",
+      "-sA"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "L'opzione -sU esegue una scansione UDP: nmap invia pacchetti UDP e interpreta assenza di risposta o messaggi ICMP port unreachable per determinare lo stato delle porte.",
+    "explanation_en": "The -sU option performs a UDP scan: nmap sends UDP packets and interprets the absence of a response or ICMP port unreachable messages to determine the state of the ports.",
     "why_wrong": {
       "1": "-sS è la SYN scan, che opera sul protocollo TCP.",
       "2": "-sT è il TCP connect scan, anch'esso su TCP e non UDP.",
       "3": "-sA è un ACK scan usato per mappare le regole di un firewall, sempre su TCP."
     },
+    "why_wrong_en": {
+      "1": "-sS is the SYN scan, which operates on the TCP protocol.",
+      "2": "-sT is the TCP connect scan, also on TCP and not UDP.",
+      "3": "-sA is an ACK scan used to map a firewall's rules, still on TCP."
+    },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-008",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["DNS", "Analisi del traffico"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "DNS",
+      "Analisi del traffico"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Quale display filter di Wireshark isola tutto e solo il traffico DNS?",
-    "options": ["dns", "tcp.port==80", "arp", "icmp"],
-    "correct": [0],
+    "question_en": "Which Wireshark display filter isolates all and only DNS traffic?",
+    "options": [
+      "dns",
+      "tcp.port==80",
+      "arp",
+      "icmp"
+    ],
+    "options_en": [
+      "dns",
+      "tcp.port==80",
+      "arp",
+      "icmp"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Il display filter dns mostra tutti i pacchetti riconosciuti come DNS (tipicamente su porta 53, sia query sia risposte), indipendentemente dal trasporto UDP o TCP.",
+    "explanation_en": "The dns display filter shows all packets recognized as DNS (typically on port 53, both queries and responses), regardless of the UDP or TCP transport.",
     "why_wrong": {
       "1": "tcp.port==80 filtra il traffico HTTP sulla porta 80, non il DNS.",
       "2": "arp mostra solo i pacchetti del protocollo ARP di risoluzione MAC.",
       "3": "icmp mostra solo i messaggi ICMP come echo request/reply, non le query DNS."
     },
+    "why_wrong_en": {
+      "1": "tcp.port==80 filters HTTP traffic on port 80, not DNS.",
+      "2": "arp shows only the packets of the ARP MAC resolution protocol.",
+      "3": "icmp shows only ICMP messages such as echo request/reply, not DNS queries."
+    },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-009",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["ARP"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "ARP"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "A cosa serve il protocollo ARP?",
-    "options": ["Risolvere un indirizzo IP nel corrispondente indirizzo MAC nella rete locale", "Risolvere i nomi di dominio in indirizzi IP", "Instradare i pacchetti tra reti diverse", "Cifrare il traffico tra due host"],
-    "correct": [0],
+    "question_en": "What is the ARP protocol used for?",
+    "options": [
+      "Risolvere un indirizzo IP nel corrispondente indirizzo MAC nella rete locale",
+      "Risolvere i nomi di dominio in indirizzi IP",
+      "Instradare i pacchetti tra reti diverse",
+      "Cifrare il traffico tra due host"
+    ],
+    "options_en": [
+      "Resolving an IP address into the corresponding MAC address on the local network",
+      "Resolving domain names into IP addresses",
+      "Routing packets between different networks",
+      "Encrypting traffic between two hosts"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "ARP (Address Resolution Protocol) mappa un indirizzo IP di livello 3 nell'indirizzo MAC di livello 2 corrispondente, permettendo la consegna dei frame all'interno della stessa rete locale.",
+    "explanation_en": "ARP (Address Resolution Protocol) maps a layer 3 IP address to the corresponding layer 2 MAC address, allowing the delivery of frames within the same local network.",
     "why_wrong": {
       "1": "La risoluzione di nomi di dominio in IP è compito del DNS, non di ARP.",
       "2": "L'instradamento tra reti è svolto dai router tramite il protocollo IP e le tabelle di routing.",
       "3": "ARP non fornisce alcuna cifratura; la protezione del traffico spetta a protocolli come TLS o IPsec."
     },
+    "why_wrong_en": {
+      "1": "Resolving domain names into IPs is the task of DNS, not ARP.",
+      "2": "Routing between networks is carried out by routers using the IP protocol and routing tables.",
+      "3": "ARP provides no encryption; protecting traffic is the job of protocols such as TLS or IPsec."
+    },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-010",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Port Scanning"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Port Scanning"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Cosa permette di fare la Nmap Scripting Engine (NSE)?",
-    "options": ["Eseguire script in Lua per automatizzare enumerazione, rilevamento servizi e ricerca di vulnerabilità", "Catturare e decodificare pacchetti come Wireshark", "Modificare le tabelle di routing del sistema", "Creare tunnel VPN cifrati verso l'host remoto"],
-    "correct": [0],
+    "question_en": "What does the Nmap Scripting Engine (NSE) allow you to do?",
+    "options": [
+      "Eseguire script in Lua per automatizzare enumerazione, rilevamento servizi e ricerca di vulnerabilità",
+      "Catturare e decodificare pacchetti come Wireshark",
+      "Modificare le tabelle di routing del sistema",
+      "Creare tunnel VPN cifrati verso l'host remoto"
+    ],
+    "options_en": [
+      "Run scripts in Lua to automate enumeration, service detection and vulnerability discovery",
+      "Capture and decode packets like Wireshark",
+      "Modify the system's routing tables",
+      "Create encrypted VPN tunnels to the remote host"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "La NSE consente di eseguire script scritti in Lua (richiamabili con --script) per automatizzare compiti come enumerazione dei servizi, brute force, rilevamento di vulnerabilità e raccolta di informazioni durante la scansione.",
+    "explanation_en": "The NSE allows you to run scripts written in Lua (invoked with --script) to automate tasks such as service enumeration, brute force, vulnerability detection and information gathering during the scan.",
     "why_wrong": {
       "1": "La cattura e la decodifica dei pacchetti è compito di Wireshark/tshark, non della NSE.",
       "2": "La NSE non modifica le tabelle di routing del sistema operativo.",
       "3": "La NSE non crea tunnel VPN; esegue solo script di analisi durante la scansione."
     },
+    "why_wrong_en": {
+      "1": "Capturing and decoding packets is the task of Wireshark/tshark, not of the NSE.",
+      "2": "The NSE does not modify the operating system's routing tables.",
+      "3": "The NSE does not create VPN tunnels; it only runs analysis scripts during the scan."
+    },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-011",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Port Scanning"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Port Scanning"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali DUE flag di nmap servono rispettivamente al rilevamento di versione dei servizi e del sistema operativo?",
-    "options": ["-sV", "-O", "-sn", "-oX"],
-    "correct": [0, 1],
+    "question_en": "Which TWO nmap flags are used respectively for service version detection and operating system detection?",
+    "options": [
+      "-sV",
+      "-O",
+      "-sn",
+      "-oX"
+    ],
+    "options_en": [
+      "-sV",
+      "-O",
+      "-sn",
+      "-oX"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "-sV esegue il service/version detection interrogando i servizi in ascolto per identificarne nome e versione, mentre -O esegue l'OS detection tramite fingerprinting dello stack TCP/IP.",
+    "explanation_en": "-sV performs service/version detection by querying the listening services to identify their name and version, while -O performs OS detection through TCP/IP stack fingerprinting.",
     "why_wrong": {
       "2": "-sn esegue solo host discovery senza scansionare porte, servizi o sistema operativo.",
       "3": "-oX riguarda solo l'output in formato XML e non effettua alcun rilevamento."
+    },
+    "why_wrong_en": {
+      "2": "-sn performs only host discovery without scanning ports, services or operating system.",
+      "3": "-oX concerns only the output in XML format and does not perform any detection."
     },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-012",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["TCP/IP"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "TCP/IP"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali DUE affermazioni sul three-way handshake TCP sono corrette?",
-    "options": ["Il client inizia la connessione inviando un segmento con flag SYN", "Il server risponde con un segmento SYN-ACK", "L'handshake viene realizzato tramite il protocollo UDP", "L'handshake richiede sempre quattro segmenti per stabilire la connessione"],
-    "correct": [0, 1],
+    "question_en": "Which TWO statements about the TCP three-way handshake are correct?",
+    "options": [
+      "Il client inizia la connessione inviando un segmento con flag SYN",
+      "Il server risponde con un segmento SYN-ACK",
+      "L'handshake viene realizzato tramite il protocollo UDP",
+      "L'handshake richiede sempre quattro segmenti per stabilire la connessione"
+    ],
+    "options_en": [
+      "The client initiates the connection by sending a segment with the SYN flag",
+      "The server responds with a SYN-ACK segment",
+      "The handshake is carried out using the UDP protocol",
+      "The handshake always requires four segments to establish the connection"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Il handshake si apre con il SYN del client e prosegue con il SYN-ACK del server; l'ultimo passo è l'ACK del client. È un meccanismo proprio del TCP e usa tre segmenti.",
+    "explanation_en": "The handshake opens with the client's SYN and continues with the server's SYN-ACK; the last step is the client's ACK. It is a mechanism specific to TCP and uses three segments.",
     "why_wrong": {
       "2": "Il three-way handshake è una caratteristica del TCP orientato alla connessione; UDP è privo di connessione e non lo esegue.",
       "3": "Per stabilire la connessione servono tre segmenti (SYN, SYN-ACK, ACK), non quattro; quattro segmenti sono tipici della chiusura con FIN."
+    },
+    "why_wrong_en": {
+      "2": "The three-way handshake is a feature of connection-oriented TCP; UDP is connectionless and does not perform it.",
+      "3": "Establishing the connection requires three segments (SYN, SYN-ACK, ACK), not four; four segments are typical of the FIN teardown."
     },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-013",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Analisi del traffico"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Analisi del traffico"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali DUE espressioni sono display filter validi in Wireshark?",
-    "options": ["ip.addr==192.168.1.1", "tcp.flags.syn==1", "src 10.0.0.1", "http.get"],
-    "correct": [0, 1],
+    "question_en": "Which TWO expressions are valid display filters in Wireshark?",
+    "options": [
+      "ip.addr==192.168.1.1",
+      "tcp.flags.syn==1",
+      "src 10.0.0.1",
+      "http.get"
+    ],
+    "options_en": [
+      "ip.addr==192.168.1.1",
+      "tcp.flags.syn==1",
+      "src 10.0.0.1",
+      "http.get"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "ip.addr==192.168.1.1 filtra i pacchetti da/verso quell'IP e tcp.flags.syn==1 seleziona i segmenti con il flag SYN impostato: entrambi usano la corretta sintassi campo==valore dei display filter.",
+    "explanation_en": "ip.addr==192.168.1.1 filters packets to/from that IP and tcp.flags.syn==1 selects the segments with the SYN flag set: both use the correct field==value syntax of display filters.",
     "why_wrong": {
       "2": "\"src 10.0.0.1\" è sintassi BPF dei capture filter, non un display filter valido; l'equivalente sarebbe ip.src==10.0.0.1.",
       "3": "http.get non è un campo valido; per i metodi HTTP si usa ad esempio http.request.method==\"GET\"."
+    },
+    "why_wrong_en": {
+      "2": "\"src 10.0.0.1\" is BPF capture filter syntax, not a valid display filter; the equivalent would be ip.src==10.0.0.1.",
+      "3": "http.get is not a valid field; for HTTP methods you use, for example, http.request.method==\"GET\"."
     },
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-014",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Port Scanning"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Port Scanning"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "La scansione SYN di nmap (-sS) è detta half-open perché non completa il three-way handshake TCP.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "Nmap's SYN scan (-sS) is called half-open because it does not complete the TCP three-way handshake.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero: nella SYN scan nmap invia il SYN e, ricevuto il SYN-ACK, invia un RST invece dell'ACK finale, lasciando la connessione a metà (half-open) senza mai completare l'handshake.",
+    "explanation_en": "True: in the SYN scan nmap sends the SYN and, having received the SYN-ACK, sends an RST instead of the final ACK, leaving the connection half-open without ever completing the handshake.",
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-015",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Analisi del traffico"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Analisi del traffico"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "In Wireshark i capture filter usano la sintassi BPF, diversa da quella dei display filter.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "In Wireshark, capture filters use the BPF syntax, which is different from that of display filters.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero: i capture filter, applicati prima della cattura, usano la sintassi BPF (es. tcp port 80), mentre i display filter, applicati sui pacchetti già catturati, usano la sintassi propria di Wireshark (es. tcp.port==80).",
+    "explanation_en": "True: capture filters, applied before the capture, use the BPF syntax (e.g. tcp port 80), while display filters, applied to already captured packets, use Wireshark's own syntax (e.g. tcp.port==80).",
     "source": "HACK/NMAP - WIRE.rtf"
   },
   {
     "id": "nw-016",
-    "cert": ["Nmap & Wireshark"],
-    "topics": ["Analisi del traffico", "TCP/IP"],
+    "cert": [
+      "Nmap & Wireshark"
+    ],
+    "topics": [
+      "Analisi del traffico",
+      "TCP/IP"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Il display filter tcp.port==443 mostra il traffico HTTP in chiaro sulla porta 80.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "question_en": "The display filter tcp.port==443 shows unencrypted HTTP traffic on port 80.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso: tcp.port==443 filtra il traffico sulla porta 443, tipicamente HTTPS. Per il traffico HTTP in chiaro sulla porta 80 si userebbe tcp.port==80 o il filtro http.",
+    "explanation_en": "False: tcp.port==443 filters traffic on port 443, typically HTTPS. For unencrypted HTTP traffic on port 80 you would use tcp.port==80 or the http filter.",
     "source": "HACK/NMAP - WIRE.rtf"
   }
 ]

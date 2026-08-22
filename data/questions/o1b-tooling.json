@@ -1,278 +1,541 @@
 [
   {
     "id": "tool-001",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Cifrario di Cesare", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Cifrario di Cesare",
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Nel cifrario di Cesare, come viene trasformata ogni lettera del testo in chiaro?",
+    "question_en": "In the Caesar cipher, how is each letter of the plaintext transformed?",
     "options": [
       "Viene sostituita con una lettera casuale diversa a ogni occorrenza",
       "Viene spostata di un numero fisso di posizioni nell'alfabeto",
       "Viene sostituita in base a una tabella di frequenze delle lettere",
       "Viene convertita nel suo valore Base64"
     ],
-    "correct": [1],
+    "options_en": [
+      "It is replaced with a different random letter at each occurrence",
+      "It is shifted by a fixed number of positions in the alphabet",
+      "It is replaced based on a table of letter frequencies",
+      "It is converted into its Base64 value"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Il cifrario di Cesare e un cifrario a sostituzione monoalfabetica in cui ogni lettera viene traslata (shift) di un numero fisso di posizioni nell'alfabeto. La chiave e il valore dello spostamento, uguale per tutte le lettere del messaggio.",
+    "explanation_en": "The Caesar cipher is a monoalphabetic substitution cipher in which each letter is shifted by a fixed number of positions in the alphabet. The key is the shift value, the same for all the letters of the message.",
     "why_wrong": {
       "0": "Uno shift casuale variabile non e piu il cifrario di Cesare: la trasformazione e sempre la stessa costante per tutto il messaggio.",
       "2": "Le frequenze servono per l'analisi (attacco), non per definire la trasformazione di cifratura di Cesare.",
       "3": "Base64 e una codifica, non ha nulla a che vedere con lo shift alfabetico del cifrario di Cesare."
     },
+    "why_wrong_en": {
+      "0": "A variable random shift is no longer the Caesar cipher: the transformation is always the same constant for the whole message.",
+      "2": "Frequencies are used for analysis (attack), not to define the Caesar encryption transformation.",
+      "3": "Base64 is an encoding, it has nothing to do with the alphabetic shift of the Caesar cipher."
+    },
     "source": "HACK/Script"
   },
   {
     "id": "tool-002",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Cifrario di Cesare", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Cifrario di Cesare",
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Perche un cifrario di Cesare su alfabeto latino (26 lettere) e banale da forzare con un attacco a forza bruta?",
+    "question_en": "Why is a Caesar cipher on the Latin alphabet (26 letters) trivial to break with a brute-force attack?",
     "options": [
       "Perche esistono solo 25 possibili chiavi non banali da provare",
       "Perche la chiave e sempre scritta in fondo al messaggio",
       "Perche richiede di provare 26 fattoriale combinazioni",
       "Perche l'algoritmo espone la chiave in chiaro"
     ],
-    "correct": [0],
+    "options_en": [
+      "Because there are only 25 possible non-trivial keys to try",
+      "Because the key is always written at the end of the message",
+      "Because it requires trying 26 factorial combinations",
+      "Because the algorithm exposes the key in clear text"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Con 26 lettere ci sono solo 25 shift utili (lo shift 0 lascia il testo invariato). Un attaccante puo provare tutte e 25 le chiavi e riconoscere quale produce testo di senso compiuto: e questo il classico brute force del cifrario di Cesare.",
+    "explanation_en": "With 26 letters there are only 25 useful shifts (shift 0 leaves the text unchanged). An attacker can try all 25 keys and recognize which one produces meaningful text: this is the classic brute force of the Caesar cipher.",
     "why_wrong": {
       "1": "La chiave non e contenuta nel messaggio: e semplicemente lo spazio delle chiavi ad essere minuscolo.",
       "2": "26 fattoriale e lo spazio di un cifrario a sostituzione generico, non del Cesare che ha solo 25 shift.",
       "3": "L'algoritmo non espone alcuna chiave; e la ridotta cardinalita dello spazio delle chiavi a renderlo debole."
     },
+    "why_wrong_en": {
+      "1": "The key is not contained in the message: it is simply that the key space is tiny.",
+      "2": "26 factorial is the space of a generic substitution cipher, not of the Caesar cipher which has only 25 shifts.",
+      "3": "The algorithm does not expose any key; it is the reduced cardinality of the key space that makes it weak."
+    },
     "source": "HACK/Script"
   },
   {
     "id": "tool-003",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Encoding", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Encoding",
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual e l'affermazione corretta riguardo a Base64?",
+    "question_en": "Which is the correct statement regarding Base64?",
     "options": [
       "E un algoritmo di cifratura simmetrica che protegge la riservatezza",
       "E una codifica reversibile senza chiave, non fornisce riservatezza",
       "E una funzione di hash che garantisce l'integrita del dato",
       "E un protocollo di scambio chiavi per canali sicuri"
     ],
-    "correct": [1],
+    "options_en": [
+      "It is a symmetric encryption algorithm that protects confidentiality",
+      "It is a reversible encoding without a key, it does not provide confidentiality",
+      "It is a hash function that guarantees the integrity of the data",
+      "It is a key exchange protocol for secure channels"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Base64 e uno schema di encoding che rappresenta dati binari in caratteri ASCII stampabili. E completamente reversibile senza alcuna chiave: chiunque puo decodificarlo. Non offre riservatezza ne protezione, serve solo al trasporto dei dati.",
+    "explanation_en": "Base64 is an encoding scheme that represents binary data in printable ASCII characters. It is completely reversible without any key: anyone can decode it. It offers no confidentiality or protection, it only serves for transporting data.",
     "why_wrong": {
       "0": "Non e cifratura: non usa chiavi e non protegge nulla, la decodifica e immediata per tutti.",
       "2": "Non e un hash: un hash non e reversibile, mentre Base64 lo e sempre.",
       "3": "Non e uno scambio di chiavi ne un protocollo di sicurezza, e solo una rappresentazione dei dati."
     },
+    "why_wrong_en": {
+      "0": "It is not encryption: it uses no keys and protects nothing, decoding is immediate for everyone.",
+      "2": "It is not a hash: a hash is not reversible, whereas Base64 always is.",
+      "3": "It is not a key exchange nor a security protocol, it is only a representation of the data."
+    },
     "source": "HACK/Script"
   },
   {
     "id": "tool-004",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Hashing"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Hashing"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "A cosa serve principalmente calcolare l'hash (es. SHA-256) di un file e confrontarlo con un valore atteso?",
+    "question_en": "What is the main purpose of computing the hash (e.g. SHA-256) of a file and comparing it with an expected value?",
     "options": [
       "A rendere il contenuto del file riservato e illeggibile",
       "A verificare l'integrita del file, rilevando modifiche o corruzioni",
       "A comprimere il file per ridurne la dimensione",
       "A recuperare il contenuto originale dall'hash"
     ],
-    "correct": [1],
+    "options_en": [
+      "To make the content of the file confidential and unreadable",
+      "To verify the integrity of the file, detecting modifications or corruption",
+      "To compress the file to reduce its size",
+      "To recover the original content from the hash"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Una funzione di hash produce un digest di lunghezza fissa: anche una minima modifica al file cambia drasticamente l'hash (effetto valanga). Confrontare l'hash calcolato con quello atteso serve a verificare l'integrita del dato, non la sua riservatezza.",
+    "explanation_en": "A hash function produces a fixed-length digest: even a minimal change to the file drastically changes the hash (avalanche effect). Comparing the computed hash with the expected one serves to verify the integrity of the data, not its confidentiality.",
     "why_wrong": {
       "0": "L'hash non nasconde ne cifra il contenuto: garantisce integrita, non riservatezza.",
       "2": "L'hash non e una compressione: l'output ha lunghezza fissa e il file originale non e ricostruibile da esso.",
       "3": "L'hash e una funzione a senso unico: dal digest non si risale al contenuto originale."
     },
+    "why_wrong_en": {
+      "0": "The hash does not hide or encrypt the content: it guarantees integrity, not confidentiality.",
+      "2": "The hash is not a compression: the output has a fixed length and the original file cannot be reconstructed from it.",
+      "3": "The hash is a one-way function: from the digest you cannot go back to the original content."
+    },
     "source": "HACK/Script"
   },
   {
     "id": "tool-005",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Nell'analisi di un cifrario a sostituzione monoalfabetica, su cosa si basa principalmente l'analisi delle frequenze?",
+    "question_en": "In the analysis of a monoalphabetic substitution cipher, what is frequency analysis mainly based on?",
     "options": [
       "Sul fatto che ogni lettera del testo cifrato compare esattamente lo stesso numero di volte",
       "Sul fatto che le frequenze delle lettere cifrate rispecchiano quelle della lingua del testo in chiaro",
       "Sul confronto dell'hash del testo cifrato con un dizionario",
       "Sulla lunghezza variabile della chiave a ogni carattere"
     ],
-    "correct": [1],
+    "options_en": [
+      "On the fact that each letter of the ciphertext appears exactly the same number of times",
+      "On the fact that the frequencies of the ciphered letters reflect those of the language of the plaintext",
+      "On comparing the hash of the ciphertext with a dictionary",
+      "On the variable length of the key at each character"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "In una sostituzione monoalfabetica ogni lettera in chiaro e sempre mappata sullo stesso simbolo cifrato. Quindi la distribuzione statistica delle lettere si conserva: le lettere piu frequenti nel cifrato corrispondono probabilmente alle piu frequenti della lingua (in italiano E, A, I, O), permettendo di ricostruire la sostituzione.",
+    "explanation_en": "In a monoalphabetic substitution each plaintext letter is always mapped to the same ciphered symbol. Therefore the statistical distribution of the letters is preserved: the most frequent letters in the ciphertext probably correspond to the most frequent in the language (in Italian E, A, I, O), allowing the substitution to be reconstructed.",
     "why_wrong": {
       "0": "Le lettere non compaiono con uguale frequenza: e proprio la disparita delle frequenze a rendere possibile l'attacco.",
       "2": "L'hash non c'entra con l'analisi delle frequenze di un cifrario a sostituzione.",
       "3": "In una sostituzione monoalfabetica la mappatura e fissa, non c'e una chiave che cambia a ogni carattere (quello sarebbe un cifrario polialfabetico)."
     },
+    "why_wrong_en": {
+      "0": "The letters do not appear with equal frequency: it is precisely the disparity of the frequencies that makes the attack possible.",
+      "2": "The hash has nothing to do with the frequency analysis of a substitution cipher.",
+      "3": "In a monoalphabetic substitution the mapping is fixed, there is no key that changes at each character (that would be a polyalphabetic cipher)."
+    },
     "source": "HACK/Script"
   },
   {
     "id": "tool-006",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Port Scanning"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Port Scanning"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual e l'obiettivo principale di un port scanner come quello realizzato in Python?",
+    "question_en": "What is the main objective of a port scanner such as the one built in Python?",
     "options": [
       "Cifrare le comunicazioni verso un host remoto",
       "Individuare quali porte TCP/UDP di un host sono aperte e in ascolto",
       "Calcolare l'hash dei servizi in esecuzione",
       "Decodificare stringhe Base64 ricevute dalla rete"
     ],
-    "correct": [1],
+    "options_en": [
+      "Encrypting communications to a remote host",
+      "Identifying which TCP/UDP ports of a host are open and listening",
+      "Computing the hash of the running services",
+      "Decoding Base64 strings received from the network"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Un port scanner tenta di connettersi (o invia pacchetti) a un intervallo di porte di un host per determinare quali sono aperte, ovvero quali servizi sono in ascolto. E una tecnica di ricognizione (reconnaissance) usata per mappare la superficie d'attacco di un sistema.",
+    "explanation_en": "A port scanner attempts to connect (or sends packets) to a range of ports of a host to determine which are open, that is which services are listening. It is a reconnaissance technique used to map the attack surface of a system.",
     "why_wrong": {
       "0": "Il port scanning non cifra nulla: si limita a sondare lo stato delle porte.",
       "2": "Il calcolo di hash e un'operazione di integrita, non fa parte dello scopo di uno scanner di porte.",
       "3": "La decodifica Base64 e un'operazione di encoding, estranea alla scansione delle porte."
     },
+    "why_wrong_en": {
+      "0": "Port scanning does not encrypt anything: it merely probes the state of the ports.",
+      "2": "Computing a hash is an integrity operation, it is not part of the purpose of a port scanner.",
+      "3": "Base64 decoding is an encoding operation, unrelated to port scanning."
+    },
     "source": "HACK/Script"
   },
   {
     "id": "tool-007",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Python", "Port Scanning"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Python",
+      "Port Scanning"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "In Python, come verifica tipicamente un port scanner basato su socket TCP se una porta e aperta?",
+    "question_en": "In Python, how does a TCP socket-based port scanner typically check whether a port is open?",
     "options": [
       "Calcolando l'hash SHA-256 dell'indirizzo IP di destinazione",
       "Tentando una connessione con connect_ex e controllando se restituisce 0",
       "Codificando la porta in Base64 e inviandola all'host",
       "Applicando uno shift di Cesare al numero di porta"
     ],
-    "correct": [1],
+    "options_en": [
+      "By computing the SHA-256 hash of the destination IP address",
+      "By attempting a connection with connect_ex and checking whether it returns 0",
+      "By encoding the port in Base64 and sending it to the host",
+      "By applying a Caesar shift to the port number"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Con il modulo socket si crea un socket TCP e si usa connect_ex((host, porta)): il metodo restituisce 0 se la connessione ha successo (porta aperta) o un codice di errore altrimenti. Impostare un timeout evita attese troppo lunghe sulle porte filtrate o chiuse.",
+    "explanation_en": "With the socket module you create a TCP socket and use connect_ex((host, port)): the method returns 0 if the connection succeeds (open port) or an error code otherwise. Setting a timeout avoids overly long waits on filtered or closed ports.",
     "why_wrong": {
       "0": "Il calcolo di un hash dell'IP non fornisce alcuna informazione sullo stato di una porta.",
       "2": "La codifica Base64 della porta non ha senso in questo contesto e non testa la connessione.",
       "3": "Lo shift di Cesare e una tecnica crittografica, non ha nulla a che vedere con il test di connessione TCP."
     },
+    "why_wrong_en": {
+      "0": "Computing a hash of the IP provides no information about the state of a port.",
+      "2": "Base64 encoding of the port makes no sense in this context and does not test the connection.",
+      "3": "The Caesar shift is a cryptographic technique, it has nothing to do with testing a TCP connection."
+    },
     "source": "HACK/Script"
   },
   {
     "id": "tool-008",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Crittografia", "Cifrario di Cesare"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Crittografia",
+      "Cifrario di Cesare"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Perche un cifrario a sostituzione generico e molto piu robusto alla forza bruta rispetto al cifrario di Cesare?",
+    "question_en": "Why is a generic substitution cipher much more robust against brute force than the Caesar cipher?",
     "options": [
       "Perche il suo spazio delle chiavi e enorme (fino a 26 fattoriale permutazioni), non solo 25 shift",
       "Perche usa una chiave diversa e casuale a ogni esecuzione anche a parita di alfabeto",
       "Perche cifra i dati in Base64 prima della sostituzione",
       "Perche produce un hash irreversibile del messaggio"
     ],
-    "correct": [0],
+    "options_en": [
+      "Because its key space is huge (up to 26 factorial permutations), not just 25 shifts",
+      "Because it uses a different and random key at each execution even with the same alphabet",
+      "Because it encrypts the data in Base64 before the substitution",
+      "Because it produces an irreversible hash of the message"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Il Cesare ha solo 25 chiavi possibili. Una sostituzione monoalfabetica generica associa a ogni lettera una qualsiasi altra: lo spazio delle chiavi arriva a 26 fattoriale (circa 4x10^26 permutazioni), rendendo la forza bruta pura impraticabile. Resta pero vulnerabile all'analisi delle frequenze.",
+    "explanation_en": "The Caesar cipher has only 25 possible keys. A generic monoalphabetic substitution maps each letter to any other: the key space reaches 26 factorial (about 4x10^26 permutations), making pure brute force impractical. However, it remains vulnerable to frequency analysis.",
     "why_wrong": {
       "1": "La robustezza deriva dalla dimensione dello spazio delle chiavi, non da una chiave che cambia a ogni esecuzione.",
       "2": "La sostituzione non prevede alcun passaggio in Base64: sono cose distinte.",
       "3": "Un cifrario e reversibile con la chiave; un hash irreversibile e un concetto diverso e non descrive la sostituzione."
     },
+    "why_wrong_en": {
+      "1": "The robustness comes from the size of the key space, not from a key that changes at each execution.",
+      "2": "The substitution involves no Base64 step: they are distinct things.",
+      "3": "A cipher is reversible with the key; an irreversible hash is a different concept and does not describe the substitution."
+    },
     "source": "HACK/Script"
   },
   {
     "id": "tool-009",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Hashing"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Hashing"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale di queste e una proprieta fondamentale di una buona funzione di hash crittografica?",
+    "question_en": "Which of these is a fundamental property of a good cryptographic hash function?",
     "options": [
       "Deve poter essere invertita per ricostruire il dato originale",
       "Deve essere resistente alle collisioni e comportarsi come funzione a senso unico",
       "Deve produrre output di lunghezza proporzionale all'input",
       "Deve usare una chiave segreta condivisa per essere calcolata"
     ],
-    "correct": [1],
+    "options_en": [
+      "It must be invertible to reconstruct the original data",
+      "It must be collision resistant and behave as a one-way function",
+      "It must produce output of a length proportional to the input",
+      "It must use a shared secret key to be computed"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Una funzione di hash crittografica deve essere a senso unico (non invertibile) e resistente alle collisioni: deve essere computazionalmente difficile trovare due input diversi con lo stesso digest. L'output ha lunghezza fissa indipendente dall'input.",
+    "explanation_en": "A cryptographic hash function must be one-way (non-invertible) and collision resistant: it must be computationally hard to find two different inputs with the same digest. The output has a fixed length independent of the input.",
     "why_wrong": {
       "0": "L'irreversibilita e un requisito: un hash non deve poter essere invertito per risalire al dato.",
       "2": "L'output di un hash ha lunghezza fissa, non proporzionale alla dimensione dell'input.",
       "3": "Un hash puro non richiede chiavi; l'uso di una chiave segreta caratterizza un HMAC, non l'hash in se."
     },
+    "why_wrong_en": {
+      "0": "Irreversibility is a requirement: a hash must not be invertible to go back to the data.",
+      "2": "The output of a hash has a fixed length, not proportional to the size of the input.",
+      "3": "A pure hash does not require keys; the use of a secret key characterizes an HMAC, not the hash itself."
+    },
     "source": "HACK/Script"
   },
   {
     "id": "tool-010",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Cifrario di Cesare", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Cifrario di Cesare",
+      "Crittografia"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali affermazioni sul cifrario di Cesare sono corrette? (seleziona due)",
+    "question_en": "Which statements about the Caesar cipher are correct? (select two)",
     "options": [
       "Lo spazio delle chiavi utili su alfabeto latino e limitato a 25 shift",
       "Puo essere decifrato per forza bruta provando tutti gli shift possibili",
       "Garantisce riservatezza equivalente a un cifrario moderno come AES",
       "La chiave cambia a ogni lettera rendendolo un cifrario polialfabetico"
     ],
-    "correct": [0, 1],
+    "options_en": [
+      "The space of useful keys on the Latin alphabet is limited to 25 shifts",
+      "It can be decrypted by brute force by trying all possible shifts",
+      "It guarantees confidentiality equivalent to a modern cipher such as AES",
+      "The key changes at each letter, making it a polyalphabetic cipher"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Il Cesare usa un unico shift fisso: con 26 lettere ci sono solo 25 chiavi utili, quindi un attaccante puo provarle tutte (brute force) e riconoscere il testo di senso compiuto. E un cifrario debole, lontanissimo dalla robustezza di algoritmi moderni.",
+    "explanation_en": "The Caesar cipher uses a single fixed shift: with 26 letters there are only 25 useful keys, so an attacker can try them all (brute force) and recognize the meaningful text. It is a weak cipher, very far from the robustness of modern algorithms.",
     "why_wrong": {
       "2": "Il Cesare e banalmente forzabile e non offre alcuna sicurezza paragonabile ad AES.",
       "3": "Il Cesare usa uno shift fisso uguale per tutte le lettere: e monoalfabetico, non polialfabetico."
+    },
+    "why_wrong_en": {
+      "2": "The Caesar cipher is trivially breakable and offers no security comparable to AES.",
+      "3": "The Caesar cipher uses a fixed shift the same for all letters: it is monoalphabetic, not polyalphabetic."
     },
     "source": "HACK/Script"
   },
   {
     "id": "tool-011",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Port Scanning", "Python"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Port Scanning",
+      "Python"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali affermazioni su port scanning e socket in Python sono corrette? (seleziona due)",
+    "question_en": "Which statements about port scanning and sockets in Python are correct? (select two)",
     "options": [
       "Impostare un timeout sul socket evita attese lunghe su porte chiuse o filtrate",
       "Un port scanner serve a scoprire quali porte di un host sono aperte",
       "Il port scanning cifra il traffico tra scanner e host bersaglio",
       "Una porta aperta implica sempre l'assenza di vulnerabilita nel servizio"
     ],
-    "correct": [0, 1],
+    "options_en": [
+      "Setting a timeout on the socket avoids long waits on closed or filtered ports",
+      "A port scanner is used to discover which ports of a host are open",
+      "Port scanning encrypts the traffic between the scanner and the target host",
+      "An open port always implies the absence of vulnerabilities in the service"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Un timeout sul socket impedisce che la scansione resti bloccata a lungo su porte non raggiungibili, velocizzando il lavoro. Lo scopo dello scanner e enumerare le porte aperte di un host per capire quali servizi sono esposti.",
+    "explanation_en": "A timeout on the socket prevents the scan from staying blocked for a long time on unreachable ports, speeding up the work. The purpose of the scanner is to enumerate the open ports of a host to understand which services are exposed.",
     "why_wrong": {
       "2": "Il port scanning e ricognizione: sonda lo stato delle porte, non cifra alcun traffico.",
       "3": "Una porta aperta indica solo un servizio in ascolto: quel servizio puo benissimo essere vulnerabile."
+    },
+    "why_wrong_en": {
+      "2": "Port scanning is reconnaissance: it probes the state of the ports, it does not encrypt any traffic.",
+      "3": "An open port only indicates a listening service: that service may well be vulnerable."
     },
     "source": "HACK/Script"
   },
   {
     "id": "tool-012",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Encoding", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Encoding",
+      "Crittografia"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Codificare un dato in Base64 equivale a cifrarlo, quindi ne protegge la riservatezza.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "question_en": "Encoding data in Base64 is equivalent to encrypting it, therefore it protects its confidentiality.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. Base64 e solo una codifica reversibile senza chiave: chiunque puo ridecodificare il dato in chiaro. Non e cifratura e non fornisce alcuna riservatezza. Va usato per il trasporto dei dati, mai come misura di sicurezza.",
+    "explanation_en": "False. Base64 is only a reversible encoding without a key: anyone can re-decode the data in clear. It is not encryption and provides no confidentiality. It should be used for transporting data, never as a security measure.",
     "source": "HACK/Script"
   },
   {
     "id": "tool-013",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Hashing"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Hashing"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Confrontare l'hash di un file scaricato con l'hash pubblicato dall'autore serve a verificarne l'integrita.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "Comparing the hash of a downloaded file with the hash published by the author serves to verify its integrity.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Se il file viene alterato o corrotto durante il download, il suo hash cambia e non coincide piu con quello atteso. Il confronto degli hash e un controllo di integrita, non di riservatezza.",
+    "explanation_en": "True. If the file is altered or corrupted during the download, its hash changes and no longer matches the expected one. Comparing hashes is an integrity check, not a confidentiality one.",
     "source": "HACK/Script"
   },
   {
     "id": "tool-014",
-    "cert": ["Tooling & Cifrari"],
-    "topics": ["Cifrario di Cesare", "Crittografia"],
+    "cert": [
+      "Tooling & Cifrari"
+    ],
+    "topics": [
+      "Cifrario di Cesare",
+      "Crittografia"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Su un alfabeto di 26 lettere, un attacco a forza bruta al cifrario di Cesare deve provare al massimo 25 chiavi.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "On an alphabet of 26 letters, a brute-force attack on the Caesar cipher must try at most 25 keys.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Lo shift 0 lascia il testo invariato, quindi restano 25 shift utili da provare. E possibile testarli tutti in un istante e riconoscere lo shift corretto guardando quale produce testo leggibile.",
+    "explanation_en": "True. Shift 0 leaves the text unchanged, so 25 useful shifts remain to be tried. It is possible to test them all in an instant and recognize the correct shift by looking at which one produces readable text.",
     "source": "HACK/Script"
   }
 ]

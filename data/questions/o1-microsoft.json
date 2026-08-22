@@ -19,7 +19,20 @@
       "2": "Zero Trust applica il privilegio minimo (least privilege), non l'assegnazione estesa di privilegi amministrativi.",
       "3": "Il modello va oltre il firewall perimetrale, verificando identità, dispositivi e contesto di ogni accesso."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "Which principle underlies the Zero Trust security model?",
+    "options_en": [
+      "Trust everything located inside the corporate network perimeter",
+      "Never trust by default and always explicitly verify every request",
+      "Grant all users administrator privileges to simplify management",
+      "Base security exclusively on the perimeter firewall"
+    ],
+    "explanation_en": "Zero Trust is based on the principle 'never trust, always verify': every access request is explicitly verified regardless of its origin, as if it came from an untrusted network.",
+    "why_wrong_en": {
+      "0": "Zero Trust was created precisely to overcome the idea of a trusted perimeter: no network location is considered trustworthy a priori.",
+      "2": "Zero Trust applies least privilege, not the broad assignment of administrative privileges.",
+      "3": "The model goes beyond the perimeter firewall, verifying identity, devices and context of every access."
+    }
   },
   {
     "id": "ms-002",
@@ -40,7 +53,19 @@
       "2": "Zero Trust non fida del traffico interno: anche gli accessi interni vanno verificati e segmentati.",
       "3": "La visibilità tramite log e telemetria è essenziale in Zero Trust, non va disabilitata."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "Which of the following are core guiding principles of Microsoft's Zero Trust model? (Select two)",
+    "options_en": [
+      "Verify every access explicitly",
+      "Assume breach",
+      "Allow internal traffic without additional controls",
+      "Disable log recording to improve performance"
+    ],
+    "explanation_en": "The three guiding principles of Zero Trust are: verify explicitly, use least-privilege access, and assume breach. Two of these are listed in the correct options.",
+    "why_wrong_en": {
+      "2": "Zero Trust does not trust internal traffic: internal access must also be verified and segmented.",
+      "3": "Visibility through logs and telemetry is essential in Zero Trust and must not be disabled."
+    }
   },
   {
     "id": "ms-003",
@@ -62,7 +87,20 @@
       "2": "L'archiviazione crittografata di file è fornita da servizi come Azure Storage, non da Entra ID.",
       "3": "La protezione antivirus degli endpoint è compito di Microsoft Defender for Endpoint, non di Entra ID."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "What type of service is Microsoft Entra ID (formerly Azure Active Directory)?",
+    "options_en": [
+      "A cloud-based identity and access management service",
+      "A next-generation firewall for the perimeter network",
+      "An encrypted file storage service",
+      "An antivirus for Windows endpoints"
+    ],
+    "explanation_en": "Microsoft Entra ID is Microsoft's cloud identity and access management (IAM) service, which handles authentication, authorization and single sign-on for users and applications.",
+    "why_wrong_en": {
+      "1": "A network firewall is a network security control, not an identity management service.",
+      "2": "Encrypted file storage is provided by services such as Azure Storage, not by Entra ID.",
+      "3": "Endpoint antivirus protection is the job of Microsoft Defender for Endpoint, not Entra ID."
+    }
   },
   {
     "id": "ms-004",
@@ -84,7 +122,20 @@
       "2": "L'impronta digitale da sola è un solo fattore; l'MFA ne richiede almeno due di categorie diverse.",
       "3": "La rotazione periodica della password è una policy sulle password, non autenticazione a più fattori."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "What does multi-factor authentication (MFA) require?",
+    "options_en": [
+      "A particularly long and complex password",
+      "At least two forms of verification from different categories, for example something you know and something you have",
+      "The exclusive use of a fingerprint",
+      "Changing the password every 30 days"
+    ],
+    "explanation_en": "MFA requires two or more verification factors belonging to different categories: something you know (password), something you have (phone, token) or something you are (biometrics). This drastically reduces the risk from compromised credentials.",
+    "why_wrong_en": {
+      "0": "A complex password remains a single factor (something you know), so it does not constitute MFA.",
+      "2": "A fingerprint alone is a single factor; MFA requires at least two from different categories.",
+      "3": "Periodic password rotation is a password policy, not multi-factor authentication."
+    }
   },
   {
     "id": "ms-005",
@@ -106,7 +157,20 @@
       "2": "L'accesso condizionale può richiedere metodi più forti ma non elimina di per sé le password per tutti.",
       "3": "La scansione antimalware dei file non è una funzione dell'accesso condizionale."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "In Microsoft Entra, what does Conditional Access allow you to do?",
+    "options_en": [
+      "Automatically encrypt all data stored in the cloud",
+      "Apply access decisions based on signals such as user, device, location and risk",
+      "Completely replace the need for passwords for all users",
+      "Run anti-malware scanning of uploaded files"
+    ],
+    "explanation_en": "Conditional Access evaluates signals (user identity, device state, location, session risk) and applies controls such as requiring MFA, blocking access or enforcing a compliant device. It is an 'if-then' policy engine.",
+    "why_wrong_en": {
+      "0": "Encryption of data at rest is handled by other services; Conditional Access governs access decisions.",
+      "2": "Conditional Access can require stronger methods but does not by itself eliminate passwords for everyone.",
+      "3": "Anti-malware scanning of files is not a function of Conditional Access."
+    }
   },
   {
     "id": "ms-006",
@@ -128,7 +192,20 @@
       "2": "Un amministratore globale è un account umano con privilegi elevati, non un'identità pensata per i carichi di lavoro.",
       "3": "Un account locale del dispositivo non è un'identità cloud gestita da Entra ID per i servizi."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "In Microsoft Entra ID, which type of identity is typically used to securely authenticate an application or service to Azure resources without manually managing credentials?",
+    "options_en": [
+      "A guest user account",
+      "A managed identity",
+      "A global administrator account",
+      "A local device user account"
+    ],
+    "explanation_en": "A managed identity provides applications and Azure services with an identity managed automatically in Entra ID, eliminating the need to store credentials in code and enabling secure authentication to resources that support Entra ID.",
+    "why_wrong_en": {
+      "0": "A guest account represents an invited external human user, not an application identity for services.",
+      "2": "A global administrator is a human account with elevated privileges, not an identity designed for workloads.",
+      "3": "A local device account is not a cloud identity managed by Entra ID for services."
+    }
   },
   {
     "id": "ms-007",
@@ -140,7 +217,10 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. Il Single Sign-On permette a un utente di autenticarsi una volta e accedere a più applicazioni e servizi collegati senza dover ripetere l'inserimento delle credenziali, migliorando usabilità e riducendo l'affaticamento da password.",
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "Single Sign-On (SSO) allows a user to authenticate only once to access multiple applications without re-entering credentials.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. Single Sign-On allows a user to authenticate once and access multiple connected applications and services without having to re-enter credentials, improving usability and reducing password fatigue."
   },
   {
     "id": "ms-008",
@@ -161,7 +241,19 @@
       "2": "Microsoft Entra Connect sincronizza le identità tra Active Directory locale e il cloud: è uno strumento di identità, non una soluzione Defender.",
       "3": "Azure Blob Storage è un servizio di archiviazione di oggetti, non fa parte della famiglia Microsoft Defender."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "Which of the following are part of the Microsoft Defender family of threat protection solutions? (Select two)",
+    "options_en": [
+      "Microsoft Defender for Endpoint",
+      "Microsoft Defender for Office 365",
+      "Microsoft Entra Connect",
+      "Azure Blob Storage"
+    ],
+    "explanation_en": "Microsoft Defender for Endpoint (endpoint EDR protection) and Microsoft Defender for Office 365 (protection of email and collaboration tools from phishing and malware) both belong to the Microsoft Defender suite for threat detection and response.",
+    "why_wrong_en": {
+      "2": "Microsoft Entra Connect synchronizes identities between on-premises Active Directory and the cloud: it is an identity tool, not a Defender solution.",
+      "3": "Azure Blob Storage is an object storage service and is not part of the Microsoft Defender family."
+    }
   },
   {
     "id": "ms-009",
@@ -183,7 +275,20 @@
       "2": "Sentinel non è un gestore di password destinato agli utenti finali.",
       "3": "Il backup e il ripristino sono offerti da servizi come Azure Backup, non da Sentinel."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "What is Microsoft Sentinel?",
+    "options_en": [
+      "A cloud-native SIEM and SOAR solution for security data collection and incident response",
+      "A secure email service",
+      "A password manager for end users",
+      "A file backup and recovery tool"
+    ],
+    "explanation_en": "Microsoft Sentinel is a cloud-native SIEM (Security Information and Event Management) and SOAR (Security Orchestration, Automation and Response) solution that collects and correlates security data, detects threats and automates incident response at scale.",
+    "why_wrong_en": {
+      "1": "Secure email is handled by services such as Defender for Office 365, not by Sentinel.",
+      "2": "Sentinel is not a password manager intended for end users.",
+      "3": "Backup and recovery are offered by services such as Azure Backup, not by Sentinel."
+    }
   },
   {
     "id": "ms-010",
@@ -205,7 +310,20 @@
       "2": "Ogni schema di crittografia richiede almeno una chiave; senza chiave non c'è cifratura.",
       "3": "Le firme digitali si basano sulla crittografia asimmetrica; quella simmetrica serve a cifrare i dati."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "What is a distinctive feature of symmetric cryptography compared to asymmetric cryptography?",
+    "options_en": [
+      "It uses a pair of different keys: one public and one private",
+      "It uses the same key for both encrypting and decrypting data",
+      "It requires no key to work",
+      "It can be used only for digital signatures"
+    ],
+    "explanation_en": "In symmetric cryptography the same secret key is used for both encrypting and decrypting data. It is fast and efficient, but requires a secure exchange of the shared key between the parties.",
+    "why_wrong_en": {
+      "0": "The use of a public/private key pair is a feature of asymmetric cryptography, not symmetric.",
+      "2": "Every encryption scheme requires at least one key; without a key there is no encryption.",
+      "3": "Digital signatures rely on asymmetric cryptography; symmetric cryptography is used to encrypt data."
+    }
   },
   {
     "id": "ms-011",
@@ -217,7 +335,10 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. Nella crittografia a chiave pubblica, ciò che viene cifrato con la chiave pubblica può essere decifrato esclusivamente con la chiave privata corrispondente, garantendo che solo il possessore della chiave privata acceda al contenuto.",
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "In asymmetric cryptography, data encrypted with a recipient's public key can be decrypted only with the corresponding private key.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. In public-key cryptography, what is encrypted with the public key can be decrypted exclusively with the corresponding private key, ensuring that only the holder of the private key accesses the content."
   },
   {
     "id": "ms-012",
@@ -239,7 +360,20 @@
       "2": "La sicurezza fisica dei data center è un controllo separato, non riguarda le sensitivity label.",
       "3": "La gestione delle patch è compito di strumenti come Intune/Update Management, non delle etichette."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "What are Microsoft Purview sensitivity labels primarily used for?",
+    "options_en": [
+      "Classify and protect data by applying controls such as encryption and content marking",
+      "Increase the speed of the corporate network",
+      "Block physical access to data centers",
+      "Manage operating system patches"
+    ],
+    "explanation_en": "Microsoft Purview sensitivity labels allow data to be classified according to its sensitivity and to apply protections such as encryption, access restrictions and visual marking (headers, watermarks), even when the data moves.",
+    "why_wrong_en": {
+      "1": "Sensitivity labels concern data classification and protection, not network performance.",
+      "2": "Physical security of data centers is a separate control and does not concern sensitivity labels.",
+      "3": "Patch management is the job of tools such as Intune/Update Management, not of labels."
+    }
   },
   {
     "id": "ms-013",
@@ -260,7 +394,19 @@
       "2": "Il bilanciamento del carico delle VM è una funzione di infrastruttura di Azure, non di Purview.",
       "3": "Il provisioning delle reti virtuali riguarda l'infrastruttura di rete, non la conformità dei dati."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "Which of the following are features offered by Microsoft Purview for compliance and data protection? (Select two)",
+    "options_en": [
+      "Data Loss Prevention",
+      "Data lifecycle management and retention",
+      "Virtual machine load balancing",
+      "Automatic provisioning of virtual networks"
+    ],
+    "explanation_en": "Microsoft Purview includes Data Loss Prevention (DLP) to prevent the unauthorized sharing of sensitive information, and data lifecycle management with retention and deletion policies. Both support compliance.",
+    "why_wrong_en": {
+      "2": "VM load balancing is an Azure infrastructure function, not a Purview one.",
+      "3": "Virtual network provisioning concerns network infrastructure, not data compliance."
+    }
   },
   {
     "id": "ms-014",
@@ -282,7 +428,20 @@
       "2": "Lo sfruttamento di una vulnerabilità software è un exploit tecnico, distinto dall'inganno sociale del phishing.",
       "3": "L'intercettazione fisica dei cavi è un attacco fisico/di tapping, non phishing."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "Which of the following best describes a phishing attack?",
+    "options_en": [
+      "Flooding a server with traffic to make it unavailable",
+      "Deceiving users with fraudulent communications so that they reveal credentials or sensitive information",
+      "Exploiting an unpatched operating system vulnerability to execute code",
+      "Physically tapping the network cables of a building"
+    ],
+    "explanation_en": "Phishing is a social engineering attack in which the attacker sends fraudulent communications (often emails) that appear to come from trusted sources, to induce victims to reveal credentials, sensitive data or to install malware.",
+    "why_wrong_en": {
+      "0": "Flooding traffic toward a server describes a Denial of Service attack, not phishing.",
+      "2": "Exploiting a software vulnerability is a technical exploit, distinct from the social deception of phishing.",
+      "3": "Physical tapping of cables is a physical/tapping attack, not phishing."
+    }
   },
   {
     "id": "ms-015",
@@ -304,7 +463,20 @@
       "2": "La difesa in profondità copre molti livelli, non solo quello fisico.",
       "3": "La ridondanza dei controlli su più livelli è proprio ciò che rende efficace la difesa in profondità."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "What does the concept of defense in depth describe?",
+    "options_en": [
+      "Relying on a single, very robust security control",
+      "Using multiple layers of security controls so that, if one fails, the others continue to protect",
+      "Concentrating all security resources only on the physical layer",
+      "Eliminating redundant controls to simplify the architecture"
+    ],
+    "explanation_en": "Defense in depth uses multiple layers of security controls (physical, identity, perimeter, network, compute, application, data) so that the failure of a single layer does not compromise the entire system: the other layers continue to provide protection.",
+    "why_wrong_en": {
+      "0": "Relying on a single control creates a single point of failure, the opposite of defense in depth.",
+      "2": "Defense in depth covers many layers, not only the physical one.",
+      "3": "Redundancy of controls across multiple layers is exactly what makes defense in depth effective."
+    }
   },
   {
     "id": "ms-016",
@@ -325,7 +497,19 @@
       "2": "Riutilizzare la stessa password amplifica il rischio: una singola violazione compromette più account (credential stuffing).",
       "3": "Disattivare i log riduce la capacità di rilevare e rispondere agli attacchi, peggiorando la sicurezza."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "Which of the following are effective mitigation measures against password-theft-based attacks? (Select two)",
+    "options_en": [
+      "Enable multi-factor authentication (MFA)",
+      "Adopt passwordless authentication methods, such as FIDO2 passkeys",
+      "Reuse the same password across multiple services to remember it easily",
+      "Disable sign-in logging to reduce the data collected"
+    ],
+    "explanation_en": "MFA adds a further verification factor that makes a stolen password alone useless, while passwordless authentication (FIDO2 passkeys, Windows Hello) removes the password entirely as a stealable secret. Both strongly mitigate credential theft.",
+    "why_wrong_en": {
+      "2": "Reusing the same password amplifies the risk: a single breach compromises multiple accounts (credential stuffing).",
+      "3": "Disabling logs reduces the ability to detect and respond to attacks, worsening security."
+    }
   },
   {
     "id": "ms-017",
@@ -347,7 +531,20 @@
       "2": "Entra Connect sincronizza le identità tra Active Directory locale e il cloud, non gestisce l'attivazione temporanea dei ruoli.",
       "3": "Le sensitivity labels classificano e proteggono i dati, non regolano l'accesso privilegiato temporaneo."
     },
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "An organization wants to grant administrators elevated privileges only for the time needed to perform a task, requiring time-limited activation with approval. Which Microsoft Entra feature best meets this need?",
+    "options_en": [
+      "Privileged Identity Management (PIM)",
+      "Self-Service Password Reset (SSPR)",
+      "Microsoft Entra Connect",
+      "Sensitivity labels"
+    ],
+    "explanation_en": "Privileged Identity Management (PIM) provides just-in-time privileged access: users activate elevated roles only when needed, for a limited period and possibly with approval, reducing the exposure resulting from standing access.",
+    "why_wrong_en": {
+      "1": "Self-Service Password Reset allows users to reset their own password, not to manage just-in-time privileges.",
+      "2": "Entra Connect synchronizes identities between on-premises Active Directory and the cloud; it does not manage temporary role activation.",
+      "3": "Sensitivity labels classify and protect data; they do not govern temporary privileged access."
+    }
   },
   {
     "id": "ms-018",
@@ -359,6 +556,9 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Vero. Il privilegio minimo, uno dei principi cardine di Zero Trust, limita gli accessi al minimo indispensabile (con controlli just-in-time e just-enough-access), riducendo il potenziale danno in caso di compromissione di un account.",
-    "source": "HACK/Microsoft Cybersecurity"
+    "source": "HACK/Microsoft Cybersecurity",
+    "question_en": "The principle of least privilege involves granting users only the permissions strictly necessary to perform their tasks, reducing the attack surface.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. Least privilege, one of the core principles of Zero Trust, limits access to the bare minimum (with just-in-time and just-enough-access controls), reducing the potential damage in the event of an account compromise."
   }
 ]

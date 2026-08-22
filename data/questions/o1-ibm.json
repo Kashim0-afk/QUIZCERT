@@ -10,7 +10,11 @@
     "correct": [1],
     "explanation": "L'integrità (Integrity) assicura che i dati restino accurati, completi e non modificati da soggetti o processi non autorizzati.",
     "why_wrong": { "0": "La riservatezza riguarda la limitazione dell'accesso ai dati, non la loro non alterazione.", "2": "La disponibilità riguarda il fatto che i dati siano accessibili quando servono.", "3": "L'autenticazione è un controllo di identità e non fa parte della CIA Triad classica." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "In the CIA Triad, which principle ensures that data is not altered in an unauthorized way?",
+    "options_en": ["Confidentiality", "Integrity", "Availability", "Authentication"],
+    "explanation_en": "Integrity ensures that data remains accurate, complete and unmodified by unauthorized entities or processes.",
+    "why_wrong_en": { "0": "Confidentiality is about restricting access to data, not about preventing its alteration.", "2": "Availability is about data being accessible when needed.", "3": "Authentication is an identity control and is not part of the classic CIA Triad." }
   },
   {
     "id": "ibm-002",
@@ -23,7 +27,11 @@
     "correct": [1],
     "explanation": "L'ordine è Reconnaissance, Weaponization, Delivery, Exploitation, Installation, Command & Control, Actions on Objectives: dopo aver preparato il payload (Weaponization) l'attaccante lo consegna alla vittima (Delivery).",
     "why_wrong": { "0": "La Reconnaissance precede la Weaponization, non la segue.", "2": "L'Exploitation avviene dopo la Delivery, quando il payload viene eseguito.", "3": "Actions on Objectives è l'ultima fase della kill chain." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "In Lockheed Martin's Cyber Kill Chain, which phase immediately follows 'Weaponization'?",
+    "options_en": ["Reconnaissance", "Delivery", "Exploitation", "Actions on Objectives"],
+    "explanation_en": "The order is Reconnaissance, Weaponization, Delivery, Exploitation, Installation, Command & Control, Actions on Objectives: after preparing the payload (Weaponization) the attacker delivers it to the victim (Delivery).",
+    "why_wrong_en": { "0": "Reconnaissance precedes Weaponization, it does not follow it.", "2": "Exploitation occurs after Delivery, when the payload is executed.", "3": "Actions on Objectives is the last phase of the kill chain." }
   },
   {
     "id": "ibm-003",
@@ -36,7 +44,11 @@
     "correct": [0],
     "explanation": "Il ciclo NIST SP 800-61 prevede quattro fasi: Preparazione, Rilevamento e Analisi, Contenimento-Eradicazione-Ripristino e infine Attività Post-Incidente (lezioni apprese).",
     "why_wrong": { "1": "La Preparazione precede sempre il Rilevamento; questo ordine è invertito.", "2": "La Preparazione è la prima fase, non la seconda, e il rilevamento precede il contenimento.", "3": "Il rilevamento deve precedere il ripristino: non si può ripristinare prima di aver individuato l'incidente." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "According to the NIST SP 800-61 framework, what is the correct sequence of the Incident Response life cycle phases?",
+    "options_en": ["Preparation; Detection and Analysis; Containment, Eradication and Recovery; Post-Incident Activity", "Detection; Preparation; Recovery; Reporting", "Containment; Preparation; Detection; Eradication", "Preparation; Recovery; Detection; Lessons learned"],
+    "explanation_en": "The NIST SP 800-61 cycle has four phases: Preparation, Detection and Analysis, Containment-Eradication-Recovery, and finally Post-Incident Activity (lessons learned).",
+    "why_wrong_en": { "1": "Preparation always precedes Detection; this order is reversed.", "2": "Preparation is the first phase, not the second, and detection precedes containment.", "3": "Detection must precede recovery: you cannot recover before identifying the incident." }
   },
   {
     "id": "ibm-004",
@@ -48,7 +60,10 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Nella crittografia simmetrica (es. AES) mittente e destinatario condividono un'unica chiave segreta usata sia per la cifratura sia per la decifratura, a differenza di quella asimmetrica che usa una coppia di chiavi.",
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "Symmetric cryptography uses the same key for both encrypting and decrypting data.",
+    "options_en": ["True", "False"],
+    "explanation_en": "In symmetric cryptography (e.g. AES) the sender and receiver share a single secret key used for both encryption and decryption, unlike asymmetric cryptography, which uses a key pair."
   },
   {
     "id": "ibm-005",
@@ -61,7 +76,11 @@
     "correct": [0, 2],
     "explanation": "Il worm si auto-replica e si propaga autonomamente in rete, mentre il ransomware cifra i dati della vittima per estorcere un riscatto. Sono descrizioni corrette dei rispettivi malware.",
     "why_wrong": { "1": "Un virus, per definizione, ha bisogno di un file o programma ospite a cui agganciarsi per propagarsi.", "3": "Un trojan non si auto-replica: si maschera da software legittimo per ingannare l'utente e farsi eseguire." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "Which of the following statements about malware types are correct? (select two)",
+    "options_en": ["A worm can self-replicate and spread across a network without user intervention", "A virus can execute and propagate without needing a host file or program", "Ransomware encrypts the victim's files, demanding a ransom for their recovery", "A trojan automatically self-replicates like a worm"],
+    "explanation_en": "A worm self-replicates and spreads autonomously across a network, while ransomware encrypts the victim's data to extort a ransom. These are correct descriptions of the respective malware.",
+    "why_wrong_en": { "1": "A virus, by definition, needs a host file or program to attach to in order to propagate.", "3": "A trojan does not self-replicate: it disguises itself as legitimate software to trick the user into executing it." }
   },
   {
     "id": "ibm-006",
@@ -74,7 +93,11 @@
     "correct": [1],
     "explanation": "Lo stateful inspection firewall mantiene una tabella dello stato delle connessioni e valuta ogni pacchetto nel contesto della sessione a cui appartiene, consentendo decisioni più accurate.",
     "why_wrong": { "0": "Il packet filtering stateless valuta ogni pacchetto in modo isolato, senza memoria dello stato della connessione.", "2": "Un ripetitore di broadcast non è un dispositivo di filtraggio di sicurezza.", "3": "Un hub opera al livello fisico e non prende decisioni di filtraggio del traffico." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "Which type of firewall tracks the state of active network connections to decide which packets to allow?",
+    "options_en": ["Stateless packet filtering", "Stateful inspection firewall", "Broadcast repeater", "Layer 1 hub"],
+    "explanation_en": "The stateful inspection firewall maintains a connection state table and evaluates each packet in the context of the session it belongs to, allowing more accurate decisions.",
+    "why_wrong_en": { "0": "Stateless packet filtering evaluates each packet in isolation, with no memory of the connection state.", "2": "A broadcast repeater is not a security filtering device.", "3": "A hub operates at the physical layer and does not make traffic filtering decisions." }
   },
   {
     "id": "ibm-007",
@@ -87,7 +110,11 @@
     "correct": [1],
     "explanation": "Un IPS (Intrusion Prevention System) è posizionato in linea e può bloccare o prevenire attivamente il traffico dannoso, mentre un IDS (Intrusion Detection System) si limita a rilevare le anomalie e a generare allerte.",
     "why_wrong": { "0": "I ruoli sono invertiti: è l'IPS a bloccare, non l'IDS.", "2": "La differenza esiste ed è sostanziale: prevenzione attiva (IPS) contro sola rilevazione (IDS).", "3": "L'IDS analizza il traffico di rete in generale e non è limitato a quello cifrato." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "What is the main difference between an IDS and an IPS?",
+    "options_en": ["The IDS actively blocks traffic, while the IPS only detects", "The IPS can block or prevent malicious traffic, while the IDS only detects and alerts", "There is no functional difference between the two", "The IDS operates exclusively on encrypted traffic"],
+    "explanation_en": "An IPS (Intrusion Prevention System) is placed inline and can actively block or prevent malicious traffic, while an IDS (Intrusion Detection System) only detects anomalies and generates alerts.",
+    "why_wrong_en": { "0": "The roles are reversed: it is the IPS that blocks, not the IDS.", "2": "The difference exists and is substantial: active prevention (IPS) versus detection only (IDS).", "3": "The IDS analyzes network traffic in general and is not limited to encrypted traffic." }
   },
   {
     "id": "ibm-008",
@@ -99,7 +126,10 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Un SIEM (Security Information and Event Management) centralizza, normalizza e correla i log provenienti da più sistemi per individuare pattern sospetti e generare allerte utili alla risposta agli incidenti.",
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "A SIEM collects and correlates logs and events from different sources to detect potential security incidents.",
+    "options_en": ["True", "False"],
+    "explanation_en": "A SIEM (Security Information and Event Management) centralizes, normalizes and correlates logs from multiple systems to identify suspicious patterns and generate alerts useful for incident response."
   },
   {
     "id": "ibm-009",
@@ -112,7 +142,11 @@
     "correct": [1],
     "explanation": "La difesa in profondità prevede molteplici strati di controlli (fisici, tecnici, amministrativi) così che, se un livello viene compromesso, gli altri continuino a proteggere le risorse.",
     "why_wrong": { "0": "Affidarsi a un solo controllo crea un singolo punto di fallimento, l'opposto della difesa in profondità.", "2": "Rimuovere i controlli interni aumenta il rischio ed è contrario al principio.", "3": "La cifratura è solo uno dei possibili livelli, non l'unica misura prevista." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "The principle of 'Defense in Depth' is based on:",
+    "options_en": ["A single, very robust security control", "Multiple redundant and layered security controls", "The absence of internal controls to speed up the network", "Encryption as the only protection measure"],
+    "explanation_en": "Defense in depth uses multiple layers of controls (physical, technical, administrative) so that, if one layer is compromised, the others continue to protect the assets.",
+    "why_wrong_en": { "0": "Relying on a single control creates a single point of failure, the opposite of defense in depth.", "2": "Removing internal controls increases risk and is contrary to the principle.", "3": "Encryption is only one of the possible layers, not the only measure envisaged." }
   },
   {
     "id": "ibm-010",
@@ -125,7 +159,11 @@
     "correct": [2],
     "explanation": "Nel RBAC (Role-Based Access Control) i permessi vengono associati ai ruoli e gli utenti ereditano i diritti in base al ruolo ricoperto, semplificando la gestione degli accessi.",
     "why_wrong": { "0": "Nel DAC è il proprietario della risorsa a decidere discrezionalmente chi può accedervi.", "1": "Nel MAC l'accesso è imposto dal sistema tramite etichette di classificazione, non dal ruolo organizzativo.", "3": "Il vincolo orario è un attributo aggiuntivo, non il criterio che definisce questo modello." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "The access control model in which permissions are assigned based on the user's role in the organization is called:",
+    "options_en": ["DAC (Discretionary Access Control)", "MAC (Mandatory Access Control)", "RBAC (Role-Based Access Control)", "Time-only based control"],
+    "explanation_en": "In RBAC (Role-Based Access Control) permissions are associated with roles and users inherit rights based on the role they hold, simplifying access management.",
+    "why_wrong_en": { "0": "In DAC it is the resource owner who discretionarily decides who can access it.", "1": "In MAC access is enforced by the system through classification labels, not by the organizational role.", "3": "The time constraint is an additional attribute, not the criterion that defines this model." }
   },
   {
     "id": "ibm-011",
@@ -138,7 +176,11 @@
     "correct": [1],
     "explanation": "La catena di custodia registra chi ha raccolto, gestito, trasferito e conservato ogni prova e quando, garantendone l'integrità e l'ammissibilità in sede giudiziaria.",
     "why_wrong": { "0": "La cifratura può proteggere le prove ma non è lo scopo della catena di custodia, che riguarda la tracciabilità.", "2": "La cancellazione sicura è un'operazione opposta alla conservazione delle prove.", "3": "La velocità di acquisizione non è l'obiettivo della catena di custodia." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "In digital forensics, the concept of 'chain of custody' primarily serves to:",
+    "options_en": ["Encrypt digital evidence to protect it", "Chronologically document who handled the evidence to ensure its integrity and legal admissibility", "Securely wipe the data after analysis", "Speed up the acquisition of the disk image"],
+    "explanation_en": "The chain of custody records who collected, handled, transferred and stored each piece of evidence and when, ensuring its integrity and admissibility in court.",
+    "why_wrong_en": { "0": "Encryption can protect evidence but is not the purpose of the chain of custody, which concerns traceability.", "2": "Secure wiping is the opposite of preserving evidence.", "3": "Acquisition speed is not the goal of the chain of custody." }
   },
   {
     "id": "ibm-012",
@@ -151,7 +193,11 @@
     "correct": [0, 1],
     "explanation": "Le strategie riconosciute di trattamento del rischio sono mitigare, trasferire, evitare e accettare; mitigazione e trasferimento sono due opzioni corrette e ampiamente usate.",
     "why_wrong": { "2": "Ignorare un rischio senza analisi non è una strategia di gestione, ma negligenza: l'accettazione consapevole richiede una valutazione formale.", "3": "Aumentare le vulnerabilità incrementa il rischio, l'opposto di ciò che si vuole ottenere." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "Which of the following are valid risk treatment strategies? (select two)",
+    "options_en": ["Mitigation: reduce the risk by applying security controls", "Transfer: shift the impact to third parties, for example through insurance", "Ignore any risk without any analysis", "Deliberately increase the system's vulnerabilities"],
+    "explanation_en": "The recognized risk treatment strategies are mitigate, transfer, avoid and accept; mitigation and transfer are two correct and widely used options.",
+    "why_wrong_en": { "2": "Ignoring a risk without analysis is not a management strategy but negligence: conscious acceptance requires a formal assessment.", "3": "Increasing vulnerabilities raises the risk, the opposite of what is intended." }
   },
   {
     "id": "ibm-013",
@@ -164,7 +210,11 @@
     "correct": [1],
     "explanation": "Una vulnerabilità è una debolezza o falla (di software, configurazione o processo) che una minaccia può sfruttare per compromettere un sistema.",
     "why_wrong": { "0": "Un evento che ha causato danno è un incidente, non una vulnerabilità.", "2": "Un attore malevolo è un threat actor (fonte di minaccia), non la debolezza sfruttata.", "3": "Un controllo correttamente configurato è una contromisura, non una vulnerabilità." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "In the context of cybersecurity, what is the correct definition of 'vulnerability'?",
+    "options_en": ["An event that has already caused damage to the system", "A weakness in a system that can be exploited by a threat", "An external malicious actor who attacks the organization", "A correctly configured security control"],
+    "explanation_en": "A vulnerability is a weakness or flaw (in software, configuration or process) that a threat can exploit to compromise a system.",
+    "why_wrong_en": { "0": "An event that has caused damage is an incident, not a vulnerability.", "2": "A malicious actor is a threat actor (source of threat), not the weakness being exploited.", "3": "A correctly configured control is a countermeasure, not a vulnerability." }
   },
   {
     "id": "ibm-014",
@@ -176,7 +226,10 @@
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "Uno zero-day sfrutta una vulnerabilità sconosciuta al fornitore o comunque priva di correzione: i difensori hanno 'zero giorni' per prepararsi prima che venga sfruttata.",
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "A 'zero-day' attack exploits a vulnerability for which no patch is yet available.",
+    "options_en": ["True", "False"],
+    "explanation_en": "A zero-day exploits a vulnerability unknown to the vendor or otherwise without a fix: defenders have 'zero days' to prepare before it is exploited."
   },
   {
     "id": "ibm-015",
@@ -189,7 +242,11 @@
     "correct": [1],
     "explanation": "Zero Trust si fonda sul principio 'never trust, always verify': ogni accesso viene verificato esplicitamente in base a identità, dispositivo e contesto, senza fiducia implicita nemmeno all'interno del perimetro.",
     "why_wrong": { "0": "La fiducia implicita nel traffico interno è proprio ciò che Zero Trust elimina.", "2": "Zero Trust rafforza l'autenticazione, non la rimuove.", "3": "Zero Trust supera il modello perimetrale, considerando ogni risorsa potenzialmente esposta." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "In the 'Zero Trust' security model, which principle is fundamental?",
+    "options_en": ["Implicitly trust all traffic internal to the network", "Never trust, always verify: explicitly verify every request regardless of location", "Completely remove authentication for internal users", "Base the entire security only on the network perimeter"],
+    "explanation_en": "Zero Trust is based on the principle 'never trust, always verify': every access is explicitly verified based on identity, device and context, with no implicit trust even inside the perimeter.",
+    "why_wrong_en": { "0": "Implicit trust in internal traffic is exactly what Zero Trust eliminates.", "2": "Zero Trust strengthens authentication, it does not remove it.", "3": "Zero Trust goes beyond the perimeter model, treating every resource as potentially exposed." }
   },
   {
     "id": "ibm-016",
@@ -202,7 +259,11 @@
     "correct": [0, 1],
     "explanation": "Il contenimento mira a limitare la propagazione dell'incidente: isolare i sistemi colpiti e disabilitare gli account compromessi sono azioni tipiche e corrette di questa fase.",
     "why_wrong": { "2": "Formattare subito distrugge prove forensi essenziali; l'obiettivo del contenimento è arginare il danno, non cancellare tutto in modo affrettato.", "3": "Fornire credenziali all'attaccante aggraverebbe la compromissione ed è chiaramente insensato." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "During the Containment phase of an incident, which of the following actions are appropriate? (select two)",
+    "options_en": ["Isolate the compromised systems from the network to limit the spread", "Disable the compromised user accounts", "Immediately format all servers without acquiring any evidence", "Give the administrator credentials to the attacker"],
+    "explanation_en": "Containment aims to limit the propagation of the incident: isolating the affected systems and disabling the compromised accounts are typical and correct actions of this phase.",
+    "why_wrong_en": { "2": "Formatting immediately destroys essential forensic evidence; the goal of containment is to limit the damage, not to hastily wipe everything.", "3": "Giving credentials to the attacker would worsen the compromise and is clearly nonsensical." }
   },
   {
     "id": "ibm-017",
@@ -215,7 +276,11 @@
     "correct": [0, 1],
     "explanation": "Phishing e pretexting sfruttano la manipolazione psicologica delle persone per ottenere informazioni o accessi, e sono quindi tecniche di ingegneria sociale.",
     "why_wrong": { "2": "SQL Injection è un attacco tecnico che sfrutta l'input non validato verso un database applicativo, non la manipolazione umana.", "3": "Il buffer overflow è un exploit della gestione della memoria di un programma, non una tecnica sociale." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "Which of the following are social engineering techniques? (select two)",
+    "options_en": ["Phishing", "Pretexting", "SQL Injection", "Buffer overflow"],
+    "explanation_en": "Phishing and pretexting exploit the psychological manipulation of people to obtain information or access, and are therefore social engineering techniques.",
+    "why_wrong_en": { "2": "SQL Injection is a technical attack that exploits unvalidated input to an application database, not human manipulation.", "3": "Buffer overflow is an exploit of a program's memory management, not a social technique." }
   },
   {
     "id": "ibm-018",
@@ -228,6 +293,10 @@
     "correct": [0],
     "explanation": "La firma digitale, basata sulla chiave privata del mittente, prova l'autenticità e l'integrità del messaggio, ma non ne nasconde il contenuto: il messaggio resta leggibile a meno di non cifrarlo separatamente.",
     "why_wrong": { "1": "AES fornisce riservatezza cifrando il contenuto, ma da sola non garantisce l'autenticità dell'origine.", "2": "Un hash semplice verifica l'integrità ma, non usando alcuna chiave, non prova l'autenticità del mittente.", "3": "La compressione riduce solo la dimensione dei dati e non è un controllo di sicurezza." },
-    "source": "HACK/IBM Cybersecurity"
+    "source": "HACK/IBM Cybersecurity",
+    "question_en": "Which of the following ensures both the integrity and the authenticity of a message, but NOT its confidentiality?",
+    "options_en": ["The digital signature", "AES symmetric encryption of the content", "A simple hash function without a key", "Data compression"],
+    "explanation_en": "The digital signature, based on the sender's private key, proves the authenticity and integrity of the message, but does not hide its content: the message remains readable unless it is encrypted separately.",
+    "why_wrong_en": { "1": "AES provides confidentiality by encrypting the content, but on its own it does not guarantee the authenticity of the origin.", "2": "A simple hash verifies integrity but, using no key, does not prove the authenticity of the sender.", "3": "Compression only reduces the size of the data and is not a security control." }
   }
 ]
