@@ -19,6 +19,19 @@
       "2": "La Service Value Chain e' un altro componente dell'SVS, non sostituisce le quattro dimensioni.",
       "3": "Il principio 'Ottimizza e automatizza' non giustifica ignorare tre dimensioni su quattro."
     },
+    "question_en": "A team introduces a new automation tool but neglects staff training, supplier contracts, and the redesign of workflows. Which risk related to the 'four dimensions of service management' is it running?",
+    "options_en": [
+      "It is optimizing correctly because technology is the most important dimension",
+      "It is creating a blind spot because the four dimensions must all be considered together for every service",
+      "It is following the Service Value Chain instead of the dimensions",
+      "It is applying the guiding principle 'Optimize and automate'"
+    ],
+    "explanation_en": "The four dimensions (Organizations and people; Information and technology; Partners and suppliers; Value streams and processes) must be balanced and considered jointly for every service; neglecting some of them produces less effective or inefficient services.",
+    "why_wrong_en": {
+      "0": "No dimension is 'the most important': neglecting people, suppliers, and processes degrades the service even with excellent technology.",
+      "2": "The Service Value Chain is another component of the SVS; it does not replace the four dimensions.",
+      "3": "The 'Optimize and automate' principle does not justify ignoring three dimensions out of four."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -40,6 +53,19 @@
       "0": "'Concentrati sul valore' riguarda tenere il valore per il consumatore al centro, non la valutazione dello stato attuale.",
       "2": "'Mantieni la semplicita'' riguarda eliminare passaggi inutili, non l'osservazione dello stato di partenza.",
       "3": "'Collabora e promuovi la visibilita'' riguarda il coinvolgimento delle parti e la trasparenza, non la misurazione dell'esistente."
+    },
+    "question_en": "Before redesigning a process from scratch, a consultant collects and measures the current state instead of relying on assumptions. Which guiding principle is being applied?",
+    "options_en": [
+      "Focus on value",
+      "Start where you are",
+      "Keep it simple and practical",
+      "Collaborate and promote visibility"
+    ],
+    "explanation_en": "'Start where you are' calls for objectively assessing the current state by reusing what already exists and relying on real measurements, not assumptions, before deciding what to change.",
+    "why_wrong_en": {
+      "0": "'Focus on value' is about keeping value for the consumer at the center, not assessing the current state.",
+      "2": "'Keep it simple and practical' is about eliminating unnecessary steps, not observing the starting state.",
+      "3": "'Collaborate and promote visibility' is about stakeholder engagement and transparency, not measuring what exists."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -63,6 +89,19 @@
       "1": "Le modifiche di emergenza vanno implementate il prima possibile, spesso per risolvere un incidente, con iter accelerato.",
       "3": "'Modifica maggiore' non e' una delle tre categorie di Change Enablement in ITIL 4."
     },
+    "question_en": "A low-risk, pre-authorized, repeatable change that follows an established procedure without needing a new risk assessment is classified as:",
+    "options_en": [
+      "Normal change",
+      "Emergency change",
+      "Standard change",
+      "Major change"
+    ],
+    "explanation_en": "Standard changes are low-risk, pre-authorized, and follow a documented procedure; authorization is granted in advance, so no new assessment is required for each execution.",
+    "why_wrong_en": {
+      "0": "Normal changes require assessment and authorization according to the authority scheme before proceeding.",
+      "1": "Emergency changes must be implemented as soon as possible, often to resolve an incident, through an expedited process.",
+      "3": "'Major change' is not one of the three Change Enablement categories in ITIL 4."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -84,6 +123,19 @@
       "0": "L'identificazione delle cause profonde e' scopo del Problem Management, non dell'Incident Management.",
       "2": "La gestione delle richieste utente predefinite e' compito del Service Request Management.",
       "3": "Massimizzare le modifiche di successo e' lo scopo del Change Enablement."
+    },
+    "question_en": "What is the main purpose of the Incident Management practice?",
+    "options_en": [
+      "To identify root causes to prevent incidents from recurring",
+      "To minimize the negative impact of incidents by restoring normal service operation as quickly as possible",
+      "To handle all predefined user requests while maintaining the agreed quality",
+      "To maximize the number of successful changes"
+    ],
+    "explanation_en": "Incident Management aims to minimize the negative impact of incidents by restoring normal service operation as quickly as possible.",
+    "why_wrong_en": {
+      "0": "Identifying root causes is the purpose of Problem Management, not Incident Management.",
+      "2": "Handling predefined user requests is the responsibility of Service Request Management.",
+      "3": "Maximizing successful changes is the purpose of Change Enablement."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -107,6 +159,19 @@
       "2": "'Eroga e supporta' garantisce che i servizi siano forniti e supportati secondo specifiche e aspettative concordate.",
       "3": "'Pianifica' assicura una comprensione condivisa di visione, stato attuale e direzione di miglioramento per tutte le dimensioni."
     },
+    "question_en": "Which Service Value Chain activity is concerned with understanding stakeholder needs, ensuring transparency, and maintaining good relationships with all stakeholders?",
+    "options_en": [
+      "Design and transition",
+      "Engage",
+      "Deliver and support",
+      "Plan"
+    ],
+    "explanation_en": "The 'Engage' activity provides a good understanding of stakeholder needs, transparency, continual engagement, and good relationships with all stakeholders.",
+    "why_wrong_en": {
+      "0": "'Design and transition' ensures that products and services meet quality, cost, and time-to-market expectations.",
+      "2": "'Deliver and support' ensures that services are delivered and supported according to agreed specifications and expectations.",
+      "3": "'Plan' ensures a shared understanding of the vision, current state, and improvement direction across all dimensions."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -128,6 +193,19 @@
       "0": "I principi guida sono raccomandazioni che orientano l'organizzazione in ogni circostanza, non il meccanismo di direzione e controllo.",
       "2": "Il miglioramento continuo e' l'attivita' ricorrente di allineamento a esigenze che cambiano, non la direzione e il controllo.",
       "3": "Le pratiche sono insiemi di risorse organizzative per svolgere il lavoro, non il meccanismo di governance."
+    },
+    "question_en": "In the Service Value System (SVS), which component represents the means by which an organization is directed and controlled?",
+    "options_en": [
+      "The guiding principles",
+      "Governance",
+      "Continual improvement",
+      "The practices"
+    ],
+    "explanation_en": "Governance is the SVS component that represents the means by which an organization is directed and controlled, steering activities toward objectives and compliance.",
+    "why_wrong_en": {
+      "0": "The guiding principles are recommendations that steer the organization in any circumstance, not the mechanism of direction and control.",
+      "2": "Continual improvement is the recurring activity of aligning to changing needs, not direction and control.",
+      "3": "Practices are sets of organizational resources for performing work, not the governance mechanism."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -151,6 +229,19 @@
       "2": "Gli SLA vanno rivisti periodicamente per restare allineati alle esigenze di business che cambiano.",
       "3": "Un buon SLA considera anche l'esperienza dell'utente e i risultati, non solo la disponibilita'."
     },
+    "question_en": "According to the Service Level Management practice, which of the following is a characteristic of a well-formed SLA?",
+    "options_en": [
+      "Relying exclusively on internal technical metrics such as server uptime percentage",
+      "Defining clear, measurable targets tied to business outcomes, avoiding the 'watermelon' effect",
+      "Being agreed once and never reviewed periodically",
+      "Covering only availability, excluding the user experience"
+    ],
+    "explanation_en": "A good SLA defines clear, measurable targets tied to business outcomes and perceived experience; this avoids the 'watermelon' effect (green on the outside, red on the inside) in which technical targets are met but the user is dissatisfied.",
+    "why_wrong_en": {
+      "0": "Relying only on internal technical metrics is precisely what creates the watermelon effect, decoupling the SLA from perceived value.",
+      "2": "SLAs must be reviewed periodically to stay aligned with changing business needs.",
+      "3": "A good SLA also considers the user experience and outcomes, not just availability."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -172,6 +263,19 @@
       "0": "'Qual e' la visione?' fissa gli obiettivi di lungo periodo e il contesto, non gli obiettivi misurabili dello stato futuro dell'iniziativa.",
       "2": "'Dove siamo ora?' riguarda la misurazione oggettiva del punto di partenza (baseline).",
       "3": "'Come manteniamo lo slancio?' riguarda il consolidamento dei risultati dopo l'azione, non la definizione del target."
+    },
+    "question_en": "In the continual improvement model's seven steps, which question serves to define the desired future state by translating it into measurable objectives?",
+    "options_en": [
+      "What is the vision?",
+      "Where do we want to be?",
+      "Where are we now?",
+      "How do we keep the momentum going?"
+    ],
+    "explanation_en": "'Where do we want to be?' defines the target objectives of the improvement initiative, translating the vision into measurable outcomes (target condition).",
+    "why_wrong_en": {
+      "0": "'What is the vision?' sets long-term objectives and context, not the measurable objectives of the initiative's future state.",
+      "2": "'Where are we now?' is about the objective measurement of the starting point (baseline).",
+      "3": "'How do we keep the momentum going?' is about consolidating results after the action, not defining the target."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -195,6 +299,19 @@
       "2": "L'autorizzazione delle modifiche spetta alla change authority nel Change Enablement.",
       "3": "La negoziazione e il monitoraggio degli SLA competono al Service Level Management."
     },
+    "question_en": "Which statement best describes the role of the Service Desk in ITIL 4?",
+    "options_en": [
+      "It is the technical unit that performs root cause analysis of major incidents",
+      "It is the point of contact between the service provider and users, capturing demand for incident resolution and service requests",
+      "It is the change authority that authorizes changes",
+      "It is the practice that negotiates and monitors SLAs with the business"
+    ],
+    "explanation_en": "The Service Desk is the point of contact between the service provider and users; its purpose is to capture demand for incident resolution and service requests, as well as to act as an empathetic and visible point of engagement.",
+    "why_wrong_en": {
+      "0": "Root cause analysis belongs to Problem Management; the Service Desk captures and routes demand.",
+      "2": "Authorizing changes is the responsibility of the change authority within Change Enablement.",
+      "3": "Negotiating and monitoring SLAs is the responsibility of Service Level Management."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -215,6 +332,18 @@
     "why_wrong": {
       "2": "Servono sia utilita' sia garanzia: un servizio utile ma inaffidabile non genera il valore atteso.",
       "3": "Non sono sinonimi: descrivono aspetti distinti e complementari del valore di un servizio."
+    },
+    "question_en": "Which TWO statements about the concepts of utility and warranty are correct?",
+    "options_en": [
+      "Utility is 'fit for purpose' and concerns what the service does",
+      "Warranty is 'fit for use' and concerns how the service performs (availability, capacity, security, continuity)",
+      "A service creates value with utility alone, without any adequate warranty",
+      "Utility and warranty are synonyms and can be used interchangeably"
+    ],
+    "explanation_en": "Utility is fitness for purpose (what the service does, its functionality); warranty is fitness for use (how it performs: availability, capacity, security, continuity). Both are needed for the service to generate value.",
+    "why_wrong_en": {
+      "2": "Both utility and warranty are needed: a useful but unreliable service does not generate the expected value.",
+      "3": "They are not synonyms: they describe distinct and complementary aspects of a service's value."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -237,6 +366,18 @@
       "2": "Un problema e' la causa (o potenziale causa) di uno o piu' incidenti; e' un concetto distinto dall'incidente e ha finalita' diverse.",
       "3": "I workaround sono uno strumento chiave del Problem Management per ridurre l'impatto in attesa di una soluzione definitiva."
     },
+    "question_en": "Regarding the Problem Management practice in ITIL 4, which TWO statements are correct?",
+    "options_en": [
+      "A known error is a problem whose causes have been analyzed and/or for which a workaround is available",
+      "Its purpose is to reduce the likelihood and impact of incidents by identifying actual and potential causes",
+      "A problem is identical to an incident and must be handled with the same operational priority",
+      "Problem Management does not make use of temporary solutions (workarounds)"
+    ],
+    "explanation_en": "Problem Management aims to reduce the likelihood and impact of incidents by identifying actual and potential causes and managing workarounds and known errors. A known error is a problem that has been analyzed and/or has a workaround, documented to speed up future resolutions.",
+    "why_wrong_en": {
+      "2": "A problem is the cause (or potential cause) of one or more incidents; it is a concept distinct from an incident and serves different purposes.",
+      "3": "Workarounds are a key tool of Problem Management for reducing impact while awaiting a permanent solution."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -258,6 +399,18 @@
       "2": "'Massimizza la documentazione' contraddice 'Mantieni la semplicita' e la praticita''; non e' un principio guida.",
       "3": "'Centralizza sempre ogni decisione' non e' un principio guida ITIL 4 e contrasta con l'approccio contestuale dei principi."
     },
+    "question_en": "Which TWO of the following are official ITIL 4 guiding principles?",
+    "options_en": [
+      "Progress iteratively with feedback",
+      "Think and work holistically",
+      "Maximize documentation at every step",
+      "Always centralize every operational decision"
+    ],
+    "explanation_en": "The seven guiding principles include 'Progress iteratively with feedback' and 'Think and work holistically'. The others are: Focus on value, Start where you are, Collaborate and promote visibility, Keep it simple and practical, and Optimize and automate.",
+    "why_wrong_en": {
+      "2": "'Maximize documentation' contradicts 'Keep it simple and practical'; it is not a guiding principle.",
+      "3": "'Always centralize every decision' is not an ITIL 4 guiding principle and conflicts with the contextual approach of the principles."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -272,6 +425,12 @@
     "explanation": "ITIL 4 supera l'idea che il valore sia consegnato dal solo fornitore: il valore e' co-creato tramite l'interazione tra fornitore e consumatore del servizio, con scambio attivo di risorse e informazioni.",
     "why_wrong": {
       "1": "E' errato: negare la co-creazione contraddice un concetto chiave di ITIL 4, secondo cui il valore nasce dalla relazione tra le parti."
+    },
+    "question_en": "In ITIL 4, value is co-created through an active relationship between provider and consumer, and is not determined solely by the provider.",
+    "options_en": ["True", "False"],
+    "explanation_en": "ITIL 4 moves beyond the idea that value is delivered by the provider alone: value is co-created through the interaction between the service provider and consumer, with an active exchange of resources and information.",
+    "why_wrong_en": {
+      "1": "This is incorrect: denying co-creation contradicts a key ITIL 4 concept, according to which value arises from the relationship between the parties."
     },
     "source": "ITIL 4 Foundation"
   },
@@ -288,6 +447,12 @@
     "why_wrong": {
       "1": "E' errato: la definizione data corrisponde esattamente a quella di 'evento' nella pratica di Monitoring and Event Management."
     },
+    "question_en": "In the Monitoring and Event Management practice, an event is any change of state that has significance for the management of a service or one of its components.",
+    "options_en": ["True", "False"],
+    "explanation_en": "An event is a change of state significant for the management of a configuration item or service; the practice systematically observes services and components and records/reports selected changes of state as events.",
+    "why_wrong_en": {
+      "1": "This is incorrect: the given definition corresponds exactly to that of 'event' in the Monitoring and Event Management practice."
+    },
     "source": "ITIL 4 Foundation"
   },
   {
@@ -302,6 +467,12 @@
     "explanation": "Il miglioramento continuo compare a piu' livelli: e' uno dei componenti del Service Value System, e' una pratica ('Continual Improvement') ed e' anche l'attivita' 'Migliora' della Service Value Chain, a sottolinearne il carattere pervasivo.",
     "why_wrong": {
       "1": "E' errato: il miglioramento continuo e' effettivamente presente sia come componente SVS, sia come pratica, sia come attivita' della value chain."
+    },
+    "question_en": "Continual improvement is simultaneously an SVS component, a management practice, and an activity ('Improve') present in the Service Value Chain.",
+    "options_en": ["True", "False"],
+    "explanation_en": "Continual improvement appears at multiple levels: it is one of the Service Value System components, it is a practice ('Continual Improvement'), and it is also the 'Improve' activity of the Service Value Chain, underscoring its pervasive nature.",
+    "why_wrong_en": {
+      "1": "This is incorrect: continual improvement is indeed present as an SVS component, as a practice, and as a value chain activity."
     },
     "source": "ITIL 4 Foundation"
   }

@@ -19,6 +19,19 @@
       "2": "Il Pre-provisioning (ex White Glove) e' una fase eseguita dal tecnico/OEM prima della consegna, non la configurazione utente al primo avvio.",
       "3": "Autopilot Reset reimposta un dispositivo gia' gestito riportandolo a uno stato pronto per l'uso, non e' un profilo di primo provisioning."
     },
+    "question_en": "In a Windows Autopilot scenario, which deployment profile lets the user set up the device with their own Entra ID identity and without local administrator credentials at first boot?",
+    "options_en": [
+      "User-Driven with Microsoft Entra join",
+      "Self-Deploying mode",
+      "Pre-provisioning (White Glove)",
+      "Autopilot Reset"
+    ],
+    "explanation_en": "User-Driven mode with Microsoft Entra join has the end user sign in with their own Entra ID credentials; by default the user becomes a Standard User and not a local administrator, unless the profile is configured otherwise.",
+    "why_wrong_en": {
+      "1": "Self-Deploying mode requires no interaction or user credentials and is intended for kiosk/shared devices with TPM 2.0.",
+      "2": "Pre-provisioning (formerly White Glove) is a phase performed by the technician/OEM before delivery, not the user setup at first boot.",
+      "3": "Autopilot Reset resets an already-managed device back to a ready-to-use state; it is not a first-provisioning profile."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -40,6 +53,19 @@
       "0": "Il blocco non e' ne' immediato ne' irreversibile per impostazione predefinita: si puo' configurare un periodo di grazia prima di marcare il dispositivo non conforme.",
       "2": "Le policy di conformita' valutano lo stato ma non applicano profili di configurazione correttivi; la remediation di impostazioni spetta ai configuration profile.",
       "3": "L'imposizione di BitLocker si fa tramite profilo di configurazione o policy Endpoint security, non tramite le azioni per la non conformita'."
+    },
+    "question_en": "In an Intune compliance policy, what is the purpose of the 'Actions for noncompliance' setting?",
+    "options_en": [
+      "To immediately and irreversibly block the device as soon as noncompliance is detected",
+      "To define a timed sequence of actions, such as emailing the user or marking the device noncompliant after a grace period",
+      "To automatically apply a corrective configuration profile",
+      "To force BitLocker encryption on the device"
+    ],
+    "explanation_en": "Actions for noncompliance let you schedule a gradual sequence: for example, marking the device noncompliant immediately or after X days, sending email or push notifications to the user, and blocking or retiring the device. It includes a configurable grace period.",
+    "why_wrong_en": {
+      "0": "The block is neither immediate nor irreversible by default: you can configure a grace period before marking the device noncompliant.",
+      "2": "Compliance policies evaluate state but do not apply corrective configuration profiles; remediation of settings is the job of configuration profiles.",
+      "3": "Enforcing BitLocker is done through a configuration profile or Endpoint security policy, not through actions for noncompliance."
     },
     "source": "Microsoft MD-102"
   },
@@ -63,6 +89,19 @@
       "2": "Le policy di conformita' valutano lo stato dopo l'iscrizione, non impediscono a un BYOD di iscriversi.",
       "3": "L'accesso condizionale controlla l'accesso alle risorse, non blocca il processo di enrollment del dispositivo."
     },
+    "question_en": "An administrator wants to prevent personally owned (BYOD) Windows devices from enrolling in Intune, allowing only corporate ones. Which feature should be used?",
+    "options_en": [
+      "Device categories",
+      "Enrollment restrictions - Device platform restrictions with blocking of personal devices",
+      "Device compliance policy",
+      "Conditional Access"
+    ],
+    "explanation_en": "Enrollment restrictions per platform allow blocking personal devices for a given platform. For Windows, a device is considered corporate if pre-registered (e.g., Autopilot, IMEI/serial number) or enrolled with corporate methods; the others are personal and can be blocked.",
+    "why_wrong_en": {
+      "0": "Device categories are used to group devices into dynamic groups after enrollment, not to block enrollment itself.",
+      "2": "Compliance policies evaluate state after enrollment; they do not prevent a BYOD device from enrolling.",
+      "3": "Conditional Access controls access to resources; it does not block the device enrollment process."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -84,6 +123,19 @@
       "1": "Il profilo Endpoint protection gestisce funzionalita' di sicurezza come firewall e BitLocker, non i modelli ADMX generici.",
       "2": "Device restrictions controlla impostazioni predefinite del dispositivo (password, cloud, ecc.), non i template ADMX.",
       "3": "Il profilo Custom con OMA-URI permette impostazioni granulari via CSP, ma richiede di specificare manualmente i percorsi OMA-URI e non usa direttamente i modelli ADMX."
+    },
+    "question_en": "Which type of Intune configuration profile uses ADMX templates to manage settings equivalent to administrative Group Policy on Windows?",
+    "options_en": [
+      "Settings catalog / Administrative Templates",
+      "Endpoint protection",
+      "Device restrictions",
+      "Custom (OMA-URI)"
+    ],
+    "explanation_en": "Administrative Templates profiles (and the Settings catalog that incorporates them) expose ADMX-based settings equivalent to administrative group policies, manageable without needing to know the underlying OMA-URIs.",
+    "why_wrong_en": {
+      "1": "The Endpoint protection profile manages security features such as firewall and BitLocker, not generic ADMX templates.",
+      "2": "Device restrictions controls predefined device settings (password, cloud, etc.), not ADMX templates.",
+      "3": "The Custom profile with OMA-URI allows granular settings via CSP, but requires manually specifying the OMA-URI paths and does not directly use ADMX templates."
     },
     "source": "Microsoft MD-102"
   },
@@ -107,6 +159,19 @@
       "2": "Richiedere un'app client approvata riguarda l'uso di app protette (App Protection Policies), non lo stato di conformita' del dispositivo.",
       "3": "Il cambio password non e' un grant control basato sullo stato del dispositivo."
     },
+    "question_en": "In a device-based Conditional Access policy, which grant control requires the device to be compliant according to Intune policies in order to grant access?",
+    "options_en": [
+      "Require multifactor authentication",
+      "Require device to be marked as compliant",
+      "Require approved client app",
+      "Require password change"
+    ],
+    "explanation_en": "The 'Require device to be marked as compliant' control verifies that the device is registered in Entra ID and evaluated as compliant by Intune compliance policies before granting access to the resource.",
+    "why_wrong_en": {
+      "0": "Requiring MFA enforces a second authentication factor, but it does not verify the device's compliance state.",
+      "2": "Requiring an approved client app concerns the use of protected apps (App Protection Policies), not the device's compliance state.",
+      "3": "A password change is not a grant control based on device state."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -128,6 +193,19 @@
       "1": "Una VPN sempre attiva non e' correlata all'attivazione silenziosa di BitLocker.",
       "2": "L'attivazione silenziosa non dipende da un account amministratore locale abilitato; anzi punta a rimuovere l'interazione utente.",
       "3": "Il lettore di smart card e' un protettore alternativo opzionale, non un requisito per la crittografia silenziosa basata su TPM."
+    },
+    "question_en": "Which hardware requirement is essential to enable BitLocker silent enablement through Intune without user interaction?",
+    "options_en": [
+      "A TPM (Trusted Platform Module) chip, typically TPM 2.0",
+      "An always-on VPN connection",
+      "An enabled local administrator account",
+      "A smart card reader"
+    ],
+    "explanation_en": "BitLocker silent encryption requires a TPM (usually TPM 2.0) that protects the key without requiring a PIN or user interaction at boot, allowing automatic activation via Intune policy.",
+    "why_wrong_en": {
+      "1": "An always-on VPN is not related to BitLocker silent enablement.",
+      "2": "Silent enablement does not depend on an enabled local administrator account; in fact it aims to remove user interaction.",
+      "3": "A smart card reader is an optional alternative protector, not a requirement for TPM-based silent encryption."
     },
     "source": "Microsoft MD-102"
   },
@@ -151,6 +229,19 @@
       "2": "Il livello di rischio non indica la versione firmware del TPM.",
       "3": "Il punteggio riflette segnali di minaccia complessivi, non un semplice conteggio delle app installate."
     },
+    "question_en": "In Microsoft Defender for Endpoint integrated with Intune, what does the device risk level (machine risk score) represent when used in compliance policies?",
+    "options_en": [
+      "The device's battery charge level",
+      "A value (e.g., Clear, Low, Medium, High) that indicates the detected risk and is used to mark the device compliant or noncompliant",
+      "The installed TPM firmware version",
+      "The number of apps installed on the device"
+    ],
+    "explanation_en": "With the Mobile Threat Defense connection between Defender for Endpoint and Intune, the machine risk score (Clear/Low/Medium/High) is passed to Intune; in the compliance policy you set the maximum allowed level, beyond which the device becomes noncompliant.",
+    "why_wrong_en": {
+      "0": "The risk score has nothing to do with the device's battery.",
+      "2": "The risk level does not indicate the TPM firmware version.",
+      "3": "The score reflects overall threat signals, not a simple count of installed apps."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -172,6 +263,19 @@
       "0": "Il quality update deferral period ritarda gli aggiornamenti qualitativi (patch mensili di sicurezza/affidabilita'), non i feature update.",
       "2": "Delivery Optimization ottimizza la larghezza di banda per il download da peer/cache, non ritarda l'installazione.",
       "3": "Le ore di attivita' impediscono il riavvio automatico durante l'orario lavorativo, ma non differiscono l'installazione dell'aggiornamento."
+    },
+    "question_en": "Using Windows Update for Business Update rings in Intune, which setting lets you delay the installation of a feature update by a defined number of days?",
+    "options_en": [
+      "Quality update deferral period",
+      "Feature update deferral period (in days)",
+      "Delivery Optimization",
+      "Active hours"
+    ],
+    "explanation_en": "The Feature update deferral period delays the offering of feature updates by the number of days set, allowing the rollout to be staggered across rings.",
+    "why_wrong_en": {
+      "0": "The quality update deferral period delays quality updates (monthly security/reliability patches), not feature updates.",
+      "2": "Delivery Optimization optimizes bandwidth for downloading from peers/cache; it does not delay installation.",
+      "3": "Active hours prevent automatic restart during working hours, but do not defer the installation of the update."
     },
     "source": "Microsoft MD-102"
   },
@@ -195,6 +299,19 @@
       "2": "'Uninstall' rimuove l'app dai dispositivi assegnati, non la installa.",
       "3": "'Available with or without enrollment' offre l'app anche a dispositivi non iscritti, ma resta un'installazione facoltativa."
     },
+    "question_en": "In Intune, which app assignment type installs it automatically and mandatorily on the devices of the target group?",
+    "options_en": [
+      "Available for enrolled devices",
+      "Required",
+      "Uninstall",
+      "Available with or without enrollment"
+    ],
+    "explanation_en": "The 'Required' assignment forces installation of the app on the devices or users of the assigned group, without the user having to launch it from the Company Portal.",
+    "why_wrong_en": {
+      "0": "'Available for enrolled devices' makes the app available in the Company Portal for voluntary installation by the user, not forced.",
+      "2": "'Uninstall' removes the app from assigned devices; it does not install it.",
+      "3": "'Available with or without enrollment' offers the app to non-enrolled devices as well, but it remains an optional installation."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -215,6 +332,18 @@
     "why_wrong": {
       "2": "La preinstallazione di Office non e' un requisito: le app vengono distribuite tramite Intune dopo l'iscrizione.",
       "3": "Autopilot non richiede un preesistente join ad AD locale; supporta Entra join e, con connettori dedicati, Hybrid Entra join, ma il dispositivo parte tipicamente da uno stato OOBE."
+    },
+    "question_en": "Which two conditions/requirements are necessary for a Windows device to be deployed via Windows Autopilot? (Select 2)",
+    "options_en": [
+      "The device must be registered with its hardware hash in the Autopilot service",
+      "The device must have an Internet connection during OOBE",
+      "The device must already have Microsoft Office preinstalled",
+      "The device must already be joined to an on-premises Active Directory domain"
+    ],
+    "explanation_en": "Autopilot requires that the device be registered in the service (via a hardware hash uploaded by the OEM/partner or manually) and that it have Internet connectivity during the OOBE experience to contact Entra ID/Intune services and apply the profile.",
+    "why_wrong_en": {
+      "2": "Preinstalling Office is not a requirement: apps are deployed via Intune after enrollment.",
+      "3": "Autopilot does not require a pre-existing on-premises AD join; it supports Entra join and, with dedicated connectors, Hybrid Entra join, but the device typically starts from an OOBE state."
     },
     "source": "Microsoft MD-102"
   },
@@ -237,6 +366,18 @@
       "2": "L'assegnazione di licenze M365 avviene in Entra ID / Microsoft 365 admin center, non nelle policy di conformita'.",
       "3": "La creazione degli anelli di aggiornamento e' una funzione di Windows Update for Business, non un'impostazione di conformita'."
     },
+    "question_en": "Which two of the following are typical settings configurable in an Intune compliance policy for Windows? (Select 2)",
+    "options_en": [
+      "Require BitLocker to be enabled",
+      "Set the minimum operating system version",
+      "Assign Microsoft 365 licenses to users",
+      "Create a feature update ring"
+    ],
+    "explanation_en": "Compliance policies for Windows allow verifying the device's security state, for example requiring BitLocker to be active and enforcing a minimum (and/or maximum) operating system version.",
+    "why_wrong_en": {
+      "2": "Assigning M365 licenses is done in Entra ID / the Microsoft 365 admin center, not in compliance policies.",
+      "3": "Creating update rings is a function of Windows Update for Business, not a compliance setting."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -258,6 +399,18 @@
       "2": "Entra join NON richiede un controller di dominio locale; e' proprio lo scenario cloud-only (l'Hybrid join, diverso, richiede AD locale).",
       "3": "La registrazione del dispositivo non conferisce alcun ruolo amministrativo, tantomeno Global Administrator."
     },
+    "question_en": "Regarding the ways a Windows device can be joined to Microsoft Entra ID, which two statements are correct? (Select 2)",
+    "options_en": [
+      "Microsoft Entra join joins the device exclusively to the cloud and supports management via Intune",
+      "Microsoft Entra registered (device registration) is typical of BYOD scenarios in which the device keeps its local/personal account",
+      "Microsoft Entra join always requires an on-premises Active Directory domain controller",
+      "Microsoft Entra registered automatically promotes the user to global administrator of the tenant"
+    ],
+    "explanation_en": "With Entra join the device is joined to the cloud only and is manageable via Intune/MDM. With Entra registered (registration) the device, typical of BYOD, remains tied to its primary account (local or Microsoft) and gains access to corporate resources with a registered identity.",
+    "why_wrong_en": {
+      "2": "Entra join does NOT require an on-premises domain controller; it is precisely the cloud-only scenario (Hybrid join, which is different, requires on-premises AD).",
+      "3": "Device registration does not grant any administrative role, let alone Global Administrator."
+    },
     "source": "Microsoft MD-102"
   },
   {
@@ -271,6 +424,10 @@
     "correct": [0],
     "explanation": "Vero. Se due o piu' profili applicano valori diversi alla medesima impostazione, Intune segnala un conflitto (stato 'Conflict') e quella specifica impostazione non viene applicata finche' l'amministratore non allinea i profili. Le altre impostazioni non in conflitto vengono comunque applicate.",
     "why_wrong": {},
+    "question_en": "When multiple Intune configuration profiles set the same value in a conflicting way on the same device, a conflict is generated and the conflicting setting is not applied until it is resolved.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. If two or more profiles apply different values to the same setting, Intune reports a conflict ('Conflict' status) and that specific setting is not applied until the administrator aligns the profiles. Other, non-conflicting settings are still applied.",
+    "why_wrong_en": {},
     "source": "Microsoft MD-102"
   },
   {
@@ -284,6 +441,10 @@
     "correct": [0],
     "explanation": "Vero. Le Feature updates for Windows 10 and later (Feature Update policy) permettono di bloccare i dispositivi su una versione di funzionalita' target; i dispositivi non passano a una versione piu' recente finche' non si aggiorna o rimuove la policy, utile per controllare la cadenza degli aggiornamenti di funzionalita'.",
     "why_wrong": {},
+    "question_en": "Intune Feature Update policies allow pinning devices to a specific Windows version (e.g., 22H2), preventing upgrade to a higher version until the policy is modified.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. Feature updates for Windows 10 and later (Feature Update policy) allow locking devices to a target feature version; devices do not move to a newer version until the policy is updated or removed, which is useful for controlling the cadence of feature updates.",
+    "why_wrong_en": {},
     "source": "Microsoft MD-102"
   },
   {
@@ -297,6 +458,10 @@
     "correct": [0],
     "explanation": "Vero. La Enrollment Status Page mostra l'avanzamento del provisioning e puo' essere configurata per impedire l'accesso al desktop finche' non sono completate le fasi di configurazione, incluse le app e i profili bloccanti definiti dall'amministratore.",
     "why_wrong": {},
+    "question_en": "The Windows Autopilot Enrollment Status Page (ESP) can block use of the device until critical apps and profiles have been installed during provisioning.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. The Enrollment Status Page shows the progress of provisioning and can be configured to prevent access to the desktop until the configuration phases are complete, including the blocking apps and profiles defined by the administrator.",
+    "why_wrong_en": {},
     "source": "Microsoft MD-102"
   }
 ]

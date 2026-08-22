@@ -1,323 +1,968 @@
 [
   {
     "id": "ccna4-001",
-    "cert": ["CCNA"],
-    "topics": ["Subnetting"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Subnetting"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un host è configurato con l'indirizzo IP 192.168.10.100/26. Qual è l'indirizzo di broadcast della sua sottorete?",
-    "options": ["192.168.10.63", "192.168.10.127", "192.168.10.128", "192.168.10.191"],
-    "correct": [1],
+    "question_en": "A host is configured with the IP address 192.168.10.100/26. What is the broadcast address of its subnet?",
+    "options": [
+      "192.168.10.63",
+      "192.168.10.127",
+      "192.168.10.128",
+      "192.168.10.191"
+    ],
+    "options_en": [
+      "192.168.10.63",
+      "192.168.10.127",
+      "192.168.10.128",
+      "192.168.10.191"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Una /26 corrisponde alla maschera 255.255.255.192 con blocco 64. Le sottoreti sono .0, .64, .128, .192. L'host .100 ricade nella sottorete 192.168.10.64-127, quindi il broadcast è 192.168.10.127.",
-    "why_wrong": {"0": "192.168.10.63 è il broadcast della sottorete precedente (.0-.63), non quella dell'host .100.", "2": "192.168.10.128 è l'indirizzo di rete della sottorete successiva, non un broadcast.", "3": "192.168.10.191 è il broadcast della sottorete .128-.191, che non contiene l'host .100."},
+    "explanation_en": "A /26 corresponds to the mask 255.255.255.192 with a block size of 64. The subnets are .0, .64, .128, .192. Host .100 falls within the subnet 192.168.10.64-127, so the broadcast is 192.168.10.127.",
+    "why_wrong": {
+      "0": "192.168.10.63 è il broadcast della sottorete precedente (.0-.63), non quella dell'host .100.",
+      "2": "192.168.10.128 è l'indirizzo di rete della sottorete successiva, non un broadcast.",
+      "3": "192.168.10.191 è il broadcast della sottorete .128-.191, che non contiene l'host .100."
+    },
+    "why_wrong_en": {
+      "0": "192.168.10.63 is the broadcast of the previous subnet (.0-.63), not the one of host .100.",
+      "2": "192.168.10.128 is the network address of the next subnet, not a broadcast.",
+      "3": "192.168.10.191 is the broadcast of the subnet .128-.191, which does not contain host .100."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-002",
-    "cert": ["CCNA"],
-    "topics": ["Modello OSI"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Modello OSI"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "A quale livello del modello OSI opera uno switch che prende decisioni di forwarding basandosi sull'indirizzo MAC di destinazione?",
-    "options": ["Livello 1 - Fisico", "Livello 2 - Collegamento dati", "Livello 3 - Rete", "Livello 4 - Trasporto"],
-    "correct": [1],
+    "question_en": "At which layer of the OSI model does a switch operate that makes forwarding decisions based on the destination MAC address?",
+    "options": [
+      "Livello 1 - Fisico",
+      "Livello 2 - Collegamento dati",
+      "Livello 3 - Rete",
+      "Livello 4 - Trasporto"
+    ],
+    "options_en": [
+      "Layer 1 - Physical",
+      "Layer 2 - Data Link",
+      "Layer 3 - Network",
+      "Layer 4 - Transport"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Gli indirizzi MAC appartengono al Livello 2 (Collegamento dati). Uno switch tradizionale costruisce una tabella MAC e inoltra i frame in base all'indirizzo MAC di destinazione, operando quindi al Livello 2.",
-    "why_wrong": {"0": "Il Livello 1 gestisce solo segnali elettrici/ottici e bit, senza alcuna nozione di indirizzo MAC.", "2": "Il Livello 3 usa indirizzi IP; è il livello dei router, non degli switch che leggono i MAC.", "3": "Il Livello 4 gestisce porte e segmenti (TCP/UDP), non l'inoltro basato su MAC."},
+    "explanation_en": "MAC addresses belong to Layer 2 (Data Link). A traditional switch builds a MAC table and forwards frames based on the destination MAC address, thus operating at Layer 2.",
+    "why_wrong": {
+      "0": "Il Livello 1 gestisce solo segnali elettrici/ottici e bit, senza alcuna nozione di indirizzo MAC.",
+      "2": "Il Livello 3 usa indirizzi IP; è il livello dei router, non degli switch che leggono i MAC.",
+      "3": "Il Livello 4 gestisce porte e segmenti (TCP/UDP), non l'inoltro basato su MAC."
+    },
+    "why_wrong_en": {
+      "0": "Layer 1 handles only electrical/optical signals and bits, with no notion of a MAC address.",
+      "2": "Layer 3 uses IP addresses; it is the layer of routers, not of switches that read MACs.",
+      "3": "Layer 4 handles ports and segments (TCP/UDP), not MAC-based forwarding."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-003",
-    "cert": ["CCNA"],
-    "topics": ["TCP/IP"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "TCP/IP"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Il protocollo UDP fornisce un servizio orientato alla connessione con conferma di consegna e ritrasmissione dei segmenti persi.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "question_en": "The UDP protocol provides a connection-oriented service with delivery acknowledgment and retransmission of lost segments.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. UDP è un protocollo senza connessione (connectionless), non fornisce conferme, sequenziamento né ritrasmissioni. Sono caratteristiche proprie di TCP, che è orientato alla connessione e affidabile.",
+    "explanation_en": "False. UDP is a connectionless protocol; it provides no acknowledgments, sequencing or retransmissions. These are characteristics of TCP, which is connection-oriented and reliable.",
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-004",
-    "cert": ["CCNA"],
-    "topics": ["Subnetting"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Subnetting"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Seleziona le DUE affermazioni corrette riguardo alla sottorete 172.16.20.0/23.",
-    "options": ["La subnet mask è 255.255.254.0", "Supporta 254 host utilizzabili", "L'indirizzo di broadcast è 172.16.21.255", "L'ultimo host utilizzabile è 172.16.20.254"],
-    "correct": [0, 2],
+    "question_en": "Select the TWO correct statements about the subnet 172.16.20.0/23.",
+    "options": [
+      "La subnet mask è 255.255.254.0",
+      "Supporta 254 host utilizzabili",
+      "L'indirizzo di broadcast è 172.16.21.255",
+      "L'ultimo host utilizzabile è 172.16.20.254"
+    ],
+    "options_en": [
+      "The subnet mask is 255.255.254.0",
+      "It supports 254 usable hosts",
+      "The broadcast address is 172.16.21.255",
+      "The last usable host is 172.16.20.254"
+    ],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Una /23 ha maschera 255.255.254.0 e raggruppa due /24: l'intervallo va da 172.16.20.0 a 172.16.21.255. Gli host utilizzabili sono 2^9 - 2 = 510 e il broadcast è 172.16.21.255.",
-    "why_wrong": {"1": "254 host corrisponde a una /24; una /23 offre 2^9 - 2 = 510 host utilizzabili.", "3": "L'ultimo host utilizzabile è 172.16.21.254, non 172.16.20.254, perché la sottorete si estende fino a 172.16.21.255."},
+    "explanation_en": "A /23 has the mask 255.255.254.0 and groups two /24s: the range goes from 172.16.20.0 to 172.16.21.255. The usable hosts are 2^9 - 2 = 510 and the broadcast is 172.16.21.255.",
+    "why_wrong": {
+      "1": "254 host corrisponde a una /24; una /23 offre 2^9 - 2 = 510 host utilizzabili.",
+      "3": "L'ultimo host utilizzabile è 172.16.21.254, non 172.16.20.254, perché la sottorete si estende fino a 172.16.21.255."
+    },
+    "why_wrong_en": {
+      "1": "254 hosts corresponds to a /24; a /23 offers 2^9 - 2 = 510 usable hosts.",
+      "3": "The last usable host is 172.16.21.254, not 172.16.20.254, because the subnet extends up to 172.16.21.255."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-005",
-    "cert": ["CCNA"],
-    "topics": ["IPv6"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "IPv6"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale tipo di indirizzo IPv6 appartiene al prefisso FE80::/10 ed è utilizzabile solo all'interno del segmento di collegamento locale?",
-    "options": ["Global unicast", "Unique local", "Link-local", "Multicast"],
-    "correct": [2],
+    "question_en": "Which type of IPv6 address belongs to the FE80::/10 prefix and is usable only within the local link segment?",
+    "options": [
+      "Global unicast",
+      "Unique local",
+      "Link-local",
+      "Multicast"
+    ],
+    "options_en": [
+      "Global unicast",
+      "Unique local",
+      "Link-local",
+      "Multicast"
+    ],
+    "correct": [
+      2
+    ],
     "explanation": "Gli indirizzi link-local usano il prefisso FE80::/10, vengono generati automaticamente su ogni interfaccia IPv6 e hanno validità limitata al singolo segmento; non sono instradabili oltre il link.",
-    "why_wrong": {"0": "Gli indirizzi global unicast usano tipicamente il prefisso 2000::/3 e sono instradabili su Internet.", "1": "Gli indirizzi unique local usano il prefisso FC00::/7 (comunemente FD00::/8), non FE80::/10.", "3": "Gli indirizzi multicast usano il prefisso FF00::/8, non FE80::/10."},
+    "explanation_en": "Link-local addresses use the FE80::/10 prefix, are automatically generated on every IPv6 interface and have validity limited to the single segment; they are not routable beyond the link.",
+    "why_wrong": {
+      "0": "Gli indirizzi global unicast usano tipicamente il prefisso 2000::/3 e sono instradabili su Internet.",
+      "1": "Gli indirizzi unique local usano il prefisso FC00::/7 (comunemente FD00::/8), non FE80::/10.",
+      "3": "Gli indirizzi multicast usano il prefisso FF00::/8, non FE80::/10."
+    },
+    "why_wrong_en": {
+      "0": "Global unicast addresses typically use the 2000::/3 prefix and are routable on the Internet.",
+      "1": "Unique local addresses use the FC00::/7 prefix (commonly FD00::/8), not FE80::/10.",
+      "3": "Multicast addresses use the FF00::/8 prefix, not FE80::/10."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-006",
-    "cert": ["CCNA"],
-    "topics": ["VLAN"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "VLAN"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Su un trunk 802.1Q, quale VLAN trasporta di default il traffico non taggato (native VLAN)?",
-    "options": ["VLAN 0", "VLAN 1", "VLAN 99", "VLAN 1005"],
-    "correct": [1],
+    "question_en": "On an 802.1Q trunk, which VLAN carries untagged traffic by default (native VLAN)?",
+    "options": [
+      "VLAN 0",
+      "VLAN 1",
+      "VLAN 99",
+      "VLAN 1005"
+    ],
+    "options_en": [
+      "VLAN 0",
+      "VLAN 1",
+      "VLAN 99",
+      "VLAN 1005"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Per impostazione predefinita la native VLAN di un trunk 802.1Q è la VLAN 1: i frame appartenenti alla native VLAN attraversano il trunk senza tag 802.1Q.",
-    "why_wrong": {"0": "La VLAN 0 è riservata (usata per la priorità 802.1p) e non può essere assegnata come native VLAN.", "2": "La VLAN 99 può essere impostata manualmente come native VLAN, ma non è il valore di default.", "3": "La VLAN 1005 fa parte dell'intervallo riservato legacy (Token Ring/FDDI), non è la native VLAN di default."},
+    "explanation_en": "By default the native VLAN of an 802.1Q trunk is VLAN 1: frames belonging to the native VLAN traverse the trunk without an 802.1Q tag.",
+    "why_wrong": {
+      "0": "La VLAN 0 è riservata (usata per la priorità 802.1p) e non può essere assegnata come native VLAN.",
+      "2": "La VLAN 99 può essere impostata manualmente come native VLAN, ma non è il valore di default.",
+      "3": "La VLAN 1005 fa parte dell'intervallo riservato legacy (Token Ring/FDDI), non è la native VLAN di default."
+    },
+    "why_wrong_en": {
+      "0": "VLAN 0 is reserved (used for 802.1p priority) and cannot be assigned as the native VLAN.",
+      "2": "VLAN 99 can be manually set as the native VLAN, but it is not the default value.",
+      "3": "VLAN 1005 is part of the legacy reserved range (Token Ring/FDDI); it is not the default native VLAN."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-007",
-    "cert": ["CCNA"],
-    "topics": ["Spanning Tree"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Spanning Tree"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In Spanning Tree Protocol (802.1D), quale switch viene eletto root bridge?",
-    "options": ["Lo switch con il maggior numero di porte attive", "Lo switch con il Bridge ID più basso", "Lo switch con l'indirizzo MAC più alto", "Lo switch acceso per ultimo"],
-    "correct": [1],
+    "question_en": "In Spanning Tree Protocol (802.1D), which switch is elected as the root bridge?",
+    "options": [
+      "Lo switch con il maggior numero di porte attive",
+      "Lo switch con il Bridge ID più basso",
+      "Lo switch con l'indirizzo MAC più alto",
+      "Lo switch acceso per ultimo"
+    ],
+    "options_en": [
+      "The switch with the largest number of active ports",
+      "The switch with the lowest Bridge ID",
+      "The switch with the highest MAC address",
+      "The switch powered on last"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Il root bridge è lo switch con il Bridge ID più basso. Il Bridge ID è composto da priorità (default 32768) più l'indirizzo MAC: a parità di priorità vince il MAC più basso.",
-    "why_wrong": {"0": "Il numero di porte non influisce sull'elezione del root bridge.", "2": "A parità di priorità vince il MAC più basso, non quello più alto.", "3": "L'ordine di accensione non determina il root bridge; conta il Bridge ID più basso."},
+    "explanation_en": "The root bridge is the switch with the lowest Bridge ID. The Bridge ID is composed of priority (default 32768) plus the MAC address: with equal priority, the lowest MAC wins.",
+    "why_wrong": {
+      "0": "Il numero di porte non influisce sull'elezione del root bridge.",
+      "2": "A parità di priorità vince il MAC più basso, non quello più alto.",
+      "3": "L'ordine di accensione non determina il root bridge; conta il Bridge ID più basso."
+    },
+    "why_wrong_en": {
+      "0": "The number of ports does not affect the root bridge election.",
+      "2": "With equal priority the lowest MAC wins, not the highest.",
+      "3": "The power-on order does not determine the root bridge; what counts is the lowest Bridge ID."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-008",
-    "cert": ["CCNA"],
-    "topics": ["Spanning Tree"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Spanning Tree"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "In Rapid PVST+, una porta nello stato Discarding non inoltra frame di dati e non apprende indirizzi MAC.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "In Rapid PVST+, a port in the Discarding state does not forward data frames and does not learn MAC addresses.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. In RSTP/Rapid PVST+ lo stato Discarding accorpa i vecchi stati Disabled, Blocking e Listening: la porta non inoltra dati e non popola la tabella MAC. L'apprendimento MAC avviene solo negli stati Learning e Forwarding.",
+    "explanation_en": "True. In RSTP/Rapid PVST+ the Discarding state merges the old Disabled, Blocking and Listening states: the port does not forward data and does not populate the MAC table. MAC learning occurs only in the Learning and Forwarding states.",
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-009",
-    "cert": ["CCNA"],
-    "topics": ["VLAN", "Spanning Tree"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "VLAN",
+      "Spanning Tree"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali DUE condizioni sono necessarie affinché un EtherChannel LACP di Livello 2 si formi correttamente tra due switch?",
-    "options": ["Le porte membri devono avere la stessa velocità e lo stesso duplex", "Un lato deve essere in modalità 'active' e l'altro in modalità 'auto'", "Le porte membri devono avere la stessa configurazione di VLAN/trunk", "Ogni porta membro deve avere un indirizzo IP nella stessa subnet"],
-    "correct": [0, 2],
+    "question_en": "Which TWO conditions are required for a Layer 2 LACP EtherChannel to form correctly between two switches?",
+    "options": [
+      "Le porte membri devono avere la stessa velocità e lo stesso duplex",
+      "Un lato deve essere in modalità 'active' e l'altro in modalità 'auto'",
+      "Le porte membri devono avere la stessa configurazione di VLAN/trunk",
+      "Ogni porta membro deve avere un indirizzo IP nella stessa subnet"
+    ],
+    "options_en": [
+      "The member ports must have the same speed and the same duplex",
+      "One side must be in 'active' mode and the other in 'auto' mode",
+      "The member ports must have the same VLAN/trunk configuration",
+      "Each member port must have an IP address in the same subnet"
+    ],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Perché un EtherChannel si formi, tutte le porte membri devono avere parametri di Livello 2 coerenti: stessa velocità, stesso duplex e stessa configurazione di VLAN o trunk (native e allowed). LACP negozia il bundle con le modalità active/passive.",
-    "why_wrong": {"1": "'auto' è una modalità PAgP, non LACP. In LACP le combinazioni valide sono active-active o active-passive.", "3": "Un EtherChannel di Livello 2 non prevede indirizzi IP sulle porte fisiche membri; l'eventuale IP si configura sull'interfaccia logica Port-channel se in Layer 3."},
+    "explanation_en": "For an EtherChannel to form, all member ports must have consistent Layer 2 parameters: same speed, same duplex and same VLAN or trunk configuration (native and allowed). LACP negotiates the bundle with the active/passive modes.",
+    "why_wrong": {
+      "1": "'auto' è una modalità PAgP, non LACP. In LACP le combinazioni valide sono active-active o active-passive.",
+      "3": "Un EtherChannel di Livello 2 non prevede indirizzi IP sulle porte fisiche membri; l'eventuale IP si configura sull'interfaccia logica Port-channel se in Layer 3."
+    },
+    "why_wrong_en": {
+      "1": "'auto' is a PAgP mode, not LACP. In LACP the valid combinations are active-active or active-passive.",
+      "3": "A Layer 2 EtherChannel does not involve IP addresses on the physical member ports; any IP is configured on the logical Port-channel interface if in Layer 3."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-010",
-    "cert": ["CCNA"],
-    "topics": ["Wireless"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Wireless"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In un'architettura wireless controller-based con split-MAC, quale protocollo incapsula il traffico di controllo e dati tra un Access Point e il WLC?",
-    "options": ["LWAPP", "CAPWAP", "GRE", "VXLAN"],
-    "correct": [1],
+    "question_en": "In a controller-based wireless architecture with split-MAC, which protocol encapsulates the control and data traffic between an Access Point and the WLC?",
+    "options": [
+      "LWAPP",
+      "CAPWAP",
+      "GRE",
+      "VXLAN"
+    ],
+    "options_en": [
+      "LWAPP",
+      "CAPWAP",
+      "GRE",
+      "VXLAN"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "CAPWAP (Control And Provisioning of Wireless Access Points) è il protocollo standard che crea i tunnel tra AP lightweight e WLC: usa UDP 5246 per il controllo e UDP 5247 per i dati.",
-    "why_wrong": {"0": "LWAPP è il predecessore proprietario di CAPWAP, sostituito da quest'ultimo come standard.", "2": "GRE è un tunneling generico non usato per il modello split-MAC AP-WLC.", "3": "VXLAN è una tecnologia di overlay per reti di datacenter, non per il collegamento AP-WLC."},
+    "explanation_en": "CAPWAP (Control And Provisioning of Wireless Access Points) is the standard protocol that creates the tunnels between lightweight APs and the WLC: it uses UDP 5246 for control and UDP 5247 for data.",
+    "why_wrong": {
+      "0": "LWAPP è il predecessore proprietario di CAPWAP, sostituito da quest'ultimo come standard.",
+      "2": "GRE è un tunneling generico non usato per il modello split-MAC AP-WLC.",
+      "3": "VXLAN è una tecnologia di overlay per reti di datacenter, non per il collegamento AP-WLC."
+    },
+    "why_wrong_en": {
+      "0": "LWAPP is the proprietary predecessor of CAPWAP, replaced by the latter as the standard.",
+      "2": "GRE is a generic tunneling protocol not used for the split-MAC AP-WLC model.",
+      "3": "VXLAN is an overlay technology for datacenter networks, not for the AP-WLC connection."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-011",
-    "cert": ["CCNA"],
-    "topics": ["Routing"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Routing"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un router apprende la stessa rete di destinazione sia tramite OSPF (AD 110) sia tramite una rotta statica (AD 1). Quale rotta viene installata nella tabella di routing?",
-    "options": ["La rotta OSPF", "La rotta statica", "Entrambe, in load balancing", "La prima rotta appresa in ordine di tempo"],
-    "correct": [1],
+    "question_en": "A router learns the same destination network both via OSPF (AD 110) and via a static route (AD 1). Which route is installed in the routing table?",
+    "options": [
+      "La rotta OSPF",
+      "La rotta statica",
+      "Entrambe, in load balancing",
+      "La prima rotta appresa in ordine di tempo"
+    ],
+    "options_en": [
+      "The OSPF route",
+      "The static route",
+      "Both, in load balancing",
+      "The first route learned in order of time"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "A parità di rete di destinazione, il router sceglie la sorgente con Distanza Amministrativa (AD) più bassa. La statica ha AD 1 contro AD 110 di OSPF, quindi viene installata la rotta statica.",
-    "why_wrong": {"0": "OSPF ha AD 110, superiore a quella della statica (1), quindi non viene preferito.", "2": "Il load balancing avviene solo tra rotte della stessa sorgente e con costo uguale, non tra AD diverse.", "3": "L'ordine temporale è irrilevante; la selezione dipende dalla Distanza Amministrativa."},
+    "explanation_en": "For the same destination network, the router chooses the source with the lowest Administrative Distance (AD). The static route has AD 1 against OSPF's AD 110, so the static route is installed.",
+    "why_wrong": {
+      "0": "OSPF ha AD 110, superiore a quella della statica (1), quindi non viene preferito.",
+      "2": "Il load balancing avviene solo tra rotte della stessa sorgente e con costo uguale, non tra AD diverse.",
+      "3": "L'ordine temporale è irrilevante; la selezione dipende dalla Distanza Amministrativa."
+    },
+    "why_wrong_en": {
+      "0": "OSPF has AD 110, higher than that of the static route (1), so it is not preferred.",
+      "2": "Load balancing occurs only between routes from the same source with equal cost, not between different ADs.",
+      "3": "The chronological order is irrelevant; the selection depends on the Administrative Distance."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-012",
-    "cert": ["CCNA"],
-    "topics": ["Routing"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Routing"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "La tabella di routing contiene: 10.1.1.0/24 via R2, 10.1.1.0/26 via R3 e 0.0.0.0/0 via R4. Quale rotta viene usata per un pacchetto destinato a 10.1.1.10?",
-    "options": ["La rotta via R2 (10.1.1.0/24)", "La rotta via R3 (10.1.1.0/26)", "La rotta via R4 (default)", "Le tre rotte in load balancing"],
-    "correct": [1],
+    "question_en": "The routing table contains: 10.1.1.0/24 via R2, 10.1.1.0/26 via R3 and 0.0.0.0/0 via R4. Which route is used for a packet destined for 10.1.1.10?",
+    "options": [
+      "La rotta via R2 (10.1.1.0/24)",
+      "La rotta via R3 (10.1.1.0/26)",
+      "La rotta via R4 (default)",
+      "Le tre rotte in load balancing"
+    ],
+    "options_en": [
+      "The route via R2 (10.1.1.0/24)",
+      "The route via R3 (10.1.1.0/26)",
+      "The route via R4 (default)",
+      "The three routes in load balancing"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Il router applica il longest prefix match. 10.1.1.10 ricade in 10.1.1.0/26 (range .0-.63), che è il prefisso più specifico corrispondente; viene quindi scelta la rotta via R3.",
-    "why_wrong": {"0": "10.1.1.0/24 corrisponde all'indirizzo, ma è meno specifica della /26.", "2": "La rotta di default 0.0.0.0/0 si usa solo se nessuna rotta più specifica corrisponde.", "3": "Il longest prefix match seleziona una sola rotta, la più specifica; non c'è load balancing tra prefissi diversi."},
+    "explanation_en": "The router applies the longest prefix match. 10.1.1.10 falls within 10.1.1.0/26 (range .0-.63), which is the most specific matching prefix; the route via R3 is therefore chosen.",
+    "why_wrong": {
+      "0": "10.1.1.0/24 corrisponde all'indirizzo, ma è meno specifica della /26.",
+      "2": "La rotta di default 0.0.0.0/0 si usa solo se nessuna rotta più specifica corrisponde.",
+      "3": "Il longest prefix match seleziona una sola rotta, la più specifica; non c'è load balancing tra prefissi diversi."
+    },
+    "why_wrong_en": {
+      "0": "10.1.1.0/24 matches the address, but is less specific than the /26.",
+      "2": "The default route 0.0.0.0/0 is used only if no more specific route matches.",
+      "3": "The longest prefix match selects a single route, the most specific one; there is no load balancing between different prefixes."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-013",
-    "cert": ["CCNA"],
-    "topics": ["OSPF"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "OSPF"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale metrica utilizza OSPF di default per selezionare il percorso migliore verso una destinazione?",
-    "options": ["Il numero di hop", "Il costo basato sulla larghezza di banda", "Il delay dell'interfaccia", "Il valore MED"],
-    "correct": [1],
+    "question_en": "Which metric does OSPF use by default to select the best path to a destination?",
+    "options": [
+      "Il numero di hop",
+      "Il costo basato sulla larghezza di banda",
+      "Il delay dell'interfaccia",
+      "Il valore MED"
+    ],
+    "options_en": [
+      "The number of hops",
+      "The cost based on bandwidth",
+      "The interface delay",
+      "The MED value"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "OSPF calcola il costo come 10^8 diviso la larghezza di banda dell'interfaccia in bps (reference bandwidth di default 100 Mbps). Il percorso con costo cumulativo più basso viene preferito.",
-    "why_wrong": {"0": "Il numero di hop è la metrica di RIP, non di OSPF.", "2": "Il delay (assieme alla banda) è usato da EIGRP, non da OSPF nel calcolo di default.", "3": "Il MED è un attributo di BGP, non una metrica OSPF."},
+    "explanation_en": "OSPF calculates the cost as 10^8 divided by the interface bandwidth in bps (default reference bandwidth 100 Mbps). The path with the lowest cumulative cost is preferred.",
+    "why_wrong": {
+      "0": "Il numero di hop è la metrica di RIP, non di OSPF.",
+      "2": "Il delay (assieme alla banda) è usato da EIGRP, non da OSPF nel calcolo di default.",
+      "3": "Il MED è un attributo di BGP, non una metrica OSPF."
+    },
+    "why_wrong_en": {
+      "0": "The number of hops is RIP's metric, not OSPF's.",
+      "2": "Delay (together with bandwidth) is used by EIGRP, not by OSPF in the default calculation.",
+      "3": "MED is a BGP attribute, not an OSPF metric."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-014",
-    "cert": ["CCNA"],
-    "topics": ["OSPF"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "OSPF"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali DUE parametri devono corrispondere affinché due router OSPF stabiliscano un'adiacenza di vicinato sullo stesso segmento?",
-    "options": ["Lo stesso Area ID sull'interfaccia", "Gli stessi timer Hello e Dead", "Lo stesso Router ID", "Lo stesso costo dell'interfaccia"],
-    "correct": [0, 1],
+    "question_en": "Which TWO parameters must match for two OSPF routers to establish a neighbor adjacency on the same segment?",
+    "options": [
+      "Lo stesso Area ID sull'interfaccia",
+      "Gli stessi timer Hello e Dead",
+      "Lo stesso Router ID",
+      "Lo stesso costo dell'interfaccia"
+    ],
+    "options_en": [
+      "The same Area ID on the interface",
+      "The same Hello and Dead timers",
+      "The same Router ID",
+      "The same interface cost"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Per formare un neighbor OSPF devono coincidere Area ID, timer Hello/Dead, subnet/maschera, tipo di area (stub flag) ed eventuale autenticazione. Area ID e timer sono i due parametri corretti dell'elenco.",
-    "why_wrong": {"2": "Il Router ID deve essere univoco: due router con lo stesso Router ID generano un conflitto, non un'adiacenza.", "3": "Il costo dell'interfaccia può differire tra i due lati senza impedire la formazione dell'adiacenza."},
+    "explanation_en": "To form an OSPF neighbor, the Area ID, Hello/Dead timers, subnet/mask, area type (stub flag) and any authentication must match. Area ID and timers are the two correct parameters from the list.",
+    "why_wrong": {
+      "2": "Il Router ID deve essere univoco: due router con lo stesso Router ID generano un conflitto, non un'adiacenza.",
+      "3": "Il costo dell'interfaccia può differire tra i due lati senza impedire la formazione dell'adiacenza."
+    },
+    "why_wrong_en": {
+      "2": "The Router ID must be unique: two routers with the same Router ID generate a conflict, not an adjacency.",
+      "3": "The interface cost can differ between the two sides without preventing the formation of the adjacency."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-015",
-    "cert": ["CCNA"],
-    "topics": ["Routing"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Routing"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un host comunica correttamente con gli altri dispositivi della propria subnet ma non raggiunge alcuna rete remota. Quale configurazione è più probabilmente errata o mancante?",
-    "options": ["La subnet mask dell'host", "Il default gateway dell'host", "Il server DNS primario", "L'indirizzo MAC della scheda di rete"],
-    "correct": [1],
+    "question_en": "A host communicates correctly with the other devices on its own subnet but does not reach any remote network. Which configuration is most likely wrong or missing?",
+    "options": [
+      "La subnet mask dell'host",
+      "Il default gateway dell'host",
+      "Il server DNS primario",
+      "L'indirizzo MAC della scheda di rete"
+    ],
+    "options_en": [
+      "The host's subnet mask",
+      "The host's default gateway",
+      "The primary DNS server",
+      "The MAC address of the network card"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "La comunicazione locale funzionante indica indirizzo IP e maschera coerenti con la subnet. L'impossibilità di raggiungere reti remote punta al default gateway mancante o errato, necessario per inoltrare il traffico fuori dalla subnet.",
-    "why_wrong": {"0": "Una subnet mask errata comprometterebbe anche la comunicazione con parte degli host locali, che invece funziona.", "2": "Un DNS errato impedisce la risoluzione dei nomi, ma la connettività IP verso reti remote resterebbe possibile tramite indirizzo.", "3": "Il MAC è assegnato in fabbrica e viene usato solo a livello locale; non influisce sull'instradamento remoto."},
+    "explanation_en": "Working local communication indicates an IP address and mask consistent with the subnet. The inability to reach remote networks points to a missing or wrong default gateway, needed to forward traffic outside the subnet.",
+    "why_wrong": {
+      "0": "Una subnet mask errata comprometterebbe anche la comunicazione con parte degli host locali, che invece funziona.",
+      "2": "Un DNS errato impedisce la risoluzione dei nomi, ma la connettività IP verso reti remote resterebbe possibile tramite indirizzo.",
+      "3": "Il MAC è assegnato in fabbrica e viene usato solo a livello locale; non influisce sull'instradamento remoto."
+    },
+    "why_wrong_en": {
+      "0": "A wrong subnet mask would also compromise communication with some of the local hosts, which instead works.",
+      "2": "A wrong DNS prevents name resolution, but IP connectivity to remote networks would still be possible via address.",
+      "3": "The MAC is factory-assigned and is used only at the local level; it does not affect remote routing."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-016",
-    "cert": ["CCNA"],
-    "topics": ["OSPF"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "OSPF"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "In OSPF il router con il Router ID più alto viene sempre eletto DR su un segmento broadcast, indipendentemente dalla priorità delle interfacce.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "question_en": "In OSPF the router with the highest Router ID is always elected DR on a broadcast segment, regardless of the interface priority.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. L'elezione del DR considera prima la priorità dell'interfaccia (più alta vince); il Router ID più alto è usato solo come criterio di spareggio a parità di priorità. Una priorità impostata a 0 esclude del tutto il router dall'elezione.",
+    "explanation_en": "False. The DR election first considers the interface priority (highest wins); the highest Router ID is used only as a tiebreaker when priorities are equal. A priority set to 0 excludes the router from the election entirely.",
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-017",
-    "cert": ["CCNA"],
-    "topics": ["NAT"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "NAT"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale tipo di NAT consente a numerosi host interni di condividere un singolo indirizzo IP pubblico distinguendo le sessioni tramite numeri di porta diversi?",
-    "options": ["NAT statico", "NAT dinamico", "PAT (NAT overload)", "NAT64"],
-    "correct": [2],
+    "question_en": "Which type of NAT allows numerous internal hosts to share a single public IP address by distinguishing the sessions through different port numbers?",
+    "options": [
+      "NAT statico",
+      "NAT dinamico",
+      "PAT (NAT overload)",
+      "NAT64"
+    ],
+    "options_en": [
+      "Static NAT",
+      "Dynamic NAT",
+      "PAT (NAT overload)",
+      "NAT64"
+    ],
+    "correct": [
+      2
+    ],
     "explanation": "Il PAT (Port Address Translation), o NAT overload, mappa molti indirizzi privati su un unico indirizzo pubblico usando numeri di porta sorgente univoci per differenziare le connessioni. È il meccanismo alla base della condivisione di un solo IP pubblico.",
-    "why_wrong": {"0": "Il NAT statico crea una mappatura uno-a-uno fissa tra un indirizzo interno e uno pubblico.", "1": "Il NAT dinamico assegna indirizzi da un pool, ma resta una mappatura uno-a-uno per sessione senza multiplexing di porte.", "3": "NAT64 traduce tra IPv6 e IPv4, non consente il port overload di più host su un unico IPv4 pubblico nel senso descritto."},
+    "explanation_en": "PAT (Port Address Translation), or NAT overload, maps many private addresses onto a single public address using unique source port numbers to differentiate the connections. It is the mechanism behind sharing a single public IP.",
+    "why_wrong": {
+      "0": "Il NAT statico crea una mappatura uno-a-uno fissa tra un indirizzo interno e uno pubblico.",
+      "1": "Il NAT dinamico assegna indirizzi da un pool, ma resta una mappatura uno-a-uno per sessione senza multiplexing di porte.",
+      "3": "NAT64 traduce tra IPv6 e IPv4, non consente il port overload di più host su un unico IPv4 pubblico nel senso descritto."
+    },
+    "why_wrong_en": {
+      "0": "Static NAT creates a fixed one-to-one mapping between an internal address and a public one.",
+      "1": "Dynamic NAT assigns addresses from a pool, but remains a one-to-one mapping per session without port multiplexing.",
+      "3": "NAT64 translates between IPv6 and IPv4; it does not allow the port overload of multiple hosts onto a single public IPv4 in the sense described."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-018",
-    "cert": ["CCNA"],
-    "topics": ["DHCP"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "DHCP"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale sequenza descrive correttamente lo scambio di messaggi con cui un client ottiene un indirizzo da un server DHCP?",
-    "options": ["Discover, Offer, Request, Acknowledgment", "Request, Offer, Discover, Acknowledgment", "Offer, Discover, Acknowledgment, Request", "Discover, Request, Offer, Acknowledgment"],
-    "correct": [0],
+    "question_en": "Which sequence correctly describes the message exchange by which a client obtains an address from a DHCP server?",
+    "options": [
+      "Discover, Offer, Request, Acknowledgment",
+      "Request, Offer, Discover, Acknowledgment",
+      "Offer, Discover, Acknowledgment, Request",
+      "Discover, Request, Offer, Acknowledgment"
+    ],
+    "options_en": [
+      "Discover, Offer, Request, Acknowledgment",
+      "Request, Offer, Discover, Acknowledgment",
+      "Offer, Discover, Acknowledgment, Request",
+      "Discover, Request, Offer, Acknowledgment"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Il processo DHCP segue la sequenza DORA: il client invia in broadcast un Discover, il server risponde con un Offer, il client conferma la scelta con un Request e il server chiude con un Acknowledgment.",
-    "why_wrong": {"1": "Il client inizia sempre con Discover, non con Request; l'ordine indicato è invertito.", "2": "Il primo messaggio deve essere il Discover del client, non l'Offer del server.", "3": "L'Offer del server precede il Request del client; qui Request e Offer sono invertiti."},
+    "explanation_en": "The DHCP process follows the DORA sequence: the client broadcasts a Discover, the server responds with an Offer, the client confirms the choice with a Request and the server closes with an Acknowledgment.",
+    "why_wrong": {
+      "1": "Il client inizia sempre con Discover, non con Request; l'ordine indicato è invertito.",
+      "2": "Il primo messaggio deve essere il Discover del client, non l'Offer del server.",
+      "3": "L'Offer del server precede il Request del client; qui Request e Offer sono invertiti."
+    },
+    "why_wrong_en": {
+      "1": "The client always starts with Discover, not Request; the order indicated is reversed.",
+      "2": "The first message must be the client's Discover, not the server's Offer.",
+      "3": "The server's Offer precedes the client's Request; here Request and Offer are swapped."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-019",
-    "cert": ["CCNA"],
-    "topics": ["TCP/IP"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "TCP/IP"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "In NTP un valore di stratum più basso indica una maggiore vicinanza alla sorgente di riferimento temporale autorevole.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "In NTP a lower stratum value indicates greater proximity to the authoritative time reference source.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Lo stratum misura la distanza dalla sorgente di tempo di riferimento: lo stratum 1 è direttamente collegato a un orologio autorevole (stratum 0), mentre valori più alti indicano una maggiore distanza gerarchica e quindi minore affidabilità.",
+    "explanation_en": "True. The stratum measures the distance from the reference time source: stratum 1 is directly connected to an authoritative clock (stratum 0), while higher values indicate a greater hierarchical distance and therefore lower reliability.",
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-020",
-    "cert": ["CCNA"],
-    "topics": ["ACL", "Subnetting"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "ACL",
+      "Subnetting"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Quale wildcard mask corrisponde esattamente a tutti gli host della sottorete 192.168.4.0/26 in una access list?",
-    "options": ["0.0.0.63", "0.0.0.31", "0.0.0.255", "0.0.0.127"],
-    "correct": [0],
+    "question_en": "Which wildcard mask exactly matches all the hosts of the subnet 192.168.4.0/26 in an access list?",
+    "options": [
+      "0.0.0.63",
+      "0.0.0.31",
+      "0.0.0.255",
+      "0.0.0.127"
+    ],
+    "options_en": [
+      "0.0.0.63",
+      "0.0.0.31",
+      "0.0.0.255",
+      "0.0.0.127"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "La wildcard è il complemento della subnet mask. Una /26 ha maschera 255.255.255.192, il cui complemento è 0.0.0.63: i 6 bit host possono variare, coprendo esattamente i 64 indirizzi della sottorete.",
-    "why_wrong": {"1": "0.0.0.31 corrisponde a una /27 (32 indirizzi), più piccola della sottorete richiesta.", "2": "0.0.0.255 corrisponde a una /24 (256 indirizzi), troppo ampia rispetto alla /26.", "3": "0.0.0.127 corrisponde a una /25 (128 indirizzi), comprende due sottoreti /26 anziché una."},
+    "explanation_en": "The wildcard is the complement of the subnet mask. A /26 has the mask 255.255.255.192, whose complement is 0.0.0.63: the 6 host bits can vary, covering exactly the 64 addresses of the subnet.",
+    "why_wrong": {
+      "1": "0.0.0.31 corrisponde a una /27 (32 indirizzi), più piccola della sottorete richiesta.",
+      "2": "0.0.0.255 corrisponde a una /24 (256 indirizzi), troppo ampia rispetto alla /26.",
+      "3": "0.0.0.127 corrisponde a una /25 (128 indirizzi), comprende due sottoreti /26 anziché una."
+    },
+    "why_wrong_en": {
+      "1": "0.0.0.31 corresponds to a /27 (32 addresses), smaller than the required subnet.",
+      "2": "0.0.0.255 corresponds to a /24 (256 addresses), too broad compared to the /26.",
+      "3": "0.0.0.127 corresponds to a /25 (128 addresses); it covers two /26 subnets instead of one."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-021",
-    "cert": ["CCNA"],
-    "topics": ["ACL"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "ACL"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Secondo le best practice Cisco, dove dovrebbe essere posizionata una ACL estesa per essere più efficiente?",
-    "options": ["Il più vicino possibile alla destinazione del traffico", "Il più vicino possibile alla sorgente del traffico", "Sull'interfaccia di loopback del router", "La posizione è indifferente"],
-    "correct": [1],
+    "question_en": "According to Cisco best practices, where should an extended ACL be placed to be most efficient?",
+    "options": [
+      "Il più vicino possibile alla destinazione del traffico",
+      "Il più vicino possibile alla sorgente del traffico",
+      "Sull'interfaccia di loopback del router",
+      "La posizione è indifferente"
+    ],
+    "options_en": [
+      "As close as possible to the destination of the traffic",
+      "As close as possible to the source of the traffic",
+      "On the router's loopback interface",
+      "The position does not matter"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Le ACL estese filtrano su sorgente, destinazione, protocollo e porta, quindi si collocano il più vicino possibile alla sorgente per scartare subito il traffico indesiderato ed evitare che consumi banda attraversando la rete.",
-    "why_wrong": {"0": "Il posizionamento vicino alla destinazione è la best practice per le ACL standard, non per quelle estese.", "2": "L'interfaccia di loopback è logica e non filtra il traffico di transito degli utenti.", "3": "La posizione non è indifferente: influenza direttamente l'efficienza e il consumo di risorse di rete."},
+    "explanation_en": "Extended ACLs filter on source, destination, protocol and port, so they are placed as close as possible to the source to discard unwanted traffic immediately and prevent it from consuming bandwidth traversing the network.",
+    "why_wrong": {
+      "0": "Il posizionamento vicino alla destinazione è la best practice per le ACL standard, non per quelle estese.",
+      "2": "L'interfaccia di loopback è logica e non filtra il traffico di transito degli utenti.",
+      "3": "La posizione non è indifferente: influenza direttamente l'efficienza e il consumo di risorse di rete."
+    },
+    "why_wrong_en": {
+      "0": "Placement close to the destination is the best practice for standard ACLs, not for extended ones.",
+      "2": "The loopback interface is logical and does not filter users' transit traffic.",
+      "3": "The position does matter: it directly affects the efficiency and the consumption of network resources."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-022",
-    "cert": ["CCNA"],
-    "topics": ["ACL"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "ACL"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali DUE affermazioni descrivono correttamente il comportamento della modalità di violazione 'restrict' di port security?",
-    "options": ["Scarta i frame provenienti da indirizzi MAC non autorizzati", "Mette immediatamente la porta in stato err-disabled", "Incrementa il contatore delle violazioni e genera un messaggio syslog/SNMP", "Non registra né segnala in alcun modo la violazione"],
-    "correct": [0, 2],
+    "question_en": "Which TWO statements correctly describe the behavior of the 'restrict' violation mode of port security?",
+    "options": [
+      "Scarta i frame provenienti da indirizzi MAC non autorizzati",
+      "Mette immediatamente la porta in stato err-disabled",
+      "Incrementa il contatore delle violazioni e genera un messaggio syslog/SNMP",
+      "Non registra né segnala in alcun modo la violazione"
+    ],
+    "options_en": [
+      "It discards frames coming from unauthorized MAC addresses",
+      "It immediately puts the port into the err-disabled state",
+      "It increments the violation counter and generates a syslog/SNMP message",
+      "It does not log or report the violation in any way"
+    ],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "In modalità restrict la porta resta attiva ma scarta i frame degli host non autorizzati, incrementa il contatore delle violazioni e invia notifiche syslog e trap SNMP. La porta non viene disattivata.",
-    "why_wrong": {"1": "Lo stato err-disabled è tipico della modalità shutdown (default), non di restrict, che mantiene la porta operativa.", "3": "restrict registra e segnala la violazione tramite contatore e messaggi; è la modalità protect che scarta i frame senza notificare."},
+    "explanation_en": "In restrict mode the port stays active but discards frames from unauthorized hosts, increments the violation counter and sends syslog notifications and SNMP traps. The port is not shut down.",
+    "why_wrong": {
+      "1": "Lo stato err-disabled è tipico della modalità shutdown (default), non di restrict, che mantiene la porta operativa.",
+      "3": "restrict registra e segnala la violazione tramite contatore e messaggi; è la modalità protect che scarta i frame senza notificare."
+    },
+    "why_wrong_en": {
+      "1": "The err-disabled state is typical of the shutdown mode (default), not of restrict, which keeps the port operational.",
+      "3": "restrict logs and reports the violation via counter and messages; it is the protect mode that discards frames without notifying."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-023",
-    "cert": ["CCNA"],
-    "topics": ["DHCP"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "DHCP"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In che modo la funzione DHCP snooping protegge la rete dai server DHCP non autorizzati (rogue)?",
-    "options": ["Cifra tutti i messaggi DHCP scambiati sulla rete", "Classifica le porte come trusted o untrusted e blocca le risposte DHCP dei server sulle porte untrusted", "Assegna solo indirizzi IP statici agli host", "Disabilita completamente il servizio DHCP sullo switch"],
-    "correct": [1],
+    "question_en": "How does the DHCP snooping feature protect the network from unauthorized (rogue) DHCP servers?",
+    "options": [
+      "Cifra tutti i messaggi DHCP scambiati sulla rete",
+      "Classifica le porte come trusted o untrusted e blocca le risposte DHCP dei server sulle porte untrusted",
+      "Assegna solo indirizzi IP statici agli host",
+      "Disabilita completamente il servizio DHCP sullo switch"
+    ],
+    "options_en": [
+      "It encrypts all DHCP messages exchanged on the network",
+      "It classifies ports as trusted or untrusted and blocks server DHCP replies on untrusted ports",
+      "It assigns only static IP addresses to hosts",
+      "It completely disables the DHCP service on the switch"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "DHCP snooping distingue le porte trusted (verso server DHCP legittimi) da quelle untrusted (verso gli host). I messaggi di risposta del server, come DHCPOFFER e DHCPACK, ricevuti su porte untrusted vengono scartati, neutralizzando i server rogue.",
-    "why_wrong": {"0": "DHCP snooping non cifra il traffico DHCP; ne ispeziona e filtra i messaggi.", "2": "La funzione non assegna indirizzi statici: continua a permettere il DHCP legittimo dalle porte trusted.", "3": "Non disabilita il DHCP; consente il servizio autorizzato bloccando solo quello non fidato."},
+    "explanation_en": "DHCP snooping distinguishes trusted ports (toward legitimate DHCP servers) from untrusted ones (toward the hosts). Server reply messages, such as DHCPOFFER and DHCPACK, received on untrusted ports are discarded, neutralizing rogue servers.",
+    "why_wrong": {
+      "0": "DHCP snooping non cifra il traffico DHCP; ne ispeziona e filtra i messaggi.",
+      "2": "La funzione non assegna indirizzi statici: continua a permettere il DHCP legittimo dalle porte trusted.",
+      "3": "Non disabilita il DHCP; consente il servizio autorizzato bloccando solo quello non fidato."
+    },
+    "why_wrong_en": {
+      "0": "DHCP snooping does not encrypt DHCP traffic; it inspects and filters its messages.",
+      "2": "The feature does not assign static addresses: it continues to allow legitimate DHCP from the trusted ports.",
+      "3": "It does not disable DHCP; it allows the authorized service while blocking only the untrusted one."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-024",
-    "cert": ["CCNA"],
-    "topics": ["Automazione"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Automazione"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale formato di dati struttura le informazioni in coppie chiave-valore racchiuse tra parentesi graffe ed è ampiamente usato nelle risposte delle API REST?",
-    "options": ["YAML", "JSON", "XML", "CSV"],
-    "correct": [1],
+    "question_en": "Which data format structures information in key-value pairs enclosed in curly braces and is widely used in REST API responses?",
+    "options": [
+      "YAML",
+      "JSON",
+      "XML",
+      "CSV"
+    ],
+    "options_en": [
+      "YAML",
+      "JSON",
+      "XML",
+      "CSV"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "JSON (JavaScript Object Notation) rappresenta i dati con oggetti tra parentesi graffe formati da coppie chiave-valore e array tra parentesi quadre. È leggero, leggibile e il formato più diffuso nelle API REST.",
-    "why_wrong": {"0": "YAML usa indentazione e trattini per strutturare i dati, non parentesi graffe con coppie chiave-valore in stile JSON.", "2": "XML struttura i dati con tag di apertura e chiusura, non con parentesi graffe.", "3": "CSV rappresenta dati tabellari separati da virgole, senza coppie chiave-valore né parentesi graffe."},
+    "explanation_en": "JSON (JavaScript Object Notation) represents data with objects in curly braces made of key-value pairs and arrays in square brackets. It is lightweight, readable and the most widespread format in REST APIs.",
+    "why_wrong": {
+      "0": "YAML usa indentazione e trattini per strutturare i dati, non parentesi graffe con coppie chiave-valore in stile JSON.",
+      "2": "XML struttura i dati con tag di apertura e chiusura, non con parentesi graffe.",
+      "3": "CSV rappresenta dati tabellari separati da virgole, senza coppie chiave-valore né parentesi graffe."
+    },
+    "why_wrong_en": {
+      "0": "YAML uses indentation and dashes to structure data, not curly braces with JSON-style key-value pairs.",
+      "2": "XML structures data with opening and closing tags, not with curly braces.",
+      "3": "CSV represents tabular data separated by commas, without key-value pairs or curly braces."
+    },
     "source": "HACK/CCNA"
   },
   {
     "id": "ccna4-025",
-    "cert": ["CCNA"],
-    "topics": ["Automazione"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Automazione"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali DUE affermazioni descrivono correttamente lo strumento di automazione Ansible?",
-    "options": ["È agentless e utilizza SSH per gestire i dispositivi", "Richiede l'installazione di un agente software su ogni dispositivo gestito", "Utilizza playbook scritti in formato YAML", "Adotta un modello 'pull' in cui i nodi scaricano la configurazione dal server"],
-    "correct": [0, 2],
+    "question_en": "Which TWO statements correctly describe the automation tool Ansible?",
+    "options": [
+      "È agentless e utilizza SSH per gestire i dispositivi",
+      "Richiede l'installazione di un agente software su ogni dispositivo gestito",
+      "Utilizza playbook scritti in formato YAML",
+      "Adotta un modello 'pull' in cui i nodi scaricano la configurazione dal server"
+    ],
+    "options_en": [
+      "It is agentless and uses SSH to manage the devices",
+      "It requires installing a software agent on every managed device",
+      "It uses playbooks written in YAML format",
+      "It adopts a 'pull' model in which the nodes download the configuration from the server"
+    ],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Ansible è agentless: si connette ai dispositivi via SSH (o API) senza software residente. Le automazioni si descrivono in playbook YAML idempotenti e vengono distribuite con un modello push dal control node.",
-    "why_wrong": {"1": "Ansible non richiede alcun agente sui nodi gestiti; è proprio la sua natura agentless a distinguerlo.", "3": "Ansible usa un modello push, spingendo la configurazione dal control node; il modello pull è tipico di Puppet e Chef."},
+    "explanation_en": "Ansible is agentless: it connects to the devices via SSH (or API) without any resident software. Automations are described in idempotent YAML playbooks and are distributed with a push model from the control node.",
+    "why_wrong": {
+      "1": "Ansible non richiede alcun agente sui nodi gestiti; è proprio la sua natura agentless a distinguerlo.",
+      "3": "Ansible usa un modello push, spingendo la configurazione dal control node; il modello pull è tipico di Puppet e Chef."
+    },
+    "why_wrong_en": {
+      "1": "Ansible does not require any agent on the managed nodes; it is precisely its agentless nature that distinguishes it.",
+      "3": "Ansible uses a push model, pushing the configuration from the control node; the pull model is typical of Puppet and Chef."
+    },
     "source": "HACK/CCNA"
   }
 ]

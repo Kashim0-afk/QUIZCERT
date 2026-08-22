@@ -6,13 +6,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Gli utenti di un dominio segnalano problemi di autenticazione subito dopo i cambi password e orologi non allineati tra i client. Quale ruolo FSMO e responsabile della sincronizzazione temporale del dominio e della gestione prioritaria dei cambi password?",
+    "question_en": "Users in a domain report authentication problems right after password changes, along with clocks that are out of sync between clients. Which FSMO role is responsible for the domain's time synchronization and for prioritized handling of password changes?",
     "options": ["PDC Emulator", "RID Master", "Infrastructure Master", "Schema Master"],
+    "options_en": ["PDC Emulator", "RID Master", "Infrastructure Master", "Schema Master"],
     "correct": [0],
     "explanation": "Il PDC Emulator e la sorgente di tempo autorevole del dominio e gestisce in via prioritaria le modifiche di password, i blocchi account e la compatibilita con client legacy. Un problema di orario o di replica dei cambi password punta quasi sempre a questo ruolo.",
+    "explanation_en": "The PDC Emulator is the domain's authoritative time source and handles password changes, account lockouts, and legacy-client compatibility with priority. A time issue or a password-change replication issue almost always points to this role.",
     "why_wrong": {
       "1": "Il RID Master distribuisce i pool di RID ai DC per generare i SID; non gestisce tempo ne cambi password.",
       "2": "L'Infrastructure Master aggiorna i riferimenti agli oggetti di altri domini (SID e nomi distinti), non la sincronizzazione oraria.",
       "3": "Lo Schema Master governa le modifiche allo schema a livello di foresta, non l'autenticazione quotidiana."
+    },
+    "why_wrong_en": {
+      "1": "The RID Master distributes RID pools to DCs so they can generate SIDs; it does not manage time or password changes.",
+      "2": "The Infrastructure Master updates references to objects in other domains (SIDs and distinguished names), not time synchronization.",
+      "3": "The Schema Master governs schema changes at the forest level, not day-to-day authentication."
     },
     "source": "IT generale"
   },
@@ -23,13 +31,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "In una foresta multi-dominio devi raggruppare in un unico gruppo account utente provenienti da domini diversi, per poi usarlo in tutta la foresta. Quale scope di gruppo e piu adatto?",
+    "question_en": "In a multi-domain forest you need to gather user accounts from different domains into a single group and then use it across the entire forest. Which group scope is the most suitable?",
     "options": ["Universal", "Global", "Domain Local", "Builtin Local"],
+    "options_en": ["Universal", "Global", "Domain Local", "Builtin Local"],
     "correct": [0],
     "explanation": "Il gruppo Universal puo contenere membri da qualsiasi dominio della foresta ed essere usato ovunque nella foresta, quindi e ideale per consolidare utenti cross-dominio. La sua appartenenza e replicata nel Global Catalog.",
+    "explanation_en": "A Universal group can contain members from any domain in the forest and be used anywhere in the forest, so it is ideal for consolidating cross-domain users. Its membership is replicated to the Global Catalog.",
     "why_wrong": {
       "1": "Un gruppo Global puo contenere solo membri del proprio dominio, quindi non puo raggruppare utenti di domini diversi.",
       "2": "Un gruppo Domain Local serve ad assegnare permessi alle risorse del proprio dominio e non e pensato come contenitore cross-dominio riutilizzabile ovunque.",
       "3": "I gruppi Builtin Local sono predefiniti e locali al dominio, non adatti a consolidare utenti da piu domini."
+    },
+    "why_wrong_en": {
+      "1": "A Global group can only contain members from its own domain, so it cannot gather users from different domains.",
+      "2": "A Domain Local group is meant for assigning permissions to resources in its own domain and is not designed as a cross-domain container reusable everywhere.",
+      "3": "Builtin Local groups are predefined and local to the domain, not suited to consolidating users from multiple domains."
     },
     "source": "IT generale"
   },
@@ -40,13 +56,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Una GPO collegata al dominio imposta un valore per una certa impostazione, mentre una GPO collegata alla OU dell'utente imposta un valore diverso per la stessa impostazione (senza Enforced ne blocco dell'ereditarieta). Quale valore prevale sull'utente?",
+    "question_en": "A GPO linked at the domain sets a value for a certain setting, while a GPO linked to the user's OU sets a different value for the same setting (with no Enforced option and no blocked inheritance). Which value wins for the user?",
     "options": ["Quello della GPO collegata alla OU", "Quello della GPO collegata al dominio", "Quello della GPO collegata al sito", "Quello della Local Policy"],
+    "options_en": ["The one from the GPO linked to the OU", "The one from the GPO linked to the domain", "The one from the GPO linked to the site", "The one from the Local Policy"],
     "correct": [0],
     "explanation": "L'ordine di applicazione e LSDOU: Local, Site, Domain, OU. Le GPO vengono applicate in sequenza e l'ultima elaborata vince in caso di conflitto: la OU e l'ultima, quindi il suo valore prevale (salvo Enforced o blocchi).",
+    "explanation_en": "The order of application is LSDOU: Local, Site, Domain, OU. GPOs are applied in sequence and the last one processed wins in case of conflict: the OU is last, so its value prevails (unless Enforced or inheritance blocking is used).",
     "why_wrong": {
       "1": "Il dominio viene elaborato prima della OU, quindi le sue impostazioni vengono sovrascritte da quelle della OU in conflitto.",
       "2": "Il sito viene elaborato molto presto nell'ordine LSDOU e viene sovrascritto dai livelli successivi.",
       "3": "La policy locale e la prima a essere applicata e la meno prioritaria: e sovrascritta da qualsiasi GPO di dominio o OU."
+    },
+    "why_wrong_en": {
+      "1": "The domain is processed before the OU, so its settings are overwritten by the conflicting OU settings.",
+      "2": "The site is processed very early in the LSDOU order and is overwritten by the later levels.",
+      "3": "The Local Policy is applied first and has the lowest priority: it is overwritten by any domain or OU GPO."
     },
     "source": "IT generale"
   },
@@ -57,13 +81,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "In un dominio AD DS moderno, i client membri risolvono i servizi tramite DNS e ottengono ticket da un KDC per accedere alle risorse. Qual e il protocollo di autenticazione predefinito in questo scenario?",
+    "question_en": "In a modern AD DS domain, member clients resolve services through DNS and obtain tickets from a KDC to access resources. What is the default authentication protocol in this scenario?",
     "options": ["Kerberos", "NTLM", "LDAP", "RADIUS"],
+    "options_en": ["Kerberos", "NTLM", "LDAP", "RADIUS"],
     "correct": [0],
     "explanation": "Kerberos e il protocollo di autenticazione predefinito in Active Directory Domain Services: usa un KDC (ospitato sui domain controller) che emette TGT e ticket di servizio (TGS), con autenticazione mutua e uso di timestamp.",
+    "explanation_en": "Kerberos is the default authentication protocol in Active Directory Domain Services: it uses a KDC (hosted on the domain controllers) that issues a TGT and service tickets (TGS), with mutual authentication and the use of timestamps.",
     "why_wrong": {
       "1": "NTLM e un protocollo legacy challenge-response usato come fallback (es. accesso tramite indirizzo IP o sistemi non aggiornati), non il predefinito.",
       "2": "LDAP e il protocollo di directory per interrogare e modificare gli oggetti AD, non un protocollo di autenticazione a ticket.",
       "3": "RADIUS e usato per l'autenticazione centralizzata di accessi di rete (es. VPN, 802.1X), non come protocollo predefinito interno al dominio."
+    },
+    "why_wrong_en": {
+      "1": "NTLM is a legacy challenge-response protocol used as a fallback (e.g. access via IP address or outdated systems), not the default.",
+      "2": "LDAP is the directory protocol for querying and modifying AD objects, not a ticket-based authentication protocol.",
+      "3": "RADIUS is used for centralized authentication of network access (e.g. VPN, 802.1X), not as the default protocol inside the domain."
     },
     "source": "IT generale"
   },
@@ -74,13 +106,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un nuovo client deve individuare un domain controller per autenticarsi al dominio. Quale tipo di record DNS usa principalmente per localizzare i servizi dei DC (es. _ldap._tcp.dc._msdcs.dominio.local)?",
+    "question_en": "A new client needs to locate a domain controller in order to authenticate to the domain. Which type of DNS record does it primarily use to locate DC services (e.g. _ldap._tcp.dc._msdcs.domain.local)?",
     "options": ["Record SRV", "Record A", "Record MX", "Record PTR"],
+    "options_en": ["SRV record", "A record", "MX record", "PTR record"],
     "correct": [0],
     "explanation": "Active Directory dipende dai record SRV (Service Locator) registrati in DNS, tipicamente sotto la zona _msdcs, per permettere ai client di individuare i domain controller e i servizi (LDAP, Kerberos, Global Catalog). Senza DNS funzionante e questi record, l'autenticazione al dominio fallisce.",
+    "explanation_en": "Active Directory relies on SRV (Service Locator) records registered in DNS, typically under the _msdcs zone, to let clients locate domain controllers and services (LDAP, Kerberos, Global Catalog). Without working DNS and these records, domain authentication fails.",
     "why_wrong": {
       "1": "Il record A risolve un nome host in un indirizzo IPv4: serve dopo aver individuato il servizio, ma non descrive quale host offre un dato servizio.",
       "2": "Il record MX indica i server di posta di un dominio e non ha alcun ruolo nella localizzazione dei DC.",
       "3": "Il record PTR serve alla risoluzione inversa (IP verso nome) e non e il meccanismo usato per trovare i servizi dei DC."
+    },
+    "why_wrong_en": {
+      "1": "The A record resolves a hostname to an IPv4 address: it is used after the service has been located, but it does not describe which host offers a given service.",
+      "2": "The MX record indicates the mail servers of a domain and plays no role in locating DCs.",
+      "3": "The PTR record is used for reverse resolution (IP to name) and is not the mechanism used to find DC services."
     },
     "source": "IT generale"
   },
@@ -91,13 +131,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Perche in AD DS si creano le Organizational Unit (OU)?",
+    "question_en": "Why are Organizational Units (OUs) created in AD DS?",
     "options": ["Per organizzare gli oggetti, delegare l'amministrazione e collegare le GPO", "Per assegnare direttamente i permessi alle risorse, essendo dei security principal", "Per creare un confine di replica separato all'interno del dominio", "Per definire un confine di sicurezza equivalente a un dominio distinto"],
+    "options_en": ["To organize objects, delegate administration, and link GPOs", "To assign permissions to resources directly, since they are security principals", "To create a separate replication boundary within the domain", "To define a security boundary equivalent to a distinct domain"],
     "correct": [0],
     "explanation": "Le OU sono contenitori logici usati per organizzare utenti, gruppi e computer, delegare l'amministrazione a livello granulare e collegare le Group Policy. Non sono security principal e non sono un confine di sicurezza come il dominio.",
+    "explanation_en": "OUs are logical containers used to organize users, groups, and computers, delegate administration at a granular level, and link Group Policy. They are not security principals and are not a security boundary like the domain.",
     "why_wrong": {
       "1": "Le OU non sono security principal: non hanno un SID a cui assegnare permessi. I permessi si assegnano a utenti e gruppi.",
       "2": "La replica in AD DS avviene per naming context/partizione, non per singola OU: una OU non crea un confine di replica separato.",
       "3": "Il confine di sicurezza reale e il dominio (e in ultima analisi la foresta), non la OU; delegare su una OU non equivale a separare i domini."
+    },
+    "why_wrong_en": {
+      "1": "OUs are not security principals: they have no SID to which permissions can be assigned. Permissions are assigned to users and groups.",
+      "2": "Replication in AD DS occurs per naming context/partition, not per individual OU: an OU does not create a separate replication boundary.",
+      "3": "The real security boundary is the domain (and ultimately the forest), not the OU; delegating on an OU is not the same as separating domains."
     },
     "source": "IT generale"
   },
@@ -108,13 +156,21 @@
     "type": "single",
     "difficulty": 3,
     "question": "In una singola foresta con piu domini figli creati sotto lo stesso albero/schema, che tipo di relazione di trust esiste tra i domini per impostazione predefinita?",
+    "question_en": "In a single forest with multiple child domains created under the same tree/schema, what type of trust relationship exists between the domains by default?",
     "options": ["Trust bidirezionale e transitivo, creato automaticamente (Kerberos)", "Trust unidirezionale e non transitivo, da configurare manualmente", "Nessun trust: va sempre creato a mano tra ogni coppia di domini", "Solo trust esterno non transitivo verso ciascun dominio"],
+    "options_en": ["A two-way, transitive trust, created automatically (Kerberos)", "A one-way, non-transitive trust that must be configured manually", "No trust: it must always be created manually between each pair of domains", "Only a non-transitive external trust toward each domain"],
     "correct": [0],
     "explanation": "All'interno di una foresta, i domini sono collegati da trust bidirezionali e transitivi creati automaticamente (parent-child e tree-root), basati su Kerberos. La transitivita fa si che un utente possa essere autenticato in qualsiasi dominio della foresta senza trust manuali punto-a-punto.",
+    "explanation_en": "Within a forest, domains are linked by two-way, transitive trusts created automatically (parent-child and tree-root), based on Kerberos. Transitivity means a user can be authenticated in any domain of the forest without manual point-to-point trusts.",
     "why_wrong": {
       "1": "I trust interni alla foresta sono bidirezionali e transitivi, non unidirezionali/non transitivi ne manuali.",
       "2": "I trust tra domini della stessa foresta sono creati automaticamente al momento della creazione del dominio, non a mano.",
       "3": "I trust esterni non transitivi si usano verso domini fuori dalla foresta, non tra domini della stessa foresta."
+    },
+    "why_wrong_en": {
+      "1": "Trusts inside the forest are two-way and transitive, not one-way/non-transitive nor manual.",
+      "2": "Trusts between domains of the same forest are created automatically when the domain is created, not by hand.",
+      "3": "Non-transitive external trusts are used toward domains outside the forest, not between domains of the same forest."
     },
     "source": "IT generale"
   },
@@ -125,13 +181,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Come funziona la replica del database di Active Directory tra i domain controller di un dominio?",
+    "question_en": "How does Active Directory database replication work between the domain controllers of a domain?",
     "options": ["Multi-master: ogni DC e scrivibile e replica le modifiche agli altri, con convergenza tramite USN e metadati", "Single-master: esiste un solo DC scrivibile e gli altri sono in sola lettura", "Solo il PDC Emulator invia le modifiche, gli altri DC non replicano mai tra loro", "Manuale: l'amministratore esegue un export/import periodico tra i DC"],
+    "options_en": ["Multi-master: every DC is writable and replicates changes to the others, converging via USNs and metadata", "Single-master: there is only one writable DC and the others are read-only", "Only the PDC Emulator sends changes; the other DCs never replicate among themselves", "Manual: the administrator performs a periodic export/import between the DCs"],
     "correct": [0],
     "explanation": "AD DS usa una replica multi-master: ogni domain controller e scrivibile e propaga le modifiche agli altri. La coerenza si raggiunge tramite USN (Update Sequence Number), metadati di replica e risoluzione dei conflitti, con convergenza eventuale tra tutti i DC.",
+    "explanation_en": "AD DS uses multi-master replication: every domain controller is writable and propagates changes to the others. Consistency is achieved through USNs (Update Sequence Numbers), replication metadata, and conflict resolution, with eventual convergence across all DCs.",
     "why_wrong": {
       "1": "Il modello single-master con un unico DC scrivibile non descrive AD DS (semmai i soli RODC sono in sola lettura, ma sono l'eccezione).",
       "2": "Il PDC Emulator ha ruoli particolari (tempo, password) ma non e l'unico a replicare: la replica avviene tra tutti i DC.",
       "3": "La replica AD e automatica e pianificata, non un processo manuale di export/import."
+    },
+    "why_wrong_en": {
+      "1": "The single-master model with a single writable DC does not describe AD DS (only RODCs are read-only, but they are the exception).",
+      "2": "The PDC Emulator has special roles (time, passwords) but is not the only one that replicates: replication occurs among all DCs.",
+      "3": "AD replication is automatic and scheduled, not a manual export/import process."
     },
     "source": "IT generale"
   },
@@ -142,13 +206,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un'azienda adotta Microsoft Entra ID (identita nel cloud). Quale affermazione descrive correttamente una differenza rispetto ad Active Directory Domain Services on-premise?",
+    "question_en": "A company adopts Microsoft Entra ID (cloud identity). Which statement correctly describes a difference compared to on-premises Active Directory Domain Services?",
     "options": ["Entra ID non usa OU e GPO tradizionali: l'accesso alle app avviene tramite protocolli cloud come OAuth 2.0, SAML e OpenID Connect", "Entra ID e identico ad AD DS e applica le stesse GPO ai dispositivi", "Entra ID usa esclusivamente Kerberos e una struttura a OU come AD DS", "Entra ID richiede un domain controller fisico installato in ogni sede aziendale"],
+    "options_en": ["Entra ID does not use traditional OUs and GPOs: app access happens through cloud protocols such as OAuth 2.0, SAML, and OpenID Connect", "Entra ID is identical to AD DS and applies the same GPOs to devices", "Entra ID uses exclusively Kerberos and an OU structure like AD DS", "Entra ID requires a physical domain controller installed at every company site"],
     "correct": [0],
     "explanation": "Entra ID e un servizio di identita cloud basato su protocolli web moderni (OAuth 2.0, SAML, OpenID Connect) e non replica la struttura gerarchica a foresta/dominio/OU ne le GPO di AD DS. La gestione dei dispositivi e delle policy si fa con strumenti come Intune, non con le Group Policy classiche.",
+    "explanation_en": "Entra ID is a cloud identity service based on modern web protocols (OAuth 2.0, SAML, OpenID Connect) and does not replicate the hierarchical forest/domain/OU structure or the GPOs of AD DS. Device and policy management is done with tools such as Intune, not with classic Group Policy.",
     "why_wrong": {
       "1": "Entra ID non applica le GPO classiche: la gestione delle policy sui dispositivi avviene tipicamente via MDM/Intune.",
       "2": "Entra ID non e strutturato in OU e non usa Kerberos/NTLM come metodo primario per le app cloud, ma protocolli come OAuth/SAML/OIDC.",
       "3": "Entra ID e un servizio cloud e non richiede domain controller fisici nelle sedi; l'eventuale sincronizzazione con l'on-prem si fa con Entra Connect."
+    },
+    "why_wrong_en": {
+      "1": "Entra ID does not apply classic GPOs: device policy management typically happens via MDM/Intune.",
+      "2": "Entra ID is not structured in OUs and does not use Kerberos/NTLM as the primary method for cloud apps, but protocols like OAuth/SAML/OIDC.",
+      "3": "Entra ID is a cloud service and does not require physical domain controllers at each site; any synchronization with on-prem is done with Entra Connect."
     },
     "source": "IT generale"
   },
@@ -159,13 +231,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Ogni domain controller ha bisogno di un pool di RID per assegnare SID univoci ai nuovi oggetti (utenti, gruppi, computer) che crea. Quale ruolo FSMO distribuisce questi pool ai DC del dominio?",
+    "question_en": "Every domain controller needs a pool of RIDs to assign unique SIDs to the new objects (users, groups, computers) it creates. Which FSMO role distributes these pools to the DCs in the domain?",
     "options": ["RID Master", "PDC Emulator", "Schema Master", "Domain Naming Master"],
+    "options_en": ["RID Master", "PDC Emulator", "Schema Master", "Domain Naming Master"],
     "correct": [0],
     "explanation": "Il RID Master (ruolo FSMO a livello di dominio) alloca blocchi di RID ai singoli domain controller. Il DC combina il RID con il SID di dominio per generare il SID univoco di ogni nuovo oggetto. Se il RID Master e irraggiungibile a lungo, i DC possono esaurire il pool e non creare piu oggetti.",
+    "explanation_en": "The RID Master (a domain-level FSMO role) allocates blocks of RIDs to individual domain controllers. The DC combines the RID with the domain SID to generate the unique SID of each new object. If the RID Master is unreachable for a long time, DCs can exhaust their pool and stop creating objects.",
     "why_wrong": {
       "1": "Il PDC Emulator gestisce tempo, password e blocchi account, non la distribuzione dei pool di RID.",
       "2": "Lo Schema Master (ruolo di foresta) governa le modifiche allo schema, non l'assegnazione dei RID.",
       "3": "Il Domain Naming Master (ruolo di foresta) controlla l'aggiunta e rimozione dei domini nella foresta, non i RID."
+    },
+    "why_wrong_en": {
+      "1": "The PDC Emulator manages time, passwords, and account lockouts, not the distribution of RID pools.",
+      "2": "The Schema Master (a forest role) governs schema changes, not RID allocation.",
+      "3": "The Domain Naming Master (a forest role) controls the addition and removal of domains in the forest, not RIDs."
     },
     "source": "IT generale"
   },
@@ -176,12 +256,19 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali dei seguenti ruoli FSMO operano a livello di FORESTA, cioe esistono una sola volta nell'intera foresta? (Seleziona 2)",
+    "question_en": "Which of the following FSMO roles operate at the FOREST level, meaning they exist only once in the entire forest? (Select 2)",
     "options": ["Schema Master", "Domain Naming Master", "RID Master", "PDC Emulator"],
+    "options_en": ["Schema Master", "Domain Naming Master", "RID Master", "PDC Emulator"],
     "correct": [0, 1],
     "explanation": "I due ruoli FSMO di foresta sono lo Schema Master (unico responsabile delle modifiche allo schema) e il Domain Naming Master (unico responsabile dell'aggiunta/rimozione dei domini). Gli altri tre ruoli (RID Master, PDC Emulator, Infrastructure Master) esistono invece uno per ogni dominio.",
+    "explanation_en": "The two forest-level FSMO roles are the Schema Master (solely responsible for schema changes) and the Domain Naming Master (solely responsible for adding/removing domains). The other three roles (RID Master, PDC Emulator, Infrastructure Master) exist one per domain instead.",
     "why_wrong": {
       "2": "Il RID Master e un ruolo a livello di dominio: ne esiste uno per ciascun dominio, non uno per foresta.",
       "3": "Il PDC Emulator e un ruolo a livello di dominio: ogni dominio ha il proprio PDC Emulator."
+    },
+    "why_wrong_en": {
+      "2": "The RID Master is a domain-level role: there is one per domain, not one per forest.",
+      "3": "The PDC Emulator is a domain-level role: every domain has its own PDC Emulator."
     },
     "source": "IT generale"
   },
@@ -192,12 +279,19 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali delle seguenti affermazioni su Kerberos in Active Directory sono corrette? (Seleziona 2)",
+    "question_en": "Which of the following statements about Kerberos in Active Directory are correct? (Select 2)",
     "options": ["Utilizza ticket (TGT e TGS) emessi da un KDC ospitato sui domain controller", "Richiede la sincronizzazione dell'orario tra le parti entro una tolleranza (default circa 5 minuti)", "Trasmette la password dell'utente in chiaro sulla rete a ogni autenticazione", "Non prevede alcuna terza parte fidata: e un semplice scambio challenge-response tra client e server"],
+    "options_en": ["It uses tickets (TGT and TGS) issued by a KDC hosted on the domain controllers", "It requires time synchronization between the parties within a tolerance (default about 5 minutes)", "It transmits the user's password in clear text over the network on every authentication", "It involves no trusted third party: it is a simple challenge-response exchange between client and server"],
     "correct": [0, 1],
     "explanation": "Kerberos si basa su un KDC (sui DC) che rilascia un TGT e poi ticket di servizio (TGS), evitando di inviare la password sulla rete. Essendo i ticket vincolati a timestamp, richiede orologi sincronizzati entro una tolleranza (default circa 5 minuti), altrimenti l'autenticazione fallisce con errori di clock skew.",
+    "explanation_en": "Kerberos relies on a KDC (on the DCs) that issues a TGT and then service tickets (TGS), avoiding sending the password over the network. Because tickets are bound to timestamps, it requires clocks synchronized within a tolerance (default about 5 minutes), otherwise authentication fails with clock skew errors.",
     "why_wrong": {
       "2": "Kerberos e progettato proprio per NON inviare la password in chiaro: usa chiavi derivate e ticket cifrati.",
       "3": "Kerberos si basa su una terza parte fidata (il KDC); lo scambio challenge-response senza terza parte descrive piuttosto NTLM."
+    },
+    "why_wrong_en": {
+      "2": "Kerberos is specifically designed NOT to send the password in clear text: it uses derived keys and encrypted tickets.",
+      "3": "Kerberos relies on a trusted third party (the KDC); a challenge-response exchange without a third party describes NTLM instead."
     },
     "source": "IT generale"
   },
@@ -208,12 +302,19 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Riguardo agli scope dei gruppi in un dominio AD DS, quali affermazioni sono corrette? (Seleziona 2)",
+    "question_en": "Regarding group scopes in an AD DS domain, which statements are correct? (Select 2)",
     "options": ["Un gruppo Global contiene membri del proprio dominio e puo essere usato per assegnare permessi in qualsiasi dominio della foresta", "Un gruppo Domain Local e indicato per assegnare i permessi alle risorse del proprio dominio", "Un gruppo Universal puo essere usato solo all'interno di un singolo dominio", "Un gruppo Global puo contenere account provenienti da qualsiasi dominio della foresta"],
+    "options_en": ["A Global group contains members from its own domain and can be used to assign permissions in any domain of the forest", "A Domain Local group is suited to assigning permissions to resources in its own domain", "A Universal group can only be used within a single domain", "A Global group can contain accounts from any domain in the forest"],
     "correct": [0, 1],
     "explanation": "Nel modello AGDLP: gli Account vanno in gruppi Global (membri del proprio dominio, utilizzabili ovunque nella foresta), i Global si annidano in gruppi Domain Local, e ai Domain Local si assegnano i Permessi sulle risorse del dominio. Questo separa l'organizzazione degli utenti dall'assegnazione dei permessi.",
+    "explanation_en": "In the AGDLP model: Accounts go into Global groups (members of their own domain, usable anywhere in the forest), Global groups are nested into Domain Local groups, and Permissions on the domain's resources are assigned to the Domain Local groups. This separates the organization of users from the assignment of permissions.",
     "why_wrong": {
       "2": "Al contrario, il gruppo Universal e pensato per l'uso cross-dominio in tutta la foresta, non per un singolo dominio.",
       "3": "Un gruppo Global puo contenere solo membri del proprio dominio; per membri da domini diversi si usa lo scope Universal."
+    },
+    "why_wrong_en": {
+      "2": "On the contrary, the Universal group is designed for cross-domain use throughout the forest, not for a single domain.",
+      "3": "A Global group can only contain members from its own domain; for members from different domains you use the Universal scope."
     },
     "source": "IT generale"
   },
@@ -224,9 +325,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "In Microsoft Entra ID sono presenti le Organizational Unit (OU) e le Group Policy Object (GPO) esattamente come in Active Directory Domain Services on-premise.",
+    "question_en": "Microsoft Entra ID includes Organizational Units (OUs) and Group Policy Objects (GPOs) exactly like on-premises Active Directory Domain Services.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. Entra ID e un servizio di identita cloud e non implementa la struttura a OU ne le GPO classiche di AD DS. La gestione delle policy e della configurazione dei dispositivi avviene con strumenti come Microsoft Intune (MDM), non tramite Group Policy.",
+    "explanation_en": "False. Entra ID is a cloud identity service and does not implement the OU structure or the classic GPOs of AD DS. Policy management and device configuration are done with tools such as Microsoft Intune (MDM), not through Group Policy.",
     "source": "IT generale"
   },
   {
@@ -236,9 +340,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Kerberos e il protocollo di autenticazione predefinito in un dominio Active Directory Domain Services, mentre NTLM resta come fallback.",
+    "question_en": "Kerberos is the default authentication protocol in an Active Directory Domain Services domain, while NTLM remains as a fallback.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. In un dominio AD DS l'autenticazione predefinita e Kerberos (con KDC, TGT e ticket di servizio). NTLM viene ancora usato come ripiego in alcuni scenari, ad esempio accesso tramite indirizzo IP anziche nome, o con sistemi legacy che non supportano Kerberos.",
+    "explanation_en": "True. In an AD DS domain the default authentication is Kerberos (with KDC, TGT, and service tickets). NTLM is still used as a fallback in some scenarios, for example access via IP address rather than name, or with legacy systems that do not support Kerberos.",
     "source": "IT generale"
   },
   {
@@ -248,9 +355,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "La replica del database di Active Directory tra i domain controller e di tipo single-master, con un solo DC scrivibile e tutti gli altri in sola lettura.",
+    "question_en": "Active Directory database replication between domain controllers is single-master, with only one writable DC and all the others read-only.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. AD DS usa una replica multi-master: ogni domain controller e scrivibile e propaga le modifiche agli altri, con convergenza gestita tramite USN e metadati di replica. L'eccezione sono i Read-Only Domain Controller (RODC), che sono volutamente in sola lettura, ma non sono il modello generale.",
+    "explanation_en": "False. AD DS uses multi-master replication: every domain controller is writable and propagates changes to the others, with convergence managed through USNs and replication metadata. The exception is Read-Only Domain Controllers (RODCs), which are intentionally read-only, but they are not the general model.",
     "source": "IT generale"
   }
 ]
