@@ -2,6 +2,7 @@ import { grade } from './engine.js';
 import { filterQuestions, pickSet, listCerts, listTopics } from './select.js';
 import { recordAttempt, streak, globalAccuracy, byField } from './stats.js';
 import { exportStats, importStats } from './storage.js';
+import { getLang, toggleLang, t, qText, qOptions, qExplanation, qWhyWrong } from './i18n.js';
 
 // ---------- tiny DOM helper ----------
 function el(tag, props = {}, ...children) {
@@ -62,43 +63,46 @@ async function persist(app) {
 
 // ---------- HOME ----------
 function renderHome(app) {
-  // Cancel any exam timer still running from an abandoned simulation:
-  // leaving the exam via "← Home" must stop the countdown, otherwise it keeps
-  // ticking and eventually hijacks the screen + records phantom attempts.
+  // Cancel any exam timer still running from an abandoned simulation.
   if (app.examTimer) { clearInterval(app.examTimer); app.examTimer = null; }
   const certs = listCerts(app.questions);
   const topics = listTopics(app.questions);
 
-  const certSel = el('select', { 'aria-label': 'Certificazione' },
-    el('option', { value: '' }, 'Tutte le certificazioni'),
+  const certSel = el('select', { 'aria-label': t('certLabel') },
+    el('option', { value: '' }, t('allCerts')),
     ...certs.map(c => el('option', { value: c, ...(app.scope.cert === c ? { selected: 'selected' } : {}) }, c)));
-  const topicSel = el('select', { 'aria-label': 'Argomento' },
-    el('option', { value: '' }, 'Tutti gli argomenti'),
-    ...topics.map(t => el('option', { value: t, ...(app.scope.topic === t ? { selected: 'selected' } : {}) }, t)));
+  const topicSel = el('select', { 'aria-label': t('topicLabel') },
+    el('option', { value: '' }, t('allTopics')),
+    ...topics.map(x => el('option', { value: x, ...(app.scope.topic === x ? { selected: 'selected' } : {}) }, x)));
 
   certSel.addEventListener('change', () => { app.scope.cert = certSel.value; });
   topicSel.addEventListener('change', () => { app.scope.topic = topicSel.value; });
 
   const doneToday = app.stats.days[app.today]?.challengeDone;
 
+  const langBtn = el('button', { class: 'lang-btn', 'aria-label': 'Language', onClick: () => { toggleLang(); renderHome(app); } },
+    getLang() === 'it' ? 'IT | en' : 'it | EN');
+
   const screen = el('div', { class: 'screen' },
-    el('h1', { class: 'title' }, 'QuizCert'),
-    el('p', { class: 'subtitle' }, app.questions.length + ' domande disponibili · streak ' + streak(app.stats.days, app.today) + ' giorni'),
+    el('div', { class: 'home-top' },
+      el('h1', { class: 'title' }, 'QuizCert'),
+      langBtn),
+    el('p', { class: 'subtitle' }, t('subtitle', app.questions.length, streak(app.stats.days, app.today))),
 
     el('div', { class: 'card' },
-      el('h2', {}, 'Ambito di studio'),
-      el('label', { class: 'field' }, 'Certificazione', certSel),
-      el('label', { class: 'field' }, 'Argomento', topicSel),
-      el('p', { class: 'hint' }, 'Lascia su "Tutte / Tutti" per la modalità MIX (tutto insieme).')),
+      el('h2', {}, t('studyScope')),
+      el('label', { class: 'field' }, t('certLabel'), certSel),
+      el('label', { class: 'field' }, t('topicLabel'), topicSel),
+      el('p', { class: 'hint' }, t('mixHint'))),
 
     el('div', { class: 'modes' },
-      modeBtn('Allenamento', 'Domande in fila, feedback immediato', () => startPractice(app, 'practice')),
-      modeBtn('Simulazione esame', 'A tempo, punteggio finale', () => renderExamConfig(app)),
-      modeBtn('Ripasso errori', 'Solo le domande sbagliate', () => startPractice(app, 'review')),
-      modeBtn(doneToday ? 'Sfida giornaliera ✓' : 'Sfida giornaliera', doneToday ? 'Completata oggi' : 'Set del giorno', () => startDaily(app)),
-      modeBtn('Studio', 'Leggi domande e risposte', () => renderStudy(app))),
+      modeBtn(t('mTraining'), t('mTrainingD'), () => startPractice(app, 'practice')),
+      modeBtn(t('mExam'), t('mExamD'), () => renderExamConfig(app)),
+      modeBtn(t('mReview'), t('mReviewD'), () => startPractice(app, 'review')),
+      modeBtn(doneToday ? t('mDailyDone') : t('mDaily'), doneToday ? t('mDailyDoneD') : t('mDailyD'), () => startDaily(app)),
+      modeBtn(t('mStudy'), t('mStudyD'), () => renderStudy(app))),
 
-    el('button', { class: 'link-btn', onClick: () => renderStats(app) }, 'Statistiche'),
+    el('button', { class: 'link-btn', onClick: () => renderStats(app) }, t('statistics')),
   );
   app.root.replaceChildren(screen);
 }
@@ -118,13 +122,12 @@ function startPractice(app, mode) {
     history: app.stats.history,
   });
   if (pool.length === 0) {
-    const msg = mode === 'review' ? 'Nessun errore da ripassare — ottimo!' : 'Nessuna domanda per questo ambito.';
-    return renderMessage(app, msg);
+    return renderMessage(app, mode === 'review' ? t('noReview') : t('noQuestions'));
   }
   const order = pickSet(pool, pool.length);
   runQuiz(app, {
     order, index: 0, correct: 0, wrong: 0,
-    label: mode === 'review' ? 'Ripasso errori' : 'Allenamento',
+    label: mode === 'review' ? t('mReview') : t('mTraining'),
     daily: false,
   });
 }
@@ -135,7 +138,7 @@ function startDaily(app) {
   const order = pickSet(pool, DAILY_SIZE, rng);
   runQuiz(app, {
     order, index: 0, correct: 0, wrong: 0,
-    label: 'Sfida giornaliera', daily: true,
+    label: t('mDaily'), daily: true,
   });
 }
 
@@ -144,9 +147,10 @@ function runQuiz(app, session) {
 
   const q = session.order[session.index];
   const isMulti = q.type === 'multi';
+  const opts = qOptions(q);
   const selected = new Set();
 
-  const optionEls = q.options.map((opt, i) => {
+  const optionEls = opts.map((opt, i) => {
     const input = el('input', { type: isMulti ? 'checkbox' : 'radio', name: 'opt', value: String(i) });
     input.addEventListener('change', () => {
       if (isMulti) { input.checked ? selected.add(i) : selected.delete(i); }
@@ -156,11 +160,11 @@ function runQuiz(app, session) {
   });
 
   const feedback = el('div', { class: 'feedback' });
-  const submitBtn = el('button', { class: 'primary-btn' }, isMulti ? 'Conferma (scegli tutte le giuste)' : 'Conferma');
-  const nextBtn = el('button', { class: 'primary-btn hidden' }, 'Prossima →');
+  const submitBtn = el('button', { class: 'primary-btn' }, isMulti ? t('confirmMulti') : t('confirm'));
+  const nextBtn = el('button', { class: 'primary-btn hidden' }, t('next'));
 
   submitBtn.addEventListener('click', async () => {
-    if (selected.size === 0) { feedback.textContent = 'Seleziona una risposta.'; return; }
+    if (selected.size === 0) { feedback.textContent = t('selectAnswer'); return; }
     const res = grade(q, [...selected]);
     optionEls.forEach((lab, i) => {
       lab.querySelector('input').disabled = true;
@@ -169,13 +173,15 @@ function runQuiz(app, session) {
     });
     if (res.isCorrect) session.correct++; else session.wrong++;
 
-    const nodes = [el('p', { class: res.isCorrect ? 'verdict ok' : 'verdict ko' }, res.isCorrect ? '✓ Corretta' : '✗ Sbagliata')];
+    const why = qWhyWrong(q);
+    const nodes = [el('p', { class: res.isCorrect ? 'verdict ok' : 'verdict ko' }, res.isCorrect ? t('correct') : t('wrong'))];
     if (!res.isCorrect) {
       for (const w of res.wrongReasons) {
-        if (w.reason) nodes.push(el('p', { class: 'why-wrong' }, 'Perché "' + q.options[w.index] + '" è sbagliata: ' + w.reason));
+        const reason = why?.[String(w.index)];
+        if (reason) nodes.push(el('p', { class: 'why-wrong' }, t('whyWrong', opts[w.index], reason)));
       }
     }
-    nodes.push(el('p', { class: 'explain' }, res.explanation));
+    nodes.push(el('p', { class: 'explain' }, qExplanation(q)));
     feedback.replaceChildren(...nodes);
     submitBtn.classList.add('hidden');
     nextBtn.classList.remove('hidden');
@@ -190,8 +196,8 @@ function runQuiz(app, session) {
     topBar(app, session.label, (session.index + 1) + '/' + session.order.length, '✓ ' + session.correct + '  ✗ ' + session.wrong),
     el('div', { class: 'card question-card' },
       el('div', { class: 'meta' }, q.cert.join(', ') + ' · ' + q.topics.join(', ')),
-      el('p', { class: 'question' }, q.question),
-      isMulti ? el('p', { class: 'hint' }, 'Risposta multipla: seleziona tutte le opzioni corrette.') : null,
+      el('p', { class: 'question' }, qText(q)),
+      isMulti ? el('p', { class: 'hint' }, t('multiHint')) : null,
       el('div', { class: 'options' }, ...optionEls),
       feedback, submitBtn, nextBtn),
   );
@@ -207,39 +213,39 @@ async function finishQuiz(app, session) {
   const total = session.correct + session.wrong;
   const pct = total ? Math.round((session.correct / total) * 100) : 0;
   renderMessage(app,
-    session.label + ' completato: ' + session.correct + '/' + total + ' corrette (' + pct + '%).' +
-    (session.daily ? ' Streak: ' + streak(app.stats.days, app.today) + ' giorni.' : ''));
+    t('quizDone', session.label, session.correct, total, pct) +
+    (session.daily ? t('streakSuffix', streak(app.stats.days, app.today)) : ''));
 }
 
 // ---------- EXAM (no feedback until end) ----------
 function renderExamConfig(app) {
   const countSel = el('select', {},
-    el('option', { value: '10' }, '10 domande'),
-    el('option', { value: '20', selected: 'selected' }, '20 domande'),
-    el('option', { value: '40' }, '40 domande'));
+    el('option', { value: '10' }, t('nQuestions', 10)),
+    el('option', { value: '20', selected: 'selected' }, t('nQuestions', 20)),
+    el('option', { value: '40' }, t('nQuestions', 40)));
   const timeSel = el('select', {},
-    el('option', { value: '5' }, '5 minuti'),
-    el('option', { value: '10' }, '10 minuti'),
-    el('option', { value: '20', selected: 'selected' }, '20 minuti'),
-    el('option', { value: '40' }, '40 minuti'));
+    el('option', { value: '5' }, t('nMinutes', 5)),
+    el('option', { value: '10' }, t('nMinutes', 10)),
+    el('option', { value: '20', selected: 'selected' }, t('nMinutes', 20)),
+    el('option', { value: '40' }, t('nMinutes', 40)));
 
-  const start = el('button', { class: 'primary-btn' }, 'Inizia simulazione');
+  const start = el('button', { class: 'primary-btn' }, t('startExam'));
   start.addEventListener('click', () => {
     const pool = filterQuestions(app.questions, {
       cert: app.scope.cert || undefined, topic: app.scope.topic || undefined, history: app.stats.history,
     });
-    if (pool.length === 0) return renderMessage(app, 'Nessuna domanda per questo ambito.');
+    if (pool.length === 0) return renderMessage(app, t('noQuestions'));
     const order = pickSet(pool, Number(countSel.value));
     runExam(app, { order, index: 0, answers: [], seconds: Number(timeSel.value) * 60 });
   });
 
   app.root.replaceChildren(el('div', { class: 'screen' },
-    topBar(app, 'Simulazione esame', '', ''),
+    topBar(app, t('mExam'), '', ''),
     el('div', { class: 'card' },
-      el('h2', {}, 'Configura la simulazione'),
-      el('label', { class: 'field' }, 'Numero domande', countSel),
-      el('label', { class: 'field' }, 'Tempo', timeSel),
-      el('p', { class: 'hint' }, 'Ambito: ' + (app.scope.cert || 'tutte le cert') + ' · ' + (app.scope.topic || 'tutti gli argomenti') + '. Soglia superamento ' + PASS_THRESHOLD + '%.'),
+      el('h2', {}, t('examConfigTitle')),
+      el('label', { class: 'field' }, t('numQuestions'), countSel),
+      el('label', { class: 'field' }, t('time'), timeSel),
+      el('p', { class: 'hint' }, t('examScopeHint', app.scope.cert || t('allCertsShort'), app.scope.topic || t('allTopicsShort'), PASS_THRESHOLD)),
       start)));
 }
 
@@ -248,8 +254,8 @@ function runExam(app, session) {
     session.remaining = session.seconds;
     session.timer = setInterval(() => {
       session.remaining--;
-      const t = document.getElementById('examTimer');
-      if (t) t.textContent = fmtTime(session.remaining);
+      const tt = document.getElementById('examTimer');
+      if (tt) tt.textContent = fmtTime(session.remaining);
       if (session.remaining <= 0) finishExam(app, session);
     }, 1000);
     app.examTimer = session.timer; // so navigation away can cancel it
@@ -258,8 +264,9 @@ function runExam(app, session) {
 
   const q = session.order[session.index];
   const isMulti = q.type === 'multi';
+  const opts = qOptions(q);
   const selected = new Set();
-  const optionEls = q.options.map((opt, i) => {
+  const optionEls = opts.map((opt, i) => {
     const input = el('input', { type: isMulti ? 'checkbox' : 'radio', name: 'exopt', value: String(i) });
     input.addEventListener('change', () => {
       if (isMulti) { input.checked ? selected.add(i) : selected.delete(i); }
@@ -268,7 +275,7 @@ function runExam(app, session) {
     return el('label', { class: 'option' }, input, el('span', {}, opt));
   });
 
-  const nextLabel = session.index === session.order.length - 1 ? 'Termina' : 'Avanti →';
+  const nextLabel = session.index === session.order.length - 1 ? t('finish') : t('forward');
   const next = el('button', { class: 'primary-btn' }, nextLabel);
   next.addEventListener('click', () => {
     session.answers[session.index] = { q, selected: [...selected] };
@@ -277,11 +284,11 @@ function runExam(app, session) {
   });
 
   app.root.replaceChildren(el('div', { class: 'screen' },
-    topBar(app, 'Simulazione esame', (session.index + 1) + '/' + session.order.length, el('span', { id: 'examTimer', class: 'timer' }, fmtTime(session.remaining))),
+    topBar(app, t('mExam'), (session.index + 1) + '/' + session.order.length, el('span', { id: 'examTimer', class: 'timer' }, fmtTime(session.remaining))),
     el('div', { class: 'card question-card' },
       el('div', { class: 'meta' }, q.cert.join(', ') + ' · ' + q.topics.join(', ')),
-      el('p', { class: 'question' }, q.question),
-      isMulti ? el('p', { class: 'hint' }, 'Risposta multipla.') : null,
+      el('p', { class: 'question' }, qText(q)),
+      isMulti ? el('p', { class: 'hint' }, t('multiHintShort')) : null,
       el('div', { class: 'options' }, ...optionEls),
       next)));
 }
@@ -307,21 +314,24 @@ async function finishExam(app, session) {
   const pct = total ? Math.round((correct / total) * 100) : 0;
   const passed = pct >= PASS_THRESHOLD;
 
-  const reviewList = review.map(({ q, res, ans }) => el('div', { class: 'review-item' },
-    el('p', { class: 'question' }, q.question),
-    el('p', { class: res.isCorrect ? 'verdict ok' : 'verdict ko' },
-      res.isCorrect ? '✓ Corretta' : '✗ Sbagliata — la tua: ' + (ans.map(i => q.options[i]).join(', ') || '(nessuna)')),
-    el('p', { class: 'explain' }, 'Giusta: ' + res.correct.map(i => q.options[i]).join(', ') + '. ' + res.explanation)));
+  const reviewList = review.map(({ q, res, ans }) => {
+    const opts = qOptions(q);
+    return el('div', { class: 'review-item' },
+      el('p', { class: 'question' }, qText(q)),
+      el('p', { class: res.isCorrect ? 'verdict ok' : 'verdict ko' },
+        res.isCorrect ? t('correct') : t('yourAns', (ans.map(i => opts[i]).join(', ') || t('none')))),
+      el('p', { class: 'explain' }, t('correctAns', res.correct.map(i => opts[i]).join(', '), qExplanation(q))));
+  });
 
   app.root.replaceChildren(el('div', { class: 'screen' },
-    topBar(app, 'Risultato', '', ''),
+    topBar(app, t('result'), '', ''),
     el('div', { class: 'card' },
-      el('h2', { class: passed ? 'verdict ok' : 'verdict ko' }, (passed ? 'SUPERATO' : 'NON superato') + ' — ' + correct + '/' + total + ' (' + pct + '%)'),
-      el('p', { class: 'hint' }, 'Soglia: ' + PASS_THRESHOLD + '%')),
-    el('div', { class: 'card' }, el('h2', {}, 'Revisione'), ...reviewList)));
+      el('h2', { class: passed ? 'verdict ok' : 'verdict ko' }, (passed ? t('passed') : t('notPassed')) + ' — ' + correct + '/' + total + ' (' + pct + '%)'),
+      el('p', { class: 'hint' }, t('threshold', PASS_THRESHOLD))),
+    el('div', { class: 'card' }, el('h2', {}, t('review')), ...reviewList)));
 }
 
-// ---------- STUDIO (lettura domande + risposte) ----------
+// ---------- STUDIO (read question + answer) ----------
 function renderStudy(app) {
   const pool = filterQuestions(app.questions, {
     cert: app.scope.cert || undefined,
@@ -329,20 +339,22 @@ function renderStudy(app) {
     history: app.stats.history,
   });
 
-  const ambito = (app.scope.cert || 'Tutte le certificazioni') + ' · ' + (app.scope.topic || 'tutti gli argomenti');
+  const ambito = (app.scope.cert || t('allCerts')) + ' · ' + (app.scope.topic || t('allTopicsShort'));
 
   const items = pool.map((q, n) => {
-    const rispostaGiusta = q.correct.map(i => q.options[i]).join('  |  ');
+    const opts = qOptions(q);
+    const rightAns = q.correct.map(i => opts[i]).join('  |  ');
+    const why = qWhyWrong(q);
     const parts = [
-      el('p', { class: 'study-q' }, (n + 1) + '. ' + q.question),
-      el('p', { class: 'study-opt ok' }, '✓ ' + rispostaGiusta),
-      el('p', { class: 'study-exp' }, q.explanation),
+      el('p', { class: 'study-q' }, (n + 1) + '. ' + qText(q)),
+      el('p', { class: 'study-opt ok' }, '✓ ' + rightAns),
+      el('p', { class: 'study-exp' }, qExplanation(q)),
     ];
-    if (q.why_wrong) {
-      for (const [idx, reason] of Object.entries(q.why_wrong)) {
+    if (why) {
+      for (const [idx, reason] of Object.entries(why)) {
         const oi = Number(idx);
         if (!q.correct.includes(oi) && reason) {
-          parts.push(el('p', { class: 'study-wrong' }, '✗ "' + q.options[oi] + '": ' + reason));
+          parts.push(el('p', { class: 'study-wrong' }, '✗ "' + opts[oi] + '": ' + reason));
         }
       }
     }
@@ -351,13 +363,13 @@ function renderStudy(app) {
   });
 
   app.root.replaceChildren(el('div', { class: 'screen' },
-    topBar(app, 'Studio', '', pool.length + ' domande'),
+    topBar(app, t('mStudy'), '', t('nQuestionsShort', pool.length)),
     el('div', { class: 'card' },
-      el('h2', {}, 'Materiale di studio'),
-      el('p', { class: 'hint' }, 'Ambito: ' + ambito + '. Cambia certificazione o argomento dalla home per filtrare.')),
+      el('h2', {}, t('studyMaterial')),
+      el('p', { class: 'hint' }, t('studyScopeHint', ambito))),
     pool.length
       ? el('div', { class: 'card study-list' }, ...items)
-      : el('div', { class: 'card' }, el('p', { class: 'hint' }, 'Nessuna domanda per questo ambito.'))));
+      : el('div', { class: 'card' }, el('p', { class: 'hint' }, t('noQuestions')))));
 }
 
 // ---------- STATS ----------
@@ -380,7 +392,7 @@ function renderStats(app) {
     el('div', { class: 'bar-track' }, el('div', { class: 'bar-fill', style: 'width:' + v.pct + '%' })),
     el('span', { class: 'bar-pct' }, v.pct + '%')));
 
-  const exportBtn = el('button', { class: 'primary-btn' }, 'Esporta statistiche');
+  const exportBtn = el('button', { class: 'primary-btn' }, t('exportStats'));
   exportBtn.addEventListener('click', () => {
     const blob = new Blob([exportStats(app.stats)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -395,44 +407,44 @@ function renderStats(app) {
     try {
       const text = await file.text();
       const imported = importStats(text);
-      if (!confirm('Sovrascrivere le statistiche attuali con quelle importate?')) return;
+      if (!confirm(t('confirmOverwrite'))) return;
       app.stats = imported;
       await persist(app);
       renderStats(app);
-    } catch (e) { alert('Import fallito: ' + e.message); }
+    } catch (e) { alert(t('importFailed', e.message)); }
   });
-  const importBtn = el('button', { class: 'primary-btn' }, 'Importa statistiche');
+  const importBtn = el('button', { class: 'primary-btn' }, t('importStats'));
   importBtn.addEventListener('click', () => importInput.click());
 
-  const weakBtn = el('button', { class: 'link-btn', onClick: () => startPractice(app, 'review') }, 'Ripassa i punti deboli');
+  const weakBtn = el('button', { class: 'link-btn', onClick: () => startPractice(app, 'review') }, t('reviewWeak'));
 
-  const certCard = el('div', { class: 'card' }, el('h2', {}, 'Per certificazione'));
+  const certCard = el('div', { class: 'card' }, el('h2', {}, t('byCert')));
   if (Object.keys(byCert).length) bars(byCert).forEach(b => certCard.append(b));
-  else certCard.append(el('p', { class: 'hint' }, 'Ancora nessun dato.'));
+  else certCard.append(el('p', { class: 'hint' }, t('noData')));
 
-  const topicCard = el('div', { class: 'card' }, el('h2', {}, 'Per argomento (punti deboli in alto)'));
+  const topicCard = el('div', { class: 'card' }, el('h2', {}, t('byTopic')));
   if (Object.keys(byTopic).length) bars(byTopic).forEach(b => topicCard.append(b));
-  else topicCard.append(el('p', { class: 'hint' }, 'Ancora nessun dato.'));
+  else topicCard.append(el('p', { class: 'hint' }, t('noData')));
   topicCard.append(weakBtn);
 
   app.root.replaceChildren(el('div', { class: 'screen' },
-    topBar(app, 'Statistiche', '', ''),
+    topBar(app, t('statistics'), '', ''),
     el('div', { class: 'card' },
-      el('h2', {}, 'Streak: ' + streak(app.stats.days, app.today) + ' giorni'),
+      el('h2', {}, t('streakTitle', streak(app.stats.days, app.today))),
       el('div', { class: 'calendar' }, ...cal),
-      el('p', { class: 'hint' }, 'Ultimi 30 giorni (colore = quante risposte).')),
+      el('p', { class: 'hint' }, t('last30'))),
     el('div', { class: 'card' },
-      el('h2', {}, 'Globale'),
-      el('p', {}, g.correct + ' giuste · ' + g.wrong + ' sbagliate · ' + g.pct + '% accuratezza')),
+      el('h2', {}, t('overall')),
+      el('p', {}, t('overallLine', g.correct, g.wrong, g.pct))),
     certCard,
     topicCard,
-    el('div', { class: 'card' }, el('h2', {}, 'Backup'), el('div', { class: 'row' }, exportBtn, importBtn), importInput)));
+    el('div', { class: 'card' }, el('h2', {}, t('backup')), el('div', { class: 'row' }, exportBtn, importBtn), importInput)));
 }
 
 // ---------- shared bits ----------
 function topBar(app, title, center, right) {
   return el('div', { class: 'topbar' },
-    el('button', { class: 'back-btn', onClick: () => renderHome(app) }, '← Home'),
+    el('button', { class: 'back-btn', onClick: () => renderHome(app) }, t('home')),
     el('span', { class: 'topbar-title' }, title),
     el('span', { class: 'topbar-center' }, center || ''),
     el('span', { class: 'topbar-right' }, right || ''));
@@ -442,7 +454,7 @@ function renderMessage(app, msg) {
   app.root.replaceChildren(el('div', { class: 'screen' },
     topBar(app, 'QuizCert', '', ''),
     el('div', { class: 'card' }, el('p', { class: 'big-msg' }, msg),
-      el('button', { class: 'primary-btn', onClick: () => renderHome(app) }, 'Torna alla home'))));
+      el('button', { class: 'primary-btn', onClick: () => renderHome(app) }, t('backHome')))));
 }
 
 function fmtTime(s) {

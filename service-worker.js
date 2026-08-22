@@ -1,10 +1,11 @@
-const CACHE = 'quizcert-v13';
+const CACHE = 'quizcert-v14';
 const SHELL = [
   ".",
   "index.html",
   "style.css",
   "src/main.js",
   "src/ui.js",
+  "src/i18n.js",
   "src/engine.js",
   "src/select.js",
   "src/stats.js",

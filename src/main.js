@@ -2,6 +2,7 @@ import { loadQuestions } from './data-loader.js';
 import { createIndexedDbStore, createMemoryStore } from './storage.js';
 import { emptyStats } from './stats.js';
 import { startApp } from './ui.js';
+import { t } from './i18n.js';
 
 async function boot() {
   const root = document.getElementById('app');
@@ -17,7 +18,7 @@ async function boot() {
     const today = new Date().toISOString().slice(0, 10);
     startApp(root, { questions, store, stats, today, skipped });
   } catch (err) {
-    root.textContent = 'Errore nel caricamento delle domande: ' + err.message;
+    root.textContent = t('loadError', err.message);
   }
 
   if ('serviceWorker' in navigator) {

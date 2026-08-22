@@ -189,3 +189,15 @@ select, input[type="file"] {
 .study-exp { margin: 8px 0 0; padding: 8px 10px; background: var(--card2); border-left: 3px solid var(--accent); border-radius: 6px; }
 .study-wrong { margin: 4px 0 0; color: #fca5a5; font-size: 0.88rem; }
 .study-meta { margin: 6px 0 0; color: var(--muted); font-size: 0.75rem; }
+
+/* lingua */
+.home-top { display: flex; align-items: center; justify-content: center; gap: 12px; position: relative; }
+.home-top .title { margin: 12px 0 4px; }
+.lang-btn {
+  position: absolute; right: 0; top: 14px;
+  background: var(--card2); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px 10px; cursor: pointer; font-size: 0.8rem; font-variant: small-caps;
+  letter-spacing: 0.5px; min-height: 40px;
+}
+.lang-btn:hover { border-color: var(--accent); }
