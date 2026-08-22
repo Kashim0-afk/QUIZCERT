@@ -1,8 +1,12 @@
 [
   {
     "id": "bc-001",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Hashing"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Hashing"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Qual è la proprietà fondamentale di una funzione di hash crittografica?",
@@ -12,19 +16,38 @@
       "Produce un output di lunghezza variabile in base ai dati",
       "Richiede una chiave segreta per essere calcolata"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Una funzione di hash crittografica è one-way (unidirezionale): calcolare il digest dall'input è facile, ma invertire il processo per ottenere l'input dal digest è computazionalmente impraticabile.",
     "why_wrong": {
       "0": "Se fosse reversibile non sarebbe una funzione di hash sicura; l'irreversibilità è proprio la sua proprietà chiave.",
       "2": "Al contrario, l'hash produce un output di lunghezza fissa (es. SHA-256 sempre 256 bit) indipendentemente dalla dimensione dell'input.",
       "3": "L'hash non usa chiavi; è una funzione pubblica e deterministica. La chiave interviene nei MAC/HMAC, non nell'hash puro."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "What is the fundamental property of a cryptographic hash function?",
+    "options_en": [
+      "It is reversible: from the digest the original input can be recomputed",
+      "It is one-way: from the output (digest) it is computationally impractical to recover the input",
+      "It produces an output of variable length depending on the data",
+      "It requires a secret key to be computed"
+    ],
+    "explanation_en": "A cryptographic hash function is one-way: computing the digest from the input is easy, but reversing the process to obtain the input from the digest is computationally impractical.",
+    "why_wrong_en": {
+      "0": "If it were reversible it would not be a secure hash function; irreversibility is precisely its key property.",
+      "2": "On the contrary, the hash produces a fixed-length output (e.g. SHA-256 always 256 bits) regardless of the input size.",
+      "3": "The hash does not use keys; it is a public and deterministic function. The key comes into play in MACs/HMACs, not in the pure hash."
+    }
   },
   {
     "id": "bc-002",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Crittografia"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Nella crittografia simmetrica (es. AES), come vengono gestite le chiavi?",
@@ -34,19 +57,38 @@
       "Non è necessaria alcuna chiave, basta l'algoritmo",
       "Ogni messaggio genera una coppia di chiavi diversa"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "Nella crittografia simmetrica la stessa chiave condivisa serve sia per cifrare sia per decifrare. È veloce ma richiede uno scambio sicuro preventivo della chiave.",
     "why_wrong": {
       "1": "Cifrare con chiave pubblica e decifrare con quella privata descrive la crittografia asimmetrica, non quella simmetrica.",
       "2": "Ogni cifratura richiede una chiave; l'algoritmo (es. AES) è pubblico, è la chiave a garantire la segretezza.",
       "3": "La generazione di coppie di chiavi appartiene alla crittografia asimmetrica; nel simmetrico si usa un'unica chiave condivisa."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "In symmetric cryptography (e.g. AES), how are the keys managed?",
+    "options_en": [
+      "The same secret key is used both to encrypt and to decrypt",
+      "Encryption is done with the public key and decryption with the private one",
+      "No key is needed, the algorithm alone is enough",
+      "Each message generates a different key pair"
+    ],
+    "explanation_en": "In symmetric cryptography the same shared key serves both to encrypt and to decrypt. It is fast but requires a secure preliminary exchange of the key.",
+    "why_wrong_en": {
+      "1": "Encrypting with the public key and decrypting with the private one describes asymmetric cryptography, not symmetric.",
+      "2": "Every encryption requires a key; the algorithm (e.g. AES) is public, it is the key that guarantees secrecy.",
+      "3": "The generation of key pairs belongs to asymmetric cryptography; in symmetric a single shared key is used."
+    }
   },
   {
     "id": "bc-003",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Crittografia"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Crittografia"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Alice vuole inviare a Bob un messaggio riservato usando la crittografia asimmetrica. Con quale chiave deve cifrare il messaggio?",
@@ -56,19 +98,38 @@
       "Con la chiave privata di Bob",
       "Con la chiave pubblica di Alice"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Per garantire la riservatezza, Alice cifra con la chiave pubblica di Bob: solo Bob, con la propria chiave privata, potrà decifrare il messaggio.",
     "why_wrong": {
       "0": "Cifrare con la propria chiave privata serve a firmare (autenticità), non a rendere riservato il messaggio: chiunque potrebbe decifrarlo con la pubblica di Alice.",
       "2": "Alice non possiede la chiave privata di Bob: è segreta e nota solo a lui.",
       "3": "Cifrando con la pubblica di Alice, solo Alice potrebbe decifrare, non Bob."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "Alice wants to send Bob a confidential message using asymmetric cryptography. With which key must she encrypt the message?",
+    "options_en": [
+      "With Alice's private key",
+      "With Bob's public key",
+      "With Bob's private key",
+      "With Alice's public key"
+    ],
+    "explanation_en": "To ensure confidentiality, Alice encrypts with Bob's public key: only Bob, with his own private key, will be able to decrypt the message.",
+    "why_wrong_en": {
+      "0": "Encrypting with one's own private key serves to sign (authenticity), not to make the message confidential: anyone could decrypt it with Alice's public key.",
+      "2": "Alice does not possess Bob's private key: it is secret and known only to him.",
+      "3": "By encrypting with Alice's public key, only Alice could decrypt, not Bob."
+    }
   },
   {
     "id": "bc-004",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Firma digitale"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Firma digitale"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Come viene creata una firma digitale su un documento?",
@@ -78,31 +139,65 @@
       "Calcolando semplicemente l'hash del documento",
       "Cifrando l'hash del documento con la chiave pubblica del firmatario"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "La firma digitale si genera calcolando l'hash del documento e cifrandolo con la chiave privata del firmatario. Chiunque può verificarla con la chiave pubblica corrispondente, ottenendo autenticità, integrità e non ripudio.",
     "why_wrong": {
       "1": "Cifrare con la pubblica del destinatario serve alla riservatezza, non a firmare; inoltre non lega il documento all'identità del firmatario.",
       "2": "Il solo hash garantisce l'integrità ma non l'autenticità: non prova chi ha prodotto il documento perché chiunque può calcolarlo.",
       "3": "Per firmare si usa la chiave privata (segreta) del firmatario, non quella pubblica; la pubblica serve solo alla verifica."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "How is a digital signature on a document created?",
+    "options_en": [
+      "By encrypting the hash of the document with the signer's private key",
+      "By encrypting the entire document with the recipient's public key",
+      "By simply computing the hash of the document",
+      "By encrypting the hash of the document with the signer's public key"
+    ],
+    "explanation_en": "The digital signature is generated by computing the hash of the document and encrypting it with the signer's private key. Anyone can verify it with the corresponding public key, obtaining authenticity, integrity and non-repudiation.",
+    "why_wrong_en": {
+      "1": "Encrypting with the recipient's public key serves confidentiality, not signing; moreover it does not tie the document to the signer's identity.",
+      "2": "The hash alone guarantees integrity but not authenticity: it does not prove who produced the document because anyone can compute it.",
+      "3": "To sign, the signer's private (secret) key is used, not the public one; the public key serves only for verification."
+    }
   },
   {
     "id": "bc-005",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Hashing"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Hashing"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Vero o Falso: applicare una funzione di hash a un dato ne garantisce la riservatezza (confidenzialità).",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. L'hash garantisce l'integrità (rileva modifiche), non la riservatezza. Per proteggere la confidenzialità serve la cifratura. L'hash non è nemmeno destinato a essere decifrato.",
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "True or False: applying a hash function to data guarantees its confidentiality.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. The hash guarantees integrity (it detects changes), not confidentiality. To protect confidentiality, encryption is needed. The hash is not even intended to be decrypted."
   },
   {
     "id": "bc-006",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["PKI"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "PKI"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In una PKI (Public Key Infrastructure), qual è il ruolo della Certification Authority (CA)?",
@@ -112,19 +207,39 @@
       "Cifrare tutto il traffico di rete tra gli utenti",
       "Sostituire le password con codici usa e getta"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "La CA è l'autorità di fiducia che emette e firma i certificati digitali, garantendo il legame verificabile tra una chiave pubblica e l'identità del suo titolare.",
     "why_wrong": {
       "0": "Le chiavi private restano segrete presso il titolare: una CA affidabile non le custodisce né le genera per conto altrui.",
       "2": "La CA non cifra il traffico; abilita la fiducia sui certificati che poi i protocolli (es. TLS) usano per stabilire canali cifrati.",
       "3": "I codici usa e getta (OTP) riguardano l'autenticazione a più fattori, non la funzione di una CA."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "In a PKI (Public Key Infrastructure), what is the role of the Certification Authority (CA)?",
+    "options_en": [
+      "To generate and safeguard the private keys of all users",
+      "To issue and sign digital certificates that bind a public key to an identity",
+      "To encrypt all the network traffic between users",
+      "To replace passwords with one-time codes"
+    ],
+    "explanation_en": "The CA is the trusted authority that issues and signs digital certificates, guaranteeing the verifiable binding between a public key and the identity of its holder.",
+    "why_wrong_en": {
+      "0": "Private keys remain secret with the holder: a trustworthy CA does not safeguard or generate them on others' behalf.",
+      "2": "The CA does not encrypt traffic; it enables trust in the certificates that the protocols (e.g. TLS) then use to establish encrypted channels.",
+      "3": "One-time codes (OTP) concern multi-factor authentication, not the function of a CA."
+    }
   },
   {
     "id": "bc-007",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Merkle Tree", "Blockchain"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Merkle Tree",
+      "Blockchain"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "A cosa serve un Merkle tree (albero di Merkle) in un blocco della blockchain?",
@@ -134,19 +249,39 @@
       "A ordinare i miner in base alla potenza di calcolo",
       "A memorizzare le chiavi private degli utenti"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Il Merkle tree combina gli hash delle transazioni a coppie fino a un unico hash radice (Merkle root). Permette di verificare in modo efficiente (log n) se una transazione è inclusa nel blocco senza scaricarle tutte.",
     "why_wrong": {
       "0": "Il Merkle tree usa funzioni di hash, non cifra le transazioni; non fornisce riservatezza.",
       "2": "L'ordinamento dei miner non ha nulla a che vedere con il Merkle tree: è legato al meccanismo di consenso.",
       "3": "Le chiavi private non vengono mai memorizzate nel blocco: risiedono nel wallet dell'utente."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "What is a Merkle tree used for in a blockchain block?",
+    "options_en": [
+      "To encrypt the transactions with a symmetric key",
+      "To summarize all transactions in a single hash (Merkle root) and efficiently verify their inclusion",
+      "To rank the miners by computing power",
+      "To store users' private keys"
+    ],
+    "explanation_en": "The Merkle tree combines the hashes of the transactions in pairs up to a single root hash (Merkle root). It allows efficiently verifying (log n) whether a transaction is included in the block without downloading them all.",
+    "why_wrong_en": {
+      "0": "The Merkle tree uses hash functions, it does not encrypt the transactions; it does not provide confidentiality.",
+      "2": "The ranking of miners has nothing to do with the Merkle tree: it is tied to the consensus mechanism.",
+      "3": "Private keys are never stored in the block: they reside in the user's wallet."
+    }
   },
   {
     "id": "bc-008",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Blockchain", "Consenso"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Blockchain",
+      "Consenso"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Nel meccanismo di consenso Proof of Work (PoW), cosa devono fare i miner per aggiungere un blocco?",
@@ -156,19 +291,38 @@
       "Ottenere il voto della maggioranza degli utenti collegati",
       "Farsi autorizzare da una autorità centrale"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Nel PoW i miner cercano per tentativi un valore (nonce) tale che l'hash del blocco sia inferiore alla soglia di difficoltà. Questo lavoro richiede molta potenza di calcolo e rende costoso alterare la catena.",
     "why_wrong": {
       "0": "Depositare criptovaluta come garanzia descrive il Proof of Stake, non il Proof of Work.",
       "2": "Il PoW non si basa su un voto degli utenti, ma sulla dimostrazione di lavoro computazionale svolto.",
       "3": "La blockchain PoW è decentralizzata: non esiste un'autorità centrale che autorizza i blocchi."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "In the Proof of Work (PoW) consensus mechanism, what must miners do to add a block?",
+    "options_en": [
+      "Deposit (stake) an amount of cryptocurrency as collateral",
+      "Solve a computational problem by finding a nonce that produces a hash below a certain threshold (difficulty)",
+      "Obtain the vote of the majority of connected users",
+      "Get authorized by a central authority"
+    ],
+    "explanation_en": "In PoW miners search by trial and error for a value (nonce) such that the block's hash is below the difficulty threshold. This work requires a lot of computing power and makes altering the chain costly.",
+    "why_wrong_en": {
+      "0": "Depositing cryptocurrency as collateral describes Proof of Stake, not Proof of Work.",
+      "2": "PoW is not based on a vote of the users, but on the demonstration of computational work performed.",
+      "3": "The PoW blockchain is decentralized: there is no central authority that authorizes the blocks."
+    }
   },
   {
     "id": "bc-009",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Consenso"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Consenso"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la caratteristica distintiva del Proof of Stake (PoS) rispetto al Proof of Work?",
@@ -178,19 +332,38 @@
       "Elimina del tutto la necessità di chiavi crittografiche",
       "Permette a chiunque di validare senza possedere alcun token"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "Nel PoS il diritto di validare i blocchi è assegnato in proporzione alla quantità di token bloccati in stake (e ad altri criteri), evitando la corsa alla potenza di calcolo del PoW e riducendo il consumo energetico.",
     "why_wrong": {
       "1": "È il contrario: il PoS consuma molta meno energia del PoW proprio perché non richiede calcoli intensivi.",
       "2": "Il PoS continua a usare chiavi crittografiche per firmare transazioni e blocchi; non le elimina.",
       "3": "Per validare in PoS occorre mettere in stake dei token: chi non ne possiede non può fare da validatore."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "What is the distinguishing feature of Proof of Stake (PoS) compared to Proof of Work?",
+    "options_en": [
+      "The validator is chosen based on the amount of cryptocurrency put in stake, not on computing power",
+      "It requires much greater energy consumption than PoW",
+      "It completely eliminates the need for cryptographic keys",
+      "It allows anyone to validate without owning any token"
+    ],
+    "explanation_en": "In PoS the right to validate blocks is assigned in proportion to the amount of tokens locked in stake (and to other criteria), avoiding the computing-power race of PoW and reducing energy consumption.",
+    "why_wrong_en": {
+      "1": "It is the opposite: PoS consumes much less energy than PoW precisely because it does not require intensive computations.",
+      "2": "PoS continues to use cryptographic keys to sign transactions and blocks; it does not eliminate them.",
+      "3": "To validate in PoS you must put tokens in stake: those who do not own any cannot act as a validator."
+    }
   },
   {
     "id": "bc-010",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Hashing"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Hashing"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti sono proprietà desiderabili di una funzione di hash crittografica? (seleziona 2)",
@@ -200,18 +373,37 @@
       "Reversibilità semplice per recuperare l'input dal digest",
       "Output di lunghezza proporzionale alla lunghezza dell'input"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Una buona funzione di hash è resistente alle collisioni e presenta l'effetto valanga: modificare anche un solo bit dell'input produce un digest completamente diverso. Queste proprietà la rendono adatta a verificare l'integrità.",
     "why_wrong": {
       "2": "La reversibilità è indesiderabile: una funzione di hash sicura deve essere unidirezionale, non invertibile.",
       "3": "L'output ha lunghezza fissa (es. 256 bit) indipendentemente dalla dimensione dell'input, non proporzionale."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "Which of the following are desirable properties of a cryptographic hash function? (select 2)",
+    "options_en": [
+      "Collision resistance (difficult to find two inputs with the same digest)",
+      "Avalanche effect: a small change in the input radically changes the output",
+      "Simple reversibility to recover the input from the digest",
+      "Output of length proportional to the length of the input"
+    ],
+    "explanation_en": "A good hash function is collision-resistant and exhibits the avalanche effect: changing even a single bit of the input produces a completely different digest. These properties make it suitable for verifying integrity.",
+    "why_wrong_en": {
+      "2": "Reversibility is undesirable: a secure hash function must be one-way, not invertible.",
+      "3": "The output has a fixed length (e.g. 256 bits) regardless of the input size, not proportional."
+    }
   },
   {
     "id": "bc-011",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Firma digitale"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Firma digitale"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali garanzie fornisce una firma digitale valida? (seleziona 2)",
@@ -221,30 +413,65 @@
       "Riservatezza (confidenzialità) del contenuto del documento",
       "Anonimato totale del firmatario"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "La firma digitale garantisce autenticità e non ripudio (identifica il firmatario, che non può negare) e integrità (qualsiasi modifica invaliderebbe la firma). Non cifra il contenuto.",
     "why_wrong": {
       "2": "La firma non nasconde il contenuto: per la riservatezza serve la cifratura, che è un'operazione distinta.",
       "3": "La firma fa esattamente l'opposto dell'anonimato: lega il documento all'identità verificabile del firmatario."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "Which guarantees does a valid digital signature provide? (select 2)",
+    "options_en": [
+      "Authenticity and non-repudiation of the signer",
+      "Integrity of the signed document",
+      "Confidentiality of the document's content",
+      "Total anonymity of the signer"
+    ],
+    "explanation_en": "The digital signature guarantees authenticity and non-repudiation (it identifies the signer, who cannot deny it) and integrity (any modification would invalidate the signature). It does not encrypt the content.",
+    "why_wrong_en": {
+      "2": "The signature does not hide the content: for confidentiality, encryption is needed, which is a distinct operation.",
+      "3": "The signature does exactly the opposite of anonymity: it ties the document to the verifiable identity of the signer."
+    }
   },
   {
     "id": "bc-012",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Crittografia", "Controllo accessi"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Crittografia",
+      "Controllo accessi"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Vero o Falso: per far funzionare la crittografia asimmetrica è necessario condividere la propria chiave privata con l'interlocutore.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. La chiave privata deve rimanere segreta e non va mai condivisa. Si distribuisce soltanto la chiave pubblica; la sicurezza dell'intero sistema dipende dalla riservatezza della chiave privata.",
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "True or False: to make asymmetric cryptography work it is necessary to share one's own private key with the interlocutor.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. The private key must remain secret and must never be shared. Only the public key is distributed; the security of the entire system depends on the confidentiality of the private key."
   },
   {
     "id": "bc-013",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Wallet"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Wallet"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In un wallet di criptovaluta, cosa custodisce realmente l'utente?",
@@ -254,19 +481,39 @@
       "Una copia completa dell'intera blockchain",
       "Il certificato emesso dalla banca centrale"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un wallet non contiene monete ma le chiavi private (e i relativi indirizzi). I fondi vivono sulla blockchain; la chiave privata è ciò che permette di firmare transazioni e quindi spendere.",
     "why_wrong": {
       "0": "Le monete non sono file nel dispositivo: sono voci contabili sulla blockchain; il wallet gestisce solo le chiavi.",
       "2": "Un wallet ordinario non conserva l'intera blockchain; al più un nodo completo lo fa, ma non è il ruolo del wallet.",
       "3": "Non esiste alcun certificato di banca centrale nelle criptovalute decentralizzate: il controllo è basato sulle chiavi."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "In a cryptocurrency wallet, what does the user actually keep?",
+    "options_en": [
+      "The digital coins physically stored on the device",
+      "The private keys that authorize spending the funds recorded on the blockchain",
+      "A complete copy of the entire blockchain",
+      "The certificate issued by the central bank"
+    ],
+    "explanation_en": "A wallet does not contain coins but the private keys (and the related addresses). The funds live on the blockchain; the private key is what allows signing transactions and therefore spending.",
+    "why_wrong_en": {
+      "0": "Coins are not files on the device: they are ledger entries on the blockchain; the wallet manages only the keys.",
+      "2": "An ordinary wallet does not keep the entire blockchain; at most a full node does, but that is not the role of the wallet.",
+      "3": "There is no central bank certificate in decentralized cryptocurrencies: control is based on the keys."
+    }
   },
   {
     "id": "bc-014",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Smart Contract", "Blockchain"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Smart Contract",
+      "Blockchain"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Cos'è uno smart contract?",
@@ -276,31 +523,67 @@
       "Un accordo verbale registrato da un notaio",
       "Una chiave privata condivisa tra due parti contraenti"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Uno smart contract è codice eseguibile registrato sulla blockchain: le sue regole si applicano automaticamente e in modo deterministico al verificarsi delle condizioni previste, senza bisogno di un intermediario di fiducia.",
     "why_wrong": {
       "0": "Non è la semplice digitalizzazione di un documento: è codice attivo che si esegue autonomamente sulla rete.",
       "2": "Non ha nulla a che vedere con accordi verbali o notai: è software deterministico su blockchain.",
       "3": "Uno smart contract non è una chiave; le chiavi servono a firmare le transazioni che lo invocano."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "What is a smart contract?",
+    "options_en": [
+      "A paper contract that has been digitized and archived in the cloud",
+      "A program executed on the blockchain that automatically applies predefined rules when certain conditions occur",
+      "A verbal agreement recorded by a notary",
+      "A private key shared between two contracting parties"
+    ],
+    "explanation_en": "A smart contract is executable code recorded on the blockchain: its rules are applied automatically and deterministically when the foreseen conditions occur, without the need for a trusted intermediary.",
+    "why_wrong_en": {
+      "0": "It is not the mere digitization of a document: it is active code that executes autonomously on the network.",
+      "2": "It has nothing to do with verbal agreements or notaries: it is deterministic software on the blockchain.",
+      "3": "A smart contract is not a key; keys serve to sign the transactions that invoke it."
+    }
   },
   {
     "id": "bc-015",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Blockchain", "Hashing"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Blockchain",
+      "Hashing"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Vero o Falso: ogni blocco della blockchain contiene l'hash del blocco precedente, e questo concatenamento rende difficile alterare i dati passati.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Ogni blocco include l'hash del precedente formando una catena. Modificare un blocco passato ne cambierebbe l'hash, invalidando tutti i blocchi successivi: è questo concatenamento a garantire l'immutabilità (tamper-evidence).",
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "True or False: each block of the blockchain contains the hash of the previous block, and this chaining makes it difficult to alter past data.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Each block includes the hash of the previous one, forming a chain. Modifying a past block would change its hash, invalidating all subsequent blocks: it is this chaining that guarantees immutability (tamper-evidence)."
   },
   {
     "id": "bc-016",
-    "cert": ["Blockchain e Crittografia"],
-    "topics": ["Wallet", "Controllo accessi"],
+    "cert": [
+      "Blockchain e Crittografia"
+    ],
+    "topics": [
+      "Wallet",
+      "Controllo accessi"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali sono buone pratiche di sicurezza per proteggere un wallet di criptovalute? (seleziona 2)",
@@ -310,12 +593,27 @@
       "Salvare la chiave privata in chiaro in una email per non dimenticarla",
       "Condividere la seed phrase con il supporto tecnico che la richiede via chat"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Conservare la seed phrase offline e usare un hardware wallet mantiene le chiavi private lontane da minacce online (malware, phishing), riducendo drasticamente il rischio di furto dei fondi.",
     "why_wrong": {
       "2": "Salvare la chiave privata in chiaro in una email la espone a chiunque comprometta l'account di posta: è una pratica gravemente insicura.",
       "3": "Nessun supporto legittimo richiede mai la seed phrase: chi la chiede è un truffatore e chi la ottiene può svuotare il wallet."
     },
-    "source": "HACK/Blockchain e Sicurezza.rtf"
+    "source": "HACK/Blockchain e Sicurezza.rtf",
+    "question_en": "What are good security practices to protect a cryptocurrency wallet? (select 2)",
+    "options_en": [
+      "Store the seed phrase (recovery phrase) offline, away from connected devices",
+      "Use a hardware wallet (cold wallet) to keep the private keys",
+      "Save the private key in plain text in an email so as not to forget it",
+      "Share the seed phrase with technical support that requests it via chat"
+    ],
+    "explanation_en": "Storing the seed phrase offline and using a hardware wallet keeps the private keys away from online threats (malware, phishing), drastically reducing the risk of theft of the funds.",
+    "why_wrong_en": {
+      "2": "Saving the private key in plain text in an email exposes it to anyone who compromises the email account: it is a severely insecure practice.",
+      "3": "No legitimate support ever requests the seed phrase: whoever asks for it is a scammer and whoever obtains it can empty the wallet."
+    }
   }
 ]

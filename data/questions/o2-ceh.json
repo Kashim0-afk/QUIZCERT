@@ -6,7 +6,14 @@
     "type": "single",
     "difficulty": 1,
     "question": "Qual e l'ordine corretto delle fasi classiche dell'hacking etico secondo la metodologia CEH?",
+    "question_en": "What is the correct order of the classic phases of ethical hacking according to the CEH methodology?",
     "options": [
+      "Scanning, Reconnaissance, Gaining Access, Maintaining Access, Clearing Tracks",
+      "Reconnaissance, Scanning, Gaining Access, Maintaining Access, Clearing Tracks",
+      "Reconnaissance, Gaining Access, Scanning, Clearing Tracks, Maintaining Access",
+      "Gaining Access, Reconnaissance, Scanning, Maintaining Access, Clearing Tracks"
+    ],
+    "options_en": [
       "Scanning, Reconnaissance, Gaining Access, Maintaining Access, Clearing Tracks",
       "Reconnaissance, Scanning, Gaining Access, Maintaining Access, Clearing Tracks",
       "Reconnaissance, Gaining Access, Scanning, Clearing Tracks, Maintaining Access",
@@ -14,10 +21,16 @@
     ],
     "correct": [1],
     "explanation": "La sequenza metodologica prevede prima la ricognizione (raccolta informazioni), poi lo scanning (individuazione host/porte/servizi), quindi l'accesso, il mantenimento dell'accesso e infine la cancellazione delle tracce. Comprendere l'ordine aiuta a mappare le contromisure a ogni fase.",
+    "explanation_en": "The methodological sequence begins with reconnaissance (information gathering), then scanning (identifying hosts/ports/services), then gaining access, maintaining access, and finally clearing tracks. Understanding the order helps map countermeasures to each phase.",
     "why_wrong": {
       "0": "Lo scanning non puo precedere la reconnaissance: senza informazioni preliminari non si sa cosa scandire.",
       "2": "Lo scanning va fatto prima di ottenere l'accesso, non dopo; l'ordine e incoerente.",
       "3": "Non si puo ottenere l'accesso prima di aver raccolto informazioni e scandito i sistemi."
+    },
+    "why_wrong_en": {
+      "0": "Scanning cannot precede reconnaissance: without preliminary information you do not know what to scan.",
+      "2": "Scanning must be done before gaining access, not after; the order is inconsistent.",
+      "3": "You cannot gain access before gathering information and scanning the systems."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -28,18 +41,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Nel footprinting, qual e la differenza concettuale tra ricognizione passiva e attiva?",
+    "question_en": "In footprinting, what is the conceptual difference between passive and active reconnaissance?",
     "options": [
       "La passiva usa solo strumenti a pagamento, l'attiva strumenti gratuiti",
       "La passiva raccoglie informazioni senza interagire direttamente col target, l'attiva interagisce coi sistemi del bersaglio",
       "La passiva e illegale, l'attiva e sempre legale",
       "La passiva riguarda solo le reti wireless, l'attiva solo quelle cablate"
     ],
+    "options_en": [
+      "Passive uses only paid tools, active uses free tools",
+      "Passive gathers information without directly interacting with the target, active interacts with the target's systems",
+      "Passive is illegal, active is always legal",
+      "Passive concerns only wireless networks, active only wired ones"
+    ],
     "correct": [1],
     "explanation": "La ricognizione passiva raccoglie dati da fonti pubbliche (OSINT, WHOIS, social, motori di ricerca) senza toccare i sistemi del target, riducendo il rischio di rilevamento. L'attiva prevede interazione diretta (es. query DNS mirate, banner grabbing) ed e piu facilmente rilevabile.",
+    "explanation_en": "Passive reconnaissance gathers data from public sources (OSINT, WHOIS, social media, search engines) without touching the target's systems, reducing the risk of detection. Active reconnaissance involves direct interaction (e.g. targeted DNS queries, banner grabbing) and is more easily detectable.",
     "why_wrong": {
       "0": "La distinzione non dipende dal costo degli strumenti ma dall'interazione col bersaglio.",
       "2": "La liceita dipende dall'autorizzazione, non dalla natura passiva o attiva.",
       "3": "Entrambe si applicano a qualsiasi tipo di rete; non c'e legame col mezzo trasmissivo."
+    },
+    "why_wrong_en": {
+      "0": "The distinction does not depend on the cost of the tools but on the interaction with the target.",
+      "2": "Legality depends on authorization, not on the passive or active nature.",
+      "3": "Both apply to any type of network; there is no link to the transmission medium."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -50,18 +76,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual e il documento fondamentale che autorizza formalmente un penetration test e ne definisce il perimetro?",
+    "question_en": "What is the fundamental document that formally authorizes a penetration test and defines its scope?",
     "options": [
       "Il report finale di vulnerabilita",
       "Le regole di ingaggio e l'autorizzazione scritta (scope of work)",
       "Il file di configurazione dello scanner",
       "La checklist OWASP Top 10"
     ],
+    "options_en": [
+      "The final vulnerability report",
+      "The rules of engagement and the written authorization (scope of work)",
+      "The scanner configuration file",
+      "The OWASP Top 10 checklist"
+    ],
     "correct": [1],
     "explanation": "Prima di qualsiasi attivita, l'ethical hacker deve ottenere un'autorizzazione scritta con regole di ingaggio (scope, orari, sistemi inclusi/esclusi, contatti). Senza questo documento l'attivita e illegale, indipendentemente dall'intento.",
+    "explanation_en": "Before any activity, the ethical hacker must obtain written authorization with rules of engagement (scope, timing, included/excluded systems, contacts). Without this document the activity is illegal, regardless of intent.",
     "why_wrong": {
       "0": "Il report e un output finale, non l'autorizzazione preliminare.",
       "2": "La configurazione dello scanner e un dettaglio tecnico, non un'autorizzazione legale.",
       "3": "La checklist OWASP e una guida tecnica, non conferisce alcuna autorizzazione."
+    },
+    "why_wrong_en": {
+      "0": "The report is a final output, not the preliminary authorization.",
+      "2": "The scanner configuration is a technical detail, not a legal authorization.",
+      "3": "The OWASP checklist is a technical guide, it grants no authorization."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "In Nmap, a cosa serve concettualmente una scansione TCP SYN (half-open)?",
+    "question_en": "In Nmap, what is the conceptual purpose of a TCP SYN (half-open) scan?",
     "options": [
       "A completare sempre l'handshake a tre vie con ogni porta",
       "A determinare lo stato delle porte inviando SYN senza completare la connessione, risultando piu discreta",
       "A cifrare il traffico verso il target",
       "A eseguire codice remoto sulle porte aperte"
     ],
+    "options_en": [
+      "To always complete the three-way handshake with each port",
+      "To determine the state of the ports by sending SYN without completing the connection, being more stealthy",
+      "To encrypt the traffic toward the target",
+      "To execute remote code on the open ports"
+    ],
     "correct": [1],
     "explanation": "La scansione SYN invia un pacchetto SYN e valuta la risposta (SYN/ACK = porta aperta, RST = chiusa) senza completare l'handshake, riducendo i log generati. Conoscerla serve anche al difensore per riconoscere i pattern di scansione.",
+    "explanation_en": "The SYN scan sends a SYN packet and evaluates the response (SYN/ACK = open port, RST = closed) without completing the handshake, reducing the logs generated. Knowing it also helps the defender recognize scanning patterns.",
     "why_wrong": {
       "0": "La SYN non completa l'handshake: e proprio questa la sua caratteristica half-open.",
       "2": "Lo scanning non cifra il traffico; serve a rilevare lo stato delle porte.",
       "3": "Una scansione identifica porte e servizi, non esegue codice sul target."
+    },
+    "why_wrong_en": {
+      "0": "The SYN scan does not complete the handshake: this is precisely its half-open characteristic.",
+      "2": "Scanning does not encrypt traffic; it serves to detect the state of the ports.",
+      "3": "A scan identifies ports and services, it does not execute code on the target."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual e lo scopo principale della fase di enumeration?",
+    "question_en": "What is the main purpose of the enumeration phase?",
     "options": [
       "Cancellare i log del sistema bersaglio",
       "Estrarre attivamente nomi utente, condivisioni, servizi e risorse dai sistemi identificati",
       "Cifrare i dati sensibili trovati",
       "Installare una backdoor persistente"
     ],
+    "options_en": [
+      "Delete the logs of the target system",
+      "Actively extract usernames, shares, services, and resources from the identified systems",
+      "Encrypt the sensitive data found",
+      "Install a persistent backdoor"
+    ],
     "correct": [1],
     "explanation": "L'enumeration approfondisce lo scanning stabilendo connessioni attive per estrarre informazioni dettagliate: account utente, gruppi, condivisioni di rete, banner di servizio, tabelle di routing. E preziosa anche per il difensore per capire quali informazioni un sistema espone.",
+    "explanation_en": "Enumeration goes deeper than scanning by establishing active connections to extract detailed information: user accounts, groups, network shares, service banners, routing tables. It is also valuable for the defender to understand what information a system exposes.",
     "why_wrong": {
       "0": "La cancellazione dei log appartiene alla fase di clearing tracks.",
       "2": "L'enumeration raccoglie informazioni, non cifra dati.",
       "3": "L'installazione di backdoor appartiene al mantenimento dell'accesso."
+    },
+    "why_wrong_en": {
+      "0": "Deleting logs belongs to the clearing tracks phase.",
+      "2": "Enumeration gathers information, it does not encrypt data.",
+      "3": "Installing a backdoor belongs to maintaining access."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Quale contromisura e piu efficace contro gli attacchi di social engineering?",
+    "question_en": "Which countermeasure is most effective against social engineering attacks?",
     "options": [
       "Aumentare la larghezza di banda della rete",
       "Formazione e sensibilizzazione periodica del personale con simulazioni",
       "Installare un firewall piu potente",
       "Aumentare la complessita delle password del database"
     ],
+    "options_en": [
+      "Increase the network bandwidth",
+      "Periodic staff training and awareness with simulations",
+      "Install a more powerful firewall",
+      "Increase the complexity of the database passwords"
+    ],
     "correct": [1],
     "explanation": "Il social engineering sfrutta il fattore umano, quindi la difesa piu efficace e la consapevolezza: formazione continua, simulazioni di phishing e procedure di verifica dell'identita. I controlli tecnici da soli non fermano l'inganno delle persone.",
+    "explanation_en": "Social engineering exploits the human factor, so the most effective defense is awareness: ongoing training, phishing simulations, and identity verification procedures. Technical controls alone do not stop the deception of people.",
     "why_wrong": {
       "0": "La banda di rete non ha alcun effetto sull'inganno delle persone.",
       "2": "Un firewall protegge il perimetro di rete, non le decisioni umane.",
       "3": "Password complesse non impediscono a un utente ingannato di rivelarle."
+    },
+    "why_wrong_en": {
+      "0": "Network bandwidth has no effect on the deception of people.",
+      "2": "A firewall protects the network perimeter, not human decisions.",
+      "3": "Complex passwords do not prevent a deceived user from revealing them."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -138,18 +216,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual e la contromisura piu efficace contro le vulnerabilita di SQL injection?",
+    "question_en": "What is the most effective countermeasure against SQL injection vulnerabilities?",
     "options": [
       "Nascondere i messaggi di errore del database",
       "Usare query parametrizzate (prepared statement) e validazione dell'input",
       "Cambiare la porta del database",
       "Aumentare la RAM del server database"
     ],
+    "options_en": [
+      "Hide the database error messages",
+      "Use parameterized queries (prepared statements) and input validation",
+      "Change the database port",
+      "Increase the RAM of the database server"
+    ],
     "correct": [1],
     "explanation": "Le query parametrizzate separano il codice SQL dai dati forniti dall'utente, impedendo che l'input venga interpretato come comando. Unite alla validazione dell'input e al principio del minimo privilegio, costituiscono la difesa primaria contro la SQL injection.",
+    "explanation_en": "Parameterized queries separate the SQL code from the data supplied by the user, preventing the input from being interpreted as a command. Combined with input validation and the principle of least privilege, they constitute the primary defense against SQL injection.",
     "why_wrong": {
       "0": "Nascondere gli errori riduce le informazioni all'attaccante ma non elimina la vulnerabilita sottostante.",
       "2": "Cambiare porta e sicurezza per oscurita: non impedisce l'iniezione tramite l'applicazione.",
       "3": "La quantita di RAM non ha alcuna relazione con la validazione dell'input."
+    },
+    "why_wrong_en": {
+      "0": "Hiding errors reduces the information available to the attacker but does not eliminate the underlying vulnerability.",
+      "2": "Changing the port is security through obscurity: it does not prevent injection through the application.",
+      "3": "The amount of RAM has no relation to input validation."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual e la differenza concettuale principale tra crittografia simmetrica e asimmetrica?",
+    "question_en": "What is the main conceptual difference between symmetric and asymmetric cryptography?",
     "options": [
       "La simmetrica non usa chiavi, l'asimmetrica si",
       "La simmetrica usa la stessa chiave per cifrare e decifrare, l'asimmetrica usa una coppia di chiavi pubblica/privata",
       "La simmetrica e sempre insicura, l'asimmetrica sempre sicura",
       "La simmetrica funziona solo su hash, l'asimmetrica solo su file"
     ],
+    "options_en": [
+      "Symmetric does not use keys, asymmetric does",
+      "Symmetric uses the same key to encrypt and decrypt, asymmetric uses a public/private key pair",
+      "Symmetric is always insecure, asymmetric always secure",
+      "Symmetric works only on hashes, asymmetric only on files"
+    ],
     "correct": [1],
     "explanation": "Nella crittografia simmetrica la stessa chiave segreta cifra e decifra (es. AES), richiedendo uno scambio sicuro della chiave. Nell'asimmetrica una coppia matematicamente collegata (chiave pubblica e privata) risolve il problema della distribuzione della chiave (es. RSA).",
+    "explanation_en": "In symmetric cryptography the same secret key encrypts and decrypts (e.g. AES), requiring a secure key exchange. In asymmetric cryptography a mathematically linked pair (public and private key) solves the key distribution problem (e.g. RSA).",
     "why_wrong": {
       "0": "Entrambe usano chiavi; la differenza sta nel numero e nell'uso delle chiavi.",
       "2": "La sicurezza dipende da implementazione e lunghezza della chiave, non dal tipo in assoluto.",
       "3": "Entrambe possono operare su dati arbitrari; l'hashing e una funzione distinta."
+    },
+    "why_wrong_en": {
+      "0": "Both use keys; the difference lies in the number and use of the keys.",
+      "2": "Security depends on implementation and key length, not on the type in absolute terms.",
+      "3": "Both can operate on arbitrary data; hashing is a distinct function."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Perche WPA2/WPA3 sono preferibili a WEP per proteggere una rete wireless?",
+    "question_en": "Why are WPA2/WPA3 preferable to WEP for protecting a wireless network?",
     "options": [
       "Perche WEP e piu lento nella trasmissione",
       "Perche WEP usa cifratura debole (RC4 con IV corti) facilmente violabile, mentre WPA2/WPA3 usano cifratura robusta",
       "Perche WEP non supporta le password",
       "Perche WPA2/WPA3 non richiedono alcuna autenticazione"
     ],
+    "options_en": [
+      "Because WEP is slower in transmission",
+      "Because WEP uses weak encryption (RC4 with short IVs) that is easily broken, while WPA2/WPA3 use robust encryption",
+      "Because WEP does not support passwords",
+      "Because WPA2/WPA3 do not require any authentication"
+    ],
     "correct": [1],
     "explanation": "WEP presenta debolezze crittografiche note (vettori di inizializzazione corti e riutilizzabili con RC4) che permettono di recuperare la chiave. WPA2 (AES-CCMP) e soprattutto WPA3 offrono cifratura e gestione delle chiavi molto piu robuste.",
+    "explanation_en": "WEP has known cryptographic weaknesses (short and reusable initialization vectors with RC4) that allow the key to be recovered. WPA2 (AES-CCMP) and especially WPA3 offer much more robust encryption and key management.",
     "why_wrong": {
       "0": "La differenza e la robustezza crittografica, non la velocita.",
       "2": "WEP usa una chiave/passphrase; il problema e la debolezza dell'algoritmo.",
       "3": "WPA2/WPA3 richiedono autenticazione: e falso che ne siano privi."
+    },
+    "why_wrong_en": {
+      "0": "The difference is cryptographic robustness, not speed.",
+      "2": "WEP uses a key/passphrase; the problem is the weakness of the algorithm.",
+      "3": "WPA2/WPA3 require authentication: it is false that they lack it."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -204,18 +321,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Cos'e concettualmente un honeypot nel contesto della difesa di rete?",
+    "question_en": "What is conceptually a honeypot in the context of network defense?",
     "options": [
       "Un firewall che blocca tutto il traffico in ingresso",
       "Un sistema esca deliberatamente vulnerabile usato per attirare e osservare gli attaccanti",
       "Un algoritmo di cifratura per le email",
       "Un protocollo di autenticazione a due fattori"
     ],
+    "options_en": [
+      "A firewall that blocks all incoming traffic",
+      "A deliberately vulnerable decoy system used to attract and observe attackers",
+      "An encryption algorithm for email",
+      "A two-factor authentication protocol"
+    ],
     "correct": [1],
     "explanation": "Un honeypot e una risorsa esca, isolata e monitorata, progettata per sembrare un bersaglio reale. Serve a rilevare, deviare e studiare i comportamenti degli attaccanti, migliorando la comprensione delle minacce senza esporre sistemi produttivi.",
+    "explanation_en": "A honeypot is a decoy resource, isolated and monitored, designed to look like a real target. It serves to detect, divert, and study attackers' behavior, improving the understanding of threats without exposing production systems.",
     "why_wrong": {
       "0": "Un firewall filtra il traffico; l'honeypot attira e osserva, non blocca.",
       "2": "Non e un algoritmo di cifratura ma un sistema esca di rilevamento.",
       "3": "Non ha nulla a che vedere con l'autenticazione a due fattori."
+    },
+    "why_wrong_en": {
+      "0": "A firewall filters traffic; a honeypot attracts and observes, it does not block.",
+      "2": "It is not an encryption algorithm but a decoy detection system.",
+      "3": "It has nothing to do with two-factor authentication."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -226,18 +356,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual e la differenza concettuale tra un virus e un worm?",
+    "question_en": "What is the conceptual difference between a virus and a worm?",
     "options": [
       "Il virus si propaga autonomamente in rete, il worm no",
       "Il virus necessita di un file/host e di un'azione dell'utente per diffondersi, il worm si autoreplica e si propaga autonomamente in rete",
       "Il virus e sempre innocuo, il worm sempre distruttivo",
       "Il virus colpisce solo Linux, il worm solo Windows"
     ],
+    "options_en": [
+      "The virus spreads autonomously over the network, the worm does not",
+      "The virus needs a file/host and a user action to spread, the worm self-replicates and propagates autonomously over the network",
+      "The virus is always harmless, the worm always destructive",
+      "The virus affects only Linux, the worm only Windows"
+    ],
     "correct": [1],
     "explanation": "Un virus si attacca a un file ospite e richiede tipicamente un'azione dell'utente per attivarsi e propagarsi. Un worm e autonomo: si autoreplica e si diffonde attraverso la rete senza interazione, spesso sfruttando vulnerabilita. La distinzione guida le contromisure.",
+    "explanation_en": "A virus attaches to a host file and typically requires a user action to activate and propagate. A worm is autonomous: it self-replicates and spreads through the network without interaction, often exploiting vulnerabilities. The distinction guides the countermeasures.",
     "why_wrong": {
       "0": "E l'inverso: il worm si propaga autonomamente, non il virus.",
       "2": "La pericolosita dipende dal payload, non dalla categoria.",
       "3": "Entrambi possono colpire diversi sistemi operativi; non c'e vincolo di piattaforma."
+    },
+    "why_wrong_en": {
+      "0": "It is the reverse: the worm propagates autonomously, not the virus.",
+      "2": "The danger depends on the payload, not on the category.",
+      "3": "Both can affect different operating systems; there is no platform constraint."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -248,17 +391,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti sono contromisure difensive appropriate contro scanning ed enumeration? (seleziona 2)",
+    "question_en": "Which of the following are appropriate defensive countermeasures against scanning and enumeration? (select 2)",
     "options": [
       "Disabilitare i servizi non necessari e ridurre i banner informativi esposti",
       "Pubblicare online la mappa completa della rete interna",
       "Configurare firewall e sistemi IDS/IPS per rilevare e filtrare traffico di scansione",
       "Disattivare tutti i log di sistema"
     ],
+    "options_en": [
+      "Disable unnecessary services and reduce exposed informational banners",
+      "Publish the complete map of the internal network online",
+      "Configure firewalls and IDS/IPS systems to detect and filter scanning traffic",
+      "Disable all system logs"
+    ],
     "correct": [0, 2],
     "explanation": "Ridurre la superficie esposta (chiudere servizi inutili, mascherare i banner) e monitorare/filtrare il traffico con firewall e IDS/IPS limitano l'efficacia di scanning ed enumeration e ne aumentano il rilevamento.",
+    "explanation_en": "Reducing the exposed surface (closing unnecessary services, masking banners) and monitoring/filtering traffic with firewalls and IDS/IPS limit the effectiveness of scanning and enumeration and increase their detection.",
     "why_wrong": {
       "1": "Pubblicare la mappa della rete facilita gli attaccanti: e l'opposto di una difesa.",
       "3": "Disattivare i log elimina la capacita di rilevare e investigare le scansioni."
+    },
+    "why_wrong_en": {
+      "1": "Publishing the network map helps attackers: it is the opposite of a defense.",
+      "3": "Disabling logs eliminates the ability to detect and investigate scans."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -269,17 +424,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali pratiche riducono efficacemente le vulnerabilita delle applicazioni web secondo l'approccio OWASP? (seleziona 2)",
+    "question_en": "Which practices effectively reduce web application vulnerabilities according to the OWASP approach? (select 2)",
     "options": [
       "Validazione e sanitizzazione dell'input e codifica dell'output",
       "Affidarsi esclusivamente ai controlli lato client",
       "Applicare il principio del minimo privilegio e mantenere aggiornati i componenti",
       "Memorizzare le password in chiaro per facilitare il recupero"
     ],
+    "options_en": [
+      "Input validation and sanitization and output encoding",
+      "Rely exclusively on client-side controls",
+      "Apply the principle of least privilege and keep components up to date",
+      "Store passwords in plaintext to facilitate recovery"
+    ],
     "correct": [0, 2],
     "explanation": "La validazione/sanitizzazione dell'input con codifica dell'output previene injection e XSS; il minimo privilegio e l'aggiornamento delle dipendenze riducono l'impatto e le vulnerabilita note. Sono pilastri delle raccomandazioni OWASP.",
+    "explanation_en": "Input validation/sanitization with output encoding prevents injection and XSS; least privilege and updating dependencies reduce the impact and known vulnerabilities. These are pillars of the OWASP recommendations.",
     "why_wrong": {
       "1": "I controlli lato client sono aggirabili: la validazione deve avvenire lato server.",
       "3": "Le password vanno sempre salvate con hashing robusto e salt, mai in chiaro."
+    },
+    "why_wrong_en": {
+      "1": "Client-side controls can be bypassed: validation must occur on the server side.",
+      "3": "Passwords must always be stored with robust hashing and salt, never in plaintext."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -290,17 +457,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali sono contromisure valide per ridurre il rischio di infezioni da malware? (seleziona 2)",
+    "question_en": "Which are valid countermeasures to reduce the risk of malware infections? (select 2)",
     "options": [
       "Mantenere sistemi e software costantemente aggiornati con le patch",
       "Disabilitare l'antivirus per migliorare le prestazioni",
       "Usare soluzioni endpoint e principio del minimo privilegio con backup regolari",
       "Eseguire ogni allegato email ricevuto per verificarne il contenuto"
     ],
+    "options_en": [
+      "Keep systems and software constantly updated with patches",
+      "Disable the antivirus to improve performance",
+      "Use endpoint solutions and the principle of least privilege with regular backups",
+      "Run every received email attachment to verify its content"
+    ],
     "correct": [0, 2],
     "explanation": "Il patching tempestivo chiude le vulnerabilita sfruttate dal malware; protezione endpoint, minimo privilegio e backup limitano diffusione e impatto (inclusi ransomware). Sono contromisure difensive fondamentali.",
+    "explanation_en": "Timely patching closes the vulnerabilities exploited by malware; endpoint protection, least privilege, and backups limit spread and impact (including ransomware). These are fundamental defensive countermeasures.",
     "why_wrong": {
       "1": "Disabilitare l'antivirus rimuove una difesa essenziale e aumenta il rischio.",
       "3": "Eseguire allegati non verificati e proprio il vettore principale di infezione."
+    },
+    "why_wrong_en": {
+      "1": "Disabling the antivirus removes an essential defense and increases the risk.",
+      "3": "Running unverified attachments is precisely the main infection vector."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -311,17 +490,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali principi etici deve rispettare sempre un ethical hacker? (seleziona 2)",
+    "question_en": "Which ethical principles must an ethical hacker always respect? (select 2)",
     "options": [
       "Operare solo entro l'ambito e con autorizzazione scritta del cliente",
       "Divulgare pubblicamente le vulnerabilita prima di informare il committente",
       "Mantenere la riservatezza sui dati e riportare i risultati in modo responsabile",
       "Sfruttare le vulnerabilita trovate per profitto personale"
     ],
+    "options_en": [
+      "Operate only within the scope and with the client's written authorization",
+      "Publicly disclose the vulnerabilities before informing the client",
+      "Maintain confidentiality of the data and report the results responsibly",
+      "Exploit the vulnerabilities found for personal profit"
+    ],
     "correct": [0, 2],
     "explanation": "L'ethical hacking richiede autorizzazione formale e rispetto dello scope, riservatezza sui dati trattati e disclosure responsabile dei risultati al committente. Questi principi distinguono l'attivita legale da quella criminale.",
+    "explanation_en": "Ethical hacking requires formal authorization and respect for the scope, confidentiality of the data handled, and responsible disclosure of the results to the client. These principles distinguish legal activity from criminal activity.",
     "why_wrong": {
       "1": "La divulgazione pubblica prima di avvisare il committente e irresponsabile e dannosa.",
       "3": "Sfruttare le vulnerabilita per profitto personale viola legge ed etica professionale."
+    },
+    "why_wrong_en": {
+      "1": "Public disclosure before notifying the client is irresponsible and harmful.",
+      "3": "Exploiting vulnerabilities for personal profit violates the law and professional ethics."
     },
     "source": "CEH - Certified Ethical Hacker"
   },
@@ -332,9 +523,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Il footprinting passivo raccoglie informazioni sul bersaglio senza interagire direttamente con i suoi sistemi, riducendo il rischio di essere rilevati.",
+    "question_en": "Passive footprinting gathers information about the target without directly interacting with its systems, reducing the risk of being detected.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Il footprinting passivo si basa su fonti pubbliche (OSINT, WHOIS, social, motori di ricerca) senza toccare i sistemi del target, risultando difficilmente rilevabile rispetto alle tecniche attive.",
+    "explanation_en": "True. Passive footprinting relies on public sources (OSINT, WHOIS, social media, search engines) without touching the target's systems, making it hard to detect compared to active techniques.",
     "source": "CEH - Certified Ethical Hacker"
   },
   {
@@ -344,9 +538,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Eseguire un penetration test senza autorizzazione scritta e accettabile purche l'intento sia di migliorare la sicurezza.",
+    "question_en": "Performing a penetration test without written authorization is acceptable as long as the intent is to improve security.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. L'autorizzazione scritta e sempre obbligatoria: senza di essa l'attivita e illegale a prescindere dalle buone intenzioni. Cio che distingue l'ethical hacking e proprio il consenso formale del proprietario dei sistemi.",
+    "explanation_en": "False. Written authorization is always mandatory: without it the activity is illegal regardless of good intentions. What distinguishes ethical hacking is precisely the formal consent of the owner of the systems.",
     "source": "CEH - Certified Ethical Hacker"
   },
   {
@@ -356,9 +553,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Un attacco di Denial of Service mira a compromettere la riservatezza dei dati sottraendoli dal sistema.",
+    "question_en": "A Denial of Service attack aims to compromise the confidentiality of the data by stealing it from the system.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. Il Denial of Service colpisce la disponibilita del servizio, rendendolo inaccessibile agli utenti legittimi tramite saturazione di risorse, non la riservatezza. Contromisure tipiche sono rate limiting, filtraggio e servizi anti-DDoS.",
+    "explanation_en": "False. Denial of Service affects the availability of the service, making it inaccessible to legitimate users through resource saturation, not confidentiality. Typical countermeasures are rate limiting, filtering, and anti-DDoS services.",
     "source": "CEH - Certified Ethical Hacker"
   }
 ]

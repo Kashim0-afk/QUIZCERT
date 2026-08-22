@@ -6,13 +6,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "Quale modello di servizio cloud offre al cliente il maggior controllo sull'infrastruttura, includendo la gestione del sistema operativo delle macchine virtuali?",
+    "question_en": "Which cloud service model offers the customer the greatest control over the infrastructure, including management of the operating system of the virtual machines?",
     "options": ["SaaS (Software as a Service)", "IaaS (Infrastructure as a Service)", "PaaS (Platform as a Service)", "FaaS (Function as a Service)"],
+    "options_en": ["SaaS (Software as a Service)", "IaaS (Infrastructure as a Service)", "PaaS (Platform as a Service)", "FaaS (Function as a Service)"],
     "correct": [1],
     "explanation": "IaaS fornisce l'infrastruttura di base (VM, storage, rete): il provider gestisce l'hardware fisico, mentre il cliente gestisce sistema operativo, middleware e applicazioni, ottenendo così il massimo controllo.",
+    "explanation_en": "IaaS provides the basic infrastructure (VMs, storage, network): the provider manages the physical hardware, while the customer manages the operating system, middleware, and applications, thereby obtaining maximum control.",
     "why_wrong": {
       "0": "In SaaS il cliente usa solo l'applicazione finale (es. Microsoft 365) senza gestire OS o infrastruttura, quindi ha il minor controllo.",
       "2": "In PaaS il provider gestisce anche il sistema operativo e il runtime: il cliente controlla solo l'app e i dati.",
       "3": "FaaS (serverless) astrae ancora di più l'infrastruttura: il cliente fornisce solo il codice della funzione."
+    },
+    "why_wrong_en": {
+      "0": "In SaaS the customer uses only the final application (e.g. Microsoft 365) without managing the OS or infrastructure, so they have the least control.",
+      "2": "In PaaS the provider also manages the operating system and the runtime: the customer controls only the app and the data.",
+      "3": "FaaS (serverless) abstracts the infrastructure even further: the customer provides only the function code."
     },
     "source": "Microsoft AZ-900"
   },
@@ -23,13 +31,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "Microsoft 365, in cui l'utente usa applicazioni già pronte senza gestire server o sistema operativo, è un esempio di quale modello di servizio?",
+    "question_en": "Microsoft 365, in which the user uses ready-made applications without managing servers or an operating system, is an example of which service model?",
     "options": ["IaaS", "PaaS", "SaaS", "On-premises"],
+    "options_en": ["IaaS", "PaaS", "SaaS", "On-premises"],
     "correct": [2],
     "explanation": "SaaS (Software as a Service) fornisce software applicativo completo e gestito interamente dal provider; l'utente lo consuma via browser o client senza occuparsi di infrastruttura, OS o aggiornamenti.",
+    "explanation_en": "SaaS (Software as a Service) provides complete application software fully managed by the provider; the user consumes it via a browser or client without dealing with infrastructure, OS, or updates.",
     "why_wrong": {
       "0": "IaaS fornisce macchine virtuali e infrastruttura, non un'applicazione finita pronta all'uso.",
       "1": "PaaS fornisce una piattaforma di sviluppo/hosting, non un'applicazione per l'utente finale.",
       "3": "On-premises indica risorse gestite internamente in azienda, non un servizio cloud del provider."
+    },
+    "why_wrong_en": {
+      "0": "IaaS provides virtual machines and infrastructure, not a finished ready-to-use application.",
+      "1": "PaaS provides a development/hosting platform, not an application for the end user.",
+      "3": "On-premises means resources managed internally at the company, not a cloud service from the provider."
     },
     "source": "Microsoft AZ-900"
   },
@@ -40,13 +56,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Nel modello di responsabilità condivisa di Azure, di quale elemento è SEMPRE responsabile il cliente, indipendentemente dal modello di servizio (IaaS, PaaS o SaaS)?",
+    "question_en": "In the Azure shared responsibility model, which element is the customer ALWAYS responsible for, regardless of the service model (IaaS, PaaS, or SaaS)?",
     "options": ["La sicurezza fisica dei datacenter", "Le informazioni, i dati e gli account/identità", "La manutenzione dell'hardware host", "L'infrastruttura di rete fisica"],
+    "options_en": ["The physical security of the datacenters", "The information, the data, and the accounts/identities", "The maintenance of the host hardware", "The physical network infrastructure"],
     "correct": [1],
     "explanation": "Nel modello di responsabilità condivisa, i dati, le informazioni, i dispositivi e la gestione di account e identità restano sempre responsabilità del cliente, in tutti i modelli di servizio.",
+    "explanation_en": "In the shared responsibility model, data, information, devices, and the management of accounts and identities always remain the customer's responsibility, across all service models.",
     "why_wrong": {
       "0": "La sicurezza fisica dei datacenter è sempre responsabilità di Microsoft.",
       "2": "La manutenzione dell'hardware host è a carico del provider cloud.",
       "3": "L'infrastruttura di rete fisica è gestita e protetta da Microsoft."
+    },
+    "why_wrong_en": {
+      "0": "The physical security of the datacenters is always Microsoft's responsibility.",
+      "2": "The maintenance of the host hardware is the cloud provider's responsibility.",
+      "3": "The physical network infrastructure is managed and protected by Microsoft."
     },
     "source": "Microsoft AZ-900"
   },
@@ -57,13 +81,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Il passaggio al cloud pubblico trasforma tipicamente la spesa IT da CapEx a OpEx. Cosa significa questo cambiamento?",
+    "question_en": "Moving to the public cloud typically transforms IT spending from CapEx to OpEx. What does this change mean?",
     "options": ["Da spesa operativa ricorrente a un grande investimento iniziale in hardware", "Da un grande investimento iniziale in beni capitali a una spesa operativa basata sul consumo", "Elimina completamente qualsiasi costo per l'azienda", "Rende i costi fissi e indipendenti dall'utilizzo"],
+    "options_en": ["From recurring operational spending to a large upfront investment in hardware", "From a large upfront investment in capital assets to consumption-based operational spending", "It completely eliminates any cost for the company", "It makes costs fixed and independent of usage"],
     "correct": [1],
     "explanation": "CapEx (Capital Expenditure) è l'acquisto anticipato di beni fisici come server. OpEx (Operational Expenditure) è la spesa continua per servizi consumati. Il cloud sposta la spesa verso OpEx con modello pay-as-you-go.",
+    "explanation_en": "CapEx (Capital Expenditure) is the upfront purchase of physical assets such as servers. OpEx (Operational Expenditure) is the ongoing spending for services consumed. The cloud shifts spending toward OpEx with a pay-as-you-go model.",
     "why_wrong": {
       "0": "È l'inverso: il cloud passa DA CapEx (investimento iniziale) A OpEx (spesa operativa).",
       "2": "Il cloud non elimina i costi: li trasforma in spesa operativa basata sul consumo.",
       "3": "Con il modello a consumo i costi sono variabili in base all'utilizzo, non fissi."
+    },
+    "why_wrong_en": {
+      "0": "It is the reverse: the cloud moves FROM CapEx (upfront investment) TO OpEx (operational spending).",
+      "2": "The cloud does not eliminate costs: it transforms them into consumption-based operational spending.",
+      "3": "With the consumption model, costs are variable based on usage, not fixed."
     },
     "source": "Microsoft AZ-900"
   },
@@ -74,13 +106,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un'azienda vuole ospitare un'applicazione web senza gestire il sistema operativo sottostante né applicare le patch al server. Quale servizio Azure è più adatto?",
+    "question_en": "A company wants to host a web application without managing the underlying operating system or patching the server. Which Azure service is most suitable?",
     "options": ["Macchine virtuali (VM)", "Azure App Service", "Azure Virtual Network", "Azure Storage Account"],
+    "options_en": ["Virtual machines (VMs)", "Azure App Service", "Azure Virtual Network", "Azure Storage Account"],
     "correct": [1],
     "explanation": "Azure App Service è una soluzione PaaS per ospitare applicazioni web: Azure gestisce OS, patch e infrastruttura, mentre il cliente si concentra solo sul codice dell'applicazione.",
+    "explanation_en": "Azure App Service is a PaaS solution for hosting web applications: Azure manages the OS, patches, and infrastructure, while the customer focuses only on the application code.",
     "why_wrong": {
       "0": "Con le VM (IaaS) il cliente resta responsabile della gestione e del patching del sistema operativo.",
       "2": "Azure Virtual Network fornisce connettività di rete, non hosting applicativo.",
       "3": "Azure Storage Account serve a memorizzare dati (blob, file, code), non a eseguire applicazioni web."
+    },
+    "why_wrong_en": {
+      "0": "With VMs (IaaS) the customer remains responsible for managing and patching the operating system.",
+      "2": "Azure Virtual Network provides network connectivity, not application hosting.",
+      "3": "Azure Storage Account is for storing data (blobs, files, queues), not for running web applications."
     },
     "source": "Microsoft AZ-900"
   },
@@ -91,13 +131,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale funzionalità di Azure permette di assegnare agli utenti solo i permessi necessari a svolgere il proprio lavoro, applicando il principio del privilegio minimo?",
+    "question_en": "Which Azure feature allows you to grant users only the permissions needed to perform their job, applying the principle of least privilege?",
     "options": ["Azure Policy", "Controllo degli accessi in base al ruolo (RBAC)", "Azure Tags", "Cost Management"],
+    "options_en": ["Azure Policy", "Role-Based Access Control (RBAC)", "Azure Tags", "Cost Management"],
     "correct": [1],
     "explanation": "Azure RBAC (Role-Based Access Control) consente di assegnare ruoli con permessi specifici a utenti, gruppi o servizi su determinati ambiti (subscription, resource group, risorsa), applicando il privilegio minimo.",
+    "explanation_en": "Azure RBAC (Role-Based Access Control) lets you assign roles with specific permissions to users, groups, or services at certain scopes (subscription, resource group, resource), applying least privilege.",
     "why_wrong": {
       "0": "Azure Policy impone regole di conformità sulle risorse (es. regioni consentite), non gestisce i permessi degli utenti.",
       "2": "I Tag sono etichette di metadati per organizzare e tracciare le risorse, non controllano gli accessi.",
       "3": "Cost Management serve a monitorare e controllare la spesa, non ad assegnare permessi."
+    },
+    "why_wrong_en": {
+      "0": "Azure Policy enforces compliance rules on resources (e.g. allowed regions), it does not manage user permissions.",
+      "2": "Tags are metadata labels for organizing and tracking resources, they do not control access.",
+      "3": "Cost Management is for monitoring and controlling spending, not for assigning permissions."
     },
     "source": "Microsoft AZ-900"
   },
@@ -108,13 +156,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "Quale strumento Azure permette di creare e applicare regole per garantire che le risorse rispettino gli standard aziendali, ad esempio consentendo il deployment solo in determinate regioni?",
+    "question_en": "Which Azure tool allows you to create and enforce rules to ensure resources comply with corporate standards, for example allowing deployment only in certain regions?",
     "options": ["Azure Policy", "Azure Monitor", "Azure Advisor", "Azure Portal"],
+    "options_en": ["Azure Policy", "Azure Monitor", "Azure Advisor", "Azure Portal"],
     "correct": [0],
     "explanation": "Azure Policy consente di definire e applicare regole (policy) di governance e conformità sulle risorse, ad esempio limitando le regioni consentite, i tipi di risorsa o richiedendo tag obbligatori.",
+    "explanation_en": "Azure Policy lets you define and enforce governance and compliance rules (policies) on resources, for example restricting the allowed regions, the resource types, or requiring mandatory tags.",
     "why_wrong": {
       "1": "Azure Monitor raccoglie e analizza dati di telemetria e metriche, non impone regole di conformità.",
       "2": "Azure Advisor fornisce raccomandazioni su costi, sicurezza e prestazioni, ma non applica policy.",
       "3": "Azure Portal è l'interfaccia web di gestione, non uno strumento per applicare regole di conformità."
+    },
+    "why_wrong_en": {
+      "1": "Azure Monitor collects and analyzes telemetry and metrics data, it does not enforce compliance rules.",
+      "2": "Azure Advisor provides recommendations on cost, security, and performance, but does not enforce policies.",
+      "3": "Azure Portal is the web management interface, not a tool for enforcing compliance rules."
     },
     "source": "Microsoft AZ-900"
   },
@@ -125,13 +181,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale servizio Azure fornisce la gestione delle identità e degli accessi (IAM), gestendo autenticazione, single sign-on e MFA per utenti e applicazioni?",
+    "question_en": "Which Azure service provides identity and access management (IAM), handling authentication, single sign-on, and MFA for users and applications?",
     "options": ["Microsoft Defender for Cloud", "Microsoft Entra ID", "Azure Firewall", "Azure Key Vault"],
+    "options_en": ["Microsoft Defender for Cloud", "Microsoft Entra ID", "Azure Firewall", "Azure Key Vault"],
     "correct": [1],
     "explanation": "Microsoft Entra ID (ex Azure Active Directory) è il servizio cloud di gestione di identità e accessi: gestisce autenticazione, single sign-on (SSO) e autenticazione a più fattori (MFA).",
+    "explanation_en": "Microsoft Entra ID (formerly Azure Active Directory) is the cloud identity and access management service: it handles authentication, single sign-on (SSO), and multi-factor authentication (MFA).",
     "why_wrong": {
       "0": "Microsoft Defender for Cloud gestisce la postura di sicurezza e la protezione dalle minacce, non le identità.",
       "2": "Azure Firewall protegge il traffico di rete, non gestisce le identità degli utenti.",
       "3": "Azure Key Vault archivia in modo sicuro segreti, chiavi e certificati, non gestisce l'autenticazione degli utenti."
+    },
+    "why_wrong_en": {
+      "0": "Microsoft Defender for Cloud manages security posture and threat protection, not identities.",
+      "2": "Azure Firewall protects network traffic, it does not manage user identities.",
+      "3": "Azure Key Vault securely stores secrets, keys, and certificates; it does not manage user authentication."
     },
     "source": "Microsoft AZ-900"
   },
@@ -142,13 +206,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale servizio Azure fornisce una valutazione continua della postura di sicurezza (Secure Score) e protezione dalle minacce per le risorse cloud e ibride?",
+    "question_en": "Which Azure service provides a continuous security posture assessment (Secure Score) and threat protection for cloud and hybrid resources?",
     "options": ["Microsoft Entra ID", "Azure Cost Management", "Microsoft Defender for Cloud", "Azure Advisor"],
+    "options_en": ["Microsoft Entra ID", "Azure Cost Management", "Microsoft Defender for Cloud", "Azure Advisor"],
     "correct": [2],
     "explanation": "Microsoft Defender for Cloud offre gestione della postura di sicurezza (con il Secure Score), raccomandazioni e protezione avanzata dalle minacce per risorse Azure, ibride e multi-cloud.",
+    "explanation_en": "Microsoft Defender for Cloud offers security posture management (with the Secure Score), recommendations, and advanced threat protection for Azure, hybrid, and multi-cloud resources.",
     "why_wrong": {
       "0": "Microsoft Entra ID gestisce identità e accessi, non la valutazione della postura di sicurezza delle risorse.",
       "1": "Azure Cost Management riguarda il monitoraggio dei costi, non la sicurezza.",
       "3": "Azure Advisor dà raccomandazioni generali (anche di sicurezza) ma non fornisce protezione attiva dalle minacce né il Secure Score dedicato."
+    },
+    "why_wrong_en": {
+      "0": "Microsoft Entra ID manages identities and access, not the security posture assessment of resources.",
+      "1": "Azure Cost Management concerns cost monitoring, not security.",
+      "3": "Azure Advisor gives general recommendations (including security ones) but does not provide active threat protection nor the dedicated Secure Score."
     },
     "source": "Microsoft AZ-900"
   },
@@ -159,13 +231,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un'azienda vuole distribuire le proprie macchine virtuali per garantire che restino disponibili anche in caso di guasto di un intero datacenter all'interno di una regione. Quale funzionalità dovrebbe utilizzare?",
+    "question_en": "A company wants to distribute its virtual machines to ensure they remain available even in the event of a failure of an entire datacenter within a region. Which feature should it use?",
     "options": ["Zone di disponibilità (Availability Zones)", "Resource Group", "Tag delle risorse", "Azure Policy"],
+    "options_en": ["Availability Zones", "Resource Group", "Resource tags", "Azure Policy"],
     "correct": [0],
     "explanation": "Le Zone di disponibilità sono ubicazioni fisicamente separate all'interno di una regione, ciascuna con alimentazione, raffreddamento e rete indipendenti. Distribuire le VM su più zone garantisce alta disponibilità anche se un datacenter va in guasto.",
+    "explanation_en": "Availability Zones are physically separate locations within a region, each with independent power, cooling, and networking. Distributing VMs across multiple zones ensures high availability even if a datacenter fails.",
     "why_wrong": {
       "1": "Un Resource Group è un contenitore logico per organizzare le risorse, non fornisce ridondanza fisica.",
       "2": "I Tag servono a organizzare e tracciare le risorse, non a garantire la disponibilità.",
       "3": "Azure Policy applica regole di conformità, non distribuisce le VM per l'alta disponibilità."
+    },
+    "why_wrong_en": {
+      "1": "A Resource Group is a logical container for organizing resources, it does not provide physical redundancy.",
+      "2": "Tags are for organizing and tracking resources, not for ensuring availability.",
+      "3": "Azure Policy enforces compliance rules, it does not distribute VMs for high availability."
     },
     "source": "Microsoft AZ-900"
   },
@@ -176,12 +256,19 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Nel modello di responsabilità condivisa, quali DUE elementi sono SEMPRE responsabilità di Microsoft, indipendentemente dal modello di servizio scelto?",
+    "question_en": "In the shared responsibility model, which TWO elements are ALWAYS Microsoft's responsibility, regardless of the chosen service model?",
     "options": ["La sicurezza fisica dei datacenter", "La gestione degli account e delle identità degli utenti", "L'host fisico e la rete fisica del datacenter", "La classificazione dei dati aziendali"],
+    "options_en": ["The physical security of the datacenters", "The management of user accounts and identities", "The physical host and the physical network of the datacenter", "The classification of corporate data"],
     "correct": [0, 2],
     "explanation": "Microsoft è sempre responsabile degli elementi fisici: sicurezza fisica dei datacenter, host fisici e rete fisica. Questi non ricadono mai sul cliente, in nessun modello di servizio.",
+    "explanation_en": "Microsoft is always responsible for the physical elements: physical security of the datacenters, physical hosts, and physical network. These never fall on the customer, in any service model.",
     "why_wrong": {
       "1": "La gestione di account e identità è sempre responsabilità del cliente.",
       "3": "La classificazione e la protezione dei dati sono sempre responsabilità del cliente."
+    },
+    "why_wrong_en": {
+      "1": "The management of accounts and identities is always the customer's responsibility.",
+      "3": "The classification and protection of data are always the customer's responsibility."
     },
     "source": "Microsoft AZ-900"
   },
@@ -192,12 +279,19 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali DUE tra i seguenti sono servizi di calcolo (compute) di Azure?",
+    "question_en": "Which TWO of the following are Azure compute services?",
     "options": ["Macchine virtuali di Azure (Azure Virtual Machines)", "Azure Blob Storage", "Azure App Service", "Azure Virtual Network"],
+    "options_en": ["Azure Virtual Machines", "Azure Blob Storage", "Azure App Service", "Azure Virtual Network"],
     "correct": [0, 2],
     "explanation": "Le Azure Virtual Machines (IaaS) e Azure App Service (PaaS) sono servizi di calcolo che eseguono applicazioni e carichi di lavoro. Forniscono la capacità di elaborazione richiesta dalle applicazioni.",
+    "explanation_en": "Azure Virtual Machines (IaaS) and Azure App Service (PaaS) are compute services that run applications and workloads. They provide the processing capacity required by applications.",
     "why_wrong": {
       "1": "Azure Blob Storage è un servizio di archiviazione (storage), non di calcolo.",
       "3": "Azure Virtual Network è un servizio di rete (networking), non di calcolo."
+    },
+    "why_wrong_en": {
+      "1": "Azure Blob Storage is a storage service, not a compute one.",
+      "3": "Azure Virtual Network is a networking service, not a compute one."
     },
     "source": "Microsoft AZ-900"
   },
@@ -208,12 +302,19 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Un'azienda adotta un modello di cloud ibrido. Quali DUE affermazioni descrivono correttamente questo modello?",
+    "question_en": "A company adopts a hybrid cloud model. Which TWO statements correctly describe this model?",
     "options": ["Combina risorse on-premises (cloud privato) con risorse di cloud pubblico", "Utilizza esclusivamente datacenter di proprietà dell'azienda senza alcun servizio pubblico", "Consente di mantenere in locale i dati sensibili sfruttando al contempo la scalabilità del cloud pubblico", "Impedisce qualsiasi comunicazione tra l'ambiente locale e il cloud pubblico"],
+    "options_en": ["It combines on-premises resources (private cloud) with public cloud resources", "It uses exclusively company-owned datacenters without any public service", "It allows sensitive data to be kept on-premises while leveraging the scalability of the public cloud", "It prevents any communication between the on-premises environment and the public cloud"],
     "correct": [0, 2],
     "explanation": "Il cloud ibrido combina infrastruttura privata/on-premises con il cloud pubblico, permettendo di tenere in locale dati sensibili o carichi critici e di usare il cloud pubblico per scalabilità ed elasticità.",
+    "explanation_en": "The hybrid cloud combines private/on-premises infrastructure with the public cloud, allowing sensitive data or critical workloads to be kept on-premises and the public cloud to be used for scalability and elasticity.",
     "why_wrong": {
       "1": "Usare solo datacenter propri descrive il cloud privato, non l'ibrido.",
       "3": "Il modello ibrido richiede proprio l'integrazione e la comunicazione tra ambiente locale e cloud pubblico."
+    },
+    "why_wrong_en": {
+      "1": "Using only your own datacenters describes the private cloud, not the hybrid one.",
+      "3": "The hybrid model actually requires integration and communication between the on-premises environment and the public cloud."
     },
     "source": "Microsoft AZ-900"
   },
@@ -224,9 +325,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Il modello di prezzo consumption-based (pay-as-you-go) del cloud consente di pagare solo per le risorse effettivamente utilizzate.",
+    "question_en": "The cloud's consumption-based (pay-as-you-go) pricing model allows you to pay only for the resources actually used.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Il modello a consumo (pay-as-you-go) è un vantaggio chiave del cloud: si paga solo per le risorse realmente consumate, senza investimenti anticipati in hardware, riducendo gli sprechi.",
+    "explanation_en": "True. The consumption model (pay-as-you-go) is a key advantage of the cloud: you pay only for the resources actually consumed, without upfront investments in hardware, reducing waste.",
     "source": "Microsoft AZ-900"
   },
   {
@@ -236,9 +340,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Con Azure RBAC è possibile assegnare i ruoli a diversi ambiti (scope), come una subscription, un resource group o una singola risorsa.",
+    "question_en": "With Azure RBAC it is possible to assign roles at different scopes, such as a subscription, a resource group, or a single resource.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Azure RBAC applica le assegnazioni di ruolo a vari livelli di ambito: management group, subscription, resource group o singola risorsa. I permessi vengono ereditati verso i livelli inferiori.",
+    "explanation_en": "True. Azure RBAC applies role assignments at various scope levels: management group, subscription, resource group, or single resource. Permissions are inherited down to the lower levels.",
     "source": "Microsoft AZ-900"
   },
   {
@@ -248,9 +355,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Nel modello IaaS il provider cloud è responsabile dell'applicazione delle patch al sistema operativo delle macchine virtuali del cliente.",
+    "question_en": "In the IaaS model the cloud provider is responsible for patching the operating system of the customer's virtual machines.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. In IaaS il provider gestisce l'infrastruttura fisica, ma la gestione del sistema operativo, incluse le patch, resta responsabilità del cliente. È in PaaS e SaaS che il provider si occupa dell'OS.",
+    "explanation_en": "False. In IaaS the provider manages the physical infrastructure, but management of the operating system, including patches, remains the customer's responsibility. It is in PaaS and SaaS that the provider takes care of the OS.",
     "source": "Microsoft AZ-900"
   }
 ]

@@ -1,321 +1,623 @@
 [
   {
     "id": "nse7-001",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["SD-WAN"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "SD-WAN"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In FortiGate Secure SD-WAN, quali metriche misura una Performance SLA (Health Check) per determinare la qualità di un membro SD-WAN?",
+    "question_en": "In FortiGate Secure SD-WAN, which metrics does a Performance SLA (Health Check) measure to determine the quality of an SD-WAN member?",
     "options": [
       "Solo la larghezza di banda disponibile in download",
       "Latenza, jitter e packet loss",
       "Il numero di sessioni concorrenti sull'interfaccia",
       "Solo lo stato link up/down dell'interfaccia fisica"
     ],
-    "correct": [1],
+    "options_en": [
+      "Only the available download bandwidth",
+      "Latency, jitter, and packet loss",
+      "The number of concurrent sessions on the interface",
+      "Only the up/down link state of the physical interface"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "La Performance SLA invia probe periodici (ping, HTTP, DNS, ecc.) verso un server e misura latenza, jitter e packet loss. Questi valori vengono confrontati con le soglie definite (SLA target) per stabilire se un membro rispetta o meno l'SLA, guidando le decisioni di steering e failover.",
+    "explanation_en": "The Performance SLA sends periodic probes (ping, HTTP, DNS, etc.) to a server and measures latency, jitter, and packet loss. These values are compared with the defined thresholds (SLA target) to determine whether a member meets the SLA, driving steering and failover decisions.",
     "why_wrong": {
       "0": "La banda non è la metrica primaria dell'health check; l'SLA valuta latenza, jitter e perdita pacchetti.",
       "2": "Il conteggio sessioni è una metrica di load balancing/utilizzo, non un parametro SLA di qualità del link.",
       "3": "Il semplice stato up/down non basta: un link può essere up ma con perdita elevata; per questo servono i probe SLA."
     },
+    "why_wrong_en": {
+      "0": "Bandwidth is not the primary metric of the health check; the SLA evaluates latency, jitter, and packet loss.",
+      "2": "The session count is a load-balancing/utilization metric, not an SLA link-quality parameter.",
+      "3": "A simple up/down state is not enough: a link can be up but with high loss; that is why SLA probes are needed."
+    },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-002",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["SD-WAN"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "SD-WAN"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Una SD-WAN Rule è configurata con strategy 'Lowest Cost (SLA)'. Come seleziona FortiGate il membro in uscita per il traffico corrispondente?",
+    "question_en": "An SD-WAN Rule is configured with the 'Lowest Cost (SLA)' strategy. How does FortiGate select the outgoing member for the matching traffic?",
     "options": [
       "Sceglie sempre il membro con il costo amministrativo più basso indipendentemente dallo SLA",
       "Tra i membri che rispettano lo SLA, sceglie quello con il costo più basso configurato",
       "Bilancia il traffico in modo equo su tutti i membri della zona",
       "Sceglie il membro con la latenza in assoluto più bassa ignorando il costo"
     ],
-    "correct": [1],
+    "options_en": [
+      "It always chooses the member with the lowest administrative cost regardless of the SLA",
+      "Among the members that meet the SLA, it chooses the one with the lowest configured cost",
+      "It balances the traffic evenly across all members of the zone",
+      "It chooses the member with the absolute lowest latency, ignoring cost"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Con la strategy Lowest Cost (SLA), FortiGate considera in-SLA solo i membri che rispettano le soglie della Performance SLA associata; tra questi seleziona quello con il valore di 'cost' più basso. Se più membri hanno lo stesso costo, si applica ECMP tra di essi. È il criterio preferito per privilegiare i link economici finché la qualità è accettabile.",
+    "explanation_en": "With the Lowest Cost (SLA) strategy, FortiGate considers as in-SLA only the members that meet the thresholds of the associated Performance SLA; among these it selects the one with the lowest 'cost' value. If multiple members have the same cost, ECMP is applied among them. It is the preferred criterion to favor cheap links as long as quality is acceptable.",
     "why_wrong": {
       "0": "Il costo conta, ma solo tra i membri che soddisfano lo SLA: un link fuori SLA viene escluso anche se economico.",
       "2": "Il load balancing equo è la strategy Manual/Volume o la modalità di bilanciamento, non Lowest Cost (SLA).",
       "3": "La latenza minima assoluta corrisponde alla strategy 'Best Quality', non a Lowest Cost."
     },
+    "why_wrong_en": {
+      "0": "Cost matters, but only among the members that satisfy the SLA: a link out of SLA is excluded even if cheap.",
+      "2": "Even load balancing is the Manual/Volume strategy or the balancing mode, not Lowest Cost (SLA).",
+      "3": "The absolute minimum latency corresponds to the 'Best Quality' strategy, not to Lowest Cost."
+    },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-003",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["ADVPN", "VPN"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "ADVPN",
+      "VPN"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "In una topologia ADVPN hub-and-spoke, qual è la funzione principale del meccanismo di shortcut?",
+    "question_en": "In an ADVPN hub-and-spoke topology, what is the main function of the shortcut mechanism?",
     "options": [
       "Cifrare il traffico di management tra hub e FortiManager",
       "Creare dinamicamente tunnel IPsec diretti spoke-to-spoke evitando il transito permanente dall'hub",
       "Comprimere i pacchetti IPsec per ridurre l'overhead di banda",
       "Autenticare gli spoke tramite certificati invece che PSK"
     ],
-    "correct": [1],
+    "options_en": [
+      "Encrypt the management traffic between the hub and FortiManager",
+      "Dynamically create direct spoke-to-spoke IPsec tunnels, avoiding permanent transit through the hub",
+      "Compress IPsec packets to reduce bandwidth overhead",
+      "Authenticate the spokes using certificates instead of PSK"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "ADVPN (Auto-Discovery VPN) consente agli spoke di stabilire tunnel IPsec dinamici diretti tra loro (shortcut) quando c'è traffico spoke-to-spoke. L'hub, tramite messaggi di shortcut offer/query IKE, informa gli spoke degli indirizzi necessari; così il traffico non deve più attraversare l'hub, riducendo latenza e carico sull'hub.",
+    "explanation_en": "ADVPN (Auto-Discovery VPN) lets spokes establish dynamic direct IPsec tunnels between each other (shortcut) when there is spoke-to-spoke traffic. The hub, through IKE shortcut offer/query messages, informs the spokes of the addresses needed; this way the traffic no longer has to cross the hub, reducing latency and load on the hub.",
     "why_wrong": {
       "0": "ADVPN riguarda il data plane tra spoke, non la cifratura del management verso FortiManager.",
       "2": "ADVPN non introduce compressione: gestisce la creazione dinamica di tunnel diretti.",
       "3": "Il metodo di autenticazione (PSK o certificati) è indipendente da ADVPN; lo shortcut riguarda la topologia dei tunnel."
     },
+    "why_wrong_en": {
+      "0": "ADVPN concerns the data plane between spokes, not the encryption of management traffic toward FortiManager.",
+      "2": "ADVPN does not introduce compression: it manages the dynamic creation of direct tunnels.",
+      "3": "The authentication method (PSK or certificates) is independent of ADVPN; the shortcut concerns the tunnel topology."
+    },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-004",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["BGP", "Routing"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "BGP",
+      "Routing"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "In un deployment SD-WAN con ADVPN, perché BGP è spesso preferito ai protocolli IGP per propagare le rotte tra hub e spoke?",
+    "question_en": "In an SD-WAN deployment with ADVPN, why is BGP often preferred over IGP protocols to propagate routes between hub and spokes?",
     "options": [
       "BGP non richiede alcuna configurazione di neighbor",
       "BGP scala meglio con molti spoke e permette il controllo granulare via route-map e attributi",
       "BGP è l'unico protocollo supportato sui tunnel IPsec di FortiGate",
       "BGP elimina la necessità di configurare le Performance SLA"
     ],
-    "correct": [1],
+    "options_en": [
+      "BGP does not require any neighbor configuration",
+      "BGP scales better with many spokes and allows granular control via route-maps and attributes",
+      "BGP is the only protocol supported on FortiGate IPsec tunnels",
+      "BGP eliminates the need to configure Performance SLAs"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "In topologie con centinaia di spoke, iBGP (spesso con l'hub come route-reflector) scala molto meglio di OSPF, riduce il flooding e consente controllo fine sulle rotte tramite route-map, prefix-list e attributi (next-hop, community, local-preference). BGP inoltre si integra con SD-WAN per il route tagging e la selezione dei percorsi.",
+    "explanation_en": "In topologies with hundreds of spokes, iBGP (often with the hub as a route reflector) scales much better than OSPF, reduces flooding, and allows fine control over routes through route-maps, prefix-lists, and attributes (next-hop, community, local-preference). BGP also integrates with SD-WAN for route tagging and path selection.",
     "why_wrong": {
       "0": "BGP richiede la definizione esplicita dei neighbor (o l'uso di dynamic neighbor/route-reflector); non è zero-config.",
       "2": "Anche OSPF e RIP sono supportati sui tunnel; BGP non è l'unico protocollo utilizzabile.",
       "3": "Le Performance SLA restano necessarie per lo steering: BGP porta le rotte, l'SLA valuta la qualità del link."
     },
+    "why_wrong_en": {
+      "0": "BGP requires the explicit definition of neighbors (or the use of dynamic neighbor/route reflector); it is not zero-config.",
+      "2": "OSPF and RIP are also supported on the tunnels; BGP is not the only usable protocol.",
+      "3": "Performance SLAs remain necessary for steering: BGP carries the routes, the SLA evaluates the link quality."
+    },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-005",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["Troubleshooting"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "Troubleshooting"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale comando CLI di FortiGate cattura i pacchetti su una interfaccia per analizzare il traffico in tempo reale durante il troubleshooting?",
+    "question_en": "Which FortiGate CLI command captures packets on an interface to analyze traffic in real time during troubleshooting?",
     "options": [
       "diagnose sys top",
       "diagnose sniffer packet <interfaccia> '<filtro>' <verbosity>",
       "execute ping-options",
       "diagnose hardware deviceinfo nic"
     ],
-    "correct": [1],
+    "options_en": [
+      "diagnose sys top",
+      "diagnose sniffer packet <interface> '<filter>' <verbosity>",
+      "execute ping-options",
+      "diagnose hardware deviceinfo nic"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Il comando 'diagnose sniffer packet' è lo strumento nativo di packet capture di FortiGate. Permette di specificare interfaccia, filtro BPF, livello di verbosity (es. 4 per header+interfaccia, 6 per contenuto) e numero di pacchetti. È fondamentale per verificare se il traffico entra/esce e con quali IP/porte.",
+    "explanation_en": "The 'diagnose sniffer packet' command is FortiGate's native packet capture tool. It lets you specify the interface, a BPF filter, the verbosity level (e.g., 4 for header+interface, 6 for content) and the number of packets. It is essential for verifying whether traffic enters/exits and with which IPs/ports.",
     "why_wrong": {
       "0": "diagnose sys top mostra i processi e l'uso CPU/memoria, non cattura pacchetti.",
       "2": "execute ping-options imposta i parametri del ping, non esegue sniffing del traffico.",
       "3": "diagnose hardware deviceinfo nic mostra statistiche/driver della scheda di rete, non il contenuto dei pacchetti."
     },
+    "why_wrong_en": {
+      "0": "diagnose sys top shows processes and CPU/memory usage, it does not capture packets.",
+      "2": "execute ping-options sets the ping parameters, it does not sniff traffic.",
+      "3": "diagnose hardware deviceinfo nic shows NIC statistics/driver info, not the packet content."
+    },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-006",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["Troubleshooting", "Firewall Policy"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "Troubleshooting",
+      "Firewall Policy"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Durante un troubleshooting di connettività, quale strumento CLI mostra passo-passo come il pacchetto attraversa il flusso interno di FortiGate (policy match, NAT, routing, UTM)?",
+    "question_en": "During connectivity troubleshooting, which CLI tool shows step by step how the packet traverses FortiGate's internal flow (policy match, NAT, routing, UTM)?",
     "options": [
       "diagnose debug flow",
       "diagnose sys session list",
       "get router info routing-table all",
       "diagnose netlink interface list"
     ],
-    "correct": [0],
+    "options_en": [
+      "diagnose debug flow",
+      "diagnose sys session list",
+      "get router info routing-table all",
+      "diagnose netlink interface list"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Il 'diagnose debug flow' traccia in tempo reale il percorso interno di un pacchetto: interfaccia in ingresso, decisione di routing, policy ID matched, applicazione NAT, ispezione UTM ed eventuale drop con la relativa motivazione. È lo strumento chiave per capire perché una sessione viene consentita o bloccata.",
+    "explanation_en": "The 'diagnose debug flow' traces in real time a packet's internal path: ingress interface, routing decision, matched policy ID, NAT application, UTM inspection, and any drop with its reason. It is the key tool for understanding why a session is allowed or blocked.",
     "why_wrong": {
       "1": "diagnose sys session list mostra la tabella sessioni esistenti, ma non traccia la logica decisionale pacchetto per pacchetto.",
       "2": "La routing-table mostra le rotte, non l'elaborazione completa (policy/NAT/UTM) del singolo pacchetto.",
       "3": "diagnose netlink interface list fornisce statistiche di interfaccia, non il flow del pacchetto."
     },
+    "why_wrong_en": {
+      "1": "diagnose sys session list shows the existing session table, but does not trace the decision logic packet by packet.",
+      "2": "The routing table shows the routes, not the complete processing (policy/NAT/UTM) of the single packet.",
+      "3": "diagnose netlink interface list provides interface statistics, not the packet flow."
+    },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-007",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["OSPF", "Routing"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "OSPF",
+      "Routing"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Su FortiGate, quando si esegue OSPF sopra un tunnel IPsec point-to-point, quale impostazione dell'interfaccia OSPF è spesso necessaria per garantire l'adiacenza corretta?",
+    "question_en": "On FortiGate, when running OSPF over a point-to-point IPsec tunnel, which OSPF interface setting is often necessary to ensure correct adjacency?",
     "options": [
       "Impostare il network type su 'broadcast' e affidarsi all'elezione del DR",
       "Impostare il network type su 'point-to-point' per evitare l'elezione di DR/BDR",
       "Disabilitare gli hello packet sul tunnel",
       "Configurare l'area come NSSA obbligatoriamente"
     ],
-    "correct": [1],
+    "options_en": [
+      "Set the network type to 'broadcast' and rely on DR election",
+      "Set the network type to 'point-to-point' to avoid DR/BDR election",
+      "Disable the hello packets on the tunnel",
+      "Configure the area as NSSA mandatorily"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Sui tunnel IPsec (che sono link punto-punto senza multicast nativo) è buona pratica impostare il network type OSPF su point-to-point. Questo evita l'elezione di DR/BDR (non necessaria su un link a due nodi), semplifica l'adiacenza e allinea i timer, riducendo problemi di formazione della neighborship.",
+    "explanation_en": "On IPsec tunnels (which are point-to-point links without native multicast) it is good practice to set the OSPF network type to point-to-point. This avoids DR/BDR election (unnecessary on a two-node link), simplifies the adjacency, and aligns the timers, reducing neighborship formation problems.",
     "why_wrong": {
       "0": "Il tipo broadcast forza l'elezione DR/BDR, inutile e problematica su un tunnel punto-punto senza multicast.",
       "2": "Disabilitare gli hello impedisce del tutto la formazione dell'adiacenza OSPF.",
       "3": "Il tipo di area (NSSA/stub/normale) è una scelta di design indipendente dal problema dell'adiacenza sul tunnel."
     },
+    "why_wrong_en": {
+      "0": "The broadcast type forces DR/BDR election, which is unnecessary and problematic on a point-to-point tunnel without multicast.",
+      "2": "Disabling the hellos prevents OSPF adjacency formation entirely.",
+      "3": "The area type (NSSA/stub/normal) is a design choice independent of the tunnel adjacency problem."
+    },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-008",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["HA"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "HA"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In un cluster FortiGate HA in modalità Active-Passive, cosa determina normalmente quale unità diventa primaria (master) quando 'override' è disabilitato e le priorità sono uguali?",
+    "question_en": "In a FortiGate HA cluster in Active-Passive mode, what normally determines which unit becomes primary (master) when 'override' is disabled and the priorities are equal?",
     "options": [
       "L'unità con il serial number più alto",
       "In ordine: numero di interfacce monitored up, uptime dell'unità e infine serial number più alto",
       "L'unità con l'indirizzo MAC più basso sulla heartbeat",
       "L'unità che è stata accesa per ultima"
     ],
-    "correct": [1],
+    "options_en": [
+      "The unit with the highest serial number",
+      "In order: number of monitored interfaces up, unit uptime, and finally highest serial number",
+      "The unit with the lowest MAC address on the heartbeat",
+      "The unit that was powered on last"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Con priorità uguali e override disabilitato, la selezione del primario segue una sequenza: prima il maggior numero di interfacce monitorate up, poi l'uptime più alto (l'unità già attiva resta master per stabilità), infine come tie-break il serial number più alto. Con override disabilitato, l'uptime prevale sulla priorità per evitare failover non necessari.",
+    "explanation_en": "With equal priorities and override disabled, the primary selection follows a sequence: first the greatest number of monitored interfaces up, then the highest uptime (the already-active unit stays master for stability), and finally, as a tie-break, the highest serial number. With override disabled, uptime prevails over priority to avoid unnecessary failovers.",
     "why_wrong": {
       "0": "Il serial number è solo l'ultimo tie-break, dopo interfacce monitorate e uptime.",
       "2": "Il MAC di heartbeat non è il criterio di elezione del primario in HA.",
       "3": "L'ordine di accensione conta indirettamente via uptime, ma l'ultima accesa avrà uptime minore, non maggiore priorità."
     },
+    "why_wrong_en": {
+      "0": "The serial number is only the last tie-break, after monitored interfaces and uptime.",
+      "2": "The heartbeat MAC is not the primary election criterion in HA.",
+      "3": "The power-on order matters indirectly via uptime, but the last one powered on will have lower uptime, not higher priority."
+    },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-009",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["Firewall Policy", "Troubleshooting"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "Firewall Policy",
+      "Troubleshooting"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un amministratore nota che una nuova policy non ha effetto sulle sessioni già stabilite. Quale comando forza il ricalcolo delle sessioni attive rispetto alle policy?",
+    "question_en": "An administrator notices that a new policy has no effect on already established sessions. Which command forces the recalculation of the active sessions against the policies?",
     "options": [
       "diagnose sys session clear (o config con set ses-denied-traffic)",
       "execute reboot",
       "diagnose debug enable",
       "get system status"
     ],
-    "correct": [0],
+    "options_en": [
+      "diagnose sys session clear (or config with set ses-denied-traffic)",
+      "execute reboot",
+      "diagnose debug enable",
+      "get system status"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Le sessioni già stabilite continuano a seguire la decisione presa al primo pacchetto; una modifica di policy non le rivaluta automaticamente. Cancellare le sessioni (diagnose sys session clear con opportuni filtri, oppure abilitare la rivalutazione delle sessioni) obbliga il traffico a ripassare per il policy lookup e applicare le nuove regole.",
+    "explanation_en": "Already established sessions continue to follow the decision made on the first packet; a policy change does not re-evaluate them automatically. Clearing the sessions (diagnose sys session clear with appropriate filters, or enabling session re-evaluation) forces the traffic to go through the policy lookup again and apply the new rules.",
     "why_wrong": {
       "1": "Un reboot risolverebbe ma è estremo e disruptivo; non è lo strumento mirato per rivalutare le sessioni.",
       "2": "diagnose debug enable attiva l'output di debug, non modifica le sessioni esistenti.",
       "3": "get system status mostra info di sistema/firmware, senza alcun effetto sulle sessioni."
     },
+    "why_wrong_en": {
+      "1": "A reboot would fix it but is extreme and disruptive; it is not the targeted tool to re-evaluate the sessions.",
+      "2": "diagnose debug enable turns on the debug output, it does not modify existing sessions.",
+      "3": "get system status shows system/firmware info, without any effect on the sessions."
+    },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-010",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["Security Fabric"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "Security Fabric"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Nella Security Fabric di Fortinet, quale ruolo svolge il FortiGate 'root' (Fabric root)?",
+    "question_en": "In Fortinet's Security Fabric, what role does the 'root' FortiGate (Fabric root) play?",
     "options": [
       "È l'unico dispositivo autorizzato ad applicare policy di firewall",
       "Funge da punto centrale che raccoglie topologia e telemetria dai downstream e su cui si autorizzano i device della Fabric",
       "Sostituisce FortiAnalyzer per lo storage a lungo termine dei log",
       "Termina obbligatoriamente tutti i tunnel IPsec della rete"
     ],
-    "correct": [1],
+    "options_en": [
+      "It is the only device authorized to apply firewall policies",
+      "It acts as the central point that collects topology and telemetry from the downstream devices and on which Fabric devices are authorized",
+      "It replaces FortiAnalyzer for long-term log storage",
+      "It mandatorily terminates all the IPsec tunnels of the network"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Il FortiGate root è la radice dell'albero Security Fabric: i FortiGate downstream si registrano verso di esso, e sul root si autorizzano i dispositivi che entrano nella Fabric. Il root aggrega la topologia, la telemetria e consente una vista centralizzata (Physical/Logical Topology, Security Rating), tipicamente integrandosi con FortiAnalyzer per i log.",
+    "explanation_en": "The root FortiGate is the root of the Security Fabric tree: the downstream FortiGate devices register to it, and on the root the devices joining the Fabric are authorized. The root aggregates topology and telemetry and enables a centralized view (Physical/Logical Topology, Security Rating), typically integrating with FortiAnalyzer for the logs.",
     "why_wrong": {
       "0": "Tutti i FortiGate della Fabric applicano policy; il root non è l'unico a farlo.",
       "2": "Lo storage log a lungo termine resta compito di FortiAnalyzer; il root non lo sostituisce.",
       "3": "Il root non deve necessariamente terminare i tunnel IPsec: il suo ruolo è di coordinamento della Fabric."
     },
+    "why_wrong_en": {
+      "0": "All FortiGate devices in the Fabric apply policies; the root is not the only one to do so.",
+      "2": "Long-term log storage remains FortiAnalyzer's job; the root does not replace it.",
+      "3": "The root does not necessarily have to terminate the IPsec tunnels: its role is Fabric coordination."
+    },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-011",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["SD-WAN", "Troubleshooting"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "SD-WAN",
+      "Troubleshooting"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali due comandi/strumenti CLI sono utili per verificare lo stato e la selezione dei membri SD-WAN su FortiGate? (Seleziona 2)",
+    "question_en": "Which two CLI commands/tools are useful for verifying the status and selection of SD-WAN members on FortiGate? (Select 2)",
     "options": [
       "diagnose sys sdwan health-check",
       "diagnose sys sdwan service (o member)",
       "execute factoryreset",
       "config system global set gui-theme"
     ],
-    "correct": [0, 1],
+    "options_en": [
+      "diagnose sys sdwan health-check",
+      "diagnose sys sdwan service (or member)",
+      "execute factoryreset",
+      "config system global set gui-theme"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Per il troubleshooting SD-WAN, 'diagnose sys sdwan health-check' mostra lo stato delle Performance SLA (latenza, jitter, packet loss, in/out SLA) per ciascun membro, mentre 'diagnose sys sdwan service' (e 'diagnose sys sdwan member') mostra come le SD-WAN rule stanno selezionando i membri e quali sono preferiti/attivi. Insieme diagnosticano perché il traffico prende un certo percorso.",
+    "explanation_en": "For SD-WAN troubleshooting, 'diagnose sys sdwan health-check' shows the status of the Performance SLAs (latency, jitter, packet loss, in/out SLA) for each member, while 'diagnose sys sdwan service' (and 'diagnose sys sdwan member') shows how the SD-WAN rules are selecting the members and which are preferred/active. Together they diagnose why the traffic takes a certain path.",
     "why_wrong": {
       "2": "execute factoryreset ripristina la configurazione di fabbrica: è distruttivo e non ha nulla a che vedere con la diagnosi SD-WAN.",
       "3": "Impostare il tema della GUI è puramente estetico e non fornisce informazioni sui membri SD-WAN."
+    },
+    "why_wrong_en": {
+      "2": "execute factoryreset restores the factory configuration: it is destructive and has nothing to do with SD-WAN diagnosis.",
+      "3": "Setting the GUI theme is purely cosmetic and provides no information about the SD-WAN members."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-012",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["VPN", "ADVPN"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "VPN",
+      "ADVPN"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali due caratteristiche sono tipiche di una configurazione IPsec dial-up (hub-and-spoke) su FortiGate? (Seleziona 2)",
+    "question_en": "Which two characteristics are typical of an IPsec dial-up (hub-and-spoke) configuration on FortiGate? (Select 2)",
     "options": [
       "L'hub usa una singola interfaccia tunnel (dial-up) che accetta più spoke con IP dinamici",
       "Ogni spoke deve avere un IP pubblico statico obbligatorio",
       "Gli spoke iniziano la negoziazione IKE verso l'hub (peer type accept any/dialup)",
       "L'hub deve avere una policy separata configurata manualmente per ogni singolo spoke"
     ],
-    "correct": [0, 2],
+    "options_en": [
+      "The hub uses a single tunnel interface (dial-up) that accepts multiple spokes with dynamic IPs",
+      "Each spoke must have a mandatory static public IP",
+      "The spokes initiate the IKE negotiation toward the hub (peer type accept any/dialup)",
+      "The hub must have a separate policy configured manually for each individual spoke"
+    ],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "In un deployment dial-up, l'hub definisce un'unica interfaccia tunnel dial-up che accetta connessioni da molti spoke con indirizzi dinamici (peer configurato per accettare dial-up/any). Sono gli spoke a iniziare la negoziazione IKE verso l'hub. Questo scala bene perché non serve una config per-spoke sull'hub.",
+    "explanation_en": "In a dial-up deployment, the hub defines a single dial-up tunnel interface that accepts connections from many spokes with dynamic addresses (peer configured to accept dial-up/any). It is the spokes that initiate the IKE negotiation toward the hub. This scales well because no per-spoke config is needed on the hub.",
     "why_wrong": {
       "1": "Il vantaggio del dial-up è proprio supportare spoke con IP dinamici; un IP statico per ogni spoke non è richiesto.",
       "3": "L'hub usa una configurazione tunnel/policy condivisa per tutti gli spoke dial-up, non una policy separata per ciascuno."
+    },
+    "why_wrong_en": {
+      "1": "The advantage of dial-up is precisely to support spokes with dynamic IPs; a static IP for each spoke is not required.",
+      "3": "The hub uses a shared tunnel/policy configuration for all the dial-up spokes, not a separate policy for each one."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-013",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["BGP", "Routing"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "BGP",
+      "Routing"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali due tecniche BGP su FortiGate aiutano a influenzare la selezione del percorso in ambienti multi-site? (Seleziona 2)",
+    "question_en": "Which two BGP techniques on FortiGate help influence path selection in multi-site environments? (Select 2)",
     "options": [
       "Modificare la local-preference per preferire un'uscita in ingresso al proprio AS",
       "Usare AS-path prepend per rendere un percorso meno preferito visto dagli AS esterni",
       "Aumentare la MTU dell'interfaccia BGP per accelerare la convergenza",
       "Disabilitare la validazione TTL per forzare la scelta del percorso"
     ],
-    "correct": [0, 1],
+    "options_en": [
+      "Modify the local-preference to prefer an exit within your own AS",
+      "Use AS-path prepend to make a path less preferred as seen by external ASes",
+      "Increase the MTU of the BGP interface to speed up convergence",
+      "Disable TTL validation to force the path choice"
+    ],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "La local-preference è un attributo BGP well-known usato per preferire un'uscita all'interno del proprio AS (valore più alto = preferito). L'AS-path prepend allunga artificialmente l'AS_PATH annunciato, rendendo quel percorso meno appetibile per gli AS esterni: entrambe sono tecniche classiche di traffic engineering BGP applicabili su FortiGate via route-map.",
+    "explanation_en": "The local-preference is a well-known BGP attribute used to prefer an exit within your own AS (higher value = preferred). AS-path prepend artificially lengthens the advertised AS_PATH, making that path less attractive to external ASes: both are classic BGP traffic-engineering techniques applicable on FortiGate via route-map.",
     "why_wrong": {
       "2": "La MTU riguarda la frammentazione/dimensione pacchetti, non gli attributi di selezione del percorso BGP.",
       "3": "La validazione TTL (GTSM) è un meccanismo di sicurezza del peering, non uno strumento per influenzare la best-path selection."
+    },
+    "why_wrong_en": {
+      "2": "The MTU concerns packet fragmentation/size, not the BGP path-selection attributes.",
+      "3": "TTL validation (GTSM) is a peering security mechanism, not a tool to influence best-path selection."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-014",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["ADVPN", "VPN"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "ADVPN",
+      "VPN"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "In ADVPN, i tunnel shortcut spoke-to-spoke vengono creati dinamicamente su richiesta quando c'è traffico tra due spoke e possono essere rimossi dopo un periodo di inattività.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "In ADVPN, spoke-to-spoke shortcut tunnels are created dynamically on demand when there is traffic between two spokes and can be removed after a period of inactivity.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Corretto. In ADVPN gli shortcut non sono permanenti: nascono on-demand quando due spoke devono comunicare (l'hub facilita lo scambio delle informazioni tramite IKE shortcut messages) e vengono abbattuti dopo un timeout di idle, liberando risorse. Questo è ciò che rende ADVPN scalabile rispetto a un full-mesh statico.",
+    "explanation_en": "Correct. In ADVPN the shortcuts are not permanent: they arise on demand when two spokes need to communicate (the hub facilitates the exchange of information through IKE shortcut messages) and are torn down after an idle timeout, freeing resources. This is what makes ADVPN scalable compared to a static full mesh.",
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-015",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["HA"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "HA"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "In un cluster FortiGate HA, l'opzione 'session-pickup' deve essere abilitata affinché le sessioni TCP esistenti vengano mantenute (sincronizzate) durante un failover, evitando che vengano interrotte.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "In a FortiGate HA cluster, the 'session-pickup' option must be enabled for existing TCP sessions to be maintained (synchronized) during a failover, preventing them from being interrupted.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Corretto. Di default FortiGate sincronizza la configurazione e i kernel routing, ma la tabella delle sessioni non è sincronizzata a meno che 'session-pickup' sia abilitato. Con session-pickup attivo, le sessioni (in particolare TCP) sono replicate sull'unità secondaria, così un failover non le fa cadere. Va valutato l'impatto sulle risorse.",
+    "explanation_en": "Correct. By default FortiGate synchronizes the configuration and the kernel routing, but the session table is not synchronized unless 'session-pickup' is enabled. With session-pickup active, sessions (particularly TCP) are replicated to the secondary unit, so a failover does not drop them. The impact on resources should be evaluated.",
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   },
   {
     "id": "nse7-016",
-    "cert": ["Fortinet NSE7"],
-    "topics": ["Troubleshooting", "Firewall Policy"],
+    "cert": [
+      "Fortinet NSE7"
+    ],
+    "topics": [
+      "Troubleshooting",
+      "Firewall Policy"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Il comando 'diagnose sniffer packet any \"host 10.0.0.5\" 4' cattura sull'interfaccia 'any' i pacchetti da/verso 10.0.0.5 mostrando anche il nome dell'interfaccia di ingresso/uscita.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "question_en": "The command 'diagnose sniffer packet any \"host 10.0.0.5\" 4' captures, on the 'any' interface, the packets to/from 10.0.0.5, also showing the name of the ingress/egress interface.",
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Corretto. Usando 'any' come interfaccia si cattura su tutte le interfacce, il filtro BPF 'host 10.0.0.5' limita ai pacchetti relativi a quell'IP, e il livello di verbosity 4 include l'header IP e il nome dell'interfaccia (in e out), utilissimo per capire da dove entra ed esce il traffico durante il troubleshooting.",
+    "explanation_en": "Correct. Using 'any' as the interface captures on all interfaces, the BPF filter 'host 10.0.0.5' limits to packets related to that IP, and verbosity level 4 includes the IP header and the interface name (in and out), which is very useful for understanding where the traffic enters and exits during troubleshooting.",
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)"
   }
 ]

@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Che cosa caratterizza un attacco XSS di tipo reflected (riflesso)?",
+    "question_en": "What characterizes a reflected XSS attack?",
     "options": [
       "Il payload malevolo viene salvato in modo permanente nel database del server e servito a ogni visitatore",
       "Il payload viaggia nella richiesta (per esempio in un parametro URL) e viene rimandato subito nella risposta senza essere memorizzato",
       "L'attacco si svolge interamente nel browser modificando il DOM, senza che il payload raggiunga mai il server",
       "L'attacco sfrutta esclusivamente una debolezza nella cifratura TLS del sito"
     ],
+    "options_en": [
+      "The malicious payload is permanently stored in the server's database and served to every visitor",
+      "The payload travels in the request (for example in a URL parameter) and is immediately sent back in the response without being stored",
+      "The attack takes place entirely in the browser by modifying the DOM, without the payload ever reaching the server",
+      "The attack relies exclusively on a weakness in the site's TLS encryption"
+    ],
     "correct": [1],
     "explanation": "Nel reflected XSS il codice iniettato è contenuto nella richiesta (tipicamente un parametro GET o un campo di un form) e viene immediatamente 'riflesso' nella pagina di risposta senza essere salvato. La vittima viene di solito indotta a cliccare un link appositamente costruito.",
+    "explanation_en": "In reflected XSS the injected code is contained in the request (typically a GET parameter or a form field) and is immediately 'reflected' back into the response page without being stored. The victim is usually lured into clicking a specially crafted link.",
     "why_wrong": {
       "0": "Questa è la definizione di stored (persistent) XSS, in cui il payload viene memorizzato sul server.",
       "2": "Questo descrive il DOM-based XSS, che avviene lato client senza coinvolgere la risposta del server.",
       "3": "L'XSS riguarda l'iniezione di script nel contenuto della pagina, non la robustezza del canale cifrato TLS."
+    },
+    "why_wrong_en": {
+      "0": "This is the definition of stored (persistent) XSS, in which the payload is stored on the server.",
+      "2": "This describes DOM-based XSS, which occurs on the client side without involving the server's response.",
+      "3": "XSS concerns the injection of scripts into the page content, not the robustness of the encrypted TLS channel."
     },
     "source": "HACK/Crypto.com xss.txt"
   },
@@ -28,18 +41,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Perché lo stored XSS è generalmente considerato più pericoloso del reflected XSS?",
+    "question_en": "Why is stored XSS generally considered more dangerous than reflected XSS?",
     "options": [
       "Perché il payload viene memorizzato sul server e colpisce automaticamente ogni utente che visualizza la risorsa infetta",
       "Perché richiede sempre i privilegi di amministratore per essere sfruttato",
       "Perché funziona solo se la vittima disattiva JavaScript nel browser",
       "Perché agisce unicamente sui cookie con flag Secure"
     ],
+    "options_en": [
+      "Because the payload is stored on the server and automatically affects every user who views the infected resource",
+      "Because it always requires administrator privileges to be exploited",
+      "Because it only works if the victim disables JavaScript in the browser",
+      "Because it acts solely on cookies with the Secure flag"
+    ],
     "correct": [0],
     "explanation": "Nello stored XSS il payload viene salvato in modo persistente (per esempio in un commento, un profilo o un messaggio) e viene eseguito nel browser di chiunque apra quella pagina, senza bisogno di ingannare la vittima con un link. Questo lo rende auto-propagante e ad ampio raggio.",
+    "explanation_en": "In stored XSS the payload is saved persistently (for example in a comment, a profile, or a message) and is executed in the browser of anyone who opens that page, without needing to trick the victim with a link. This makes it self-propagating and wide-reaching.",
     "why_wrong": {
       "1": "Lo stored XSS non richiede privilegi elevati: spesso basta un normale campo di input accessibile a utenti non autenticati.",
       "2": "Al contrario, l'XSS ha bisogno che JavaScript sia attivo per eseguire lo script iniettato.",
       "3": "Il flag Secure riguarda la trasmissione dei cookie solo su HTTPS e non ha relazione con la pericolosità dello stored XSS."
+    },
+    "why_wrong_en": {
+      "1": "Stored XSS does not require elevated privileges: often a normal input field accessible to unauthenticated users is enough.",
+      "2": "On the contrary, XSS needs JavaScript to be enabled in order to execute the injected script.",
+      "3": "The Secure flag concerns transmitting cookies only over HTTPS and has no relation to the severity of stored XSS."
     },
     "source": "HACK/Crypto.com xss.txt"
   },
@@ -50,18 +76,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la caratteristica distintiva del DOM-based XSS?",
+    "question_en": "What is the distinguishing feature of DOM-based XSS?",
     "options": [
       "Il payload viene sempre salvato nel database prima di essere eseguito",
       "La vulnerabilità nasce nel codice JavaScript lato client che scrive dati non attendibili nel DOM, spesso senza che il payload raggiunga il server",
       "Richiede necessariamente una vulnerabilità SQL nel backend",
       "Può essere sfruttato solo tramite richieste POST autenticate"
     ],
+    "options_en": [
+      "The payload is always stored in the database before being executed",
+      "The vulnerability arises in client-side JavaScript code that writes untrusted data into the DOM, often without the payload reaching the server",
+      "It necessarily requires an SQL vulnerability in the backend",
+      "It can only be exploited through authenticated POST requests"
+    ],
     "correct": [1],
     "explanation": "Nel DOM-based XSS il flusso vulnerabile è interamente lato client: uno script legge una sorgente controllabile dall'attaccante (per esempio location.hash o document.URL) e la scrive in un sink pericoloso (come innerHTML) senza sanitizzazione. Il payload può non comparire mai nella risposta HTML del server.",
+    "explanation_en": "In DOM-based XSS the vulnerable flow is entirely on the client side: a script reads an attacker-controllable source (for example location.hash or document.URL) and writes it into a dangerous sink (such as innerHTML) without sanitization. The payload may never appear in the server's HTML response.",
     "why_wrong": {
       "0": "Il salvataggio nel database è tipico dello stored XSS, non del DOM-based.",
       "2": "Il DOM-based XSS è indipendente da SQL injection: dipende dalla manipolazione insicura del DOM lato client.",
       "3": "Spesso sfrutta frammenti dell'URL (dopo il carattere #) leggibili senza autenticazione e senza richieste POST."
+    },
+    "why_wrong_en": {
+      "0": "Storing in the database is typical of stored XSS, not DOM-based XSS.",
+      "2": "DOM-based XSS is independent of SQL injection: it depends on insecure client-side DOM manipulation.",
+      "3": "It often exploits URL fragments (after the # character) that are readable without authentication and without POST requests."
     },
     "source": "HACK/Crypto.com xss.txt"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la difesa fondamentale contro l'XSS quando si inseriscono dati utente in una pagina HTML?",
+    "question_en": "What is the fundamental defense against XSS when inserting user data into an HTML page?",
     "options": [
       "Cifrare la pagina con TLS 1.3",
       "Applicare l'output encoding (escaping) contestuale dei dati non attendibili prima di inserirli nell'HTML",
       "Usare esclusivamente richieste GET al posto delle POST",
       "Aumentare la lunghezza minima delle password"
     ],
+    "options_en": [
+      "Encrypt the page with TLS 1.3",
+      "Apply contextual output encoding (escaping) of untrusted data before inserting it into the HTML",
+      "Use GET requests exclusively instead of POST",
+      "Increase the minimum password length"
+    ],
     "correct": [1],
     "explanation": "La difesa primaria contro l'XSS è la codifica in output (output encoding/escaping) adeguata al contesto in cui il dato viene inserito (HTML, attributo, JavaScript, URL). Trasformando caratteri come < > \" & nelle loro entità, il browser li tratta come testo e non come codice eseguibile.",
+    "explanation_en": "The primary defense against XSS is output encoding/escaping appropriate to the context in which the data is inserted (HTML, attribute, JavaScript, URL). By transforming characters such as < > \" & into their entities, the browser treats them as text and not as executable code.",
     "why_wrong": {
       "0": "TLS protegge il dato in transito ma non impedisce l'esecuzione di script iniettati nella pagina.",
       "2": "Il metodo HTTP non elimina l'XSS: un payload riflesso può arrivare anche via GET, che anzi è più facile da sfruttare con un link.",
       "3": "La robustezza delle password non ha alcun effetto sull'iniezione di script."
+    },
+    "why_wrong_en": {
+      "0": "TLS protects data in transit but does not prevent the execution of scripts injected into the page.",
+      "2": "The HTTP method does not eliminate XSS: a reflected payload can also arrive via GET, which is in fact easier to exploit with a link.",
+      "3": "Password strength has no effect on script injection."
     },
     "source": "HACK/Crypto.com xss.txt"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "A cosa serve l'attributo HttpOnly su un cookie di sessione?",
+    "question_en": "What is the purpose of the HttpOnly attribute on a session cookie?",
     "options": [
       "Impedisce che il cookie venga letto dal codice JavaScript (per esempio tramite document.cookie), riducendo il furto di sessione via XSS",
       "Obbliga il browser a inviare il cookie solo su connessioni HTTPS",
       "Cifra automaticamente il contenuto del cookie con AES",
       "Impedisce del tutto che il cookie venga inviato in richieste cross-site"
     ],
+    "options_en": [
+      "It prevents the cookie from being read by JavaScript code (for example through document.cookie), reducing session theft via XSS",
+      "It forces the browser to send the cookie only over HTTPS connections",
+      "It automatically encrypts the cookie's content with AES",
+      "It completely prevents the cookie from being sent in cross-site requests"
+    ],
     "correct": [0],
     "explanation": "Il flag HttpOnly rende il cookie inaccessibile alle API JavaScript del documento: anche in presenza di un XSS, lo script non può leggere document.cookie per esfiltrare il token di sessione. È una difesa in profondità, non una soluzione che elimina l'XSS.",
+    "explanation_en": "The HttpOnly flag makes the cookie inaccessible to the document's JavaScript APIs: even in the presence of an XSS, the script cannot read document.cookie to exfiltrate the session token. It is a defense-in-depth measure, not a solution that eliminates XSS.",
     "why_wrong": {
       "1": "Inviare il cookie solo su HTTPS è compito del flag Secure, non di HttpOnly.",
       "2": "HttpOnly non cifra il valore del cookie; ne limita solo l'accesso da JavaScript.",
       "3": "Limitare l'invio in contesti cross-site è compito dell'attributo SameSite, non di HttpOnly."
+    },
+    "why_wrong_en": {
+      "1": "Sending the cookie only over HTTPS is the job of the Secure flag, not HttpOnly.",
+      "2": "HttpOnly does not encrypt the cookie's value; it only restricts access to it from JavaScript.",
+      "3": "Restricting sending in cross-site contexts is the job of the SameSite attribute, not HttpOnly."
     },
     "source": "HACK/Crypto.com xss.txt"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "In che modo una Content Security Policy (CSP) aiuta a mitigare l'XSS?",
+    "question_en": "How does a Content Security Policy (CSP) help mitigate XSS?",
     "options": [
       "Cifra tutte le risorse statiche del sito",
       "Definisce quali sorgenti di script sono attendibili, bloccando per default script inline e codice da origini non autorizzate",
       "Sostituisce completamente la necessità di validare l'input lato server",
       "Verifica la password dell'utente a ogni richiesta"
     ],
+    "options_en": [
+      "It encrypts all of the site's static resources",
+      "It defines which script sources are trusted, blocking by default inline scripts and code from unauthorized origins",
+      "It completely replaces the need to validate input on the server side",
+      "It verifies the user's password on every request"
+    ],
     "correct": [1],
     "explanation": "La CSP è un'intestazione di risposta che istruisce il browser su quali origini possano fornire script, stili e altre risorse. Una policy restrittiva (per esempio senza 'unsafe-inline') impedisce l'esecuzione di script inline iniettati, riducendo l'impatto di un XSS anche quando l'escaping fallisce.",
+    "explanation_en": "A CSP is a response header that instructs the browser on which origins may provide scripts, styles, and other resources. A restrictive policy (for example without 'unsafe-inline') prevents the execution of injected inline scripts, reducing the impact of an XSS even when escaping fails.",
     "why_wrong": {
       "0": "La CSP controlla il caricamento e l'esecuzione delle risorse, non le cifra.",
       "2": "La CSP è un livello di difesa aggiuntivo: non elimina la necessità di encoding e validazione dell'input.",
       "3": "La CSP non ha alcuna funzione di autenticazione dell'utente."
+    },
+    "why_wrong_en": {
+      "0": "A CSP controls the loading and execution of resources, it does not encrypt them.",
+      "2": "A CSP is an additional layer of defense: it does not eliminate the need for encoding and input validation.",
+      "3": "A CSP has no user authentication function."
     },
     "source": "HACK/Crypto.com xss.txt"
   },
@@ -138,18 +216,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la difesa più efficace contro la SQL injection?",
+    "question_en": "What is the most effective defense against SQL injection?",
     "options": [
       "Nascondere i messaggi di errore del database all'utente",
       "Usare query parametrizzate (prepared statement) che separano il codice SQL dai dati forniti dall'utente",
       "Convertire tutte le richieste da POST a GET",
       "Aumentare il timeout delle connessioni al database"
     ],
+    "options_en": [
+      "Hiding the database error messages from the user",
+      "Using parameterized queries (prepared statements) that separate the SQL code from the data supplied by the user",
+      "Converting all requests from POST to GET",
+      "Increasing the database connection timeout"
+    ],
     "correct": [1],
     "explanation": "Le query parametrizzate (prepared statement) inviano al database la struttura della query separatamente dai valori: l'input dell'utente viene trattato sempre come dato e mai come codice SQL, eliminando alla radice l'iniezione. È la difesa raccomandata da OWASP.",
+    "explanation_en": "Parameterized queries (prepared statements) send the query structure to the database separately from the values: the user's input is always treated as data and never as SQL code, eliminating injection at its root. It is the defense recommended by OWASP.",
     "why_wrong": {
       "0": "Nascondere gli errori riduce solo le informazioni per l'attaccante, ma la SQL injection (anche blind) resta sfruttabile.",
       "2": "Cambiare metodo HTTP non impedisce l'iniezione: il payload può essere inviato in qualunque parametro.",
       "3": "Il timeout delle connessioni non ha alcun effetto sulla possibilità di iniettare SQL."
+    },
+    "why_wrong_en": {
+      "0": "Hiding errors only reduces the information available to the attacker, but SQL injection (including blind) remains exploitable.",
+      "2": "Changing the HTTP method does not prevent injection: the payload can be sent in any parameter.",
+      "3": "The connection timeout has no effect on the ability to inject SQL."
     },
     "source": "HACK/Crypto.com.txt"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Che cosa sfrutta un attacco CSRF (Cross-Site Request Forgery)?",
+    "question_en": "What does a CSRF (Cross-Site Request Forgery) attack exploit?",
     "options": [
       "L'assenza di cifratura sui dati in transito",
       "Il fatto che il browser invii automaticamente i cookie di sessione della vittima verso il sito bersaglio, permettendo azioni non volute a suo nome",
       "Un errore di parsing SQL nel backend",
       "La possibilità di leggere il codice sorgente lato server"
     ],
+    "options_en": [
+      "The absence of encryption on data in transit",
+      "The fact that the browser automatically sends the victim's session cookies to the target site, allowing unwanted actions in their name",
+      "An SQL parsing error in the backend",
+      "The ability to read the server-side source code"
+    ],
     "correct": [1],
     "explanation": "Il CSRF induce il browser autenticato della vittima a inviare una richiesta al sito bersaglio. Poiché il browser allega automaticamente i cookie di sessione, il server esegue l'azione (per esempio un trasferimento) credendola legittima. Le difese includono token anti-CSRF e l'attributo cookie SameSite.",
+    "explanation_en": "CSRF induces the victim's authenticated browser to send a request to the target site. Since the browser automatically attaches the session cookies, the server performs the action (for example a transfer) believing it to be legitimate. Defenses include anti-CSRF tokens and the SameSite cookie attribute.",
     "why_wrong": {
       "0": "Il CSRF funziona anche su siti in HTTPS: non dipende dalla cifratura ma dall'invio automatico delle credenziali di sessione.",
       "2": "L'iniezione SQL è una classe di vulnerabilità diversa, sul lato database, non correlata al meccanismo CSRF.",
       "3": "Il CSRF non richiede la lettura del codice sorgente del server: sfrutta la fiducia del server nella sessione del browser."
+    },
+    "why_wrong_en": {
+      "0": "CSRF works even on HTTPS sites: it does not depend on encryption but on the automatic sending of session credentials.",
+      "2": "SQL injection is a different class of vulnerability, on the database side, unrelated to the CSRF mechanism.",
+      "3": "CSRF does not require reading the server's source code: it exploits the server's trust in the browser's session."
     },
     "source": "HACK/Crypto.com.txt"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Che cosa stabilisce la Same-Origin Policy (SOP) del browser?",
+    "question_en": "What does the browser's Same-Origin Policy (SOP) establish?",
     "options": [
       "Che uno script di un'origine può leggere liberamente i dati di qualsiasi altra origine",
       "Che uno script può accedere ai dati (DOM, risposte) di un'altra origine solo se coincidono schema, host e porta, salvo permessi espliciti come CORS",
       "Che tutte le richieste devono transitare su HTTPS",
       "Che ogni sito può usare un solo cookie di sessione"
     ],
+    "options_en": [
+      "That a script from one origin can freely read the data of any other origin",
+      "That a script can access the data (DOM, responses) of another origin only if the scheme, host, and port match, unless explicitly permitted such as via CORS",
+      "That all requests must go over HTTPS",
+      "That each site can use only one session cookie"
+    ],
     "correct": [1],
     "explanation": "La Same-Origin Policy limita l'interazione tra documenti/script di origini diverse: due risorse hanno la stessa origine solo se combaciano schema (http/https), host e porta. Serve a impedire che un sito legga dati di un altro. CORS è il meccanismo che rilassa in modo controllato questa restrizione.",
+    "explanation_en": "The Same-Origin Policy limits interaction between documents/scripts of different origins: two resources have the same origin only if the scheme (http/https), host, and port match. It serves to prevent one site from reading another site's data. CORS is the mechanism that relaxes this restriction in a controlled way.",
     "why_wrong": {
       "0": "È l'opposto: la SOP nasce proprio per impedire l'accesso incrociato ai dati tra origini diverse.",
       "2": "La SOP definisce il concetto di origine e l'isolamento, non impone l'uso di HTTPS (anche se lo schema fa parte dell'origine).",
       "3": "La SOP non pone limiti al numero di cookie di sessione di un sito."
+    },
+    "why_wrong_en": {
+      "0": "It is the opposite: the SOP exists precisely to prevent cross-origin access to data between different origins.",
+      "2": "The SOP defines the concept of origin and isolation; it does not mandate the use of HTTPS (even though the scheme is part of the origin).",
+      "3": "The SOP places no limit on the number of session cookies a site may use."
     },
     "source": "HACK/Crypto.com xss.txt"
   },
@@ -204,18 +321,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale approccio di validazione dell'input è generalmente considerato più sicuro?",
+    "question_en": "Which input validation approach is generally considered more secure?",
     "options": [
       "Blacklist: bloccare un elenco di caratteri o pattern ritenuti pericolosi",
       "Whitelist (allow-list): accettare solo input che corrisponde a un formato esplicitamente consentito",
       "Affidarsi solo alla validazione lato client nel browser",
       "Non validare l'input e fidarsi del firewall di rete"
     ],
+    "options_en": [
+      "Blacklist: block a list of characters or patterns considered dangerous",
+      "Whitelist (allow-list): accept only input that matches an explicitly permitted format",
+      "Rely only on client-side validation in the browser",
+      "Not validate the input and trust the network firewall"
+    ],
     "correct": [1],
     "explanation": "La validazione a whitelist accetta unicamente ciò che rispetta un formato atteso (per esempio una data, un codice, un intervallo numerico) e rifiuta tutto il resto. È più robusta della blacklist perché non deve prevedere tutte le possibili varianti malevole. La validazione va sempre eseguita lato server.",
+    "explanation_en": "Whitelist validation accepts only what conforms to an expected format (for example a date, a code, a numeric range) and rejects everything else. It is more robust than a blacklist because it does not have to anticipate every possible malicious variant. Validation must always be performed on the server side.",
     "why_wrong": {
       "0": "La blacklist è facilmente aggirabile con codifiche alternative o pattern non previsti nell'elenco.",
       "2": "La validazione lato client è solo un aiuto all'usabilità: può essere bypassata inviando richieste dirette, quindi non è una difesa.",
       "3": "Un firewall di rete non comprende la logica applicativa e non sostituisce la validazione dell'input."
+    },
+    "why_wrong_en": {
+      "0": "A blacklist is easily bypassed with alternative encodings or patterns not anticipated in the list.",
+      "2": "Client-side validation is only a usability aid: it can be bypassed by sending direct requests, so it is not a defense.",
+      "3": "A network firewall does not understand application logic and does not replace input validation."
     },
     "source": "HACK/Crypto.com.txt"
   },
@@ -226,17 +356,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali delle seguenti sono difese valide ed efficaci contro gli attacchi XSS? (seleziona due)",
+    "question_en": "Which of the following are valid and effective defenses against XSS attacks? (select two)",
     "options": [
       "Output encoding contestuale dei dati non attendibili inseriti nella pagina",
       "Adottare una Content Security Policy restrittiva che blocca gli script inline",
       "Memorizzare le password degli utenti in chiaro per velocizzare il login",
       "Disabilitare completamente i log del server web"
     ],
+    "options_en": [
+      "Contextual output encoding of untrusted data inserted into the page",
+      "Adopting a restrictive Content Security Policy that blocks inline scripts",
+      "Storing users' passwords in plaintext to speed up login",
+      "Completely disabling the web server logs"
+    ],
     "correct": [0, 1],
     "explanation": "Le difese chiave contro l'XSS sono l'output encoding contestuale (che neutralizza i caratteri speciali trasformandoli in testo) e una CSP restrittiva (che impedisce l'esecuzione di script non autorizzati o inline). Insieme costituiscono una difesa in profondità.",
+    "explanation_en": "The key defenses against XSS are contextual output encoding (which neutralizes special characters by turning them into text) and a restrictive CSP (which prevents the execution of unauthorized or inline scripts). Together they constitute defense in depth.",
     "why_wrong": {
       "2": "Salvare le password in chiaro è una grave vulnerabilità di per sé e non ha alcun effetto protettivo contro l'XSS.",
       "3": "Disabilitare i log riduce la capacità di rilevare e investigare gli attacchi, senza prevenire l'XSS."
+    },
+    "why_wrong_en": {
+      "2": "Storing passwords in plaintext is a serious vulnerability in itself and has no protective effect against XSS.",
+      "3": "Disabling logs reduces the ability to detect and investigate attacks, without preventing XSS."
     },
     "source": "HACK/Crypto.com xss.txt"
   },
@@ -247,17 +389,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali misure aiutano concretamente a prevenire la SQL injection? (seleziona due)",
+    "question_en": "Which measures concretely help prevent SQL injection? (select two)",
     "options": [
       "Utilizzare query parametrizzate o prepared statement",
       "Applicare il principio del privilegio minimo all'account del database usato dall'applicazione",
       "Concatenare direttamente l'input dell'utente nella stringa della query",
       "Esporre pubblicamente i messaggi di errore dettagliati del database"
     ],
+    "options_en": [
+      "Use parameterized queries or prepared statements",
+      "Apply the principle of least privilege to the database account used by the application",
+      "Concatenate the user's input directly into the query string",
+      "Publicly expose the database's detailed error messages"
+    ],
     "correct": [0, 1],
     "explanation": "Le query parametrizzate separano codice e dati eliminando l'iniezione, mentre limitare i privilegi dell'account DB riduce l'impatto in caso di compromissione (per esempio impedendo DROP o accessi ad altre tabelle). Sono due controlli complementari raccomandati da OWASP.",
+    "explanation_en": "Parameterized queries separate code and data, eliminating injection, while limiting the privileges of the DB account reduces the impact in case of compromise (for example preventing DROP or access to other tables). These are two complementary controls recommended by OWASP.",
     "why_wrong": {
       "2": "Concatenare l'input nella query è esattamente la causa della SQL injection, non una difesa.",
       "3": "Mostrare errori dettagliati fornisce all'attaccante informazioni utili (nomi tabelle, tipo di DBMS) e facilita lo sfruttamento."
+    },
+    "why_wrong_en": {
+      "2": "Concatenating input into the query is exactly the cause of SQL injection, not a defense.",
+      "3": "Showing detailed errors gives the attacker useful information (table names, DBMS type) and facilitates exploitation."
     },
     "source": "HACK/Crypto.com.txt"
   },
@@ -268,17 +422,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali attributi/flag dei cookie migliorano la sicurezza di un cookie di sessione? (seleziona due)",
+    "question_en": "Which cookie attributes/flags improve the security of a session cookie? (select two)",
     "options": [
       "HttpOnly, che impedisce l'accesso al cookie da JavaScript",
       "SameSite, che limita l'invio del cookie nelle richieste cross-site",
       "AutoFill, che precompila i moduli di login",
       "Prefetch, che scarica in anticipo le pagine collegate"
     ],
+    "options_en": [
+      "HttpOnly, which prevents access to the cookie from JavaScript",
+      "SameSite, which restricts sending the cookie in cross-site requests",
+      "AutoFill, which pre-fills login forms",
+      "Prefetch, which downloads linked pages in advance"
+    ],
     "correct": [0, 1],
     "explanation": "HttpOnly protegge il cookie dal furto via XSS impedendone la lettura da JavaScript, mentre SameSite (Lax o Strict) mitiga il CSRF limitando l'invio automatico del cookie in contesti cross-site. Insieme al flag Secure sono i controlli standard per i cookie di sessione.",
+    "explanation_en": "HttpOnly protects the cookie from theft via XSS by preventing it from being read by JavaScript, while SameSite (Lax or Strict) mitigates CSRF by restricting the automatic sending of the cookie in cross-site contexts. Together with the Secure flag they are the standard controls for session cookies.",
     "why_wrong": {
       "2": "AutoFill non è un attributo di sicurezza dei cookie: riguarda la compilazione automatica dei form da parte del browser.",
       "3": "Prefetch è una funzione di prestazioni per il caricamento anticipato delle pagine, non un controllo di sicurezza dei cookie."
+    },
+    "why_wrong_en": {
+      "2": "AutoFill is not a cookie security attribute: it concerns the browser's automatic form filling.",
+      "3": "Prefetch is a performance feature for loading pages in advance, not a cookie security control."
     },
     "source": "HACK/Crypto.com xss.txt"
   },
@@ -289,9 +455,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Il flag HttpOnly su un cookie impedisce che il suo valore venga letto tramite JavaScript con document.cookie.",
+    "question_en": "The HttpOnly flag on a cookie prevents its value from being read via JavaScript with document.cookie.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. HttpOnly rende il cookie invisibile alle API JavaScript del documento: anche in presenza di un XSS, lo script non può leggere il valore tramite document.cookie, riducendo il rischio di furto del token di sessione.",
+    "explanation_en": "True. HttpOnly makes the cookie invisible to the document's JavaScript APIs: even in the presence of an XSS, the script cannot read the value through document.cookie, reducing the risk of session token theft.",
     "source": "HACK/Crypto.com xss.txt"
   },
   {
@@ -301,9 +470,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Filtrare solo l'apice singolo (') nell'input dell'utente è sufficiente per eliminare completamente il rischio di SQL injection.",
+    "question_en": "Filtering only the single quote (') in the user's input is sufficient to completely eliminate the risk of SQL injection.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. Il semplice filtro di un carattere è una difesa fragile: gli attacchi possono usare payload numerici senza apici, codifiche alternative o funzioni del DBMS. La difesa corretta e completa sono le query parametrizzate (prepared statement).",
+    "explanation_en": "False. Simply filtering a single character is a fragile defense: attacks can use numeric payloads without quotes, alternative encodings, or DBMS functions. The correct and complete defense is parameterized queries (prepared statements).",
     "source": "HACK/Crypto.com.txt"
   },
   {
@@ -313,9 +485,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Il DOM-based XSS può verificarsi anche quando il payload non viene mai inviato al server, ma è gestito interamente da JavaScript lato client.",
+    "question_en": "DOM-based XSS can occur even when the payload is never sent to the server, but is handled entirely by client-side JavaScript.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Nel DOM-based XSS il codice vulnerabile è lato client: uno script legge una sorgente controllabile (per esempio location.hash) e la scrive in un sink pericoloso (come innerHTML). Il payload, se collocato dopo il carattere #, può non raggiungere mai il server.",
+    "explanation_en": "True. In DOM-based XSS the vulnerable code is on the client side: a script reads a controllable source (for example location.hash) and writes it into a dangerous sink (such as innerHTML). The payload, if placed after the # character, may never reach the server.",
     "source": "HACK/Crypto.com xss.txt"
   }
 ]

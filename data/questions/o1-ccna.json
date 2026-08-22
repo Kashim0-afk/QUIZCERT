@@ -1,8 +1,12 @@
 [
   {
     "id": "ccna-001",
-    "cert": ["CCNA"],
-    "topics": ["Modello OSI"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Modello OSI"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Nel modello OSI, quale livello è responsabile dell'instradamento dei pacchetti tra reti diverse tramite indirizzi logici?",
@@ -12,19 +16,38 @@
       "Livello 4 - Trasporto",
       "Livello 7 - Applicazione"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Il livello 3 (Rete) gestisce l'indirizzamento logico (IP) e l'instradamento dei pacchetti tra reti differenti; è il livello a cui operano i router.",
     "why_wrong": {
       "0": "Il livello 2 (Data Link) usa indirizzi fisici MAC e opera all'interno di un singolo segmento di collisione/broadcast, non instrada tra reti.",
       "2": "Il livello 4 (Trasporto) gestisce la comunicazione end-to-end con TCP/UDP e le porte, non l'instradamento tra reti.",
       "3": "Il livello 7 (Applicazione) fornisce i servizi di rete alle applicazioni (HTTP, DNS), non si occupa di routing."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "In the OSI model, which layer is responsible for routing packets between different networks using logical addresses?",
+    "options_en": [
+      "Layer 2 - Data Link",
+      "Layer 3 - Network",
+      "Layer 4 - Transport",
+      "Layer 7 - Application"
+    ],
+    "explanation_en": "Layer 3 (Network) handles logical addressing (IP) and the routing of packets between different networks; it is the layer at which routers operate.",
+    "why_wrong_en": {
+      "0": "Layer 2 (Data Link) uses physical MAC addresses and operates within a single collision/broadcast segment, it does not route between networks.",
+      "2": "Layer 4 (Transport) handles end-to-end communication with TCP/UDP and ports, not routing between networks.",
+      "3": "Layer 7 (Application) provides network services to applications (HTTP, DNS), it does not deal with routing."
+    }
   },
   {
     "id": "ccna-002",
-    "cert": ["CCNA"],
-    "topics": ["Modello OSI"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Modello OSI"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Come viene chiamata la PDU (Protocol Data Unit) al livello 4 (Trasporto) del modello OSI usando TCP?",
@@ -34,19 +57,38 @@
       "Segmento",
       "Bit"
     ],
-    "correct": [2],
+    "correct": [
+      2
+    ],
     "explanation": "Al livello di Trasporto la PDU si chiama segmento quando si usa TCP (datagramma con UDP). Al livello Rete diventa pacchetto, al Data Link frame e al livello Fisico bit.",
     "why_wrong": {
       "0": "Frame è la PDU del livello 2 (Data Link).",
       "1": "Pacchetto è la PDU del livello 3 (Rete).",
       "3": "Bit è la PDU del livello 1 (Fisico)."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "What is the PDU (Protocol Data Unit) called at layer 4 (Transport) of the OSI model when using TCP?",
+    "options_en": [
+      "Frame",
+      "Packet",
+      "Segment",
+      "Bit"
+    ],
+    "explanation_en": "At the Transport layer the PDU is called a segment when TCP is used (datagram with UDP). At the Network layer it becomes a packet, at the Data Link a frame and at the Physical layer bits.",
+    "why_wrong_en": {
+      "0": "Frame is the PDU of layer 2 (Data Link).",
+      "1": "Packet is the PDU of layer 3 (Network).",
+      "3": "Bit is the PDU of layer 1 (Physical)."
+    }
   },
   {
     "id": "ccna-003",
-    "cert": ["CCNA"],
-    "topics": ["Subnetting"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Subnetting"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quanti host utilizzabili fornisce una subnet IPv4 con prefisso /26?",
@@ -56,19 +98,38 @@
       "64",
       "126"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un /26 lascia 6 bit host (32 - 26 = 6). Gli indirizzi totali sono 2^6 = 64, meno l'indirizzo di rete e quello di broadcast: 64 - 2 = 62 host utilizzabili.",
     "why_wrong": {
       "0": "30 host corrisponde a un /27 (2^5 - 2).",
       "2": "64 è il numero totale di indirizzi del blocco, ma non sono tutti utilizzabili: vanno esclusi rete e broadcast.",
       "3": "126 host corrisponde a un /25 (2^7 - 2)."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "How many usable hosts does an IPv4 subnet with a /26 prefix provide?",
+    "options_en": [
+      "30",
+      "62",
+      "64",
+      "126"
+    ],
+    "explanation_en": "A /26 leaves 6 host bits (32 - 26 = 6). The total addresses are 2^6 = 64, minus the network address and the broadcast address: 64 - 2 = 62 usable hosts.",
+    "why_wrong_en": {
+      "0": "30 hosts corresponds to a /27 (2^5 - 2).",
+      "2": "64 is the total number of addresses in the block, but they are not all usable: the network and broadcast addresses must be excluded.",
+      "3": "126 hosts corresponds to a /25 (2^7 - 2)."
+    }
   },
   {
     "id": "ccna-004",
-    "cert": ["CCNA"],
-    "topics": ["Subnetting"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Subnetting"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la subnet mask decimale puntata corrispondente al prefisso /27?",
@@ -78,19 +139,39 @@
       "255.255.255.240",
       "255.255.255.248"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un /27 ha 27 bit a 1: 11111111.11111111.11111111.11100000, cioè 255.255.255.224. L'ultimo ottetto vale 128+64+32 = 224.",
     "why_wrong": {
       "0": "255.255.255.192 corrisponde a /26.",
       "2": "255.255.255.240 corrisponde a /28.",
       "3": "255.255.255.248 corrisponde a /29."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "What is the dotted decimal subnet mask corresponding to the /27 prefix?",
+    "options_en": [
+      "255.255.255.192",
+      "255.255.255.224",
+      "255.255.255.240",
+      "255.255.255.248"
+    ],
+    "explanation_en": "A /27 has 27 bits set to 1: 11111111.11111111.11111111.11100000, that is 255.255.255.224. The last octet equals 128+64+32 = 224.",
+    "why_wrong_en": {
+      "0": "255.255.255.192 corresponds to /26.",
+      "2": "255.255.255.240 corresponds to /28.",
+      "3": "255.255.255.248 corresponds to /29."
+    }
   },
   {
     "id": "ccna-005",
-    "cert": ["CCNA"],
-    "topics": ["Routing", "OSPF"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Routing",
+      "OSPF"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la distanza amministrativa (AD) di default di OSPF su un router Cisco?",
@@ -100,19 +181,38 @@
       "120",
       "1"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "OSPF ha una distanza amministrativa di default pari a 110. La AD serve a scegliere la sorgente di routing più affidabile quando più protocolli offrono la stessa rotta.",
     "why_wrong": {
       "0": "90 è la AD di EIGRP interno.",
       "2": "120 è la AD di RIP.",
       "3": "1 è la AD di una rotta statica."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "What is the default administrative distance (AD) of OSPF on a Cisco router?",
+    "options_en": [
+      "90",
+      "110",
+      "120",
+      "1"
+    ],
+    "explanation_en": "OSPF has a default administrative distance equal to 110. The AD serves to choose the most reliable routing source when multiple protocols offer the same route.",
+    "why_wrong_en": {
+      "0": "90 is the AD of internal EIGRP.",
+      "2": "120 is the AD of RIP.",
+      "3": "1 is the AD of a static route."
+    }
   },
   {
     "id": "ccna-006",
-    "cert": ["CCNA"],
-    "topics": ["OSPF"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "OSPF"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Su cosa si basa di default il calcolo della metrica (costo) di OSPF verso una destinazione?",
@@ -122,19 +222,38 @@
       "Sul ritardo e sull'affidabilità dei link",
       "Sull'indirizzo IP più basso del next-hop"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "OSPF calcola il costo in base alla larghezza di banda: costo = bandwidth di riferimento (100 Mbps di default) / bandwidth dell'interfaccia. Il costo totale di una rotta è la somma dei costi delle interfacce di uscita lungo il percorso.",
     "why_wrong": {
       "0": "Il conteggio degli hop è la metrica di RIP, non di OSPF.",
       "2": "La combinazione di banda, ritardo, affidabilità e carico è tipica della metrica composita di EIGRP.",
       "3": "L'indirizzo IP del next-hop non entra nel calcolo del costo OSPF."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "What does OSPF base its metric (cost) calculation toward a destination on by default?",
+    "options_en": [
+      "On the number of hops traversed",
+      "On the cumulative bandwidth of the links",
+      "On the delay and reliability of the links",
+      "On the lowest IP address of the next-hop"
+    ],
+    "explanation_en": "OSPF calculates the cost based on bandwidth: cost = reference bandwidth (100 Mbps by default) / interface bandwidth. The total cost of a route is the sum of the costs of the outgoing interfaces along the path.",
+    "why_wrong_en": {
+      "0": "Hop count is the metric of RIP, not of OSPF.",
+      "2": "The combination of bandwidth, delay, reliability and load is typical of the composite metric of EIGRP.",
+      "3": "The next-hop IP address does not enter into the OSPF cost calculation."
+    }
   },
   {
     "id": "ccna-007",
-    "cert": ["CCNA"],
-    "topics": ["VLAN"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "VLAN"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Qual è la VLAN di default su uno switch Cisco appena configurato, a cui appartengono inizialmente tutte le porte?",
@@ -144,19 +263,38 @@
       "VLAN 99",
       "VLAN 1005"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Su uno switch Cisco tutte le porte appartengono di default alla VLAN 1, che è anche la native VLAN e la VLAN di gestione predefinita. Per sicurezza si consiglia di non usarla per il traffico dati o di gestione.",
     "why_wrong": {
       "0": "La VLAN 0 è riservata e non utilizzabile per l'assegnazione delle porte.",
       "2": "La VLAN 99 è una VLAN a scelta dell'amministratore, spesso usata per la gestione, ma non è quella di default.",
       "3": "La VLAN 1005 fa parte del range riservato (1002-1005) per le vecchie tecnologie Token Ring/FDDI."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "What is the default VLAN on a freshly configured Cisco switch, to which all ports initially belong?",
+    "options_en": [
+      "VLAN 0",
+      "VLAN 1",
+      "VLAN 99",
+      "VLAN 1005"
+    ],
+    "explanation_en": "On a Cisco switch all ports belong by default to VLAN 1, which is also the native VLAN and the default management VLAN. For security it is recommended not to use it for data or management traffic.",
+    "why_wrong_en": {
+      "0": "VLAN 0 is reserved and not usable for port assignment.",
+      "2": "VLAN 99 is a VLAN chosen by the administrator, often used for management, but it is not the default one.",
+      "3": "VLAN 1005 is part of the reserved range (1002-1005) for the old Token Ring/FDDI technologies."
+    }
   },
   {
     "id": "ccna-008",
-    "cert": ["CCNA"],
-    "topics": ["NAT"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "NAT"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale tecnica NAT permette a molti host interni di condividere un unico indirizzo IP pubblico distinguendo le connessioni tramite i numeri di porta?",
@@ -166,19 +304,38 @@
       "PAT (NAT overload)",
       "Proxy ARP"
     ],
-    "correct": [2],
+    "correct": [
+      2
+    ],
     "explanation": "Il PAT (Port Address Translation), detto anche NAT overload, mappa molti indirizzi privati su un solo IP pubblico usando porte di origine diverse per identificare univocamente ogni sessione.",
     "why_wrong": {
       "0": "Il NAT statico crea una mappatura fissa uno-a-uno tra un IP privato e un IP pubblico, senza condivisione.",
       "1": "Il NAT dinamico assegna IP da un pool ma senza multiplexing sulle porte: serve un IP pubblico libero per ogni host attivo.",
       "3": "Il Proxy ARP riguarda la risoluzione degli indirizzi MAC, non la traduzione degli indirizzi IP."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "Which NAT technique allows many internal hosts to share a single public IP address by distinguishing the connections through port numbers?",
+    "options_en": [
+      "Static NAT (one-to-one)",
+      "Dynamic NAT with pool",
+      "PAT (NAT overload)",
+      "Proxy ARP"
+    ],
+    "explanation_en": "PAT (Port Address Translation), also called NAT overload, maps many private addresses onto a single public IP using different source ports to uniquely identify each session.",
+    "why_wrong_en": {
+      "0": "Static NAT creates a fixed one-to-one mapping between a private IP and a public IP, without sharing.",
+      "1": "Dynamic NAT assigns IPs from a pool but without port multiplexing: a free public IP is needed for each active host.",
+      "3": "Proxy ARP concerns the resolution of MAC addresses, not the translation of IP addresses."
+    }
   },
   {
     "id": "ccna-009",
-    "cert": ["CCNA"],
-    "topics": ["ACL"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "ACL"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale wildcard mask usereste in una ACL per identificare esattamente tutta la rete 192.168.10.0/24?",
@@ -188,19 +345,38 @@
       "0.0.0.0",
       "0.0.255.255"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "La wildcard mask è l'inverso bit a bit della subnet mask. Per un /24 (255.255.255.0) la wildcard è 0.0.0.255: i primi tre ottetti devono coincidere (0 = controlla) e l'ultimo è indifferente (255 = ignora).",
     "why_wrong": {
       "1": "255.255.255.0 è la subnet mask, non la wildcard; nelle ACL Cisco standard si usa la maschera inversa.",
       "2": "0.0.0.0 corrisponde a un host singolo (match esatto), non all'intera rete /24.",
       "3": "0.0.255.255 corrisponde a un /16, quindi identificherebbe 192.168.0.0/16, troppo ampia."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "Which wildcard mask would you use in an ACL to identify exactly the entire 192.168.10.0/24 network?",
+    "options_en": [
+      "0.0.0.255",
+      "255.255.255.0",
+      "0.0.0.0",
+      "0.0.255.255"
+    ],
+    "explanation_en": "The wildcard mask is the bit-by-bit inverse of the subnet mask. For a /24 (255.255.255.0) the wildcard is 0.0.0.255: the first three octets must match (0 = check) and the last is irrelevant (255 = ignore).",
+    "why_wrong_en": {
+      "1": "255.255.255.0 is the subnet mask, not the wildcard; in standard Cisco ACLs the inverse mask is used.",
+      "2": "0.0.0.0 corresponds to a single host (exact match), not to the entire /24 network.",
+      "3": "0.0.255.255 corresponds to a /16, so it would identify 192.168.0.0/16, too broad."
+    }
   },
   {
     "id": "ccna-010",
-    "cert": ["CCNA"],
-    "topics": ["DHCP"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "DHCP"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la corretta sequenza dei quattro messaggi del processo DHCP (DORA) per l'assegnazione di un indirizzo IP?",
@@ -210,19 +386,38 @@
       "Offer, Discover, Acknowledge, Request",
       "Discover, Request, Offer, Acknowledge"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "Il processo DHCP segue l'ordine DORA: il client invia in broadcast un DHCPDISCOVER, il server risponde con un DHCPOFFER, il client accetta con DHCPREQUEST e il server conferma con DHCPACK.",
     "why_wrong": {
       "1": "L'ordine è invertito: il client inizia sempre con Discover, non con Request.",
       "2": "Discover deve precedere Offer: è il client ad avviare la scoperta del server.",
       "3": "Offer viene dal server prima del Request del client: la sequenza corretta è Discover, Offer, Request, Acknowledge."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "What is the correct sequence of the four messages of the DHCP process (DORA) for assigning an IP address?",
+    "options_en": [
+      "Discover, Offer, Request, Acknowledge",
+      "Request, Offer, Discover, Acknowledge",
+      "Offer, Discover, Acknowledge, Request",
+      "Discover, Request, Offer, Acknowledge"
+    ],
+    "explanation_en": "The DHCP process follows the DORA order: the client sends a DHCPDISCOVER as broadcast, the server responds with a DHCPOFFER, the client accepts with DHCPREQUEST and the server confirms with DHCPACK.",
+    "why_wrong_en": {
+      "1": "The order is reversed: the client always starts with Discover, not with Request.",
+      "2": "Discover must precede Offer: it is the client that initiates the discovery of the server.",
+      "3": "Offer comes from the server before the client's Request: the correct sequence is Discover, Offer, Request, Acknowledge."
+    }
   },
   {
     "id": "ccna-011",
-    "cert": ["CCNA"],
-    "topics": ["ARP"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "ARP"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Quale funzione svolge il protocollo ARP in una rete IPv4?",
@@ -232,19 +427,38 @@
       "Traduce nomi di dominio in indirizzi IP",
       "Instrada i pacchetti tra reti diverse"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "ARP (Address Resolution Protocol) mappa un indirizzo IP di livello 3 al corrispondente indirizzo MAC di livello 2, necessario per la consegna del frame all'interno dello stesso segmento di rete locale.",
     "why_wrong": {
       "0": "L'assegnazione dinamica degli IP è compito del DHCP.",
       "2": "La traduzione dei nomi di dominio in IP è compito del DNS.",
       "3": "L'instradamento tra reti è compito del routing IP (livello 3), non di ARP."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "What function does the ARP protocol perform in an IPv4 network?",
+    "options_en": [
+      "It dynamically assigns IP addresses to hosts",
+      "It resolves a known IP address into the corresponding MAC address",
+      "It translates domain names into IP addresses",
+      "It routes packets between different networks"
+    ],
+    "explanation_en": "ARP (Address Resolution Protocol) maps a layer 3 IP address to the corresponding layer 2 MAC address, needed to deliver the frame within the same local network segment.",
+    "why_wrong_en": {
+      "0": "The dynamic assignment of IPs is the task of DHCP.",
+      "2": "The translation of domain names into IPs is the task of DNS.",
+      "3": "Routing between networks is the task of IP routing (layer 3), not of ARP."
+    }
   },
   {
     "id": "ccna-012",
-    "cert": ["CCNA"],
-    "topics": ["Spanning Tree"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Spanning Tree"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In Spanning Tree Protocol (STP), come viene eletto il Root Bridge tra gli switch?",
@@ -254,19 +468,39 @@
       "Lo switch con più porte attive",
       "Lo switch con l'indirizzo MAC più alto"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Il Root Bridge è lo switch con il Bridge ID più basso. Il Bridge ID è formato dalla priorità (default 32768) seguita dall'indirizzo MAC: a parità di priorità vince il MAC più basso.",
     "why_wrong": {
       "0": "Vince il Bridge ID più basso, non il più alto.",
       "2": "Il numero di porte attive non influisce sull'elezione del Root Bridge.",
       "3": "A parità di priorità si sceglie il MAC più basso, non il più alto."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "In Spanning Tree Protocol (STP), how is the Root Bridge elected among the switches?",
+    "options_en": [
+      "The switch with the highest Bridge ID",
+      "The switch with the lowest Bridge ID",
+      "The switch with the most active ports",
+      "The switch with the highest MAC address"
+    ],
+    "explanation_en": "The Root Bridge is the switch with the lowest Bridge ID. The Bridge ID is formed by the priority (default 32768) followed by the MAC address: with equal priority the lowest MAC wins.",
+    "why_wrong_en": {
+      "0": "The lowest Bridge ID wins, not the highest.",
+      "2": "The number of active ports does not affect the election of the Root Bridge.",
+      "3": "With equal priority the lowest MAC is chosen, not the highest."
+    }
   },
   {
     "id": "ccna-013",
-    "cert": ["CCNA"],
-    "topics": ["TCP/IP", "Modello OSI"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "TCP/IP",
+      "Modello OSI"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali dei seguenti sono protocolli del livello di Trasporto nella suite TCP/IP? (Seleziona 2)",
@@ -276,18 +510,37 @@
       "UDP",
       "Ethernet"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "TCP e UDP sono i due protocolli del livello di Trasporto: TCP è orientato alla connessione e affidabile, UDP è senza connessione e a basso overhead.",
     "why_wrong": {
       "1": "IP è un protocollo del livello Internet/Rete (livello 3), non di Trasporto.",
       "3": "Ethernet opera al livello di accesso alla rete / Data Link (livello 2)."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "Which of the following are Transport layer protocols in the TCP/IP suite? (Select 2)",
+    "options_en": [
+      "TCP",
+      "IP",
+      "UDP",
+      "Ethernet"
+    ],
+    "explanation_en": "TCP and UDP are the two Transport layer protocols: TCP is connection-oriented and reliable, UDP is connectionless and low-overhead.",
+    "why_wrong_en": {
+      "1": "IP is a protocol of the Internet/Network layer (layer 3), not Transport.",
+      "3": "Ethernet operates at the network access / Data Link layer (layer 2)."
+    }
   },
   {
     "id": "ccna-014",
-    "cert": ["CCNA"],
-    "topics": ["VLAN"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "VLAN"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali affermazioni sui trunk 802.1Q tra switch sono corrette? (Seleziona 2)",
@@ -297,18 +550,37 @@
       "Ogni trunk può trasportare una sola VLAN alla volta",
       "802.1Q rimuove completamente l'header Ethernet dei frame"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Un trunk 802.1Q trasporta il traffico di molte VLAN sullo stesso link inserendo un tag da 4 byte nel frame; per la native VLAN i frame vengono inviati senza tag.",
     "why_wrong": {
       "2": "È l'esatto contrario: lo scopo del trunk è proprio trasportare più VLAN contemporaneamente su un unico collegamento.",
       "3": "802.1Q non rimuove l'header Ethernet: inserisce un tag VLAN di 4 byte all'interno del frame esistente."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "Which statements about 802.1Q trunks between switches are correct? (Select 2)",
+    "options_en": [
+      "The trunk carries the traffic of multiple VLANs over a single link",
+      "The native VLAN traffic is sent untagged",
+      "Each trunk can carry only one VLAN at a time",
+      "802.1Q completely removes the Ethernet header of the frames"
+    ],
+    "explanation_en": "An 802.1Q trunk carries the traffic of many VLANs over the same link by inserting a 4-byte tag into the frame; for the native VLAN the frames are sent untagged.",
+    "why_wrong_en": {
+      "2": "It is the exact opposite: the purpose of the trunk is precisely to carry multiple VLANs simultaneously over a single link.",
+      "3": "802.1Q does not remove the Ethernet header: it inserts a 4-byte VLAN tag inside the existing frame."
+    }
   },
   {
     "id": "ccna-015",
-    "cert": ["CCNA"],
-    "topics": ["Routing"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Routing"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali affermazioni sulle rotte statiche IPv4 sono corrette? (Seleziona 2)",
@@ -318,18 +590,37 @@
       "Una rotta statica di default si configura verso 0.0.0.0 0.0.0.0",
       "Consumano più CPU e banda rispetto ai protocolli dinamici"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Le rotte statiche hanno AD 1 (preferite rispetto ai protocolli dinamici) e la rotta di default si esprime come 0.0.0.0 0.0.0.0, che rappresenta qualsiasi destinazione non presente in tabella.",
     "why_wrong": {
       "1": "Le rotte statiche sono configurate manualmente dall'amministratore e non si aggiornano da sole in caso di cambi di topologia.",
       "3": "Al contrario, le rotte statiche non generano traffico di aggiornamento e consumano meno CPU/banda dei protocolli dinamici."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "Which statements about IPv4 static routes are correct? (Select 2)",
+    "options_en": [
+      "They have a default administrative distance equal to 1",
+      "They are learned and updated automatically by a routing protocol",
+      "A default static route is configured toward 0.0.0.0 0.0.0.0",
+      "They consume more CPU and bandwidth than dynamic protocols"
+    ],
+    "explanation_en": "Static routes have AD 1 (preferred over dynamic protocols) and the default route is expressed as 0.0.0.0 0.0.0.0, which represents any destination not present in the table.",
+    "why_wrong_en": {
+      "1": "Static routes are configured manually by the administrator and do not update themselves in case of topology changes.",
+      "3": "On the contrary, static routes do not generate update traffic and consume less CPU/bandwidth than dynamic protocols."
+    }
   },
   {
     "id": "ccna-016",
-    "cert": ["CCNA"],
-    "topics": ["DNS"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "DNS"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali di questi sono record DNS validi e la loro funzione è corretta? (Seleziona 2)",
@@ -339,18 +630,37 @@
       "Il record MX traduce un indirizzo MAC in nome host",
       "Il record PTR assegna dinamicamente indirizzi IP"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Il record A mappa un nome host su un indirizzo IPv4, mentre il record AAAA (quad-A) lo mappa su un indirizzo IPv6.",
     "why_wrong": {
       "2": "Il record MX indica il mail server di un dominio; non ha nulla a che vedere con gli indirizzi MAC.",
       "3": "Il record PTR effettua la risoluzione inversa (IP verso nome), non assegna IP: quello è compito del DHCP."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "Which of these are valid DNS records with their function correctly described? (Select 2)",
+    "options_en": [
+      "The A record associates a host name with an IPv4 address",
+      "The AAAA record associates a host name with an IPv6 address",
+      "The MX record translates a MAC address into a host name",
+      "The PTR record dynamically assigns IP addresses"
+    ],
+    "explanation_en": "The A record maps a host name to an IPv4 address, while the AAAA record (quad-A) maps it to an IPv6 address.",
+    "why_wrong_en": {
+      "2": "The MX record indicates the mail server of a domain; it has nothing to do with MAC addresses.",
+      "3": "The PTR record performs reverse resolution (IP to name), it does not assign IPs: that is the task of DHCP."
+    }
   },
   {
     "id": "ccna-017",
-    "cert": ["CCNA"],
-    "topics": ["VPN"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "VPN"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali protocolli fanno parte della suite IPsec per proteggere il traffico VPN? (Seleziona 2)",
@@ -360,48 +670,108 @@
       "HTTP",
       "STP"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "IPsec usa ESP, che fornisce riservatezza (cifratura), integrità e autenticazione, e AH, che fornisce integrità e autenticazione dell'origine ma non cifratura.",
     "why_wrong": {
       "2": "HTTP è un protocollo applicativo per il web e non fa parte di IPsec.",
       "3": "STP (Spanning Tree Protocol) previene i loop di livello 2 negli switch e non è correlato alle VPN IPsec."
     },
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "Which protocols are part of the IPsec suite to protect VPN traffic? (Select 2)",
+    "options_en": [
+      "ESP (Encapsulating Security Payload)",
+      "AH (Authentication Header)",
+      "HTTP",
+      "STP"
+    ],
+    "explanation_en": "IPsec uses ESP, which provides confidentiality (encryption), integrity and authentication, and AH, which provides integrity and origin authentication but no encryption.",
+    "why_wrong_en": {
+      "2": "HTTP is an application protocol for the web and is not part of IPsec.",
+      "3": "STP (Spanning Tree Protocol) prevents layer 2 loops in switches and is not related to IPsec VPNs."
+    }
   },
   {
     "id": "ccna-018",
-    "cert": ["CCNA"],
-    "topics": ["ICMP"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "ICMP"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Il comando ping utilizza i messaggi ICMP Echo Request ed Echo Reply per verificare la raggiungibilità di un host.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Ping invia pacchetti ICMP di tipo 8 (Echo Request) e attende in risposta pacchetti ICMP di tipo 0 (Echo Reply), misurando anche il tempo di andata e ritorno.",
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "The ping command uses ICMP Echo Request and Echo Reply messages to verify the reachability of a host.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Ping sends ICMP packets of type 8 (Echo Request) and awaits ICMP packets of type 0 (Echo Reply) in response, also measuring the round-trip time."
   },
   {
     "id": "ccna-019",
-    "cert": ["CCNA"],
-    "topics": ["Subnetting"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Subnetting"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Una subnet con prefisso /30 mette a disposizione 2 indirizzi host utilizzabili, ideale per i collegamenti punto-punto tra router.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Un /30 ha 2 bit host: 2^2 = 4 indirizzi totali, meno rete e broadcast, restano 2 host utilizzabili, perfetti per un link punto-punto tra due router.",
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "A subnet with a /30 prefix provides 2 usable host addresses, ideal for point-to-point links between routers.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. A /30 has 2 host bits: 2^2 = 4 total addresses, minus network and broadcast, leaving 2 usable hosts, perfect for a point-to-point link between two routers."
   },
   {
     "id": "ccna-020",
-    "cert": ["CCNA"],
-    "topics": ["Spanning Tree"],
+    "cert": [
+      "CCNA"
+    ],
+    "topics": [
+      "Spanning Tree"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "In Spanning Tree Protocol tutte le porte del Root Bridge sono in stato di forwarding e sono designate.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Sul Root Bridge tutte le porte attive sono designated port e si trovano in stato di forwarding; il Root Bridge non ha mai porte in stato di blocking né root port.",
-    "source": "HACK/CCNA"
+    "source": "HACK/CCNA",
+    "question_en": "In Spanning Tree Protocol all the ports of the Root Bridge are in forwarding state and are designated.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. On the Root Bridge all active ports are designated ports and are in forwarding state; the Root Bridge never has ports in blocking state nor root ports."
   }
 ]

@@ -6,10 +6,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "A quale livello del modello OSI opera uno switch di rete tradizionale che inoltra i frame in base all'indirizzo MAC?",
+    "question_en": "At which layer of the OSI model does a traditional network switch that forwards frames based on the MAC address operate?",
     "options": ["Livello 1 - Fisico", "Livello 2 - Collegamento dati", "Livello 3 - Rete", "Livello 4 - Trasporto"],
+    "options_en": ["Layer 1 - Physical", "Layer 2 - Data Link", "Layer 3 - Network", "Layer 4 - Transport"],
     "correct": [1],
     "explanation": "Lo switch tradizionale opera al Livello 2 (Data Link) e prende decisioni di inoltro basandosi sugli indirizzi MAC contenuti nella sua tabella MAC address table.",
+    "explanation_en": "A traditional switch operates at Layer 2 (Data Link) and makes forwarding decisions based on the MAC addresses contained in its MAC address table.",
     "why_wrong": {"0": "Il Livello 1 (Fisico) riguarda cavi, segnali e hub, che non leggono gli indirizzi MAC.", "2": "Il Livello 3 (Rete) è dove operano i router con gli indirizzi IP, non gli switch tradizionali.", "3": "Il Livello 4 (Trasporto) gestisce TCP/UDP e le porte, non l'inoltro dei frame."},
+    "why_wrong_en": {"0": "Layer 1 (Physical) concerns cables, signals and hubs, which do not read MAC addresses.", "2": "Layer 3 (Network) is where routers operate with IP addresses, not traditional switches.", "3": "Layer 4 (Transport) handles TCP/UDP and ports, not frame forwarding."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -19,10 +23,14 @@
     "type": "single",
     "difficulty": 1,
     "question": "Quale porta utilizza di default il protocollo HTTPS per il traffico web cifrato?",
+    "question_en": "Which port does the HTTPS protocol use by default for encrypted web traffic?",
     "options": ["80", "22", "443", "53"],
+    "options_en": ["80", "22", "443", "53"],
     "correct": [2],
     "explanation": "HTTPS usa la porta 443 in TCP per il traffico web cifrato tramite TLS/SSL.",
+    "explanation_en": "HTTPS uses port 443 over TCP for web traffic encrypted with TLS/SSL.",
     "why_wrong": {"0": "La porta 80 è usata da HTTP, il traffico web non cifrato.", "1": "La porta 22 è usata da SSH per l'accesso remoto sicuro.", "3": "La porta 53 è usata da DNS per la risoluzione dei nomi."},
+    "why_wrong_en": {"0": "Port 80 is used by HTTP, unencrypted web traffic.", "1": "Port 22 is used by SSH for secure remote access.", "3": "Port 53 is used by DNS for name resolution."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -32,10 +40,14 @@
     "type": "single",
     "difficulty": 3,
     "question": "Quanti host utilizzabili fornisce una sottorete con maschera /26 (255.255.255.192)?",
+    "question_en": "How many usable hosts does a subnet with a /26 mask (255.255.255.192) provide?",
     "options": ["30", "62", "126", "254"],
+    "options_en": ["30", "62", "126", "254"],
     "correct": [1],
     "explanation": "Una /26 lascia 6 bit host: 2^6 = 64 indirizzi totali, meno l'indirizzo di rete e quello di broadcast, quindi 62 host utilizzabili.",
+    "explanation_en": "A /26 leaves 6 host bits: 2^6 = 64 total addresses, minus the network address and the broadcast address, so 62 usable hosts.",
     "why_wrong": {"0": "30 host corrispondono a una /27 (255.255.255.224), con 5 bit host.", "2": "126 host corrispondono a una /25 (255.255.255.128), con 7 bit host.", "3": "254 host corrispondono a una /24 (255.255.255.0), con 8 bit host."},
+    "why_wrong_en": {"0": "30 hosts correspond to a /27 (255.255.255.224), with 5 host bits.", "2": "126 hosts correspond to a /25 (255.255.255.128), with 7 host bits.", "3": "254 hosts correspond to a /24 (255.255.255.0), with 8 host bits."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -45,10 +57,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale intervallo di indirizzi appartiene alla classe A privata secondo l'RFC 1918?",
+    "question_en": "Which address range belongs to the private class A according to RFC 1918?",
     "options": ["10.0.0.0 - 10.255.255.255", "172.16.0.0 - 172.31.255.255", "192.168.0.0 - 192.168.255.255", "169.254.0.0 - 169.254.255.255"],
+    "options_en": ["10.0.0.0 - 10.255.255.255", "172.16.0.0 - 172.31.255.255", "192.168.0.0 - 192.168.255.255", "169.254.0.0 - 169.254.255.255"],
     "correct": [0],
     "explanation": "L'intervallo privato di classe A definito dall'RFC 1918 è 10.0.0.0/8, ovvero da 10.0.0.0 a 10.255.255.255.",
+    "explanation_en": "The private class A range defined by RFC 1918 is 10.0.0.0/8, that is from 10.0.0.0 to 10.255.255.255.",
     "why_wrong": {"1": "172.16.0.0 - 172.31.255.255 è l'intervallo privato di classe B.", "2": "192.168.0.0 - 192.168.255.255 è l'intervallo privato di classe C.", "3": "169.254.0.0/16 è l'intervallo APIPA link-local, assegnato automaticamente quando il DHCP fallisce."},
+    "why_wrong_en": {"1": "172.16.0.0 - 172.31.255.255 is the private class B range.", "2": "192.168.0.0 - 192.168.255.255 is the private class C range.", "3": "169.254.0.0/16 is the APIPA link-local range, assigned automatically when DHCP fails."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -58,10 +74,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale delle seguenti descrive correttamente la sequenza di scambio DHCP durante l'assegnazione di un indirizzo IP?",
+    "question_en": "Which of the following correctly describes the DHCP exchange sequence during the assignment of an IP address?",
     "options": ["Discover, Offer, Request, Acknowledge", "Request, Offer, Discover, Acknowledge", "Offer, Discover, Acknowledge, Request", "Acknowledge, Request, Offer, Discover"],
+    "options_en": ["Discover, Offer, Request, Acknowledge", "Request, Offer, Discover, Acknowledge", "Offer, Discover, Acknowledge, Request", "Acknowledge, Request, Offer, Discover"],
     "correct": [0],
     "explanation": "Il processo DHCP segue la sequenza DORA: Discover (client), Offer (server), Request (client), Acknowledge (server).",
+    "explanation_en": "The DHCP process follows the DORA sequence: Discover (client), Offer (server), Request (client), Acknowledge (server).",
     "why_wrong": {"1": "L'ordine è invertito: il Discover del client precede sempre l'Offer del server.", "2": "Il Discover deve essere il primo messaggio, non l'Offer.", "3": "La sequenza è completamente al contrario rispetto al processo DORA corretto."},
+    "why_wrong_en": {"1": "The order is reversed: the client's Discover always precedes the server's Offer.", "2": "The Discover must be the first message, not the Offer.", "3": "The sequence is completely reversed compared to the correct DORA process."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -71,10 +91,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale comando permette di visualizzare il percorso completo dei router (hop) attraversati da un pacchetto fino alla destinazione su un sistema Windows?",
+    "question_en": "Which command lets you view the complete path of routers (hops) traversed by a packet to the destination on a Windows system?",
     "options": ["ping", "tracert", "nslookup", "ipconfig"],
+    "options_en": ["ping", "tracert", "nslookup", "ipconfig"],
     "correct": [1],
     "explanation": "Il comando tracert (traceroute su Linux) mostra ogni hop intermedio, evidenziando il percorso e la latenza fino alla destinazione, utile per individuare dove si interrompe la connettività.",
+    "explanation_en": "The tracert command (traceroute on Linux) shows each intermediate hop, highlighting the path and latency to the destination, useful for pinpointing where connectivity breaks.",
     "why_wrong": {"0": "ping verifica solo la raggiungibilità e la latenza verso la destinazione, senza mostrare i router intermedi.", "2": "nslookup interroga i server DNS per risolvere nomi in indirizzi IP.", "3": "ipconfig mostra la configurazione IP locale dell'interfaccia, non il percorso di rete."},
+    "why_wrong_en": {"0": "ping only checks reachability and latency to the destination, without showing the intermediate routers.", "2": "nslookup queries DNS servers to resolve names into IP addresses.", "3": "ipconfig shows the local IP configuration of the interface, not the network path."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -84,10 +108,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la differenza fondamentale tra uno switch e un router?",
+    "question_en": "What is the fundamental difference between a switch and a router?",
     "options": ["Lo switch instrada tra reti diverse, il router collega dispositivi nella stessa rete", "Lo switch inoltra frame nella stessa rete tramite MAC, il router instrada pacchetti tra reti diverse tramite IP", "Entrambi operano esclusivamente al Livello 3", "Il router opera solo al Livello 2 mentre lo switch al Livello 4"],
+    "options_en": ["The switch routes between different networks, the router connects devices within the same network", "The switch forwards frames within the same network using MAC, the router routes packets between different networks using IP", "Both operate exclusively at Layer 3", "The router operates only at Layer 2 while the switch operates at Layer 4"],
     "correct": [1],
     "explanation": "Lo switch opera al Livello 2 e inoltra i frame all'interno della stessa rete locale usando gli indirizzi MAC; il router opera al Livello 3 e instrada i pacchetti tra reti/subnet diverse usando gli indirizzi IP.",
+    "explanation_en": "The switch operates at Layer 2 and forwards frames within the same local network using MAC addresses; the router operates at Layer 3 and routes packets between different networks/subnets using IP addresses.",
     "why_wrong": {"0": "I ruoli sono invertiti: è il router che instrada tra reti diverse, non lo switch.", "2": "Lo switch tradizionale opera al Livello 2, non al Livello 3.", "3": "Il router opera al Livello 3 e lo switch al Livello 2, non come indicato."},
+    "why_wrong_en": {"0": "The roles are reversed: it is the router that routes between different networks, not the switch.", "2": "The traditional switch operates at Layer 2, not Layer 3.", "3": "The router operates at Layer 3 and the switch at Layer 2, not as indicated."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -97,10 +125,14 @@
     "type": "single",
     "difficulty": 1,
     "question": "Quale porta è associata di default al protocollo SMTP per l'invio della posta elettronica?",
+    "question_en": "Which port is associated by default with the SMTP protocol for sending email?",
     "options": ["25", "110", "143", "443"],
+    "options_en": ["25", "110", "143", "443"],
     "correct": [0],
     "explanation": "SMTP utilizza la porta 25 per il trasferimento e l'invio dei messaggi di posta elettronica tra server.",
+    "explanation_en": "SMTP uses port 25 for the transfer and sending of email messages between servers.",
     "why_wrong": {"1": "La porta 110 è usata da POP3 per il recupero della posta.", "2": "La porta 143 è usata da IMAP per l'accesso alle caselle di posta.", "3": "La porta 443 è usata da HTTPS per il traffico web cifrato."},
+    "why_wrong_en": {"1": "Port 110 is used by POP3 for retrieving mail.", "2": "Port 143 is used by IMAP for accessing mailboxes.", "3": "Port 443 is used by HTTPS for encrypted web traffic."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -110,10 +142,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale protocollo di sicurezza wireless offre attualmente il livello di protezione più elevato per una rete Wi-Fi?",
+    "question_en": "Which wireless security protocol currently offers the highest level of protection for a Wi-Fi network?",
     "options": ["WEP", "WPA", "WPA2", "WPA3"],
+    "options_en": ["WEP", "WPA", "WPA2", "WPA3"],
     "correct": [3],
     "explanation": "WPA3 è lo standard più recente e sicuro, introduce la cifratura SAE (Simultaneous Authentication of Equals) contro gli attacchi a dizionario e migliora la protezione rispetto a WPA2.",
+    "explanation_en": "WPA3 is the most recent and secure standard, introducing SAE (Simultaneous Authentication of Equals) encryption against dictionary attacks and improving protection compared to WPA2.",
     "why_wrong": {"0": "WEP è obsoleto e facilmente violabile a causa della debolezza dell'algoritmo RC4 e degli IV.", "1": "WPA, basato su TKIP, è superato e vulnerabile rispetto agli standard successivi.", "2": "WPA2 è ancora diffuso e sicuro, ma WPA3 offre una protezione superiore."},
+    "why_wrong_en": {"0": "WEP is obsolete and easily cracked due to the weakness of the RC4 algorithm and the IVs.", "1": "WPA, based on TKIP, is outdated and vulnerable compared to later standards.", "2": "WPA2 is still widespread and secure, but WPA3 offers superior protection."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -123,10 +159,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è lo scopo principale del NAT (Network Address Translation) in una rete aziendale?",
+    "question_en": "What is the main purpose of NAT (Network Address Translation) in a corporate network?",
     "options": ["Cifrare il traffico tra reti diverse", "Tradurre indirizzi IP privati in pubblici per consentire l'accesso a Internet", "Assegnare automaticamente gli indirizzi IP ai client", "Risolvere i nomi di dominio in indirizzi IP"],
+    "options_en": ["To encrypt traffic between different networks", "To translate private IP addresses into public ones to allow Internet access", "To automatically assign IP addresses to clients", "To resolve domain names into IP addresses"],
     "correct": [1],
     "explanation": "Il NAT traduce gli indirizzi IP privati interni in uno o più indirizzi IP pubblici, permettendo a più dispositivi di condividere l'accesso a Internet e conservando lo spazio di indirizzamento IPv4.",
+    "explanation_en": "NAT translates internal private IP addresses into one or more public IP addresses, allowing multiple devices to share Internet access and conserving IPv4 address space.",
     "why_wrong": {"0": "La cifratura del traffico è compito di protocolli come IPsec o TLS, non del NAT.", "2": "L'assegnazione automatica degli indirizzi è compito del DHCP.", "3": "La risoluzione dei nomi è compito del DNS."},
+    "why_wrong_en": {"0": "Traffic encryption is the task of protocols such as IPsec or TLS, not NAT.", "2": "Automatic address assignment is the task of DHCP.", "3": "Name resolution is the task of DNS."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -136,10 +176,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Secondo la metodologia di troubleshooting CompTIA, qual è il primo passo da compiere di fronte a un problema di rete?",
+    "question_en": "According to the CompTIA troubleshooting methodology, what is the first step to take when facing a network problem?",
     "options": ["Stabilire una teoria sulla causa probabile", "Identificare il problema", "Implementare la soluzione", "Documentare i risultati"],
+    "options_en": ["Establish a theory of probable cause", "Identify the problem", "Implement the solution", "Document the findings"],
     "correct": [1],
     "explanation": "Il primo passo della metodologia CompTIA è identificare il problema, raccogliendo informazioni, interrogando gli utenti e determinando cosa è cambiato di recente.",
+    "explanation_en": "The first step of the CompTIA methodology is to identify the problem, gathering information, questioning users and determining what has changed recently.",
     "why_wrong": {"0": "Stabilire una teoria sulla causa probabile è il secondo passo, dopo l'identificazione.", "2": "L'implementazione della soluzione avviene solo dopo aver identificato, teorizzato, testato e pianificato.", "3": "La documentazione è l'ultimo passo del processo."},
+    "why_wrong_en": {"0": "Establishing a theory of probable cause is the second step, after identification.", "2": "Implementing the solution happens only after identifying, theorizing, testing and planning.", "3": "Documentation is the last step of the process."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -149,10 +193,14 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti sono affermazioni corrette riguardo alle VLAN? (Seleziona 2)",
+    "question_en": "Which of the following are correct statements about VLANs? (Select 2)",
     "options": ["Le VLAN segmentano logicamente una rete riducendo i domini di broadcast", "Le VLAN richiedono obbligatoriamente switch fisici separati per ogni segmento", "Il traffico tra VLAN diverse richiede un router o uno switch di Livello 3", "Le VLAN aumentano automaticamente la velocità del cavo di rete"],
+    "options_en": ["VLANs logically segment a network, reducing broadcast domains", "VLANs mandatorily require separate physical switches for each segment", "Traffic between different VLANs requires a router or a Layer 3 switch", "VLANs automatically increase the speed of the network cable"],
     "correct": [0, 2],
     "explanation": "Le VLAN creano segmenti logici distinti sullo stesso hardware, riducendo i domini di broadcast; per comunicare tra VLAN diverse è necessario il routing tramite un router o uno switch Layer 3 (inter-VLAN routing).",
+    "explanation_en": "VLANs create distinct logical segments on the same hardware, reducing broadcast domains; to communicate between different VLANs, routing through a router or a Layer 3 switch (inter-VLAN routing) is required.",
     "why_wrong": {"1": "Le VLAN esistono proprio per segmentare logicamente senza bisogno di switch fisici separati.", "3": "Le VLAN non modificano la velocità fisica del cavo; segmentano il traffico ma non aumentano la banda del collegamento."},
+    "why_wrong_en": {"1": "VLANs exist precisely to segment logically without the need for separate physical switches.", "3": "VLANs do not change the physical speed of the cable; they segment traffic but do not increase the link bandwidth."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -162,10 +210,14 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali delle seguenti sono valide tecniche di hardening e segmentazione della rete? (Seleziona 2)",
+    "question_en": "Which of the following are valid network hardening and segmentation techniques? (Select 2)",
     "options": ["Disabilitare le porte switch inutilizzate", "Utilizzare la stessa VLAN per tutti i dispositivi per semplicità", "Implementare una DMZ per i server esposti pubblicamente", "Lasciare le credenziali di default sugli apparati di rete"],
+    "options_en": ["Disable unused switch ports", "Use the same VLAN for all devices for simplicity", "Implement a DMZ for publicly exposed servers", "Leave default credentials on network devices"],
     "correct": [0, 2],
     "explanation": "Disabilitare le porte inutilizzate riduce la superficie di attacco impedendo connessioni non autorizzate; la DMZ isola i server pubblici dalla rete interna, limitando l'impatto di eventuali compromissioni.",
+    "explanation_en": "Disabling unused ports reduces the attack surface by preventing unauthorized connections; the DMZ isolates public servers from the internal network, limiting the impact of any compromise.",
     "why_wrong": {"1": "Usare un'unica VLAN per tutti i dispositivi elimina la segmentazione e aumenta il rischio di movimenti laterali di un attaccante.", "3": "Lasciare le credenziali di default è una grave vulnerabilità: vanno sempre cambiate durante l'hardening."},
+    "why_wrong_en": {"1": "Using a single VLAN for all devices eliminates segmentation and increases the risk of lateral movement by an attacker.", "3": "Leaving default credentials is a serious vulnerability: they must always be changed during hardening."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -175,10 +227,14 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti sono tecnologie o strategie per garantire l'alta disponibilità (High Availability) di una rete? (Seleziona 2)",
+    "question_en": "Which of the following are technologies or strategies to ensure the High Availability of a network? (Select 2)",
     "options": ["Ridondanza dei collegamenti e degli apparati", "Utilizzo di un singolo punto di guasto centralizzato", "Load balancing tra più server", "Disabilitare tutti i log di monitoraggio"],
+    "options_en": ["Redundancy of links and devices", "Use of a single centralized point of failure", "Load balancing across multiple servers", "Disabling all monitoring logs"],
     "correct": [0, 2],
     "explanation": "La ridondanza di link e apparati elimina i singoli punti di guasto garantendo la continuità, mentre il load balancing distribuisce il carico tra più server aumentando affidabilità e prestazioni.",
+    "explanation_en": "Redundancy of links and devices eliminates single points of failure, ensuring continuity, while load balancing distributes the load across multiple servers, increasing reliability and performance.",
     "why_wrong": {"1": "Un singolo punto di guasto (single point of failure) è esattamente ciò che l'alta disponibilità cerca di evitare.", "3": "Disabilitare i log riduce la visibilità e la capacità di rilevare e reagire ai problemi, danneggiando l'affidabilità."},
+    "why_wrong_en": {"1": "A single point of failure is exactly what high availability seeks to avoid.", "3": "Disabling logs reduces visibility and the ability to detect and react to problems, harming reliability."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -188,10 +244,14 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti coppie protocollo/porta sono corrette? (Seleziona 2)",
+    "question_en": "Which of the following protocol/port pairs are correct? (Select 2)",
     "options": ["SSH - porta 22", "DNS - porta 80", "HTTP - porta 8", "FTP - porta 21"],
+    "options_en": ["SSH - port 22", "DNS - port 80", "HTTP - port 8", "FTP - port 21"],
     "correct": [0, 3],
     "explanation": "SSH utilizza la porta 22 per l'accesso remoto cifrato e FTP utilizza la porta 21 per il canale di controllo del trasferimento file.",
+    "explanation_en": "SSH uses port 22 for encrypted remote access and FTP uses port 21 for the file transfer control channel.",
     "why_wrong": {"1": "DNS utilizza la porta 53 (UDP e TCP), non la porta 80 che appartiene a HTTP.", "2": "HTTP utilizza la porta 80, non la porta 8."},
+    "why_wrong_en": {"1": "DNS uses port 53 (UDP and TCP), not port 80 which belongs to HTTP.", "2": "HTTP uses port 80, not port 8."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -201,10 +261,14 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Il protocollo ARP viene utilizzato per risolvere un indirizzo IP in un indirizzo MAC all'interno di una rete locale.",
+    "question_en": "The ARP protocol is used to resolve an IP address into a MAC address within a local network.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. ARP (Address Resolution Protocol) mappa un indirizzo IP di Livello 3 al corrispondente indirizzo MAC di Livello 2, necessario per la consegna dei frame nella LAN.",
+    "explanation_en": "True. ARP (Address Resolution Protocol) maps a Layer 3 IP address to the corresponding Layer 2 MAC address, needed for the delivery of frames in the LAN.",
     "why_wrong": {"1": "È falso affermare il contrario: ARP risolve proprio IP verso MAC, non il contrario (quello è RARP, ormai in disuso)."},
+    "why_wrong_en": {"1": "It is false to claim the opposite: ARP resolves IP to MAC, not the other way around (that is RARP, now obsolete)."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -214,10 +278,14 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "In una connessione full-duplex un dispositivo può trasmettere e ricevere dati simultaneamente, a differenza dell'half-duplex.",
+    "question_en": "In a full-duplex connection a device can transmit and receive data simultaneously, unlike half-duplex.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Nel full-duplex la trasmissione e la ricezione avvengono contemporaneamente su canali separati, mentre nell'half-duplex il dispositivo può solo trasmettere o ricevere in un dato momento, non entrambi.",
+    "explanation_en": "True. In full-duplex, transmission and reception happen simultaneously on separate channels, while in half-duplex the device can only transmit or receive at a given moment, not both.",
     "why_wrong": {"1": "È falso negarlo: il full-duplex consente comunicazione bidirezionale simultanea, l'half-duplex no."},
+    "why_wrong_en": {"1": "It is false to deny it: full-duplex allows simultaneous bidirectional communication, half-duplex does not."},
     "source": "CompTIA Network+ N10-009"
   },
   {
@@ -227,10 +295,14 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "L'indirizzo 127.0.0.1 è l'indirizzo di loopback utilizzato da un host per riferirsi a sé stesso.",
+    "question_en": "The address 127.0.0.1 is the loopback address used by a host to refer to itself.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. L'intero blocco 127.0.0.0/8, e in particolare 127.0.0.1, è riservato al loopback: consente a un host di testare lo stack TCP/IP inviando traffico a sé stesso senza uscire sulla rete.",
+    "explanation_en": "True. The entire 127.0.0.0/8 block, and in particular 127.0.0.1, is reserved for loopback: it allows a host to test the TCP/IP stack by sending traffic to itself without going out on the network.",
     "why_wrong": {"1": "È falso negarlo: 127.0.0.1 (localhost) è per definizione l'indirizzo di loopback standard."},
+    "why_wrong_en": {"1": "It is false to deny it: 127.0.0.1 (localhost) is by definition the standard loopback address."},
     "source": "CompTIA Network+ N10-009"
   }
 ]

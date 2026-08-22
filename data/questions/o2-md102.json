@@ -6,10 +6,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un'azienda vuole che i nuovi dispositivi Windows acquistati dal fornitore vengano configurati automaticamente al primo avvio dall'utente finale, senza reimaging da parte dell'IT. Quale tecnologia è più adatta?",
+    "question_en": "A company wants new Windows devices purchased from the vendor to be configured automatically on first boot by the end user, without reimaging by IT. Which technology is most suitable?",
     "options": ["Windows Deployment Services (WDS)", "Windows Autopilot", "Microsoft Deployment Toolkit (MDT)", "Configuration Manager task sequence"],
+    "options_en": ["Windows Deployment Services (WDS)", "Windows Autopilot", "Microsoft Deployment Toolkit (MDT)", "Configuration Manager task sequence"],
     "correct": [1],
     "explanation": "Windows Autopilot consente il provisioning cloud dei dispositivi: l'utente accende il device, si connette a Internet e la configurazione (join a Entra ID, iscrizione a Intune, policy e app) avviene automaticamente basandosi sull'ID hardware registrato, senza reimaging.",
+    "explanation_en": "Windows Autopilot enables cloud provisioning of devices: the user turns on the device, connects to the Internet and the configuration (Entra ID join, Intune enrollment, policies and apps) happens automatically based on the registered hardware ID, without reimaging.",
     "why_wrong": {"0": "WDS effettua deployment di immagini via rete PXE on-premises, richiede infrastruttura e reimaging del dispositivo.", "2": "MDT è uno strumento di imaging on-premises basato su task sequence, non un provisioning cloud OOBE.", "3": "Le task sequence di Configuration Manager reimmaginano il dispositivo e richiedono infrastruttura on-premises, non il provisioning diretto dell'utente."},
+    "why_wrong_en": {"0": "WDS deploys images over the on-premises PXE network, requires infrastructure and reimaging of the device.", "2": "MDT is an on-premises imaging tool based on task sequences, not a cloud OOBE provisioning.", "3": "Configuration Manager task sequences reimage the device and require on-premises infrastructure, not direct user provisioning."},
     "source": "Microsoft MD-102"
   },
   {
@@ -19,10 +23,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è lo scopo principale di una compliance policy (criterio di conformità) in Microsoft Intune?",
+    "question_en": "What is the main purpose of a compliance policy in Microsoft Intune?",
     "options": ["Distribuire applicazioni ai dispositivi gestiti", "Valutare lo stato del dispositivo rispetto a regole definite e segnalarlo come conforme o non conforme", "Imporre impostazioni di configurazione come le regole del firewall", "Cifrare il disco del dispositivo con BitLocker"],
+    "options_en": ["To deploy applications to managed devices", "To evaluate the device state against defined rules and mark it as compliant or non-compliant", "To enforce configuration settings such as firewall rules", "To encrypt the device disk with BitLocker"],
     "correct": [1],
     "explanation": "Una compliance policy valuta lo stato di un dispositivo (es. versione OS minima, cifratura attiva, richiesta di password) e ne determina lo stato di conformità. Questo stato può poi essere usato come segnale, ad esempio dal Conditional Access, per consentire o bloccare l'accesso.",
+    "explanation_en": "A compliance policy evaluates the state of a device (e.g. minimum OS version, encryption enabled, password required) and determines its compliance status. This status can then be used as a signal, for example by Conditional Access, to allow or block access.",
     "why_wrong": {"0": "La distribuzione di app avviene tramite i criteri di gestione app, non tramite compliance policy.", "2": "L'imposizione di impostazioni è compito dei configuration profile, non dei criteri di conformità che si limitano a valutare.", "3": "La cifratura BitLocker si configura tramite un configuration profile di endpoint protection, non tramite una compliance policy."},
+    "why_wrong_en": {"0": "App deployment happens through app management policies, not through a compliance policy.", "2": "Enforcing settings is the task of configuration profiles, not compliance policies, which only evaluate.", "3": "BitLocker encryption is configured through an endpoint protection configuration profile, not through a compliance policy."},
     "source": "Microsoft MD-102"
   },
   {
@@ -32,10 +40,14 @@
     "type": "single",
     "difficulty": 1,
     "question": "Quale elemento di Intune si usa per imporre impostazioni specifiche su un dispositivo, come la configurazione Wi-Fi, VPN o le restrizioni del dispositivo?",
+    "question_en": "Which Intune element is used to enforce specific settings on a device, such as Wi-Fi configuration, VPN or device restrictions?",
     "options": ["Configuration profile (profilo di configurazione)", "Compliance policy", "App protection policy", "Conditional Access policy"],
+    "options_en": ["Configuration profile", "Compliance policy", "App protection policy", "Conditional Access policy"],
     "correct": [0],
     "explanation": "I configuration profile (profili di configurazione) impostano concretamente i settaggi su un dispositivo: profili Wi-Fi, VPN, certificati, restrizioni del dispositivo, email e altro. Sono lo strumento con cui l'amministratore configura lo stato desiderato.",
+    "explanation_en": "Configuration profiles actually set the settings on a device: Wi-Fi profiles, VPN, certificates, device restrictions, email and more. They are the tool with which the administrator configures the desired state.",
     "why_wrong": {"1": "La compliance policy valuta lo stato del dispositivo ma non impone impostazioni.", "2": "Le app protection policy proteggono i dati aziendali all'interno delle app, non configurano il dispositivo.", "3": "Il Conditional Access controlla l'accesso alle risorse in base a condizioni, non imposta settaggi sul dispositivo."},
+    "why_wrong_en": {"1": "The compliance policy evaluates the device state but does not enforce settings.", "2": "App protection policies protect corporate data inside apps, they do not configure the device.", "3": "Conditional Access controls access to resources based on conditions, it does not set settings on the device."},
     "source": "Microsoft MD-102"
   },
   {
@@ -45,10 +57,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Si vuole consentire l'accesso a SharePoint Online solo dai dispositivi che risultano conformi in Intune. Come si realizza questo requisito?",
+    "question_en": "You want to allow access to SharePoint Online only from devices that are compliant in Intune. How is this requirement achieved?",
     "options": ["Con una compliance policy che blocca SharePoint", "Con un criterio di Conditional Access che richiede un dispositivo conforme come controllo di concessione (grant)", "Con un configuration profile applicato a SharePoint", "Con una app protection policy sul dispositivo"],
+    "options_en": ["With a compliance policy that blocks SharePoint", "With a Conditional Access policy that requires a compliant device as a grant control", "With a configuration profile applied to SharePoint", "With an app protection policy on the device"],
     "correct": [1],
     "explanation": "Il Conditional Access valuta segnali come lo stato di conformità del dispositivo. Un criterio con il grant control 'Richiedi che il dispositivo sia contrassegnato come conforme' consente l'accesso solo ai device valutati conformi da Intune, bloccando gli altri.",
+    "explanation_en": "Conditional Access evaluates signals such as the device compliance status. A policy with the grant control 'Require device to be marked as compliant' allows access only to devices evaluated as compliant by Intune, blocking the others.",
     "why_wrong": {"0": "La compliance policy determina solo lo stato di conformità; non può bloccare l'accesso a un servizio da sola.", "2": "Un configuration profile imposta impostazioni sul dispositivo, non regola l'accesso alle risorse cloud.", "3": "Le app protection policy proteggono i dati nelle app ma non impongono la conformità del dispositivo come condizione d'accesso."},
+    "why_wrong_en": {"0": "The compliance policy only determines the compliance status; it cannot block access to a service on its own.", "2": "A configuration profile sets settings on the device, it does not govern access to cloud resources.", "3": "App protection policies protect data in apps but do not enforce device compliance as an access condition."},
     "source": "Microsoft MD-102"
   },
   {
@@ -58,10 +74,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un amministratore vuole imporre la cifratura del disco con BitLocker sui dispositivi Windows gestiti da Intune e salvarne automaticamente le chiavi di ripristino. Quale approccio è corretto?",
+    "question_en": "An administrator wants to enforce BitLocker disk encryption on Windows devices managed by Intune and automatically save their recovery keys. Which approach is correct?",
     "options": ["Creare una compliance policy che verifichi BitLocker", "Creare un configuration profile di endpoint security / disk encryption per BitLocker", "Distribuire uno script Win32 che esegue manage-bde manualmente", "Configurare un criterio di Conditional Access per BitLocker"],
+    "options_en": ["Create a compliance policy that checks BitLocker", "Create an endpoint security / disk encryption configuration profile for BitLocker", "Deploy a Win32 script that runs manage-bde manually", "Configure a Conditional Access policy for BitLocker"],
     "correct": [1],
     "explanation": "In Intune BitLocker si configura tramite un profilo di endpoint security (Disk encryption) o un configuration profile: si impostano requisiti di cifratura, metodo e il backup delle chiavi di ripristino in Entra ID, che avviene automaticamente sui dispositivi gestiti.",
+    "explanation_en": "In Intune BitLocker is configured through an endpoint security profile (Disk encryption) or a configuration profile: you set encryption requirements, method and the backup of recovery keys to Entra ID, which happens automatically on managed devices.",
     "why_wrong": {"0": "La compliance policy può verificare che la cifratura sia attiva ma non la abilita né gestisce le chiavi.", "2": "Uno script manuale è meno gestibile e non integra nativamente il backup delle chiavi di ripristino in Entra ID.", "3": "Il Conditional Access controlla l'accesso, non abilita la cifratura del disco."},
+    "why_wrong_en": {"0": "The compliance policy can check that encryption is enabled but does not enable it or manage the keys.", "2": "A manual script is less manageable and does not natively integrate the backup of recovery keys to Entra ID.", "3": "Conditional Access controls access, it does not enable disk encryption."},
     "source": "Microsoft MD-102"
   },
   {
@@ -71,10 +91,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual è la differenza principale tra Microsoft Entra ID join e Microsoft Entra ID registered (registrazione)?",
+    "question_en": "What is the main difference between Microsoft Entra ID join and Microsoft Entra ID registered?",
     "options": ["Entra ID join è per dispositivi personali BYOD, registered per dispositivi aziendali", "Entra ID join collega il dispositivo aziendale all'organizzazione con account aziendale, mentre registered aggiunge un account aziendale a un dispositivo personale", "Non c'è alcuna differenza, sono sinonimi", "Entra ID join funziona solo su dispositivi Android"],
+    "options_en": ["Entra ID join is for personal BYOD devices, registered for corporate devices", "Entra ID join links the corporate device to the organization with a corporate account, while registered adds a corporate account to a personal device", "There is no difference, they are synonyms", "Entra ID join works only on Android devices"],
     "correct": [1],
     "explanation": "Entra ID join è pensato per dispositivi di proprietà aziendale: l'utente accede con un account aziendale che diventa l'identità del dispositivo. La registrazione (registered) è tipica del BYOD: un dispositivo personale a cui si aggiunge l'accesso a risorse aziendali senza cambiare l'account primario.",
+    "explanation_en": "Entra ID join is designed for corporate-owned devices: the user signs in with a corporate account that becomes the device identity. Registration (registered) is typical of BYOD: a personal device to which access to corporate resources is added without changing the primary account.",
     "why_wrong": {"0": "È invertito: il join è per dispositivi aziendali, la registrazione per i personali BYOD.", "2": "Sono scenari diversi con implicazioni differenti su identità e gestione.", "3": "Entra ID join riguarda principalmente Windows, non solo Android."},
+    "why_wrong_en": {"0": "It is inverted: join is for corporate devices, registration for personal BYOD ones.", "2": "They are different scenarios with different implications for identity and management.", "3": "Entra ID join mainly concerns Windows, not only Android."},
     "source": "Microsoft MD-102"
   },
   {
@@ -84,10 +108,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un'azienda vuole proteggere i dati aziendali dentro l'app Outlook sui telefoni personali (BYOD) impedendo il copia-incolla verso app personali, senza gestire l'intero dispositivo. Quale soluzione usare?",
+    "question_en": "A company wants to protect corporate data inside the Outlook app on personal phones (BYOD) by preventing copy-paste to personal apps, without managing the entire device. Which solution should be used?",
     "options": ["Compliance policy", "App protection policy (MAM)", "Configuration profile per il dispositivo", "Windows Autopilot"],
+    "options_en": ["Compliance policy", "App protection policy (MAM)", "Configuration profile for the device", "Windows Autopilot"],
     "correct": [1],
     "explanation": "Le app protection policy (Mobile Application Management, MAM) applicano controlli a livello di app: restrizione di copia-incolla, richiesta di PIN, cifratura dei dati app e cancellazione selettiva dei dati aziendali, senza dover iscrivere/gestire l'intero dispositivo. Ideali per il BYOD.",
+    "explanation_en": "App protection policies (Mobile Application Management, MAM) apply controls at the app level: copy-paste restriction, PIN requirement, encryption of app data and selective wipe of corporate data, without having to enroll/manage the entire device. Ideal for BYOD.",
     "why_wrong": {"0": "La compliance policy valuta lo stato del dispositivo iscritto, non protegge i dati dentro una singola app.", "2": "Un configuration profile richiede la gestione del dispositivo e non applica controlli a livello di dati dell'app.", "3": "Autopilot serve al provisioning di dispositivi Windows, non alla protezione dei dati nelle app mobili."},
+    "why_wrong_en": {"0": "The compliance policy evaluates the state of the enrolled device, it does not protect data inside a single app.", "2": "A configuration profile requires device management and does not apply controls at the app data level.", "3": "Autopilot is for provisioning Windows devices, not for protecting data in mobile apps."},
     "source": "Microsoft MD-102"
   },
   {
@@ -97,10 +125,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale funzionalità di Intune consente di controllare la distribuzione degli aggiornamenti delle funzionalità e qualitativi di Windows tramite anelli (rings) e differimenti?",
+    "question_en": "Which Intune feature allows you to control the deployment of Windows feature and quality updates through rings and deferrals?",
     "options": ["Windows Update for Business tramite Update rings", "BitLocker management", "Conditional Access", "Autopilot deployment profile"],
+    "options_en": ["Windows Update for Business through Update rings", "BitLocker management", "Conditional Access", "Autopilot deployment profile"],
     "correct": [0],
     "explanation": "Gli Update rings for Windows 10 and later in Intune configurano Windows Update for Business: definiscono differimenti per aggiornamenti qualitativi e delle funzionalità, scadenze, periodi di sospensione e anelli progressivi di distribuzione per gruppi di dispositivi.",
+    "explanation_en": "The Update rings for Windows 10 and later in Intune configure Windows Update for Business: they define deferrals for quality and feature updates, deadlines, pause periods and progressive deployment rings for groups of devices.",
     "why_wrong": {"1": "BitLocker management riguarda la cifratura del disco, non gli aggiornamenti.", "2": "Il Conditional Access controlla l'accesso alle risorse, non gli aggiornamenti Windows.", "3": "Un Autopilot deployment profile definisce l'esperienza di provisioning, non la gestione degli aggiornamenti."},
+    "why_wrong_en": {"1": "BitLocker management concerns disk encryption, not updates.", "2": "Conditional Access controls access to resources, not Windows updates.", "3": "An Autopilot deployment profile defines the provisioning experience, not update management."},
     "source": "Microsoft MD-102"
   },
   {
@@ -110,10 +142,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "In Microsoft Defender for Endpoint integrato con Intune, quale segnale viene usato per bloccare l'accesso di un dispositivo compromesso alle risorse aziendali?",
+    "question_en": "In Microsoft Defender for Endpoint integrated with Intune, which signal is used to block a compromised device's access to corporate resources?",
     "options": ["Il livello di rischio (machine risk score) del dispositivo", "La versione del BIOS", "Il nome NetBIOS del dispositivo", "Il numero di app installate"],
+    "options_en": ["The device machine risk score", "The BIOS version", "The device NetBIOS name", "The number of installed apps"],
     "correct": [0],
     "explanation": "L'integrazione tra Defender for Endpoint e Intune consente di usare il livello di rischio (risk score) del dispositivo in una compliance policy. Se il rischio supera la soglia impostata, il dispositivo diventa non conforme e il Conditional Access può bloccarne l'accesso.",
+    "explanation_en": "The integration between Defender for Endpoint and Intune allows the device risk score to be used in a compliance policy. If the risk exceeds the set threshold, the device becomes non-compliant and Conditional Access can block its access.",
     "why_wrong": {"1": "La versione del BIOS non è il segnale di rischio usato per la conformità in questo scenario.", "2": "Il nome NetBIOS è un identificativo di rete, non un indicatore di rischio di sicurezza.", "3": "Il numero di app installate non rappresenta il livello di minaccia valutato da Defender."},
+    "why_wrong_en": {"1": "The BIOS version is not the risk signal used for compliance in this scenario.", "2": "The NetBIOS name is a network identifier, not a security risk indicator.", "3": "The number of installed apps does not represent the threat level evaluated by Defender."},
     "source": "Microsoft MD-102"
   },
   {
@@ -123,10 +159,14 @@
     "type": "single",
     "difficulty": 3,
     "question": "In uno scenario Autopilot, cosa consente l'Enrollment Status Page (ESP)?",
+    "question_en": "In an Autopilot scenario, what does the Enrollment Status Page (ESP) enable?",
     "options": ["Registrare l'hash hardware del dispositivo presso il fornitore", "Mostrare l'avanzamento e bloccare l'uso del dispositivo finché app e criteri richiesti non sono applicati durante il provisioning", "Cifrare il disco al termine del provisioning", "Definire il gruppo di aggiornamento del dispositivo"],
+    "options_en": ["Register the device hardware hash with the vendor", "Show the progress and block use of the device until the required apps and policies are applied during provisioning", "Encrypt the disk at the end of provisioning", "Define the device update group"],
     "correct": [1],
     "explanation": "L'Enrollment Status Page (ESP) viene mostrata durante il provisioning Autopilot: visualizza lo stato di configurazione e può impedire all'utente di usare il dispositivo finché le app, i profili e i criteri richiesti non sono stati installati e applicati, garantendo un device pronto all'uso.",
+    "explanation_en": "The Enrollment Status Page (ESP) is shown during Autopilot provisioning: it displays the configuration status and can prevent the user from using the device until the required apps, profiles and policies have been installed and applied, ensuring a ready-to-use device.",
     "why_wrong": {"0": "La registrazione dell'hash hardware avviene prima, in fase di importazione dei dispositivi Autopilot.", "2": "La cifratura è gestita da profili BitLocker, non è la funzione dell'ESP.", "3": "L'appartenenza ai gruppi di aggiornamento si definisce con gli Update rings, non con l'ESP."},
+    "why_wrong_en": {"0": "Hardware hash registration happens earlier, during the import of Autopilot devices.", "2": "Encryption is handled by BitLocker profiles, it is not the function of the ESP.", "3": "Membership in update groups is defined with Update rings, not with the ESP."},
     "source": "Microsoft MD-102"
   },
   {
@@ -136,10 +176,14 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali due affermazioni descrivono correttamente il rapporto tra compliance policy e Conditional Access? (Scegli due)",
+    "question_en": "Which two statements correctly describe the relationship between a compliance policy and Conditional Access? (Choose two)",
     "options": ["La compliance policy determina lo stato di conformità del dispositivo che il Conditional Access può usare come condizione", "Il Conditional Access può richiedere che un dispositivo sia contrassegnato come conforme prima di concedere l'accesso", "La compliance policy applica direttamente il blocco dell'accesso alle app cloud", "Il Conditional Access cifra automaticamente i dischi dei dispositivi non conformi"],
+    "options_en": ["The compliance policy determines the device compliance status that Conditional Access can use as a condition", "Conditional Access can require a device to be marked as compliant before granting access", "The compliance policy directly enforces the block of access to cloud apps", "Conditional Access automatically encrypts the disks of non-compliant devices"],
     "correct": [0, 1],
     "explanation": "La compliance policy valuta e assegna lo stato conforme/non conforme al dispositivo. Il Conditional Access usa questo stato come segnale, ad esempio con il grant control 'Richiedi dispositivo conforme', per consentire o bloccare l'accesso. I due lavorano insieme: uno valuta, l'altro impone l'accesso.",
+    "explanation_en": "The compliance policy evaluates and assigns the compliant/non-compliant status to the device. Conditional Access uses this status as a signal, for example with the grant control 'Require compliant device', to allow or block access. The two work together: one evaluates, the other enforces access.",
     "why_wrong": {"2": "La compliance policy non blocca da sola l'accesso; produce lo stato che il Conditional Access utilizza per decidere.", "3": "Il Conditional Access non cifra dischi; regola l'accesso in base a condizioni."},
+    "why_wrong_en": {"2": "The compliance policy does not block access on its own; it produces the status that Conditional Access uses to decide.", "3": "Conditional Access does not encrypt disks; it governs access based on conditions."},
     "source": "Microsoft MD-102"
   },
   {
@@ -149,10 +193,14 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali due tipi di app è possibile distribuire tramite Microsoft Intune ai dispositivi Windows? (Scegli due)",
+    "question_en": "Which two types of apps can be deployed through Microsoft Intune to Windows devices? (Choose two)",
     "options": ["App Win32 (file .intunewin)", "App dello Store (Microsoft Store app)", "Solo app preinstallate nell'immagine di sistema", "App installabili unicamente tramite GPO on-premises"],
+    "options_en": ["Win32 apps (.intunewin file)", "Store apps (Microsoft Store app)", "Only apps preinstalled in the system image", "Apps installable only through on-premises GPO"],
     "correct": [0, 1],
     "explanation": "Intune supporta la distribuzione di app Win32 impacchettate nel formato .intunewin tramite lo strumento di prep, e delle app dello Store (Microsoft Store). Consente inoltre app line-of-business e collegamenti web, offrendo assegnazioni required/available/uninstall ai gruppi.",
+    "explanation_en": "Intune supports the deployment of Win32 apps packaged in the .intunewin format through the prep tool, and of Store apps (Microsoft Store). It also allows line-of-business apps and web links, offering required/available/uninstall assignments to groups.",
     "why_wrong": {"2": "Intune distribuisce app dinamicamente ai dispositivi gestiti, non si limita a quelle preinstallate nell'immagine.", "3": "Intune è una soluzione cloud che non richiede GPO on-premises per distribuire app."},
+    "why_wrong_en": {"2": "Intune deploys apps dynamically to managed devices, it is not limited to those preinstalled in the image.", "3": "Intune is a cloud solution that does not require on-premises GPO to deploy apps."},
     "source": "Microsoft MD-102"
   },
   {
@@ -162,10 +210,14 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali due impostazioni di protezione endpoint si possono gestire tramite i profili di Endpoint Security in Intune? (Scegli due)",
+    "question_en": "Which two endpoint protection settings can be managed through the Endpoint Security profiles in Intune? (Choose two)",
     "options": ["Regole di riduzione della superficie di attacco (ASR) di Microsoft Defender", "Cifratura del disco con BitLocker", "Il layout del menu Start dell'utente", "Lo sfondo del desktop aziendale"],
+    "options_en": ["Microsoft Defender Attack Surface Reduction (ASR) rules", "Disk encryption with BitLocker", "The user's Start menu layout", "The corporate desktop wallpaper"],
     "correct": [0, 1],
     "explanation": "I profili di Endpoint Security in Intune gestiscono controlli di sicurezza come le regole ASR di Microsoft Defender (Attack Surface Reduction) e la Disk encryption con BitLocker, oltre a antivirus, firewall e endpoint detection and response.",
+    "explanation_en": "The Endpoint Security profiles in Intune manage security controls such as Microsoft Defender ASR (Attack Surface Reduction) rules and Disk encryption with BitLocker, in addition to antivirus, firewall and endpoint detection and response.",
     "why_wrong": {"2": "Il layout del menu Start è un'impostazione di device configuration/esperienza utente, non di endpoint security.", "3": "Lo sfondo del desktop è un'impostazione estetica gestita da configuration profile, non un controllo di sicurezza endpoint."},
+    "why_wrong_en": {"2": "The Start menu layout is a device configuration/user experience setting, not an endpoint security one.", "3": "The desktop wallpaper is an aesthetic setting managed by a configuration profile, not an endpoint security control."},
     "source": "Microsoft MD-102"
   },
   {
@@ -175,9 +227,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Vero o Falso: una compliance policy di Intune impone impostazioni di configurazione sul dispositivo, come la connessione VPN.",
+    "question_en": "True or False: an Intune compliance policy enforces configuration settings on the device, such as the VPN connection.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. La compliance policy valuta lo stato del dispositivo rispetto a regole (es. cifratura attiva, versione OS, PIN) e lo segnala come conforme o non conforme. A imporre impostazioni come la VPN è invece il configuration profile.",
+    "explanation_en": "False. The compliance policy evaluates the device state against rules (e.g. encryption enabled, OS version, PIN) and marks it as compliant or non-compliant. It is the configuration profile that enforces settings such as the VPN.",
     "source": "Microsoft MD-102"
   },
   {
@@ -187,9 +242,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Vero o Falso: Windows Autopilot serve principalmente al provisioning e alla configurazione dei nuovi dispositivi Windows, non a reimmaginare il sistema operativo da zero.",
+    "question_en": "True or False: Windows Autopilot is mainly for provisioning and configuring new Windows devices, not for reimaging the operating system from scratch.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Autopilot parte dall'immagine OEM già presente sul dispositivo e ne esegue il provisioning tramite cloud (join a Entra ID, iscrizione a Intune, app e criteri), senza reimaging. Il reimaging tradizionale è invece compito di strumenti come MDT o Configuration Manager.",
+    "explanation_en": "True. Autopilot starts from the OEM image already present on the device and provisions it through the cloud (Entra ID join, Intune enrollment, apps and policies), without reimaging. Traditional reimaging is instead the task of tools such as MDT or Configuration Manager.",
     "source": "Microsoft MD-102"
   },
   {
@@ -199,9 +257,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Vero o Falso: un criterio di Conditional Access può richiedere l'autenticazione a più fattori (MFA) come condizione per concedere l'accesso a un'applicazione cloud.",
+    "question_en": "True or False: a Conditional Access policy can require multi-factor authentication (MFA) as a condition for granting access to a cloud application.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Il Conditional Access valuta segnali (utente, dispositivo, posizione, rischio) e può applicare grant control come la richiesta di MFA o di dispositivo conforme prima di concedere l'accesso a una risorsa cloud, rafforzando la sicurezza di identità e accesso.",
+    "explanation_en": "True. Conditional Access evaluates signals (user, device, location, risk) and can apply grant controls such as requiring MFA or a compliant device before granting access to a cloud resource, strengthening identity and access security.",
     "source": "Microsoft MD-102"
   }
 ]

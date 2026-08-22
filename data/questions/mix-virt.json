@@ -1,8 +1,13 @@
 [
   {
     "id": "virt-001",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Hypervisor", "Virtualizzazione"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Hypervisor",
+      "Virtualizzazione"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Qual e la differenza fondamentale tra un hypervisor di tipo 1 e uno di tipo 2?",
@@ -12,19 +17,39 @@
       "Il tipo 1 e sempre gratuito, mentre il tipo 2 e sempre a pagamento",
       "Il tipo 1 puo eseguire una sola VM, mentre il tipo 2 ne esegue molte"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "L'hypervisor di tipo 1 (bare-metal) come VMware ESXi o Hyper-V viene installato direttamente sull'hardware fisico, offrendo prestazioni migliori e minore overhead. L'hypervisor di tipo 2 come VMware Workstation o VirtualBox gira come applicazione sopra un sistema operativo host esistente.",
     "why_wrong": {
       "1": "Il supporto dei sistemi operativi guest non distingue i due tipi: entrambi possono ospitare Linux e Windows.",
       "2": "Il costo non e un criterio di classificazione: esistono hypervisor di tipo 1 gratuiti e di tipo 2 a pagamento.",
       "3": "Entrambi i tipi possono eseguire piu VM contemporaneamente in base alle risorse disponibili."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What is the fundamental difference between a type 1 and a type 2 hypervisor?",
+    "options_en": [
+      "Type 1 runs directly on the hardware (bare-metal), while type 2 runs as an application on top of a host operating system",
+      "Type 1 supports only Linux, while type 2 supports only Windows",
+      "Type 1 is always free, while type 2 is always paid",
+      "Type 1 can run only one VM, while type 2 runs many"
+    ],
+    "explanation_en": "The type 1 (bare-metal) hypervisor such as VMware ESXi or Hyper-V is installed directly on the physical hardware, offering better performance and lower overhead. The type 2 hypervisor such as VMware Workstation or VirtualBox runs as an application on top of an existing host operating system.",
+    "why_wrong_en": {
+      "1": "Guest operating system support does not distinguish the two types: both can host Linux and Windows.",
+      "2": "Cost is not a classification criterion: there are free type 1 hypervisors and paid type 2 ones.",
+      "3": "Both types can run multiple VMs simultaneously depending on the available resources."
+    }
   },
   {
     "id": "virt-002",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["VMware", "Virtualizzazione"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "VMware",
+      "Virtualizzazione"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In un ambiente VMware vSphere, quale componente e l'hypervisor di tipo 1 installato sui server fisici?",
@@ -34,19 +59,39 @@
       "vSphere Client",
       "VMware Tools"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "ESXi e l'hypervisor bare-metal di VMware che viene installato direttamente sui server fisici e gestisce l'esecuzione delle macchine virtuali. vCenter Server e la piattaforma di gestione centralizzata di piu host ESXi.",
     "why_wrong": {
       "0": "vCenter Server e la console di gestione centralizzata che coordina piu host ESXi, non l'hypervisor installato sull'hardware.",
       "2": "vSphere Client e l'interfaccia utente per amministrare l'ambiente, non l'hypervisor.",
       "3": "VMware Tools e un pacchetto di driver e utilita installato dentro le VM guest per migliorarne prestazioni e integrazione."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In a VMware vSphere environment, which component is the type 1 hypervisor installed on the physical servers?",
+    "options_en": [
+      "vCenter Server",
+      "ESXi",
+      "vSphere Client",
+      "VMware Tools"
+    ],
+    "explanation_en": "ESXi is VMware's bare-metal hypervisor that is installed directly on the physical servers and manages the execution of the virtual machines. vCenter Server is the centralized management platform for multiple ESXi hosts.",
+    "why_wrong_en": {
+      "0": "vCenter Server is the centralized management console that coordinates multiple ESXi hosts, not the hypervisor installed on the hardware.",
+      "2": "vSphere Client is the user interface to administer the environment, not the hypervisor.",
+      "3": "VMware Tools is a package of drivers and utilities installed inside the guest VMs to improve their performance and integration."
+    }
   },
   {
     "id": "virt-003",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Virtualizzazione", "VMware"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Virtualizzazione",
+      "VMware"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un amministratore deve applicare un aggiornamento rischioso a una VM di produzione e vuole poter tornare rapidamente allo stato precedente in caso di problemi. Quale funzionalita dovrebbe usare prima dell'aggiornamento?",
@@ -56,19 +101,39 @@
       "Convertire il disco da thin a thick",
       "Attivare vMotion sulla VM"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Uno snapshot cattura lo stato del disco (e opzionalmente della memoria) di una VM in un preciso istante, permettendo di ripristinare rapidamente quello stato se l'aggiornamento causa problemi. E la pratica standard prima di modifiche rischiose.",
     "why_wrong": {
       "0": "Aumentare le vCPU cambia le risorse di calcolo assegnate ma non consente di ripristinare uno stato precedente.",
       "2": "La conversione del provisioning del disco riguarda l'allocazione dello spazio, non il ripristino dello stato della VM.",
       "3": "vMotion sposta una VM in esecuzione tra host diversi, ma non crea un punto di ripristino dello stato."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "An administrator must apply a risky update to a production VM and wants to be able to quickly revert to the previous state in case of problems. Which feature should they use before the update?",
+    "options_en": [
+      "Increase the VM's vCPUs",
+      "Create a snapshot of the VM",
+      "Convert the disk from thin to thick",
+      "Enable vMotion on the VM"
+    ],
+    "explanation_en": "A snapshot captures the state of a VM's disk (and optionally memory) at a precise instant, allowing that state to be quickly restored if the update causes problems. It is the standard practice before risky changes.",
+    "why_wrong_en": {
+      "0": "Increasing the vCPUs changes the assigned compute resources but does not allow restoring a previous state.",
+      "2": "Converting the disk provisioning concerns space allocation, not restoring the VM's state.",
+      "3": "vMotion moves a running VM between different hosts, but does not create a restore point of the state."
+    }
   },
   {
     "id": "virt-004",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Virtualizzazione", "VMware"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Virtualizzazione",
+      "VMware"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Qual e la differenza principale tra thin provisioning e thick provisioning di un disco virtuale?",
@@ -78,19 +143,39 @@
       "Il thin provisioning e piu veloce in lettura del thick provisioning in ogni scenario",
       "Il thin provisioning e disponibile solo su Hyper-V, il thick solo su VMware"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Con il thin provisioning il disco virtuale occupa fisicamente solo lo spazio corrispondente ai dati realmente scritti e cresce su richiesta, ottimizzando l'uso dello storage. Con il thick provisioning tutto lo spazio dichiarato viene riservato immediatamente al momento della creazione.",
     "why_wrong": {
       "0": "Il provisioning riguarda l'allocazione dello spazio, non la cifratura dei dati.",
       "2": "Il thin provisioning puo introdurre un piccolo overhead durante la crescita del file e non e sempre piu veloce del thick.",
       "3": "Entrambe le modalita sono disponibili sulle principali piattaforme di virtualizzazione, incluse VMware e Hyper-V."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What is the main difference between thin provisioning and thick provisioning of a virtual disk?",
+    "options_en": [
+      "Thin provisioning encrypts the disk, while thick provisioning does not",
+      "Thin provisioning allocates disk space only when data is actually written, while thick provisioning reserves all the space immediately",
+      "Thin provisioning is faster at reading than thick provisioning in every scenario",
+      "Thin provisioning is available only on Hyper-V, thick only on VMware"
+    ],
+    "explanation_en": "With thin provisioning the virtual disk physically occupies only the space corresponding to the data actually written and grows on demand, optimizing storage usage. With thick provisioning all the declared space is reserved immediately at creation time.",
+    "why_wrong_en": {
+      "0": "Provisioning concerns space allocation, not data encryption.",
+      "2": "Thin provisioning can introduce a small overhead while the file grows and is not always faster than thick.",
+      "3": "Both modes are available on the main virtualization platforms, including VMware and Hyper-V."
+    }
   },
   {
     "id": "virt-005",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Hyper-V", "Virtualizzazione"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Hyper-V",
+      "Virtualizzazione"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Hyper-V e la tecnologia di virtualizzazione sviluppata da quale azienda?",
@@ -100,19 +185,39 @@
       "Oracle",
       "Red Hat"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Hyper-V e l'hypervisor di tipo 1 sviluppato da Microsoft, integrato in Windows Server e nelle edizioni Pro/Enterprise di Windows. Consente di creare e gestire macchine virtuali su piattaforma Windows.",
     "why_wrong": {
       "0": "VMware sviluppa vSphere/ESXi e Workstation, non Hyper-V.",
       "2": "Oracle sviluppa VirtualBox e Oracle VM, non Hyper-V.",
       "3": "Red Hat sviluppa soluzioni basate su KVM, non Hyper-V."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Hyper-V is the virtualization technology developed by which company?",
+    "options_en": [
+      "VMware",
+      "Microsoft",
+      "Oracle",
+      "Red Hat"
+    ],
+    "explanation_en": "Hyper-V is the type 1 hypervisor developed by Microsoft, integrated into Windows Server and the Pro/Enterprise editions of Windows. It allows creating and managing virtual machines on the Windows platform.",
+    "why_wrong_en": {
+      "0": "VMware develops vSphere/ESXi and Workstation, not Hyper-V.",
+      "2": "Oracle develops VirtualBox and Oracle VM, not Hyper-V.",
+      "3": "Red Hat develops solutions based on KVM, not Hyper-V."
+    }
   },
   {
     "id": "virt-006",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Container", "Docker"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Container",
+      "Docker"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Nel contesto di Docker, qual e la relazione corretta tra immagine e container?",
@@ -122,19 +227,39 @@
       "Immagine e container sono sinonimi e indicano lo stesso oggetto",
       "L'immagine puo esistere solo se e in esecuzione un container"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un'immagine Docker e un modello (template) statico e di sola lettura che contiene applicazione, dipendenze e configurazioni. Un container e un'istanza eseguibile creata da un'immagine: da una stessa immagine si possono avviare piu container.",
     "why_wrong": {
       "0": "I ruoli sono invertiti: e il container a essere l'istanza in esecuzione, mentre l'immagine e il modello statico.",
       "2": "Non sono sinonimi: descrivono due concetti distinti, il modello e la sua istanza in esecuzione.",
       "3": "Un'immagine esiste indipendentemente dai container: puo stare in un registry senza alcun container attivo."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In the context of Docker, what is the correct relationship between an image and a container?",
+    "options_en": [
+      "The image is a running instance, while the container is the static read-only template",
+      "The container is a running instance created from an image, which is a static, read-only template",
+      "Image and container are synonyms and refer to the same object",
+      "The image can only exist if a container is running"
+    ],
+    "explanation_en": "A Docker image is a static, read-only template that contains the application, dependencies and configurations. A container is an executable instance created from an image: multiple containers can be started from the same image.",
+    "why_wrong_en": {
+      "0": "The roles are reversed: it is the container that is the running instance, while the image is the static template.",
+      "2": "They are not synonyms: they describe two distinct concepts, the template and its running instance.",
+      "3": "An image exists independently of containers: it can sit in a registry without any active container."
+    }
   },
   {
     "id": "virt-007",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Docker", "Container"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Docker",
+      "Container"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "A cosa serve un Dockerfile?",
@@ -144,19 +269,39 @@
       "A configurare le regole del firewall dell'host",
       "A elencare i container attualmente in esecuzione"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "Un Dockerfile e un file di testo che contiene una sequenza di istruzioni (FROM, RUN, COPY, CMD, ecc.) usate dal comando docker build per costruire automaticamente e in modo riproducibile un'immagine Docker.",
     "why_wrong": {
       "1": "I log di un container si consultano con comandi come docker logs, non tramite il Dockerfile.",
       "2": "Le regole del firewall dell'host non vengono definite nel Dockerfile.",
       "3": "L'elenco dei container attivi si ottiene con docker ps, non da un Dockerfile."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What is a Dockerfile used for?",
+    "options_en": [
+      "To declaratively define the steps to build a Docker image",
+      "To store the execution logs of a container",
+      "To configure the host's firewall rules",
+      "To list the currently running containers"
+    ],
+    "explanation_en": "A Dockerfile is a text file that contains a sequence of instructions (FROM, RUN, COPY, CMD, etc.) used by the docker build command to automatically and reproducibly build a Docker image.",
+    "why_wrong_en": {
+      "1": "A container's logs are viewed with commands such as docker logs, not through the Dockerfile.",
+      "2": "The host's firewall rules are not defined in the Dockerfile.",
+      "3": "The list of active containers is obtained with docker ps, not from a Dockerfile."
+    }
   },
   {
     "id": "virt-008",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Docker", "Container"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Docker",
+      "Container"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un container Docker viene rimosso e ricreato, ma i dati di un database al suo interno devono sopravvivere alla rimozione. Quale meccanismo Docker garantisce la persistenza dei dati?",
@@ -166,19 +311,39 @@
       "Ricostruire ogni volta l'immagine con docker build",
       "Eseguire il container in modalita privilegiata"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "I volumi Docker sono il meccanismo dedicato alla persistenza dei dati: risiedono al di fuori del livello scrivibile del container e sopravvivono alla rimozione e ricreazione dei container, rendendoli ideali per database e dati che devono durare nel tempo.",
     "why_wrong": {
       "0": "La quantita di RAM riguarda le risorse di esecuzione e non ha effetto sulla persistenza dei dati su disco.",
       "2": "Ricostruire l'immagine non conserva i dati generati a runtime dal container e non risolve la persistenza.",
       "3": "La modalita privilegiata aumenta i permessi del container ma non fornisce di per se persistenza dei dati."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "A Docker container is removed and recreated, but the data of a database inside it must survive the removal. Which Docker mechanism ensures data persistence?",
+    "options_en": [
+      "Increase the RAM assigned to the container",
+      "Use a Docker volume",
+      "Rebuild the image every time with docker build",
+      "Run the container in privileged mode"
+    ],
+    "explanation_en": "Docker volumes are the dedicated mechanism for data persistence: they reside outside the container's writable layer and survive the removal and recreation of containers, making them ideal for databases and data that must last over time.",
+    "why_wrong_en": {
+      "0": "The amount of RAM concerns runtime resources and has no effect on the persistence of data on disk.",
+      "2": "Rebuilding the image does not preserve the data generated at runtime by the container and does not solve persistence.",
+      "3": "Privileged mode increases the container's permissions but does not by itself provide data persistence."
+    }
   },
   {
     "id": "virt-009",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Docker", "Container"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Docker",
+      "Container"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Cos'e un registry Docker (ad esempio Docker Hub)?",
@@ -188,19 +353,39 @@
       "Un tool per monitorare l'uso della CPU dei container",
       "Un sistema operativo ottimizzato per i container"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un registry Docker e un servizio che archivia e distribuisce immagini Docker. Docker Hub e il registry pubblico piu noto: da esso si scaricano immagini con docker pull e vi si caricano con docker push. Esistono anche registry privati aziendali.",
     "why_wrong": {
       "0": "Un registry gestisce immagini, non e un file di log dei container.",
       "2": "Il monitoraggio delle risorse e svolto da altri strumenti, non dal registry.",
       "3": "Un registry non e un sistema operativo, ma un archivio di immagini."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "What is a Docker registry (for example Docker Hub)?",
+    "options_en": [
+      "A centralized log file for all containers",
+      "A repository to store and distribute Docker images",
+      "A tool to monitor the CPU usage of containers",
+      "An operating system optimized for containers"
+    ],
+    "explanation_en": "A Docker registry is a service that stores and distributes Docker images. Docker Hub is the best-known public registry: images are downloaded from it with docker pull and uploaded to it with docker push. Private corporate registries also exist.",
+    "why_wrong_en": {
+      "0": "A registry manages images, it is not a container log file.",
+      "2": "Resource monitoring is carried out by other tools, not by the registry.",
+      "3": "A registry is not an operating system, but an image store."
+    }
   },
   {
     "id": "virt-010",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["VMware", "Virtualizzazione"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "VMware",
+      "Virtualizzazione"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "In un cluster vSphere, quale funzionalita permette di migrare una VM in esecuzione da un host ESXi a un altro senza interruzione del servizio, utile per manutenzione e alta disponibilita?",
@@ -210,19 +395,39 @@
       "Thin provisioning",
       "Dockerfile"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "vMotion consente la migrazione a caldo (live migration) di una VM in esecuzione da un host ESXi a un altro senza downtime percepibile. E un elemento chiave per manutenzione senza fermi, bilanciamento del carico e alta disponibilita nei cluster vSphere.",
     "why_wrong": {
       "0": "Lo snapshot cattura lo stato di una VM in un istante ma non la sposta tra host.",
       "2": "Il thin provisioning riguarda l'allocazione dello spazio disco, non la migrazione tra host.",
       "3": "Il Dockerfile appartiene al mondo dei container e non ha alcun ruolo nella migrazione di VM."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "In a vSphere cluster, which feature allows migrating a running VM from one ESXi host to another without service interruption, useful for maintenance and high availability?",
+    "options_en": [
+      "Snapshot",
+      "vMotion",
+      "Thin provisioning",
+      "Dockerfile"
+    ],
+    "explanation_en": "vMotion enables the live migration of a running VM from one ESXi host to another with no perceptible downtime. It is a key element for maintenance without downtime, load balancing and high availability in vSphere clusters.",
+    "why_wrong_en": {
+      "0": "A snapshot captures the state of a VM at an instant but does not move it between hosts.",
+      "2": "Thin provisioning concerns disk space allocation, not migration between hosts.",
+      "3": "The Dockerfile belongs to the container world and has no role in VM migration."
+    }
   },
   {
     "id": "virt-011",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Container", "Virtualizzazione"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Container",
+      "Virtualizzazione"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti affermazioni descrivono correttamente le differenze tra macchine virtuali e container? (Seleziona 2 risposte)",
@@ -232,18 +437,38 @@
       "Ogni container include sempre un hypervisor dedicato al suo interno",
       "Le VM sono sempre piu leggere e veloci da avviare rispetto ai container"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "I container condividono il kernel dell'host e impacchettano solo l'applicazione con le sue dipendenze, quindi sono piu leggeri e rapidi da avviare rispetto alle VM, ciascuna delle quali esegue un intero sistema operativo guest sopra l'hypervisor.",
     "why_wrong": {
       "2": "I container non contengono un hypervisor: si appoggiano al kernel condiviso dell'host tramite il container runtime.",
       "3": "E il contrario: sono i container, non le VM, a essere tipicamente piu leggeri e veloci da avviare."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Which of the following statements correctly describe the differences between virtual machines and containers? (Select 2 answers)",
+    "options_en": [
+      "Containers share the host operating system kernel, while each VM includes its own complete guest operating system",
+      "Containers are generally lighter and start up faster than VMs",
+      "Each container always includes a dedicated hypervisor inside it",
+      "VMs are always lighter and faster to start than containers"
+    ],
+    "explanation_en": "Containers share the host kernel and package only the application with its dependencies, so they are lighter and faster to start than VMs, each of which runs an entire guest operating system on top of the hypervisor.",
+    "why_wrong_en": {
+      "2": "Containers do not contain a hypervisor: they rely on the host's shared kernel through the container runtime.",
+      "3": "It is the opposite: it is containers, not VMs, that are typically lighter and faster to start."
+    }
   },
   {
     "id": "virt-012",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Virtualizzazione", "Hypervisor"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Virtualizzazione",
+      "Hypervisor"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Un amministratore deve dimensionare una nuova macchina virtuale. Quali delle seguenti sono risorse tipicamente assegnate a una VM durante la configurazione? (Seleziona 2 risposte)",
@@ -253,18 +478,38 @@
       "La versione del Dockerfile da usare",
       "Il numero di pod Kubernetes da eseguire nella VM"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Durante la configurazione di una VM si definiscono le risorse virtuali fondamentali, tra cui il numero di vCPU (processori virtuali) e la quantita di RAM assegnata, oltre allo spazio disco e alle schede di rete. Questi parametri determinano le prestazioni della VM.",
     "why_wrong": {
       "2": "Il Dockerfile riguarda la costruzione di immagini container e non e un parametro di configurazione di una VM.",
       "3": "I pod Kubernetes sono un concetto di orchestrazione container, non una risorsa assegnata nel dimensionamento di una VM."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "An administrator must size a new virtual machine. Which of the following are resources typically assigned to a VM during configuration? (Select 2 answers)",
+    "options_en": [
+      "Number of vCPUs",
+      "Amount of RAM",
+      "The version of the Dockerfile to use",
+      "The number of Kubernetes pods to run in the VM"
+    ],
+    "explanation_en": "During the configuration of a VM you define the fundamental virtual resources, including the number of vCPUs (virtual processors) and the amount of RAM assigned, as well as disk space and network cards. These parameters determine the VM's performance.",
+    "why_wrong_en": {
+      "2": "The Dockerfile concerns the building of container images and is not a configuration parameter of a VM.",
+      "3": "Kubernetes pods are a container orchestration concept, not a resource assigned when sizing a VM."
+    }
   },
   {
     "id": "virt-013",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Kubernetes", "Container"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Kubernetes",
+      "Container"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali delle seguenti affermazioni sull'orchestrazione con Kubernetes sono corrette? (Seleziona 2 risposte)",
@@ -274,48 +519,111 @@
       "Kubernetes puo eseguire un solo container per intero cluster",
       "Un deployment serve a cifrare le immagini presenti nel registry"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "Il pod e l'unita distribuibile minima di Kubernetes e raggruppa uno o piu container che condividono rete e storage. Il service espone un insieme di pod tramite un endpoint e un nome DNS stabili, garantendo l'accesso anche quando i pod effimeri vengono ricreati con nuovi indirizzi IP.",
     "why_wrong": {
       "2": "Kubernetes e nato per orchestrare molti pod e container distribuiti su piu nodi di un cluster, non uno solo.",
       "3": "Il deployment gestisce il numero di repliche e il ciclo di vita dei pod; la cifratura delle immagini non e la sua funzione."
     },
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Which of the following statements about orchestration with Kubernetes are correct? (Select 2 answers)",
+    "options_en": [
+      "The pod is the smallest deployable unit and can contain one or more containers that share network and storage",
+      "A service provides a stable network endpoint to access a set of pods, even when these are recreated with new IPs",
+      "Kubernetes can run a single container per entire cluster",
+      "A deployment is used to encrypt the images present in the registry"
+    ],
+    "explanation_en": "The pod is the minimum deployable unit of Kubernetes and groups one or more containers that share network and storage. The service exposes a set of pods through a stable endpoint and DNS name, ensuring access even when the ephemeral pods are recreated with new IP addresses.",
+    "why_wrong_en": {
+      "2": "Kubernetes was created to orchestrate many pods and containers distributed across multiple nodes of a cluster, not just one.",
+      "3": "The deployment manages the number of replicas and the life cycle of the pods; encrypting images is not its function."
+    }
   },
   {
     "id": "virt-014",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Container", "Docker"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Container",
+      "Docker"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "I container condividono il kernel del sistema operativo host, a differenza delle macchine virtuali che eseguono ciascuna un proprio sistema operativo completo. Vero o falso?",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. I container sfruttano il kernel del sistema operativo host tramite il container runtime e isolano solo l'applicazione con le sue dipendenze, risultando piu leggeri. Ogni macchina virtuale, invece, include ed esegue un proprio sistema operativo guest completo sopra l'hypervisor.",
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Containers share the host operating system kernel, unlike virtual machines which each run their own complete operating system. True or false?",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Containers leverage the host operating system kernel through the container runtime and isolate only the application with its dependencies, making them lighter. Each virtual machine, on the other hand, includes and runs its own complete guest operating system on top of the hypervisor."
   },
   {
     "id": "virt-015",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Hypervisor", "Virtualizzazione"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Hypervisor",
+      "Virtualizzazione"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Un hypervisor di tipo 2, come VMware Workstation o VirtualBox, viene installato direttamente sull'hardware bare-metal senza alcun sistema operativo sottostante. Vero o falso?",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. Un hypervisor di tipo 2 gira come applicazione sopra un sistema operativo host gia installato (Windows, Linux o macOS). E l'hypervisor di tipo 1 (bare-metal) come ESXi o Hyper-V a essere installato direttamente sull'hardware fisico.",
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "A type 2 hypervisor, such as VMware Workstation or VirtualBox, is installed directly on the bare-metal hardware without any underlying operating system. True or false?",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. A type 2 hypervisor runs as an application on top of an already installed host operating system (Windows, Linux or macOS). It is the type 1 (bare-metal) hypervisor such as ESXi or Hyper-V that is installed directly on the physical hardware."
   },
   {
     "id": "virt-016",
-    "cert": ["IT Generale - Virtualizzazione"],
-    "topics": ["Virtualizzazione", "VMware"],
+    "cert": [
+      "IT Generale - Virtualizzazione"
+    ],
+    "topics": [
+      "Virtualizzazione",
+      "VMware"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Mantenere uno snapshot di una VM attivo per lunghi periodi in produzione e una buona pratica perche migliora le prestazioni del disco. Vero o falso?",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. Gli snapshot sono pensati per usi temporanei (ad esempio prima di un aggiornamento rischioso). Mantenerli attivi a lungo fa crescere i file delta, consuma spazio e degrada le prestazioni del disco anziche migliorarle. Vanno consolidati o eliminati appena non servono piu.",
-    "source": "IT generale"
+    "source": "IT generale",
+    "question_en": "Keeping a VM snapshot active for long periods in production is a good practice because it improves disk performance. True or false?",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. Snapshots are intended for temporary uses (for example before a risky update). Keeping them active for a long time makes the delta files grow, consumes space and degrades disk performance instead of improving it. They should be consolidated or deleted as soon as they are no longer needed."
   }
 ]
