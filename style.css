@@ -201,3 +201,53 @@ select, input[type="file"] {
   letter-spacing: 0.5px; min-height: 40px;
 }
 .lang-btn:hover { border-color: var(--accent); }
+
+/* ===== UX/UI improvements (da review) ===== */
+/* color-scheme: controlli nativi (select, radio) in dark, niente popup bianchi */
+:root { color-scheme: dark; }
+/* contrasti WCAG: verde/rosso testuali piu chiari, bordo piu visibile */
+:root {
+  --ok: #22c55e;      /* era #16a34a: alza contrasto testo verdetto */
+  --ko: #f87171;      /* era #dc2626: 3.0->~7:1 su card, leggibile "Sbagliata" */
+  --ko-solid: #dc2626;/* rosso pieno per sfondi/bordi decorativi */
+  --border: #475569;  /* era #334155: bordi componenti percepibili (>=3:1) */
+}
+.option.wrong { border-color: var(--ko-solid); background: rgba(220,38,38,0.18); }
+
+/* feedback non solo-colore: glifo dentro l'opzione corretta/sbagliata (daltonici) */
+.option.correct::after { content: '✓'; margin-left: auto; color: var(--ok); font-weight: 800; font-size: 1.1rem; flex: none; }
+.option.wrong::after { content: '✗'; margin-left: auto; color: var(--ko); font-weight: 800; font-size: 1.1rem; flex: none; }
+.option:has(input:disabled) { cursor: default; }
+
+/* transizione stato + feedback al tocco (mobile non ha hover) */
+.option { transition: background-color 150ms ease, border-color 150ms ease; }
+.mode-btn:active, .primary-btn:active, .option:active, .back-btn:active, .link-btn:active, .lang-btn:active { transform: scale(0.98); filter: brightness(0.95); }
+@media (prefers-reduced-motion: reduce) {
+  .option { transition: none; }
+  .mode-btn:active, .primary-btn:active, .option:active, .back-btn:active, .link-btn:active, .lang-btn:active { transform: none; }
+}
+
+/* calendario streak: griglia adattiva + livello 1 visibile */
+.calendar { grid-template-columns: repeat(auto-fill, minmax(16px, 1fr)); }
+.cal-cell.lvl1 { background: #1f6b3a; }
+.cal-legend { display: flex; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 0.75rem; margin-top: 6px; }
+.cal-legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: middle; }
+
+/* timer esame in allerta negli ultimi secondi */
+.timer-warning { color: var(--ko); font-weight: 700; }
+
+/* lang button target 44px */
+.lang-btn { min-height: 44px; }
+
+/* ===== mobile fixes ===== */
+@media (max-width: 480px) {
+  /* topbar su due righe: riga1 back+titolo+punteggio, riga2 progressivo */
+  .topbar { grid-template-columns: auto 1fr auto; row-gap: 6px; }
+  .topbar-center { grid-column: 1 / -1; text-align: left; order: 3; }
+  /* barre statistiche: label sopra la barra, niente troncamento del dato */
+  .bar-row { grid-template-columns: 1fr auto; }
+  .bar-label { grid-column: 1 / -1; white-space: normal; }
+}
+.cal-legend .dot.lvl1 { background: #1f6b3a; }
+.cal-legend .dot.lvl2 { background: #16a34a; }
+.cal-legend .dot.lvl3 { background: #4ade80; }

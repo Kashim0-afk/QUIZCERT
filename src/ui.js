@@ -255,7 +255,10 @@ function runExam(app, session) {
     session.timer = setInterval(() => {
       session.remaining--;
       const tt = document.getElementById('examTimer');
-      if (tt) tt.textContent = fmtTime(session.remaining);
+      if (tt) {
+        tt.textContent = fmtTime(session.remaining);
+        tt.classList.toggle('timer-warning', session.remaining <= 60); // allerta ultimo minuto
+      }
       if (session.remaining <= 0) finishExam(app, session);
     }, 1000);
     app.examTimer = session.timer; // so navigation away can cancel it
@@ -341,7 +344,7 @@ function renderStudy(app) {
 
   const ambito = (app.scope.cert || t('allCerts')) + ' · ' + (app.scope.topic || t('allTopicsShort'));
 
-  const items = pool.map((q, n) => {
+  const buildItem = (q, n) => {
     const opts = qOptions(q);
     const rightAns = q.correct.map(i => opts[i]).join('  |  ');
     const why = qWhyWrong(q);
@@ -360,7 +363,22 @@ function renderStudy(app) {
     }
     parts.push(el('p', { class: 'study-meta' }, q.cert.join(', ') + ' · ' + q.topics.join(', ')));
     return el('div', { class: 'study-item' }, ...parts);
-  });
+  };
+
+  // Paginazione: renderizza a blocchi per non generare migliaia di nodi in una volta (mobile).
+  const BATCH = 40;
+  const list = el('div', { class: 'card study-list' });
+  let shown = 0;
+  const moreBtn = el('button', { class: 'link-btn' });
+  const renderMore = () => {
+    const next = pool.slice(shown, shown + BATCH);
+    next.forEach((q, i) => list.append(buildItem(q, shown + i)));
+    shown += next.length;
+    if (shown >= pool.length) { moreBtn.remove(); }
+    else { moreBtn.textContent = t('loadMore', Math.min(BATCH, pool.length - shown), pool.length - shown); }
+  };
+  moreBtn.addEventListener('click', renderMore);
+  if (pool.length) renderMore();
 
   app.root.replaceChildren(el('div', { class: 'screen' },
     topBar(app, t('mStudy'), '', t('nQuestionsShort', pool.length)),
@@ -368,8 +386,9 @@ function renderStudy(app) {
       el('h2', {}, t('studyMaterial')),
       el('p', { class: 'hint' }, t('studyScopeHint', ambito))),
     pool.length
-      ? el('div', { class: 'card study-list' }, ...items)
-      : el('div', { class: 'card' }, el('p', { class: 'hint' }, t('noQuestions')))));
+      ? list
+      : el('div', { class: 'card' }, el('p', { class: 'hint' }, t('noQuestions'))),
+    (pool.length > BATCH) ? moreBtn : null));
 }
 
 // ---------- STATS ----------
@@ -432,6 +451,10 @@ function renderStats(app) {
     el('div', { class: 'card' },
       el('h2', {}, t('streakTitle', streak(app.stats.days, app.today))),
       el('div', { class: 'calendar' }, ...cal),
+      el('div', { class: 'cal-legend' },
+        el('span', {}, el('span', { class: 'dot lvl1' }), '1-4'),
+        el('span', {}, el('span', { class: 'dot lvl2' }), '5-14'),
+        el('span', {}, el('span', { class: 'dot lvl3' }), '15+')),
       el('p', { class: 'hint' }, t('last30'))),
     el('div', { class: 'card' },
       el('h2', {}, t('overall')),

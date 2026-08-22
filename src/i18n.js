@@ -59,6 +59,7 @@ const DICT = {
     confirmOverwrite: 'Sovrascrivere le statistiche attuali con quelle importate?',
     importFailed: (m) => 'Import fallito: ' + m,
     noReview: 'Nessun errore da ripassare — ottimo!',
+    loadMore: (n, rest) => 'Carica altre ' + n + ' (' + rest + ' rimanenti)',
     loadError: (m) => 'Errore nel caricamento delle domande: ' + m,
   },
   en: {
@@ -106,6 +107,7 @@ const DICT = {
     confirmOverwrite: 'Overwrite current statistics with the imported ones?',
     importFailed: (m) => 'Import failed: ' + m,
     noReview: 'No mistakes to review — great!',
+    loadMore: (n, rest) => 'Load ' + n + ' more (' + rest + ' remaining)',
     loadError: (m) => 'Error loading questions: ' + m,
   },
 };

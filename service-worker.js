@@ -1,4 +1,4 @@
-const CACHE = 'quizcert-v17';
+const CACHE = 'quizcert-v18';
 const SHELL = [
   ".",
   "index.html",
