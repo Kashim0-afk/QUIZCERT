@@ -19,7 +19,20 @@
       "2": "Alzare indiscriminatamente le soglie di tutti gli alert rischia di sopprimere anche eventi critici non correlati alla scansione.",
       "3": "Inoltrare tutto all'IR senza triage aumenta il carico e l'affaticamento da alert, senza risolvere la causa dei falsi positivi."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "A SOC analyst notices that the SIEM generates thousands of alerts per day, many of which are false positives tied to an internal scheduled vulnerability scan. What is the most correct approach to reduce the noise without losing visibility of real threats?",
+    "options_en": [
+      "Disable the correlation rule that generates the alerts to eliminate them permanently",
+      "Create a tuning exception that excludes the authorized scanner's IP address during the scan window",
+      "Increase the threshold of all SIEM alerts to reduce the overall volume",
+      "Forward all alerts directly to the incident response team for manual review"
+    ],
+    "explanation_en": "Tuning the SIEM through targeted exceptions (for example, excluding the authorized scanner's IP during the scheduled scan window) eliminates known false positives while keeping intact the ability to detect suspicious activity from other sources. It is the standard practice for managing noise while preserving detection fidelity.",
+    "why_wrong_en": {
+      "0": "Disabling the rule entirely creates a blind spot: if a real attacker generated that pattern, it would no longer be detected.",
+      "2": "Indiscriminately raising the thresholds of all alerts risks suppressing critical events unrelated to the scan as well.",
+      "3": "Forwarding everything to IR without triage increases the load and alert fatigue, without resolving the cause of the false positives."
+    }
   },
   {
     "id": "cysa-002",
@@ -41,7 +54,20 @@
       "2": "La sola data di pubblicazione non indica se la vulnerabilità sia sfruttata o esposta; un CVE più vecchio può essere molto più pericoloso se attivamente sfruttato.",
       "3": "Il conteggio degli host è un fattore, ma senza considerare esposizione e sfruttabilità può portare a correggere prima vulnerabilità meno critiche."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "During remediation prioritization, an analyst must choose between two vulnerabilities with an identical CVSS base score of 7.5. Which additional factor is most useful for deciding which to fix first under a risk-based approach?",
+    "options_en": [
+      "The alphabetical order of the CVE for process uniformity",
+      "The vulnerability's presence in CISA's KEV catalog and/or a high EPSS score",
+      "The most recent publication date of the CVE",
+      "The total number of hosts on which the software is installed, regardless of exposure"
+    ],
+    "explanation_en": "With equal CVSS base scores, risk-based prioritization considers the probability of real-world exploitation: inclusion in CISA's Known Exploited Vulnerabilities (KEV) catalog indicates active in-the-wild exploitation, and a high EPSS score estimates the probability of an exploit in the near term. These enrichments shift priority toward what attackers are actually using.",
+    "why_wrong_en": {
+      "0": "The alphabetical order of the CVE has no relation to risk or impact.",
+      "2": "The publication date alone does not indicate whether the vulnerability is exploited or exposed; an older CVE can be far more dangerous if actively exploited.",
+      "3": "The host count is a factor, but without considering exposure and exploitability it can lead to fixing less critical vulnerabilities first."
+    }
   },
   {
     "id": "cysa-003",
@@ -63,7 +89,20 @@
       "1": "Il recupero ripristina i sistemi alla normale operatività e avviene dopo l'eradicazione.",
       "3": "Le lezioni apprese sono la fase finale di analisi post-incidente, non servono a bloccare la propagazione."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "According to the incident response lifecycle, after detecting and analyzing a host compromised by malware, which phase is primarily aimed at preventing the threat from spreading to other systems before removing it?",
+    "options_en": [
+      "Eradication",
+      "Recovery",
+      "Containment",
+      "Lessons Learned"
+    ],
+    "explanation_en": "Containment is the phase in which the spread of the incident is limited, for example by isolating the host from the network or segmenting the traffic, before proceeding to eradication. In the SANS PICERL model the phases are Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned.",
+    "why_wrong_en": {
+      "0": "Eradication removes the threat (malware, accounts, persistence) but happens after the spread has been contained.",
+      "1": "Recovery restores systems to normal operation and happens after eradication.",
+      "3": "Lessons Learned is the final phase of post-incident analysis; it does not serve to stop the spread."
+    }
   },
   {
     "id": "cysa-004",
@@ -85,7 +124,20 @@
       "2": "Gli indirizzi IP sono indicatori a basso valore nella piramide e non corrispondono alla descrizione di comportamenti dati.",
       "3": "I domini sono IoC facilmente ruotabili; bloccarli non neutralizza le tecniche dell'avversario descritte."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "A threat intelligence analyst describes the behavior of an APT group, saying it uses spear phishing for initial access, obfuscated PowerShell for execution, and WMI for persistence. To which level of the Pyramid of Pain does this information belong, and why is it more valuable than atomic IoCs?",
+    "options_en": [
+      "They are file hashes: easy for the attacker to change and therefore of little use",
+      "They are TTPs (tactics, techniques, and procedures): they describe the adversary's behavior and it is very costly for them to change",
+      "They are IP addresses: they uniquely identify the attacker's C2 infrastructure",
+      "They are domain names: blocking them completely neutralizes the APT group"
+    ],
+    "explanation_en": "Descriptions of spear phishing, obfuscated PowerShell, and persistence via WMI are TTPs, at the top of the Pyramid of Pain. Detecting and blocking TTPs is what causes the most pain to the adversary because changing their modus operandi is costly and complex, unlike hashes, IPs, or domains that are easily changed.",
+    "why_wrong_en": {
+      "0": "Hashes are atomic IoCs at the base of the pyramid, easy to change, but the given description is not a hash: it is behavior.",
+      "2": "IP addresses are low-value indicators in the pyramid and do not match the described behaviors.",
+      "3": "Domains are easily rotated IoCs; blocking them does not neutralize the described adversary techniques."
+    }
   },
   {
     "id": "cysa-005",
@@ -107,7 +159,20 @@
       "2": "Spegnere il server distrugge i dati volatili in memoria, proprio dove risiede il malware fileless.",
       "3": "I log del SIEM sono utili ma non sostituiscono la memoria volatile dell'host compromesso, dove si trova l'artefatto principale."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "During the response to an incident on a Windows server still powered on and suspected of hosting fileless malware resident in memory, which forensic principle determines the order of evidence collection?",
+    "options_en": [
+      "Collect the disk image first because it is the most complete source of evidence",
+      "Follow the order of volatility, acquiring the most volatile evidence first, such as RAM and active network connections",
+      "Immediately shut down the server to freeze its state and avoid alterations",
+      "Collect only the SIEM logs because they are already centralized and intact"
+    ],
+    "explanation_en": "The order of volatility (RFC 3227) requires collecting first the evidence that is most easily lost: RAM content, cache, routing tables, network connections, and running processes, before the persistent data on disk. For fileless malware in memory this is crucial, because shutting down would destroy the only evidence.",
+    "why_wrong_en": {
+      "0": "The disk image is important, but data on disk is less volatile; acquiring it first risks losing the evidence in RAM.",
+      "2": "Shutting down the server destroys the volatile data in memory, exactly where the fileless malware resides.",
+      "3": "SIEM logs are useful but do not replace the volatile memory of the compromised host, where the main artifact is located."
+    }
   },
   {
     "id": "cysa-006",
@@ -129,7 +194,20 @@
       "2": "Una blacklist di IP noti non copre infrastrutture nuove o mai osservate usate da una variante sconosciuta.",
       "3": "Il filtraggio per parole chiave note ricade nella stessa limitazione delle firme: non riconosce pattern non ancora catalogati."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "A signature-based IDS fails to detect a new malware variant because its signature is not yet in the database. Which type of detection would be more effective against an unknown threat of this kind?",
+    "options_en": [
+      "Signature-based detection with more frequent updates",
+      "Anomaly/behavior-based detection that compares activity against a normal baseline",
+      "A static blacklist of IP addresses known to be malicious",
+      "Content filtering based on known keywords"
+    ],
+    "explanation_en": "Anomaly-based (behavior-based) detection builds a baseline of normal activity and flags deviations, thus managing to identify unknown and zero-day threats for which no signature yet exists. Signature-based detection is inherently unable to recognize what is not already cataloged.",
+    "why_wrong_en": {
+      "0": "Even with frequent updates, signature-based detection remains ineffective until the new variant's signature is created and distributed.",
+      "2": "A blacklist of known IPs does not cover new or never-observed infrastructure used by an unknown variant.",
+      "3": "Filtering by known keywords falls under the same limitation as signatures: it does not recognize patterns not yet cataloged."
+    }
   },
   {
     "id": "cysa-007",
@@ -151,7 +229,20 @@
       "2": "Un DoS implicherebbe un volume elevato di traffico in ingresso verso l'host, non connessioni periodiche in uscita di piccole dimensioni.",
       "3": "Un backup pianificato genera in genere grandi trasferimenti a orari definiti, non micro-connessioni ripetute ogni minuto."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "Analyzing firewall logs in a SIEM, an analyst observes that an internal host establishes outbound connections to the same external IP at very regular intervals of about 60 seconds, with payloads of nearly constant size. What does this pattern most likely suggest?",
+    "options_en": [
+      "A normal automatic software update of the operating system",
+      "Beaconing of a command-and-control (C2) channel by a compromised host",
+      "A denial of service attack against the internal host",
+      "Scheduled backup traffic to a legitimate external server"
+    ],
+    "explanation_en": "Periodic, regular outbound connections to the same external host, with constant payload sizes, are the classic signature of C2 beaconing: an implant that contacts the command server at fixed intervals awaiting instructions. It is a key behavioral indicator in threat hunting.",
+    "why_wrong_en": {
+      "0": "Software updates do not follow such short, rigidly periodic cadences toward a single IP with constant payloads.",
+      "2": "A DoS would involve a high volume of inbound traffic toward the host, not small periodic outbound connections.",
+      "3": "A scheduled backup generally generates large transfers at defined times, not repeated micro-connections every minute."
+    }
   },
   {
     "id": "cysa-008",
@@ -173,7 +264,20 @@
       "2": "La scansione non autenticata non richiede credenziali privilegiate; è quella autenticata a necessitare di credenziali.",
       "3": "Anche una scansione non autenticata rileva i servizi di rete esposti; è proprio ciò che sa fare meglio."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "An analyst runs an unauthenticated vulnerability scan on a server. Compared to an authenticated (credentialed) scan, which limitation is it most likely to produce?",
+    "options_en": [
+      "It necessarily generates more false positives because it accesses the system's internal configuration",
+      "It provides a limited view of the internal patch and configuration state, potentially missing vulnerabilities visible only from the inside",
+      "It always requires more administrative privileges than an authenticated scan",
+      "It is unable to detect any exposed network service"
+    ],
+    "explanation_en": "An unauthenticated scan sees the system as an external attacker without credentials would: it detects exposed services but cannot inspect installed patches, local configurations, and internal software. The authenticated scan uses credentials for a deeper and more accurate analysis of the host's real state.",
+    "why_wrong_en": {
+      "0": "It is the authenticated scan that accesses the internal configuration; the unauthenticated one tends if anything to be less precise about the local context.",
+      "2": "The unauthenticated scan does not require privileged credentials; it is the authenticated one that needs credentials.",
+      "3": "An unauthenticated scan does detect exposed network services; that is precisely what it does best."
+    }
   },
   {
     "id": "cysa-009",
@@ -195,7 +299,20 @@
       "2": "Eliminare subito il file impedisce l'analisi e la raccolta di IoC, e potrebbe non rimuovere la persistenza già installata.",
       "3": "Condividere un campione su una chat pubblica espone dati potenzialmente sensibili e non costituisce un'analisi controllata."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "An endpoint shows signs of infection. The analyst wants to understand the malware's behavior (network connections, registry changes, files created) without risking production. What is the most appropriate approach?",
+    "options_en": [
+      "Run the sample directly on the production endpoint to observe it in the real context",
+      "Detonate the sample in an isolated sandbox for dynamic behavior analysis",
+      "Immediately delete the file without analyzing it to stop the infection",
+      "Upload the file to a public chat to ask other analysts for their opinions"
+    ],
+    "explanation_en": "Dynamic analysis in an isolated sandbox allows detonating the sample in a controlled environment and observing its runtime behavior (C2 traffic, registry keys, files, processes) without putting production systems at risk, generating IoCs useful for detection.",
+    "why_wrong_en": {
+      "0": "Running the malware in production can cause real damage, spread, and exfiltration: it is unacceptable.",
+      "2": "Deleting the file immediately prevents analysis and IoC collection, and might not remove persistence that is already installed.",
+      "3": "Sharing a sample on a public chat exposes potentially sensitive data and does not constitute controlled analysis."
+    }
   },
   {
     "id": "cysa-010",
@@ -217,7 +334,20 @@
       "2": "L'assicurazione trasferisce l'impatto economico ma non riduce l'esposizione tecnica, e rimuovere il monitoraggio peggiora la situazione.",
       "3": "Spegnere il sistema business-critical viola il vincolo di mantenerlo operativo e interrompe il business."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "The vulnerability management team identifies a critical vulnerability on a legacy system that cannot be patched because it runs a no-longer-supported business-critical application. Which risk response reduces the exposure while keeping the system operational?",
+    "options_en": [
+      "Accept the risk with no action because the patch is not available",
+      "Apply compensating controls such as network segmentation and enhanced monitoring of the system",
+      "Transfer the entire risk to an insurance policy and remove monitoring",
+      "Avoid the risk by immediately shutting down the business-critical system"
+    ],
+    "explanation_en": "When direct remediation (patching) is not possible, you apply compensating controls (mitigation): isolating the system in a dedicated network segment, restricting access, and intensifying monitoring concretely reduces the exposure while keeping the critical application operational.",
+    "why_wrong_en": {
+      "0": "Pure acceptance without mitigations leaves the critical vulnerability fully exposed, a choice that is hard to justify.",
+      "2": "Insurance transfers the financial impact but does not reduce the technical exposure, and removing monitoring makes the situation worse.",
+      "3": "Shutting down the business-critical system violates the constraint of keeping it operational and interrupts the business."
+    }
   },
   {
     "id": "cysa-011",
@@ -238,7 +368,19 @@
       "1": "Il threat hunting non si limita agli alert automatici: è proprio ciò che va oltre il rilevamento reattivo formulando ipotesi.",
       "3": "Il hunting integra, ma non sostituisce, il rilevamento automatizzato e le regole del SIEM, che restano fondamentali."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "A SOC analyst wants to start a proactive, hypothesis-based threat hunting activity. Which two statements correctly describe this approach? (Select two)",
+    "options_en": [
+      "Threat hunting starts from the assumption that a compromise may already be present and actively searches for evidence, instead of waiting for an alert",
+      "Threat hunting relies exclusively on the automatic alerts generated by the SIEM without formulating hypotheses",
+      "Hunting hypotheses can be derived from the TTPs of known adversaries mapped to frameworks such as MITRE ATT&CK",
+      "Threat hunting completely replaces the need for automated detection and SIEM rules"
+    ],
+    "explanation_en": "Threat hunting is a proactive, hypothesis-driven activity: it assumes the adversary may already be inside the perimeter and actively searches for evidence. Hypotheses are often formulated starting from the TTPs of known actors mapped to MITRE ATT&CK, guiding the search toward specific behaviors.",
+    "why_wrong_en": {
+      "1": "Threat hunting is not limited to automatic alerts: it is precisely what goes beyond reactive detection by formulating hypotheses.",
+      "3": "Hunting complements, but does not replace, automated detection and SIEM rules, which remain fundamental."
+    }
   },
   {
     "id": "cysa-012",
@@ -259,7 +401,19 @@
       "1": "Modificare i file di prova ne compromette l'integrità e ne rende inammissibile l'uso legale; le annotazioni vanno tenute separate.",
       "3": "Si lavora sempre su copie forensi verificate, mai sull'originale, che va preservato intatto come riferimento."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "During evidence collection for a possible legal proceeding, an analyst must ensure its admissibility. Which two practices are essential to preserve the integrity and defensibility of digital evidence? (Select two)",
+    "options_en": [
+      "Maintain a documented chain of custody that tracks who handled the evidence, when, and why",
+      "Modify the evidence files to add annotations useful to the investigation",
+      "Compute and verify the cryptographic hashes (e.g. SHA-256) of the images to prove they have not been altered",
+      "Always work directly on the original evidence to save copying time"
+    ],
+    "explanation_en": "The chain of custody documents every hand-off of the evidence, guaranteeing its traceability and defensibility in court. Computing and verifying cryptographic hashes before and after proves that the forensic image has not been altered, preserving its integrity.",
+    "why_wrong_en": {
+      "1": "Modifying the evidence files compromises their integrity and makes their legal use inadmissible; annotations must be kept separate.",
+      "3": "You always work on verified forensic copies, never on the original, which must be preserved intact as a reference."
+    }
   },
   {
     "id": "cysa-013",
@@ -280,7 +434,19 @@
       "1": "Il solo CVSS grezzo senza contesto di business e di esposizione non aiuta a prendere decisioni informate.",
       "3": "Un ordine casuale nasconde la priorità e ostacola l'azione; il report deve guidare verso gli interventi più urgenti."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "When communicating the results of a vulnerability assessment to management and technical teams, which two elements make the report more effective? (Select two)",
+    "options_en": [
+      "Tailor the level of detail to the audience: a risk-oriented summary for management, technical details and remediation steps for the IT teams",
+      "Include only the raw CVSS scores without any business or exposure context",
+      "Provide actionable remediation recommendations and a risk-based prioritization",
+      "List all vulnerabilities in random order so as not to influence the reader's decisions"
+    ],
+    "explanation_en": "An effective vulnerability management report is audience-aware: management needs a business-risk-oriented summary, while technical teams need the details and concrete remediation steps. Actionable recommendations and risk-based prioritization make it possible to act first on what matters most.",
+    "why_wrong_en": {
+      "1": "The raw CVSS alone, without business and exposure context, does not help in making informed decisions.",
+      "3": "A random order hides priority and hinders action; the report must guide toward the most urgent interventions."
+    }
   },
   {
     "id": "cysa-014",
@@ -295,7 +461,13 @@
     "why_wrong": {
       "0": "L'affermazione è corretta: gli IoC atomici sono effettivamente più volatili e facili da cambiare rispetto ai TTP, quindi la risposta non è Falso."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "An indicator of compromise (IoC) such as a file hash or a malicious IP address is generally easier for an attacker to change than their tactics, techniques, and procedures (TTPs).",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. According to the Pyramid of Pain, atomic IoCs such as hashes and IP addresses are at the base of the pyramid: an attacker can change them quickly (recompile a file, rotate infrastructure). TTPs, which describe their modus operandi, are at the top and much more costly to change, so detecting them inflicts more pain on the adversary.",
+    "why_wrong_en": {
+      "0": "The statement is correct: atomic IoCs are indeed more volatile and easier to change than TTPs, so the answer is not False."
+    }
   },
   {
     "id": "cysa-015",
@@ -310,7 +482,13 @@
     "why_wrong": {
       "0": "Affidarsi al solo CVSS base è un errore comune: ignora sfruttabilità ed esposizione, quindi l'affermazione non è Vera."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "A high CVSS base score is by itself sufficient to determine a vulnerability's remediation priority, without considering the real-world exploitability or the asset's exposure.",
+    "options_en": ["True", "False"],
+    "explanation_en": "False. The CVSS base score measures intrinsic severity but does not account for context: active exploitation (KEV), exploit probability (EPSS), and the asset's criticality and exposure. Risk-based prioritization combines CVSS with these factors to truly decide what to fix first.",
+    "why_wrong_en": {
+      "0": "Relying on the CVSS base score alone is a common mistake: it ignores exploitability and exposure, so the statement is not True."
+    }
   },
   {
     "id": "cysa-016",
@@ -325,6 +503,12 @@
     "why_wrong": {
       "1": "L'affermazione è corretta: la revisione post-incidente è proprio finalizzata a identificare miglioramenti, quindi la risposta non è Falso."
     },
-    "source": "CompTIA CySA+ CS0-003"
+    "source": "CompTIA CySA+ CS0-003",
+    "question_en": "In the incident response lifecycle, the lessons learned phase should be carried out at the end of the incident to identify improvements to processes and defensive controls.",
+    "options_en": ["True", "False"],
+    "explanation_en": "True. The lessons learned phase (post-incident review) closes the IR cycle: you analyze what went well and what did not, update playbooks, controls, and detection, and feed the preparation phase for future incidents. It is essential for the continuous improvement of the SOC.",
+    "why_wrong_en": {
+      "1": "The statement is correct: the post-incident review is precisely aimed at identifying improvements, so the answer is not False."
+    }
   }
 ]

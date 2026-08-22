@@ -26,7 +26,20 @@
       "2": "ISO 27001 non impone algoritmi crittografici specifici: richiede di gestire la crittografia in base alla valutazione del rischio, lasciando le scelte tecniche all'organizzazione.",
       "3": "Il GDPR è un regolamento distinto sulla protezione dei dati personali; ISO 27001 copre la sicurezza di tutte le informazioni, non solo i dati personali, e può supportare la compliance GDPR ma non la sostituisce."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "What is the main purpose of the ISO/IEC 27001 standard?",
+    "options_en": [
+      "To define the requirements for establishing, implementing, maintaining and continually improving an Information Security Management System (ISMS)",
+      "To provide a technical list of certified antivirus products for companies",
+      "To mandate the use of specific cryptographic algorithms for all organizations",
+      "To regulate exclusively the protection of personal data under the GDPR"
+    ],
+    "explanation_en": "ISO/IEC 27001 specifies the requirements for an Information Security Management System (ISMS): a systematic, risk-based approach to protecting the confidentiality, integrity and availability of information. It is a certifiable management standard applicable to any organization regardless of size or sector.",
+    "why_wrong_en": {
+      "1": "The standard does not certify products nor compile software lists; it is technology-neutral and concerns the management system, not specific tools.",
+      "2": "ISO 27001 does not mandate specific cryptographic algorithms: it requires cryptography to be managed based on risk assessment, leaving technical choices to the organization.",
+      "3": "The GDPR is a separate regulation on personal data protection; ISO 27001 covers the security of all information, not just personal data, and can support GDPR compliance but does not replace it."
+    }
   },
   {
     "id": "iso-002",
@@ -55,7 +68,20 @@
       "2": "L'implementazione dei controlli e dei piani di trattamento del rischio appartiene alla fase 'Do' (Fare/Attuare).",
       "3": "Le azioni correttive per eliminare le cause delle non conformità appartengono alla fase 'Act' (Agire), dedicata al miglioramento."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "The PDCA (Plan-Do-Check-Act) cycle underpins the ISMS. Which activity belongs to the 'Check' phase?",
+    "options_en": [
+      "Conducting internal audits and monitoring the performance of the ISMS",
+      "Defining the security policy and information security objectives",
+      "Implementing the controls and risk treatment plans",
+      "Carrying out corrective actions to eliminate the causes of nonconformities"
+    ],
+    "explanation_en": "In the PDCA model the 'Check' phase includes monitoring, measurement, internal audits and management review to assess whether the ISMS is working as intended. It is when evidence on the effectiveness of the implemented controls is gathered.",
+    "why_wrong_en": {
+      "1": "Defining the policy and objectives belongs to the 'Plan' phase, where the direction and targets of the ISMS are established.",
+      "2": "Implementing the controls and risk treatment plans belongs to the 'Do' phase.",
+      "3": "Corrective actions to eliminate the causes of nonconformities belong to the 'Act' phase, dedicated to improvement."
+    }
   },
   {
     "id": "iso-003",
@@ -84,7 +110,20 @@
       "2": "La selezione dei singoli controlli avviene durante il trattamento del rischio (clausola 6) e si riflette nello Statement of Applicability, non nella definizione del contesto.",
       "3": "Il rapporto di audit di certificazione è prodotto dall'ente certificatore terzo, non fa parte della clausola sul contesto dell'organizzazione."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "A consultant helps a company define the 'context of the organization' (clause 4). Which activity correctly falls within this phase?",
+    "options_en": [
+      "Identifying the interested parties (stakeholders) and their requirements, and determining the scope of the ISMS",
+      "Performing penetration tests on the company's production systems",
+      "Selecting the individual technical Annex A controls to apply to the servers",
+      "Drafting the final report of the third-party certification audit"
+    ],
+    "explanation_en": "Clause 4 'Context of the organization' requires understanding the relevant internal and external issues, identifying the interested parties and their requirements, and defining the scope of the ISMS. This determines the boundaries within which the management system operates.",
+    "why_wrong_en": {
+      "1": "Penetration tests are operational technical activities, not part of defining the organizational context required by clause 4.",
+      "2": "The selection of individual controls occurs during risk treatment (clause 6) and is reflected in the Statement of Applicability, not in defining the context.",
+      "3": "The certification audit report is produced by the third-party certification body; it is not part of the clause on the context of the organization."
+    }
   },
   {
     "id": "iso-004",
@@ -113,7 +152,20 @@
       "2": "Gli audit interni sono svolti da auditor competenti e indipendenti dall'area verificata; l'alta direzione ne riesamina i risultati ma non li conduce personalmente.",
       "3": "Lo sviluppo del codice è un'attività tecnica; la leadership riguarda direzione strategica, impegno e allocazione delle risorse, non la programmazione."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "According to clause 5 (Leadership), which responsibility is specifically assigned to top management?",
+    "options_en": [
+      "Demonstrating leadership and commitment by establishing the security policy and ensuring the resources needed for the ISMS",
+      "Personally performing the configuration of firewalls and intrusion detection systems",
+      "Personally conducting every internal audit and technical verification of controls",
+      "Writing the source code of applications to ensure their security"
+    ],
+    "explanation_en": "Clause 5 requires top management to demonstrate leadership and commitment: establishing the security policy and objectives, ensuring the integration of the ISMS into business processes, providing the necessary resources, and assigning roles and responsibilities. Security must start from the top.",
+    "why_wrong_en": {
+      "1": "Technical firewall configuration is an operational task for IT/security staff, not a direct responsibility of top management under clause 5.",
+      "2": "Internal audits are carried out by competent auditors independent of the area being audited; top management reviews the results but does not conduct them personally.",
+      "3": "Code development is a technical activity; leadership concerns strategic direction, commitment and resource allocation, not programming."
+    }
   },
   {
     "id": "iso-005",
@@ -142,7 +194,20 @@
       "2": "La ritenzione significa accettare consapevolmente il rischio senza ulteriori azioni; qui invece si agisce trasferendolo a un assicuratore.",
       "3": "L'evitamento comporta eliminare l'attività o l'asset che genera il rischio; l'assicurazione non elimina l'esposizione, la copre finanziariamente."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "During risk treatment, an organization decides to take out cyber insurance to cover the economic impact of a possible ransomware attack. Which risk treatment option is it applying?",
+    "options_en": [
+      "Risk sharing (transfer)",
+      "Risk reduction (mitigation)",
+      "Risk retention (acceptance)",
+      "Risk avoidance"
+    ],
+    "explanation_en": "Taking out insurance transfers part of the financial impact of the risk to a third party: it is the risk sharing (or transfer) option. The other treatment options are to reduce, avoid or accept (retain) the risk.",
+    "why_wrong_en": {
+      "1": "Reduction consists of applying controls that decrease likelihood or impact (e.g. backups, EDR): insurance does not reduce the likelihood of the attack, it transfers its economic consequences.",
+      "2": "Retention means knowingly accepting the risk without further action; here instead action is taken by transferring it to an insurer.",
+      "3": "Avoidance involves eliminating the activity or asset that generates the risk; insurance does not eliminate the exposure, it covers it financially."
+    }
   },
   {
     "id": "iso-006",
@@ -171,7 +236,20 @@
       "2": "Il SoA giustifica la scelta dei controlli, non fornisce le procedure tecniche di configurazione dei singoli dispositivi, che appartengono alla documentazione operativa.",
       "3": "Il SoA riguarda i controlli di sicurezza, non l'anagrafica commerciale dei clienti."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "What is the main function of the Statement of Applicability (SoA)?",
+    "options_en": [
+      "To list the necessary controls, justify their inclusion or exclusion and indicate their implementation status",
+      "To fully replace the risk assessment as the only document required by the standard",
+      "To describe in detail the technical configuration procedures of every network device",
+      "To contain the list of the organization's customers and their commercial contracts"
+    ],
+    "explanation_en": "The Statement of Applicability is a mandatory document that links the results of the risk assessment to the controls: it lists the necessary controls, justifies why each is included or excluded and indicates its implementation status. It is the bridge between risk treatment and the Annex A controls.",
+    "why_wrong_en": {
+      "1": "The SoA does not replace the risk assessment: it is a consequence of it. The standard requires both the risk assessment/treatment process and the SoA as distinct documents.",
+      "2": "The SoA justifies the choice of controls; it does not provide the technical configuration procedures of individual devices, which belong to operational documentation.",
+      "3": "The SoA concerns security controls, not the commercial records of customers."
+    }
   },
   {
     "id": "iso-007",
@@ -200,7 +278,20 @@
       "2": "35 controlli in 3 categorie non corrisponde alla struttura dell'Annex A; i controlli sono 93 in 4 temi.",
       "3": "133 controlli in 5 temi è un valore inventato: la cifra corretta è 93 controlli in 4 temi."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "In the 2022 version of Annex A of ISO/IEC 27001, into how many themes (categories) are the controls organized and how many controls are there in total?",
+    "options_en": [
+      "93 controls organized into 4 themes: organizational, people, physical, technological",
+      "114 controls organized into 14 security domains",
+      "35 controls organized into 3 themes: preventive, detective, corrective",
+      "133 controls organized into 5 main themes"
+    ],
+    "explanation_en": "The 2022 revision reorganizes Annex A into 93 controls grouped into 4 themes: organizational (37), people (8), physical (14) and technological (34). This structure replaces the previous 114 controls in 14 domains of the 2013 version, with consolidated controls and some new ones introduced.",
+    "why_wrong_en": {
+      "1": "114 controls in 14 domains was the structure of the previous version (2013), not of the 2022 revision.",
+      "2": "35 controls in 3 categories does not correspond to the structure of Annex A; there are 93 controls in 4 themes.",
+      "3": "133 controls in 5 themes is a made-up value: the correct figure is 93 controls in 4 themes."
+    }
   },
   {
     "id": "iso-008",
@@ -229,7 +320,20 @@
       "1": "I Controlli sulle persone (A.6) riguardano screening, consapevolezza e responsabilita del personale, non la gestione dei diritti di accesso.",
       "2": "I Controlli fisici (A.7) riguardano la sicurezza di locali e dispositivi, non i diritti di accesso logici."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "In ISO/IEC 27001:2022, the control A.5.18 \"Access rights\" (provisioning, review and revocation of user access rights) belongs to which Annex A theme?",
+    "options_en": [
+      "Technological controls (A.8)",
+      "People controls (A.6)",
+      "Physical controls (A.7)",
+      "Organizational controls (A.5)"
+    ],
+    "explanation_en": "The control A.5.18 \"Access rights\" belongs to the Organizational controls theme (A.5), which concerns governance, policies and access management. It covers provisioning, periodic review and revocation of access rights.",
+    "why_wrong_en": {
+      "0": "Technological controls (A.8) include technical measures such as A.8.3 restriction of access to information, but control A.5.18 on the management of rights is classified as organizational.",
+      "1": "People controls (A.6) concern screening, awareness and staff responsibilities, not the management of access rights.",
+      "2": "Physical controls (A.7) concern the security of premises and devices, not logical access rights."
+    }
   },
   {
     "id": "iso-009",
@@ -258,7 +362,20 @@
       "2": "L'audit interno e l'audit di certificazione di terza parte sono processi distinti e obbligatori entrambi: il primo non può essere sostituito dal secondo.",
       "3": "Far verificare a ciascun responsabile solo la propria area violerebbe il principio di imparzialità, perché si verificherebbe il proprio lavoro."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "A company must plan the ISMS internal audits (clause 9.2). Which principle must be respected in the selection of auditors?",
+    "options_en": [
+      "Auditors must be objective and impartial, and must not audit their own work",
+      "Auditors must always be external consultants certified by an accredited body",
+      "Internal audits can be replaced by the annual certification audit",
+      "Each manager must audit exclusively the controls of their own area"
+    ],
+    "explanation_en": "Clause 9.2 requires the internal audit programme to ensure the objectivity and impartiality of the process: auditors must not audit their own work. Internal audits assess whether the ISMS conforms to the requirements of the standard and to the organization's own requirements, and is effectively implemented and maintained.",
+    "why_wrong_en": {
+      "1": "Internal auditors can be adequately competent and impartial internal staff; it is not mandatory to use accredited external consultants for internal audits.",
+      "2": "The internal audit and the third-party certification audit are distinct processes, both mandatory: the first cannot be replaced by the second.",
+      "3": "Having each manager audit only their own area would violate the principle of impartiality, because they would be auditing their own work."
+    }
   },
   {
     "id": "iso-010",
@@ -287,7 +404,20 @@
       "2": "La lista del personale assunto è un dato parziale e non copre gli input richiesti sul funzionamento e le prestazioni dell'ISMS.",
       "3": "Il codice sorgente è materiale tecnico operativo, non un input del riesame direzionale dell'ISMS."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "During the management review (clause 9.3), which element must constitute an input to the review?",
+    "options_en": [
+      "The audit results, the status of corrective actions, feedback from interested parties and security performance",
+      "Exclusively the annual turnover and the economic balance sheet of the organization",
+      "Only the updated list of staff hired during the year",
+      "Solely the source code of internally developed applications"
+    ],
+    "explanation_en": "The management review must consider inputs such as: the status of actions from previous reviews, changes in the context, audit results, security performance and monitoring, nonconformities and corrective actions, feedback from interested parties and opportunities for improvement. It serves to assess the suitability, adequacy and effectiveness of the ISMS.",
+    "why_wrong_en": {
+      "1": "Turnover and the balance sheet may be context, but they are not the security inputs required by clause 9.3 to assess the ISMS.",
+      "2": "The list of hired staff is partial data and does not cover the required inputs on the operation and performance of the ISMS.",
+      "3": "The source code is operational technical material, not an input to the ISMS management review."
+    }
   },
   {
     "id": "iso-011",
@@ -316,7 +446,20 @@
       "2": "Le norme non sono identiche: hanno scopi diversi e complementari (requisiti vs guida all'implementazione).",
       "3": "Nessuna delle due è limitata al cloud o ai soli data center fisici; sono neutre rispetto alla tecnologia e all'ambiente."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "What is the fundamental difference between ISO/IEC 27001 and ISO/IEC 27002?",
+    "options_en": [
+      "ISO 27001 contains the certifiable requirements of the ISMS, while ISO 27002 is a guideline with practical guidance for implementing the controls",
+      "ISO 27002 is certifiable while ISO 27001 is only an optional recommendation",
+      "The two standards are identical and interchangeable in every context",
+      "ISO 27001 concerns only the cloud while ISO 27002 concerns only physical data centers"
+    ],
+    "explanation_en": "ISO/IEC 27001 defines the requirements of the ISMS and is the standard against which an organization can obtain certification. ISO/IEC 27002 is a code of practice (guideline) that provides detailed guidance and best practices on how to implement security controls: it is not certifiable.",
+    "why_wrong_en": {
+      "1": "It is the opposite: ISO 27001 is certifiable, ISO 27002 is the non-certifiable guideline.",
+      "2": "The standards are not identical: they have different and complementary purposes (requirements vs implementation guidance).",
+      "3": "Neither is limited to the cloud or to physical data centers only; they are neutral with respect to technology and environment."
+    }
   },
   {
     "id": "iso-012",
@@ -345,7 +488,20 @@
       "2": "L'autocertificazione da parte del responsabile interno non ha valore di certificazione accreditata di terza parte.",
       "3": "Un consulente che ha implementato l'ISMS non può certificarlo: ciò violerebbe l'indipendenza e l'imparzialità richieste al certificatore."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "An organization wants to obtain ISO/IEC 27001 certification. Who issues the recognized certificate?",
+    "options_en": [
+      "An accredited (third-party) certification body through a certification audit",
+      "ISO directly, after receiving the ISMS documentation by email",
+      "The organization's own internal security manager",
+      "Any consultant who took part in the implementation of the ISMS"
+    ],
+    "explanation_en": "ISO/IEC 27001 certification is issued by an independent, accredited certification body, after a third-party audit (typically in two stages: Stage 1 documentation review and Stage 2 on-site). ISO publishes the standards but does not certify organizations directly.",
+    "why_wrong_en": {
+      "1": "ISO is the body that develops and publishes the standards, but it does not issue certifications to individual organizations.",
+      "2": "Self-certification by the internal manager has no value as accredited third-party certification.",
+      "3": "A consultant who implemented the ISMS cannot certify it: this would violate the independence and impartiality required of the certification body."
+    }
   },
   {
     "id": "iso-013",
@@ -374,7 +530,19 @@
       "2": "La valutazione del rischio non è un evento una tantum: deve essere riesaminata a intervalli pianificati e quando avvengono cambiamenti significativi, coerentemente con il miglioramento continuo dell'ISMS.",
       "3": "I criteri di accettazione del rischio sono stabiliti dall'organizzazione (dalla sua direzione), non dall'ente certificatore, che verifica solo la conformità del processo."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "Which of the following statements about the risk assessment and treatment process in ISO/IEC 27001 are correct? (Select 2)",
+    "options_en": [
+      "The organization must define and apply a risk assessment process with established acceptance criteria",
+      "The Statement of Applicability must justify the inclusion and exclusion of controls in relation to risk treatment",
+      "The risk assessment must be performed only once and does not require subsequent updates",
+      "The risk acceptance criteria are defined autonomously by the external certification body"
+    ],
+    "explanation_en": "ISO 27001 requires a documented risk assessment process with acceptance and evaluation criteria defined by the organization, and a risk treatment process whose control choices are documented and justified in the Statement of Applicability. The risk assessment must be repeated at planned intervals or when significant changes occur.",
+    "why_wrong_en": {
+      "2": "The risk assessment is not a one-off event: it must be reviewed at planned intervals and when significant changes occur, consistent with the continual improvement of the ISMS.",
+      "3": "The risk acceptance criteria are established by the organization (by its management), not by the certification body, which only verifies the conformity of the process."
+    }
   },
   {
     "id": "iso-014",
@@ -403,7 +571,19 @@
       "2": "'Controlli finanziari' non è un tema dell'Annex A: i temi riguardano la sicurezza delle informazioni (organizzativi, persone, fisici, tecnologici), non la gestione finanziaria.",
       "3": "'Controlli di marketing' non esiste come tema dell'Annex A; è estraneo alla classificazione dei controlli di sicurezza."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "Which of the following are among the four themes into which Annex A of the 2022 version organizes the controls? (Select 2 of those listed)",
+    "options_en": [
+      "Organizational controls",
+      "Technological controls",
+      "Financial controls",
+      "Marketing controls"
+    ],
+    "explanation_en": "The four themes of Annex A 2022 are: organizational, people, physical and technological. Among the proposed options, 'organizational controls' and 'technological controls' are two of the four correct themes; the other two (not listed here) are people and physical.",
+    "why_wrong_en": {
+      "2": "'Financial controls' is not an Annex A theme: the themes concern information security (organizational, people, physical, technological), not financial management.",
+      "3": "'Marketing controls' does not exist as an Annex A theme; it is unrelated to the classification of security controls."
+    }
   },
   {
     "id": "iso-015",
@@ -428,7 +608,16 @@
     "why_wrong": {
       "1": "Affermare che sia falso è errato: il miglioramento continuo è un requisito centrale della norma (clausola 10) e uno dei fondamenti del modello PDCA su cui si basa l'ISMS."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "True or False: ISO/IEC 27001 adopts the principle of continual improvement, requiring the organization to continually improve the suitability, adequacy and effectiveness of its ISMS.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Clause 10 (Improvement) requires the continual improvement of the ISMS. Through the PDCA cycle, audits, management review, and the handling of nonconformities and corrective actions, the organization must continually improve the suitability, adequacy and effectiveness of the management system.",
+    "why_wrong_en": {
+      "1": "Stating that it is false is incorrect: continual improvement is a core requirement of the standard (clause 10) and one of the foundations of the PDCA model on which the ISMS is based."
+    }
   },
   {
     "id": "iso-016",
@@ -453,6 +642,15 @@
     "why_wrong": {
       "1": "Considerarlo falso è errato: la norma consente l'esclusione di controlli non pertinenti, a condizione che la scelta sia giustificata nel SoA in coerenza con la valutazione e il trattamento del rischio."
     },
-    "source": "ISO/IEC 27001"
+    "source": "ISO/IEC 27001",
+    "question_en": "True or False: in ISO/IEC 27001 an organization may exclude some Annex A controls provided that the exclusion is justified in the Statement of Applicability on the basis of the risk assessment.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Annex A is a reference catalogue: not all controls are necessarily applicable. The organization selects the controls based on risk treatment and must document in the Statement of Applicability both the inclusions and the exclusions, with the relevant justification. Exclusions, however, must be justified and must not leave risks untreated.",
+    "why_wrong_en": {
+      "1": "Considering it false is incorrect: the standard allows the exclusion of non-relevant controls, provided that the choice is justified in the SoA consistently with the risk assessment and treatment."
+    }
   }
 ]

@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Un cliente lamenta che il vecchio PC impiega oltre due minuti per avviare Windows e aprire i programmi. Il disco installato e' un HDD meccanico da 5400 giri. Quale upgrade migliora di piu' i tempi di avvio e caricamento?",
+    "question_en": "A customer complains that the old PC takes over two minutes to boot Windows and open programs. The installed drive is a 5400 rpm mechanical HDD. Which upgrade most improves boot and loading times?",
     "options": [
       "Sostituire l'HDD con un SSD SATA",
       "Aggiungere un secondo HDD da 7200 giri in RAID 0",
       "Aumentare la frequenza del bus PCIe",
       "Sostituire il monitor con uno a risoluzione piu' bassa"
     ],
+    "options_en": [
+      "Replace the HDD with a SATA SSD",
+      "Add a second 7200 rpm HDD in RAID 0",
+      "Increase the PCIe bus frequency",
+      "Replace the monitor with a lower-resolution one"
+    ],
     "correct": [0],
     "explanation": "L'SSD non ha parti meccaniche e offre tempi di accesso molto piu' bassi e transfer rate molto superiori rispetto a un HDD, riducendo drasticamente i tempi di avvio e caricamento dei programmi.",
+    "explanation_en": "An SSD has no mechanical parts and offers much lower access times and much higher transfer rates than an HDD, drastically reducing boot and program loading times.",
     "why_wrong": {
       "1": "Un HDD da 7200 giri e' piu' veloce del 5400, ma resta un disco meccanico molto piu' lento di un SSD; il RAID 0 aggiunge rischio senza avvicinarsi alle prestazioni SSD.",
       "2": "La frequenza del bus PCIe non e' il collo di bottiglia di un HDD SATA e in genere non e' regolabile dall'utente.",
       "3": "La risoluzione del monitor non influisce sui tempi di avvio del sistema operativo o sul caricamento dei programmi."
+    },
+    "why_wrong_en": {
+      "1": "A 7200 rpm HDD is faster than a 5400 rpm one, but it remains a mechanical drive much slower than an SSD; RAID 0 adds risk without getting close to SSD performance.",
+      "2": "The PCIe bus frequency is not the bottleneck of a SATA HDD and is generally not adjustable by the user.",
+      "3": "The monitor resolution does not affect operating system boot times or program loading."
     },
     "source": "IT generale"
   },
@@ -28,18 +41,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Devi installare un SSD NVMe ad alte prestazioni. Su quale interfaccia della scheda madre va collegato per sfruttare la massima banda?",
+    "question_en": "You need to install a high-performance NVMe SSD. Which motherboard interface should it be connected to in order to use the maximum bandwidth?",
     "options": [
       "Slot M.2 collegato al bus PCIe",
       "Porta SATA III da 6 Gbps",
       "Connettore Molex a 4 pin",
       "Slot PCI legacy a 32 bit"
     ],
+    "options_en": [
+      "M.2 slot connected to the PCIe bus",
+      "6 Gbps SATA III port",
+      "4-pin Molex connector",
+      "32-bit legacy PCI slot"
+    ],
     "correct": [0],
     "explanation": "Gli SSD NVMe comunicano tramite il bus PCIe, tipicamente in uno slot M.2 con chiave M, ottenendo banda molto superiore rispetto al SATA.",
+    "explanation_en": "NVMe SSDs communicate through the PCIe bus, typically in an M-key M.2 slot, achieving much higher bandwidth than SATA.",
     "why_wrong": {
       "1": "Il SATA III e' limitato a circa 6 Gbps e vanifica la velocita' di un NVMe; inoltre gli SSD NVMe non usano il protocollo SATA.",
       "2": "Il connettore Molex e' un connettore di alimentazione, non un'interfaccia dati per lo storage.",
       "3": "Lo slot PCI legacy e' obsoleto, non supporta NVMe e ha banda largamente insufficiente."
+    },
+    "why_wrong_en": {
+      "1": "SATA III is limited to about 6 Gbps and nullifies the speed of an NVMe drive; moreover, NVMe SSDs do not use the SATA protocol.",
+      "2": "The Molex connector is a power connector, not a data interface for storage.",
+      "3": "The legacy PCI slot is obsolete, does not support NVMe, and has largely insufficient bandwidth."
     },
     "source": "IT generale"
   },
@@ -50,18 +76,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Vuoi aggiungere memoria a un PC desktop la cui scheda madre ha slot DDR4. Quale modulo e' compatibile?",
+    "question_en": "You want to add memory to a desktop PC whose motherboard has DDR4 slots. Which module is compatible?",
     "options": [
       "Un modulo DIMM DDR4",
       "Un modulo DIMM DDR3",
       "Un modulo SO-DIMM DDR4",
       "Un modulo DIMM DDR5"
     ],
+    "options_en": [
+      "A DDR4 DIMM module",
+      "A DDR3 DIMM module",
+      "A DDR4 SO-DIMM module",
+      "A DDR5 DIMM module"
+    ],
     "correct": [0],
     "explanation": "Le generazioni di DDR non sono intercambiabili: uno slot DDR4 accetta solo moduli DIMM DDR4, che hanno tacca (notch) e piedinatura specifici.",
+    "explanation_en": "DDR generations are not interchangeable: a DDR4 slot only accepts DDR4 DIMM modules, which have a specific notch and pinout.",
     "why_wrong": {
       "1": "Il DDR3 ha una tacca in posizione diversa e non entra fisicamente in uno slot DDR4; le tensioni e i segnali sono incompatibili.",
       "2": "Il formato SO-DIMM e' piu' corto ed e' pensato per portatili e mini PC, non entra negli slot DIMM di un desktop.",
       "3": "Il DDR5 ha piedinatura e tacca differenti e non e' compatibile con slot DDR4."
+    },
+    "why_wrong_en": {
+      "1": "DDR3 has a notch in a different position and does not physically fit into a DDR4 slot; the voltages and signals are incompatible.",
+      "2": "The SO-DIMM form factor is shorter and designed for laptops and mini PCs; it does not fit into a desktop's DIMM slots.",
+      "3": "DDR5 has a different pinout and notch and is not compatible with DDR4 slots."
     },
     "source": "IT generale"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Premendo il pulsante di accensione il PC non da' alcun segno di vita: nessuna ventola, nessun LED, nessun beep. L'alimentatore ha un interruttore posteriore su ON e il cavo e' collegato. Qual e' il primo controllo piu' sensato?",
+    "question_en": "When pressing the power button, the PC shows no sign of life: no fans, no LEDs, no beeps. The power supply has a rear switch set to ON and the cable is connected. What is the most sensible first check?",
     "options": [
       "Verificare presa, cavo e selettore di tensione dell'alimentatore, provando anche un test dell'alimentatore",
       "Reinstallare il sistema operativo da chiavetta USB",
       "Aggiornare i driver della scheda video",
       "Aumentare la memoria RAM installata"
     ],
+    "options_en": [
+      "Check the outlet, cable, and power supply voltage selector, also trying a power supply test",
+      "Reinstall the operating system from a USB stick",
+      "Update the graphics card drivers",
+      "Increase the installed RAM"
+    ],
     "correct": [0],
     "explanation": "L'assenza totale di alimentazione (niente ventole, LED o beep) indica un problema di erogazione: si controllano presa, cavo, interruttore e selettore di tensione, e si testa l'alimentatore (es. paperclip test o tester PSU).",
+    "explanation_en": "The total absence of power (no fans, LEDs, or beeps) indicates a power delivery problem: check the outlet, cable, switch, and voltage selector, and test the power supply (e.g. paperclip test or PSU tester).",
     "why_wrong": {
       "1": "Se il PC non riceve alimentazione non arriva nemmeno al POST, quindi reinstallare il sistema operativo e' impossibile e non pertinente.",
       "2": "I driver video sono software: senza accensione non c'e' alcun sistema in esecuzione da aggiornare.",
       "3": "Un guasto di alimentazione non si risolve aggiungendo RAM; il sintomo non e' legato alla memoria."
+    },
+    "why_wrong_en": {
+      "1": "If the PC receives no power, it does not even reach POST, so reinstalling the operating system is impossible and irrelevant.",
+      "2": "Video drivers are software: without power there is no running system to update.",
+      "3": "A power failure is not solved by adding RAM; the symptom is not related to memory."
     },
     "source": "IT generale"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Installi una scheda video dedicata di fascia alta con due connettori PCIe a 8 pin. Quale precauzione e' indispensabile per un funzionamento stabile?",
+    "question_en": "You install a high-end dedicated graphics card with two 8-pin PCIe connectors. Which precaution is essential for stable operation?",
     "options": [
       "Collegare i cavi di alimentazione PCIe dell'alimentatore ai connettori della GPU",
       "Collegare la GPU a una porta SATA dati",
       "Disattivare la scheda di rete nel BIOS",
       "Impostare la RAM in modalita' single channel"
     ],
+    "options_en": [
+      "Connect the power supply's PCIe power cables to the GPU connectors",
+      "Connect the GPU to a SATA data port",
+      "Disable the network card in the BIOS",
+      "Set the RAM to single channel mode"
+    ],
     "correct": [0],
     "explanation": "Le GPU dedicate potenti richiedono alimentazione supplementare tramite i connettori PCIe (6/8 pin) dall'alimentatore; senza, la scheda non si avvia o va in protezione.",
+    "explanation_en": "Powerful dedicated GPUs require supplementary power through the PCIe (6/8-pin) connectors from the power supply; without it, the card does not start or goes into protection mode.",
     "why_wrong": {
       "1": "La porta SATA dati serve a dischi e unita' ottiche, non alimenta ne' collega una scheda video.",
       "2": "Disattivare la rete non ha alcun effetto sull'alimentazione o stabilita' della GPU.",
       "3": "La modalita' single channel della RAM non e' richiesta e anzi riduce le prestazioni di memoria."
+    },
+    "why_wrong_en": {
+      "1": "The SATA data port is for drives and optical units; it neither powers nor connects a graphics card.",
+      "2": "Disabling the network has no effect on the power or stability of the GPU.",
+      "3": "Single channel RAM mode is not required and actually reduces memory performance."
     },
     "source": "IT generale"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "In una stampante laser, quale sequenza descrive correttamente l'ordine delle fasi del processo di stampa?",
+    "question_en": "In a laser printer, which sequence correctly describes the order of the phases of the printing process?",
     "options": [
       "Elaborazione, caricamento, esposizione, sviluppo, trasferimento, fusione, pulizia",
       "Fusione, sviluppo, trasferimento, pulizia, caricamento, esposizione",
       "Esposizione, fusione, caricamento, trasferimento, sviluppo, pulizia",
       "Trasferimento, esposizione, fusione, caricamento, sviluppo, pulizia"
     ],
+    "options_en": [
+      "Processing, charging, exposing, developing, transferring, fusing, cleaning",
+      "Fusing, developing, transferring, cleaning, charging, exposing",
+      "Exposing, fusing, charging, transferring, developing, cleaning",
+      "Transferring, exposing, fusing, charging, developing, cleaning"
+    ],
     "correct": [0],
     "explanation": "Il processo laser segue sette fasi: elaborazione (processing), caricamento (charging), esposizione (exposing) del tamburo con il laser, sviluppo (developing) con il toner, trasferimento (transferring) sulla carta, fusione (fusing) con calore e pressione, e pulizia (cleaning) del tamburo.",
+    "explanation_en": "The laser process follows seven phases: processing, charging, exposing the drum with the laser, developing with the toner, transferring to the paper, fusing with heat and pressure, and cleaning the drum.",
     "why_wrong": {
       "1": "La fusione avviene verso la fine, non all'inizio: fondere il toner prima del trasferimento non ha senso.",
       "2": "L'esposizione del tamburo deve seguire il caricamento e precedere lo sviluppo, non venire per prima.",
       "3": "Il trasferimento avviene dopo lo sviluppo del toner sul tamburo, non come prima fase."
+    },
+    "why_wrong_en": {
+      "1": "Fusing occurs toward the end, not at the beginning: fusing the toner before transferring makes no sense.",
+      "2": "Exposing the drum must follow charging and precede developing, not come first.",
+      "3": "Transferring occurs after developing the toner on the drum, not as the first phase."
     },
     "source": "IT generale"
   },
@@ -138,18 +216,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Un utente vuole collegare al PC un cavo di rete Ethernet per una connessione cablata. Quale porta deve usare?",
+    "question_en": "A user wants to connect an Ethernet network cable to the PC for a wired connection. Which port should they use?",
     "options": [
       "La porta RJ45",
       "La porta RJ11",
       "La porta HDMI",
       "La porta USB-C"
     ],
+    "options_en": [
+      "The RJ45 port",
+      "The RJ11 port",
+      "The HDMI port",
+      "The USB-C port"
+    ],
     "correct": [0],
     "explanation": "L'Ethernet cablato usa il connettore RJ45 a 8 pin, presente sulle schede di rete dei PC e sugli switch/router.",
+    "explanation_en": "Wired Ethernet uses the 8-pin RJ45 connector, found on PC network cards and on switches/routers.",
     "why_wrong": {
       "1": "L'RJ11 e' il connettore piu' piccolo usato per le linee telefoniche/DSL, non per l'Ethernet.",
       "2": "L'HDMI trasporta audio e video verso monitor e TV, non traffico di rete.",
       "3": "L'USB-C trasporta dati e alimentazione; puo' fare rete solo con un adattatore, ma non e' la porta Ethernet nativa."
+    },
+    "why_wrong_en": {
+      "1": "RJ11 is the smaller connector used for telephone/DSL lines, not for Ethernet.",
+      "2": "HDMI carries audio and video to monitors and TVs, not network traffic.",
+      "3": "USB-C carries data and power; it can provide networking only with an adapter, but it is not the native Ethernet port."
     },
     "source": "IT generale"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Colleghi un monitor a 144 Hz alla scheda video e vuoi sfruttarne appieno il refresh a risoluzione elevata. Quale interfaccia e' generalmente la scelta migliore su un PC desktop moderno?",
+    "question_en": "You connect a 144 Hz monitor to the graphics card and want to fully exploit its refresh rate at high resolution. Which interface is generally the best choice on a modern desktop PC?",
     "options": [
       "DisplayPort",
       "VGA",
       "DVI-D single link",
       "Porta seriale RS-232"
     ],
+    "options_en": [
+      "DisplayPort",
+      "VGA",
+      "DVI-D single link",
+      "RS-232 serial port"
+    ],
     "correct": [0],
     "explanation": "Il DisplayPort offre banda elevata ed e' la scelta consigliata sui desktop per alte risoluzioni con refresh elevato (e supporta tecnologie come l'adaptive sync).",
+    "explanation_en": "DisplayPort offers high bandwidth and is the recommended choice on desktops for high resolutions with high refresh rates (and supports technologies such as adaptive sync).",
     "why_wrong": {
       "1": "Il VGA e' analogico e non gestisce bene alte risoluzioni ad alto refresh, con qualita' inferiore.",
       "2": "Il DVI-D single link ha banda limitata e in genere non regge risoluzioni alte a 144 Hz.",
       "3": "La RS-232 e' una porta seriale per dati, non un'interfaccia video."
+    },
+    "why_wrong_en": {
+      "1": "VGA is analog and does not handle high resolutions at high refresh rates well, with lower quality.",
+      "2": "DVI-D single link has limited bandwidth and generally cannot handle high resolutions at 144 Hz.",
+      "3": "RS-232 is a serial port for data, not a video interface."
     },
     "source": "IT generale"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Devi installare Windows su un disco da 4 TB usandolo interamente come unita' di avvio. Quale combinazione firmware/partizionamento e' necessaria?",
+    "question_en": "You need to install Windows on a 4 TB drive, using it entirely as a boot drive. Which firmware/partitioning combination is required?",
     "options": [
       "UEFI con partizionamento GPT",
       "BIOS legacy con partizionamento MBR",
       "UEFI con partizionamento MBR",
       "BIOS legacy senza tabella delle partizioni"
     ],
+    "options_en": [
+      "UEFI with GPT partitioning",
+      "Legacy BIOS with MBR partitioning",
+      "UEFI with MBR partitioning",
+      "Legacy BIOS without a partition table"
+    ],
     "correct": [0],
     "explanation": "Il vecchio MBR supporta al massimo circa 2 TB per partizione di avvio; per usare l'intero disco da 4 TB come unita' bootabile servono UEFI e schema GPT.",
+    "explanation_en": "The old MBR supports at most about 2 TB per boot partition; to use the entire 4 TB drive as a bootable unit, UEFI and the GPT scheme are required.",
     "why_wrong": {
       "1": "Il BIOS legacy con MBR e' limitato a circa 2 TB, quindi non puo' avviare da un disco da 4 TB usato per intero.",
       "2": "Avviare da GPT richiede UEFI: il BIOS legacy non avvia da dischi GPT, quindi UEFI+MBR non e' la combinazione corretta per superare il limite dei 2 TB.",
       "3": "Un disco senza tabella delle partizioni non e' avviabile ne' utilizzabile per installare il sistema."
+    },
+    "why_wrong_en": {
+      "1": "Legacy BIOS with MBR is limited to about 2 TB, so it cannot boot from a 4 TB drive used in full.",
+      "2": "Booting from GPT requires UEFI: legacy BIOS does not boot from GPT drives, so UEFI+MBR is not the correct combination to exceed the 2 TB limit.",
+      "3": "A drive without a partition table is neither bootable nor usable to install the system."
     },
     "source": "IT generale"
   },
@@ -204,18 +321,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "All'accensione il PC non mostra nulla a video, le ventole girano e la scheda madre emette una serie di beep POST. Cosa indica principalmente questa segnalazione acustica?",
+    "question_en": "On startup the PC shows nothing on screen, the fans spin, and the motherboard emits a series of POST beeps. What does this audible signal mainly indicate?",
     "options": [
       "Un codice diagnostico del POST che identifica un errore hardware (es. RAM o video)",
       "Che il sistema operativo si sta caricando correttamente",
       "Che l'antivirus ha completato la scansione",
       "Che la batteria del portatile e' completamente carica"
     ],
+    "options_en": [
+      "A POST diagnostic code that identifies a hardware error (e.g. RAM or video)",
+      "That the operating system is loading correctly",
+      "That the antivirus has completed the scan",
+      "That the laptop battery is fully charged"
+    ],
     "correct": [0],
     "explanation": "I beep emessi durante il POST sono codici diagnostici del BIOS/UEFI: il loro numero e ritmo indicano il componente in errore (spesso RAM assente o mal inserita, o problemi video). Si consulta il manuale della scheda madre per decodificarli.",
+    "explanation_en": "The beeps emitted during POST are BIOS/UEFI diagnostic codes: their number and rhythm indicate the faulty component (often absent or poorly seated RAM, or video problems). The motherboard manual is consulted to decode them.",
     "why_wrong": {
       "1": "Un caricamento corretto del sistema operativo non produce sequenze di beep d'errore; il singolo beep breve indica invece un POST superato.",
       "2": "I beep del POST avvengono all'accensione, prima e indipendentemente da qualsiasi scansione antivirus.",
       "3": "I beep POST riguardano la diagnostica hardware, non lo stato di carica della batteria."
+    },
+    "why_wrong_en": {
+      "1": "A correct operating system load does not produce error beep sequences; a single short beep instead indicates a passed POST.",
+      "2": "POST beeps occur at startup, before and independently of any antivirus scan.",
+      "3": "POST beeps concern hardware diagnostics, not the battery charge status."
     },
     "source": "IT generale"
   },
@@ -226,18 +356,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Uno smartphone si scalda molto, la batteria si scarica in fretta e sul retro si nota un leggero rigonfiamento della scocca. Qual e' l'azione piu' corretta e sicura?",
+    "question_en": "A smartphone gets very hot, the battery drains quickly, and a slight bulge is noticeable on the back of the casing. What is the most correct and safe action?",
     "options": [
       "Smettere di usarlo e far sostituire la batteria rigonfia da personale qualificato",
       "Metterlo in freezer per sgonfiare la batteria",
       "Forare la batteria per farla sgonfiare",
       "Continuare a usarlo tenendolo sempre in carica"
     ],
+    "options_en": [
+      "Stop using it and have the swollen battery replaced by qualified personnel",
+      "Put it in the freezer to deflate the battery",
+      "Puncture the battery to deflate it",
+      "Keep using it while always keeping it charging"
+    ],
     "correct": [0],
     "explanation": "Una batteria agli ioni di litio rigonfia e' danneggiata e potenzialmente pericolosa (rischio incendio): va smesso l'uso e sostituita da personale qualificato, smaltendola come rifiuto speciale.",
+    "explanation_en": "A swollen lithium-ion battery is damaged and potentially dangerous (fire risk): use should be stopped and it should be replaced by qualified personnel, disposing of it as special waste.",
     "why_wrong": {
       "1": "Il freddo estremo puo' creare condensa e danni ulteriori senza risolvere il rigonfiamento; e' inutile e rischioso.",
       "2": "Forare una batteria al litio puo' provocare incendio o esplosione: e' estremamente pericoloso.",
       "3": "Continuare a caricarla aggrava il surriscaldamento e il rischio, invece di eliminare il pericolo."
+    },
+    "why_wrong_en": {
+      "1": "Extreme cold can create condensation and further damage without solving the swelling; it is useless and risky.",
+      "2": "Puncturing a lithium battery can cause fire or explosion: it is extremely dangerous.",
+      "3": "Continuing to charge it worsens the overheating and the risk, instead of eliminating the danger."
     },
     "source": "IT generale"
   },
@@ -248,17 +391,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Un PC assemblato da poco si accende ma non arriva al POST e non da' video. Quali due verifiche iniziali sono piu' pertinenti? (scegli 2)",
+    "question_en": "A recently assembled PC powers on but does not reach POST and gives no video. Which two initial checks are most relevant? (choose 2)",
     "options": [
       "Controllare che i moduli RAM siano inseriti a fondo negli slot corretti",
       "Verificare il collegamento del connettore di alimentazione ATX a 24 pin e dell'EPS della CPU",
       "Aggiornare l'antivirus a bordo del sistema",
       "Deframmentare il disco di sistema"
     ],
+    "options_en": [
+      "Check that the RAM modules are fully seated in the correct slots",
+      "Check the connection of the 24-pin ATX power connector and the CPU EPS",
+      "Update the antivirus on the system",
+      "Defragment the system drive"
+    ],
     "correct": [0, 1],
     "explanation": "Un mancato POST su un assemblaggio nuovo dipende spesso da RAM mal inserita o dai connettori di alimentazione (ATX 24 pin e EPS 4/8 pin della CPU) non collegati. Sono i primi due controlli logici.",
+    "explanation_en": "A failed POST on a new build often depends on poorly seated RAM or on power connectors (24-pin ATX and 4/8-pin CPU EPS) not being connected. These are the first two logical checks.",
     "why_wrong": {
       "2": "Senza POST non c'e' sistema operativo in esecuzione, quindi non e' possibile ne' utile aggiornare un antivirus.",
       "3": "La deframmentazione riguarda un sistema gia' avviato e non c'entra con un guasto che blocca il POST."
+    },
+    "why_wrong_en": {
+      "2": "Without POST there is no running operating system, so updating an antivirus is neither possible nor useful.",
+      "3": "Defragmentation concerns an already booted system and is unrelated to a fault that blocks POST."
     },
     "source": "IT generale"
   },
@@ -269,17 +424,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali due misure riguardano la sicurezza fisica di un dispositivo o dei suoi dati? (scegli 2)",
+    "question_en": "Which two measures concern the physical security of a device or its data? (choose 2)",
     "options": [
       "Usare un cavo di sicurezza Kensington per bloccare un portatile alla scrivania",
       "Attivare la cifratura del disco per proteggere i dati in caso di furto",
       "Aumentare la frequenza di refresh del monitor",
       "Installare piu' RAM per velocizzare l'avvio"
     ],
+    "options_en": [
+      "Use a Kensington security cable to lock a laptop to the desk",
+      "Enable disk encryption to protect the data in case of theft",
+      "Increase the monitor refresh rate",
+      "Install more RAM to speed up boot"
+    ],
     "correct": [0, 1],
     "explanation": "Il lucchetto Kensington impedisce l'asportazione fisica del portatile, mentre la cifratura del disco (es. BitLocker) protegge i dati se il dispositivo viene rubato: entrambe sono misure di sicurezza fisica/dei dati.",
+    "explanation_en": "The Kensington lock prevents physical removal of the laptop, while disk encryption (e.g. BitLocker) protects the data if the device is stolen: both are physical/data security measures.",
     "why_wrong": {
       "2": "Il refresh del monitor riguarda la fluidita' dell'immagine, non la sicurezza del dispositivo o dei dati.",
       "3": "Aggiungere RAM migliora le prestazioni ma non protegge in alcun modo il dispositivo da furto o accesso non autorizzato."
+    },
+    "why_wrong_en": {
+      "2": "The monitor refresh rate concerns image smoothness, not the security of the device or its data.",
+      "3": "Adding RAM improves performance but does not in any way protect the device from theft or unauthorized access."
     },
     "source": "IT generale"
   },
@@ -290,17 +457,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali due affermazioni sui connettori e cavi sono corrette? (scegli 2)",
+    "question_en": "Which two statements about connectors and cables are correct? (choose 2)",
     "options": [
       "L'USB-C e' reversibile e puo' trasportare dati, video e alimentazione",
       "L'HDMI puo' trasportare contemporaneamente segnale audio e video su un unico cavo",
       "La porta RJ45 e' usata per collegare le cuffie audio analogiche",
       "Il connettore SATA di alimentazione fornisce il segnale dati al monitor"
     ],
+    "options_en": [
+      "USB-C is reversible and can carry data, video, and power",
+      "HDMI can carry audio and video signals simultaneously over a single cable",
+      "The RJ45 port is used to connect analog audio headphones",
+      "The SATA power connector provides the data signal to the monitor"
+    ],
     "correct": [0, 1],
     "explanation": "L'USB-C ha connettore reversibile e, a seconda delle specifiche, veicola dati, video (DisplayPort/Thunderbolt) e alimentazione. L'HDMI trasporta audio e video digitali sullo stesso cavo.",
+    "explanation_en": "USB-C has a reversible connector and, depending on the specifications, carries data, video (DisplayPort/Thunderbolt), and power. HDMI carries digital audio and video over the same cable.",
     "why_wrong": {
       "2": "L'RJ45 e' per l'Ethernet di rete; le cuffie analogiche usano il jack da 3,5 mm, non l'RJ45.",
       "3": "Il connettore di alimentazione SATA fornisce corrente ai dischi e non ha nulla a che vedere con il segnale video del monitor."
+    },
+    "why_wrong_en": {
+      "2": "RJ45 is for network Ethernet; analog headphones use the 3.5 mm jack, not RJ45.",
+      "3": "The SATA power connector supplies current to drives and has nothing to do with the monitor's video signal."
     },
     "source": "IT generale"
   },
@@ -311,17 +490,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Un PC va in crash casuali con schermate blu e talvolta non completa il POST. Sospetti la memoria RAM. Quali due azioni diagnostiche sono appropriate? (scegli 2)",
+    "question_en": "A PC has random crashes with blue screens and sometimes does not complete POST. You suspect the RAM. Which two diagnostic actions are appropriate? (choose 2)",
     "options": [
       "Eseguire un test della memoria con uno strumento come Windows Memory Diagnostic o MemTest86",
       "Provare i moduli uno alla volta e riposizionarli (reseat) negli slot",
       "Sostituire l'alimentatore con uno di potenza doppia",
       "Reinstallare i driver della stampante"
     ],
+    "options_en": [
+      "Run a memory test with a tool such as Windows Memory Diagnostic or MemTest86",
+      "Try the modules one at a time and reseat them in the slots",
+      "Replace the power supply with one of double the wattage",
+      "Reinstall the printer drivers"
+    ],
     "correct": [0, 1],
     "explanation": "Per isolare un problema di RAM si esegue un test di memoria dedicato (Windows Memory Diagnostic, MemTest86) e si prova un modulo alla volta reinserendolo negli slot, per individuare il banco o lo slot difettoso.",
+    "explanation_en": "To isolate a RAM problem, run a dedicated memory test (Windows Memory Diagnostic, MemTest86) and try one module at a time by reseating it in the slots, to identify the faulty stick or slot.",
     "why_wrong": {
       "2": "Aumentare la potenza dell'alimentatore non diagnostica ne' risolve un difetto della RAM e non e' pertinente al sintomo isolato.",
       "3": "I driver della stampante non hanno alcun legame con crash da memoria o mancato POST."
+    },
+    "why_wrong_en": {
+      "2": "Increasing the power supply wattage neither diagnoses nor solves a RAM defect and is not relevant to the isolated symptom.",
+      "3": "Printer drivers have no connection to memory crashes or a failed POST."
     },
     "source": "IT generale"
   },
@@ -332,9 +523,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Deframmentare regolarmente un SSD e' una pratica di manutenzione consigliata per migliorarne le prestazioni.",
+    "question_en": "Regularly defragmenting an SSD is a recommended maintenance practice to improve its performance.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. Gli SSD non hanno testine meccaniche e accedono ai blocchi in modo casuale senza penalita', quindi la deframmentazione non porta benefici e genera scritture inutili che consumano le celle. Su SSD si usa il comando TRIM, non la deframmentazione.",
+    "explanation_en": "False. SSDs have no mechanical heads and access blocks randomly without penalty, so defragmentation brings no benefit and generates unnecessary writes that wear out the cells. On SSDs the TRIM command is used, not defragmentation.",
     "source": "IT generale"
   },
   {
@@ -344,9 +538,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Il Secure Boot e' una funzione dell'UEFI che aiuta a impedire il caricamento di bootloader e software di avvio non attendibili o firmati in modo non valido.",
+    "question_en": "Secure Boot is a UEFI feature that helps prevent the loading of untrusted or invalidly signed bootloaders and boot software.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Il Secure Boot fa parte dell'UEFI e verifica le firme digitali dei componenti di avvio, bloccando bootloader non firmati o alterati (utile contro rootkit e bootkit). E' una funzione assente nel BIOS legacy tradizionale.",
+    "explanation_en": "True. Secure Boot is part of UEFI and verifies the digital signatures of boot components, blocking unsigned or altered bootloaders (useful against rootkits and bootkits). It is a feature absent in the traditional legacy BIOS.",
     "source": "IT generale"
   },
   {
@@ -356,9 +553,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "In una stampante laser, se il toner esce e si sfrega via dai fogli stampati, la causa piu' probabile e' un guasto al gruppo fusore.",
+    "question_en": "In a laser printer, if the toner comes off and rubs off the printed pages, the most likely cause is a fault in the fuser unit.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Il fusore fissa il toner alla carta tramite calore e pressione durante la fase di fusione. Se il toner non aderisce e si sfrega via, il gruppo fusore e' tipicamente difettoso o non raggiunge la temperatura corretta e va controllato o sostituito.",
+    "explanation_en": "True. The fuser fixes the toner to the paper through heat and pressure during the fusing phase. If the toner does not adhere and rubs off, the fuser unit is typically faulty or does not reach the correct temperature and must be checked or replaced.",
     "source": "IT generale"
   }
 ]

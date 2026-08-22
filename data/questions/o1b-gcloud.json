@@ -1,8 +1,13 @@
 [
   {
     "id": "gc-001",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Responsabilità condivisa", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Responsabilità condivisa",
+      "Cloud security"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Nel modello di responsabilità condivisa di Google Cloud, di quale aspetto è responsabile il CLIENTE e non il provider?",
@@ -12,19 +17,39 @@
       "La manutenzione dell'hardware dei server",
       "La sicurezza dell'hypervisor e della rete fisica sottostante"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Nel modello di responsabilità condivisa il provider (Google) protegge l'infrastruttura sottostante (hardware, data center fisici, rete, hypervisor), mentre il cliente resta responsabile della sicurezza NEL cloud: configurazione degli accessi IAM, gestione delle identità, protezione e classificazione dei propri dati e configurazione dei servizi.",
     "why_wrong": {
       "0": "La sicurezza fisica dei data center è responsabilità esclusiva di Google, non del cliente.",
       "2": "La manutenzione dell'hardware è gestita interamente dal provider.",
       "3": "Hypervisor e rete fisica fanno parte dell'infrastruttura protetta da Google."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "In Google Cloud's shared responsibility model, which aspect is the CUSTOMER responsible for, and not the provider?",
+    "options_en": [
+      "The physical security of the data centers",
+      "The configuration of IAM access and the management of one's own data",
+      "The maintenance of the server hardware",
+      "The security of the hypervisor and the underlying physical network"
+    ],
+    "explanation_en": "In the shared responsibility model the provider (Google) protects the underlying infrastructure (hardware, physical data centers, network, hypervisor), while the customer remains responsible for security IN the cloud: IAM access configuration, identity management, protection and classification of their own data, and service configuration.",
+    "why_wrong_en": {
+      "0": "The physical security of the data centers is Google's exclusive responsibility, not the customer's.",
+      "2": "Hardware maintenance is handled entirely by the provider.",
+      "3": "The hypervisor and physical network are part of the infrastructure protected by Google."
+    }
   },
   {
     "id": "gc-002",
-    "cert": ["Google Cloud Security"],
-    "topics": ["IAM", "Controllo accessi"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "IAM",
+      "Controllo accessi"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale principio dovrebbe guidare l'assegnazione dei ruoli IAM agli utenti in Google Cloud?",
@@ -34,19 +59,39 @@
       "Usare sempre ruoli primitivi di base a livello di progetto",
       "Condividere un unico account tra più persone del team"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Il principio del privilegio minimo (least privilege) prevede di concedere a ogni identità solo i permessi strettamente necessari a svolgere il proprio compito, riducendo la superficie di attacco e l'impatto di eventuali compromissioni. In IAM si preferiscono ruoli predefiniti granulari o personalizzati rispetto a ruoli ampi.",
     "why_wrong": {
       "0": "Il ruolo Owner concede permessi amplissimi: assegnarlo a tutti viola il least privilege ed è molto rischioso.",
       "2": "I ruoli primitivi (Owner/Editor/Viewer) sono troppo ampi e sconsigliati a favore di ruoli predefiniti granulari.",
       "3": "Condividere account impedisce la tracciabilità e viola le buone pratiche di gestione delle identità."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "Which principle should guide the assignment of IAM roles to users in Google Cloud?",
+    "options_en": [
+      "Assign the Owner role to everyone to avoid operational blocks",
+      "Grant the minimum privilege necessary to carry out the task (least privilege)",
+      "Always use basic primitive roles at the project level",
+      "Share a single account among several people on the team"
+    ],
+    "explanation_en": "The principle of least privilege calls for granting each identity only the permissions strictly necessary to perform its task, reducing the attack surface and the impact of any compromise. In IAM, granular predefined or custom roles are preferred over broad roles.",
+    "why_wrong_en": {
+      "0": "The Owner role grants very broad permissions: assigning it to everyone violates least privilege and is very risky.",
+      "2": "Primitive roles (Owner/Editor/Viewer) are too broad and discouraged in favor of granular predefined roles.",
+      "3": "Sharing accounts prevents traceability and violates good identity management practices."
+    }
   },
   {
     "id": "gc-003",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Crittografia", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Crittografia",
+      "Cloud security"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Come vengono cifrati per impostazione predefinita i dati archiviati (at-rest) sui servizi di storage di Google Cloud?",
@@ -56,19 +101,39 @@
       "Vengono cifrati solo se si acquista un componente aggiuntivo a pagamento",
       "Vengono cifrati solo i backup, non i dati in produzione"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Google Cloud cifra i dati at-rest automaticamente e in modo trasparente per impostazione predefinita, senza alcuna azione richiesta al cliente. Il cliente può inoltre gestire le proprie chiavi (CMEK con Cloud KMS) o fornire chiavi proprie (CSEK) per un controllo aggiuntivo.",
     "why_wrong": {
       "0": "La cifratura at-rest è attiva di default, non richiede attivazione manuale.",
       "2": "La cifratura di base è inclusa senza costi aggiuntivi.",
       "3": "Sono cifrati tutti i dati at-rest, non solo i backup."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "By default, how is data stored at rest encrypted on Google Cloud storage services?",
+    "options_en": [
+      "It is not encrypted unless manually enabled by the customer",
+      "It is encrypted automatically and transparently by default",
+      "It is encrypted only if you purchase a paid add-on",
+      "Only backups are encrypted, not production data"
+    ],
+    "explanation_en": "Google Cloud encrypts data at rest automatically and transparently by default, with no action required from the customer. The customer can also manage their own keys (CMEK with Cloud KMS) or supply their own keys (CSEK) for additional control.",
+    "why_wrong_en": {
+      "0": "At-rest encryption is enabled by default; it does not require manual activation.",
+      "2": "Basic encryption is included at no additional cost.",
+      "3": "All data at rest is encrypted, not just backups."
+    }
   },
   {
     "id": "gc-004",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Firewall", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Firewall",
+      "Cloud security"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "In una VPC di Google Cloud, a cosa servono le regole del firewall VPC?",
@@ -78,19 +143,39 @@
       "A gestire le identità degli utenti e i loro permessi",
       "A creare backup automatici delle macchine virtuali"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Le regole del firewall VPC filtrano il traffico di rete, consentendo o negando connessioni in ingresso (ingress) e in uscita (egress) verso e dalle istanze in base a protocolli, porte, intervalli IP e tag/service account. Sono un controllo di segmentazione e riduzione della superficie di attacco a livello di rete.",
     "why_wrong": {
       "0": "La cifratura del traffico è compito di TLS/IPsec, non delle regole firewall.",
       "2": "La gestione di identità e permessi è compito di IAM, non del firewall VPC.",
       "3": "I backup sono gestiti da servizi come snapshot, non dal firewall."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "In a Google Cloud VPC, what are VPC firewall rules used for?",
+    "options_en": [
+      "To encrypt traffic between instances",
+      "To control which network traffic is allowed or denied inbound and outbound from the instances",
+      "To manage user identities and their permissions",
+      "To create automatic backups of virtual machines"
+    ],
+    "explanation_en": "VPC firewall rules filter network traffic, allowing or denying inbound (ingress) and outbound (egress) connections to and from instances based on protocols, ports, IP ranges, and tags/service accounts. They are a segmentation control that reduces the attack surface at the network level.",
+    "why_wrong_en": {
+      "0": "Traffic encryption is the job of TLS/IPsec, not firewall rules.",
+      "2": "Managing identities and permissions is the job of IAM, not the VPC firewall.",
+      "3": "Backups are handled by services such as snapshots, not by the firewall."
+    }
   },
   {
     "id": "gc-005",
-    "cert": ["Google Cloud Security"],
-    "topics": ["IAM", "Controllo accessi"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "IAM",
+      "Controllo accessi"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Cos'è un service account (account di servizio) in Google Cloud IAM?",
@@ -100,19 +185,39 @@
       "Un ruolo primitivo che concede sempre permessi di Owner",
       "Un gruppo di utenti umani gestito da Google Workspace"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un service account è un tipo speciale di identità usato da applicazioni, macchine virtuali o workload (non da persone) per autenticarsi verso le API di Google Cloud e accedere alle risorse. Va gestito con least privilege, evitando chiavi statiche a lunga durata quando possibile e preferendo meccanismi come Workload Identity.",
     "why_wrong": {
       "0": "Gli account personali sono gli account utente, distinti dai service account destinati a workload non umani.",
       "2": "Un service account non è un ruolo e non concede automaticamente permessi di Owner.",
       "3": "I gruppi di utenti umani sono gestiti in Cloud Identity/Workspace, non sono service account."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "What is a service account in Google Cloud IAM?",
+    "options_en": [
+      "An account associated with a physical person for accessing the console",
+      "An identity used by applications, workloads, or services to authenticate and access resources",
+      "A primitive role that always grants Owner permissions",
+      "A group of human users managed by Google Workspace"
+    ],
+    "explanation_en": "A service account is a special type of identity used by applications, virtual machines, or workloads (not by people) to authenticate to Google Cloud APIs and access resources. It should be managed with least privilege, avoiding long-lived static keys when possible and preferring mechanisms such as Workload Identity.",
+    "why_wrong_en": {
+      "0": "Personal accounts are user accounts, distinct from service accounts intended for non-human workloads.",
+      "2": "A service account is not a role and does not automatically grant Owner permissions.",
+      "3": "Groups of human users are managed in Cloud Identity/Workspace; they are not service accounts."
+    }
   },
   {
     "id": "gc-006",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Crittografia", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Crittografia",
+      "Cloud security"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Quale tecnologia protegge tipicamente i dati in transito (in-transit) verso e all'interno dei servizi di Google Cloud?",
@@ -122,19 +227,39 @@
       "L'aumento della larghezza di banda",
       "La deduplicazione dei dati"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "I dati in transito sono protetti tramite cifratura del canale con TLS, che garantisce riservatezza e integrità delle comunicazioni tra client e servizi e tra i componenti dell'infrastruttura. Questo impedisce a un attaccante che intercetti il traffico di leggerne o alterarne il contenuto.",
     "why_wrong": {
       "0": "La compressione riduce la dimensione dei dati ma non ne garantisce riservatezza o integrità.",
       "2": "La larghezza di banda riguarda le prestazioni, non la sicurezza dei dati in transito.",
       "3": "La deduplicazione ottimizza lo storage, non protegge le comunicazioni."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "Which technology typically protects data in transit to and within Google Cloud services?",
+    "options_en": [
+      "Packet compression",
+      "Channel encryption via TLS",
+      "Increasing the bandwidth",
+      "Data deduplication"
+    ],
+    "explanation_en": "Data in transit is protected through channel encryption with TLS, which ensures the confidentiality and integrity of communications between clients and services and between infrastructure components. This prevents an attacker who intercepts the traffic from reading or altering its content.",
+    "why_wrong_en": {
+      "0": "Compression reduces the size of the data but does not ensure its confidentiality or integrity.",
+      "2": "Bandwidth relates to performance, not to the security of data in transit.",
+      "3": "Deduplication optimizes storage; it does not protect communications."
+    }
   },
   {
     "id": "gc-007",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Gestione del rischio", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Gestione del rischio",
+      "Cloud security"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Nella gestione del rischio nel cloud, cosa si intende principalmente per riduzione (mitigazione) del rischio?",
@@ -144,19 +269,39 @@
       "Trasferire sempre l'intera responsabilità al provider",
       "Eliminare qualsiasi rischio fino a raggiungere il rischio zero garantito"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "La mitigazione del rischio consiste nell'applicare controlli (tecnici, organizzativi e di processo) che riducono la probabilità che una minaccia si concretizzi o ne limitano l'impatto. Esempi: least privilege, cifratura, segmentazione di rete, logging e monitoraggio, backup.",
     "why_wrong": {
       "0": "Ignorare i rischi non è mitigazione: è accettazione implicita e non gestita, pericolosa.",
       "2": "La responsabilità è condivisa: parte resta sempre al cliente, non si trasferisce del tutto al provider.",
       "3": "Il rischio zero non è raggiungibile: si punta a portare il rischio a un livello accettabile (residuo)."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "In cloud risk management, what is primarily meant by risk reduction (mitigation)?",
+    "options_en": [
+      "Ignoring unlikely risks to save time",
+      "Applying controls that reduce the probability or impact of a threat",
+      "Always transferring the entire responsibility to the provider",
+      "Eliminating any risk until guaranteed zero risk is reached"
+    ],
+    "explanation_en": "Risk mitigation consists of applying controls (technical, organizational, and process) that reduce the probability of a threat materializing or limit its impact. Examples: least privilege, encryption, network segmentation, logging and monitoring, backups.",
+    "why_wrong_en": {
+      "0": "Ignoring risks is not mitigation: it is implicit, unmanaged acceptance, which is dangerous.",
+      "2": "Responsibility is shared: part always remains with the customer and is not fully transferred to the provider.",
+      "3": "Zero risk is not achievable: the goal is to bring risk down to an acceptable (residual) level."
+    }
   },
   {
     "id": "gc-008",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Compliance", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Compliance",
+      "Cloud security"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Cosa rappresentano certificazioni e attestazioni di compliance (es. ISO 27001, SOC 2) per un provider cloud come Google Cloud?",
@@ -166,19 +311,39 @@
       "Un obbligo di legge valido solo per i clienti, non per il provider",
       "Una funzione che cifra automaticamente tutti i dati del cliente"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Le certificazioni e attestazioni di compliance sono verifiche condotte da terze parti indipendenti che attestano la conformità dell'infrastruttura e dei processi del provider a determinati standard e normative. Non sollevano però il cliente dalle proprie responsabilità di configurazione sicura, coerentemente con il modello di responsabilità condivisa.",
     "why_wrong": {
       "0": "Il cliente resta comunque responsabile dei propri controlli: la compliance del provider non lo esonera.",
       "2": "La compliance riguarda anche il provider e serve al cliente per dimostrare la propria conformità.",
       "3": "La compliance è un'attestazione, non una funzione tecnica di cifratura."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "What do compliance certifications and attestations (e.g., ISO 27001, SOC 2) represent for a cloud provider such as Google Cloud?",
+    "options_en": [
+      "A guarantee that the customer does not need to adopt any security controls",
+      "Independent verifications that the provider's infrastructure and processes meet certain security standards",
+      "A legal obligation valid only for customers, not for the provider",
+      "A feature that automatically encrypts all customer data"
+    ],
+    "explanation_en": "Compliance certifications and attestations are checks carried out by independent third parties that attest to the conformity of the provider's infrastructure and processes to certain standards and regulations. However, they do not relieve the customer of their own responsibilities for secure configuration, consistent with the shared responsibility model.",
+    "why_wrong_en": {
+      "0": "The customer remains responsible for their own controls: the provider's compliance does not exempt them.",
+      "2": "Compliance concerns the provider as well and helps the customer demonstrate their own conformity.",
+      "3": "Compliance is an attestation, not a technical encryption feature."
+    }
   },
   {
     "id": "gc-009",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Controllo accessi", "IAM"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Controllo accessi",
+      "IAM"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Quale misura rafforza maggiormente la protezione degli account utente contro il furto di credenziali in Google Cloud?",
@@ -188,19 +353,39 @@
       "Disabilitare del tutto il logging degli accessi",
       "Condividere le credenziali solo via email interna"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "L'autenticazione a più fattori (MFA/2FA) aggiunge un secondo fattore oltre alla password, rendendo molto più difficile per un attaccante accedere anche se ha rubato le credenziali. È una delle contromisure più efficaci contro phishing e credential stuffing.",
     "why_wrong": {
       "0": "Password brevi sono deboli: la lunghezza e complessità contano più del cambio quotidiano.",
       "2": "Disabilitare il logging riduce la visibilità e la capacità di rilevare attacchi, peggiorando la sicurezza.",
       "3": "Condividere credenziali via email è una pratica insicura che ne aumenta l'esposizione."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "Which measure most strengthens the protection of user accounts against credential theft in Google Cloud?",
+    "options_en": [
+      "Using short passwords but changing them every day",
+      "Enabling multi-factor authentication (MFA/2FA)",
+      "Completely disabling access logging",
+      "Sharing credentials only via internal email"
+    ],
+    "explanation_en": "Multi-factor authentication (MFA/2FA) adds a second factor beyond the password, making it much harder for an attacker to gain access even if they have stolen the credentials. It is one of the most effective countermeasures against phishing and credential stuffing.",
+    "why_wrong_en": {
+      "0": "Short passwords are weak: length and complexity matter more than daily changes.",
+      "2": "Disabling logging reduces visibility and the ability to detect attacks, worsening security.",
+      "3": "Sharing credentials via email is an insecure practice that increases their exposure."
+    }
   },
   {
     "id": "gc-010",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Responsabilità condivisa", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Responsabilità condivisa",
+      "Cloud security"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti attività ricadono tipicamente sotto la responsabilità del CLIENTE nel modello di responsabilità condivisa? (Seleziona due)",
@@ -210,18 +395,38 @@
       "Manutenzione dell'hardware fisico dei server",
       "Classificazione e protezione dei propri dati"
     ],
-    "correct": [1, 3],
+    "correct": [
+      1,
+      3
+    ],
     "explanation": "Nel modello di responsabilità condivisa il cliente è responsabile della sicurezza NEL cloud: configurazione degli accessi e dei permessi IAM, gestione delle identità, classificazione e protezione dei propri dati, configurazione sicura dei servizi. Il provider si occupa invece dell'infrastruttura sottostante.",
     "why_wrong": {
       "0": "La protezione fisica dei data center è responsabilità del provider (Google).",
       "2": "La manutenzione dell'hardware fisico è a carico del provider."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "Which of the following activities typically fall under the CUSTOMER's responsibility in the shared responsibility model? (Select two)",
+    "options_en": [
+      "Physical protection of the data centers",
+      "Correct configuration of IAM permissions",
+      "Maintenance of the physical server hardware",
+      "Classification and protection of one's own data"
+    ],
+    "explanation_en": "In the shared responsibility model the customer is responsible for security IN the cloud: configuration of IAM access and permissions, identity management, classification and protection of their own data, and secure configuration of services. The provider, on the other hand, handles the underlying infrastructure.",
+    "why_wrong_en": {
+      "0": "The physical protection of the data centers is the provider's (Google's) responsibility.",
+      "2": "Maintenance of the physical hardware is the provider's responsibility."
+    }
   },
   {
     "id": "gc-011",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Firewall", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Firewall",
+      "Cloud security"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Quali affermazioni sulle regole del firewall VPC in Google Cloud sono corrette? (Seleziona due)",
@@ -231,18 +436,38 @@
       "Possono essere applicate selettivamente tramite tag di rete o service account",
       "Cifrano automaticamente i dati archiviati at-rest"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Le regole del firewall VPC filtrano il traffico in base a protocolli, porte, direzione e intervalli IP di origine/destinazione, e possono essere applicate in modo selettivo alle istanze tramite tag di rete o service account. Consentono così una segmentazione granulare della rete.",
     "why_wrong": {
       "1": "Il firewall controlla la rete, non i permessi sulle risorse: la gestione degli accessi resta compito di IAM.",
       "3": "La cifratura at-rest è una funzione dello storage, non delle regole firewall."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "Which statements about VPC firewall rules in Google Cloud are correct? (Select two)",
+    "options_en": [
+      "They can filter traffic based on protocols, ports, and IP ranges",
+      "They replace the need to manage IAM permissions",
+      "They can be applied selectively via network tags or service accounts",
+      "They automatically encrypt data stored at rest"
+    ],
+    "explanation_en": "VPC firewall rules filter traffic based on protocols, ports, direction, and source/destination IP ranges, and can be applied selectively to instances via network tags or service accounts. This allows granular network segmentation.",
+    "why_wrong_en": {
+      "1": "The firewall controls the network, not permissions on resources: access management remains the job of IAM.",
+      "3": "At-rest encryption is a storage feature, not a function of firewall rules."
+    }
   },
   {
     "id": "gc-012",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Gestione del rischio", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Gestione del rischio",
+      "Cloud security"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti sono strategie efficaci di riduzione del rischio in un ambiente Google Cloud? (Seleziona due)",
@@ -252,48 +477,111 @@
       "Abilitare logging, monitoraggio e alerting sulle attività",
       "Disabilitare la cifratura per migliorare le prestazioni"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Applicare il least privilege limita i permessi e quindi l'impatto di una compromissione, mentre logging, monitoraggio e alerting aumentano la capacità di rilevare e rispondere agli incidenti. Entrambe sono strategie chiave di riduzione del rischio.",
     "why_wrong": {
       "1": "Assegnare Owner a tutti amplia enormemente i privilegi e aumenta il rischio, violando il least privilege.",
       "3": "Disabilitare la cifratura espone i dati e aumenta il rischio: non è una mitigazione."
     },
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "Which of the following are effective risk reduction strategies in a Google Cloud environment? (Select two)",
+    "options_en": [
+      "Applying the principle of least privilege to IAM access",
+      "Assigning the Owner role to all users for simplicity",
+      "Enabling logging, monitoring, and alerting on activities",
+      "Disabling encryption to improve performance"
+    ],
+    "explanation_en": "Applying least privilege limits permissions and therefore the impact of a compromise, while logging, monitoring, and alerting increase the ability to detect and respond to incidents. Both are key risk reduction strategies.",
+    "why_wrong_en": {
+      "1": "Assigning Owner to everyone hugely expands privileges and increases risk, violating least privilege.",
+      "3": "Disabling encryption exposes data and increases risk: it is not a mitigation."
+    }
   },
   {
     "id": "gc-013",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Crittografia", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Crittografia",
+      "Cloud security"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "In Google Cloud i dati archiviati (at-rest) sono cifrati automaticamente per impostazione predefinita, senza richiedere azioni al cliente.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Google Cloud cifra i dati at-rest in modo automatico e trasparente per impostazione predefinita. Il cliente può opzionalmente gestire le proprie chiavi con Cloud KMS (CMEK) o fornire chiavi proprie (CSEK) per un controllo aggiuntivo.",
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "In Google Cloud, data stored at rest is automatically encrypted by default, without requiring any action from the customer.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Google Cloud encrypts data at rest automatically and transparently by default. The customer can optionally manage their own keys with Cloud KMS (CMEK) or supply their own keys (CSEK) for additional control."
   },
   {
     "id": "gc-014",
-    "cert": ["Google Cloud Security"],
-    "topics": ["Responsabilità condivisa", "Cloud security"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "Responsabilità condivisa",
+      "Cloud security"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Nel modello di responsabilità condivisa, adottare un servizio cloud solleva completamente il cliente da ogni responsabilità sulla sicurezza dei propri dati e accessi.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. La responsabilità è condivisa: il provider protegge l'infrastruttura, ma il cliente resta sempre responsabile della sicurezza NEL cloud, cioè della configurazione degli accessi IAM, della gestione delle identità e della protezione e classificazione dei propri dati.",
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "In the shared responsibility model, adopting a cloud service completely relieves the customer of any responsibility for the security of their own data and access.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. Responsibility is shared: the provider protects the infrastructure, but the customer always remains responsible for security IN the cloud, that is, IAM access configuration, identity management, and the protection and classification of their own data."
   },
   {
     "id": "gc-015",
-    "cert": ["Google Cloud Security"],
-    "topics": ["IAM", "Controllo accessi"],
+    "cert": [
+      "Google Cloud Security"
+    ],
+    "topics": [
+      "IAM",
+      "Controllo accessi"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Il principio del privilegio minimo (least privilege) prevede di concedere a ogni identità solo i permessi strettamente necessari a svolgere il proprio compito.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Il least privilege limita i permessi di ogni utente o service account allo stretto necessario, riducendo la superficie di attacco e l'impatto di eventuali compromissioni. In IAM si preferiscono ruoli predefiniti granulari o personalizzati rispetto ai ruoli primitivi troppo ampi.",
-    "source": "HACK/GOOGLE CLOUD da sistemare.rtf"
+    "source": "HACK/GOOGLE CLOUD da sistemare.rtf",
+    "question_en": "The principle of least privilege calls for granting each identity only the permissions strictly necessary to perform its task.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Least privilege limits the permissions of each user or service account to the strict minimum, reducing the attack surface and the impact of any compromise. In IAM, granular predefined or custom roles are preferred over overly broad primitive roles."
   }
 ]

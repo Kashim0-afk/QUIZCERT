@@ -1,8 +1,13 @@
 [
   {
     "id": "gai-001",
-    "cert": ["Google AI Essentials"],
-    "topics": ["IA generativa", "LLM"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "IA generativa",
+      "LLM"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Come funziona, in modo semplificato, un modello linguistico di grandi dimensioni (LLM) quando genera una risposta?",
@@ -12,19 +17,39 @@
       "Si collega sempre a Internet in tempo reale per verificare ogni frase",
       "Ragiona con coscienza e comprensione umana del significato"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un LLM genera testo prevedendo, un token alla volta, la continuazione statisticamente più probabile a partire dal contesto ricevuto e da ciò che è stato addestrato. Non consulta risposte pre-scritte né comprende come un essere umano.",
     "why_wrong": {
       "0": "Non esiste un archivio di risposte pronte: il testo viene generato dinamicamente token dopo token.",
       "2": "Un LLM di base produce testo dal proprio addestramento e non naviga automaticamente su Internet, salvo strumenti aggiuntivi.",
       "3": "Il modello non possiede coscienza né comprensione umana: elabora probabilità linguistiche."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "In simplified terms, how does a large language model (LLM) work when it generates a response?",
+    "options_en": [
+      "It looks up the exact answer in a database of pre-written answers",
+      "It predicts the most probable next word (or token) based on the preceding text",
+      "It always connects to the Internet in real time to verify every sentence",
+      "It reasons with human consciousness and understanding of meaning"
+    ],
+    "explanation_en": "An LLM generates text by predicting, one token at a time, the statistically most probable continuation based on the context received and on what it was trained on. It does not consult pre-written answers nor does it understand the way a human does.",
+    "why_wrong_en": {
+      "0": "There is no archive of ready-made answers: the text is generated dynamically token by token.",
+      "2": "A basic LLM produces text from its own training and does not automatically browse the Internet, except with additional tools.",
+      "3": "The model has no consciousness or human understanding: it processes linguistic probabilities."
+    }
   },
   {
     "id": "gai-002",
-    "cert": ["Google AI Essentials"],
-    "topics": ["IA responsabile", "LLM"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "IA responsabile",
+      "LLM"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Cosa si intende per allucinazione di un modello di IA generativa?",
@@ -34,19 +59,38 @@
       "Un rifiuto del modello di rispondere a domande sensibili",
       "Una risposta troppo lunga rispetto alla richiesta dell'utente"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "L'allucinazione è una risposta che appare convincente e ben formulata ma contiene informazioni false, inesistenti o inventate. Per questo occorre sempre verificare i fatti prodotti dall'IA.",
     "why_wrong": {
       "0": "L'allucinazione riguarda il contenuto errato dell'output, non un guasto tecnico del server.",
       "2": "Il rifiuto di rispondere non è un'allucinazione: è un comportamento voluto di sicurezza.",
       "3": "La lunghezza eccessiva è un problema di forma, non l'invenzione di fatti falsi."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "What is meant by a hallucination of a generative AI model?",
+    "options_en": [
+      "A server error that blocks the generation of the response",
+      "An output that is plausible and confident in tone but in fact false or fabricated",
+      "A refusal by the model to answer sensitive questions",
+      "A response that is too long relative to the user's request"
+    ],
+    "explanation_en": "A hallucination is a response that appears convincing and well phrased but contains false, non-existent, or fabricated information. For this reason, the facts produced by AI must always be verified.",
+    "why_wrong_en": {
+      "0": "A hallucination concerns the erroneous content of the output, not a technical server failure.",
+      "2": "A refusal to answer is not a hallucination: it is intentional safety behavior.",
+      "3": "Excessive length is a problem of form, not the fabrication of false facts."
+    }
   },
   {
     "id": "gai-003",
-    "cert": ["Google AI Essentials"],
-    "topics": ["Prompt Engineering"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "Prompt Engineering"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Quale caratteristica rende in genere più efficace un prompt rivolto a uno strumento di IA generativa?",
@@ -56,19 +100,38 @@
       "Usare solo una parola chiave isolata senza spiegazioni",
       "Scrivere sempre in maiuscolo per dare più importanza alla richiesta"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un prompt efficace specifica il contesto, l'obiettivo, il ruolo o il pubblico e il formato atteso. Più il modello capisce cosa serve, più la risposta è pertinente e utile.",
     "why_wrong": {
       "0": "La vaghezza porta a risposte generiche o fuori bersaglio.",
       "2": "Una singola parola isolata offre poco contesto e produce output imprecisi.",
       "3": "Il maiuscolo non aumenta la qualità della risposta: conta la chiarezza delle istruzioni."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "Which characteristic generally makes a prompt directed at a generative AI tool more effective?",
+    "options_en": [
+      "Being as vague as possible to leave the model free",
+      "Providing clear context, an objective, and, if useful, the desired output format",
+      "Using only a single isolated keyword without explanations",
+      "Always writing in uppercase to give more importance to the request"
+    ],
+    "explanation_en": "An effective prompt specifies the context, the objective, the role or audience, and the expected format. The more the model understands what is needed, the more relevant and useful the response.",
+    "why_wrong_en": {
+      "0": "Vagueness leads to generic or off-target responses.",
+      "2": "A single isolated word offers little context and produces imprecise output.",
+      "3": "Uppercase does not increase the quality of the response: what matters is the clarity of the instructions."
+    }
   },
   {
     "id": "gai-004",
-    "cert": ["Google AI Essentials"],
-    "topics": ["Machine Learning"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "Machine Learning"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Nel machine learning, cosa distingue principalmente l'apprendimento da un programma tradizionale scritto a regole?",
@@ -78,19 +141,39 @@
       "Il modello garantisce risultati sempre corretti al 100%",
       "Il modello viene aggiornato solo cambiando manualmente ogni singola regola"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "Nel machine learning il sistema apprende relazioni e schemi a partire dagli esempi contenuti nei dati di addestramento, anziché eseguire soltanto istruzioni fisse definite dai programmatori.",
     "why_wrong": {
       "1": "I dati sono essenziali: senza dati di addestramento un modello di ML non può imparare.",
       "2": "Nessun modello garantisce correttezza assoluta: produce previsioni con margini di errore.",
       "3": "L'aggiornamento avviene ri-addestrando sui dati, non riscrivendo a mano ogni regola."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "In machine learning, what mainly distinguishes learning from a traditional rule-based program?",
+    "options_en": [
+      "The model learns patterns from data instead of only following fixed rules programmed by hand",
+      "The model does not need any data to function",
+      "The model guarantees results that are always 100% correct",
+      "The model is updated only by manually changing each individual rule"
+    ],
+    "explanation_en": "In machine learning the system learns relationships and patterns from the examples contained in the training data, rather than merely executing fixed instructions defined by programmers.",
+    "why_wrong_en": {
+      "1": "Data is essential: without training data an ML model cannot learn.",
+      "2": "No model guarantees absolute correctness: it produces predictions with margins of error.",
+      "3": "Updating happens by retraining on data, not by rewriting each rule by hand."
+    }
   },
   {
     "id": "gai-005",
-    "cert": ["Google AI Essentials"],
-    "topics": ["IA responsabile", "Privacy"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "IA responsabile",
+      "Privacy"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Qual è un comportamento corretto riguardo alla privacy quando si usa uno strumento di IA generativa sul lavoro?",
@@ -100,19 +183,38 @@
       "Condividere le credenziali di accesso con i colleghi per comodità",
       "Presumere che tutto ciò che si scrive resti sempre privato e non venga mai usato"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Occorre evitare di inserire dati personali, riservati o aziendali sensibili negli strumenti di IA, salvo esplicita autorizzazione, perché i dati inseriti potrebbero essere trattati o conservati.",
     "why_wrong": {
       "0": "Inserire dati personali dei clienti senza autorizzazione viola privacy e policy aziendali.",
       "2": "Condividere credenziali è una cattiva pratica di sicurezza, non legata alla qualità dell'output.",
       "3": "Non si deve dare per scontata la riservatezza: i dati inseriti possono essere usati secondo i termini del servizio."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "What is a correct behavior regarding privacy when using a generative AI tool at work?",
+    "options_en": [
+      "Freely pasting customers' personal data to get better responses",
+      "Avoiding entering sensitive or confidential data unless permitted by company policies",
+      "Sharing access credentials with colleagues for convenience",
+      "Assuming that everything you write always stays private and is never used"
+    ],
+    "explanation_en": "You should avoid entering personal, confidential, or sensitive company data into AI tools, except with explicit authorization, because the entered data could be processed or retained.",
+    "why_wrong_en": {
+      "0": "Entering customers' personal data without authorization violates privacy and company policies.",
+      "2": "Sharing credentials is a bad security practice, unrelated to the quality of the output.",
+      "3": "You should not take confidentiality for granted: entered data may be used according to the terms of the service."
+    }
   },
   {
     "id": "gai-006",
-    "cert": ["Google AI Essentials"],
-    "topics": ["IA responsabile"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "IA responsabile"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Da dove deriva principalmente il bias (pregiudizio) presente nei sistemi di IA?",
@@ -122,19 +224,38 @@
       "Dal fatto che l'IA sceglie volontariamente di discriminare",
       "Dalla lunghezza del prompt inserito dall'utente"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Il bias nasce soprattutto dai dati di addestramento: se i dati contengono squilibri o pregiudizi storici, il modello può apprenderli e riprodurli negli output. Per questo servono controlli e supervisione umana.",
     "why_wrong": {
       "0": "Il bias è un problema legato ai dati e al modello, non a un guasto fisico dell'hardware.",
       "2": "L'IA non ha intenzioni: riproduce schemi appresi, non sceglie di discriminare consapevolmente.",
       "3": "La lunghezza del prompt non è la causa strutturale del bias del sistema."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "Where does the bias present in AI systems mainly come from?",
+    "options_en": [
+      "From a random failure of the hardware the model runs on",
+      "From the training data that reflects prejudices or imbalances of reality",
+      "From the fact that the AI deliberately chooses to discriminate",
+      "From the length of the prompt entered by the user"
+    ],
+    "explanation_en": "Bias arises mainly from the training data: if the data contains imbalances or historical prejudices, the model can learn them and reproduce them in its outputs. This is why controls and human oversight are needed.",
+    "why_wrong_en": {
+      "0": "Bias is a problem related to the data and the model, not to a physical hardware failure.",
+      "2": "AI has no intentions: it reproduces learned patterns; it does not consciously choose to discriminate.",
+      "3": "The length of the prompt is not the structural cause of the system's bias."
+    }
   },
   {
     "id": "gai-007",
-    "cert": ["Google AI Essentials"],
-    "topics": ["IA responsabile"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "IA responsabile"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Cosa significa mantenere un human-in-the-loop (essere umano nel processo) nell'uso dell'IA?",
@@ -144,19 +265,39 @@
       "Usare l'IA solo di notte quando nessuno lavora",
       "Sostituire completamente il giudizio umano con quello del modello"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Human-in-the-loop significa mantenere una supervisione umana che controlla, valida e corregge i risultati dell'IA, soprattutto nelle decisioni importanti, per ridurre errori, allucinazioni e bias.",
     "why_wrong": {
       "0": "L'autonomia totale senza controlli è l'opposto del principio di supervisione umana.",
       "2": "Il concetto non ha nulla a che vedere con l'orario di utilizzo.",
       "3": "L'obiettivo è integrare il giudizio umano con l'IA, non eliminarlo."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "What does it mean to keep a human-in-the-loop in the use of AI?",
+    "options_en": [
+      "Letting the AI make all decisions autonomously without controls",
+      "Providing for a person who reviews, validates, or corrects the AI's outputs",
+      "Using the AI only at night when no one is working",
+      "Completely replacing human judgment with that of the model"
+    ],
+    "explanation_en": "Human-in-the-loop means maintaining human oversight that checks, validates, and corrects the AI's results, especially in important decisions, to reduce errors, hallucinations, and bias.",
+    "why_wrong_en": {
+      "0": "Full autonomy without controls is the opposite of the principle of human oversight.",
+      "2": "The concept has nothing to do with the time of use.",
+      "3": "The goal is to integrate human judgment with AI, not to eliminate it."
+    }
   },
   {
     "id": "gai-008",
-    "cert": ["Google AI Essentials"],
-    "topics": ["Uso quotidiano", "Limiti e rischi"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "Uso quotidiano",
+      "Limiti e rischi"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Qual è un uso appropriato dell'IA generativa nel lavoro quotidiano?",
@@ -166,19 +307,38 @@
       "Affidarle decisioni legali o mediche definitive senza alcun esperto umano",
       "Considerare ogni sua risposta come una fonte sempre verificata e aggiornata"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "L'IA generativa è utile per generare bozze, riassunti, idee e per velocizzare compiti ripetitivi, ma i suoi output vanno sempre verificati e adattati prima dell'uso reale.",
     "why_wrong": {
       "0": "Pubblicare senza controllo espone a errori, allucinazioni e informazioni false.",
       "2": "Decisioni legali o mediche richiedono la validazione di professionisti umani qualificati.",
       "3": "Le risposte dell'IA non sono garantite come verificate o aggiornate e vanno controllate."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "What is an appropriate use of generative AI in everyday work?",
+    "options_en": [
+      "Publishing the outputs without ever checking them, to save time",
+      "Using it as an assistant for drafts and ideas, then verifying the content before using it",
+      "Entrusting it with final legal or medical decisions without any human expert",
+      "Considering each of its responses as an always verified and up-to-date source"
+    ],
+    "explanation_en": "Generative AI is useful for producing drafts, summaries, ideas, and for speeding up repetitive tasks, but its outputs must always be verified and adapted before real use.",
+    "why_wrong_en": {
+      "0": "Publishing without checking exposes you to errors, hallucinations, and false information.",
+      "2": "Legal or medical decisions require validation by qualified human professionals.",
+      "3": "AI responses are not guaranteed to be verified or up to date and must be checked."
+    }
   },
   {
     "id": "gai-009",
-    "cert": ["Google AI Essentials"],
-    "topics": ["IA generativa"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "IA generativa"
+    ],
     "type": "single",
     "difficulty": 1,
     "question": "Quale tra questi è un esempio tipico di IA generativa?",
@@ -188,19 +348,38 @@
       "Un foglio di calcolo che somma automaticamente una colonna di numeri",
       "Un filtro antispam basato su una lista fissa di parole vietate"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "L'IA generativa produce contenuti nuovi (testo, immagini, audio, codice) in risposta a una richiesta dell'utente. Gli altri esempi seguono regole fisse e non generano contenuti originali.",
     "why_wrong": {
       "0": "Il termostato applica una regola fissa a soglia, non genera contenuti nuovi.",
       "2": "La somma automatica è un calcolo predefinito, non generazione di contenuti originali.",
       "3": "Un filtro basato su lista fissa applica regole statiche, senza creare nulla di nuovo."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "Which of these is a typical example of generative AI?",
+    "options_en": [
+      "A thermostat that turns on the heating at a fixed temperature threshold",
+      "A tool that creates new text, images, or code starting from a prompt",
+      "A spreadsheet that automatically sums a column of numbers",
+      "An antispam filter based on a fixed list of forbidden words"
+    ],
+    "explanation_en": "Generative AI produces new content (text, images, audio, code) in response to a user request. The other examples follow fixed rules and do not generate original content.",
+    "why_wrong_en": {
+      "0": "The thermostat applies a fixed threshold rule; it does not generate new content.",
+      "2": "Automatic summing is a predefined calculation, not the generation of original content.",
+      "3": "A filter based on a fixed list applies static rules, without creating anything new."
+    }
   },
   {
     "id": "gai-010",
-    "cert": ["Google AI Essentials"],
-    "topics": ["Prompt Engineering"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "Prompt Engineering"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali di questi elementi contribuiscono a rendere un prompt più efficace? (seleziona 2)",
@@ -210,18 +389,38 @@
       "Specificare il formato dell'output (es. elenco puntato, tabella)",
       "Usare abbreviazioni ambigue e non spiegate"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Indicare pubblico/tono e specificare il formato desiderato aiuta il modello a produrre una risposta pertinente e nella forma richiesta. Ambiguità e mancanza di dettagli peggiorano invece la qualità.",
     "why_wrong": {
       "1": "Omettere ogni dettaglio rende il prompt vago e produce risposte generiche.",
       "3": "Le abbreviazioni ambigue confondono il modello e riducono la precisione della risposta."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "Which of these elements help make a prompt more effective? (select 2)",
+    "options_en": [
+      "Indicating the target audience or the desired tone",
+      "Omitting any detail so as not to condition the model",
+      "Specifying the output format (e.g., bulleted list, table)",
+      "Using ambiguous, unexplained abbreviations"
+    ],
+    "explanation_en": "Indicating the audience/tone and specifying the desired format helps the model produce a relevant response in the requested form. Ambiguity and lack of detail, on the other hand, worsen quality.",
+    "why_wrong_en": {
+      "1": "Omitting every detail makes the prompt vague and produces generic responses.",
+      "3": "Ambiguous abbreviations confuse the model and reduce the precision of the response."
+    }
   },
   {
     "id": "gai-011",
-    "cert": ["Google AI Essentials"],
-    "topics": ["IA responsabile", "Limiti e rischi"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "IA responsabile",
+      "Limiti e rischi"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali di questi sono limiti o rischi reali dell'IA generativa da tenere presenti? (seleziona 2)",
@@ -231,48 +430,111 @@
       "Può riflettere bias presenti nei dati di addestramento",
       "Garantisce sempre informazioni aggiornate all'ultimo minuto"
     ],
-    "correct": [0, 2],
+    "correct": [
+      0,
+      2
+    ],
     "explanation": "Tra i rischi principali ci sono le allucinazioni (fatti falsi ma convincenti) e i bias ereditati dai dati di addestramento. Entrambi richiedono verifica e supervisione umana.",
     "why_wrong": {
       "1": "L'IA non è immune dai pregiudizi: proprio l'uso dei dati può introdurli.",
       "3": "Le informazioni possono essere non aggiornate, poiché dipendono dai dati di addestramento."
     },
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "Which of these are real limitations or risks of generative AI to keep in mind? (select 2)",
+    "options_en": [
+      "It can generate hallucinations, that is, false but plausible information",
+      "It is immune to any bias because it uses data",
+      "It can reflect biases present in the training data",
+      "It always guarantees information that is up to date to the last minute"
+    ],
+    "explanation_en": "Among the main risks are hallucinations (false but convincing facts) and biases inherited from the training data. Both require verification and human oversight.",
+    "why_wrong_en": {
+      "1": "AI is not immune to bias: the very use of data can introduce it.",
+      "3": "The information may be out of date, since it depends on the training data."
+    }
   },
   {
     "id": "gai-012",
-    "cert": ["Google AI Essentials"],
-    "topics": ["LLM", "Limiti e rischi"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "LLM",
+      "Limiti e rischi"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Vero o falso: le risposte di un LLM vanno sempre verificate perché possono contenere errori o informazioni inventate.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Un LLM può produrre allucinazioni e imprecisioni: verificare i fatti prima di usarli è una buona pratica fondamentale.",
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "True or false: an LLM's responses should always be verified because they may contain errors or fabricated information.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. An LLM can produce hallucinations and inaccuracies: verifying the facts before using them is a fundamental good practice."
   },
   {
     "id": "gai-013",
-    "cert": ["Google AI Essentials"],
-    "topics": ["IA generativa", "Machine Learning"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "IA generativa",
+      "Machine Learning"
+    ],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Vero o falso: l'IA generativa comprende realmente il significato delle parole come farebbe un essere umano.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. Un modello generativo non comprende come un umano: elabora relazioni statistiche tra token e prevede la continuazione più probabile, senza coscienza o comprensione reale.",
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "True or false: generative AI truly understands the meaning of words the way a human being would.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. A generative model does not understand the way a human does: it processes statistical relationships between tokens and predicts the most probable continuation, without consciousness or real understanding."
   },
   {
     "id": "gai-014",
-    "cert": ["Google AI Essentials"],
-    "topics": ["IA responsabile", "Privacy"],
+    "cert": [
+      "Google AI Essentials"
+    ],
+    "topics": [
+      "IA responsabile",
+      "Privacy"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Vero o falso: mantenere la supervisione umana (human-in-the-loop) aiuta a ridurre gli effetti di errori e bias dell'IA.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. La supervisione umana permette di individuare e correggere allucinazioni, errori e pregiudizi, rendendo l'uso dell'IA più responsabile e affidabile.",
-    "source": "HACK/GOOGLE AI ESSENTIALS.rtf"
+    "source": "HACK/GOOGLE AI ESSENTIALS.rtf",
+    "question_en": "True or false: maintaining human oversight (human-in-the-loop) helps reduce the effects of AI errors and bias.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. Human oversight makes it possible to identify and correct hallucinations, errors, and biases, making the use of AI more responsible and reliable."
   }
 ]

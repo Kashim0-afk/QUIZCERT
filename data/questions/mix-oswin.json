@@ -6,13 +6,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "Un help desk deve creare un nuovo utente locale e aggiungerlo a un gruppo su una macchina Windows non appartenente a un dominio. Quale console MMC apre direttamente la gestione di utenti e gruppi locali?",
+    "question_en": "A help desk needs to create a new local user and add it to a group on a Windows machine that is not part of a domain. Which MMC console opens local users and groups management directly?",
     "options": ["lusrmgr.msc", "dsa.msc", "gpedit.msc", "services.msc"],
+    "options_en": ["lusrmgr.msc", "dsa.msc", "gpedit.msc", "services.msc"],
     "correct": [0],
     "explanation": "lusrmgr.msc apre lo snap-in 'Utenti e gruppi locali', usato per creare account locali, reimpostare password e gestire l'appartenenza ai gruppi su client e server non membri di dominio.",
+    "explanation_en": "lusrmgr.msc opens the 'Local Users and Groups' snap-in, used to create local accounts, reset passwords and manage group membership on clients and servers that are not domain members.",
     "why_wrong": {
       "1": "dsa.msc apre 'Active Directory Users and Computers', disponibile solo su domain controller o con gli strumenti RSAT, e gestisce account di dominio, non locali.",
       "2": "gpedit.msc apre l'Editor Criteri di gruppo locali, che configura policy ma non crea utenti o gruppi.",
       "3": "services.msc apre la console dei servizi di Windows, non c'entra con la gestione degli account."
+    },
+    "why_wrong_en": {
+      "1": "dsa.msc opens 'Active Directory Users and Computers', available only on a domain controller or with the RSAT tools, and it manages domain accounts, not local ones.",
+      "2": "gpedit.msc opens the Local Group Policy Editor, which configures policies but does not create users or groups.",
+      "3": "services.msc opens the Windows services console, which has nothing to do with account management."
     },
     "source": "IT generale"
   },
@@ -23,13 +31,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un utente accede via rete a una cartella condivisa. I permessi di condivisione (Share) gli concedono 'Controllo completo', mentre i permessi NTFS gli concedono solo 'Lettura'. Quale sara' il permesso effettivo dell'utente sui file?",
+    "question_en": "A user accesses a shared folder over the network. The Share permissions grant them 'Full Control', while the NTFS permissions grant them only 'Read'. What will be the user's effective permission on the files?",
     "options": ["Controllo completo", "Lettura", "Modifica", "Nessun accesso"],
+    "options_en": ["Full Control", "Read", "Modify", "No access"],
     "correct": [1],
     "explanation": "Quando si accede via rete, Windows applica l'intersezione tra permessi di condivisione e permessi NTFS: prevale il piu' restrittivo. Con Share 'Controllo completo' e NTFS 'Lettura', l'utente ottiene solo 'Lettura'.",
+    "explanation_en": "When accessing over the network, Windows applies the intersection of Share and NTFS permissions: the more restrictive one prevails. With Share 'Full Control' and NTFS 'Read', the user obtains only 'Read'.",
     "why_wrong": {
       "0": "Controllo completo sarebbe possibile solo se anche i permessi NTFS lo concedessero; qui NTFS limita a Lettura.",
       "2": "Modifica non e' concessa da nessuno dei due set di permessi effettivi combinati.",
       "3": "L'accesso non e' negato: entrambi i set concedono almeno la lettura, quindi l'utente puo' leggere."
+    },
+    "why_wrong_en": {
+      "0": "Full Control would be possible only if the NTFS permissions granted it too; here NTFS limits it to Read.",
+      "2": "Modify is not granted by either of the two combined effective permission sets.",
+      "3": "Access is not denied: both sets grant at least read, so the user can read."
     },
     "source": "IT generale"
   },
@@ -40,13 +56,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un servizio Windows risulta bloccato e devi verificarne lo stato e riavviarlo da riga di comando (prompt classico). Quale comando mostra lo stato corrente del servizio chiamato 'Spooler'?",
+    "question_en": "A Windows service appears to be stuck and you need to check its state and restart it from the command line (classic prompt). Which command shows the current state of the service named 'Spooler'?",
     "options": ["sc query Spooler", "net start", "tasklist /svc", "reg query Spooler"],
+    "options_en": ["sc query Spooler", "net start", "tasklist /svc", "reg query Spooler"],
     "correct": [0],
     "explanation": "'sc query Spooler' interroga il Service Control Manager e restituisce lo stato (RUNNING, STOPPED, ecc.) del servizio specificato. Per riavviarlo si usano 'net stop Spooler' e 'net start Spooler' oppure 'sc start Spooler'.",
+    "explanation_en": "'sc query Spooler' queries the Service Control Manager and returns the state (RUNNING, STOPPED, etc.) of the specified service. To restart it you use 'net stop Spooler' and 'net start Spooler' or 'sc start Spooler'.",
     "why_wrong": {
       "1": "'net start' senza argomenti elenca solo i servizi gia' avviati, non mostra lo stato dettagliato di un servizio specifico ne' quelli fermi.",
       "2": "'tasklist /svc' associa i processi ai servizi ma non restituisce lo stato START/STOP del Service Control Manager.",
       "3": "'reg query' interroga il registro di sistema, non lo stato di esecuzione di un servizio."
+    },
+    "why_wrong_en": {
+      "1": "'net start' without arguments only lists the already started services; it does not show the detailed state of a specific service nor the stopped ones.",
+      "2": "'tasklist /svc' maps processes to services but does not return the START/STOP state from the Service Control Manager.",
+      "3": "'reg query' queries the system registry, not the running state of a service."
     },
     "source": "IT generale"
   },
@@ -57,13 +81,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Devi modificare una chiave di configurazione valida per tutti gli utenti e per l'intero computer nel registro di sistema. In quale hive principale del registro dovresti operare?",
+    "question_en": "You need to modify a configuration key valid for all users and for the entire computer in the system registry. In which main registry hive should you operate?",
     "options": ["HKEY_CURRENT_USER", "HKEY_LOCAL_MACHINE", "HKEY_CLASSES_ROOT", "HKEY_CURRENT_CONFIG"],
+    "options_en": ["HKEY_CURRENT_USER", "HKEY_LOCAL_MACHINE", "HKEY_CLASSES_ROOT", "HKEY_CURRENT_CONFIG"],
     "correct": [1],
     "explanation": "HKEY_LOCAL_MACHINE (HKLM) contiene le impostazioni globali di sistema, valide per tutti gli utenti e per l'intero computer, come configurazioni hardware, servizi e software installato a livello di macchina.",
+    "explanation_en": "HKEY_LOCAL_MACHINE (HKLM) contains the global system settings, valid for all users and for the entire computer, such as hardware configurations, services and software installed at machine level.",
     "why_wrong": {
       "0": "HKEY_CURRENT_USER contiene le impostazioni solo dell'utente attualmente connesso, non validi per tutti.",
       "2": "HKEY_CLASSES_ROOT gestisce associazioni di file e registrazioni COM; e' una vista derivata, non le impostazioni globali di macchina.",
       "3": "HKEY_CURRENT_CONFIG contiene solo informazioni sul profilo hardware corrente, un sottoinsieme limitato."
+    },
+    "why_wrong_en": {
+      "0": "HKEY_CURRENT_USER contains the settings of only the currently logged-on user, not valid for everyone.",
+      "2": "HKEY_CLASSES_ROOT manages file associations and COM registrations; it is a derived view, not the global machine settings.",
+      "3": "HKEY_CURRENT_CONFIG contains only information about the current hardware profile, a limited subset."
     },
     "source": "IT generale"
   },
@@ -74,13 +106,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "In Task Manager un'applicazione risulta 'Non risponde' e occupa CPU. Un utente ti chiede come identificarla in modo univoco per poterla terminare da riga di comando. Quale valore identifica in modo univoco un processo in esecuzione?",
+    "question_en": "In Task Manager an application shows as 'Not responding' and is using CPU. A user asks you how to identify it uniquely so it can be terminated from the command line. Which value uniquely identifies a running process?",
     "options": ["Il nome dell'eseguibile", "Il PID (Process ID)", "Il titolo della finestra", "La priorita' del processo"],
+    "options_en": ["The executable name", "The PID (Process ID)", "The window title", "The process priority"],
     "correct": [1],
     "explanation": "Il PID (Process ID) e' un numero univoco assegnato dal sistema a ogni processo in esecuzione. Consente di terminarlo con precisione, ad esempio con 'taskkill /PID <numero> /F', anche quando piu' istanze condividono lo stesso nome.",
+    "explanation_en": "The PID (Process ID) is a unique number assigned by the system to each running process. It allows terminating it precisely, for example with 'taskkill /PID <number> /F', even when multiple instances share the same name.",
     "why_wrong": {
       "0": "Piu' processi possono condividere lo stesso nome eseguibile (es. piu' schede del browser), quindi il nome non e' univoco.",
       "2": "Il titolo della finestra puo' cambiare o mancare (processi senza interfaccia) e non identifica univocamente il processo.",
       "3": "La priorita' indica solo lo scheduling della CPU e non serve a distinguere un processo dagli altri."
+    },
+    "why_wrong_en": {
+      "0": "Multiple processes can share the same executable name (e.g. multiple browser tabs), so the name is not unique.",
+      "2": "The window title can change or be missing (processes without an interface) and does not uniquely identify the process.",
+      "3": "Priority only indicates CPU scheduling and does not serve to distinguish one process from another."
     },
     "source": "IT generale"
   },
@@ -91,13 +131,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un utente segnala di non riuscire ad accedere e sospetti tentativi di accesso falliti. In Visualizzatore eventi (Event Viewer), in quale registro cercheresti gli eventi di accesso riuscito e non riuscito?",
+    "question_en": "A user reports being unable to log in and you suspect failed logon attempts. In Event Viewer, in which log would you look for successful and failed logon events?",
     "options": ["Applicazione", "Sistema", "Sicurezza", "Installazione (Setup)"],
+    "options_en": ["Application", "System", "Security", "Setup"],
     "correct": [2],
     "explanation": "Il registro 'Sicurezza' (Security) contiene gli eventi di audit, inclusi gli accessi riusciti (Event ID 4624) e falliti (Event ID 4625). E' il punto di partenza per analizzare problemi di autenticazione e possibili attacchi brute force.",
+    "explanation_en": "The 'Security' log contains the audit events, including successful logons (Event ID 4624) and failed logons (Event ID 4625). It is the starting point for analyzing authentication problems and possible brute force attacks.",
     "why_wrong": {
       "0": "Il registro 'Applicazione' raccoglie eventi generati dai programmi installati, non gli eventi di logon.",
       "1": "Il registro 'Sistema' contiene eventi di componenti di Windows e driver, non l'audit degli accessi.",
       "3": "Il registro 'Installazione' riguarda gli eventi relativi all'installazione di aggiornamenti e componenti, non gli accessi utente."
+    },
+    "why_wrong_en": {
+      "0": "The 'Application' log collects events generated by installed programs, not logon events.",
+      "1": "The 'System' log contains events from Windows components and drivers, not logon auditing.",
+      "3": "The 'Setup' log concerns events related to the installation of updates and components, not user logons."
     },
     "source": "IT generale"
   },
@@ -108,13 +156,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "In PowerShell devi elencare tutti i servizi installati sul sistema con il relativo stato. Quale cmdlet e' quello corretto?",
+    "question_en": "In PowerShell you need to list all the services installed on the system with their state. Which cmdlet is the correct one?",
     "options": ["Get-Service", "Get-Process", "Get-Item", "Get-Content"],
+    "options_en": ["Get-Service", "Get-Process", "Get-Item", "Get-Content"],
     "correct": [0],
     "explanation": "Get-Service restituisce l'elenco dei servizi con nome, nome visualizzato e stato (Running/Stopped). E' possibile filtrare, ad esempio, con 'Get-Service | Where-Object {$_.Status -eq \"Running\"}'.",
+    "explanation_en": "Get-Service returns the list of services with name, display name and state (Running/Stopped). You can filter, for example, with 'Get-Service | Where-Object {$_.Status -eq \"Running\"}'.",
     "why_wrong": {
       "1": "Get-Process elenca i processi in esecuzione, non i servizi registrati nel Service Control Manager.",
       "2": "Get-Item recupera un oggetto (file, chiave di registro, ecc.) da un percorso, non i servizi.",
       "3": "Get-Content legge il contenuto di un file di testo, non ha nulla a che vedere con i servizi."
+    },
+    "why_wrong_en": {
+      "1": "Get-Process lists the running processes, not the services registered in the Service Control Manager.",
+      "2": "Get-Item retrieves an object (file, registry key, etc.) from a path, not the services.",
+      "3": "Get-Content reads the content of a text file, it has nothing to do with services."
     },
     "source": "IT generale"
   },
@@ -125,13 +181,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Hai modificato un criterio di gruppo (Group Policy) e vuoi applicarlo immediatamente su un client senza attendere il refresh automatico o riavviare. Quale comando forza l'aggiornamento dei criteri?",
+    "question_en": "You have modified a Group Policy and want to apply it immediately on a client without waiting for the automatic refresh or rebooting. Which command forces the policy update?",
     "options": ["gpresult /r", "gpupdate /force", "gpedit.msc", "rsop.msc"],
+    "options_en": ["gpresult /r", "gpupdate /force", "gpedit.msc", "rsop.msc"],
     "correct": [1],
     "explanation": "'gpupdate /force' rielabora e riapplica tutte le impostazioni dei Criteri di gruppo (utente e computer) immediatamente, senza attendere il ciclo di aggiornamento predefinito (circa 90 minuti).",
+    "explanation_en": "'gpupdate /force' reprocesses and reapplies all Group Policy settings (user and computer) immediately, without waiting for the default refresh cycle (about 90 minutes).",
     "why_wrong": {
       "0": "'gpresult /r' mostra un report dei criteri risultanti applicati, ma non li aggiorna ne' li riapplica.",
       "2": "'gpedit.msc' apre l'editor per modificare i criteri locali, ma non forza l'applicazione immediata su un refresh.",
       "3": "'rsop.msc' visualizza il set di criteri risultante (Resultant Set of Policy) a scopo diagnostico, non forza l'aggiornamento."
+    },
+    "why_wrong_en": {
+      "0": "'gpresult /r' shows a report of the resulting applied policies, but does not update or reapply them.",
+      "2": "'gpedit.msc' opens the editor to modify local policies, but does not force immediate application through a refresh.",
+      "3": "'rsop.msc' displays the Resultant Set of Policy for diagnostic purposes, it does not force the update."
     },
     "source": "IT generale"
   },
@@ -142,13 +206,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "Un utente lamenta problemi di rete e devi vedere l'indirizzo IP completo, il gateway predefinito, il server DNS e l'indirizzo MAC della scheda. Quale comando fornisce tutti questi dettagli?",
+    "question_en": "A user complains about network problems and you need to see the full IP address, the default gateway, the DNS server and the MAC address of the adapter. Which command provides all these details?",
     "options": ["ipconfig", "ipconfig /all", "ping localhost", "netstat -a"],
+    "options_en": ["ipconfig", "ipconfig /all", "ping localhost", "netstat -a"],
     "correct": [1],
     "explanation": "'ipconfig /all' mostra la configurazione completa di ogni scheda di rete: indirizzo IP, subnet mask, gateway predefinito, server DNS, indirizzo fisico (MAC), stato DHCP e lease.",
+    "explanation_en": "'ipconfig /all' shows the complete configuration of each network adapter: IP address, subnet mask, default gateway, DNS server, physical address (MAC), DHCP state and lease.",
     "why_wrong": {
       "0": "'ipconfig' senza parametri mostra solo IP, subnet mask e gateway di base, senza DNS, MAC e dettagli DHCP.",
       "2": "'ping localhost' verifica solo che lo stack TCP/IP locale risponda, non mostra la configurazione della scheda.",
       "3": "'netstat -a' elenca le connessioni e le porte in ascolto, non la configurazione IP della scheda."
+    },
+    "why_wrong_en": {
+      "0": "'ipconfig' without parameters shows only the basic IP, subnet mask and gateway, without DNS, MAC and DHCP details.",
+      "2": "'ping localhost' only checks that the local TCP/IP stack responds, it does not show the adapter configuration.",
+      "3": "'netstat -a' lists connections and listening ports, not the IP configuration of the adapter."
     },
     "source": "IT generale"
   },
@@ -159,13 +231,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un sito web e' stato spostato su un nuovo server ma un utente continua a raggiungere il vecchio indirizzo. Sospetti una cache DNS locale obsoleta. Quale comando svuota la cache DNS del client Windows?",
+    "question_en": "A website has been moved to a new server but a user keeps reaching the old address. You suspect a stale local DNS cache. Which command flushes the DNS cache of the Windows client?",
     "options": ["ipconfig /flushdns", "ipconfig /renew", "nslookup /clear", "netsh reset all"],
+    "options_en": ["ipconfig /flushdns", "ipconfig /renew", "nslookup /clear", "netsh reset all"],
     "correct": [0],
     "explanation": "'ipconfig /flushdns' cancella la cache del resolver DNS locale, costringendo il client a interrogare nuovamente il server DNS alla successiva risoluzione, cosi' da ottenere il record aggiornato.",
+    "explanation_en": "'ipconfig /flushdns' clears the local DNS resolver cache, forcing the client to query the DNS server again on the next resolution, so as to obtain the updated record.",
     "why_wrong": {
       "1": "'ipconfig /renew' rinnova il lease DHCP dell'indirizzo IP, ma non tocca la cache DNS.",
       "2": "'nslookup /clear' non e' un comando valido: nslookup interroga il DNS ma non gestisce la cache del resolver.",
       "3": "'netsh reset all' non e' una sintassi corretta; il reset dello stack (es. 'netsh winsock reset') e' un'operazione piu' invasiva e non e' quella indicata per svuotare la cache DNS."
+    },
+    "why_wrong_en": {
+      "1": "'ipconfig /renew' renews the DHCP lease of the IP address, but does not touch the DNS cache.",
+      "2": "'nslookup /clear' is not a valid command: nslookup queries the DNS but does not manage the resolver cache.",
+      "3": "'netsh reset all' is not correct syntax; resetting the stack (e.g. 'netsh winsock reset') is a more invasive operation and is not the one meant for flushing the DNS cache."
     },
     "source": "IT generale"
   },
@@ -176,13 +256,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Devi verificare quale indirizzo IP restituisce un nome di dominio e interrogare eventualmente un server DNS specifico per il troubleshooting. Quale strumento da riga di comando e' pensato proprio per interrogare i server DNS?",
+    "question_en": "You need to check which IP address a domain name returns and, if needed, query a specific DNS server for troubleshooting. Which command-line tool is designed precisely to query DNS servers?",
     "options": ["nslookup", "tracert", "arp -a", "route print"],
+    "options_en": ["nslookup", "tracert", "arp -a", "route print"],
     "correct": [0],
     "explanation": "'nslookup' interroga i server DNS per risolvere nomi in indirizzi IP (e viceversa) e permette di specificare un server DNS diverso, utile per confrontare le risposte e diagnosticare problemi di risoluzione dei nomi.",
+    "explanation_en": "'nslookup' queries DNS servers to resolve names into IP addresses (and vice versa) and allows specifying a different DNS server, useful for comparing the answers and diagnosing name resolution problems.",
     "why_wrong": {
       "1": "'tracert' traccia il percorso dei router fino a una destinazione, non interroga specificamente i record DNS.",
       "2": "'arp -a' mostra la tabella di corrispondenza tra indirizzi IP e MAC sulla rete locale, non i record DNS.",
       "3": "'route print' mostra la tabella di routing IP locale, non serve per la risoluzione dei nomi DNS."
+    },
+    "why_wrong_en": {
+      "1": "'tracert' traces the path of routers to a destination, it does not specifically query DNS records.",
+      "2": "'arp -a' shows the mapping table between IP and MAC addresses on the local network, not DNS records.",
+      "3": "'route print' shows the local IP routing table, it is not used for DNS name resolution."
     },
     "source": "IT generale"
   },
@@ -193,12 +281,19 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti sono autorizzazioni NTFS standard (di base) assegnabili a un file o a una cartella? Seleziona le due opzioni corrette.",
+    "question_en": "Which of the following are standard (basic) NTFS permissions assignable to a file or a folder? Select the two correct options.",
     "options": ["Controllo completo", "Modifica", "Condivisione avanzata", "Priorita' di accesso"],
+    "options_en": ["Full Control", "Modify", "Advanced Sharing", "Access priority"],
     "correct": [0, 1],
     "explanation": "Le autorizzazioni NTFS standard includono Controllo completo, Modifica, Lettura ed esecuzione, Lettura e Scrittura. 'Controllo completo' consente ogni operazione inclusa la modifica dei permessi; 'Modifica' consente lettura, scrittura e cancellazione ma non il cambio dei permessi.",
+    "explanation_en": "The standard NTFS permissions include Full Control, Modify, Read and Execute, Read and Write. 'Full Control' allows every operation including changing the permissions; 'Modify' allows reading, writing and deleting but not changing the permissions.",
     "why_wrong": {
       "2": "'Condivisione avanzata' e' una funzione della scheda Condivisione (Share) per esporre una cartella in rete, non un'autorizzazione NTSF sul file system.",
       "3": "'Priorita' di accesso' non esiste come autorizzazione NTFS: i permessi si valutano per cumulo e con la regola che il Nega prevale sul Consenti."
+    },
+    "why_wrong_en": {
+      "2": "'Advanced Sharing' is a function of the Sharing (Share) tab used to expose a folder over the network, not an NTFS permission on the file system.",
+      "3": "'Access priority' does not exist as an NTFS permission: permissions are evaluated cumulatively and with the rule that Deny prevails over Allow."
     },
     "source": "IT generale"
   },
@@ -209,12 +304,19 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Vuoi visualizzare l'elenco dei processi attualmente in esecuzione su un client Windows. Quali dei seguenti comandi sono adatti allo scopo? Seleziona le due opzioni corrette.",
+    "question_en": "You want to display the list of processes currently running on a Windows client. Which of the following commands are suitable for the purpose? Select the two correct options.",
     "options": ["Get-Process (PowerShell)", "tasklist (prompt dei comandi)", "chkdsk (prompt dei comandi)", "Get-ChildItem (PowerShell)"],
+    "options_en": ["Get-Process (PowerShell)", "tasklist (Command Prompt)", "chkdsk (Command Prompt)", "Get-ChildItem (PowerShell)"],
     "correct": [0, 1],
     "explanation": "Get-Process in PowerShell e 'tasklist' nel prompt dei comandi elencano entrambi i processi in esecuzione con nome, PID e utilizzo di memoria, utili per il troubleshooting delle prestazioni.",
+    "explanation_en": "Get-Process in PowerShell and 'tasklist' in the Command Prompt both list the running processes with name, PID and memory usage, useful for performance troubleshooting.",
     "why_wrong": {
       "2": "'chkdsk' controlla l'integrita' del file system e del disco, non elenca i processi in esecuzione.",
       "3": "Get-ChildItem elenca il contenuto di un percorso (file, cartelle, chiavi di registro), non i processi."
+    },
+    "why_wrong_en": {
+      "2": "'chkdsk' checks the integrity of the file system and disk, it does not list the running processes.",
+      "3": "Get-ChildItem lists the content of a path (files, folders, registry keys), not the processes."
     },
     "source": "IT generale"
   },
@@ -225,17 +327,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Devi gestire gli aggiornamenti di sistema e i servizi correlati su un client Windows. Quali delle seguenti affermazioni sono corrette? Seleziona le due opzioni corrette.",
+    "question_en": "You need to manage system updates and the related services on a Windows client. Which of the following statements are correct? Select the two correct options.",
     "options": [
       "Windows Update puo' essere configurato tramite l'app Impostazioni oppure tramite Criteri di gruppo",
       "Il servizio 'Windows Update' (wuauserv) deve essere in esecuzione per scaricare e installare gli aggiornamenti",
       "Disinstallare un aggiornamento qualitativo problematico e' impossibile una volta installato",
       "Gli aggiornamenti di Windows si applicano solo tramite modifica manuale del registro di sistema"
     ],
+    "options_en": [
+      "Windows Update can be configured through the Settings app or through Group Policy",
+      "The 'Windows Update' service (wuauserv) must be running to download and install updates",
+      "Uninstalling a problematic quality update is impossible once it is installed",
+      "Windows updates are applied only through manual editing of the system registry"
+    ],
     "correct": [0, 1],
     "explanation": "Windows Update si configura sia dall'app Impostazioni sia, in ambienti gestiti, tramite Criteri di gruppo. Il servizio wuauserv deve essere avviato perche' il client possa rilevare, scaricare e installare gli aggiornamenti.",
+    "explanation_en": "Windows Update is configured both from the Settings app and, in managed environments, through Group Policy. The wuauserv service must be started so that the client can detect, download and install updates.",
     "why_wrong": {
       "2": "Un aggiornamento problematico puo' essere rimosso da 'Cronologia aggiornamenti > Disinstalla aggiornamenti' o con 'wusa /uninstall', quindi l'affermazione e' falsa.",
       "3": "Gli aggiornamenti si installano tramite il servizio Windows Update, WSUS o pacchetti .msu; la modifica manuale del registro non e' il meccanismo di applicazione."
+    },
+    "why_wrong_en": {
+      "2": "A problematic update can be removed from 'Update history > Uninstall updates' or with 'wusa /uninstall', so the statement is false.",
+      "3": "Updates are installed through the Windows Update service, WSUS or .msu packages; manual registry editing is not the application mechanism."
     },
     "source": "IT generale"
   },
@@ -246,17 +360,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Un help desk deve impostare una strategia di backup di base per i dati di un utente. Quali delle seguenti sono buone pratiche di backup? Seleziona le due opzioni corrette.",
+    "question_en": "A help desk needs to set up a basic backup strategy for a user's data. Which of the following are good backup practices? Select the two correct options.",
     "options": [
       "Conservare almeno una copia dei dati su un supporto o percorso separato dal dispositivo originale",
       "Verificare periodicamente che i backup siano ripristinabili con un test di restore",
       "Salvare il backup nella stessa cartella dei dati originali sullo stesso disco",
       "Eliminare i dati originali subito dopo aver avviato il backup, senza attenderne il completamento"
     ],
+    "options_en": [
+      "Keep at least one copy of the data on a medium or location separate from the original device",
+      "Periodically verify that the backups are restorable with a restore test",
+      "Save the backup in the same folder as the original data on the same disk",
+      "Delete the original data right after starting the backup, without waiting for it to complete"
+    ],
     "correct": [0, 1],
     "explanation": "Una copia su supporto o percorso separato protegge dai guasti del dispositivo originale (principio della regola 3-2-1). Testare periodicamente il ripristino garantisce che il backup sia realmente utilizzabile in caso di emergenza.",
+    "explanation_en": "A copy on a separate medium or location protects against failures of the original device (the 3-2-1 rule principle). Periodically testing the restore ensures that the backup is actually usable in an emergency.",
     "why_wrong": {
       "2": "Salvare il backup sullo stesso disco dei dati originali non protegge da un guasto del disco: se il disco si rompe, si perdono sia dati che backup.",
       "3": "Eliminare gli originali prima che il backup sia completato e verificato espone a una perdita totale dei dati se il backup fallisce."
+    },
+    "why_wrong_en": {
+      "2": "Saving the backup on the same disk as the original data does not protect against a disk failure: if the disk breaks, both the data and the backup are lost.",
+      "3": "Deleting the originals before the backup is completed and verified exposes you to total data loss if the backup fails."
     },
     "source": "IT generale"
   },
@@ -267,11 +393,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Nei permessi NTFS, un permesso di tipo 'Nega' (Deny) esplicito prevale su un permesso di tipo 'Consenti' (Allow) quando entrambi si applicano allo stesso utente.",
+    "question_en": "In NTFS permissions, an explicit 'Deny' permission prevails over an 'Allow' permission when both apply to the same user.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Nella valutazione dei permessi NTFS, il Nega esplicito ha la precedenza sul Consenti. Se un utente riceve Consenti da un gruppo ma Nega da un altro (o direttamente), l'accesso viene negato.",
+    "explanation_en": "True. In the evaluation of NTFS permissions, an explicit Deny takes precedence over Allow. If a user receives Allow from one group but Deny from another (or directly), access is denied.",
     "why_wrong": {
       "1": "E' falso affermare il contrario: la regola di Windows e' che il Nega esplicito vince sul Consenti, salvo casi particolari come un Consenti esplicito sull'oggetto rispetto a un Nega ereditato."
+    },
+    "why_wrong_en": {
+      "1": "It is false to state the opposite: the Windows rule is that an explicit Deny wins over Allow, except in special cases such as an explicit Allow on the object versus an inherited Deny."
     },
     "source": "IT generale"
   },
@@ -282,11 +414,17 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Per eseguire un comando o un programma con privilegi amministrativi da un account standard, e' sufficiente aprire il prompt dei comandi o PowerShell normalmente, senza mai selezionare 'Esegui come amministratore'.",
+    "question_en": "To run a command or a program with administrative privileges from a standard account, it is enough to open the Command Prompt or PowerShell normally, without ever selecting 'Run as administrator'.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. Molte operazioni amministrative (installazioni, modifiche a HKLM, gestione servizi) richiedono un token elevato. Occorre avviare il prompt o PowerShell con 'Esegui come amministratore', superando il controllo UAC.",
+    "explanation_en": "False. Many administrative operations (installations, changes to HKLM, service management) require an elevated token. You must start the prompt or PowerShell with 'Run as administrator', passing the UAC check.",
     "why_wrong": {
       "0": "Un prompt aperto normalmente eredita un token standard: i comandi che richiedono privilegi elevati falliranno con 'Accesso negato' finche' non si esegue con elevazione."
+    },
+    "why_wrong_en": {
+      "0": "A prompt opened normally inherits a standard token: commands that require elevated privileges will fail with 'Access denied' until you run with elevation."
     },
     "source": "IT generale"
   },
@@ -297,11 +435,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Nel Visualizzatore eventi di Windows, ogni evento e' contrassegnato da un ID evento (Event ID) che identifica il tipo specifico di evento registrato.",
+    "question_en": "In the Windows Event Viewer, every event is marked with an Event ID that identifies the specific type of event recorded.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Ogni voce del registro eventi riporta un Event ID numerico associato a un tipo di evento (es. 4624 accesso riuscito, 4625 accesso fallito, 7045 nuovo servizio installato), utile per filtrare e diagnosticare.",
+    "explanation_en": "True. Each event log entry reports a numeric Event ID associated with a type of event (e.g. 4624 successful logon, 4625 failed logon, 7045 new service installed), useful for filtering and diagnosing.",
     "why_wrong": {
       "1": "E' falso negarlo: l'Event ID e' un campo standard di ogni evento e viene usato quotidianamente per creare filtri e regole di monitoraggio."
+    },
+    "why_wrong_en": {
+      "1": "It is false to deny it: the Event ID is a standard field of every event and is used daily to create filters and monitoring rules."
     },
     "source": "IT generale"
   }

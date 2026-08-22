@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Un utente segnala che 'la stampante non funziona'. Seguendo la metodologia di troubleshooting in stile CompTIA, qual è il PRIMO passo corretto da compiere?",
+    "question_en": "A user reports that 'the printer is not working'. Following the CompTIA-style troubleshooting methodology, what is the correct FIRST step to take?",
     "options": [
       "Stabilire una teoria sulla causa probabile del guasto",
       "Identificare il problema raccogliendo informazioni dall'utente e riproducendo il sintomo",
       "Riavviare direttamente la stampante sperando che si risolva",
       "Documentare l'intervento nel sistema di ticketing"
     ],
+    "options_en": [
+      "Establish a theory of the probable cause of the fault",
+      "Identify the problem by gathering information from the user and reproducing the symptom",
+      "Restart the printer directly, hoping it resolves the issue",
+      "Document the intervention in the ticketing system"
+    ],
     "correct": [1],
     "explanation": "Il primo passo della metodologia strutturata (CompTIA) è 'Identificare il problema': raccogliere informazioni dall'utente, porre domande, identificare i sintomi e determinare se qualcosa è cambiato di recente. Solo dopo aver capito bene il problema si passa a formulare ipotesi sulla causa.",
+    "explanation_en": "The first step of the structured methodology (CompTIA) is 'Identify the problem': gather information from the user, ask questions, identify the symptoms, and determine whether anything has changed recently. Only after clearly understanding the problem do you move on to forming hypotheses about the cause.",
     "why_wrong": {
       "0": "Stabilire una teoria sulla causa probabile è il SECONDO passo: viene dopo aver identificato e circoscritto il problema.",
       "2": "Agire subito senza aver identificato il problema è un tentativo alla cieca che può peggiorare la situazione e non fa parte di un approccio metodico.",
       "3": "La documentazione è l'ULTIMO passo del processo, non il primo."
+    },
+    "why_wrong_en": {
+      "0": "Establishing a theory of the probable cause is the SECOND step: it comes after identifying and narrowing down the problem.",
+      "2": "Acting immediately without having identified the problem is a blind attempt that can worsen the situation and is not part of a methodical approach.",
+      "3": "Documentation is the LAST step of the process, not the first."
     },
     "source": "IT generale"
   },
@@ -28,18 +41,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Hai identificato il problema e formulato una teoria sulla causa probabile (un driver corrotto). Secondo la sequenza metodologica CompTIA, qual è il passo IMMEDIATAMENTE successivo?",
+    "question_en": "You have identified the problem and formed a theory of the probable cause (a corrupted driver). According to the CompTIA methodological sequence, what is the IMMEDIATELY following step?",
     "options": [
       "Documentare risultati, azioni ed esiti",
       "Verificare la piena funzionalità del sistema",
       "Testare la teoria per determinare/confermare la causa",
       "Implementare direttamente la soluzione definitiva"
     ],
+    "options_en": [
+      "Document findings, actions, and outcomes",
+      "Verify full system functionality",
+      "Test the theory to determine/confirm the cause",
+      "Directly implement the definitive solution"
+    ],
     "correct": [2],
     "explanation": "Dopo aver stabilito una teoria sulla causa probabile, il passo successivo è 'Testare la teoria per confermare la causa'. Se il test conferma l'ipotesi si procede con un piano d'azione; se la smentisce, si formula una nuova teoria (o si esegue l'escalation).",
+    "explanation_en": "After establishing a theory of the probable cause, the next step is 'Test the theory to confirm the cause'. If the test confirms the hypothesis, you proceed with an action plan; if it disproves it, you form a new theory (or perform escalation).",
     "why_wrong": {
       "0": "La documentazione è l'ultimo passo, dopo aver risolto e verificato.",
       "1": "La verifica della piena funzionalità avviene dopo aver implementato la soluzione, non subito dopo la teoria.",
       "3": "Prima di implementare una soluzione bisogna confermare la causa e stabilire un piano d'azione; implementare senza test è prematuro."
+    },
+    "why_wrong_en": {
+      "0": "Documentation is the last step, after resolving and verifying.",
+      "1": "Verifying full functionality occurs after implementing the solution, not immediately after the theory.",
+      "3": "Before implementing a solution you must confirm the cause and establish an action plan; implementing without testing is premature."
     },
     "source": "IT generale"
   },
@@ -50,18 +76,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Cosa definisce principalmente uno SLA (Service Level Agreement) nel contesto di un service desk?",
+    "question_en": "What does an SLA (Service Level Agreement) mainly define in the context of a service desk?",
     "options": [
       "Gli obiettivi di servizio misurabili concordati, come i tempi massimi di risposta e di risoluzione per categoria di ticket",
       "L'inventario completo di tutto l'hardware e software dell'azienda",
       "La procedura tecnica passo-passo per riparare un guasto specifico",
       "L'elenco dei permessi di accesso degli utenti ai sistemi"
     ],
+    "options_en": [
+      "The agreed measurable service targets, such as the maximum response and resolution times per ticket category",
+      "The complete inventory of all the company's hardware and software",
+      "The step-by-step technical procedure to repair a specific fault",
+      "The list of users' access permissions to the systems"
+    ],
     "correct": [0],
     "explanation": "Uno SLA è un accordo che stabilisce i livelli di servizio attesi e misurabili tra fornitore e cliente: tipicamente tempi di risposta (response time) e di risoluzione (resolution time) differenziati per priorità, oltre a metriche di disponibilità. Serve a fissare aspettative chiare e a misurare le prestazioni del servizio.",
+    "explanation_en": "An SLA is an agreement that establishes the expected and measurable service levels between provider and customer: typically response times and resolution times differentiated by priority, as well as availability metrics. It serves to set clear expectations and measure service performance.",
     "why_wrong": {
       "1": "L'inventario hardware/software è oggetto dell'asset management, non dello SLA.",
       "2": "Le procedure tecniche di riparazione appartengono alla knowledge base / runbook, non allo SLA.",
       "3": "La gestione dei permessi di accesso riguarda l'IAM/gestione identità, non lo SLA."
+    },
+    "why_wrong_en": {
+      "1": "The hardware/software inventory is the subject of asset management, not the SLA.",
+      "2": "Technical repair procedures belong to the knowledge base / runbook, not the SLA.",
+      "3": "Managing access permissions concerns IAM/identity management, not the SLA."
     },
     "source": "IT generale"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Un tecnico di primo livello riceve un ticket che richiede modifiche alla configurazione di un firewall, competenza che esula dalle sue autorizzazioni e conoscenze. Qual è l'azione corretta?",
+    "question_en": "A first-level technician receives a ticket requiring changes to a firewall configuration, a competency that is beyond their authorizations and knowledge. What is the correct action?",
     "options": [
       "Chiudere il ticket come 'non risolvibile'",
       "Eseguire un'escalation funzionale verso il team specializzato (secondo/terzo livello) mantenendo aggiornato il ticket",
       "Tentare comunque la modifica per non far attendere l'utente",
       "Attendere che l'utente richiami per capire meglio"
     ],
+    "options_en": [
+      "Close the ticket as 'unresolvable'",
+      "Perform a functional escalation to the specialized team (second/third level) while keeping the ticket updated",
+      "Attempt the change anyway so as not to keep the user waiting",
+      "Wait for the user to call back to understand better"
+    ],
     "correct": [1],
     "explanation": "Quando un problema supera le competenze o le autorizzazioni del livello attuale, si effettua un'escalation funzionale (orizzontale) verso il team con le competenze adeguate, documentando nel ticket quanto già fatto. L'escalation gerarchica (verticale) verso un manager si usa invece per questioni di priorità, autorizzazioni o rischio di violazione dello SLA.",
+    "explanation_en": "When a problem exceeds the competencies or authorizations of the current level, a functional (horizontal) escalation is performed toward the team with the appropriate skills, documenting in the ticket what has already been done. Hierarchical (vertical) escalation to a manager is instead used for issues of priority, authorization, or risk of SLA breach.",
     "why_wrong": {
       "0": "Il problema è risolvibile da un altro team: chiuderlo come non risolvibile è scorretto e non aiuta l'utente.",
       "2": "Agire su un firewall senza competenze/autorizzazioni è pericoloso e viola le procedure di sicurezza e change management.",
       "3": "Attendere passivamente ignora lo SLA e non instrada il ticket verso chi può risolverlo."
+    },
+    "why_wrong_en": {
+      "0": "The problem can be solved by another team: closing it as unresolvable is incorrect and does not help the user.",
+      "2": "Acting on a firewall without skills/authorizations is dangerous and violates security and change management procedures.",
+      "3": "Waiting passively ignores the SLA and does not route the ticket to whoever can resolve it."
     },
     "source": "IT generale"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Durante l'assegnazione di un nuovo laptop a un dipendente, qual è la pratica corretta di gestione asset?",
+    "question_en": "When assigning a new laptop to an employee, what is the correct asset management practice?",
     "options": [
       "Consegnare il laptop senza registrarlo, per velocizzare la procedura",
       "Registrare l'asset nell'inventario (numero di serie, tag, modello) e associarlo all'utente e alla sua posizione",
       "Annotare solo il nome dell'utente su un foglio cartaceo temporaneo",
       "Registrare l'asset solo quando verrà dismesso"
     ],
+    "options_en": [
+      "Hand over the laptop without registering it, to speed up the procedure",
+      "Register the asset in the inventory (serial number, tag, model) and associate it with the user and their location",
+      "Only note the user's name on a temporary paper sheet",
+      "Register the asset only when it is decommissioned"
+    ],
     "correct": [1],
     "explanation": "Un corretto asset management prevede che ogni dispositivo sia censito nell'inventario con identificativi univoci (numero di serie, asset tag, modello) e sia associato all'utente/reparto e alla sua posizione. Questo abilita tracciabilità, garanzia, ciclo di vita, sicurezza e supporto efficiente.",
+    "explanation_en": "Correct asset management requires that every device be recorded in the inventory with unique identifiers (serial number, asset tag, model) and associated with the user/department and its location. This enables traceability, warranty, lifecycle, security, and efficient support.",
     "why_wrong": {
       "0": "Non registrare l'asset crea perdita di tracciabilità: impossibile gestire garanzia, ciclo di vita e sicurezza.",
       "2": "Un appunto cartaceo temporaneo non è integrato nel sistema di inventario e va facilmente perso o non aggiornato.",
       "3": "Registrare solo alla dismissione impedisce di tracciare l'asset per tutta la sua vita utile, quando serve davvero."
+    },
+    "why_wrong_en": {
+      "0": "Not registering the asset creates a loss of traceability: it becomes impossible to manage warranty, lifecycle, and security.",
+      "2": "A temporary paper note is not integrated into the inventory system and is easily lost or not updated.",
+      "3": "Registering only at decommissioning prevents tracking the asset throughout its useful life, when it is really needed."
     },
     "source": "IT generale"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Stai per avviare una sessione di supporto remoto sul PC di un utente per risolvere un problema. Qual è il comportamento corretto?",
+    "question_en": "You are about to start a remote support session on a user's PC to solve a problem. What is the correct behavior?",
     "options": [
       "Connettersi silenziosamente senza avvisare, per non disturbare l'utente",
       "Ottenere il consenso dell'utente, spiegare cosa farai e avvisarlo prima di prendere il controllo dello schermo",
       "Chiedere all'utente la sua password di dominio per accedere più velocemente",
       "Disattivare il monitor dell'utente durante l'intervento"
     ],
+    "options_en": [
+      "Connect silently without warning, so as not to disturb the user",
+      "Obtain the user's consent, explain what you will do, and warn them before taking control of the screen",
+      "Ask the user for their domain password to access more quickly",
+      "Turn off the user's monitor during the intervention"
+    ],
     "correct": [1],
     "explanation": "Nel supporto remoto occorre ottenere il consenso esplicito dell'utente, informarlo su cosa verrà fatto e avvisarlo prima di prendere il controllo. Questo rispetta la privacy, mantiene la fiducia e permette all'utente di chiudere eventuali documenti riservati. Non si devono mai richiedere le credenziali dell'utente.",
+    "explanation_en": "In remote support you must obtain the user's explicit consent, inform them of what will be done, and warn them before taking control. This respects privacy, maintains trust, and allows the user to close any confidential documents. You must never ask for the user's credentials.",
     "why_wrong": {
       "0": "Connettersi senza avviso viola la privacy e la fiducia dell'utente e può esporre dati riservati.",
       "2": "Un tecnico non deve mai chiedere la password dell'utente: è una grave cattiva pratica di sicurezza; si usano credenziali amministrative o strumenti dedicati.",
       "3": "Disattivare il monitor dell'utente non è una prassi corretta e riduce trasparenza e controllo dell'utente sulla sessione."
+    },
+    "why_wrong_en": {
+      "0": "Connecting without warning violates the user's privacy and trust and can expose confidential data.",
+      "2": "A technician must never ask for the user's password: it is a serious security bad practice; administrative credentials or dedicated tools are used instead.",
+      "3": "Turning off the user's monitor is not correct practice and reduces the user's transparency and control over the session."
     },
     "source": "IT generale"
   },
@@ -138,18 +216,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Prima di distribuire in produzione una patch critica appena rilasciata su tutti i server aziendali, qual è la prassi operativa corretta?",
+    "question_en": "Before deploying a newly released critical patch to production on all company servers, what is the correct operational practice?",
     "options": [
       "Distribuirla immediatamente a tutti i server contemporaneamente per chiudere subito la vulnerabilità",
       "Testarla prima in un ambiente di test/pilota e pianificare il deployment con finestre di manutenzione e piano di rollback",
       "Installarla solo sui PC degli amministratori IT",
       "Attendere sei mesi prima di applicarla per essere sicuri della sua stabilità"
     ],
+    "options_en": [
+      "Deploy it immediately to all servers at once to close the vulnerability right away",
+      "Test it first in a test/pilot environment and plan the deployment with maintenance windows and a rollback plan",
+      "Install it only on the IT administrators' PCs",
+      "Wait six months before applying it to be sure of its stability"
+    ],
     "correct": [1],
     "explanation": "Il patch management operativo prevede di testare la patch in un ambiente di test o su un gruppo pilota, pianificare il rilascio in finestre di manutenzione concordate e disporre di un piano di rollback in caso di regressioni. Questo bilancia la riduzione del rischio (chiudere la vulnerabilità) con la stabilità dei servizi.",
+    "explanation_en": "Operational patch management involves testing the patch in a test environment or on a pilot group, planning the release in agreed maintenance windows, and having a rollback plan in case of regressions. This balances risk reduction (closing the vulnerability) with service stability.",
     "why_wrong": {
       "0": "Applicare una patch a tutta la produzione senza test può causare downtime diffuso se la patch introduce regressioni.",
       "2": "Applicarla solo ai PC degli amministratori lascia i server vulnerabili e non risolve il rischio.",
       "3": "Aspettare sei mesi su una patch critica lascia i sistemi esposti a lungo: il ritardo va bilanciato ma non deve vanificare l'urgenza."
+    },
+    "why_wrong_en": {
+      "0": "Applying a patch to all of production without testing can cause widespread downtime if the patch introduces regressions.",
+      "2": "Applying it only to the administrators' PCs leaves the servers vulnerable and does not address the risk.",
+      "3": "Waiting six months on a critical patch leaves systems exposed for a long time: the delay must be balanced but must not defeat the urgency."
     },
     "source": "IT generale"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Il sistema di monitoraggio invia un alert perché l'uso del disco di un file server ha superato la soglia dell'85%. Nessun utente ha ancora segnalato problemi. Come va classificato correttamente questo evento in ottica ITSM?",
+    "question_en": "The monitoring system sends an alert because a file server's disk usage has exceeded the 85% threshold. No user has reported problems yet. How should this event be correctly classified from an ITSM perspective?",
     "options": [
       "È già un incident maggiore con impatto sul servizio, va trattato in emergenza",
       "È un evento/allerta proattiva: un potenziale problema da gestire prima che diventi un incident con impatto sugli utenti",
       "È una richiesta di servizio (service request) inviata dagli utenti",
       "Va ignorato finché un utente non apre un ticket"
     ],
+    "options_en": [
+      "It is already a major incident with service impact and must be handled as an emergency",
+      "It is a proactive event/alert: a potential problem to manage before it becomes an incident impacting users",
+      "It is a service request submitted by users",
+      "It should be ignored until a user opens a ticket"
+    ],
     "correct": [1],
     "explanation": "Un alert di soglia dal monitoraggio è un evento che segnala una condizione anomala potenziale ma non ancora un'interruzione di servizio. La gestione proattiva permette di intervenire (liberare spazio, aggiungere capacità) prima che si trasformi in un incident con impatto reale sugli utenti. È il valore chiave del monitoraggio.",
+    "explanation_en": "A threshold alert from monitoring is an event that signals a potential anomalous condition but not yet a service outage. Proactive management allows intervention (freeing space, adding capacity) before it turns into an incident with real impact on users. This is the key value of monitoring.",
     "why_wrong": {
       "0": "Non c'è ancora impatto sul servizio né interruzione: non è (ancora) un incident maggiore, ma un rischio da prevenire.",
       "2": "Una service request nasce da una richiesta dell'utente (es. nuovo accesso); qui l'origine è un sistema di monitoraggio automatico.",
       "3": "Ignorare l'alert vanifica lo scopo del monitoraggio proattivo e porta a un probabile incident evitabile."
+    },
+    "why_wrong_en": {
+      "0": "There is not yet any service impact or outage: it is not (yet) a major incident, but a risk to prevent.",
+      "2": "A service request arises from a user's request (e.g. new access); here the origin is an automatic monitoring system.",
+      "3": "Ignoring the alert defeats the purpose of proactive monitoring and leads to a probable, avoidable incident."
     },
     "source": "IT generale"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Dopo aver risolto un problema ricorrente con una soluzione efficace, qual è la migliore azione per l'organizzazione del supporto?",
+    "question_en": "After solving a recurring problem with an effective solution, what is the best action for the support organization?",
     "options": [
       "Non documentare nulla, così i tecnici imparano risolvendo da soli ogni volta",
       "Creare o aggiornare un articolo nella knowledge base (KB) descrivendo sintomo, causa e soluzione",
       "Comunicare la soluzione solo a voce al collega di turno",
       "Cancellare il ticket per liberare spazio nel sistema"
     ],
+    "options_en": [
+      "Document nothing, so that technicians learn by solving it on their own each time",
+      "Create or update an article in the knowledge base (KB) describing symptom, cause, and solution",
+      "Communicate the solution only verbally to the colleague on shift",
+      "Delete the ticket to free up space in the system"
+    ],
     "correct": [1],
     "explanation": "Documentare la soluzione in un articolo di knowledge base rende il sapere riutilizzabile: velocizza la risoluzione futura di problemi simili, riduce le escalation, abilita la self-service degli utenti e standardizza la qualità del supporto. Un buon articolo KB descrive sintomi, causa e passi di risoluzione.",
+    "explanation_en": "Documenting the solution in a knowledge base article makes the knowledge reusable: it speeds up the future resolution of similar problems, reduces escalations, enables user self-service, and standardizes the quality of support. A good KB article describes symptoms, cause, and resolution steps.",
     "why_wrong": {
       "0": "Non documentare fa ripetere lo stesso sforzo diagnostico ogni volta e allunga i tempi di risoluzione.",
       "2": "La comunicazione solo verbale è volatile: si perde e non è accessibile agli altri turni o team.",
       "3": "I ticket risolti sono una fonte di dati e storicità preziosa: non vanno cancellati ma conservati e valorizzati."
+    },
+    "why_wrong_en": {
+      "0": "Not documenting causes the same diagnostic effort to be repeated each time and lengthens resolution times.",
+      "2": "Verbal-only communication is volatile: it gets lost and is not accessible to other shifts or teams.",
+      "3": "Resolved tickets are a valuable source of data and history: they should not be deleted but retained and leveraged."
     },
     "source": "IT generale"
   },
@@ -204,17 +321,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Dopo aver implementato con successo una soluzione, quali DUE azioni fanno parte dei passi finali corretti della metodologia di troubleshooting?",
+    "question_en": "After successfully implementing a solution, which TWO actions are part of the correct final steps of the troubleshooting methodology?",
     "options": [
       "Verificare la piena funzionalità del sistema e, se necessario, applicare misure preventive",
       "Documentare risultati, azioni intraprese ed esiti nel ticket",
       "Chiudere immediatamente il ticket senza ulteriori controlli",
       "Formulare una nuova teoria sulla causa probabile"
     ],
+    "options_en": [
+      "Verify full system functionality and, if necessary, apply preventive measures",
+      "Document findings, actions taken, and outcomes in the ticket",
+      "Immediately close the ticket without further checks",
+      "Formulate a new theory of the probable cause"
+    ],
     "correct": [0, 1],
     "explanation": "I passi finali della metodologia sono: verificare la piena funzionalità del sistema (ed eventualmente attuare misure preventive per evitare il ripetersi) e poi documentare risultati, azioni ed esiti. La verifica assicura che il problema sia realmente risolto; la documentazione alimenta la knowledge base e la tracciabilità.",
+    "explanation_en": "The final steps of the methodology are: verify full system functionality (and possibly implement preventive measures to avoid recurrence) and then document findings, actions, and outcomes. Verification ensures the problem is really solved; documentation feeds the knowledge base and traceability.",
     "why_wrong": {
       "2": "Chiudere senza verificare la funzionalità rischia di lasciare il problema non risolto o parzialmente risolto.",
       "3": "Formulare una nuova teoria è un passo iniziale/intermedio che serve solo se la soluzione non ha funzionato, non un passo finale dopo il successo."
+    },
+    "why_wrong_en": {
+      "2": "Closing without verifying functionality risks leaving the problem unresolved or partially resolved.",
+      "3": "Formulating a new theory is an initial/intermediate step that is only needed if the solution did not work, not a final step after success."
     },
     "source": "IT generale"
   },
@@ -225,17 +354,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Nella comunicazione con un utente durante la gestione di un ticket, quali DUE comportamenti rappresentano buone pratiche?",
+    "question_en": "In communicating with a user during the handling of a ticket, which TWO behaviors represent good practices?",
     "options": [
       "Tenere aggiornato l'utente sullo stato di avanzamento, soprattutto se la risoluzione richiede tempo",
       "Usare un linguaggio chiaro e comprensibile, evitando gergo tecnico non necessario",
       "Rispondere solo alla chiusura del ticket, senza aggiornamenti intermedi",
       "Attribuire la colpa all'utente per l'errore commesso"
     ],
+    "options_en": [
+      "Keep the user updated on the progress status, especially if the resolution takes time",
+      "Use clear and understandable language, avoiding unnecessary technical jargon",
+      "Respond only at ticket closure, without intermediate updates",
+      "Blame the user for the mistake made"
+    ],
     "correct": [0, 1],
     "explanation": "Una buona comunicazione con l'utente prevede aggiornamenti proattivi sullo stato (gestendo le aspettative) e l'uso di un linguaggio chiaro e privo di gergo eccessivo, adattato al livello dell'interlocutore. Questo aumenta la fiducia, riduce le sollecitazioni ripetute e migliora la percezione del servizio.",
+    "explanation_en": "Good communication with the user involves proactive status updates (managing expectations) and the use of clear language free of excessive jargon, adapted to the level of the person you are speaking with. This increases trust, reduces repeated follow-ups, and improves the perception of the service.",
     "why_wrong": {
       "2": "Comunicare solo alla chiusura lascia l'utente all'oscuro: genera ansia, solleciti e insoddisfazione, soprattutto sui ticket lunghi.",
       "3": "Colpevolizzare l'utente è controproducente e non professionale: il supporto deve essere empatico e orientato alla soluzione."
+    },
+    "why_wrong_en": {
+      "2": "Communicating only at closure leaves the user in the dark: it generates anxiety, follow-ups, and dissatisfaction, especially on long tickets.",
+      "3": "Blaming the user is counterproductive and unprofessional: support must be empathetic and solution-oriented."
     },
     "source": "IT generale"
   },
@@ -246,17 +387,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "In molti framework ITSM la PRIORITÀ di un ticket viene determinata combinando due fattori. Quali DUE elementi concorrono tipicamente a definire la priorità?",
+    "question_en": "In many ITSM frameworks, the PRIORITY of a ticket is determined by combining two factors. Which TWO elements typically contribute to defining priority?",
     "options": [
       "L'impatto (numero di utenti/servizi coinvolti e criticità per il business)",
       "L'urgenza (velocità con cui il problema deve essere risolto)",
       "L'ordine alfabetico del nome dell'utente che ha aperto il ticket",
       "Il numero progressivo di apertura del ticket"
     ],
+    "options_en": [
+      "The impact (number of users/services involved and business criticality)",
+      "The urgency (speed with which the problem must be resolved)",
+      "The alphabetical order of the name of the user who opened the ticket",
+      "The sequential opening number of the ticket"
+    ],
     "correct": [0, 1],
-    "explanation": "La priorità in ITSM si ricava incrociando IMPATTO (quanto è esteso/grave l'effetto sul business e sugli utenti) e URGENZA (quanto rapidamente serve la risoluzione), spesso tramite una matrice impatto/urgenza. La priorità così ottenita determina quale SLA e quale sequenza di gestione applicare.",
+    "explanation": "La priorità in ITSM si ricava incrociando IMPATTO (quanto è esteso/grave l'effetto sul business e sugli utenti) e URGENZA (quanto rapidamente serve la risoluzione), spesso tramite una matrice impatto/urgenza. La priorità così ottenuta determina quale SLA e quale sequenza di gestione applicare.",
+    "explanation_en": "Priority in ITSM is derived by cross-referencing IMPACT (how extensive/serious the effect is on the business and users) and URGENCY (how quickly resolution is needed), often through an impact/urgency matrix. The priority thus obtained determines which SLA and which handling sequence to apply.",
     "why_wrong": {
       "2": "L'ordine alfabetico del richiedente non ha alcuna rilevanza per stabilire la priorità di un ticket.",
       "3": "Il numero progressivo indica solo l'ordine di apertura, non l'importanza né l'urgenza del problema."
+    },
+    "why_wrong_en": {
+      "2": "The requester's alphabetical order has no relevance in establishing a ticket's priority.",
+      "3": "The sequential number only indicates the order of opening, not the importance or urgency of the problem."
     },
     "source": "IT generale"
   },
@@ -267,9 +420,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Nella gestione dei ticket, 'severità' e 'priorità' sono sempre sinonimi e possono essere usate in modo intercambiabile.",
+    "question_en": "In ticket management, 'severity' and 'priority' are always synonyms and can be used interchangeably.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. La severità misura la gravità tecnica dell'impatto di un problema (quanto è grave il malfunzionamento in sé), mentre la priorità indica l'ordine con cui deve essere affrontato, combinando impatto e urgenza dal punto di vista del business. Un problema può avere alta severità ma priorità più bassa (es. su un sistema non critico) o viceversa.",
+    "explanation_en": "False. Severity measures the technical seriousness of a problem's impact (how serious the malfunction itself is), while priority indicates the order in which it must be addressed, combining impact and urgency from the business point of view. A problem can have high severity but lower priority (e.g. on a non-critical system) or vice versa.",
     "source": "IT generale"
   },
   {
@@ -279,9 +435,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "L'escalation gerarchica (verticale) verso un responsabile è appropriata quando un ticket rischia di violare lo SLA o richiede decisioni/autorizzazioni superiori.",
+    "question_en": "Hierarchical (vertical) escalation to a manager is appropriate when a ticket risks breaching the SLA or requires higher-level decisions/authorizations.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. L'escalation gerarchica (verticale) coinvolge un livello di management superiore e si usa per questioni di autorizzazione, priorità o rischio di breach dello SLA. È diversa dall'escalation funzionale (orizzontale), che instrada il ticket verso un team con competenze tecniche più specializzate.",
+    "explanation_en": "True. Hierarchical (vertical) escalation involves a higher management level and is used for issues of authorization, priority, or risk of SLA breach. It is different from functional (horizontal) escalation, which routes the ticket to a team with more specialized technical skills.",
     "source": "IT generale"
   },
   {
@@ -291,9 +450,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Mantenere un inventario aggiornato degli asset è utile anche al patch management, perché consente di sapere quali sistemi e versioni software sono presenti e quindi da aggiornare.",
+    "question_en": "Keeping an up-to-date asset inventory is also useful for patch management, because it allows you to know which systems and software versions are present and therefore need to be updated.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Un inventario asset accurato (hardware, sistemi operativi, versioni software) è un prerequisito del patch management efficace: senza sapere quali dispositivi e versioni esistono nel parco IT non è possibile identificare i sistemi vulnerabili, pianificare i rilasci né verificare la copertura delle patch applicate.",
+    "explanation_en": "True. An accurate asset inventory (hardware, operating systems, software versions) is a prerequisite for effective patch management: without knowing which devices and versions exist in the IT estate, it is not possible to identify vulnerable systems, plan releases, or verify the coverage of applied patches.",
     "source": "IT generale"
   }
 ]

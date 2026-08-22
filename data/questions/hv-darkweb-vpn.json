@@ -6,18 +6,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "Qual e la differenza corretta tra deep web e dark web?",
+    "question_en": "What is the correct difference between the deep web and the dark web?",
     "options": [
       "Sono sinonimi: indicano entrambi i siti illegali non indicizzati",
       "Il deep web e tutto cio che non e indicizzato dai motori di ricerca (es. webmail, home banking), mentre il dark web ne e una piccola porzione accessibile solo con software specifici come Tor",
       "Il deep web richiede Tor, mentre il dark web e liberamente accessibile da qualsiasi browser",
       "Il dark web e piu grande del deep web e contiene tutte le pagine pubbliche"
     ],
+    "options_en": [
+      "They are synonyms: both refer to unindexed illegal sites",
+      "The deep web is everything not indexed by search engines (e.g. webmail, online banking), while the dark web is a small portion of it accessible only with specific software such as Tor",
+      "The deep web requires Tor, while the dark web is freely accessible from any browser",
+      "The dark web is larger than the deep web and contains all public pages"
+    ],
     "correct": [1],
     "explanation": "Il deep web e semplicemente la parte del web non indicizzata dai motori di ricerca: contenuti dietro login, database, pagine dinamiche, del tutto legittimi (posta elettronica, banking). Il dark web e un sottoinsieme molto piu piccolo, raggiungibile solo tramite reti come Tor o I2P, e ospita sia servizi legittimi (privacy, giornalismo) sia illeciti.",
+    "explanation_en": "The deep web is simply the part of the web not indexed by search engines: content behind logins, databases, dynamic pages, entirely legitimate (email, banking). The dark web is a much smaller subset, reachable only through networks such as Tor or I2P, and hosts both legitimate services (privacy, journalism) and illicit ones.",
     "why_wrong": {
       "0": "Non sono sinonimi e il deep web non e sinonimo di illegalita: comprende soprattutto contenuti leciti non indicizzati.",
       "2": "E l'inverso: e il dark web a richiedere software specifici, non il deep web.",
       "3": "Il deep web e enormemente piu grande del dark web e non contiene le pagine pubbliche, che sono il web di superficie (clearnet)."
+    },
+    "why_wrong_en": {
+      "0": "They are not synonyms, and the deep web is not synonymous with illegality: it consists mostly of legitimate unindexed content.",
+      "2": "It is the reverse: it is the dark web that requires specific software, not the deep web.",
+      "3": "The deep web is vastly larger than the dark web and does not contain public pages, which are the surface web (clearnet)."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -28,18 +41,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Come funziona a grandi linee l'onion routing usato da Tor?",
+    "question_en": "How does the onion routing used by Tor work in broad terms?",
     "options": [
       "Il traffico viene inviato in chiaro a un unico server centrale che lo inoltra alla destinazione",
       "Il traffico attraversa in genere tre nodi (entry, middle, exit) con piu strati di cifratura, dove ogni nodo conosce solo il precedente e il successivo",
       "Ogni pacchetto viene cifrato con la chiave pubblica della destinazione e inviato direttamente",
       "I dati vengono duplicati e inviati a tutti i nodi della rete contemporaneamente"
     ],
+    "options_en": [
+      "Traffic is sent in cleartext to a single central server that forwards it to the destination",
+      "Traffic typically passes through three nodes (entry, middle, exit) with multiple layers of encryption, where each node knows only the previous and the next one",
+      "Each packet is encrypted with the destination's public key and sent directly",
+      "Data is duplicated and sent to all network nodes simultaneously"
+    ],
     "correct": [1],
     "explanation": "Nell'onion routing il client costruisce un circuito di solito a tre salti (entry/guard, middle, exit) e avvolge il messaggio in strati di cifratura, come una cipolla. Ogni nodo rimuove uno strato e conosce solo il nodo immediatamente precedente e quello successivo: nessun singolo nodo vede insieme mittente e contenuto in chiaro verso la destinazione.",
+    "explanation_en": "In onion routing the client builds a circuit usually of three hops (entry/guard, middle, exit) and wraps the message in layers of encryption, like an onion. Each node removes one layer and knows only the immediately previous and next node: no single node sees both the sender and the cleartext content bound for the destination.",
     "why_wrong": {
       "0": "Non esiste un server centrale unico e il traffico interno alla rete non viaggia in chiaro: e proprio l'assenza di un punto unico a fornire l'anonimato.",
       "2": "La cifratura non e a singolo strato verso la destinazione, ma multi-strato attraverso il circuito dei nodi.",
       "3": "Tor non usa broadcast a tutti i nodi: instrada lungo un circuito selezionato di pochi relay."
+    },
+    "why_wrong_en": {
+      "0": "There is no single central server and traffic inside the network does not travel in cleartext: it is precisely the absence of a single point that provides anonymity.",
+      "2": "Encryption is not single-layer toward the destination, but multi-layer through the circuit of nodes.",
+      "3": "Tor does not broadcast to all nodes: it routes along a selected circuit of a few relays."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -50,18 +76,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Cosa puo vedere l'exit node (nodo di uscita) di Tor quando l'utente visita un sito HTTP non cifrato?",
+    "question_en": "What can the Tor exit node see when the user visits an unencrypted HTTP site?",
     "options": [
       "L'indirizzo IP reale dell'utente e la sua identita",
       "Il traffico in chiaro diretto alla destinazione, ma non l'IP di origine reale dell'utente",
       "Nulla, perche il traffico resta cifrato fino al server di destinazione",
       "Solo l'ora della connessione, senza alcun contenuto"
     ],
+    "options_en": [
+      "The user's real IP address and identity",
+      "The cleartext traffic bound for the destination, but not the user's real source IP",
+      "Nothing, because the traffic stays encrypted all the way to the destination server",
+      "Only the time of the connection, with no content"
+    ],
     "correct": [1],
     "explanation": "L'ultimo strato di cifratura di Tor viene rimosso all'exit node: da li in poi il traffico raggiunge la destinazione cosi com'e. Se il sito usa HTTP non cifrato, l'exit node puo leggere i contenuti (ed eventuali credenziali). Non vede pero l'IP reale dell'utente, mascherato dal circuito. Per questo l'HTTPS end-to-end resta essenziale anche su Tor.",
+    "explanation_en": "Tor's last layer of encryption is removed at the exit node: from there on the traffic reaches the destination as-is. If the site uses unencrypted HTTP, the exit node can read the content (and any credentials). It does not, however, see the user's real IP, masked by the circuit. This is why end-to-end HTTPS remains essential even on Tor.",
     "why_wrong": {
       "0": "L'exit node non conosce l'IP reale dell'utente: e separato dal client da entry e middle node.",
       "2": "Tor cifra il traffico solo all'interno della rete; verso la destinazione l'exit node lo consegna com'e, quindi in chiaro se il sito e HTTP.",
       "3": "Vede molto piu dell'ora: su HTTP puo osservare l'intero contenuto della comunicazione."
+    },
+    "why_wrong_en": {
+      "0": "The exit node does not know the user's real IP: it is separated from the client by the entry and middle nodes.",
+      "2": "Tor encrypts traffic only inside the network; toward the destination the exit node delivers it as-is, hence in cleartext if the site is HTTP.",
+      "3": "It sees much more than the time: over HTTP it can observe the entire content of the communication."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -72,18 +111,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Cosa caratterizza un servizio nascosto (hidden service) con indirizzo .onion?",
+    "question_en": "What characterizes a hidden service with a .onion address?",
     "options": [
       "E un normale sito clearnet con un dominio alternativo piu corto",
       "E un servizio raggiungibile solo dentro la rete Tor, dove anche l'indirizzo del server resta nascosto e il traffico non passa da un exit node classico",
       "E un sito ospitato su un server governativo certificato",
       "E un dominio che garantisce automaticamente la legalita dei contenuti"
     ],
+    "options_en": [
+      "It is a normal clearnet site with a shorter alternative domain",
+      "It is a service reachable only inside the Tor network, where even the server's address stays hidden and the traffic does not pass through a classic exit node",
+      "It is a site hosted on a certified government server",
+      "It is a domain that automatically guarantees the legality of its content"
+    ],
     "correct": [1],
     "explanation": "Un hidden service .onion e pubblicato all'interno di Tor: sia il client sia il server restano anonimi e la connessione avviene tramite punti di incontro (rendezvous) senza uscire su un exit node verso la clearnet. L'indirizzo .onion e derivato dalla chiave crittografica del servizio. Esistono usi legittimi (giornalismo, whistleblowing) e illeciti.",
+    "explanation_en": "A .onion hidden service is published inside Tor: both the client and the server stay anonymous and the connection happens through rendezvous points without exiting via an exit node to the clearnet. The .onion address is derived from the service's cryptographic key. There are legitimate uses (journalism, whistleblowing) and illicit ones.",
     "why_wrong": {
       "0": "Non e un sito clearnet: e accessibile solo dentro Tor e nasconde anche la posizione del server.",
       "2": "L'architettura .onion serve proprio a evitare l'identificazione del server: non implica alcuna certificazione governativa.",
       "3": "Il suffisso .onion non dice nulla sulla legalita dei contenuti ospitati."
+    },
+    "why_wrong_en": {
+      "0": "It is not a clearnet site: it is accessible only inside Tor and also hides the server's location.",
+      "2": "The .onion architecture exists precisely to avoid identifying the server: it implies no government certification.",
+      "3": "The .onion suffix says nothing about the legality of the hosted content."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -94,18 +146,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Da quale minaccia protegge principalmente una VPN e da quale invece NON protegge?",
+    "question_en": "Which threat does a VPN mainly protect against, and which one does it NOT protect against?",
     "options": [
       "Protegge dai malware sul dispositivo ma non dalla rete Wi-Fi pubblica",
       "Protegge dall'intercettazione sulla rete locale/ISP ma non da un endpoint gia compromesso (malware, keylogger)",
       "Protegge da qualsiasi tracciamento online rendendo l'utente totalmente anonimo",
       "Protegge i dati solo quando il dispositivo e spento"
     ],
+    "options_en": [
+      "It protects against malware on the device but not against the public Wi-Fi network",
+      "It protects against interception on the local network/ISP but not against an already compromised endpoint (malware, keylogger)",
+      "It protects against any online tracking, making the user totally anonymous",
+      "It protects data only when the device is turned off"
+    ],
     "correct": [1],
     "explanation": "Una VPN crea un tunnel cifrato tra il dispositivo e il server VPN: nasconde il traffico all'ISP e a chi controlla la rete locale (es. Wi-Fi pubblico) e cambia l'IP visibile. Non protegge pero cio che accade sull'endpoint: se il dispositivo ha malware, un keylogger o un RAT, la VPN cifra semplicemente traffico gia compromesso. Non rende nemmeno totalmente anonimi.",
+    "explanation_en": "A VPN creates an encrypted tunnel between the device and the VPN server: it hides the traffic from the ISP and from whoever controls the local network (e.g. public Wi-Fi) and changes the visible IP. It does not, however, protect what happens on the endpoint: if the device has malware, a keylogger, or a RAT, the VPN simply encrypts already-compromised traffic. Nor does it make you totally anonymous.",
     "why_wrong": {
       "0": "E l'opposto: la VPN aiuta proprio sul Wi-Fi pubblico, ma non rimuove i malware dal dispositivo.",
       "2": "La VPN non garantisce anonimato totale: fingerprinting, cookie, login e il provider VPN stesso possono tracciare.",
       "3": "La VPN protegge il traffico in transito quando il dispositivo e in uso, non quando e spento."
+    },
+    "why_wrong_en": {
+      "0": "It is the opposite: a VPN specifically helps on public Wi-Fi, but does not remove malware from the device.",
+      "2": "A VPN does not guarantee total anonymity: fingerprinting, cookies, logins, and the VPN provider itself can track you.",
+      "3": "A VPN protects traffic in transit when the device is in use, not when it is turned off."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -116,18 +181,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Quale affermazione descrive correttamente il protocollo WireGuard rispetto ai protocolli VPN piu datati?",
+    "question_en": "Which statement correctly describes the WireGuard protocol compared to older VPN protocols?",
     "options": [
       "Usa crittografia obsoleta e una base di codice enorme e complessa",
       "Usa primitive crittografiche moderne (es. ChaCha20, Curve25519), ha una base di codice ridotta e punta a prestazioni elevate",
       "Non cifra il traffico ma si limita a comprimerlo",
       "Funziona solo con autenticazione tramite password in chiaro"
     ],
+    "options_en": [
+      "It uses obsolete cryptography and a huge, complex codebase",
+      "It uses modern cryptographic primitives (e.g. ChaCha20, Curve25519), has a small codebase, and aims for high performance",
+      "It does not encrypt traffic but merely compresses it",
+      "It works only with cleartext password authentication"
+    ],
     "correct": [1],
     "explanation": "WireGuard e un protocollo VPN moderno che adotta primitive crittografiche recenti e selezionate (ChaCha20 per la cifratura, Poly1305 per l'autenticazione, Curve25519 per lo scambio chiavi). Ha una base di codice molto piu piccola di OpenVPN o IPsec, il che riduce la superficie d'attacco e ne facilita l'audit, con buone prestazioni.",
+    "explanation_en": "WireGuard is a modern VPN protocol that adopts recent, carefully selected cryptographic primitives (ChaCha20 for encryption, Poly1305 for authentication, Curve25519 for key exchange). It has a much smaller codebase than OpenVPN or IPsec, which reduces the attack surface and eases auditing, with good performance.",
     "why_wrong": {
       "0": "E il contrario: WireGuard nasce proprio per usare crittografia moderna e codice minimale.",
       "2": "WireGuard cifra il traffico end-to-end nel tunnel; non e un semplice compressore.",
       "3": "Usa chiavi crittografiche pubbliche/private, non password in chiaro."
+    },
+    "why_wrong_en": {
+      "0": "It is the opposite: WireGuard was created precisely to use modern cryptography and a minimal codebase.",
+      "2": "WireGuard encrypts traffic end-to-end within the tunnel; it is not a mere compressor.",
+      "3": "It uses public/private cryptographic keys, not cleartext passwords."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -138,18 +216,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "A cosa serve la funzione kill switch di un client VPN?",
+    "question_en": "What is the purpose of a VPN client's kill switch feature?",
     "options": [
       "Spegne fisicamente il computer se rileva un attacco",
       "Blocca tutto il traffico di rete se la connessione VPN cade, evitando che i dati escano in chiaro sull'IP reale",
       "Cancella automaticamente i file sensibili in caso di emergenza",
       "Aumenta la velocita disattivando la cifratura quando serve"
     ],
+    "options_en": [
+      "It physically shuts down the computer if it detects an attack",
+      "It blocks all network traffic if the VPN connection drops, preventing data from leaking in cleartext over the real IP",
+      "It automatically deletes sensitive files in an emergency",
+      "It increases speed by disabling encryption when needed"
+    ],
     "correct": [1],
     "explanation": "Il kill switch e un meccanismo di sicurezza: se il tunnel VPN si interrompe improvvisamente, blocca il traffico del dispositivo (o delle app selezionate) invece di lasciarlo passare sulla connessione normale. Cosi si evita che, durante la disconnessione, il traffico e l'IP reale vengano esposti senza che l'utente se ne accorga.",
+    "explanation_en": "The kill switch is a security mechanism: if the VPN tunnel drops suddenly, it blocks the device's traffic (or that of selected apps) instead of letting it pass over the normal connection. This prevents the traffic and the real IP from being exposed during the disconnection without the user noticing.",
     "why_wrong": {
       "0": "Non spegne il computer: agisce solo sul traffico di rete.",
       "2": "Non ha a che fare con la cancellazione di file: quella e un'altra categoria di funzioni.",
       "3": "Non disattiva la cifratura per andare piu veloce: al contrario, impedisce traffico non protetto."
+    },
+    "why_wrong_en": {
+      "0": "It does not shut down the computer: it acts only on network traffic.",
+      "2": "It has nothing to do with deleting files: that is a different category of feature.",
+      "3": "It does not disable encryption to go faster: on the contrary, it prevents unprotected traffic."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -160,18 +251,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Cos'e un DNS leak quando si usa una VPN e perche e un problema?",
+    "question_en": "What is a DNS leak when using a VPN, and why is it a problem?",
     "options": [
       "E la perdita della password della VPN verso il provider DNS",
       "E quando le richieste DNS escono al di fuori del tunnel VPN, ad esempio verso i DNS dell'ISP, rivelando i siti visitati nonostante la VPN",
       "E un errore che rende impossibile navigare finche non si riavvia il router",
       "E la cifratura eccessiva delle query DNS che rallenta la navigazione"
     ],
+    "options_en": [
+      "It is the leakage of the VPN password to the DNS provider",
+      "It is when DNS requests leave outside the VPN tunnel, for example toward the ISP's DNS, revealing the visited sites despite the VPN",
+      "It is an error that makes browsing impossible until the router is rebooted",
+      "It is excessive encryption of DNS queries that slows down browsing"
+    ],
     "correct": [1],
     "explanation": "Un DNS leak si verifica quando le query di risoluzione dei nomi non vengono instradate nel tunnel VPN ma verso resolver esterni (spesso quelli dell'ISP). Anche se il traffico e cifrato, l'osservatore vede quali domini l'utente sta risolvendo, vanificando parte della privacy. Kill switch, DNS del provider VPN e test anti-leak aiutano a prevenirlo.",
+    "explanation_en": "A DNS leak occurs when name resolution queries are not routed through the VPN tunnel but toward external resolvers (often the ISP's). Even if the traffic is encrypted, the observer sees which domains the user is resolving, defeating part of the privacy. Kill switch, the VPN provider's DNS, and anti-leak tests help prevent it.",
     "why_wrong": {
       "0": "Non riguarda la password della VPN, ma il percorso delle richieste DNS.",
       "2": "Un DNS leak non impedisce di navigare: la navigazione funziona, ma trapelano i domini richiesti.",
       "3": "Il problema non e un eccesso di cifratura, ma il fatto che le query escono fuori dal tunnel."
+    },
+    "why_wrong_en": {
+      "0": "It is not about the VPN password, but about the path of the DNS requests.",
+      "2": "A DNS leak does not prevent browsing: browsing works, but the requested domains leak.",
+      "3": "The problem is not excessive encryption, but the fact that the queries leave outside the tunnel."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -182,18 +286,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual e una differenza concettuale corretta tra una VPN e la rete Tor?",
+    "question_en": "What is a correct conceptual difference between a VPN and the Tor network?",
     "options": [
       "La VPN usa sempre tre nodi anonimi, Tor uno solo",
       "Con la VPN ci si affida a un singolo provider che vede l'IP reale, mentre Tor distribuisce la fiducia su piu nodi indipendenti in modo che nessuno veda insieme origine e destinazione",
       "Tor cifra il traffico mentre la VPN lo lascia sempre in chiaro",
       "La VPN e illegale mentre Tor e sempre legale"
     ],
+    "options_en": [
+      "The VPN always uses three anonymous nodes, Tor only one",
+      "With a VPN you rely on a single provider that sees your real IP, while Tor distributes trust across several independent nodes so that no one sees both origin and destination together",
+      "Tor encrypts the traffic while the VPN always leaves it in cleartext",
+      "The VPN is illegal while Tor is always legal"
+    ],
     "correct": [1],
     "explanation": "Con una VPN si sposta la fiducia sul provider: il server VPN conosce l'IP reale dell'utente e potrebbe vedere/registrare il traffico. Tor invece distribuisce la fiducia su piu relay gestiti da entita diverse, in modo che nessun singolo nodo colleghi mittente e destinazione. Sono strumenti diversi con modelli di minaccia diversi; entrambi sono di per se legali.",
+    "explanation_en": "With a VPN you shift trust to the provider: the VPN server knows the user's real IP and could see/log the traffic. Tor, instead, distributes trust across multiple relays run by different entities, so that no single node links sender and destination. They are different tools with different threat models; both are legal in themselves.",
     "why_wrong": {
       "0": "La VPN classica ha tipicamente un solo hop, mentre Tor usa in genere tre nodi: e l'inverso di quanto affermato.",
       "2": "Anche la VPN cifra il traffico nel tunnel; non lo lascia in chiaro.",
       "3": "Ne la VPN ne Tor sono di per se illegali nella maggior parte dei paesi."
+    },
+    "why_wrong_en": {
+      "0": "The classic VPN typically has a single hop, while Tor generally uses three nodes: it is the reverse of what is stated.",
+      "2": "The VPN also encrypts the traffic within the tunnel; it does not leave it in cleartext.",
+      "3": "Neither the VPN nor Tor is illegal in itself in most countries."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -204,18 +321,31 @@
     "type": "single",
     "difficulty": 1,
     "question": "In una scena tipica di social engineering (come quelle mostrate in Mr Robot), un attaccante telefona fingendosi un tecnico IT per farsi dare una password. Come si chiama e come ci si difende?",
+    "question_en": "In a typical social engineering scene (like those shown in Mr Robot), an attacker phones pretending to be an IT technician to get someone to hand over a password. What is it called and how do you defend against it?",
     "options": [
       "Si chiama vishing/pretexting e ci si difende verificando l'identita del chiamante tramite canali ufficiali, senza fornire credenziali al telefono",
       "Si chiama brute force e si risolve cambiando spesso la password",
       "Si chiama phishing e si blocca solo con un buon antivirus",
       "Si chiama DDoS e si difende con un firewall di rete"
     ],
+    "options_en": [
+      "It is called vishing/pretexting and you defend against it by verifying the caller's identity through official channels, without giving out credentials over the phone",
+      "It is called brute force and it is solved by changing the password often",
+      "It is called phishing and it is blocked only with a good antivirus",
+      "It is called DDoS and you defend against it with a network firewall"
+    ],
     "correct": [0],
     "explanation": "La tecnica combina il pretexting (costruire una scusa/identita credibile) con il vishing (voice phishing, phishing telefonico). La difesa e procedurale e umana: non comunicare mai credenziali per telefono, verificare il chiamante richiamando un numero ufficiale, e formare il personale a riconoscere pressione e senso di urgenza.",
+    "explanation_en": "The technique combines pretexting (building a credible pretext/identity) with vishing (voice phishing, phone-based phishing). The defense is procedural and human: never share credentials over the phone, verify the caller by calling back an official number, and train staff to recognize pressure and a sense of urgency.",
     "why_wrong": {
       "1": "Il brute force e un attacco automatizzato sulle password, non una manipolazione telefonica.",
       "2": "E una forma di phishing vocale, ma un antivirus non ferma la manipolazione psicologica di una persona.",
       "3": "Il DDoS punta a saturare un servizio, non a estorcere credenziali con l'inganno."
+    },
+    "why_wrong_en": {
+      "1": "Brute force is an automated attack on passwords, not a phone-based manipulation.",
+      "2": "It is a form of voice phishing, but an antivirus does not stop the psychological manipulation of a person.",
+      "3": "DDoS aims to saturate a service, not to extort credentials through deception."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -226,18 +356,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Perche una chiavetta USB tipo BadUSB / Rubber Ducky e pericolosa e come ci si difende (a livello concettuale)?",
+    "question_en": "Why is a BadUSB / Rubber Ducky type USB stick dangerous and how do you defend against it (conceptually)?",
     "options": [
       "E pericolosa solo se contiene file infetti aperti dall'utente; basta un antivirus aggiornato",
       "Si presenta al computer come una tastiera e puo digitare comandi automaticamente; ci si difende non collegando dispositivi USB non fidati e usando policy di controllo dei dispositivi",
       "Non e un rischio reale perche il sistema chiede sempre conferma prima di eseguire una tastiera",
       "E pericolosa solo su computer senza password all'accensione"
     ],
+    "options_en": [
+      "It is dangerous only if it contains infected files opened by the user; an up-to-date antivirus is enough",
+      "It presents itself to the computer as a keyboard and can type commands automatically; you defend by not connecting untrusted USB devices and using device control policies",
+      "It is not a real risk because the system always asks for confirmation before running a keyboard",
+      "It is dangerous only on computers with no power-on password"
+    ],
     "correct": [1],
     "explanation": "Un BadUSB o Rubber Ducky sfrutta il fatto che il sistema si fida delle periferiche di input: si registra come tastiera HID e inietta sequenze di tasti a grande velocita, eseguendo comandi senza che l'utente apra alcun file. Le difese sono comportamentali e tecniche: non inserire chiavette trovate o non fidate (attacchi USB drop), disabilitare l'autorun e applicare policy di device control.",
+    "explanation_en": "A BadUSB or Rubber Ducky exploits the fact that the system trusts input peripherals: it registers as an HID keyboard and injects keystroke sequences at high speed, running commands without the user opening any file. The defenses are behavioral and technical: do not plug in found or untrusted sticks (USB drop attacks), disable autorun, and apply device control policies.",
     "why_wrong": {
       "0": "Il pericolo non e un file da aprire: l'attacco funziona emulando una tastiera, quindi l'antivirus classico spesso non lo intercetta.",
       "2": "Il sistema in genere non chiede conferma per collegare una tastiera: proprio questa fiducia e il punto debole sfruttato.",
       "3": "La minaccia non dipende dalla presenza di una password all'accensione; agisce su un sistema gia in uso/sbloccato."
+    },
+    "why_wrong_en": {
+      "0": "The danger is not a file to open: the attack works by emulating a keyboard, so a classic antivirus often does not catch it.",
+      "2": "The system generally does not ask for confirmation to connect a keyboard: this very trust is the weak point exploited.",
+      "3": "The threat does not depend on a power-on password; it acts on a system already in use/unlocked."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -248,18 +391,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Qual e la difesa piu efficace contro il ransomware per limitarne l'impatto?",
+    "question_en": "What is the most effective defense against ransomware to limit its impact?",
     "options": [
       "Pagare rapidamente il riscatto per riavere subito i dati",
       "Mantenere backup regolari, testati e isolati (offline/immutabili), insieme ad aggiornamenti e segmentazione della rete",
       "Rinominare le cartelle importanti cosi il ransomware non le trova",
       "Disattivare l'antivirus per evitare falsi positivi durante il ripristino"
     ],
+    "options_en": [
+      "Quickly pay the ransom to get the data back immediately",
+      "Keep regular, tested, and isolated backups (offline/immutable), together with updates and network segmentation",
+      "Rename important folders so the ransomware does not find them",
+      "Disable the antivirus to avoid false positives during recovery"
+    ],
     "correct": [1],
     "explanation": "Contro il ransomware la resilienza si costruisce prima dell'attacco: backup frequenti, verificati e conservati in modo isolato (offline o immutabili) permettono di ripristinare senza pagare. A questo si aggiungono patch tempestive, segmentazione della rete per limitare la propagazione, minimo privilegio e monitoraggio. Il pagamento non garantisce il recupero e alimenta il fenomeno.",
+    "explanation_en": "Against ransomware, resilience is built before the attack: frequent, verified backups stored in an isolated way (offline or immutable) allow recovery without paying. Add to this timely patching, network segmentation to limit propagation, least privilege, and monitoring. Paying does not guarantee recovery and fuels the phenomenon.",
     "why_wrong": {
       "0": "Pagare non garantisce la decifratura, finanzia i criminali e non impedisce recidive.",
       "2": "Rinominare le cartelle non protegge: il ransomware cifra i file indipendentemente dal nome delle cartelle.",
       "3": "Disattivare l'antivirus aumenta il rischio e non facilita alcun ripristino sicuro."
+    },
+    "why_wrong_en": {
+      "0": "Paying does not guarantee decryption, funds the criminals, and does not prevent recurrence.",
+      "2": "Renaming folders does not protect: ransomware encrypts files regardless of folder names.",
+      "3": "Disabling the antivirus increases risk and does not facilitate any safe recovery."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -270,18 +426,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "Nella serie viene mostrato il nascondere dati dentro file musicali e l'uso di volumi cifrati nascosti. Quale coppia di concetti descrive correttamente steganografia e deniability?",
+    "question_en": "The series shows hiding data inside music files and the use of hidden encrypted volumes. Which pair of concepts correctly describes steganography and deniability?",
     "options": [
       "Steganografia = cifrare i dati con AES; deniability = usare password lunghe",
       "Steganografia = nascondere l'esistenza stessa del messaggio dentro un altro file (es. audio/immagine); deniability = poter negare in modo plausibile la presenza di dati grazie a volumi nascosti indistinguibili dallo spazio libero",
       "Steganografia = comprimere i file; deniability = cancellare i log di sistema",
       "Steganografia e deniability sono sinonimi che indicano la cifratura del disco"
     ],
+    "options_en": [
+      "Steganography = encrypting the data with AES; deniability = using long passwords",
+      "Steganography = hiding the very existence of the message inside another file (e.g. audio/image); deniability = being able to plausibly deny the presence of data thanks to hidden volumes indistinguishable from free space",
+      "Steganography = compressing the files; deniability = deleting the system logs",
+      "Steganography and deniability are synonyms that refer to disk encryption"
+    ],
     "correct": [1],
     "explanation": "La steganografia nasconde l'esistenza del messaggio occultandolo dentro un altro contenuto (immagine, audio, video), a differenza della crittografia che nasconde il contenuto ma non l'esistenza. La deniability (negabilita plausibile) e ottenuta ad esempio con volumi nascosti dentro un volume cifrato: senza la seconda password, il volume interno e indistinguibile da dati casuali/spazio libero, permettendo di negarne l'esistenza.",
+    "explanation_en": "Steganography hides the existence of the message by concealing it inside other content (image, audio, video), unlike encryption, which hides the content but not the existence. Deniability (plausible deniability) is achieved, for example, with hidden volumes inside an encrypted volume: without the second password, the inner volume is indistinguishable from random data/free space, allowing its existence to be denied.",
     "why_wrong": {
       "0": "Confonde la steganografia con la cifratura: la prima nasconde l'esistenza del messaggio, non si limita a cifrarlo.",
       "2": "Comprimere file e cancellare log non sono definizioni di steganografia ne di deniability.",
       "3": "Non sono sinonimi ne coincidono con la semplice cifratura del disco: descrivono concetti distinti."
+    },
+    "why_wrong_en": {
+      "0": "It confuses steganography with encryption: the former hides the existence of the message, it does not merely encrypt it.",
+      "2": "Compressing files and deleting logs are neither definitions of steganography nor of deniability.",
+      "3": "They are neither synonyms nor equivalent to simple disk encryption: they describe distinct concepts."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -292,18 +461,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Cos'e un rootkit e perche rende difficile la sua rilevazione?",
+    "question_en": "What is a rootkit and why does it make its own detection difficult?",
     "options": [
       "Un tipo di firewall che protegge la radice del filesystem",
       "Un malware progettato per nascondere la propria presenza e mantenere accesso privilegiato persistente, spesso manomettendo il sistema operativo stesso per non farsi vedere",
       "Un backup automatico dei file di sistema critici",
       "Uno strumento legittimo per aggiornare i driver del kernel"
     ],
+    "options_en": [
+      "A type of firewall that protects the root of the filesystem",
+      "Malware designed to hide its own presence and maintain persistent privileged access, often tampering with the operating system itself to avoid being seen",
+      "An automatic backup of critical system files",
+      "A legitimate tool for updating kernel drivers"
+    ],
     "correct": [1],
     "explanation": "Un rootkit e software malevolo che punta a ottenere e mantenere privilegi elevati restando invisibile: puo agganciarsi a componenti profondi del sistema (kernel, driver, bootloader) per nascondere processi, file e connessioni. Proprio perche compromette gli strumenti con cui il sistema si osserva, la rilevazione spesso richiede analisi esterne, integrita del boot e strumenti dedicati.",
+    "explanation_en": "A rootkit is malicious software that aims to obtain and maintain elevated privileges while staying invisible: it can hook into deep system components (kernel, drivers, bootloader) to hide processes, files, and connections. Precisely because it compromises the tools the system uses to observe itself, detection often requires external analysis, boot integrity, and dedicated tools.",
     "why_wrong": {
       "0": "Non e un firewall: e un malware che occulta se stesso e altri componenti dannosi.",
       "2": "Non e un backup: al contrario, mina l'affidabilita del sistema.",
       "3": "Non e uno strumento legittimo di aggiornamento driver, anche se puo agire a livello di kernel."
+    },
+    "why_wrong_en": {
+      "0": "It is not a firewall: it is malware that conceals itself and other malicious components.",
+      "2": "It is not a backup: on the contrary, it undermines the reliability of the system.",
+      "3": "It is not a legitimate driver-update tool, even though it can operate at the kernel level."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -314,18 +496,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Cos'e una botnet e in che modo viene tipicamente sfruttata per un attacco DDoS?",
+    "question_en": "What is a botnet and how is it typically used for a DDoS attack?",
     "options": [
       "Una rete privata aziendale usata per bilanciare il carico dei server",
       "Un insieme di dispositivi compromessi controllati da remoto che possono essere usati insieme per inondare di richieste un bersaglio e renderlo indisponibile",
       "Un protocollo di cifratura per proteggere i router domestici",
       "Un tipo di antivirus distribuito su piu computer"
     ],
+    "options_en": [
+      "A private corporate network used to balance server load",
+      "A set of compromised devices controlled remotely that can be used together to flood a target with requests and make it unavailable",
+      "An encryption protocol to protect home routers",
+      "A type of antivirus distributed across multiple computers"
+    ],
     "correct": [1],
     "explanation": "Una botnet e un insieme di dispositivi infetti (PC, server, IoT) controllati da un attaccante tramite infrastruttura di comando e controllo. In un attacco DDoS le macchine vengono comandate a generare simultaneamente enormi volumi di traffico o richieste verso un bersaglio, saturandone risorse e banda fino a renderlo irraggiungibile. Difese: patch dei dispositivi, protezione anti-DDoS, filtraggio del traffico.",
+    "explanation_en": "A botnet is a set of infected devices (PCs, servers, IoT) controlled by an attacker through command-and-control infrastructure. In a DDoS attack the machines are commanded to simultaneously generate huge volumes of traffic or requests toward a target, saturating its resources and bandwidth until it becomes unreachable. Defenses: patching devices, anti-DDoS protection, traffic filtering.",
     "why_wrong": {
       "0": "Una botnet non e una rete aziendale legittima di load balancing, ma un insieme di dispositivi compromessi.",
       "2": "Non e un protocollo di cifratura per router.",
       "3": "Non e un antivirus: e uno strumento offensivo controllato dall'attaccante."
+    },
+    "why_wrong_en": {
+      "0": "A botnet is not a legitimate corporate load-balancing network, but a set of compromised devices.",
+      "2": "It is not an encryption protocol for routers.",
+      "3": "It is not an antivirus: it is an offensive tool controlled by the attacker."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -336,17 +531,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali delle seguenti minacce una VPN NON e in grado di neutralizzare? (Seleziona due)",
+    "question_en": "Which of the following threats is a VPN NOT able to neutralize? (Select two)",
     "options": [
       "L'intercettazione passiva del traffico su una rete Wi-Fi pubblica",
       "Un keylogger o RAT gia presente sul dispositivo dell'utente",
       "Il tracciamento tramite cookie e login effettuati dall'utente sui siti",
       "L'osservazione del traffico da parte dell'ISP sul primo tratto di rete"
     ],
+    "options_en": [
+      "Passive interception of traffic on a public Wi-Fi network",
+      "A keylogger or RAT already present on the user's device",
+      "Tracking via cookies and logins performed by the user on sites",
+      "Observation of the traffic by the ISP on the first network segment"
+    ],
     "correct": [1, 2],
     "explanation": "La VPN protegge il traffico in transito: cifra i dati contro l'intercettazione sulla rete locale e nasconde il contenuto all'ISP. Non agisce pero sull'endpoint (un keylogger o RAT gia installato cattura i dati prima o dopo la cifratura) ne sull'identita che l'utente rivela volontariamente accedendo con account e accettando cookie. Il modello di minaccia va sempre definito con chiarezza.",
+    "explanation_en": "A VPN protects traffic in transit: it encrypts data against interception on the local network and hides the content from the ISP. It does not, however, act on the endpoint (an already-installed keylogger or RAT captures data before or after encryption) nor on the identity the user voluntarily reveals by logging in with accounts and accepting cookies. The threat model must always be clearly defined.",
     "why_wrong": {
       "0": "Contro l'intercettazione passiva su Wi-Fi pubblico la VPN e efficace, perche cifra il tunnel.",
       "3": "La VPN sottrae proprio all'ISP la visibilita sui contenuti del traffico, quindi questa minaccia e mitigata."
+    },
+    "why_wrong_en": {
+      "0": "Against passive interception on public Wi-Fi the VPN is effective, because it encrypts the tunnel.",
+      "3": "The VPN specifically removes the ISP's visibility into the content of the traffic, so this threat is mitigated."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -357,17 +564,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Quali comportamenti aumentano il rischio di deanonimizzazione mentre si usa Tor? (Seleziona due)",
+    "question_en": "Which behaviors increase the risk of deanonymization while using Tor? (Select two)",
     "options": [
       "Effettuare il login con il proprio account personale reale durante la sessione Tor",
       "Usare il Tor Browser cosi com'e senza modificarne le impostazioni di sicurezza",
       "Aprire allegati o abilitare plugin/script esterni che possono rivelare l'IP reale",
       "Lasciare che il traffico attraversi il consueto circuito a tre nodi"
     ],
+    "options_en": [
+      "Logging in with your own real personal account during the Tor session",
+      "Using the Tor Browser as-is without changing its security settings",
+      "Opening attachments or enabling external plugins/scripts that can reveal the real IP",
+      "Letting the traffic pass through the usual three-node circuit"
+    ],
     "correct": [0, 2],
     "explanation": "L'anonimato di Tor si perde soprattutto per errori dell'utente. Accedere con un account personale reale collega direttamente l'identita alla sessione. Aprire allegati o abilitare plugin, script o contenuti esterni puo far partire connessioni fuori da Tor che rivelano l'IP vero. Usare il browser con le impostazioni predefinite e affidarsi al circuito standard sono invece comportamenti corretti.",
+    "explanation_en": "Tor's anonymity is lost mainly through user mistakes. Logging in with a real personal account directly links the identity to the session. Opening attachments or enabling plugins, scripts, or external content can trigger connections outside Tor that reveal the true IP. Using the browser with default settings and relying on the standard circuit are, instead, correct behaviors.",
     "why_wrong": {
       "1": "Usare il Tor Browser cosi com'e e la prassi consigliata: modifiche fai-da-te tendono ad aumentare, non ridurre, il rischio.",
       "3": "Il circuito a tre nodi e il normale funzionamento che fornisce l'anonimato, non una causa di deanonimizzazione."
+    },
+    "why_wrong_en": {
+      "1": "Using the Tor Browser as-is is the recommended practice: do-it-yourself changes tend to increase, not reduce, the risk.",
+      "3": "The three-node circuit is the normal operation that provides anonymity, not a cause of deanonymization."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -378,17 +597,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali misure difensive limitano la propagazione e l'impatto di un attacco all'interno di una rete? (Seleziona due)",
+    "question_en": "Which defensive measures limit the propagation and impact of an attack within a network? (Select two)",
     "options": [
       "Applicare tempestivamente gli aggiornamenti di sicurezza (patch)",
       "Segmentare la rete per isolare i sistemi critici e limitare il movimento laterale",
       "Usare la stessa password amministrativa su tutti i sistemi per semplicita",
       "Disabilitare i log per ridurre il rumore e risparmiare spazio"
     ],
+    "options_en": [
+      "Promptly applying security updates (patches)",
+      "Segmenting the network to isolate critical systems and limit lateral movement",
+      "Using the same administrative password on all systems for simplicity",
+      "Disabling logs to reduce noise and save space"
+    ],
     "correct": [0, 1],
     "explanation": "Patch tempestive chiudono le vulnerabilita note prima che vengano sfruttate, mentre la segmentazione della rete contiene un'eventuale intrusione impedendo all'attaccante di muoversi liberamente verso i sistemi critici (movimento laterale). Riusare le password e disabilitare i log fanno l'opposto: facilitano l'attaccante e ostacolano il rilevamento e le indagini.",
+    "explanation_en": "Timely patches close known vulnerabilities before they are exploited, while network segmentation contains a possible intrusion by preventing the attacker from moving freely toward critical systems (lateral movement). Reusing passwords and disabling logs do the opposite: they help the attacker and hinder detection and investigation.",
     "why_wrong": {
       "2": "Riusare la stessa password ovunque permette a chi la ottiene di compromettere l'intera rete: pessima pratica.",
       "3": "Disabilitare i log elimina le tracce necessarie a rilevare e ricostruire un attacco."
+    },
+    "why_wrong_en": {
+      "2": "Reusing the same password everywhere lets whoever obtains it compromise the entire network: a terrible practice.",
+      "3": "Disabling logs removes the traces needed to detect and reconstruct an attack."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -399,17 +630,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Quali affermazioni descrivono correttamente un RAT (Remote Access Trojan)? (Seleziona due)",
+    "question_en": "Which statements correctly describe a RAT (Remote Access Trojan)? (Select two)",
     "options": [
       "Consente all'attaccante il controllo remoto nascosto del dispositivo infetto",
       "Puo permettere esfiltrazione di dati, cattura schermo, webcam e tasti digitati",
       "E un aggiornamento ufficiale del sistema operativo firmato dal produttore",
       "Migliora le prestazioni del PC ottimizzando la memoria"
     ],
+    "options_en": [
+      "It gives the attacker hidden remote control of the infected device",
+      "It can allow data exfiltration, screen capture, webcam, and keystroke logging",
+      "It is an official operating system update signed by the manufacturer",
+      "It improves the PC's performance by optimizing memory"
+    ],
     "correct": [0, 1],
     "explanation": "Un RAT e un trojan che apre all'attaccante una backdoor per controllare da remoto il dispositivo in modo furtivo. Tipicamente offre funzioni come esecuzione di comandi, trasferimento e furto di file, keylogging, cattura dello schermo e accesso a webcam/microfono. Non ha nulla di legittimo e non e ne un aggiornamento ufficiale ne un ottimizzatore.",
+    "explanation_en": "A RAT is a trojan that opens a backdoor for the attacker to control the device remotely and stealthily. It typically offers functions such as command execution, file transfer and theft, keylogging, screen capture, and access to the webcam/microphone. It is in no way legitimate and is neither an official update nor an optimizer.",
     "why_wrong": {
       "2": "Un RAT non e un aggiornamento firmato dal produttore: e malware che si spaccia spesso per software innocuo.",
       "3": "Non ottimizza nulla: consuma risorse per fini malevoli e mette a rischio i dati."
+    },
+    "why_wrong_en": {
+      "2": "A RAT is not an update signed by the manufacturer: it is malware that often passes itself off as harmless software.",
+      "3": "It optimizes nothing: it consumes resources for malicious purposes and puts data at risk."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -420,17 +663,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "In Mr Robot compare un piccolo dispositivo (es. un Raspberry Pi) nascosto nella rete/impianto di un'azienda. Quali difese aiutano a prevenire o rilevare dispositivi rogue di questo tipo? (Seleziona due)",
+    "question_en": "In Mr Robot a small device (e.g. a Raspberry Pi) appears hidden in a company's network/facility. Which defenses help prevent or detect rogue devices of this kind? (Select two)",
     "options": [
       "Controllo degli accessi fisici e ispezioni periodiche di armadi di rete e locali tecnici",
       "Monitoraggio della rete con controllo degli accessi (NAC) per rilevare dispositivi non autorizzati",
       "Affidarsi unicamente all'antivirus dei PC per individuare l'hardware estraneo",
       "Lasciare le porte di rete e le prese sempre attive per comodita degli utenti"
     ],
+    "options_en": [
+      "Physical access control and periodic inspections of network cabinets and technical rooms",
+      "Network monitoring with access control (NAC) to detect unauthorized devices",
+      "Relying solely on the PCs' antivirus to spot the foreign hardware",
+      "Leaving network ports and outlets always active for users' convenience"
+    ],
     "correct": [0, 1],
     "explanation": "Un dispositivo rogue introdotto fisicamente aggira molte difese logiche. Le contromisure efficaci combinano sicurezza fisica (accesso controllato ai locali, ispezioni di armadi e cablaggi) e controlli di rete come il NAC e il monitoraggio, che identificano dispositivi non autorizzati che si collegano e possono metterli in quarantena. L'antivirus dei PC non vede l'hardware estraneo sulla rete.",
+    "explanation_en": "A physically introduced rogue device bypasses many logical defenses. Effective countermeasures combine physical security (controlled access to rooms, inspections of cabinets and cabling) and network controls such as NAC and monitoring, which identify unauthorized devices that connect and can quarantine them. The PCs' antivirus does not see the foreign hardware on the network.",
     "why_wrong": {
       "2": "L'antivirus sui PC non rileva un dispositivo hardware indipendente collegato alla rete o all'impianto.",
       "3": "Lasciare tutte le prese di rete attive facilita proprio l'inserimento di dispositivi rogue: le porte inutilizzate andrebbero disabilitate."
+    },
+    "why_wrong_en": {
+      "2": "The PCs' antivirus does not detect an independent hardware device connected to the network or facility.",
+      "3": "Leaving all network outlets active precisely facilitates the insertion of rogue devices: unused ports should be disabled."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -441,11 +696,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Le criptovalute come Bitcoin garantiscono l'anonimato totale, perche le transazioni non sono collegabili a nessuno.",
+    "question_en": "Cryptocurrencies like Bitcoin guarantee total anonymity, because transactions cannot be linked to anyone.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. Bitcoin e pseudonimo, non anonimo: tutte le transazioni sono registrate su una blockchain pubblica e permanente. Gli indirizzi non riportano un nome, ma tramite analisi della catena, exchange che richiedono identita (KYC) e correlazioni e spesso possibile risalire alle persone. L'anonimato reale richiede accorgimenti aggiuntivi ed e comunque fragile.",
+    "explanation_en": "False. Bitcoin is pseudonymous, not anonymous: all transactions are recorded on a public and permanent blockchain. Addresses do not carry a name, but through chain analysis, exchanges that require identity (KYC), and correlations it is often possible to trace back to the people. Real anonymity requires additional measures and is fragile anyway.",
     "why_wrong": {
       "0": "Non e vero: la blockchain e pubblica e le transazioni pseudonime sono spesso tracciabili fino a un'identita reale."
+    },
+    "why_wrong_en": {
+      "0": "It is not true: the blockchain is public and pseudonymous transactions are often traceable back to a real identity."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -456,11 +717,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Una policy no-log dichiarata da un provider VPN e sempre una garanzia tecnica assoluta che nessun dato di connessione venga mai conservato.",
+    "question_en": "A no-log policy declared by a VPN provider is always an absolute technical guarantee that no connection data is ever retained.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. La policy no-log e una dichiarazione/politica del provider, non una proprieta tecnica verificabile automaticamente dall'utente. La sua affidabilita dipende dalla fiducia nel fornitore, dalla giurisdizione, da eventuali audit indipendenti e dalla configurazione reale. Alcuni provider hanno conservato dati nonostante dichiarazioni contrarie: il modello di fiducia va valutato con attenzione.",
+    "explanation_en": "False. The no-log policy is a declaration/policy of the provider, not a technical property that the user can automatically verify. Its reliability depends on trust in the provider, the jurisdiction, any independent audits, and the actual configuration. Some providers have retained data despite statements to the contrary: the trust model must be assessed carefully.",
     "why_wrong": {
       "0": "Non e una garanzia assoluta: e una promessa che dipende da fiducia, giurisdizione e audit, non un fatto tecnico automatico."
+    },
+    "why_wrong_en": {
+      "0": "It is not an absolute guarantee: it is a promise that depends on trust, jurisdiction, and audits, not an automatic technical fact."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -471,11 +738,17 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "Il riuso della stessa password su piu servizi espone al credential stuffing, in cui credenziali rubate da una violazione vengono provate automaticamente su altri siti.",
+    "question_en": "Reusing the same password across multiple services exposes you to credential stuffing, in which credentials stolen from one breach are automatically tried on other sites.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Nel credential stuffing gli attaccanti prendono coppie utente/password trapelate da una violazione e le provano in massa su molti altri servizi, contando sul fatto che le persone riusano le stesse credenziali. Le difese sono password uniche (con un password manager) e l'autenticazione a piu fattori, che rende inutile la sola password rubata.",
+    "explanation_en": "True. In credential stuffing, attackers take username/password pairs leaked from a breach and try them en masse on many other services, counting on the fact that people reuse the same credentials. The defenses are unique passwords (with a password manager) and multi-factor authentication, which makes the stolen password alone useless.",
     "why_wrong": {
       "1": "L'affermazione e corretta: il riuso delle password e proprio cio che rende efficace il credential stuffing."
+    },
+    "why_wrong_en": {
+      "1": "The statement is correct: password reuse is precisely what makes credential stuffing effective."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   },
@@ -486,11 +759,17 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Un sistema air-gapped, fisicamente isolato dalle reti, e completamente immune a ogni attacco e non necessita di altre misure di sicurezza.",
+    "question_en": "An air-gapped system, physically isolated from networks, is completely immune to any attack and needs no other security measures.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. L'air gap (isolamento fisico dalle reti) riduce molto la superficie d'attacco, ma non rende immuni: puo essere superato tramite supporti rimovibili infetti (come un attacco USB drop), insider, compromissioni della supply chain o canali laterali. Restano necessarie difese aggiuntive come controllo dei dispositivi, aggiornamenti e sorveglianza fisica.",
+    "explanation_en": "False. The air gap (physical isolation from networks) greatly reduces the attack surface, but does not make you immune: it can be overcome via infected removable media (like a USB drop attack), insiders, supply chain compromises, or side channels. Additional defenses remain necessary, such as device control, updates, and physical surveillance.",
     "why_wrong": {
       "0": "Non e vero: gli air gap sono stati superati, ad esempio tramite chiavette USB infette o canali laterali, quindi servono comunque altre misure."
+    },
+    "why_wrong_en": {
+      "0": "It is not true: air gaps have been overcome, for example via infected USB sticks or side channels, so other measures are still needed."
     },
     "source": "Sezione alto valore - Dark Web/VPN/Mr Robot"
   }

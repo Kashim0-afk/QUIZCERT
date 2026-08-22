@@ -25,7 +25,20 @@
       "2": "La cifratura dei dati è una tecnica di protezione, non un malware.",
       "3": "Un protocollo sicuro (come HTTPS) serve a proteggere la navigazione, non a infettare il sistema."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What is a computer virus?",
+    "options_en": [
+      "A malicious program that attaches to a legitimate file or program and spreads when it is run",
+      "A hardware device that filters network traffic",
+      "A technique for encrypting data stored on disk",
+      "A secure protocol for browsing the Internet"
+    ],
+    "explanation_en": "A virus is a type of malware that attaches to a legitimate file or program and spreads when the infected host is run, thus requiring user action to propagate.",
+    "why_wrong_en": {
+      "1": "What is described is a firewall, not a virus.",
+      "2": "Data encryption is a protection technique, not malware.",
+      "3": "A secure protocol (such as HTTPS) serves to protect browsing, not to infect the system."
+    }
   },
   {
     "id": "gl-002",
@@ -53,7 +66,20 @@
       "2": "Cifrare i file e chiedere un riscatto è il comportamento tipico del ransomware.",
       "3": "Mascherarsi da software legittimo è la caratteristica del trojan."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What is the distinctive characteristic of a worm?",
+    "options_en": [
+      "It self-replicates and spreads autonomously across the network without needing a host file or user intervention",
+      "It always needs to attach to a host file in order to replicate",
+      "It encrypts the victim's files and demands a ransom payment",
+      "It disguises itself as legitimate software to deceive the user into installing it"
+    ],
+    "explanation_en": "A worm is malware that self-replicates and propagates on its own across the network, without the need for a host file or user action. This distinguishes it from a virus.",
+    "why_wrong_en": {
+      "1": "This is the characteristic of a virus, not a worm: the worm replicates autonomously.",
+      "2": "Encrypting files and demanding a ransom is the typical behavior of ransomware.",
+      "3": "Masquerading as legitimate software is the characteristic of a trojan."
+    }
   },
   {
     "id": "gl-003",
@@ -81,7 +107,20 @@
       "2": "Un firewall è un controllo di sicurezza difensivo, non un malware.",
       "3": "Il rilevamento delle intrusioni è compito di un IDS, non di un trojan."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What is a trojan (Trojan horse)?",
+    "options_en": [
+      "Malware that disguises itself as legitimate or useful software to trick the user into installing it",
+      "Malware that self-replicates and spreads across the network without user intervention",
+      "A next-generation firewall for traffic control",
+      "A system that detects intrusions on the network"
+    ],
+    "explanation_en": "A trojan hides behind the appearance of a legitimate or useful program to deceive the user and convince them to run it, thereby opening the door to malicious activity.",
+    "why_wrong_en": {
+      "1": "Autonomous self-replication is the characteristic of a worm.",
+      "2": "A firewall is a defensive security control, not malware.",
+      "3": "Intrusion detection is the job of an IDS, not a trojan."
+    }
   },
   {
     "id": "gl-004",
@@ -109,7 +148,20 @@
       "2": "La verifica dell'identità tramite caratteristiche fisiche è la biometria, non un malware.",
       "3": "Creare un tunnel cifrato è la funzione di una VPN."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What does ransomware typically do?",
+    "options_en": [
+      "It encrypts the victim's files and demands a ransom payment to restore them",
+      "It shows unwanted advertising inside applications",
+      "It verifies users' identities through biometric data",
+      "It creates an encrypted tunnel to protect communications"
+    ],
+    "explanation_en": "Ransomware encrypts the victim's data, making it inaccessible, and demands a ransom payment (often in cryptocurrency) in exchange for the decryption key.",
+    "why_wrong_en": {
+      "1": "Displaying unwanted advertising is typical of adware.",
+      "2": "Verifying identity through physical characteristics is biometrics, not malware.",
+      "3": "Creating an encrypted tunnel is the function of a VPN."
+    }
   },
   {
     "id": "gl-005",
@@ -137,7 +189,20 @@
       "2": "La saturazione della banda descrive un attacco DDoS, non un rootkit.",
       "3": "Un token di autenticazione è un elemento di controllo accessi, non un malware."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What is a rootkit?",
+    "options_en": [
+      "Malware designed to gain privileged access and hide its own presence and that of other malicious processes on the system",
+      "Software that automatically displays advertising banners",
+      "An attack that saturates a server's bandwidth with excessive traffic",
+      "A one-time token for two-factor authentication"
+    ],
+    "explanation_en": "A rootkit is malware that obtains elevated privileges on the system and masks its own presence, along with that of other malicious components, to evade security controls and maintain access.",
+    "why_wrong_en": {
+      "1": "Displaying advertising banners is a characteristic of adware.",
+      "2": "Bandwidth saturation describes a DDoS attack, not a rootkit.",
+      "3": "An authentication token is an access control element, not malware."
+    }
   },
   {
     "id": "gl-006",
@@ -165,7 +230,20 @@
       "2": "Una zero-day non è un software antivirus, ma una debolezza di sicurezza.",
       "3": "Una password temporanea è un meccanismo di autenticazione, non una vulnerabilità."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What is a zero-day vulnerability?",
+    "options_en": [
+      "A vulnerability that is not yet known or has no patch, which attackers can exploit before it is fixed",
+      "A vulnerability that was already fixed long ago through an official patch",
+      "A type of free preinstalled antivirus",
+      "A temporary password valid for a single login"
+    ],
+    "explanation_en": "A zero-day is a vulnerability for which no known or available patch yet exists: attackers can exploit it before the vendor fixes it, leaving defenders with 'zero days' to react.",
+    "why_wrong_en": {
+      "1": "If a patch already exists, the vulnerability is no longer a zero-day.",
+      "2": "A zero-day is not antivirus software, but a security weakness.",
+      "3": "A temporary password is an authentication mechanism, not a vulnerability."
+    }
   },
   {
     "id": "gl-007",
@@ -193,7 +271,20 @@
       "2": "Cifrare i file e chiedere un riscatto è il comportamento del ransomware.",
       "3": "Il backup dei dati è una misura di protezione, non un attacco."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What is phishing?",
+    "options_en": [
+      "A social engineering attack in which the attacker deceives the victim to obtain sensitive data or credentials, often via fake emails or websites",
+      "An attack that floods a server with traffic to make it unreachable",
+      "Software that encrypts files and demands a ransom",
+      "A technique for automatic backup of company data"
+    ],
+    "explanation_en": "Phishing is a social engineering technique that exploits deception (fake emails, messages, or websites) to induce the victim to reveal sensitive information such as credentials or banking data.",
+    "why_wrong_en": {
+      "1": "Flooding a server with traffic describes a DDoS attack.",
+      "2": "Encrypting files and demanding a ransom is the behavior of ransomware.",
+      "3": "Data backup is a protection measure, not an attack."
+    }
   },
   {
     "id": "gl-008",
@@ -221,7 +312,20 @@
       "2": "La replica dei file riguarda i sistemi di backup, non il firewall.",
       "3": "La verifica biometrica è un metodo di autenticazione, non la funzione di un firewall."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What is the main function of a firewall?",
+    "options_en": [
+      "To monitor and control inbound and outbound network traffic based on predefined security rules",
+      "To encrypt all data stored on the computer's disk",
+      "To automatically replicate files across multiple backup servers",
+      "To verify the biometric identity of users who log in"
+    ],
+    "explanation_en": "A firewall filters inbound and outbound network traffic by applying predefined security rules, allowing or blocking connections to protect the network.",
+    "why_wrong_en": {
+      "1": "Encrypting data on disk is the job of encryption tools, not the firewall.",
+      "2": "File replication concerns backup systems, not the firewall.",
+      "3": "Biometric verification is an authentication method, not the function of a firewall."
+    }
   },
   {
     "id": "gl-010",
@@ -249,7 +353,20 @@
       "2": "L'intercettazione del traffico tra due parti descrive un attacco man-in-the-middle (MITM).",
       "3": "Un catalogo degli asset è un inventario degli asset, non una VPN."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What is a VPN (Virtual Private Network)?",
+    "options_en": [
+      "A technology that creates an encrypted tunnel to protect communications over insecure networks",
+      "Malware that secretly records the keys pressed by the user",
+      "An attack that intercepts the traffic exchanged between two parties",
+      "A catalog of the assets to be protected within the organization"
+    ],
+    "explanation_en": "A VPN establishes an encrypted tunnel between the device and the network, protecting the confidentiality and integrity of communications even when using public or untrusted networks.",
+    "why_wrong_en": {
+      "1": "Recording the keys pressed is the job of spyware/a keylogger.",
+      "2": "Intercepting the traffic between two parties describes a man-in-the-middle (MITM) attack.",
+      "3": "An asset catalog is an asset inventory, not a VPN."
+    }
   },
   {
     "id": "gl-011",
@@ -277,7 +394,20 @@
       "2": "Un algoritmo di cifratura riguarda la crittografia, non la gestione di eventi di sicurezza.",
       "3": "Il SIEM è uno strumento difensivo, non un malware."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What is a SIEM (Security Information and Event Management)?",
+    "options_en": [
+      "A tool that collects, aggregates, and analyzes security logs and events to detect and report threats",
+      "A hardware device that completely replaces the firewall",
+      "An asymmetric public-key encryption algorithm",
+      "A type of malware that spreads through email attachments"
+    ],
+    "explanation_en": "A SIEM centralizes the collection and aggregation of logs and events from multiple sources and analyzes them (often in real time) to identify, correlate, and report potential security threats.",
+    "why_wrong_en": {
+      "1": "A SIEM does not replace the firewall: they are complementary tools with different functions.",
+      "2": "An encryption algorithm concerns cryptography, not the management of security events.",
+      "3": "A SIEM is a defensive tool, not malware."
+    }
   },
   {
     "id": "gl-012",
@@ -305,7 +435,20 @@
       "2": "La cifratura dei dati in transito riguarda la crittografia, non l'autenticazione.",
       "3": "La saturazione di un server descrive un attacco DDoS."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "What is meant by authentication?",
+    "options_en": [
+      "The process of verifying a user's identity",
+      "The process of granting access permissions to specific resources",
+      "The encryption of data as it travels over the network",
+      "The saturation of a server through excessive traffic"
+    ],
+    "explanation_en": "Authentication is the process by which a user's identity is verified (who they are), for example through a password, biometrics, or a token, before granting them access.",
+    "why_wrong_en": {
+      "1": "Granting permissions to specific resources is authorization, not authentication.",
+      "2": "Encrypting data in transit concerns cryptography, not authentication.",
+      "3": "The saturation of a server describes a DDoS attack."
+    }
   },
   {
     "id": "gl-013",
@@ -333,7 +476,19 @@
       "2": "La crittografia è reversibile: il destinatario legittimo, con la chiave corretta, può decifrare i dati.",
       "3": "Lo scopo della crittografia è proteggere la riservatezza dei dati, non aumentare la velocità della rete."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "Which of the following statements about cryptography are correct? (Select two options)",
+    "options_en": [
+      "Asymmetric cryptography uses a pair of keys: a public one and a private one",
+      "Symmetric cryptography uses the same key to encrypt and decrypt data",
+      "Cryptography makes data permanently unrecoverable even for the legitimate recipient",
+      "Cryptography mainly serves to increase network speed"
+    ],
+    "explanation_en": "Asymmetric cryptography is based on a pair of keys (public and private), while symmetric cryptography uses a single shared key to encrypt and decrypt. In both cases the data remains recoverable by whoever holds the correct key.",
+    "why_wrong_en": {
+      "2": "Cryptography is reversible: the legitimate recipient, with the correct key, can decrypt the data.",
+      "3": "The purpose of cryptography is to protect the confidentiality of data, not to increase network speed."
+    }
   },
   {
     "id": "gl-014",
@@ -361,7 +516,19 @@
       "2": "Una minaccia è un potenziale evento dannoso; una patch è invece una correzione che riduce una vulnerabilità.",
       "3": "Il rischio dipende proprio dalle vulnerabilità presenti, oltre che dalle minacce e dall'impatto potenziale."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "Which of the following statements about threats, vulnerabilities, and exploits are correct? (Select two options)",
+    "options_en": [
+      "A vulnerability is a weakness that can be exploited by a threat actor",
+      "An exploit is the code or technique that exploits a vulnerability",
+      "A threat is the same thing as a security patch",
+      "Risk is entirely independent of the vulnerabilities present"
+    ],
+    "explanation_en": "A vulnerability is an exploitable weakness, while an exploit is the means (code or technique) by which that weakness is actually exploited. Risk depends on the combination of threats, vulnerabilities, and impact.",
+    "why_wrong_en": {
+      "2": "A threat is a potential harmful event; a patch, on the other hand, is a fix that reduces a vulnerability.",
+      "3": "Risk depends precisely on the vulnerabilities present, as well as on threats and potential impact."
+    }
   },
   {
     "id": "gl-015",
@@ -390,7 +557,19 @@
       "2": "Cifrare i file e chiedere un riscatto è il comportamento del ransomware, non di un attacco DDoS.",
       "3": "Una botnet è una rete di dispositivi compromessi, non un firewall difensivo."
     },
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "Which of the following statements about botnets and DDoS attacks are correct? (Select two options)",
+    "options_en": [
+      "A botnet is a network of infected devices controlled by a single malicious actor",
+      "A DDoS attack aims to make a service unavailable by overloading it with traffic",
+      "A DDoS attack serves to encrypt the victim's files in order to demand a ransom",
+      "A botnet is a type of hardware firewall for perimeter defense"
+    ],
+    "explanation_en": "A botnet is a set of infected devices controlled by a single actor (the 'bot-herder') and is often used to launch DDoS attacks, which make a service unreachable by saturating it with traffic.",
+    "why_wrong_en": {
+      "2": "Encrypting files and demanding a ransom is the behavior of ransomware, not of a DDoS attack.",
+      "3": "A botnet is a network of compromised devices, not a defensive firewall."
+    }
   },
   {
     "id": "gl-016",
@@ -411,7 +590,13 @@
       1
     ],
     "explanation": "Falso. A differenza del virus, il worm si auto-replica e si diffonde autonomamente attraverso la rete, senza bisogno di allegarsi a un file host o di un'azione dell'utente.",
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "A worm needs a host file in order to replicate.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. Unlike a virus, a worm self-replicates and spreads autonomously across the network, without needing to attach to a host file or requiring user action."
   },
   {
     "id": "gl-017",
@@ -432,7 +617,13 @@
       0
     ],
     "explanation": "Vero. Una zero-day è una vulnerabilità sconosciuta o priva di correzione disponibile: gli attaccanti possono sfruttarla prima che venga rilasciata una patch.",
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "A zero-day vulnerability is a vulnerability for which no known patch yet exists.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. A zero-day is an unknown vulnerability or one with no available fix: attackers can exploit it before a patch is released."
   },
   {
     "id": "gl-018",
@@ -453,6 +644,12 @@
       1
     ],
     "explanation": "Falso. L'autenticazione verifica l'identità di un utente (chi è), mentre l'autorizzazione stabilisce a quali risorse quell'utente può accedere: sono due processi distinti e complementari.",
-    "source": "HACK/Cybersecurity-Certificate-glossary.docx"
+    "source": "HACK/Cybersecurity-Certificate-glossary.docx",
+    "question_en": "Authentication and authorization are exactly the same thing.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. Authentication verifies a user's identity (who they are), while authorization determines which resources that user can access: they are two distinct and complementary processes."
   }
 ]

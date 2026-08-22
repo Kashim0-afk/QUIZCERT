@@ -6,13 +6,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "In PowerShell i cmdlet seguono una convenzione di denominazione standard. Quale delle seguenti rispetta correttamente lo schema Verbo-Nome?",
+    "question_en": "In PowerShell, cmdlets follow a standard naming convention. Which of the following correctly follows the Verb-Noun scheme?",
     "options": ["ServiceGet", "Get-Service", "get_service", "GETSERVICE"],
+    "options_en": ["ServiceGet", "Get-Service", "get_service", "GETSERVICE"],
     "correct": [1],
     "explanation": "I cmdlet PowerShell usano lo schema Verbo-Nome (Verb-Noun) con il trattino, ad esempio Get-Service, Stop-Process, New-Item. Il verbo indica l'azione (Get, Set, New, Remove) e il nome indica la risorsa su cui si opera.",
+    "explanation_en": "PowerShell cmdlets use the Verb-Noun scheme with the hyphen, for example Get-Service, Stop-Process, New-Item. The verb indicates the action (Get, Set, New, Remove) and the noun indicates the resource being operated on.",
     "why_wrong": {
       "0": "L'ordine e' invertito e manca il trattino: la convenzione mette prima il verbo (Get) e poi il nome (Service).",
       "2": "get_service usa underscore e minuscole, tipico di altri linguaggi ma non della convenzione Verb-Noun di PowerShell.",
       "3": "GETSERVICE non separa verbo e nome col trattino e non rispetta il PascalCase previsto dai cmdlet."
+    },
+    "why_wrong_en": {
+      "0": "The order is reversed and the hyphen is missing: the convention puts the verb first (Get) and then the noun (Service).",
+      "2": "get_service uses an underscore and lowercase, typical of other languages but not of PowerShell's Verb-Noun convention.",
+      "3": "GETSERVICE does not separate verb and noun with a hyphen and does not follow the PascalCase expected by cmdlets."
     },
     "source": "IT generale"
   },
@@ -23,7 +31,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "Vuoi ottenere l'elenco dei processi attivi, filtrare solo quelli che usano piu' di 100 MB di memoria e ordinarli. Quale costrutto della pipeline PowerShell e' corretto?",
+    "question_en": "You want to get the list of active processes, filter only those using more than 100 MB of memory and sort them. Which PowerShell pipeline construct is correct?",
     "options": [
+      "Get-Process | Where-Object { $_.WorkingSet -gt 100MB } | Sort-Object WorkingSet",
+      "Get-Process > Where WorkingSet 100MB > Sort WorkingSet",
+      "Get-Process && filter 100MB && sort",
+      "Process-Get | if WorkingSet > 100MB | order WorkingSet"
+    ],
+    "options_en": [
       "Get-Process | Where-Object { $_.WorkingSet -gt 100MB } | Sort-Object WorkingSet",
       "Get-Process > Where WorkingSet 100MB > Sort WorkingSet",
       "Get-Process && filter 100MB && sort",
@@ -31,10 +46,16 @@
     ],
     "correct": [0],
     "explanation": "Nella pipeline PowerShell l'operatore | passa gli oggetti da un cmdlet al successivo. Where-Object filtra usando la variabile automatica $_ (l'oggetto corrente), e Sort-Object ordina. PowerShell supporta anche il suffisso 100MB come costante numerica.",
+    "explanation_en": "In the PowerShell pipeline the | operator passes objects from one cmdlet to the next. Where-Object filters using the automatic variable $_ (the current object), and Sort-Object sorts. PowerShell also supports the 100MB suffix as a numeric constant.",
     "why_wrong": {
       "1": "Il simbolo > in PowerShell e' la redirezione su file, non un filtro; 'Where WorkingSet 100MB' non e' sintassi valida.",
       "2": "&& e' un operatore di concatenazione condizionale (PowerShell 7), non serve per filtrare, e 'filter'/'sort' cosi' non sono cmdlet validi.",
       "3": "Il cmdlet e' Get-Process (Verbo-Nome), non 'Process-Get', e 'if'/'order' non sono cmdlet di pipeline."
+    },
+    "why_wrong_en": {
+      "1": "The > symbol in PowerShell is file redirection, not a filter; 'Where WorkingSet 100MB' is not valid syntax.",
+      "2": "&& is a conditional chaining operator (PowerShell 7), it is not used for filtering, and 'filter'/'sort' like that are not valid cmdlets.",
+      "3": "The cmdlet is Get-Process (Verb-Noun), not 'Process-Get', and 'if'/'order' are not pipeline cmdlets."
     },
     "source": "IT generale"
   },
@@ -45,13 +66,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "In uno script Bash, dopo aver eseguito un comando, quale variabile speciale contiene l'exit code dell'ultimo comando eseguito?",
+    "question_en": "In a Bash script, after running a command, which special variable contains the exit code of the last executed command?",
     "options": ["$!", "$?", "$#", "$0"],
+    "options_en": ["$!", "$?", "$#", "$0"],
     "correct": [1],
     "explanation": "In Bash la variabile speciale $? contiene l'exit code (codice di uscita) dell'ultimo comando eseguito. Per convenzione 0 indica successo e un valore diverso da 0 indica errore.",
+    "explanation_en": "In Bash the special variable $? contains the exit code of the last executed command. By convention 0 indicates success and a value other than 0 indicates an error.",
     "why_wrong": {
       "0": "$! contiene il PID dell'ultimo processo avviato in background, non l'exit code.",
       "2": "$# contiene il numero di argomenti passati allo script, non l'exit code.",
       "3": "$0 contiene il nome dello script/comando invocato, non l'exit code."
+    },
+    "why_wrong_en": {
+      "0": "$! contains the PID of the last process started in the background, not the exit code.",
+      "2": "$# contains the number of arguments passed to the script, not the exit code.",
+      "3": "$0 contains the name of the script/command invoked, not the exit code."
     },
     "source": "IT generale"
   },
@@ -62,13 +91,21 @@
     "type": "single",
     "difficulty": 1,
     "question": "In Python quale struttura dati usa coppie chiave-valore e si dichiara con le parentesi graffe, ad esempio {'host': 'srv01', 'porta': 8080}?",
+    "question_en": "In Python, which data structure uses key-value pairs and is declared with curly braces, for example {'host': 'srv01', 'porta': 8080}?",
     "options": ["Lista (list)", "Tupla (tuple)", "Dizionario (dict)", "Insieme (set)"],
+    "options_en": ["List (list)", "Tuple (tuple)", "Dictionary (dict)", "Set (set)"],
     "correct": [2],
     "explanation": "Il dizionario (dict) memorizza coppie chiave-valore e si dichiara con le parentesi graffe usando la sintassi {chiave: valore}. L'accesso avviene tramite la chiave, ad esempio config['host'].",
+    "explanation_en": "The dictionary (dict) stores key-value pairs and is declared with curly braces using the syntax {key: value}. Access is done through the key, for example config['host'].",
     "why_wrong": {
       "0": "La lista e' una sequenza ordinata di valori indicizzati numericamente, dichiarata con parentesi quadre [], senza coppie chiave-valore.",
       "1": "La tupla e' una sequenza ordinata e immutabile, dichiarata con parentesi tonde (), senza coppie chiave-valore.",
       "3": "Il set usa anch'esso le graffe ma contiene solo valori unici senza chiavi associate, ad esempio {1, 2, 3}."
+    },
+    "why_wrong_en": {
+      "0": "The list is an ordered sequence of numerically indexed values, declared with square brackets [], without key-value pairs.",
+      "1": "The tuple is an ordered and immutable sequence, declared with parentheses (), without key-value pairs.",
+      "3": "The set also uses curly braces but contains only unique values without associated keys, for example {1, 2, 3}."
     },
     "source": "IT generale"
   },
@@ -79,13 +116,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "Provi a lanciare uno script .ps1 ma PowerShell lo blocca con un errore relativo alla execution policy. Quale comando mostra la policy attualmente impostata?",
+    "question_en": "You try to run a .ps1 script but PowerShell blocks it with an error related to the execution policy. Which command shows the currently set policy?",
     "options": ["Get-ExecutionPolicy", "Show-Policy", "Get-Content policy", "Test-ScriptPolicy"],
+    "options_en": ["Get-ExecutionPolicy", "Show-Policy", "Get-Content policy", "Test-ScriptPolicy"],
     "correct": [0],
     "explanation": "Get-ExecutionPolicy mostra la execution policy corrente (ad esempio Restricted, RemoteSigned, Unrestricted). Per modificarla si usa Set-ExecutionPolicy. La policy controlla se e quali script possono essere eseguiti.",
+    "explanation_en": "Get-ExecutionPolicy shows the current execution policy (for example Restricted, RemoteSigned, Unrestricted). To change it you use Set-ExecutionPolicy. The policy controls whether and which scripts can be run.",
     "why_wrong": {
       "1": "Show-Policy non e' un cmdlet PowerShell esistente; la convenzione userebbe comunque il verbo Get per leggere un valore.",
       "2": "Get-Content policy leggerebbe il contenuto di un file chiamato 'policy', non la execution policy del sistema.",
       "3": "Test-ScriptPolicy non e' un cmdlet valido; Test-* verifica condizioni ma questo nome non esiste."
+    },
+    "why_wrong_en": {
+      "1": "Show-Policy is not an existing PowerShell cmdlet; the convention would in any case use the Get verb to read a value.",
+      "2": "Get-Content policy would read the content of a file named 'policy', not the system execution policy.",
+      "3": "Test-ScriptPolicy is not a valid cmdlet; Test-* checks conditions but this name does not exist."
     },
     "source": "IT generale"
   },
@@ -96,7 +141,14 @@
     "type": "single",
     "difficulty": 2,
     "question": "In Bash vuoi scrivere sia lo standard output sia lo standard error di un comando in un file di log. Quale redirezione e' corretta?",
+    "question_en": "In Bash you want to write both the standard output and the standard error of a command to a log file. Which redirection is correct?",
     "options": [
+      "comando > log.txt 2>&1",
+      "comando < log.txt",
+      "comando | log.txt",
+      "comando 2> log.txt 1"
+    ],
+    "options_en": [
       "comando > log.txt 2>&1",
       "comando < log.txt",
       "comando | log.txt",
@@ -104,10 +156,16 @@
     ],
     "correct": [0],
     "explanation": "La sintassi 'comando > log.txt 2>&1' redirige prima lo stdout (descrittore 1) su log.txt, poi con 2>&1 redirige anche lo stderr (descrittore 2) verso la stessa destinazione di stdout. L'ordine e' importante.",
+    "explanation_en": "The syntax 'comando > log.txt 2>&1' first redirects stdout (descriptor 1) to log.txt, then with 2>&1 it also redirects stderr (descriptor 2) to the same destination as stdout. The order is important.",
     "why_wrong": {
       "1": "Il simbolo < e' la redirezione di input: legge da log.txt invece di scriverci, quindi non salva alcun output.",
       "2": "La pipe | passa l'output a un altro comando, ma log.txt e' un file, non un comando da eseguire.",
       "3": "'2> log.txt 1' redirige solo lo stderr; l'1 finale e' interpretato come argomento e lo stdout non viene catturato."
+    },
+    "why_wrong_en": {
+      "1": "The < symbol is input redirection: it reads from log.txt instead of writing to it, so it does not save any output.",
+      "2": "The pipe | passes the output to another command, but log.txt is a file, not a command to execute.",
+      "3": "'2> log.txt 1' redirects only stderr; the trailing 1 is interpreted as an argument and stdout is not captured."
     },
     "source": "IT generale"
   },
@@ -118,13 +176,21 @@
     "type": "single",
     "difficulty": 2,
     "question": "In uno script Python di automazione IT devi eseguire un comando esterno di sistema (ad esempio 'ping') e catturarne l'output. Quale modulo della libreria standard e' piu' indicato?",
+    "question_en": "In a Python IT automation script you need to run an external system command (for example 'ping') and capture its output. Which standard library module is most suitable?",
     "options": ["os.path", "subprocess", "re", "json"],
+    "options_en": ["os.path", "subprocess", "re", "json"],
     "correct": [1],
     "explanation": "Il modulo subprocess permette di avviare processi esterni, passare argomenti e catturarne output ed exit code, ad esempio con subprocess.run(['ping', '-n', '1', 'host'], capture_output=True). E' lo strumento standard per lanciare comandi di sistema.",
+    "explanation_en": "The subprocess module allows starting external processes, passing arguments and capturing their output and exit code, for example with subprocess.run(['ping', '-n', '1', 'host'], capture_output=True). It is the standard tool for running system commands.",
     "why_wrong": {
       "0": "os.path serve a manipolare percorsi di file e directory, non a eseguire comandi esterni.",
       "2": "Il modulo re gestisce le espressioni regolari per la ricerca di pattern nel testo, non l'esecuzione di processi.",
       "3": "Il modulo json serializza e deserializza dati in formato JSON, non lancia comandi di sistema."
+    },
+    "why_wrong_en": {
+      "0": "os.path is used to manipulate file and directory paths, not to run external commands.",
+      "2": "The re module handles regular expressions for searching patterns in text, not process execution.",
+      "3": "The json module serializes and deserializes data in JSON format, it does not run system commands."
     },
     "source": "IT generale"
   },
@@ -135,18 +201,31 @@
     "type": "single",
     "difficulty": 2,
     "question": "Interroghi una API REST e ricevi una risposta con header 'Content-Type: application/json'. Quale affermazione descrive correttamente cosa hai ottenuto?",
+    "question_en": "You query a REST API and receive a response with the header 'Content-Type: application/json'. Which statement correctly describes what you obtained?",
     "options": [
       "Un file binario che va decompresso prima dell'uso",
       "Dati strutturati in testo JSON, tipicamente oggetti con coppie chiave-valore e array",
       "Una pagina HTML da mostrare nel browser",
       "Un foglio di calcolo Excel codificato"
     ],
+    "options_en": [
+      "A binary file that must be decompressed before use",
+      "Structured data in JSON text, typically objects with key-value pairs and arrays",
+      "An HTML page to display in the browser",
+      "An encoded Excel spreadsheet"
+    ],
     "correct": [1],
     "explanation": "JSON (JavaScript Object Notation) e' un formato testuale leggero per lo scambio di dati, basato su oggetti {chiave: valore} e array []. Le API REST lo usano comunemente per restituire dati strutturati facilmente parsabili da qualsiasi linguaggio.",
+    "explanation_en": "JSON (JavaScript Object Notation) is a lightweight text format for data exchange, based on objects {key: value} and arrays []. REST APIs commonly use it to return structured data easily parsable by any language.",
     "why_wrong": {
       "0": "JSON e' un formato di testo leggibile, non un binario compresso; non richiede decompressione.",
       "2": "L'HTML avrebbe Content-Type text/html; JSON contiene dati, non markup di presentazione.",
       "3": "Un file Excel avrebbe un Content-Type come application/vnd.ms-excel, diverso da application/json."
+    },
+    "why_wrong_en": {
+      "0": "JSON is a readable text format, not a compressed binary; it does not require decompression.",
+      "2": "HTML would have Content-Type text/html; JSON contains data, not presentation markup.",
+      "3": "An Excel file would have a Content-Type like application/vnd.ms-excel, different from application/json."
     },
     "source": "IT generale"
   },
@@ -157,18 +236,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "In automazione IT si parla spesso di 'idempotenza'. Cosa significa che un'operazione o uno script e' idempotente?",
+    "question_en": "In IT automation people often talk about 'idempotency'. What does it mean for an operation or a script to be idempotent?",
     "options": [
       "Che viene eseguito una sola volta e poi si blocca",
       "Che eseguendolo piu' volte con lo stesso input il risultato finale resta lo stesso della prima esecuzione",
       "Che si esegue piu' velocemente a ogni ripetizione",
       "Che richiede sempre privilegi di amministratore"
     ],
+    "options_en": [
+      "That it runs only once and then stops",
+      "That running it multiple times with the same input keeps the final result the same as the first run",
+      "That it runs faster with each repetition",
+      "That it always requires administrator privileges"
+    ],
     "correct": [1],
     "explanation": "Idempotenza significa che applicare l'operazione una o piu' volte produce sempre lo stesso stato finale. E' un principio fondamentale in automazione e configuration management (es. Ansible): rieseguire lo script non causa effetti indesiderati o duplicazioni se lo stato desiderato e' gia' raggiunto.",
+    "explanation_en": "Idempotency means that applying the operation once or multiple times always produces the same final state. It is a fundamental principle in automation and configuration management (e.g. Ansible): rerunning the script does not cause unwanted effects or duplications if the desired state has already been reached.",
     "why_wrong": {
       "0": "L'idempotenza non impedisce ripetizioni: lo script puo' essere rieseguito quante volte si vuole, restando sicuro.",
       "2": "L'idempotenza riguarda la coerenza del risultato, non le prestazioni o la velocita' di esecuzione.",
       "3": "L'idempotenza e' indipendente dai privilegi richiesti; riguarda l'effetto ripetibile dell'operazione."
+    },
+    "why_wrong_en": {
+      "0": "Idempotency does not prevent repetitions: the script can be rerun as many times as you want, remaining safe.",
+      "2": "Idempotency concerns the consistency of the result, not the performance or execution speed.",
+      "3": "Idempotency is independent of the privileges required; it concerns the repeatable effect of the operation."
     },
     "source": "IT generale"
   },
@@ -179,18 +271,31 @@
     "type": "single",
     "difficulty": 3,
     "question": "In una crontab Linux trovi la riga: 30 2 * * * /opt/backup.sh . Quando viene eseguito lo script?",
+    "question_en": "In a Linux crontab you find the line: 30 2 * * * /opt/backup.sh . When is the script executed?",
     "options": [
       "Ogni 30 minuti a partire dalle 2",
       "Tutti i giorni alle 02:30",
       "Il giorno 30 del mese alle 02:00",
       "Ogni 2 ore e 30 minuti"
     ],
+    "options_en": [
+      "Every 30 minutes starting from 2 o'clock",
+      "Every day at 02:30",
+      "On the 30th day of the month at 02:00",
+      "Every 2 hours and 30 minutes"
+    ],
     "correct": [1],
     "explanation": "I cinque campi cron sono, nell'ordine: minuto, ora, giorno del mese, mese, giorno della settimana. '30 2 * * *' significa minuto 30, ora 2, ogni giorno del mese, ogni mese, ogni giorno della settimana, quindi tutti i giorni alle 02:30.",
+    "explanation_en": "The five cron fields are, in order: minute, hour, day of month, month, day of week. '30 2 * * *' means minute 30, hour 2, every day of the month, every month, every day of the week, so every day at 02:30.",
     "why_wrong": {
       "0": "Per eseguire ogni 30 minuti si userebbe '*/30' nel campo minuto, qui invece c'e' il valore fisso 30.",
       "2": "Il giorno del mese e' il terzo campo, qui impostato a '*' (qualsiasi giorno); il 30 e' il campo dei minuti.",
       "3": "Cron non esprime intervalli combinati come 'ogni 2h30'; i campi minuto e ora sono valori fissi (30 e 2)."
+    },
+    "why_wrong_en": {
+      "0": "To run every 30 minutes you would use '*/30' in the minute field; here instead there is the fixed value 30.",
+      "2": "The day of the month is the third field, here set to '*' (any day); the 30 is the minute field.",
+      "3": "Cron does not express combined intervals like 'every 2h30'; the minute and hour fields are fixed values (30 and 2)."
     },
     "source": "IT generale"
   },
@@ -201,17 +306,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Riguardo alle variabili in Bash, quali DUE affermazioni sono corrette?",
+    "question_en": "Regarding variables in Bash, which TWO statements are correct?",
     "options": [
       "L'assegnazione corretta e' nome=valore senza spazi attorno al segno uguale",
       "Per leggere il valore di una variabile si usa il prefisso $, ad esempio $nome",
       "Le variabili vanno sempre dichiarate con la parola chiave 'var'",
       "Mettere spazi come in nome = valore e' obbligatorio per la leggibilita'"
     ],
+    "options_en": [
+      "The correct assignment is nome=valore with no spaces around the equals sign",
+      "To read the value of a variable you use the $ prefix, for example $nome",
+      "Variables must always be declared with the 'var' keyword",
+      "Putting spaces as in nome = valore is mandatory for readability"
+    ],
     "correct": [0, 1],
     "explanation": "In Bash l'assegnazione richiede nome=valore senza spazi attorno all'uguale (gli spazi verrebbero interpretati come separatori di comando). Per leggere il valore si antepone il simbolo $ al nome, ad esempio echo $nome o ${nome}.",
+    "explanation_en": "In Bash the assignment requires nome=valore with no spaces around the equals sign (the spaces would be interpreted as command separators). To read the value you prepend the $ symbol to the name, for example echo $nome or ${nome}.",
     "why_wrong": {
       "2": "Bash non usa la parola chiave 'var'; si assegna direttamente con nome=valore.",
       "3": "Gli spazi attorno all'uguale sono un errore: 'nome = valore' verrebbe interpretato come comando 'nome' con argomenti."
+    },
+    "why_wrong_en": {
+      "2": "Bash does not use the 'var' keyword; you assign directly with nome=valore.",
+      "3": "Spaces around the equals sign are an error: 'nome = valore' would be interpreted as the command 'nome' with arguments."
     },
     "source": "IT generale"
   },
@@ -222,17 +339,29 @@
     "type": "multi",
     "difficulty": 2,
     "question": "Riguardo alla gestione dei file in Python, quali DUE affermazioni sono corrette?",
+    "question_en": "Regarding file handling in Python, which TWO statements are correct?",
     "options": [
       "Usare 'with open(percorso) as f:' chiude automaticamente il file al termine del blocco",
       "La modalita' 'r' apre il file in lettura, 'w' in scrittura sovrascrivendo il contenuto",
       "Il metodo f.close() apre il file per la scrittura",
       "La modalita' 'w' aggiunge sempre il contenuto in coda senza cancellare nulla"
     ],
+    "options_en": [
+      "Using 'with open(percorso) as f:' automatically closes the file at the end of the block",
+      "The 'r' mode opens the file for reading, 'w' for writing overwriting the content",
+      "The f.close() method opens the file for writing",
+      "The 'w' mode always appends the content at the end without deleting anything"
+    ],
     "correct": [0, 1],
     "explanation": "Il costrutto 'with open(...) as f:' e' un context manager che garantisce la chiusura automatica del file anche in caso di eccezione. Le modalita' principali sono 'r' (lettura), 'w' (scrittura con sovrascrittura) e 'a' (append/aggiunta in coda).",
+    "explanation_en": "The construct 'with open(...) as f:' is a context manager that guarantees the automatic closing of the file even in case of an exception. The main modes are 'r' (read), 'w' (write with overwrite) and 'a' (append at the end).",
     "why_wrong": {
       "2": "f.close() chiude il file, non lo apre; l'apertura avviene con open().",
       "3": "La modalita' 'w' sovrascrive il file troncandolo; per aggiungere in coda si usa la modalita' 'a'."
+    },
+    "why_wrong_en": {
+      "2": "f.close() closes the file, it does not open it; opening is done with open().",
+      "3": "The 'w' mode overwrites the file by truncating it; to append at the end you use the 'a' mode."
     },
     "source": "IT generale"
   },
@@ -243,17 +372,29 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Riguardo alle variabili e ai cmdlet PowerShell, quali DUE affermazioni sono corrette?",
+    "question_en": "Regarding PowerShell variables and cmdlets, which TWO statements are correct?",
     "options": [
       "Le variabili si dichiarano con il prefisso $, ad esempio $nome = 'srv01'",
       "Stop-Process e New-Item rispettano la convenzione Verbo-Nome",
       "In PowerShell le variabili non usano alcun prefisso e si scrivono come in Bash",
       "Get-Help e' usato per terminare un servizio in esecuzione"
     ],
+    "options_en": [
+      "Variables are declared with the $ prefix, for example $nome = 'srv01'",
+      "Stop-Process and New-Item follow the Verb-Noun convention",
+      "In PowerShell variables use no prefix and are written as in Bash",
+      "Get-Help is used to terminate a running service"
+    ],
     "correct": [0, 1],
     "explanation": "In PowerShell le variabili iniziano sempre con il simbolo $ (es. $nome = 'srv01'). I cmdlet seguono la convenzione Verbo-Nome: Stop-Process (verbo Stop) e New-Item (verbo New) ne sono esempi corretti.",
+    "explanation_en": "In PowerShell variables always begin with the $ symbol (e.g. $nome = 'srv01'). Cmdlets follow the Verb-Noun convention: Stop-Process (verb Stop) and New-Item (verb New) are correct examples of it.",
     "why_wrong": {
       "2": "In PowerShell le variabili richiedono il prefisso $; l'affermazione contraddice la sintassi del linguaggio.",
       "3": "Get-Help mostra la documentazione dei cmdlet; per fermare un servizio si usa Stop-Service."
+    },
+    "why_wrong_en": {
+      "2": "In PowerShell variables require the $ prefix; the statement contradicts the syntax of the language.",
+      "3": "Get-Help shows the documentation of cmdlets; to stop a service you use Stop-Service."
     },
     "source": "IT generale"
   },
@@ -264,9 +405,12 @@
     "type": "truefalse",
     "difficulty": 1,
     "question": "In Bash, un exit code pari a 0 indica per convenzione che il comando e' terminato con successo.",
+    "question_en": "In Bash, an exit code of 0 indicates by convention that the command completed successfully.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Per convenzione Unix/Linux, un exit code (o exit status) di 0 indica successo, mentre qualsiasi valore diverso da 0 (da 1 a 255) segnala un errore o una condizione anomala. Questo permette agli script di verificare l'esito dei comandi.",
+    "explanation_en": "True. By Unix/Linux convention, an exit code (or exit status) of 0 indicates success, while any value other than 0 (from 1 to 255) signals an error or an abnormal condition. This allows scripts to check the outcome of commands.",
     "source": "IT generale"
   },
   {
@@ -276,9 +420,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "In Python l'indentazione (rientro) del codice e' puramente estetica e non ha effetto sull'esecuzione del programma.",
+    "question_en": "In Python, code indentation is purely aesthetic and has no effect on the execution of the program.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [1],
     "explanation": "Falso. In Python l'indentazione e' sintatticamente significativa: definisce i blocchi di codice (corpo di funzioni, cicli, if). Un'indentazione errata provoca un IndentationError o cambia la logica del programma, a differenza di linguaggi che usano le parentesi graffe.",
+    "explanation_en": "False. In Python indentation is syntactically significant: it defines the code blocks (bodies of functions, loops, if). Incorrect indentation causes an IndentationError or changes the logic of the program, unlike languages that use curly braces.",
     "source": "IT generale"
   },
   {
@@ -288,9 +435,12 @@
     "type": "truefalse",
     "difficulty": 2,
     "question": "Su Windows, l'Utilita' di pianificazione (Task Scheduler / scheduled task) svolge un ruolo analogo a quello di cron su Linux per eseguire attivita' in modo automatico e ricorrente.",
+    "question_en": "On Windows, the Task Scheduler (scheduled task) plays a role similar to that of cron on Linux for running tasks automatically and recurrently.",
     "options": ["Vero", "Falso"],
+    "options_en": ["True", "False"],
     "correct": [0],
     "explanation": "Vero. Il Task Scheduler di Windows e cron su Linux servono entrambi a pianificare l'esecuzione automatica di script o programmi a orari o intervalli definiti. Sono gli strumenti standard per l'automazione ricorrente sulle rispettive piattaforme.",
+    "explanation_en": "True. The Windows Task Scheduler and cron on Linux both serve to schedule the automatic execution of scripts or programs at defined times or intervals. They are the standard tools for recurring automation on their respective platforms.",
     "source": "IT generale"
   }
 ]

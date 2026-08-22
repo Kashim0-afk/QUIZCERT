@@ -19,7 +19,20 @@
       "2": "Inserire credenziali nel codice sorgente e una pessima pratica: espone i segreti in repository e cronologia.",
       "3": "Distribuire chiavi condivise agli sviluppatori aumenta la superficie di attacco e rende impossibile la revoca granulare."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "A Function App needs to read secrets from Azure Key Vault without storing any credentials in the code or in the app settings. What is the approach recommended by Microsoft?",
+    "options_en": [
+      "Assign a managed identity to the Function App and grant it access to the Key Vault",
+      "Store a service principal with a client secret in the Function App's application settings",
+      "Put the Key Vault connection string directly in the source code",
+      "Configure a shared access key and distribute it to the developers"
+    ],
+    "explanation_en": "Managed identities eliminate the need to manage credentials: Entra ID automatically handles the identities and their rotation. You assign the identity to the Function App and grant it access to the Key Vault (via policy or RBAC), so the app obtains tokens without any stored secrets.",
+    "why_wrong_en": {
+      "1": "A service principal with a client secret reintroduces exactly the secret to manage and rotate that you want to avoid.",
+      "2": "Putting credentials in the source code is a very poor practice: it exposes the secrets in the repository and its history.",
+      "3": "Distributing shared keys to developers increases the attack surface and makes granular revocation impossible."
+    }
   },
   {
     "id": "az500-002",
@@ -41,7 +54,20 @@
       "2": "PIM gestisce l'elevazione temporanea dei ruoli privilegiati, non i requisiti di MFA condizionati dalla posizione di accesso.",
       "3": "Le managed identity servono ai carichi di lavoro per autenticarsi, non a imporre MFA agli utenti in base alla posizione."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "You want to enforce multi-factor authentication (MFA) only when a user signs in from an untrusted location, without requiring it from the corporate network. Which Microsoft Entra feature do you use?",
+    "options_en": [
+      "A Conditional Access policy with a condition based on named locations",
+      "A custom RBAC role applied to the subscription",
+      "Privileged Identity Management (PIM) with just-in-time activation",
+      "A managed identity assignment with a restricted scope"
+    ],
+    "explanation_en": "Conditional Access evaluates signals such as user, device, and location. By defining named locations (e.g. corporate IPs as trusted) you create a policy that requires MFA only for sign-ins from untrusted locations, applying a risk-based control.",
+    "why_wrong_en": {
+      "1": "RBAC manages permissions on Azure resources, not authentication conditions such as location or MFA.",
+      "2": "PIM manages the temporary elevation of privileged roles, not MFA requirements conditioned on the sign-in location.",
+      "3": "Managed identities let workloads authenticate; they do not enforce MFA on users based on location."
+    }
   },
   {
     "id": "az500-003",
@@ -63,7 +89,20 @@
       "2": "Un gruppo con appartenenza permanente non fornisce attivazione temporanea ne flusso di approvazione.",
       "3": "Azure Policy governa la conformita delle risorse, non l'attivazione temporanea dei ruoli di directory."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "An administrator must hold the Global Administrator role only when it is actually needed, activating it for a limited period with approval. Which solution meets this requirement?",
+    "options_en": [
+      "Make the role eligible in Privileged Identity Management (PIM) with JIT activation and approval",
+      "Assign the role permanently and monitor the access logs",
+      "Create a security group and add the administrator to it permanently",
+      "Apply an Azure Policy to limit the role's actions"
+    ],
+    "explanation_en": "PIM allows eligible assignments instead of permanent ones: the user activates the role just-in-time for a limited duration, with the option to require approval, MFA, and justification. This reduces the exposure of standing access.",
+    "why_wrong_en": {
+      "1": "A permanent assignment keeps elevated privileges always active, exactly what you want to avoid.",
+      "2": "A group with permanent membership provides neither temporary activation nor an approval workflow.",
+      "3": "Azure Policy governs resource compliance, not the temporary activation of directory roles."
+    }
   },
   {
     "id": "az500-004",
@@ -85,7 +124,20 @@
       "2": "Owner aggiunge anche la gestione degli accessi (RBAC) ed e ancora piu permissivo del necessario.",
       "3": "Reader consente solo la visualizzazione: non permetterebbe di riavviare le VM."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "A support team must be able to restart the virtual machines in a resource group but must not be able to delete them or change their network configuration. Applying the principle of least privilege, which RBAC role do you assign?",
+    "options_en": [
+      "Virtual Machine Contributor on the resource group",
+      "Contributor on the subscription",
+      "Owner on the resource group",
+      "Reader on the resource group"
+    ],
+    "explanation_en": "Virtual Machine Contributor allows managing VMs (including start/restart) but does not grant access to the virtual network or the ability to manage other resources. Assigned at the resource group scope, it respects least privilege.",
+    "why_wrong_en": {
+      "1": "Contributor on the subscription is too broad: it allows managing almost all resources, including deletion and networking.",
+      "2": "Owner also adds access management (RBAC) and is even more permissive than necessary.",
+      "3": "Reader allows viewing only: it would not permit restarting the VMs."
+    }
   },
   {
     "id": "az500-005",
@@ -107,7 +159,20 @@
       "2": "DDoS Protection mitiga gli attacchi volumetrici, non filtra il traffico in uscita per FQDN.",
       "3": "Un ASG e solo un raggruppamento logico di NIC usato nelle regole NSG, non un motore di filtraggio a livello applicativo."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "You need to filter outbound traffic to the Internet, allowing only specific FQDNs (e.g. *.microsoft.com) for all subnets of a VNet. Which service is designed for this centralized control?",
+    "options_en": [
+      "Azure Firewall with FQDN-based application rules",
+      "A Network Security Group (NSG) applied to each subnet",
+      "Azure DDoS Protection Standard",
+      "An Application Security Group (ASG)"
+    ],
+    "explanation_en": "Azure Firewall is a managed stateful firewall that supports application-layer filtering through FQDN-based application rules, in addition to network rules and threat intelligence. It is the right service for centralized FQDN-based egress control.",
+    "why_wrong_en": {
+      "1": "NSGs filter based on IP, port, and protocol (layer 3/4) and do not understand FQDNs: they cannot selectively allow *.microsoft.com.",
+      "2": "DDoS Protection mitigates volumetric attacks; it does not filter outbound traffic by FQDN.",
+      "3": "An ASG is only a logical grouping of NICs used in NSG rules, not an application-layer filtering engine."
+    }
   },
   {
     "id": "az500-006",
@@ -129,7 +194,20 @@
       "2": "Una regola NSG sull'IP pubblico non crea un accesso privato e lascia comunque attivo l'endpoint pubblico.",
       "3": "Azure Bastion fornisce accesso RDP/SSH sicuro alle VM, non connettivita privata verso servizi PaaS come lo storage."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "You want an Azure Storage Account to be reachable from a VNet through a private IP address, completely avoiding exposure on the public endpoint. Which solution do you use?",
+    "options_en": [
+      "Azure Private Link by creating a private endpoint for the Storage Account",
+      "A Service Endpoint on the subnet toward Microsoft.Storage",
+      "An NSG rule that allows only the storage's public IP",
+      "Azure Bastion connected to the storage subnet"
+    ],
+    "explanation_en": "A private endpoint (Azure Private Link) assigns the PaaS resource a private IP inside the VNet and the traffic stays on the Microsoft network. Combined with disabling public access, it eliminates exposure to the Internet.",
+    "why_wrong_en": {
+      "1": "A Service Endpoint routes traffic over the Microsoft backbone but the resource keeps using its public IP: it does not provide a private IP nor remove the public endpoint.",
+      "2": "An NSG rule on the public IP does not create private access and still leaves the public endpoint active.",
+      "3": "Azure Bastion provides secure RDP/SSH access to VMs, not private connectivity to PaaS services such as storage."
+    }
   },
   {
     "id": "az500-007",
@@ -151,7 +229,20 @@
       "2": "I private endpoint sono per servizi PaaS, non forniscono l'accesso interattivo RDP alle macchine virtuali.",
       "3": "Una DNAT su Azure Firewall pubblica comunque la porta RDP verso l'esterno, cio che si vuole evitare."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "Administrators need to connect via RDP to Windows VMs without exposing port 3389 to the Internet and without public IPs on the VMs. Which Azure service meets this requirement?",
+    "options_en": [
+      "Azure Bastion",
+      "An NSG rule that opens port 3389 only from corporate IPs",
+      "A private endpoint toward the VM",
+      "Azure Firewall with a DNAT rule on port 3389"
+    ],
+    "explanation_en": "Azure Bastion provides RDP/SSH connectivity directly from the portal over TLS, without needing public IPs on the VMs or exposing ports 3389/22 to the Internet, reducing the attack surface.",
+    "why_wrong_en": {
+      "1": "Opening 3389 even from just a few IPs still exposes the RDP port to the Internet, an attack surface for brute force.",
+      "2": "Private endpoints are for PaaS services; they do not provide interactive RDP access to virtual machines.",
+      "3": "A DNAT on Azure Firewall still publishes the RDP port externally, which is what you want to avoid."
+    }
   },
   {
     "id": "az500-008",
@@ -173,7 +264,20 @@
       "2": "Private endpoint e firewall proteggono l'accesso di rete al vault, ma non impediscono l'eliminazione permanente del contenuto.",
       "3": "Rotazione e versioning gestiscono il ciclo di vita delle chiavi ma non proteggono dalla cancellazione definitiva del vault."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "To protect a Key Vault from accidental or malicious deletions that would make keys and secrets unrecoverable, which pair of features should you enable?",
+    "options_en": [
+      "Soft delete and purge protection",
+      "Managed identity and RBAC",
+      "Private endpoint and vault firewall",
+      "Automatic key rotation and versioning"
+    ],
+    "explanation_en": "Soft delete retains deleted vaults and objects for a retention period, while purge protection prevents the permanent purge before the retention expires, even by a privileged attacker. Together they guarantee recoverability.",
+    "why_wrong_en": {
+      "1": "Managed identity and RBAC handle authentication and authorization, not the recoverability of deleted objects.",
+      "2": "Private endpoint and firewall protect network access to the vault, but do not prevent permanent deletion of its content.",
+      "3": "Rotation and versioning manage the key lifecycle but do not protect against permanent deletion of the vault."
+    }
   },
   {
     "id": "az500-009",
@@ -195,7 +299,20 @@
       "2": "Rendere il container pubblico esporrebbe i dati a chiunque, senza controllo su scadenza o identita.",
       "3": "Storage Account Contributor concede permessi ampi di gestione, molto oltre la sola lettura di un container."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "You need to grant an external partner temporary read-only access to a single container of a blob storage, expiring in 24 hours and without sharing the account keys. What is the best option?",
+    "options_en": [
+      "Generate a Shared Access Signature (SAS) with read permissions and a limited expiry",
+      "Give the partner the storage account's primary access key",
+      "Set the container's public access level to Blob",
+      "Assign the partner the Storage Account Contributor role"
+    ],
+    "explanation_en": "A SAS allows delegating granular access (service, permissions, time interval, IP addresses) without exposing the account keys. A read-only SAS expiring in 24 hours meets the requirement exactly.",
+    "why_wrong_en": {
+      "1": "Sharing the primary key gives full access to the entire account and is not revocable without regenerating the key.",
+      "2": "Making the container public would expose the data to anyone, with no control over expiry or identity.",
+      "3": "Storage Account Contributor grants broad management permissions, far beyond read-only access to a single container."
+    }
   },
   {
     "id": "az500-010",
@@ -217,7 +334,20 @@
       "2": "Azure Monitor raccoglie metriche e log di piattaforma per osservabilita, non valuta la postura di sicurezza con Secure Score.",
       "3": "Entra ID Protection valuta i rischi legati alle identita e agli accessi, non la postura di sicurezza complessiva delle risorse."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "Your manager asks for a security posture assessment (CSPM) with prioritized recommendations and an overall score for the Azure resources. Which tool provides Secure Score and these recommendations?",
+    "options_en": [
+      "Microsoft Defender for Cloud",
+      "Microsoft Sentinel",
+      "Azure Monitor",
+      "Microsoft Entra ID Protection"
+    ],
+    "explanation_en": "Microsoft Defender for Cloud is Azure's CSPM/CWPP platform: it provides the Secure Score, prioritized hardening recommendations, and continuous compliance assessment against security benchmarks.",
+    "why_wrong_en": {
+      "1": "Microsoft Sentinel is the SIEM/SOAR solution for log collection, correlation, and incident response; it does not provide the CSPM Secure Score.",
+      "2": "Azure Monitor collects platform metrics and logs for observability; it does not assess security posture with Secure Score.",
+      "3": "Entra ID Protection assesses identity and access risks, not the overall security posture of the resources."
+    }
   },
   {
     "id": "az500-011",
@@ -238,7 +368,19 @@
       "2": "La cifratura dei dischi VM e gestita da Azure Disk Encryption / server-side encryption con Key Vault, non da Sentinel.",
       "3": "Il filtraggio applicativo del traffico HTTP e compito di WAF/Azure Firewall, non del SIEM Sentinel."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "Which of the following are native capabilities of Microsoft Sentinel? (Select two)",
+    "options_en": [
+      "Correlate logs through analytics rules to generate incidents",
+      "Automate response with Logic Apps-based playbooks",
+      "Encrypt virtual machine disks with customer-managed keys",
+      "Apply application-layer firewall rules to HTTP traffic"
+    ],
+    "explanation_en": "Microsoft Sentinel is a cloud-native SIEM/SOAR: analytics rules correlate the ingested events and generate incidents, while playbooks (Logic Apps) automate the response (SOAR). Disk encryption and application filtering are the job of other services.",
+    "why_wrong_en": {
+      "2": "VM disk encryption is handled by Azure Disk Encryption / server-side encryption with Key Vault, not by Sentinel.",
+      "3": "Application-layer filtering of HTTP traffic is the job of a WAF/Azure Firewall, not of the Sentinel SIEM."
+    }
   },
   {
     "id": "az500-012",
@@ -259,7 +401,19 @@
       "2": "I managed disk sono cifrati a riposo per impostazione predefinita con Storage Service Encryption (chiavi gestite da Microsoft), senza software di terze parti.",
       "3": "Il Key Vault puo (e dovrebbe) essere protetto con private endpoint e firewall: non e richiesta alcuna esposizione pubblica per la cifratura."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "Regarding data-at-rest protection for Azure virtual machines, which statements are correct? (Select two)",
+    "options_en": [
+      "Azure Disk Encryption uses BitLocker (Windows) or dm-crypt (Linux) at the operating system level",
+      "With customer-managed keys, the encryption keys can be stored in Azure Key Vault",
+      "Managed disks are not encrypted at rest unless third-party software is installed",
+      "Disk encryption mandatorily requires exposing the Key Vault on a public endpoint"
+    ],
+    "explanation_en": "Azure Disk Encryption leverages BitLocker or dm-crypt inside the VM to encrypt the volumes. With customer-managed keys (CMK), the keys reside in Azure Key Vault under the customer's control, for server-side encryption of managed disks.",
+    "why_wrong_en": {
+      "2": "Managed disks are encrypted at rest by default with Storage Service Encryption (Microsoft-managed keys), without any third-party software.",
+      "3": "The Key Vault can (and should) be protected with a private endpoint and firewall: no public exposure is required for encryption."
+    }
   },
   {
     "id": "az500-013",
@@ -280,7 +434,19 @@
       "2": "Il ruolo Reader riguarda le autorizzazioni sulle risorse Azure e non protegge l'applicazione da attacchi di rete o applicativi.",
       "3": "La purge protection del Key Vault previene l'eliminazione dei segreti, ma non difende l'app da attacchi applicativi o DDoS."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "A web application published through Azure Application Gateway must be protected from application-layer attacks and from volumetric attacks. Which two controls are appropriate? (Select two)",
+    "options_en": [
+      "Enable Azure Web Application Firewall (WAF) on the Application Gateway",
+      "Enable Azure DDoS Protection on the VNet hosting the public resources",
+      "Assign a Reader RBAC role to the application's users",
+      "Enable purge protection on the application's Key Vault"
+    ],
+    "explanation_en": "The WAF integrated into the Application Gateway protects against application-layer attacks (OWASP Top 10 such as SQL injection and XSS) at layer 7, while Azure DDoS Protection mitigates volumetric network attacks (layer 3/4). Together they cover both threats.",
+    "why_wrong_en": {
+      "2": "The Reader role concerns permissions on Azure resources and does not protect the application from network or application-layer attacks.",
+      "3": "Key Vault purge protection prevents deletion of secrets, but does not defend the app against application-layer attacks or DDoS."
+    }
   },
   {
     "id": "az500-014",
@@ -295,7 +461,13 @@
     "why_wrong": {
       "1": "L'affermazione e vera: Sentinel e effettivamente il SIEM/SOAR cloud-native di Microsoft, quindi Falso non e corretto."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "Microsoft Sentinel is a cloud-native SIEM and SOAR solution that centralizes log collection and enables automation of incident response.",
+    "options_en": ["True", "False"],
+    "explanation_en": "Correct. Microsoft Sentinel combines SIEM functions (collection, correlation, detection) and SOAR functions (orchestration and automation of response through playbooks), operating as a cloud-native service on Azure.",
+    "why_wrong_en": {
+      "1": "The statement is true: Sentinel is indeed Microsoft's cloud-native SIEM/SOAR, so False is not correct."
+    }
   },
   {
     "id": "az500-015",
@@ -310,7 +482,13 @@
     "why_wrong": {
       "0": "E errato: gli NSG non lavorano a livello applicativo e non possono filtrare per URL o FQDN, quindi l'affermazione non e Vera."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "A Network Security Group (NSG) can inspect application content (layer 7) and selectively block specific URLs or FQDNs in HTTP traffic.",
+    "options_en": ["True", "False"],
+    "explanation_en": "False. NSGs operate at layer 3/4, filtering based on IP addresses, ports, and protocols. They do not inspect the application payload nor understand URLs or FQDNs: for that you need Azure Firewall (application rules) or a WAF.",
+    "why_wrong_en": {
+      "0": "It is wrong: NSGs do not work at the application layer and cannot filter by URL or FQDN, so the statement is not True."
+    }
   },
   {
     "id": "az500-016",
@@ -325,6 +503,12 @@
     "why_wrong": {
       "1": "L'affermazione e vera: Managed HSM e effettivamente single-tenant e validato FIPS 140-2 Level 3, quindi Falso non e corretto."
     },
-    "source": "Microsoft AZ-500"
+    "source": "Microsoft AZ-500",
+    "question_en": "Azure Key Vault Managed HSM allows managing cryptographic keys in FIPS 140-2 Level 3 validated hardware security modules dedicated to a single tenant.",
+    "options_en": ["True", "False"],
+    "explanation_en": "Correct. Azure Key Vault Managed HSM offers a pool of single-tenant HSMs, fully managed and highly available, with FIPS 140-2 Level 3 validation, suitable for workloads that require the highest level of key protection.",
+    "why_wrong_en": {
+      "1": "The statement is true: Managed HSM is indeed single-tenant and FIPS 140-2 Level 3 validated, so False is not correct."
+    }
   }
 ]

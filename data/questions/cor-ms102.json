@@ -25,7 +25,20 @@
       "2": "Un record A associa un nome a un IP e non viene usato da Microsoft 365 per verificare la proprietà del dominio.",
       "3": "Il record SRV supporta servizi come Teams/autodiscover, ma non è il meccanismo di verifica della proprietà del dominio."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "You are adding the custom domain contoso.com to the Microsoft 365 tenant. After entering the domain, the portal shows the status 'Unverified'. Which action must you complete at the DNS provider to prove ownership of the domain?",
+    "options_en": [
+      "Create an MX record pointing to the Exchange Online mail servers",
+      "Create the TXT (or CNAME) record provided by Microsoft in the domain's public DNS zone",
+      "Create an A record pointing to the tenant's IP address",
+      "Create an SRV record for the autodiscover service"
+    ],
+    "explanation_en": "To verify ownership of a custom domain, Microsoft 365 provides a verification record (typically a TXT, alternatively a CNAME) that must be added to the domain's public DNS zone. Microsoft queries the DNS and, finding the expected value, confirms that whoever is adding the domain actually controls its DNS. Only after verification are the service records (MX, autodiscover, etc.) configured.",
+    "why_wrong_en": {
+      "0": "The MX record is used to route mail to Exchange Online and is configured after verification; on its own it does not prove ownership of the domain.",
+      "2": "An A record associates a name with an IP and is not used by Microsoft 365 to verify domain ownership.",
+      "3": "The SRV record supports services such as Teams/autodiscover, but it is not the domain ownership verification mechanism."
+    }
   },
   {
     "id": "ms102-002",
@@ -53,7 +66,20 @@
       "2": "Org settings serve a configurare le impostazioni dei servizi, non a monitorare incidenti o stato di salute.",
       "3": "La pagina Active users gestisce utenti e licenze e non riporta lo stato operativo dei servizi."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "Users report slowdowns when accessing SharePoint Online. As an administrator you want to check whether Microsoft has a known ongoing incident on the service and read the official updates. Where do you look in the Microsoft 365 admin center?",
+    "options_en": [
+      "In Reports > Usage to analyze user traffic",
+      "In Health > Service health to review the status of services and the alerts/incidents",
+      "In Settings > Org settings to change the SharePoint settings",
+      "In Users > Active users to check the assigned licenses"
+    ],
+    "explanation_en": "The Service health page in the Microsoft 365 admin center shows the real-time status of each service (Exchange, SharePoint, Teams, etc.) and publishes alerts and incidents with the problem description, the impact and the updates provided by Microsoft. It is the starting point to understand whether an issue is on Microsoft's side.",
+    "why_wrong_en": {
+      "0": "Usage reports show adoption and traffic, but they do not indicate whether there is an ongoing incident on the service.",
+      "2": "Org settings is used to configure the service settings, not to monitor incidents or health status.",
+      "3": "The Active users page manages users and licenses and does not report the operational status of the services."
+    }
   },
   {
     "id": "ms102-003",
@@ -82,7 +108,20 @@
       "2": "Security Administrator gestisce funzionalità e policy di sicurezza, molto più di quanto serva per reimpostare password.",
       "3": "Privileged Role Administrator permette di assegnare ruoli ad altri amministratori, un privilegio elevato non richiesto qui."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "A help desk colleague must be able to reset the passwords of standard users and manage support requests, but must not be able to change the tenant's security configuration nor manage other administrators. Applying the principle of least privilege, which Entra ID role do you assign?",
+    "options_en": [
+      "Global Administrator",
+      "Helpdesk Administrator",
+      "Security Administrator",
+      "Privileged Role Administrator"
+    ],
+    "explanation_en": "The Helpdesk Administrator role allows resetting the passwords of non-administrator users and managing support requests, without granting control over the security configuration or other roles. It is the correct choice according to the principle of least privilege, which requires assigning only the strictly necessary permissions.",
+    "why_wrong_en": {
+      "0": "Global Administrator grants full control of the tenant: it clearly violates least privilege for a help desk task.",
+      "2": "Security Administrator manages security features and policies, far more than what is needed to reset passwords.",
+      "3": "Privileged Role Administrator allows assigning roles to other administrators, an elevated privilege not required here."
+    }
   },
   {
     "id": "ms102-004",
@@ -111,7 +150,20 @@
       "2": "AD FS richiede l'implementazione e la manutenzione di un'infrastruttura di federazione con server dedicati, contraria al requisito di non aggiungere server.",
       "3": "Disabilitare la sincronizzazione impedirebbe di avere le stesse identità e password gestite tra on-premises e cloud."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "You are configuring Entra Connect to synchronize the on-premises Active Directory with Entra ID. The company wants users to use the same password in the cloud and on-premises, keeping authentication managed in the cloud and without deploying additional servers. Which authentication method do you choose?",
+    "options_en": [
+      "Password Hash Synchronization (PHS)",
+      "Pass-through Authentication (PTA) without password synchronization",
+      "Federation with AD FS",
+      "Cloud-only authentication by disabling synchronization"
+    ],
+    "explanation_en": "With Password Hash Synchronization, Entra Connect synchronizes to Entra ID a hash of the hash of the password stored in AD: users use the same password in the cloud and on-premises and authentication is validated by Entra ID without the need for additional servers. It is the simplest and most resilient method, independent of the availability of the domain controllers.",
+    "why_wrong_en": {
+      "1": "PTA validates passwords against the on-premises AD via an agent: it requires additional agents and the availability of the DCs, and it does not synchronize the hashes.",
+      "2": "AD FS requires the deployment and maintenance of a federation infrastructure with dedicated servers, contrary to the requirement of not adding servers.",
+      "3": "Disabling synchronization would prevent having the same identities and passwords managed between on-premises and cloud."
+    }
   },
   {
     "id": "ms102-005",
@@ -140,7 +192,20 @@
       "2": "I security defaults applicano la MFA in modo generalizzato e non offrono condizioni granulari basate sulla posizione.",
       "3": "Entra Connect gestisce la sincronizzazione delle identità, non le policy di richiesta MFA basate sulla posizione."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "You want to enforce MFA for all users accessing Microsoft 365 only when the access comes from a network outside the trusted corporate sites, without requiring it from the office networks. Which Entra ID feature do you use to implement this requirement?",
+    "options_en": [
+      "Per-user MFA settings enabled on each account",
+      "A Conditional Access policy that requires MFA with a condition based on named locations",
+      "The tenant's security defaults",
+      "The password policies in Entra Connect"
+    ],
+    "explanation_en": "Conditional Access allows applying controls such as 'Require multifactor authentication' based on contextual signals. By defining named locations for the IPs of the trusted sites and excluding them from the policy, MFA is required only for accesses coming from outside. It is the correct approach for location-conditioned MFA.",
+    "why_wrong_en": {
+      "0": "Per-user MFA enforces MFA always, on all sign-ins, without being able to distinguish based on network location.",
+      "2": "Security defaults apply MFA in a generalized way and do not offer granular conditions based on location.",
+      "3": "Entra Connect manages identity synchronization, not the MFA prompt policies based on location."
+    }
   },
   {
     "id": "ms102-006",
@@ -169,7 +234,20 @@
       "2": "L'anti-phishing rileva spoofing e impersonation basandosi su euristiche e mittenti, ma non detona gli allegati.",
       "3": "ZAP rimuove a posteriori i messaggi già consegnati che risultano malevoli, ma non esegue la detonation preventiva degli allegati."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "You want incoming email attachments to be executed (detonated) in an isolated virtual environment to detect zero-day malware before delivery to the user. Which Microsoft Defender for Office 365 feature do you configure?",
+    "options_en": [
+      "Safe Links",
+      "Safe Attachments",
+      "Anti-phishing with spoofing protection",
+      "Zero-hour Auto Purge (ZAP)"
+    ],
+    "explanation_en": "Safe Attachments in Defender for Office 365 opens attachments in an isolated sandbox environment (detonation) and analyzes their behavior to identify unknown/zero-day malware, blocking or quarantining malicious files before they reach the user. It is the targeted protection against malicious attachments.",
+    "why_wrong_en": {
+      "0": "Safe Links rewrites and checks URLs at the time of click, protecting from malicious links; it does not analyze attachments in a sandbox.",
+      "2": "Anti-phishing detects spoofing and impersonation based on heuristics and senders, but it does not detonate attachments.",
+      "3": "ZAP removes, after the fact, already delivered messages that turn out to be malicious, but it does not perform the preventive detonation of attachments."
+    }
   },
   {
     "id": "ms102-007",
@@ -198,7 +276,20 @@
       "2": "Il connection filtering agisce sugli IP di connessione in ingresso, non rivaluta gli URL al momento del clic.",
       "3": "DKIM autentica l'integrità e l'origine del messaggio tramite firma, ma non controlla la sicurezza delle destinazioni dei link."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "A user receives an email with a URL that at the time of delivery appears clean, but after a few hours the destination page is compromised and starts distributing malware. Which Defender for Office 365 feature protects the user by checking the URL at the moment it is clicked?",
+    "options_en": [
+      "Safe Attachments",
+      "Safe Links (time-of-click protection)",
+      "Connection filtering (IP allow/block list)",
+      "DKIM for the sender's domain"
+    ],
+    "explanation_en": "Safe Links performs URL checking at the time of click (time-of-click): it rewrites the links in messages and, when the user opens them, checks the reputation of the destination in real time. Even if the link was harmless at delivery but was compromised later, Safe Links can block access to the malicious page.",
+    "why_wrong_en": {
+      "0": "Safe Attachments protects from attachments by executing them in a sandbox; it does not check clicked URLs.",
+      "2": "Connection filtering acts on the IPs of incoming connections; it does not re-evaluate URLs at the time of click.",
+      "3": "DKIM authenticates the integrity and origin of the message through a signature, but it does not check the safety of the link destinations."
+    }
   },
   {
     "id": "ms102-008",
@@ -227,7 +318,20 @@
       "2": "Le sensitivity label classificano e proteggono (es. crittografano) i documenti, ma non ispezionano il flusso per bloccare l'invio di numeri di carta.",
       "3": "eDiscovery e legal hold servono a preservare e ricercare contenuti per esigenze legali, non a prevenire in tempo reale la perdita di dati."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "The company wants to prevent credit card numbers from being sent externally through Exchange Online, SharePoint and Teams, showing the user a warning and blocking the sharing. Which Microsoft Purview feature do you implement?",
+    "options_en": [
+      "A Data Loss Prevention (DLP) policy with the sensitive information type 'Credit Card Number'",
+      "A retention label applied automatically",
+      "A sensitivity label with encryption",
+      "An eDiscovery case with legal hold"
+    ],
+    "explanation_en": "Microsoft Purview Data Loss Prevention (DLP) detects sensitive content through Sensitive Information Types (such as 'Credit Card Number') and applies actions such as blocking external sharing, showing a policy tip to the user and generating reports. It is the correct tool to prevent the exfiltration of sensitive data on Exchange, SharePoint, OneDrive and Teams.",
+    "why_wrong_en": {
+      "1": "Retention labels govern the retention and deletion of data over time; they do not block the sharing of sensitive content.",
+      "2": "Sensitivity labels classify and protect (e.g. encrypt) documents, but they do not inspect the flow to block the sending of card numbers.",
+      "3": "eDiscovery and legal hold are used to preserve and search content for legal needs, not to prevent data loss in real time."
+    }
   },
   {
     "id": "ms102-009",
@@ -256,7 +360,20 @@
       "2": "Una DLP in audit registra le violazioni ma non cifra i documenti né vincola chi può aprirli.",
       "3": "Communication compliance analizza le comunicazioni per rischi/violazioni di policy, non protegge i documenti con crittografia persistente."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "You must ensure that documents classified as 'Confidential' are encrypted and that only authorized users can open them, regardless of where the file is copied or sent. Which Microsoft Purview feature do you use?",
+    "options_en": [
+      "Retention label",
+      "Sensitivity label with protection through encryption",
+      "DLP policy in audit-only mode",
+      "Communication compliance policy"
+    ],
+    "explanation_en": "Purview sensitivity labels classify content and can apply protection through encryption and permission restrictions. The protection travels with the file: even if the document is copied or sent externally, only the authorized users defined in the label can open and use it.",
+    "why_wrong_en": {
+      "0": "Retention labels manage retention and deletion cycles; they do not apply encryption or access restrictions to files.",
+      "2": "A DLP in audit mode logs violations but does not encrypt documents nor restrict who can open them.",
+      "3": "Communication compliance analyzes communications for risks/policy violations; it does not protect documents with persistent encryption."
+    }
   },
   {
     "id": "ms102-010",
@@ -285,7 +402,20 @@
       "2": "Le named location definiscono posizioni di rete per il Conditional Access, non eseguono l'onboarding di un dispositivo a Defender for Endpoint.",
       "3": "Le regole di trasporto agiscono sul flusso della posta in Exchange Online e non hanno alcun ruolo nell'onboarding degli endpoint."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "You want to start monitoring and protecting the company's Windows devices with Microsoft Defender for Endpoint. What is the necessary step for a device to start sending its signals (telemetry) to the service and appear in the inventory?",
+    "options_en": [
+      "Assign a sensitivity label to the device",
+      "Onboard the device (e.g. via Intune, script or GPO) to the Defender for Endpoint service",
+      "Add the device to a named location in Conditional Access",
+      "Create a transport rule in Exchange Online"
+    ],
+    "explanation_en": "To be protected and monitored by Defender for Endpoint, a device must be onboarded: an onboarding package/configuration is applied (via Microsoft Intune, local script, GPO, Configuration Manager, etc.) that activates the sensor. Only after onboarding does the device send telemetry to the service and appear in the device inventory.",
+    "why_wrong_en": {
+      "0": "Sensitivity labels protect documents; they do not connect an endpoint to the EDR service.",
+      "2": "Named locations define network locations for Conditional Access; they do not onboard a device to Defender for Endpoint.",
+      "3": "Transport rules act on the mail flow in Exchange Online and have no role in endpoint onboarding."
+    }
   },
   {
     "id": "ms102-011",
@@ -314,7 +444,19 @@
       "2": "AD FS è opzionale: Entra Connect può usare Password Hash Sync o Pass-through Authentication senza alcuna federazione AD FS.",
       "3": "La sincronizzazione delle identità avviene principalmente da on-premises verso il cloud; il password writeback è un'eccezione specifica, quindi affermare che sia solo dal cloud verso l'on-premises è errato."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "You are planning identity hybridity with Entra Connect. Which TWO of the following statements are correct regarding its features?",
+    "options_en": [
+      "Password writeback allows writing back to the on-premises Active Directory the passwords changed or reset in the cloud (e.g. via SSPR)",
+      "Filtering (scoping) allows synchronizing only certain OUs or groups, excluding the unnecessary objects",
+      "Entra Connect mandatorily requires AD FS to synchronize user accounts",
+      "Entra Connect can synchronize identities only in one direction: exclusively from the cloud to on-premises"
+    ],
+    "explanation_en": "Password writeback allows password changes/resets performed in the cloud (for example with Self-Service Password Reset) to be written back to the on-premises AD, keeping the passwords aligned. Filtering (by domain, OU or attribute) allows limiting the scope of synchronization to only the desired objects. Both are standard features of Entra Connect.",
+    "why_wrong_en": {
+      "2": "AD FS is optional: Entra Connect can use Password Hash Sync or Pass-through Authentication without any AD FS federation.",
+      "3": "Identity synchronization mainly occurs from on-premises to the cloud; password writeback is a specific exception, so stating that it is only from the cloud to on-premises is incorrect."
+    }
   },
   {
     "id": "ms102-012",
@@ -343,7 +485,19 @@
       "2": "Entra Connect è lo strumento di sincronizzazione delle identità ibride, non un componente di Defender XDR.",
       "3": "eDiscovery fa parte di Microsoft Purview (compliance) per la ricerca e conservazione dei contenuti, non di Defender XDR."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "Microsoft Defender XDR integrates multiple security services into a single experience. Which TWO of the following are components of Microsoft Defender XDR?",
+    "options_en": [
+      "Microsoft Defender for Endpoint",
+      "Microsoft Defender for Office 365",
+      "Microsoft Entra Connect",
+      "Microsoft Purview eDiscovery"
+    ],
+    "explanation_en": "Microsoft Defender XDR (Extended Detection and Response) correlates signals from multiple products, including Microsoft Defender for Endpoint (endpoint protection/EDR) and Microsoft Defender for Office 365 (protection of email and collaboration tools). Together with others such as Defender for Identity and Defender for Cloud Apps, they provide a unified view of incidents and threats.",
+    "why_wrong_en": {
+      "2": "Entra Connect is the hybrid identity synchronization tool, not a component of Defender XDR.",
+      "3": "eDiscovery is part of Microsoft Purview (compliance) for searching and preserving content, not of Defender XDR."
+    }
   },
   {
     "id": "ms102-013",
@@ -372,7 +526,19 @@
       "2": "La gestione delle licenze non è un controllo del Conditional Access: le policy regolano l'accesso, non la quantità di licenze assegnate.",
       "3": "Il Conditional Access non modifica gli oggetti in AD on-premises come il nome dell'account; valuta segnali e applica controlli di accesso."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "You are creating a Conditional Access policy in Entra ID. Which TWO of the following are valid examples of grant controls that can be enforced when the policy conditions are met?",
+    "options_en": [
+      "Require multifactor authentication",
+      "Require device to be marked as compliant",
+      "Increase the user's assigned license count",
+      "Rename the user's on-premises Active Directory account"
+    ],
+    "explanation_en": "Conditional Access grant controls determine what is required to grant access when the conditions match. 'Require MFA' and 'Require device to be marked as compliant' (a compliant device, typically evaluated via Intune) are two classic grant controls, often combined to strengthen conditional access.",
+    "why_wrong_en": {
+      "2": "License management is not a Conditional Access control: policies regulate access, not the number of assigned licenses.",
+      "3": "Conditional Access does not modify on-premises AD objects such as the account name; it evaluates signals and applies access controls."
+    }
   },
   {
     "id": "ms102-014",
@@ -397,7 +563,16 @@
     "why_wrong": {
       "1": "È errato considerare l'affermazione falsa: la distinzione descritta tra retention label (conservazione) e sensitivity label (classificazione/protezione) è esattamente corretta."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "In Microsoft Purview, retention labels are used primarily to establish how long content must be retained or when it must be deleted, while sensitivity labels are used to classify and protect content (for example with encryption). True or false?",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True statement. Retention labels govern the data lifecycle (retention and deletion according to policies and regulatory requirements), while sensitivity labels classify content based on confidentiality and can apply protections such as encryption, markings and access restrictions. They are two distinct and complementary Purview mechanisms.",
+    "why_wrong_en": {
+      "1": "It is incorrect to consider the statement false: the described distinction between retention labels (retention) and sensitivity labels (classification/protection) is exactly correct."
+    }
   },
   {
     "id": "ms102-015",
@@ -422,7 +597,16 @@
     "why_wrong": {
       "0": "Considerare l'affermazione vera è errato: Safe Links esegue la verifica al momento del clic, non solo alla consegna del messaggio."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "In Microsoft Defender for Office 365, Safe Links checks URLs only once, at the time of email delivery, and does not perform any additional check when the user clicks the link. True or false?",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False statement. The distinctive characteristic of Safe Links is precisely time-of-click protection: URLs are rewritten and their reputation is re-evaluated at the moment the user clicks the link, not only at delivery. This makes it possible to block pages that were harmless at receipt but were compromised later.",
+    "why_wrong_en": {
+      "0": "Considering the statement true is incorrect: Safe Links performs the check at the time of click, not only at the delivery of the message."
+    }
   },
   {
     "id": "ms102-016",
@@ -447,6 +631,15 @@
     "why_wrong": {
       "1": "È errato considerarla falsa: essendo l'autenticazione convalidata in cloud, PHS resta funzionante anche quando i domain controller on-premises non sono disponibili."
     },
-    "source": "Microsoft MS-102"
+    "source": "Microsoft MS-102",
+    "question_en": "With Entra Connect, Password Hash Synchronization allows users to authenticate to Entra ID even when the on-premises domain controllers are unreachable. True or false?",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True statement. With PHS the password hash is synchronized to Entra ID, which validates authentications directly in the cloud. Since it does not depend on the availability of the domain controllers or local agents (unlike Pass-through Authentication and AD FS), users can continue to authenticate even if the on-premises environment is offline.",
+    "why_wrong_en": {
+      "1": "It is incorrect to consider it false: since authentication is validated in the cloud, PHS remains functional even when the on-premises domain controllers are unavailable."
+    }
   }
 ]

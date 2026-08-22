@@ -1,8 +1,12 @@
 [
   {
     "id": "lpic-001",
-    "cert": ["LPIC-1"],
-    "topics": ["Systemd"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Systemd"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un server deve avviarsi in modalita multi-utente con supporto di rete ma SENZA interfaccia grafica. Con systemd, quale target corrisponde a questo stato (equivalente al runlevel 3 di SysVinit) e come lo si imposta come predefinito?",
@@ -12,19 +16,38 @@
       "systemctl isolate rescue.target",
       "systemctl set-default runlevel3.target"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "multi-user.target e il target systemd che fornisce ambiente multi-utente con rete ma senza server grafico, ed e l'equivalente del runlevel 3. Il comando 'systemctl set-default multi-user.target' aggiorna il symlink /etc/systemd/system/default.target rendendolo il target di avvio predefinito.",
     "why_wrong": {
       "0": "graphical.target corrisponde al runlevel 5 e avvia anche il display manager grafico, che qui va evitato.",
       "2": "rescue.target e uno stato di manutenzione mono-utente (simile al runlevel 1), non adatto a un server in produzione; inoltre 'isolate' cambia lo stato corrente, non il default.",
       "3": "runlevel3.target esiste solo come alias/symlink verso multi-user.target e non e la forma canonica usata da set-default; il target corretto da specificare e multi-user.target."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "A server must boot into multi-user mode with network support but WITHOUT a graphical interface. With systemd, which target corresponds to this state (equivalent to SysVinit runlevel 3) and how do you set it as the default?",
+    "options_en": [
+      "systemctl set-default graphical.target",
+      "systemctl set-default multi-user.target",
+      "systemctl isolate rescue.target",
+      "systemctl set-default runlevel3.target"
+    ],
+    "explanation_en": "multi-user.target is the systemd target that provides a multi-user environment with networking but without a graphical server, and it is the equivalent of runlevel 3. The command 'systemctl set-default multi-user.target' updates the /etc/systemd/system/default.target symlink, making it the default boot target.",
+    "why_wrong_en": {
+      "0": "graphical.target corresponds to runlevel 5 and also starts the graphical display manager, which must be avoided here.",
+      "2": "rescue.target is a single-user maintenance state (similar to runlevel 1), not suitable for a production server; moreover 'isolate' changes the current state, not the default.",
+      "3": "runlevel3.target exists only as an alias/symlink to multi-user.target and is not the canonical form used by set-default; the correct target to specify is multi-user.target."
+    }
   },
   {
     "id": "lpic-002",
-    "cert": ["LPIC-1"],
-    "topics": ["Filesystem"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Filesystem"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Consideri questa riga di /etc/fstab: 'UUID=abc123 /data ext4 defaults,noatime 0 2'. Cosa indicano rispettivamente i due ultimi campi numerici (0 e 2)?",
@@ -34,19 +57,38 @@
       "Numero di inode riservati e dimensione del blocco",
       "Timeout di mount e livello di verbosita dei log"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "In /etc/fstab i sei campi sono: device, mount point, tipo di filesystem, opzioni, dump e pass. Il quinto campo (dump) indica se l'utility dump deve includere il filesystem nei backup (0 = no). Il sesto campo (pass/fsck) definisce l'ordine di controllo con fsck all'avvio: 0 = non controllare, 1 riservato alla root, 2 per gli altri filesystem controllati dopo la root.",
     "why_wrong": {
       "0": "Non esiste un campo di priorita di mount ne un riferimento alla tabella dei processi in fstab.",
       "2": "Numero di inode e dimensione del blocco si definiscono alla creazione del filesystem (mkfs), non in fstab.",
       "3": "Non esistono campi di timeout o verbosita dei log tra i sei campi standard di fstab."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "Consider this line of /etc/fstab: 'UUID=abc123 /data ext4 defaults,noatime 0 2'. What do the last two numeric fields (0 and 2) respectively indicate?",
+    "options_en": [
+      "Mount priority and position in the process table",
+      "Dump (backup) and fsck check order at boot",
+      "Number of reserved inodes and block size",
+      "Mount timeout and log verbosity level"
+    ],
+    "explanation_en": "In /etc/fstab the six fields are: device, mount point, filesystem type, options, dump and pass. The fifth field (dump) indicates whether the dump utility should include the filesystem in backups (0 = no). The sixth field (pass/fsck) defines the fsck check order at boot: 0 = do not check, 1 reserved for the root, 2 for the other filesystems checked after the root.",
+    "why_wrong_en": {
+      "0": "There is no mount priority field nor any reference to the process table in fstab.",
+      "2": "Number of inodes and block size are defined when creating the filesystem (mkfs), not in fstab.",
+      "3": "There are no timeout or log verbosity fields among the six standard fstab fields."
+    }
   },
   {
     "id": "lpic-003",
-    "cert": ["LPIC-1"],
-    "topics": ["Permessi"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Permessi"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Un file 'script.sh' ha permessi 'rw-r--r--'. Deve renderlo eseguibile SOLO per il proprietario, senza modificare gli altri permessi. Quale comando usa la notazione simbolica corretta?",
@@ -56,19 +98,39 @@
       "chmod 755 script.sh",
       "chmod a+x script.sh"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "La notazione simbolica 'u+x' aggiunge (+) il permesso di esecuzione (x) solo alla classe utente/proprietario (u), lasciando invariati group e other. Il risultato e 'rwxr--r--' (744).",
     "why_wrong": {
       "1": "'chmod +x' senza specificare la classe applica x a user, group e other (soggetto a umask), quindi modifica anche group e other contrariamente alla richiesta.",
       "2": "'chmod 755' imposta rwxr-xr-x aggiungendo x anche a group e other, alterando i permessi che dovevano restare invariati.",
       "3": "'a+x' significa 'all' (u, g, o) e quindi aggiunge x a tutte le classi, non solo al proprietario."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "A file 'script.sh' has permissions 'rw-r--r--'. You must make it executable ONLY for the owner, without changing the other permissions. Which command uses the correct symbolic notation?",
+    "options_en": [
+      "chmod u+x script.sh",
+      "chmod +x script.sh",
+      "chmod 755 script.sh",
+      "chmod a+x script.sh"
+    ],
+    "explanation_en": "The symbolic notation 'u+x' adds (+) the execute permission (x) only to the user/owner class (u), leaving group and other unchanged. The result is 'rwxr--r--' (744).",
+    "why_wrong_en": {
+      "1": "'chmod +x' without specifying the class applies x to user, group and other (subject to umask), thus also changing group and other, contrary to the request.",
+      "2": "'chmod 755' sets rwxr-xr-x, adding x also to group and other, altering the permissions that were meant to stay unchanged.",
+      "3": "'a+x' means 'all' (u, g, o) and therefore adds x to all classes, not just the owner."
+    }
   },
   {
     "id": "lpic-004",
-    "cert": ["LPIC-1"],
-    "topics": ["Bash", "Linux"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Bash",
+      "Linux"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Vuole estrarre da 'access.log' tutte le righe che iniziano con un indirizzo IP nella rete 192.168. (all'inizio della riga). Quale comando grep con espressione regolare e corretto?",
@@ -78,19 +140,38 @@
       "grep -v '^192.168' access.log",
       "grep '192\\.168\\.$' access.log"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "L'ancora '^' vincola la corrispondenza all'inizio riga. I punti vanno preceduti da backslash per essere interpretati come punto letterale e non come 'qualsiasi carattere'. Con -E (regex estese) l'espressione '^192\\.168\\.' individua correttamente le righe che iniziano con '192.168.'.",
     "why_wrong": {
       "0": "Senza '^' la corrispondenza puo avvenire ovunque nella riga, e senza escape i punti sono metacaratteri che indicano un carattere qualsiasi, generando falsi positivi (es. '1928168x').",
       "2": "L'opzione -v INVERTE la selezione mostrando le righe che NON corrispondono, l'opposto di quanto richiesto.",
       "3": "L'ancora '$' vincola la fine riga, quindi cercherebbe righe che TERMINANO con '192.168.', non che iniziano cosi."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "You want to extract from 'access.log' all the lines that start with an IP address in the 192.168. network (at the beginning of the line). Which grep command with a regular expression is correct?",
+    "options_en": [
+      "grep '192.168.' access.log",
+      "grep -E '^192\\.168\\.' access.log",
+      "grep -v '^192.168' access.log",
+      "grep '192\\.168\\.$' access.log"
+    ],
+    "explanation_en": "The '^' anchor constrains the match to the beginning of the line. The dots must be preceded by a backslash to be interpreted as a literal dot and not as 'any character'. With -E (extended regex) the expression '^192\\.168\\.' correctly identifies the lines starting with '192.168.'.",
+    "why_wrong_en": {
+      "0": "Without '^' the match can occur anywhere in the line, and without escaping the dots are metacharacters meaning any character, generating false positives (e.g. '1928168x').",
+      "2": "The -v option INVERTS the selection, showing the lines that do NOT match, the opposite of what is required.",
+      "3": "The '$' anchor constrains the end of the line, so it would look for lines that END with '192.168.', not that start with it."
+    }
   },
   {
     "id": "lpic-005",
-    "cert": ["LPIC-1"],
-    "topics": ["Gestione pacchetti"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Gestione pacchetti"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Su un sistema Debian/Ubuntu deve scoprire a quale pacchetto installato appartiene il file '/usr/bin/vim'. Quale comando restituisce direttamente questa informazione?",
@@ -100,19 +181,39 @@
       "apt-cache search /usr/bin/vim",
       "dpkg -l /usr/bin/vim"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "'dpkg -S' (search) interroga il database di dpkg per identificare quale pacchetto ha installato un determinato file, restituendo la riga 'pacchetto: /percorso/file'.",
     "why_wrong": {
       "0": "'dpkg -L pacchetto' fa l'operazione inversa: elenca i file APPARTENENTI a un pacchetto gia noto, ma qui il pacchetto e proprio l'incognita.",
       "2": "'apt-cache search' cerca pacchetti per parola chiave nella descrizione, non associa un percorso file a un pacchetto.",
       "3": "'dpkg -l' elenca lo stato dei pacchetti installati filtrando per nome/pattern, non accetta un percorso file per risalire al pacchetto proprietario."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "On a Debian/Ubuntu system you need to find out which installed package the file '/usr/bin/vim' belongs to. Which command directly returns this information?",
+    "options_en": [
+      "dpkg -L vim",
+      "dpkg -S /usr/bin/vim",
+      "apt-cache search /usr/bin/vim",
+      "dpkg -l /usr/bin/vim"
+    ],
+    "explanation_en": "'dpkg -S' (search) queries the dpkg database to identify which package installed a given file, returning the line 'package: /path/file'.",
+    "why_wrong_en": {
+      "0": "'dpkg -L package' does the reverse operation: it lists the files BELONGING to an already known package, but here the package is precisely the unknown.",
+      "2": "'apt-cache search' searches for packages by keyword in the description; it does not associate a file path with a package.",
+      "3": "'dpkg -l' lists the status of installed packages filtering by name/pattern; it does not accept a file path to trace back to the owning package."
+    }
   },
   {
     "id": "lpic-006",
-    "cert": ["LPIC-1"],
-    "topics": ["Filesystem", "Linux"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Filesystem",
+      "Linux"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Ha creato un hard link con 'ln fileA fileB'. Successivamente esegue 'rm fileA'. Cosa accade al contenuto originariamente accessibile tramite fileA?",
@@ -122,19 +223,38 @@
       "fileB diventa un link simbolico rotto (dangling)",
       "Il sistema impedisce la rimozione finche esistono altri hard link"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Un hard link e una voce di directory che punta allo stesso inode. fileA e fileB condividono lo stesso inode e lo stesso link count. Rimuovendo fileA il link count scende da 2 a 1, ma i blocchi dati vengono liberati solo quando il conteggio raggiunge zero; percio il contenuto resta pienamente accessibile tramite fileB.",
     "why_wrong": {
       "0": "Con gli hard link non esiste una gerarchia originale/copia: entrambi i nomi hanno pari dignita e puntano allo stesso inode, quindi rimuoverne uno non distrugge i dati.",
       "2": "Un link rotto si verifica con i link SIMBOLICI quando sparisce il target; qui si tratta di un hard link, che non dipende dal nome del percorso.",
       "3": "rm non blocca la rimozione in presenza di altri hard link: semplicemente decrementa il link count dell'inode."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "You created a hard link with 'ln fileA fileB'. Then you run 'rm fileA'. What happens to the content originally accessible through fileA?",
+    "options_en": [
+      "The content is lost because fileB was only a pointer to fileA",
+      "The content remains accessible through fileB: the data exists as long as the inode's link count is greater than zero",
+      "fileB becomes a broken (dangling) symbolic link",
+      "The system prevents removal as long as other hard links exist"
+    ],
+    "explanation_en": "A hard link is a directory entry pointing to the same inode. fileA and fileB share the same inode and the same link count. Removing fileA brings the link count down from 2 to 1, but the data blocks are freed only when the count reaches zero; therefore the content remains fully accessible through fileB.",
+    "why_wrong_en": {
+      "0": "With hard links there is no original/copy hierarchy: both names have equal standing and point to the same inode, so removing one does not destroy the data.",
+      "2": "A broken link occurs with SYMBOLIC links when the target disappears; here it is a hard link, which does not depend on the path name.",
+      "3": "rm does not block removal when other hard links exist: it simply decrements the inode's link count."
+    }
   },
   {
     "id": "lpic-007",
-    "cert": ["LPIC-1"],
-    "topics": ["Linux"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Linux"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Un processo con PID 4210 e in esecuzione con priorita (nice) di default 0. Vuole ABBASSARNE la priorita di schedulazione portando il valore nice a 10. Quale comando e corretto?",
@@ -144,19 +264,38 @@
       "renice -10 -p 4210",
       "nice -n 10 4210"
     ],
-    "correct": [0],
+    "correct": [
+      0
+    ],
     "explanation": "'renice' modifica la priorita di un processo GIA in esecuzione. 'renice 10 -p 4210' imposta il valore nice a 10: valori nice piu alti significano priorita di schedulazione piu bassa (il processo cede piu CPU agli altri). Un utente non privilegiato puo solo aumentare il nice (ridurre la priorita).",
     "why_wrong": {
       "1": "'nice' serve ad AVVIARE un nuovo comando con un dato nice, non a modificare un processo esistente tramite PID; inoltre non accetta l'opzione -p.",
       "2": "'renice -10' imposterebbe il nice a -10, cioe ALZEREBBE la priorita (richiedendo anche privilegi di root), l'opposto di quanto richiesto.",
       "3": "'nice -n 10 4210' tenterebbe di eseguire un comando chiamato '4210', non di agire sul processo con quel PID."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "A process with PID 4210 is running with the default nice priority 0. You want to LOWER its scheduling priority by setting the nice value to 10. Which command is correct?",
+    "options_en": [
+      "renice 10 -p 4210",
+      "nice 10 -p 4210",
+      "renice -10 -p 4210",
+      "nice -n 10 4210"
+    ],
+    "explanation_en": "'renice' changes the priority of an ALREADY running process. 'renice 10 -p 4210' sets the nice value to 10: higher nice values mean lower scheduling priority (the process yields more CPU to others). An unprivileged user can only increase the nice value (reduce the priority).",
+    "why_wrong_en": {
+      "1": "'nice' is used to START a new command with a given nice value, not to change an existing process by PID; moreover it does not accept the -p option.",
+      "2": "'renice -10' would set the nice to -10, i.e. it would RAISE the priority (also requiring root privileges), the opposite of what is required.",
+      "3": "'nice -n 10 4210' would try to run a command called '4210', not to act on the process with that PID."
+    }
   },
   {
     "id": "lpic-008",
-    "cert": ["LPIC-1"],
-    "topics": ["SSH"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "SSH"
+    ],
     "type": "single",
     "difficulty": 2,
     "question": "Ha generato una coppia di chiavi SSH e vuole abilitare l'accesso senza password verso il server remoto. Quale file DEVE contenere la sua chiave PUBBLICA sul server, nella home dell'utente di destinazione?",
@@ -166,19 +305,38 @@
       "~/.ssh/known_hosts",
       "~/.ssh/config"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Per l'autenticazione a chiave pubblica, la chiave PUBBLICA del client va aggiunta al file '~/.ssh/authorized_keys' dell'utente remoto. Il server confronta la firma prodotta dalla chiave privata del client con le chiavi pubbliche elencate in quel file. Il comando 'ssh-copy-id' automatizza questa operazione.",
     "why_wrong": {
       "0": "'id_rsa' e la chiave PRIVATA e resta sul client: non va mai copiata sul server ne condivisa.",
       "2": "'known_hosts' memorizza le chiavi pubbliche degli HOST gia contattati per prevenire attacchi MITM, non le chiavi degli utenti autorizzati.",
       "3": "'~/.ssh/config' contiene impostazioni del client SSH (alias host, opzioni), non le chiavi pubbliche autorizzate lato server."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "You generated an SSH key pair and want to enable passwordless access to the remote server. Which file MUST contain your PUBLIC key on the server, in the home of the destination user?",
+    "options_en": [
+      "~/.ssh/id_rsa",
+      "~/.ssh/authorized_keys",
+      "~/.ssh/known_hosts",
+      "~/.ssh/config"
+    ],
+    "explanation_en": "For public-key authentication, the client's PUBLIC key must be added to the remote user's '~/.ssh/authorized_keys' file. The server compares the signature produced by the client's private key with the public keys listed in that file. The 'ssh-copy-id' command automates this operation.",
+    "why_wrong_en": {
+      "0": "'id_rsa' is the PRIVATE key and stays on the client: it must never be copied to the server or shared.",
+      "2": "'known_hosts' stores the public keys of the HOSTS already contacted to prevent MITM attacks, not the keys of authorized users.",
+      "3": "'~/.ssh/config' contains SSH client settings (host aliases, options), not the authorized public keys on the server side."
+    }
   },
   {
     "id": "lpic-009",
-    "cert": ["LPIC-1"],
-    "topics": ["Linux"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Linux"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Dopo aver modificato manualmente il file '/etc/default/grub' (ad esempio per cambiare GRUB_TIMEOUT), quale comando su un sistema Debian/Ubuntu rigenera il file di configurazione effettivo del bootloader GRUB 2?",
@@ -188,19 +346,38 @@
       "grub-set-default 0",
       "systemctl daemon-reload"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Su Debian/Ubuntu 'update-grub' (wrapper di 'grub-mkconfig -o /boot/grub/grub.cfg') rilegge /etc/default/grub e gli script in /etc/grub.d/ per rigenerare /boot/grub/grub.cfg. Le modifiche a /etc/default/grub non hanno effetto finche non si rigenera questo file.",
     "why_wrong": {
       "0": "'grub-install' scrive il bootloader nel settore di boot/EFI del disco, ma NON rigenera grub.cfg a partire da /etc/default/grub.",
       "2": "'grub-set-default' cambia solo la voce di menu predefinita salvata, non ricostruisce l'intera configurazione dopo la modifica di GRUB_TIMEOUT.",
       "3": "'systemctl daemon-reload' ricarica le unit di systemd, non ha alcun rapporto con la configurazione di GRUB."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "After manually editing the file '/etc/default/grub' (for example to change GRUB_TIMEOUT), which command on a Debian/Ubuntu system regenerates the actual configuration file of the GRUB 2 bootloader?",
+    "options_en": [
+      "grub-install /dev/sda",
+      "update-grub",
+      "grub-set-default 0",
+      "systemctl daemon-reload"
+    ],
+    "explanation_en": "On Debian/Ubuntu 'update-grub' (a wrapper for 'grub-mkconfig -o /boot/grub/grub.cfg') re-reads /etc/default/grub and the scripts in /etc/grub.d/ to regenerate /boot/grub/grub.cfg. Changes to /etc/default/grub have no effect until this file is regenerated.",
+    "why_wrong_en": {
+      "0": "'grub-install' writes the bootloader to the disk's boot/EFI sector, but does NOT regenerate grub.cfg from /etc/default/grub.",
+      "2": "'grub-set-default' only changes the saved default menu entry; it does not rebuild the entire configuration after changing GRUB_TIMEOUT.",
+      "3": "'systemctl daemon-reload' reloads the systemd units; it has no relation to the GRUB configuration."
+    }
   },
   {
     "id": "lpic-010",
-    "cert": ["LPIC-1"],
-    "topics": ["Bash"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Bash"
+    ],
     "type": "single",
     "difficulty": 3,
     "question": "Vuole sostituire, in 'config.txt', SOLO la prima occorrenza per riga della parola 'enable' con 'disable', scrivendo il risultato su stdout senza modificare il file. Quale comando sed e corretto?",
@@ -210,19 +387,38 @@
       "sed -i 's/enable/disable/' config.txt",
       "sed '/enable/disable/' config.txt"
     ],
-    "correct": [1],
+    "correct": [
+      1
+    ],
     "explanation": "Il comando di sostituzione di sed 's/pattern/rimpiazzo/' senza il flag finale 'g' sostituisce solo la PRIMA occorrenza per ogni riga. Senza l'opzione -i, sed non modifica il file ma stampa il risultato su stdout.",
     "why_wrong": {
       "0": "Il flag 'g' (global) sostituisce TUTTE le occorrenze in ciascuna riga, non solo la prima come richiesto.",
       "2": "L'opzione -i (in-place) MODIFICA il file originale, mentre la richiesta e di lasciare il file inalterato e scrivere su stdout.",
       "3": "'/enable/disable/' non e una sintassi di sostituzione valida (manca il comando 's'): sed la interpreterebbe come indirizzo/comando errato e darebbe errore."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "You want to replace, in 'config.txt', ONLY the first occurrence per line of the word 'enable' with 'disable', writing the result to stdout without modifying the file. Which sed command is correct?",
+    "options_en": [
+      "sed 's/enable/disable/g' config.txt",
+      "sed 's/enable/disable/' config.txt",
+      "sed -i 's/enable/disable/' config.txt",
+      "sed '/enable/disable/' config.txt"
+    ],
+    "explanation_en": "The sed substitution command 's/pattern/replacement/' without the trailing 'g' flag replaces only the FIRST occurrence per line. Without the -i option, sed does not modify the file but prints the result to stdout.",
+    "why_wrong_en": {
+      "0": "The 'g' (global) flag replaces ALL occurrences on each line, not just the first as required.",
+      "2": "The -i (in-place) option MODIFIES the original file, whereas the request is to leave the file unchanged and write to stdout.",
+      "3": "'/enable/disable/' is not a valid substitution syntax (the 's' command is missing): sed would interpret it as an incorrect address/command and produce an error."
+    }
   },
   {
     "id": "lpic-011",
-    "cert": ["LPIC-1"],
-    "topics": ["Networking"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Networking"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Deve visualizzare la tabella di routing IP del sistema Linux. Quali DUE dei seguenti comandi mostrano correttamente le rotte configurate? (Seleziona 2)",
@@ -232,18 +428,38 @@
       "ifconfig -a",
       "nslookup default"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "'ip route show' (dalla suite iproute2, il comando moderno raccomandato) e 'route -n' (dai net-tools, ormai deprecato ma ancora usato, con -n per non risolvere i nomi) mostrano entrambi la tabella di routing del kernel, comprese la default gateway e le rotte verso le reti direttamente connesse.",
     "why_wrong": {
       "2": "'ifconfig -a' mostra la configurazione delle INTERFACCE di rete (indirizzi, MAC, statistiche), non la tabella di routing.",
       "3": "'nslookup' interroga il DNS per risolvere nomi in indirizzi IP e viceversa; non ha nulla a che vedere con le rotte, e 'nslookup default' non e nemmeno una query valida."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "You must view the IP routing table of the Linux system. Which TWO of the following commands correctly show the configured routes? (Select 2)",
+    "options_en": [
+      "ip route show",
+      "route -n",
+      "ifconfig -a",
+      "nslookup default"
+    ],
+    "explanation_en": "'ip route show' (from the iproute2 suite, the recommended modern command) and 'route -n' (from net-tools, now deprecated but still used, with -n to not resolve names) both show the kernel routing table, including the default gateway and the routes to directly connected networks.",
+    "why_wrong_en": {
+      "2": "'ifconfig -a' shows the configuration of the network INTERFACES (addresses, MAC, statistics), not the routing table.",
+      "3": "'nslookup' queries the DNS to resolve names into IP addresses and vice versa; it has nothing to do with routes, and 'nslookup default' is not even a valid query."
+    }
   },
   {
     "id": "lpic-012",
-    "cert": ["LPIC-1"],
-    "topics": ["Linux", "Gestione pacchetti"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Linux",
+      "Gestione pacchetti"
+    ],
     "type": "multi",
     "difficulty": 3,
     "question": "Riguardo alla gestione dei moduli del kernel Linux, quali DUE affermazioni sono corrette? (Seleziona 2)",
@@ -253,18 +469,38 @@
       "'rmmod' compila un nuovo modulo dai sorgenti prima di caricarlo",
       "'depmod' rimuove definitivamente un modulo dal disco"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "'lsmod' legge /proc/modules e mostra i moduli caricati con dimensione e conteggio d'uso. 'modprobe' carica (o rimuove con -r) un modulo consultando i file di dipendenza generati da depmod, caricando automaticamente anche i moduli richiesti; a differenza di insmod che non gestisce le dipendenze.",
     "why_wrong": {
       "2": "'rmmod' SCARICA un modulo gia caricato dal kernel; non compila nulla (la compilazione avviene con strumenti come make/gcc).",
       "3": "'depmod' genera il database delle dipendenze tra moduli (modules.dep); non rimuove file dal disco."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "Regarding the management of Linux kernel modules, which TWO statements are correct? (Select 2)",
+    "options_en": [
+      "'lsmod' lists the modules currently loaded in the kernel",
+      "'modprobe' loads a module automatically resolving its dependencies",
+      "'rmmod' compiles a new module from source before loading it",
+      "'depmod' permanently removes a module from disk"
+    ],
+    "explanation_en": "'lsmod' reads /proc/modules and shows the loaded modules with size and usage count. 'modprobe' loads (or removes with -r) a module by consulting the dependency files generated by depmod, automatically loading the required modules as well; unlike insmod, which does not handle dependencies.",
+    "why_wrong_en": {
+      "2": "'rmmod' UNLOADS an already loaded module from the kernel; it does not compile anything (compilation is done with tools such as make/gcc).",
+      "3": "'depmod' generates the database of dependencies between modules (modules.dep); it does not remove files from disk."
+    }
   },
   {
     "id": "lpic-013",
-    "cert": ["LPIC-1"],
-    "topics": ["Permessi", "SSH"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Permessi",
+      "SSH"
+    ],
     "type": "multi",
     "difficulty": 2,
     "question": "Riguardo all'uso di 'sudo' e alla sua configurazione, quali DUE affermazioni sono corrette? (Seleziona 2)",
@@ -274,48 +510,109 @@
       "sudo richiede sempre che l'account root abbia una password impostata per funzionare",
       "Le regole in /etc/sudoers hanno effetto solo dopo un riavvio del sistema"
     ],
-    "correct": [0, 1],
+    "correct": [
+      0,
+      1
+    ],
     "explanation": "'visudo' apre /etc/sudoers (o i file in /etc/sudoers.d/) bloccandolo e controllandone la sintassi al salvataggio, evitando errori che potrebbero rendere sudo inutilizzabile. Di default sudo chiede la password dell'utente CHIAMANTE, non quella di root, e registra l'uso nei log per l'auditing.",
     "why_wrong": {
       "2": "sudo NON richiede che root abbia una password: e proprio uno dei suoi vantaggi, permette privilegi amministrativi anche con account root bloccato/senza password (comune in Ubuntu).",
       "3": "Le modifiche a /etc/sudoers hanno effetto immediato per le sessioni sudo successive, senza alcun riavvio."
     },
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "Regarding the use of 'sudo' and its configuration, which TWO statements are correct? (Select 2)",
+    "options_en": [
+      "The configuration file /etc/sudoers should be edited with 'visudo', which checks its syntax before saving",
+      "With sudo, by default, the user authenticates by typing their OWN password (not root's)",
+      "sudo always requires the root account to have a password set in order to work",
+      "The rules in /etc/sudoers take effect only after a system reboot"
+    ],
+    "explanation_en": "'visudo' opens /etc/sudoers (or the files in /etc/sudoers.d/) by locking it and checking its syntax on save, avoiding errors that could make sudo unusable. By default sudo asks for the CALLING user's password, not root's, and logs its use for auditing.",
+    "why_wrong_en": {
+      "2": "sudo does NOT require root to have a password: this is precisely one of its advantages, it allows administrative privileges even with a locked/passwordless root account (common in Ubuntu).",
+      "3": "Changes to /etc/sudoers take effect immediately for subsequent sudo sessions, without any reboot."
+    }
   },
   {
     "id": "lpic-014",
-    "cert": ["LPIC-1"],
-    "topics": ["Filesystem"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Filesystem"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Un hard link puo attraversare i confini tra filesystem diversi, ad esempio collegando un file su /home (una partizione) a un nome su /var (un'altra partizione).",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. Un hard link e una voce di directory che punta a un inode, e i numeri di inode sono univoci solo all'interno del medesimo filesystem. Percio un hard link NON puo attraversare filesystem/partizioni differenti. Per collegare percorsi su filesystem diversi si usa un link simbolico (ln -s), che memorizza un percorso testuale anziche riferirsi a un inode.",
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "A hard link can cross the boundaries between different filesystems, for example linking a file on /home (one partition) to a name on /var (another partition).",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. A hard link is a directory entry pointing to an inode, and inode numbers are unique only within the same filesystem. Therefore a hard link CANNOT cross different filesystems/partitions. To link paths on different filesystems you use a symbolic link (ln -s), which stores a textual path instead of referring to an inode."
   },
   {
     "id": "lpic-015",
-    "cert": ["LPIC-1"],
-    "topics": ["Systemd"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Systemd"
+    ],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Il comando 'systemctl enable nginx.service' avvia immediatamente il servizio nginx nella sessione corrente, oltre a configurarlo per l'avvio automatico al boot.",
-    "options": ["Vero", "Falso"],
-    "correct": [1],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      1
+    ],
     "explanation": "Falso. 'systemctl enable' crea i symlink necessari (tipicamente nella directory del target voluto, es. multi-user.target.wants) affinche il servizio parta automaticamente ai boot successivi, ma NON lo avvia nella sessione corrente. Per avviarlo subito serve 'systemctl start', oppure 'systemctl enable --now nginx.service' per fare entrambe le cose in un solo comando.",
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "The command 'systemctl enable nginx.service' immediately starts the nginx service in the current session, in addition to configuring it for automatic start at boot.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "False. 'systemctl enable' creates the necessary symlinks (typically in the wanted target's directory, e.g. multi-user.target.wants) so that the service starts automatically on subsequent boots, but does NOT start it in the current session. To start it right away you need 'systemctl start', or 'systemctl enable --now nginx.service' to do both things in a single command."
   },
   {
     "id": "lpic-016",
-    "cert": ["LPIC-1"],
-    "topics": ["Filesystem", "Linux"],
+    "cert": [
+      "LPIC-1"
+    ],
+    "topics": [
+      "Filesystem",
+      "Linux"
+    ],
     "type": "truefalse",
     "difficulty": 3,
     "question": "Secondo il Filesystem Hierarchy Standard (FHS), la directory /etc e destinata a contenere i file di configurazione statici specifici dell'host, e non deve contenere file binari eseguibili.",
-    "options": ["Vero", "Falso"],
-    "correct": [0],
+    "options": [
+      "Vero",
+      "Falso"
+    ],
+    "correct": [
+      0
+    ],
     "explanation": "Vero. Secondo l'FHS, /etc contiene i file di configurazione statici, in forma di testo, specifici del sistema locale. Lo standard stabilisce esplicitamente che in /etc non devono essere presenti file binari eseguibili. I binari risiedono invece in directory come /bin, /sbin, /usr/bin e /usr/sbin.",
-    "source": "LPIC-1"
+    "source": "LPIC-1",
+    "question_en": "According to the Filesystem Hierarchy Standard (FHS), the /etc directory is intended to contain the static host-specific configuration files, and must not contain executable binary files.",
+    "options_en": [
+      "True",
+      "False"
+    ],
+    "explanation_en": "True. According to the FHS, /etc contains the static configuration files, in text form, specific to the local system. The standard explicitly states that no executable binary files must be present in /etc. Binaries instead reside in directories such as /bin, /sbin, /usr/bin and /usr/sbin."
   }
 ]
