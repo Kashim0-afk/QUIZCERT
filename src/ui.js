@@ -1,7 +1,7 @@
 import { grade } from './engine.js';
 import { filterQuestions, pickSet, listCerts, listTopics } from './select.js';
 import { recordAttempt, streak, globalAccuracy, byField } from './stats.js';
-import { exportStats, importStats } from './storage.js';
+import { exportStats, importStats, MAX_IMPORT_BYTES } from './storage.js';
 import { getLang, toggleLang, t, qText, qOptions, qExplanation, qWhyWrong } from './i18n.js';
 import { optionOrder, toOriginal, localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone,
   remainingSeconds, commitPendingAnswer, fmtTime } from './session.js';
@@ -391,7 +391,7 @@ function renderStudy(app) {
 }
 
 // ---------- STATS ----------
-function renderStats(app) {
+function renderStats(app, notice = '') {
   const g = globalAccuracy(app.stats);
   const byCert = byField(app.questions, app.stats.history, 'cert');
   const byTopic = byField(app.questions, app.stats.history, 'topics');
@@ -419,18 +419,24 @@ function renderStats(app) {
     document.body.append(a); a.click(); a.remove(); URL.revokeObjectURL(url);
   });
 
-  const importInput = el('input', { type: 'file', accept: 'application/json', class: 'hidden' });
+  const importMsg = el('p', { class: 'import-msg', role: 'status', 'aria-live': 'polite' });
+  const importInput = el('input', { type: 'file', accept: 'application/json,.json', class: 'hidden' });
   importInput.addEventListener('change', async () => {
     const file = importInput.files[0];
+    importInput.value = ''; // allow re-selecting the same file after fixing it
     if (!file) return;
+    importMsg.className = 'import-msg';
     try {
-      const text = await file.text();
-      const imported = importStats(text);
+      if (file.size > MAX_IMPORT_BYTES) throw Object.assign(new Error('size'), { code: 'size' });
+      const imported = importStats(await file.text());
       if (!confirm(t('confirmOverwrite'))) return;
       app.stats = imported;
       await persist(app);
-      renderStats(app);
-    } catch (e) { alert(t('importFailed', e.message)); }
+      renderStats(app, t('importOk'));
+    } catch (e) {
+      importMsg.classList.add('ko');
+      importMsg.textContent = t('importFailed', e.code ? t('importErr', e.code, e.path) : e.message);
+    }
   });
   const importBtn = el('button', { class: 'primary-btn' }, t('importStats'));
   importBtn.addEventListener('click', () => importInput.click());
@@ -461,7 +467,8 @@ function renderStats(app) {
       el('p', {}, t('overallLine', g.correct, g.wrong, g.pct))),
     certCard,
     topicCard,
-    el('div', { class: 'card' }, el('h2', {}, t('backup')), el('div', { class: 'row' }, exportBtn, importBtn), importInput)));
+    el('div', { class: 'card' }, el('h2', {}, t('backup')), el('div', { class: 'row' }, exportBtn, importBtn), importInput, importMsg)));
+  if (notice) { importMsg.classList.add('ok'); importMsg.textContent = notice; }
 }
 
 // ---------- shared bits ----------

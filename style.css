@@ -267,3 +267,9 @@ select, input[type="file"] {
   background: var(--accent); color: #04212e; font-weight: 600; font-size: 1rem;
   border: none; border-radius: 10px; cursor: pointer;
 }
+
+/* esito import statistiche */
+.import-msg { margin: 10px 0 0; font-size: 0.92rem; }
+.import-msg:empty { display: none; }
+.import-msg.ok { color: var(--ok); }
+.import-msg.ko { color: var(--ko); }
