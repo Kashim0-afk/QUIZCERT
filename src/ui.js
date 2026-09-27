@@ -3,6 +3,7 @@ import { filterQuestions, pickSet, listCerts, listTopics } from './select.js';
 import { recordAttempt, streak, globalAccuracy, byField } from './stats.js';
 import { exportStats, importStats } from './storage.js';
 import { getLang, toggleLang, t, qText, qOptions, qExplanation, qWhyWrong } from './i18n.js';
+import { optionOrder, toOriginal } from './session.js';
 
 // ---------- tiny DOM helper ----------
 function el(tag, props = {}, ...children) {
@@ -148,16 +149,8 @@ function runQuiz(app, session) {
   const q = session.order[session.index];
   const isMulti = q.type === 'multi';
   const opts = qOptions(q);
-  const selected = new Set();
-
-  const optionEls = opts.map((opt, i) => {
-    const input = el('input', { type: isMulti ? 'checkbox' : 'radio', name: 'opt', value: String(i) });
-    input.addEventListener('change', () => {
-      if (isMulti) { input.checked ? selected.add(i) : selected.delete(i); }
-      else { selected.clear(); selected.add(i); }
-    });
-    return el('label', { class: 'option' }, input, el('span', {}, opt));
-  });
+  const choice = buildOptions(q, opts, 'opt');
+  const { optionEls, selected, order } = choice;
 
   const feedback = el('div', { class: 'feedback' });
   const submitBtn = el('button', { class: 'primary-btn' }, isMulti ? t('confirmMulti') : t('confirm'));
@@ -165,11 +158,12 @@ function runQuiz(app, session) {
 
   submitBtn.addEventListener('click', async () => {
     if (selected.size === 0) { feedback.textContent = t('selectAnswer'); return; }
-    const res = grade(q, [...selected]);
-    optionEls.forEach((lab, i) => {
+    const res = grade(q, choice.selectedOriginal());
+    optionEls.forEach((lab, pos) => {
+      const orig = order[pos];
       lab.querySelector('input').disabled = true;
-      if (res.correct.includes(i)) lab.classList.add('correct');
-      else if (res.chosen.includes(i)) lab.classList.add('wrong');
+      if (res.correct.includes(orig)) lab.classList.add('correct');
+      else if (res.chosen.includes(orig)) lab.classList.add('wrong');
     });
     if (res.isCorrect) session.correct++; else session.wrong++;
 
@@ -268,20 +262,13 @@ function runExam(app, session) {
   const q = session.order[session.index];
   const isMulti = q.type === 'multi';
   const opts = qOptions(q);
-  const selected = new Set();
-  const optionEls = opts.map((opt, i) => {
-    const input = el('input', { type: isMulti ? 'checkbox' : 'radio', name: 'exopt', value: String(i) });
-    input.addEventListener('change', () => {
-      if (isMulti) { input.checked ? selected.add(i) : selected.delete(i); }
-      else { selected.clear(); selected.add(i); }
-    });
-    return el('label', { class: 'option' }, input, el('span', {}, opt));
-  });
+  const choice = buildOptions(q, opts, 'exopt');
+  const { optionEls } = choice;
 
   const nextLabel = session.index === session.order.length - 1 ? t('finish') : t('forward');
   const next = el('button', { class: 'primary-btn' }, nextLabel);
   next.addEventListener('click', () => {
-    session.answers[session.index] = { q, selected: [...selected] };
+    session.answers[session.index] = { q, selected: choice.selectedOriginal() };
     session.index++;
     runExam(app, session);
   });
@@ -346,7 +333,9 @@ function renderStudy(app) {
 
   const buildItem = (q, n) => {
     const opts = qOptions(q);
-    const rightAns = q.correct.map(i => opts[i]).join('  |  ');
+    // Same shuffled presentation as the quiz modes, so position is never a hint.
+    const order = optionOrder(q);
+    const rightAns = order.filter(i => q.correct.includes(i)).map(i => opts[i]).join('  |  ');
     const why = qWhyWrong(q);
     const parts = [
       el('p', { class: 'study-q' }, (n + 1) + '. ' + qText(q)),
@@ -354,8 +343,8 @@ function renderStudy(app) {
       el('p', { class: 'study-exp' }, qExplanation(q)),
     ];
     if (why) {
-      for (const [idx, reason] of Object.entries(why)) {
-        const oi = Number(idx);
+      for (const oi of order) {
+        const reason = why[String(oi)];
         if (!q.correct.includes(oi) && reason) {
           parts.push(el('p', { class: 'study-wrong' }, '✗ "' + opts[oi] + '": ' + reason));
         }
@@ -465,6 +454,23 @@ function renderStats(app) {
 }
 
 // ---------- shared bits ----------
+// Build the (shuffled) option inputs for a question. Inputs carry their DISPLAY
+// position; selectedOriginal() maps the selection back to original indices.
+function buildOptions(q, opts, name) {
+  const isMulti = q.type === 'multi';
+  const order = optionOrder(q);
+  const selected = new Set(); // display positions
+  const optionEls = order.map((orig, pos) => {
+    const input = el('input', { type: isMulti ? 'checkbox' : 'radio', name, value: String(pos) });
+    input.addEventListener('change', () => {
+      if (isMulti) { input.checked ? selected.add(pos) : selected.delete(pos); }
+      else { selected.clear(); selected.add(pos); }
+    });
+    return el('label', { class: 'option' }, input, el('span', {}, opts[orig]));
+  });
+  return { order, selected, optionEls, selectedOriginal: () => toOriginal(order, [...selected]) };
+}
+
 function topBar(app, title, center, right) {
   return el('div', { class: 'topbar' },
     el('button', { class: 'back-btn', onClick: () => renderHome(app) }, t('home')),
