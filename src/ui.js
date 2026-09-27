@@ -3,7 +3,8 @@ import { filterQuestions, pickSet, listCerts, listTopics } from './select.js';
 import { recordAttempt, streak, globalAccuracy, byField } from './stats.js';
 import { exportStats, importStats } from './storage.js';
 import { getLang, toggleLang, t, qText, qOptions, qExplanation, qWhyWrong } from './i18n.js';
-import { optionOrder, toOriginal, localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone } from './session.js';
+import { optionOrder, toOriginal, localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone,
+  remainingSeconds, commitPendingAnswer, fmtTime } from './session.js';
 
 // ---------- tiny DOM helper ----------
 function el(tag, props = {}, ...children) {
@@ -49,7 +50,7 @@ async function persist(app) {
 // ---------- HOME ----------
 function renderHome(app) {
   // Cancel any exam timer still running from an abandoned simulation.
-  if (app.examTimer) { clearInterval(app.examTimer); app.examTimer = null; }
+  if (app.examCleanup) { app.examCleanup(); app.examCleanup = null; }
   const certs = listCerts(app.questions);
   const topics = listTopics(app.questions);
 
@@ -234,18 +235,29 @@ function renderExamConfig(app) {
 }
 
 function runExam(app, session) {
-  if (!session.timer) {
+  if (!session.deadline) {
+    // Absolute deadline: the countdown is recomputed from the clock on every tick,
+    // so it keeps running while the tab is in background or the PWA is suspended.
+    session.deadline = Date.now() + session.seconds * 1000;
     session.remaining = session.seconds;
-    session.timer = setInterval(() => {
-      session.remaining--;
+    const tick = () => {
+      if (session.finished) return;
+      session.remaining = remainingSeconds(session.deadline);
       const tt = document.getElementById('examTimer');
       if (tt) {
         tt.textContent = fmtTime(session.remaining);
         tt.classList.toggle('timer-warning', session.remaining <= 60); // allerta ultimo minuto
       }
-      if (session.remaining <= 0) finishExam(app, session);
-    }, 1000);
-    app.examTimer = session.timer; // so navigation away can cancel it
+      if (session.remaining <= 0) timeUp(app, session);
+    };
+    const onVisible = () => { if (document.visibilityState === 'visible') tick(); };
+    session.timer = setInterval(tick, 500);
+    document.addEventListener('visibilitychange', onVisible);
+    // so navigation away (Home) can cancel it
+    app.examCleanup = session.cleanup = () => {
+      clearInterval(session.timer);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
   }
   if (session.index >= session.order.length) return finishExam(app, session);
 
@@ -254,10 +266,12 @@ function runExam(app, session) {
   const opts = qOptions(q);
   const choice = buildOptions(q, opts, 'exopt');
   const { optionEls } = choice;
+  session.currentChoice = choice; // read by timeUp() if time runs out on this question
 
   const nextLabel = session.index === session.order.length - 1 ? t('finish') : t('forward');
   const next = el('button', { class: 'primary-btn' }, nextLabel);
   next.addEventListener('click', () => {
+    if (remainingSeconds(session.deadline) <= 0) return timeUp(app, session);
     session.answers[session.index] = { q, selected: choice.selectedOriginal() };
     session.index++;
     runExam(app, session);
@@ -273,11 +287,17 @@ function runExam(app, session) {
       next)));
 }
 
+function timeUp(app, session) {
+  if (session.finished) return;
+  commitPendingAnswer(session, session.currentChoice?.selectedOriginal() ?? []);
+  finishExam(app, session);
+}
+
 async function finishExam(app, session) {
   if (session.finished) return; // idempotent: guard against timer/click race
   session.finished = true;
-  if (session.timer) { clearInterval(session.timer); session.timer = null; }
-  app.examTimer = null;
+  session.cleanup?.();
+  app.examCleanup = null;
   let correct = 0;
   const review = [];
   for (let i = 0; i < session.order.length; i++) {
@@ -481,10 +501,4 @@ function renderMessage(app, msg) {
     topBar(app, 'QuizCert', '', ''),
     el('div', { class: 'card' }, el('p', { class: 'big-msg' }, msg),
       el('button', { class: 'primary-btn', onClick: () => renderHome(app) }, t('backHome')))));
-}
-
-function fmtTime(s) {
-  if (s == null) return '';
-  const m = Math.floor(s / 60), r = s % 60;
-  return m + ':' + String(r).padStart(2, '0');
 }

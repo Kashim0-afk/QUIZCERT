@@ -69,3 +69,26 @@ export function markDailyDone(stats, day) {
   d.challengeDone = true;
   return stats;
 }
+
+// ---------- exam timer ----------
+// Seconds left before an absolute deadline (ms since epoch). Based on the wall
+// clock, so throttled timers in background tabs / suspended PWAs cannot slow it down.
+export function remainingSeconds(deadline, now = Date.now()) {
+  return Math.max(0, Math.ceil((deadline - now) / 1000));
+}
+
+// When time runs out, keep the answer selected on the current question even if
+// it was not confirmed with "Next". Never overwrites an answer already given.
+export function commitPendingAnswer(session, selectedOriginal) {
+  const i = session.index;
+  if (i >= session.order.length || session.answers[i] != null) return false;
+  if (!selectedOriginal || selectedOriginal.length === 0) return false;
+  session.answers[i] = { q: session.order[i], selected: [...selectedOriginal] };
+  return true;
+}
+
+export function fmtTime(s) {
+  if (s == null) return '';
+  const m = Math.floor(s / 60), r = s % 60;
+  return m + ':' + String(r).padStart(2, '0');
+}

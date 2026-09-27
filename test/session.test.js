@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   optionOrder, toOriginal, correctDisplayPositions,
   localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone,
+  remainingSeconds, commitPendingAnswer, fmtTime,
 } from '../src/session.js';
 import { emptyStats, recordAttempt } from '../src/stats.js';
 import { grade } from '../src/engine.js';
@@ -92,4 +93,41 @@ test('daily challenge counts once per day', () => {
   assert.equal(dailyCounts(s, '2026-09-27'), false);
   assert.equal(s.days['2026-09-27'].answered, 1, 'existing day counters are kept');
   assert.equal(dailyCounts(s, '2026-09-28'), true, 'a new day counts again');
+});
+
+test('remainingSeconds follows the wall clock, not the number of ticks', () => {
+  const start = 1_000_000;
+  const deadline = start + 20 * 60 * 1000;
+  assert.equal(remainingSeconds(deadline, start), 1200);
+  assert.equal(remainingSeconds(deadline, start + 400), 1200, 'rounds up partial seconds');
+  // tab in background for 5 minutes with no ticks at all: the time still elapsed
+  assert.equal(remainingSeconds(deadline, start + 5 * 60 * 1000), 900);
+  assert.equal(remainingSeconds(deadline, deadline), 0);
+  assert.equal(remainingSeconds(deadline, deadline + 99_999), 0, 'never negative');
+});
+
+test('time-up keeps the selected but unconfirmed answer', () => {
+  const q0 = { id: 'q0' }, q1 = { id: 'q1' };
+  const session = { order: [q0, q1], index: 1, answers: [{ q: q0, selected: [2] }] };
+  assert.equal(commitPendingAnswer(session, [3]), true);
+  assert.deepEqual(session.answers[1], { q: q1, selected: [3] });
+});
+
+test('time-up never overwrites a confirmed answer nor records an empty one', () => {
+  const q0 = { id: 'q0' };
+  const s1 = { order: [q0], index: 0, answers: [{ q: q0, selected: [1] }] };
+  assert.equal(commitPendingAnswer(s1, [2]), false);
+  assert.deepEqual(s1.answers[0].selected, [1]);
+  const s2 = { order: [q0], index: 0, answers: [] };
+  assert.equal(commitPendingAnswer(s2, []), false);
+  assert.equal(s2.answers[0], undefined);
+  const s3 = { order: [q0], index: 1, answers: [] }; // already past the last question
+  assert.equal(commitPendingAnswer(s3, [0]), false);
+});
+
+test('fmtTime formats m:ss', () => {
+  assert.equal(fmtTime(1200), '20:00');
+  assert.equal(fmtTime(61), '1:01');
+  assert.equal(fmtTime(0), '0:00');
+  assert.equal(fmtTime(null), '');
 });
