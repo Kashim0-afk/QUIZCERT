@@ -210,7 +210,7 @@ select, input[type="file"] {
   --ok: #22c55e;      /* era #16a34a: alza contrasto testo verdetto */
   --ko: #f87171;      /* era #dc2626: 3.0->~7:1 su card, leggibile "Sbagliata" */
   --ko-solid: #dc2626;/* rosso pieno per sfondi/bordi decorativi */
-  --border: #475569;  /* era #334155: bordi componenti percepibili (>=3:1) */
+  --border: #718096;  /* bordi componenti >=3:1 (WCAG 1.4.11): 3.6:1 su card, 3.1:1 su card2, 4.5:1 su bg */
 }
 .option.wrong { border-color: var(--ko-solid); background: rgba(220,38,38,0.18); }
 
@@ -229,7 +229,7 @@ select, input[type="file"] {
 
 /* calendario streak: griglia adattiva + livello 1 visibile */
 .calendar { grid-template-columns: repeat(auto-fill, minmax(16px, 1fr)); }
-.cal-cell.lvl1 { background: #1f6b3a; }
+.cal-cell.lvl1 { background: #2a8c50; } /* 3.5:1 su card */
 .cal-legend { display: flex; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 0.75rem; margin-top: 6px; }
 .cal-legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: middle; }
 
@@ -248,9 +248,11 @@ select, input[type="file"] {
   .bar-row { grid-template-columns: 1fr auto; }
   .bar-label { grid-column: 1 / -1; white-space: normal; }
 }
-.cal-legend .dot.lvl1 { background: #1f6b3a; }
-.cal-legend .dot.lvl2 { background: #16a34a; }
-.cal-legend .dot.lvl3 { background: #4ade80; }
+.cal-cell.lvl2 { background: #22c55e; }
+.cal-cell.lvl3 { background: #86efac; }
+.cal-legend .dot.lvl1 { background: #2a8c50; }
+.cal-legend .dot.lvl2 { background: #22c55e; }
+.cal-legend .dot.lvl3 { background: #86efac; }
 
 /* avviso "nuova versione disponibile" (service worker in attesa) */
 .update-banner {
@@ -278,3 +280,9 @@ select, input[type="file"] {
 .warn-card { border-color: #f59e0b; background: #2a2414; }
 .warn-card p { margin: 4px 0; }
 .warn-title { font-weight: 700; color: #fbbf24; }
+
+/* focus visibile e coerente (tastiera) */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.option:has(input:focus-visible) { outline: 3px solid var(--accent); outline-offset: 2px; }
+/* titoli che ricevono il focus via script al cambio schermata: niente anello */
+[tabindex="-1"]:focus { outline: none; }

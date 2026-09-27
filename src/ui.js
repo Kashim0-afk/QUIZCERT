@@ -58,7 +58,7 @@ async function persist(app) {
 }
 
 // ---------- HOME ----------
-function renderHome(app) {
+function renderHome(app, { focusLang = false } = {}) {
   // Cancel any exam timer still running from an abandoned simulation.
   if (app.examCleanup) { app.examCleanup(); app.examCleanup = null; }
   const certs = listCerts(app.questions);
@@ -85,7 +85,7 @@ function renderHome(app) {
   app.homeDay = today;
   const doneToday = !dailyCounts(app.stats, today);
 
-  const langBtn = el('button', { class: 'lang-btn', 'aria-label': 'Language', onClick: () => { toggleLang(); renderHome(app); } },
+  const langBtn = el('button', { class: 'lang-btn', title: t('langSwitch'), onClick: () => { toggleLang(); renderHome(app, { focusLang: true }); } },
     getLang() === 'it' ? 'IT | en' : 'it | EN');
 
   const screen = el('div', { class: 'screen' },
@@ -115,7 +115,7 @@ function renderHome(app) {
 
     el('button', { class: 'link-btn', onClick: () => renderStats(app) }, t('statistics')),
   );
-  show(app, 'home', screen);
+  show(app, 'home', screen, focusLang ? langBtn : null);
 }
 
 function modeBtn(title, desc, onClick) {
@@ -166,7 +166,8 @@ function runQuiz(app, session) {
   const choice = buildOptions(q, opts, 'opt');
   const { optionEls, selected, order } = choice;
 
-  const feedback = el('div', { class: 'feedback' });
+  // Live region: the verdict (and "select an answer") is announced by screen readers.
+  const feedback = el('div', { class: 'feedback', role: 'status', 'aria-live': 'polite' });
   const submitBtn = el('button', { class: 'primary-btn' }, isMulti ? t('confirmMulti') : t('confirm'));
   const nextBtn = el('button', { class: 'primary-btn hidden' }, t('next'));
 
@@ -193,6 +194,7 @@ function runQuiz(app, session) {
     feedback.replaceChildren(...nodes);
     submitBtn.classList.add('hidden');
     nextBtn.classList.remove('hidden');
+    nextBtn.focus(); // the focused Confirm button just disappeared: keep keyboard users in place
 
     if (!session.daily || session.counted) {
       recordAttempt(app.stats, { id: q.id, isCorrect: res.isCorrect, date: localDay() });
@@ -302,7 +304,7 @@ function runExam(app, session) {
   });
 
   show(app, 'exam', el('div', { class: 'screen' },
-    topBar(app, t('mExam'), (session.index + 1) + '/' + session.order.length, el('span', { id: 'examTimer', class: 'timer' }, fmtTime(session.remaining))),
+    topBar(app, t('mExam'), (session.index + 1) + '/' + session.order.length, el('span', { id: 'examTimer', class: 'timer', role: 'timer', 'aria-label': t('timeLeft') }, fmtTime(session.remaining))),
     el('div', { class: 'card question-card' },
       el('div', { class: 'meta' }, q.cert.join(', ') + ' · ' + q.topics.join(', ')),
       el('p', { class: 'question' }, qText(q)),
@@ -497,9 +499,18 @@ function renderStats(app, notice = '') {
 
 // ---------- shared bits ----------
 // Swap the visible screen (single place for screen bookkeeping).
-function show(app, name, screen) {
+// Every screen change rebuilds the DOM, which would drop focus on <body>: move it
+// to the new screen's main heading (or to `focusEl`) so keyboard and screen-reader
+// users start from the top of the new content.
+function show(app, name, screen, focusEl = null) {
   app.screen = name;
   app.root.replaceChildren(screen);
+  const target = focusEl ?? screen.querySelector('.question, h1, h2, .big-msg');
+  if (target) {
+    if (!target.matches('button, a, input, select, textarea') && !target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+  }
 }
 
 // Build the (shuffled) option inputs for a question. Inputs carry their DISPLAY

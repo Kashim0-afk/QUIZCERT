@@ -6,10 +6,17 @@ try {
   if (saved === 'it' || saved === 'en') lang = saved;
 } catch { /* localStorage unavailable */ }
 
+// Keep <html lang> in sync so screen readers use the right voice/pronunciation.
+function applyDocumentLang() {
+  if (typeof document !== 'undefined' && document.documentElement) document.documentElement.lang = lang;
+}
+applyDocumentLang();
+
 export function getLang() { return lang; }
 export function setLang(l) {
   lang = (l === 'en') ? 'en' : 'it';
   try { localStorage.setItem('quizcert-lang', lang); } catch { /* ignore */ }
+  applyDocumentLang();
 }
 export function toggleLang() { setLang(lang === 'it' ? 'en' : 'it'); return lang; }
 
@@ -74,6 +81,7 @@ const DICT = {
     noReview: 'Nessun errore da ripassare — ottimo!',
     loadMore: (n, rest) => 'Carica altre ' + n + ' (' + rest + ' rimanenti)',
     loadError: (m) => 'Errore nel caricamento delle domande: ' + m,
+    langSwitch: 'Switch to English', timeLeft: 'Tempo rimanente',
     updateAvailable: 'Nuova versione disponibile', updateNow: 'Aggiorna',
     loadWarnTitle: '⚠ Alcune domande non sono state caricate',
     loadWarnFiles: (n, list) => (n === 1 ? '1 file non caricato: ' : n + ' file non caricati: ') + list + '.',
@@ -140,6 +148,7 @@ const DICT = {
     noReview: 'No mistakes to review — great!',
     loadMore: (n, rest) => 'Load ' + n + ' more (' + rest + ' remaining)',
     loadError: (m) => 'Error loading questions: ' + m,
+    langSwitch: "Passa all'italiano", timeLeft: 'Time left',
     updateAvailable: 'New version available', updateNow: 'Update',
     loadWarnTitle: '⚠ Some questions could not be loaded',
     loadWarnFiles: (n, list) => (n === 1 ? '1 file not loaded: ' : n + ' files not loaded: ') + list + '.',
