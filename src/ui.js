@@ -5,7 +5,8 @@ import { exportStats, importStats, MAX_IMPORT_BYTES } from './storage.js';
 import { getLang, toggleLang, t, qText, qOptions, qExplanation, qWhyWrong } from './i18n.js';
 import { optionOrder, toOriginal, localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone,
   remainingSeconds, commitPendingAnswer, fmtTime, loadProblems,
-  PRACTICE_LENGTHS, normalizePracticeLength } from './session.js';
+  PRACTICE_LENGTHS, normalizePracticeLength,
+  PASS_THRESHOLD, percent, scoreExam, studyEntries, calendarLevel, sortByWeakest } from './session.js';
 
 // ---------- tiny DOM helper ----------
 function el(tag, props = {}, ...children) {
@@ -23,7 +24,6 @@ function el(tag, props = {}, ...children) {
   return n;
 }
 
-const PASS_THRESHOLD = 70;
 const DAILY_SIZE = 15;
 
 // ==================================================
@@ -222,7 +222,7 @@ async function finishQuiz(app, session) {
     await persist(app);
   }
   const total = session.correct + session.wrong;
-  const pct = total ? Math.round((session.correct / total) * 100) : 0;
+  const pct = percent(session.correct, total);
   renderMessage(app,
     t('quizDone', session.label, session.correct, total, pct) +
     (session.daily ? t('streakSuffix', streak(app.stats.days, localDay())) : ''));
@@ -324,21 +324,10 @@ async function finishExam(app, session) {
   session.finished = true;
   session.cleanup?.();
   app.examCleanup = null;
-  let correct = 0;
-  const review = [];
-  for (let i = 0; i < session.order.length; i++) {
-    const q = session.order[i];
-    const ans = session.answers[i]?.selected ?? [];
-    const res = grade(q, ans);
-    if (res.isCorrect) correct++;
-    recordAttempt(app.stats, { id: q.id, isCorrect: res.isCorrect, date: localDay() });
-    review.push({ q, res, ans });
-  }
+  const { review, correct, total, pct, passed } = scoreExam(session.order, session.answers);
+  const day = localDay();
+  for (const { q, res } of review) recordAttempt(app.stats, { id: q.id, isCorrect: res.isCorrect, date: day });
   await persist(app);
-
-  const total = session.order.length;
-  const pct = total ? Math.round((correct / total) * 100) : 0;
-  const passed = pct >= PASS_THRESHOLD;
 
   const reviewList = review.map(({ q, res, ans }) => {
     const opts = qOptions(q);
@@ -370,22 +359,13 @@ function renderStudy(app) {
   const buildItem = (q, n) => {
     const opts = qOptions(q);
     // Same shuffled presentation as the quiz modes, so position is never a hint.
-    const order = optionOrder(q);
-    const rightAns = order.filter(i => q.correct.includes(i)).map(i => opts[i]).join('  |  ');
-    const why = qWhyWrong(q);
+    const { right, wrong } = studyEntries(q, optionOrder(q), qWhyWrong(q));
     const parts = [
       el('p', { class: 'study-q' }, (n + 1) + '. ' + qText(q)),
-      el('p', { class: 'study-opt ok' }, '✓ ' + rightAns),
+      el('p', { class: 'study-opt ok' }, '✓ ' + right.map(i => opts[i]).join('  |  ')),
       el('p', { class: 'study-exp' }, qExplanation(q)),
+      ...wrong.map(w => el('p', { class: 'study-wrong' }, '✗ "' + opts[w.index] + '": ' + w.reason)),
     ];
-    if (why) {
-      for (const oi of order) {
-        const reason = why[String(oi)];
-        if (!q.correct.includes(oi) && reason) {
-          parts.push(el('p', { class: 'study-wrong' }, '✗ "' + opts[oi] + '": ' + reason));
-        }
-      }
-    }
     parts.push(el('p', { class: 'study-meta' }, q.cert.join(', ') + ' · ' + q.topics.join(', ')));
     return el('div', { class: 'study-item' }, ...parts);
   };
@@ -427,12 +407,11 @@ function renderStats(app, notice = '') {
   for (let i = 29; i >= 0; i--) {
     const day = dateBack(today, i);
     const n = app.stats.days[day]?.answered ?? 0;
-    const lvl = n === 0 ? 0 : n < 5 ? 1 : n < 15 ? 2 : 3;
+    const lvl = calendarLevel(n);
     cal.push(el('div', { class: 'cal-cell lvl' + lvl, title: day + ': ' + n }));
   }
 
-  const sortWorst = (obj) => Object.entries(obj).sort((a, b) => a[1].pct - b[1].pct || b[1].answered - a[1].answered);
-  const bars = (obj) => sortWorst(obj).map(([name, v]) => el('div', { class: 'bar-row' },
+  const bars = (obj) => sortByWeakest(obj).map(([name, v]) => el('div', { class: 'bar-row' },
     el('span', { class: 'bar-label' }, name + ' (' + v.correct + '/' + v.answered + ')'),
     el('div', { class: 'bar-track' }, el('div', { class: 'bar-fill', style: 'width:' + v.pct + '%' })),
     el('span', { class: 'bar-pct' }, v.pct + '%')));

@@ -5,6 +5,7 @@ import {
   localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone,
   remainingSeconds, commitPendingAnswer, fmtTime, loadProblems,
   PRACTICE_LENGTHS, DEFAULT_PRACTICE_LENGTH, normalizePracticeLength,
+  PASS_THRESHOLD, percent, scoreExam, studyEntries, calendarLevel, sortByWeakest,
 } from '../src/session.js';
 import { emptyStats, recordAttempt } from '../src/stats.js';
 import { grade } from '../src/engine.js';
@@ -147,4 +148,55 @@ test('training length accepts 10/20/50 and defaults to 20', () => {
   assert.equal(normalizePracticeLength(null), 20);
   assert.equal(normalizePracticeLength('999'), 20);
   assert.equal(normalizePracticeLength(undefined), 20);
+});
+
+test('percent rounds and handles zero totals', () => {
+  assert.equal(percent(0, 0), 0);
+  assert.equal(percent(2, 3), 67);
+  assert.equal(percent(7, 10), 70);
+});
+
+test('scoreExam grades answers in original indices; unanswered = wrong', () => {
+  const qa = { type: 'single', options: ['a', 'b', 'c', 'd'], correct: [2], explanation: '' };
+  const qb = { type: 'multi', options: ['a', 'b', 'c', 'd'], correct: [0, 3], explanation: '' };
+  const qc = { type: 'truefalse', options: ['Vero', 'Falso'], correct: [1], explanation: '' };
+  const r = scoreExam([qa, qb, qc], [{ selected: [2] }, { selected: [3, 0] }]);
+  assert.equal(r.correct, 2);
+  assert.equal(r.total, 3);
+  assert.equal(r.pct, 67);
+  assert.equal(r.passed, false);
+  assert.deepEqual(r.review[2].ans, []);
+  assert.equal(r.review[2].res.isCorrect, false);
+});
+
+test('scoreExam pass threshold is inclusive (70%)', () => {
+  assert.equal(PASS_THRESHOLD, 70);
+  const q = { type: 'single', options: ['a', 'b'], correct: [0], explanation: '' };
+  const order = Array(10).fill(q);
+  const answers = order.map((_, i) => ({ selected: [i < 7 ? 0 : 1] }));
+  const r = scoreExam(order, answers);
+  assert.equal(r.pct, 70);
+  assert.equal(r.passed, true);
+  assert.equal(scoreExam(order, answers.map((a, i) => (i === 0 ? { selected: [1] } : a))).passed, false);
+});
+
+test('studyEntries follows the display order and skips options without a reason', () => {
+  const q = { type: 'multi', options: ['a', 'b', 'c', 'd'], correct: [1, 3] };
+  const why = { '0': 'A no', '2': 'C no' };
+  assert.deepEqual(studyEntries(q, [3, 2, 1, 0], why), {
+    right: [3, 1],
+    wrong: [{ index: 2, reason: 'C no' }, { index: 0, reason: 'A no' }],
+  });
+  assert.deepEqual(studyEntries(q, [0, 1, 2, 3], null).wrong, []);
+});
+
+test('calendarLevel buckets 0 / 1-4 / 5-14 / 15+', () => {
+  assert.deepEqual([0, 1, 4, 5, 14, 15, 99].map(calendarLevel), [0, 1, 1, 2, 2, 3, 3]);
+});
+
+test('sortByWeakest puts the lowest accuracy first, then the most answered', () => {
+  const sorted = sortByWeakest({
+    A: { pct: 80, answered: 10 }, B: { pct: 20, answered: 5 }, C: { pct: 20, answered: 9 },
+  }).map(([k]) => k);
+  assert.deepEqual(sorted, ['C', 'B', 'A']);
 });

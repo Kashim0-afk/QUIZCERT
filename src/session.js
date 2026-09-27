@@ -1,4 +1,5 @@
 // Pure session logic used by the UI (no DOM access, unit-tested in test/session.test.js).
+import { grade } from './engine.js';
 
 // Display order of a question's options, as a list of ORIGINAL option indices.
 // Options are shuffled on every presentation so the position of the right answer
@@ -107,4 +108,43 @@ export const DEFAULT_PRACTICE_LENGTH = 20;
 export function normalizePracticeLength(v) {
   const n = Number(v);
   return PRACTICE_LENGTHS.includes(n) ? n : DEFAULT_PRACTICE_LENGTH;
+}
+
+// ---------- scoring ----------
+export const PASS_THRESHOLD = 70;
+
+export const percent = (part, total) => (total ? Math.round((part / total) * 100) : 0);
+
+// Grade a finished exam. Unanswered questions count as wrong.
+export function scoreExam(order, answers, threshold = PASS_THRESHOLD) {
+  const review = order.map((q, i) => {
+    const ans = answers[i]?.selected ?? [];
+    return { q, ans, res: grade(q, ans) };
+  });
+  const correct = review.filter((r) => r.res.isCorrect).length;
+  const total = order.length;
+  const pct = percent(correct, total);
+  return { review, correct, total, pct, passed: pct >= threshold };
+}
+
+// ---------- study view ----------
+// What the Study screen shows for a question, following the (shuffled) display order:
+// the right options, then the wrong options that have an explanation.
+export function studyEntries(q, order, whyWrong) {
+  const right = order.filter((i) => q.correct.includes(i));
+  const wrong = order
+    .filter((i) => !q.correct.includes(i) && whyWrong?.[String(i)])
+    .map((i) => ({ index: i, reason: whyWrong[String(i)] }));
+  return { right, wrong };
+}
+
+// ---------- stats view ----------
+// Calendar heat level for the number of answers given in a day.
+export function calendarLevel(n) {
+  return n <= 0 ? 0 : n < 5 ? 1 : n < 15 ? 2 : 3;
+}
+
+// Weakest first (lowest accuracy), ties broken by more answers.
+export function sortByWeakest(byName) {
+  return Object.entries(byName).sort((a, b) => a[1].pct - b[1].pct || b[1].answered - a[1].answered);
 }
