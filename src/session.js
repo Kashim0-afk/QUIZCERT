@@ -99,3 +99,12 @@ export function loadProblems({ failedFiles = [], skipped = 0 } = {}) {
   if (failedFiles.length === 0 && skipped === 0) return null;
   return { files: failedFiles.map((f) => f.replace(/^.*\//, '')), skipped };
 }
+
+// ---------- training length ----------
+export const PRACTICE_LENGTHS = [10, 20, 50];
+export const DEFAULT_PRACTICE_LENGTH = 20;
+
+export function normalizePracticeLength(v) {
+  const n = Number(v);
+  return PRACTICE_LENGTHS.includes(n) ? n : DEFAULT_PRACTICE_LENGTH;
+}

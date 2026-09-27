@@ -4,6 +4,7 @@ import {
   optionOrder, toOriginal, correctDisplayPositions,
   localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone,
   remainingSeconds, commitPendingAnswer, fmtTime, loadProblems,
+  PRACTICE_LENGTHS, DEFAULT_PRACTICE_LENGTH, normalizePracticeLength,
 } from '../src/session.js';
 import { emptyStats, recordAttempt } from '../src/stats.js';
 import { grade } from '../src/engine.js';
@@ -136,4 +137,14 @@ test('loadProblems reports failed files and skipped questions', () => {
   assert.equal(loadProblems({ failedFiles: [], skipped: 0 }), null);
   assert.deepEqual(loadProblems({ failedFiles: ['questions/o1-ccna.json'], skipped: 0 }), { files: ['o1-ccna.json'], skipped: 0 });
   assert.deepEqual(loadProblems({ failedFiles: [], skipped: 3 }), { files: [], skipped: 3 });
+});
+
+test('training length accepts 10/20/50 and defaults to 20', () => {
+  assert.deepEqual(PRACTICE_LENGTHS, [10, 20, 50]);
+  assert.equal(DEFAULT_PRACTICE_LENGTH, 20);
+  assert.equal(normalizePracticeLength('50'), 50);
+  assert.equal(normalizePracticeLength(10), 10);
+  assert.equal(normalizePracticeLength(null), 20);
+  assert.equal(normalizePracticeLength('999'), 20);
+  assert.equal(normalizePracticeLength(undefined), 20);
 });

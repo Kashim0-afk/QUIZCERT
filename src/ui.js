@@ -4,7 +4,8 @@ import { recordAttempt, streak, globalAccuracy, byField } from './stats.js';
 import { exportStats, importStats, MAX_IMPORT_BYTES } from './storage.js';
 import { getLang, toggleLang, t, qText, qOptions, qExplanation, qWhyWrong } from './i18n.js';
 import { optionOrder, toOriginal, localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone,
-  remainingSeconds, commitPendingAnswer, fmtTime, loadProblems } from './session.js';
+  remainingSeconds, commitPendingAnswer, fmtTime, loadProblems,
+  PRACTICE_LENGTHS, normalizePracticeLength } from './session.js';
 
 // ---------- tiny DOM helper ----------
 function el(tag, props = {}, ...children) {
@@ -33,7 +34,7 @@ export function startApp(root, ctx) {
     store: ctx.store,
     stats: ctx.stats,
     problems: loadProblems(ctx),
-    scope: { cert: '', topic: '' },
+    scope: { cert: '', topic: '', length: loadPracticeLength() },
     screen: '',
     homeDay: '',
   };
@@ -42,6 +43,14 @@ export function startApp(root, ctx) {
     if (document.visibilityState === 'visible' && app.screen === 'home' && app.homeDay !== localDay()) renderHome(app);
   });
   renderHome(app);
+}
+
+const LENGTH_KEY = 'quizcert-practice-length';
+function loadPracticeLength() {
+  try { return normalizePracticeLength(localStorage.getItem(LENGTH_KEY)); } catch { return normalizePracticeLength(); }
+}
+function savePracticeLength(n) {
+  try { localStorage.setItem(LENGTH_KEY, String(n)); } catch { /* ignore */ }
 }
 
 async function persist(app) {
@@ -62,8 +71,15 @@ function renderHome(app) {
     el('option', { value: '' }, t('allTopics')),
     ...topics.map(x => el('option', { value: x, ...(app.scope.topic === x ? { selected: 'selected' } : {}) }, x)));
 
+  const lengthSel = el('select', { 'aria-label': t('lengthLabel') },
+    ...PRACTICE_LENGTHS.map(n => el('option', { value: String(n), ...(app.scope.length === n ? { selected: 'selected' } : {}) }, t('nQuestions', n))));
+
   certSel.addEventListener('change', () => { app.scope.cert = certSel.value; });
   topicSel.addEventListener('change', () => { app.scope.topic = topicSel.value; });
+  lengthSel.addEventListener('change', () => {
+    app.scope.length = normalizePracticeLength(lengthSel.value);
+    savePracticeLength(app.scope.length);
+  });
 
   const today = localDay();
   app.homeDay = today;
@@ -87,6 +103,7 @@ function renderHome(app) {
       el('h2', {}, t('studyScope')),
       el('label', { class: 'field' }, t('certLabel'), certSel),
       el('label', { class: 'field' }, t('topicLabel'), topicSel),
+      el('label', { class: 'field' }, t('lengthLabel'), lengthSel),
       el('p', { class: 'hint' }, t('mixHint'))),
 
     el('div', { class: 'modes' },
@@ -118,7 +135,8 @@ function startPractice(app, mode) {
   if (pool.length === 0) {
     return renderMessage(app, mode === 'review' ? t('noReview') : t('noQuestions'));
   }
-  const order = pickSet(pool, pool.length);
+  // Sessions of the chosen length (10/20/50) so the summary is actually reached.
+  const order = pickSet(pool, app.scope.length);
   runQuiz(app, {
     order, index: 0, correct: 0, wrong: 0,
     label: mode === 'review' ? t('mReview') : t('mTraining'),
