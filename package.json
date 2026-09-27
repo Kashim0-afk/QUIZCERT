@@ -4,6 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "build:sw": "node scripts/build-sw.mjs",
+    "check:sw": "node scripts/build-sw.mjs --check"
   }
 }

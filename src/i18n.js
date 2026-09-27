@@ -61,6 +61,7 @@ const DICT = {
     noReview: 'Nessun errore da ripassare — ottimo!',
     loadMore: (n, rest) => 'Carica altre ' + n + ' (' + rest + ' rimanenti)',
     loadError: (m) => 'Errore nel caricamento delle domande: ' + m,
+    updateAvailable: 'Nuova versione disponibile', updateNow: 'Aggiorna',
   },
   en: {
     subtitle: (n, s) => n + ' questions available · ' + s + '-day streak',
@@ -109,6 +110,7 @@ const DICT = {
     noReview: 'No mistakes to review — great!',
     loadMore: (n, rest) => 'Load ' + n + ' more (' + rest + ' remaining)',
     loadError: (m) => 'Error loading questions: ' + m,
+    updateAvailable: 'New version available', updateNow: 'Update',
   },
 };
 

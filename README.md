@@ -46,8 +46,10 @@ node --test
 
 1. Create a JSON file in `data/questions/` with an array of questions (see any existing file).
 2. Add the file name to `data/manifest.json` (the `files` list).
-3. Add the same path to the `SHELL` list in `service-worker.js` **and** bump the cache name
-   (`quizcert-vN` → `quizcert-vN+1`) so the offline cache refreshes.
+3. Run `npm run build:sw`: it regenerates `service-worker.js` with the file list and a cache
+   version computed from a hash of every app/question file. Commit the result. CI runs
+   `npm run check:sw` and fails if you forget. Users of the installed app then get a
+   "New version available – Update" prompt.
 
 Question schema:
 
@@ -126,8 +128,10 @@ node --test
 
 1. Crea un file JSON in `data/questions/` con un array di domande (vedi un file esistente).
 2. Aggiungi il nome del file in `data/manifest.json` (lista `files`).
-3. Aggiungi lo stesso percorso alla lista `SHELL` in `service-worker.js` **e** incrementa il nome
-   della cache (`quizcert-vN` → `quizcert-vN+1`) così l'offline si aggiorna.
+3. Esegui `npm run build:sw`: rigenera `service-worker.js` con la lista dei file e una versione
+   della cache calcolata dall'hash di tutti i file dell'app e delle domande. Committa il
+   risultato. La CI esegue `npm run check:sw` e fallisce se te ne dimentichi. Chi ha l'app
+   installata vede l'avviso "Nuova versione disponibile – Aggiorna".
 
 ### Pubblicazione (GitHub Pages)
 
