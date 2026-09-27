@@ -25,3 +25,14 @@ quizcert-stats.json
 
 # Note di processo interne (non necessarie per usare o mantenere l'app)
 docs/
+
+# --- audit 2026-09-28 ---
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.p12
+secrets.json
+!.env.example
