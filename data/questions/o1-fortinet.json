@@ -318,41 +318,6 @@
     "source": "HACK/Fortinet Network Security.rtf"
   },
   {
-    "id": "fn-011",
-    "cert": ["Fortinet NSE4"],
-    "topics": ["SSL Inspection", "Security Profiles"],
-    "type": "single",
-    "difficulty": 3,
-    "question": "Qual è la differenza tra 'certificate inspection' e 'deep (full) SSL inspection' su FortiGate?",
-    "question_en": "What is the difference between 'certificate inspection' and 'deep (full) SSL inspection' on FortiGate?",
-    "options": [
-      "La certificate inspection decifra tutto il payload, mentre la deep inspection legge solo l'SNI",
-      "La certificate inspection esamina solo l'handshake/certificato (es. SNI e nome del certificato), mentre la deep inspection decifra e ispeziona il contenuto cifrato",
-      "Sono equivalenti e producono gli stessi risultati di ispezione",
-      "La deep inspection non richiede alcun certificato CA installato sul FortiGate"
-    ],
-    "options_en": [
-      "Certificate inspection decrypts the entire payload, while deep inspection reads only the SNI",
-      "Certificate inspection examines only the handshake/certificate (e.g. SNI and certificate name), while deep inspection decrypts and inspects the encrypted content",
-      "They are equivalent and produce the same inspection results",
-      "Deep inspection does not require any CA certificate installed on the FortiGate"
-    ],
-    "correct": [1],
-    "explanation": "La certificate inspection si limita a esaminare i dati non cifrati dell'handshake (come SNI e campi del certificato), utile per il web filtering di base senza decifrare. La deep/full inspection agisce come man-in-the-middle: decifra il traffico HTTPS, lo ispeziona (AV, IPS, DLP) e lo ri-cifra, richiedendo un certificato CA fidato sui client.",
-    "explanation_en": "Certificate inspection only examines the unencrypted data of the handshake (such as SNI and certificate fields), useful for basic web filtering without decrypting. Deep/full inspection acts as a man-in-the-middle: it decrypts the HTTPS traffic, inspects it (AV, IPS, DLP) and re-encrypts it, requiring a trusted CA certificate on the clients.",
-    "why_wrong": {
-      "0": "È l'inverso: è la deep inspection a decifrare il payload, mentre la certificate inspection guarda solo l'SNI/certificato.",
-      "2": "Non sono equivalenti: differiscono nettamente per profondità dell'ispezione e capacità di analizzare il contenuto cifrato.",
-      "3": "La deep inspection richiede proprio un certificato CA (fidato dai client) per effettuare il man-in-the-middle SSL."
-    },
-    "why_wrong_en": {
-      "0": "It is the reverse: it is deep inspection that decrypts the payload, while certificate inspection looks only at the SNI/certificate.",
-      "2": "They are not equivalent: they differ markedly in depth of inspection and ability to analyze the encrypted content.",
-      "3": "Deep inspection actually requires a CA certificate (trusted by the clients) to perform the SSL man-in-the-middle."
-    },
-    "source": "HACK/Fortinet Network Security.rtf"
-  },
-  {
     "id": "fn-012",
     "cert": ["Fortinet NSE4"],
     "topics": ["FortiGuard", "Security Profiles"],

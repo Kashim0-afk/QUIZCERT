@@ -100,23 +100,6 @@
     "why_wrong_en": { "0": "Stateless packet filtering evaluates each packet in isolation, with no memory of the connection state.", "2": "A broadcast repeater is not a security filtering device.", "3": "A hub operates at the physical layer and does not make traffic filtering decisions." }
   },
   {
-    "id": "ibm-007",
-    "cert": ["IBM Cybersecurity"],
-    "topics": ["IDS/IPS"],
-    "type": "single",
-    "difficulty": 2,
-    "question": "Qual è la differenza principale tra un IDS e un IPS?",
-    "options": ["L'IDS blocca attivamente il traffico, mentre l'IPS si limita a rilevare", "L'IPS può bloccare o prevenire il traffico malevolo, mentre l'IDS si limita a rilevare e allertare", "Non esiste alcuna differenza funzionale tra i due", "L'IDS opera esclusivamente su traffico cifrato"],
-    "correct": [1],
-    "explanation": "Un IPS (Intrusion Prevention System) è posizionato in linea e può bloccare o prevenire attivamente il traffico dannoso, mentre un IDS (Intrusion Detection System) si limita a rilevare le anomalie e a generare allerte.",
-    "why_wrong": { "0": "I ruoli sono invertiti: è l'IPS a bloccare, non l'IDS.", "2": "La differenza esiste ed è sostanziale: prevenzione attiva (IPS) contro sola rilevazione (IDS).", "3": "L'IDS analizza il traffico di rete in generale e non è limitato a quello cifrato." },
-    "source": "HACK/IBM Cybersecurity",
-    "question_en": "What is the main difference between an IDS and an IPS?",
-    "options_en": ["The IDS actively blocks traffic, while the IPS only detects", "The IPS can block or prevent malicious traffic, while the IDS only detects and alerts", "There is no functional difference between the two", "The IDS operates exclusively on encrypted traffic"],
-    "explanation_en": "An IPS (Intrusion Prevention System) is placed inline and can actively block or prevent malicious traffic, while an IDS (Intrusion Detection System) only detects anomalies and generates alerts.",
-    "why_wrong_en": { "0": "The roles are reversed: it is the IPS that blocks, not the IDS.", "2": "The difference exists and is substantial: active prevention (IPS) versus detection only (IDS).", "3": "The IDS analyzes network traffic in general and is not limited to encrypted traffic." }
-  },
-  {
     "id": "ibm-008",
     "cert": ["IBM Cybersecurity"],
     "topics": ["SIEM"],

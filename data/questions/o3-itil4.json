@@ -105,41 +105,6 @@
     "source": "ITIL 4 Foundation"
   },
   {
-    "id": "itil3-004",
-    "cert": ["ITIL 4 Foundation"],
-    "topics": ["Pratiche ITIL", "Incident Management"],
-    "type": "single",
-    "difficulty": 1,
-    "question": "Qual è lo scopo principale della pratica di gestione degli incidenti (Incident Management)?",
-    "options": [
-      "Identificare le cause profonde per evitare il ripetersi degli incidenti",
-      "Minimizzare l'impatto negativo degli incidenti ripristinando il normale funzionamento del servizio il più rapidamente possibile",
-      "Gestire tutte le richieste utente predefinite mantenendo la qualità concordata",
-      "Massimizzare il numero di modifiche di successo"
-    ],
-    "correct": [1],
-    "explanation": "L'Incident Management mira a minimizzare l'impatto negativo degli incidenti ripristinando il normale funzionamento del servizio il più velocemente possibile.",
-    "why_wrong": {
-      "0": "L'identificazione delle cause profonde è scopo del Problem Management, non dell'Incident Management.",
-      "2": "La gestione delle richieste utente predefinite è compito del Service Request Management.",
-      "3": "Massimizzare le modifiche di successo è lo scopo del Change Enablement."
-    },
-    "question_en": "What is the main purpose of the Incident Management practice?",
-    "options_en": [
-      "To identify root causes to prevent incidents from recurring",
-      "To minimize the negative impact of incidents by restoring normal service operation as quickly as possible",
-      "To handle all predefined user requests while maintaining the agreed quality",
-      "To maximize the number of successful changes"
-    ],
-    "explanation_en": "Incident Management aims to minimize the negative impact of incidents by restoring normal service operation as quickly as possible.",
-    "why_wrong_en": {
-      "0": "Identifying root causes is the purpose of Problem Management, not Incident Management.",
-      "2": "Handling predefined user requests is the responsibility of Service Request Management.",
-      "3": "Maximizing successful changes is the purpose of Change Enablement."
-    },
-    "source": "ITIL 4 Foundation"
-  },
-  {
     "id": "itil3-005",
     "cert": ["ITIL 4 Foundation"],
     "topics": ["Service Value Chain"],
@@ -377,39 +342,6 @@
     "why_wrong_en": {
       "2": "A problem is the cause (or potential cause) of one or more incidents; it is a concept distinct from an incident and serves different purposes.",
       "3": "Workarounds are a key tool of Problem Management for reducing impact while awaiting a permanent solution."
-    },
-    "source": "ITIL 4 Foundation"
-  },
-  {
-    "id": "itil3-012",
-    "cert": ["ITIL 4 Foundation"],
-    "topics": ["Principi guida"],
-    "type": "multi",
-    "difficulty": 2,
-    "question": "Quali DUE dei seguenti sono principi guida ufficiali di ITIL 4?",
-    "options": [
-      "Progredisci iterativamente con feedback",
-      "Pensa e lavora in modo olistico",
-      "Massimizza la documentazione a ogni passo",
-      "Centralizza sempre ogni decisione operativa"
-    ],
-    "correct": [0, 1],
-    "explanation": "Tra i sette principi guida figurano 'Progredisci iterativamente con feedback' e 'Pensa e lavora in modo olistico'. Gli altri sette sono: Concentrati sul valore, Parti da dove sei, Collabora e promuovi la visibilità, Mantieni la semplicità e la praticità, Ottimizza e automatizza.",
-    "why_wrong": {
-      "2": "'Massimizza la documentazione' contraddice 'Mantieni la semplicità e la praticità'; non è un principio guida.",
-      "3": "'Centralizza sempre ogni decisione' non è un principio guida ITIL 4 e contrasta con l'approccio contestuale dei principi."
-    },
-    "question_en": "Which TWO of the following are official ITIL 4 guiding principles?",
-    "options_en": [
-      "Progress iteratively with feedback",
-      "Think and work holistically",
-      "Maximize documentation at every step",
-      "Always centralize every operational decision"
-    ],
-    "explanation_en": "The seven guiding principles include 'Progress iteratively with feedback' and 'Think and work holistically'. The others are: Focus on value, Start where you are, Collaborate and promote visibility, Keep it simple and practical, and Optimize and automate.",
-    "why_wrong_en": {
-      "2": "'Maximize documentation' contradicts 'Keep it simple and practical'; it is not a guiding principle.",
-      "3": "'Always centralize every decision' is not an ITIL 4 guiding principle and conflicts with the contextual approach of the principles."
     },
     "source": "ITIL 4 Foundation"
   },

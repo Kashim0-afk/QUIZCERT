@@ -164,48 +164,6 @@
     }
   },
   {
-    "id": "ccna-005",
-    "cert": [
-      "CCNA"
-    ],
-    "topics": [
-      "Routing",
-      "OSPF"
-    ],
-    "type": "single",
-    "difficulty": 2,
-    "question": "Qual è la distanza amministrativa (AD) di default di OSPF su un router Cisco?",
-    "options": [
-      "90",
-      "110",
-      "120",
-      "1"
-    ],
-    "correct": [
-      1
-    ],
-    "explanation": "OSPF ha una distanza amministrativa di default pari a 110. La AD serve a scegliere la sorgente di routing più affidabile quando più protocolli offrono la stessa rotta.",
-    "why_wrong": {
-      "0": "90 è la AD di EIGRP interno.",
-      "2": "120 è la AD di RIP.",
-      "3": "1 è la AD di una rotta statica."
-    },
-    "source": "HACK/CCNA",
-    "question_en": "What is the default administrative distance (AD) of OSPF on a Cisco router?",
-    "options_en": [
-      "90",
-      "110",
-      "120",
-      "1"
-    ],
-    "explanation_en": "OSPF has a default administrative distance equal to 110. The AD serves to choose the most reliable routing source when multiple protocols offer the same route.",
-    "why_wrong_en": {
-      "0": "90 is the AD of internal EIGRP.",
-      "2": "120 is the AD of RIP.",
-      "3": "1 is the AD of a static route."
-    }
-  },
-  {
     "id": "ccna-006",
     "cert": [
       "CCNA"
@@ -285,47 +243,6 @@
       "0": "VLAN 0 is reserved and not usable for port assignment.",
       "2": "VLAN 99 is a VLAN chosen by the administrator, often used for management, but it is not the default one.",
       "3": "VLAN 1005 is part of the reserved range (1002-1005) for the old Token Ring/FDDI technologies."
-    }
-  },
-  {
-    "id": "ccna-008",
-    "cert": [
-      "CCNA"
-    ],
-    "topics": [
-      "NAT"
-    ],
-    "type": "single",
-    "difficulty": 2,
-    "question": "Quale tecnica NAT permette a molti host interni di condividere un unico indirizzo IP pubblico distinguendo le connessioni tramite i numeri di porta?",
-    "options": [
-      "NAT statico (one-to-one)",
-      "NAT dinamico con pool",
-      "PAT (NAT overload)",
-      "Proxy ARP"
-    ],
-    "correct": [
-      2
-    ],
-    "explanation": "Il PAT (Port Address Translation), detto anche NAT overload, mappa molti indirizzi privati su un solo IP pubblico usando porte di origine diverse per identificare univocamente ogni sessione.",
-    "why_wrong": {
-      "0": "Il NAT statico crea una mappatura fissa uno-a-uno tra un IP privato e un IP pubblico, senza condivisione.",
-      "1": "Il NAT dinamico assegna IP da un pool ma senza multiplexing sulle porte: serve un IP pubblico libero per ogni host attivo.",
-      "3": "Il Proxy ARP riguarda la risoluzione degli indirizzi MAC, non la traduzione degli indirizzi IP."
-    },
-    "source": "HACK/CCNA",
-    "question_en": "Which NAT technique allows many internal hosts to share a single public IP address by distinguishing the connections through port numbers?",
-    "options_en": [
-      "Static NAT (one-to-one)",
-      "Dynamic NAT with pool",
-      "PAT (NAT overload)",
-      "Proxy ARP"
-    ],
-    "explanation_en": "PAT (Port Address Translation), also called NAT overload, maps many private addresses onto a single public IP using different source ports to uniquely identify each session.",
-    "why_wrong_en": {
-      "0": "Static NAT creates a fixed one-to-one mapping between a private IP and a public IP, without sharing.",
-      "1": "Dynamic NAT assigns IPs from a pool but without port multiplexing: a free public IP is needed for each active host.",
-      "3": "Proxy ARP concerns the resolution of MAC addresses, not the translation of IP addresses."
     }
   },
   {

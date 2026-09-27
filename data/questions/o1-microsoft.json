@@ -1,40 +1,5 @@
 [
   {
-    "id": "ms-001",
-    "cert": ["Microsoft SC-900"],
-    "topics": ["Zero Trust"],
-    "type": "single",
-    "difficulty": 1,
-    "question": "Quale principio è alla base del modello di sicurezza Zero Trust?",
-    "options": [
-      "Fidarsi di tutto ciò che si trova all'interno del perimetro di rete aziendale",
-      "Non fidarsi mai per impostazione predefinita e verificare sempre in modo esplicito ogni richiesta",
-      "Concedere a tutti gli utenti privilegi di amministratore per semplificare la gestione",
-      "Basare la sicurezza esclusivamente sul firewall perimetrale"
-    ],
-    "correct": [1],
-    "explanation": "Zero Trust si fonda sul principio 'never trust, always verify': ogni richiesta di accesso viene verificata in modo esplicito indipendentemente dalla sua origine, come se provenisse da una rete non attendibile.",
-    "why_wrong": {
-      "0": "Zero Trust nasce proprio per superare l'idea di un perimetro fidato: nessuna posizione di rete è considerata attendibile a priori.",
-      "2": "Zero Trust applica il privilegio minimo (least privilege), non l'assegnazione estesa di privilegi amministrativi.",
-      "3": "Il modello va oltre il firewall perimetrale, verificando identità, dispositivi e contesto di ogni accesso."
-    },
-    "source": "HACK/Microsoft Cybersecurity",
-    "question_en": "Which principle underlies the Zero Trust security model?",
-    "options_en": [
-      "Trust everything located inside the corporate network perimeter",
-      "Never trust by default and always explicitly verify every request",
-      "Grant all users administrator privileges to simplify management",
-      "Base security exclusively on the perimeter firewall"
-    ],
-    "explanation_en": "Zero Trust is based on the principle 'never trust, always verify': every access request is explicitly verified regardless of its origin, as if it came from an untrusted network.",
-    "why_wrong_en": {
-      "0": "Zero Trust was created precisely to overcome the idea of a trusted perimeter: no network location is considered trustworthy a priori.",
-      "2": "Zero Trust applies least privilege, not the broad assignment of administrative privileges.",
-      "3": "The model goes beyond the perimeter firewall, verifying identity, devices and context of every access."
-    }
-  },
-  {
     "id": "ms-002",
     "cert": ["Microsoft SC-900"],
     "topics": ["Zero Trust"],
@@ -135,41 +100,6 @@
       "0": "A complex password remains a single factor (something you know), so it does not constitute MFA.",
       "2": "A fingerprint alone is a single factor; MFA requires at least two from different categories.",
       "3": "Periodic password rotation is a password policy, not multi-factor authentication."
-    }
-  },
-  {
-    "id": "ms-005",
-    "cert": ["Microsoft SC-900"],
-    "topics": ["Controllo accessi", "Conditional Access"],
-    "type": "single",
-    "difficulty": 2,
-    "question": "In Microsoft Entra, cosa consente di fare l'accesso condizionale (Conditional Access)?",
-    "options": [
-      "Crittografare automaticamente tutti i dati archiviati nel cloud",
-      "Applicare decisioni di accesso basate su segnali come utente, dispositivo, posizione e rischio",
-      "Sostituire completamente la necessità di password per tutti gli utenti",
-      "Eseguire la scansione antimalware dei file caricati"
-    ],
-    "correct": [1],
-    "explanation": "L'accesso condizionale valuta segnali (identità dell'utente, stato del dispositivo, posizione, rischio della sessione) e applica controlli come richiedere l'MFA, bloccare l'accesso o imporre un dispositivo conforme. È un motore di policy 'if-then'.",
-    "why_wrong": {
-      "0": "La crittografia dei dati a riposo è gestita da altri servizi; l'accesso condizionale governa le decisioni di accesso.",
-      "2": "L'accesso condizionale può richiedere metodi più forti ma non elimina di per sé le password per tutti.",
-      "3": "La scansione antimalware dei file non è una funzione dell'accesso condizionale."
-    },
-    "source": "HACK/Microsoft Cybersecurity",
-    "question_en": "In Microsoft Entra, what does Conditional Access allow you to do?",
-    "options_en": [
-      "Automatically encrypt all data stored in the cloud",
-      "Apply access decisions based on signals such as user, device, location and risk",
-      "Completely replace the need for passwords for all users",
-      "Run anti-malware scanning of uploaded files"
-    ],
-    "explanation_en": "Conditional Access evaluates signals (user identity, device state, location, session risk) and applies controls such as requiring MFA, blocking access or enforcing a compliant device. It is an 'if-then' policy engine.",
-    "why_wrong_en": {
-      "0": "Encryption of data at rest is handled by other services; Conditional Access governs access decisions.",
-      "2": "Conditional Access can require stronger methods but does not by itself eliminate passwords for everyone.",
-      "3": "Anti-malware scanning of files is not a function of Conditional Access."
     }
   },
   {

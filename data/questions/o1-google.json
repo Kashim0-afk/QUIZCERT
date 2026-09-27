@@ -208,21 +208,6 @@
     "source": "HACK/Google Cybersecurity"
   },
   {
-    "id": "g-007",
-    "cert": ["Google Cybersecurity"],
-    "topics": ["Python"],
-    "type": "truefalse",
-    "difficulty": 1,
-    "question": "In Python, l'indentazione (i rientri) è significativa e serve a definire i blocchi di codice, ad esempio il corpo di un ciclo o di una funzione.",
-    "question_en": "In Python, indentation is significant and is used to define code blocks, for example the body of a loop or a function.",
-    "options": ["Vero", "Falso"],
-    "options_en": ["True", "False"],
-    "correct": [0],
-    "explanation": "Vero. Python usa l'indentazione per delimitare i blocchi di codice: un'indentazione errata provoca errori di sintassi o cambia la logica del programma.",
-    "explanation_en": "True. Python uses indentation to delimit code blocks: incorrect indentation causes syntax errors or changes the logic of the program.",
-    "source": "HACK/Google Cybersecurity"
-  },
-  {
     "id": "g-008",
     "cert": ["Google Cybersecurity"],
     "topics": ["SQL"],

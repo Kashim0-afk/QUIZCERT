@@ -281,41 +281,6 @@
     "source": "HACK/IBM Cybersecurity"
   },
   {
-    "id": "ibm3-010",
-    "cert": ["IBM Cybersecurity"],
-    "topics": ["Controllo accessi"],
-    "type": "single",
-    "difficulty": 2,
-    "question": "Il principio del privilegio minimo (least privilege) stabilisce che:",
-    "question_en": "The principle of least privilege establishes that:",
-    "options": [
-      "ogni utente debba avere accesso amministrativo per ridurre le richieste all'help desk",
-      "a un utente o processo vadano concessi solo i permessi strettamente necessari a svolgere il proprio compito",
-      "i permessi vadano assegnati sempre ai singoli utenti anziché ai ruoli",
-      "tutti gli account debbano condividere le stesse credenziali per semplicità di gestione"
-    ],
-    "options_en": [
-      "every user should have administrative access to reduce help desk requests",
-      "a user or process should be granted only the permissions strictly necessary to perform their task",
-      "permissions should always be assigned to individual users rather than to roles",
-      "all accounts should share the same credentials for management simplicity"
-    ],
-    "correct": [1],
-    "explanation": "Il privilegio minimo limita i diritti di ciascun utente o processo allo stretto necessario, riducendo la superficie di attacco e l'impatto di un eventuale account compromesso.",
-    "explanation_en": "Least privilege limits the rights of each user or process to the strictly necessary, reducing the attack surface and the impact of a possibly compromised account.",
-    "why_wrong": {
-      "0": "Concedere accesso amministrativo a tutti viola direttamente il principio del privilegio minimo e amplia la superficie di attacco.",
-      "2": "Assegnare i permessi ai ruoli (RBAC) è di norma preferibile; comunque non è questo il contenuto del principio del privilegio minimo.",
-      "3": "Le credenziali condivise annullano la tracciabilità e la responsabilità individuale, in contrasto con le buone pratiche di controllo accessi."
-    },
-    "why_wrong_en": {
-      "0": "Granting administrative access to everyone directly violates the principle of least privilege and widens the attack surface.",
-      "2": "Assigning permissions to roles (RBAC) is generally preferable; in any case, this is not what the principle of least privilege is about.",
-      "3": "Shared credentials nullify traceability and individual accountability, in contrast with good access control practices."
-    },
-    "source": "HACK/IBM Cybersecurity"
-  },
-  {
     "id": "ibm3-011",
     "cert": ["IBM Cybersecurity"],
     "topics": ["Analisi forense"],
@@ -328,41 +293,6 @@
     "correct": [0],
     "explanation": "Vero. Il write blocker consente la sola lettura del supporto originale, garantendo che l'evidenza non venga alterata durante la copia e preservando così l'integrità della prova e la catena di custodia.",
     "explanation_en": "True. The write blocker allows read-only access to the original media, ensuring that the evidence is not altered during copying and thereby preserving the integrity of the evidence and the chain of custody.",
-    "source": "HACK/IBM Cybersecurity"
-  },
-  {
-    "id": "ibm3-012",
-    "cert": ["IBM Cybersecurity"],
-    "topics": ["Architettura di sicurezza"],
-    "type": "single",
-    "difficulty": 2,
-    "question": "Qual è lo scopo principale di una DMZ (zona demilitarizzata) in un'architettura di rete?",
-    "question_en": "What is the main purpose of a DMZ (demilitarized zone) in a network architecture?",
-    "options": [
-      "Ospitare i servizi esposti a Internet in una sottorete isolata, separandoli dalla rete interna fidata",
-      "Cifrare automaticamente tutto il traffico scambiato tra i server interni",
-      "Sostituire completamente la necessità di un firewall perimetrale",
-      "Fornire una rete wireless ad accesso libero per gli ospiti"
-    ],
-    "options_en": [
-      "Host the services exposed to the Internet in an isolated subnet, separating them from the trusted internal network",
-      "Automatically encrypt all traffic exchanged between internal servers",
-      "Completely replace the need for a perimeter firewall",
-      "Provide an open-access wireless network for guests"
-    ],
-    "correct": [0],
-    "explanation": "La DMZ è una sottorete intermedia che ospita i servizi accessibili dall'esterno (web, mail, DNS pubblici). Se uno di essi viene compromesso, l'attaccante resta confinato nella DMZ e non raggiunge direttamente la rete interna.",
-    "explanation_en": "The DMZ is an intermediate subnet that hosts the services accessible from outside (public web, mail, DNS). If one of them is compromised, the attacker remains confined to the DMZ and does not directly reach the internal network.",
-    "why_wrong": {
-      "1": "La DMZ è un concetto di segmentazione di rete, non un meccanismo di cifratura del traffico.",
-      "2": "La DMZ non sostituisce il firewall: al contrario, è delimitata e protetta proprio da firewall.",
-      "3": "Una rete ospiti wireless è tutt'altra cosa; la DMZ serve a isolare i servizi pubblici, non a offrire accesso libero."
-    },
-    "why_wrong_en": {
-      "1": "The DMZ is a network segmentation concept, not a traffic encryption mechanism.",
-      "2": "The DMZ does not replace the firewall: on the contrary, it is delimited and protected precisely by firewalls.",
-      "3": "A wireless guest network is an entirely different thing; the DMZ serves to isolate public services, not to offer open access."
-    },
     "source": "HACK/IBM Cybersecurity"
   },
   {

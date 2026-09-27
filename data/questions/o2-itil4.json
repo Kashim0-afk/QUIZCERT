@@ -380,39 +380,6 @@
     "source": "ITIL 4 Foundation"
   },
   {
-    "id": "itil-013",
-    "cert": ["ITIL 4 Foundation"],
-    "topics": ["Principi guida"],
-    "type": "multi",
-    "difficulty": 2,
-    "question": "Quali DUE delle seguenti sono principi guida di ITIL 4? (Seleziona due)",
-    "question_en": "Which TWO of the following are ITIL 4 guiding principles? (Select two)",
-    "options": [
-      "Collaborate and promote visibility (Collaborare e promuovere la visibilità)",
-      "Maximize profit at all costs (Massimizzare il profitto a ogni costo)",
-      "Progress iteratively with feedback (Progredire iterativamente con feedback)",
-      "Centralize all decision making (Centralizzare tutte le decisioni)"
-    ],
-    "options_en": [
-      "Collaborate and promote visibility",
-      "Maximize profit at all costs",
-      "Progress iteratively with feedback",
-      "Centralize all decision making"
-    ],
-    "correct": [0, 2],
-    "explanation": "I sette principi guida di ITIL 4 sono: Focus on value, Start where you are, Progress iteratively with feedback, Collaborate and promote visibility, Think and work holistically, Keep it simple and practical, Optimize and automate. 'Collaborate and promote visibility' e 'Progress iteratively with feedback' sono due di essi.",
-    "explanation_en": "The seven ITIL 4 guiding principles are: Focus on value, Start where you are, Progress iteratively with feedback, Collaborate and promote visibility, Think and work holistically, Keep it simple and practical, Optimize and automate. 'Collaborate and promote visibility' and 'Progress iteratively with feedback' are two of them.",
-    "why_wrong": {
-      "1": "'Massimizzare il profitto a ogni costo' non è un principio guida ITIL; ITIL si concentra sulla co-creazione di valore, non sul profitto a ogni costo.",
-      "3": "'Centralizzare tutte le decisioni' non è un principio guida; ITIL promuove collaborazione e visibilità, in contrasto con la centralizzazione forzata."
-    },
-    "why_wrong_en": {
-      "1": "'Maximize profit at all costs' is not an ITIL guiding principle; ITIL focuses on value co-creation, not on profit at all costs.",
-      "3": "'Centralize all decision making' is not a guiding principle; ITIL promotes collaboration and visibility, in contrast with forced centralization."
-    },
-    "source": "ITIL 4 Foundation"
-  },
-  {
     "id": "itil-014",
     "cert": ["ITIL 4 Foundation"],
     "topics": ["Quattro dimensioni"],
