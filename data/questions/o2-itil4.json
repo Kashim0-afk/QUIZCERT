@@ -352,7 +352,7 @@
   {
     "id": "itil-011",
     "cert": ["ITIL 4 Foundation"],
-    "topics": ["Pratiche ITIL", "Service desk"],
+    "topics": ["Pratiche ITIL", "Service Desk"],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Il Service Desk rappresenta il punto di contatto unico tra il fornitore di servizi e gli utenti, catturando la domanda di risoluzione di incidenti e di richieste di servizio.",

@@ -343,7 +343,7 @@
   {
     "id": "ms-012",
     "cert": ["Microsoft SC-900"],
-    "topics": ["Compliance", "Purview"],
+    "topics": ["Compliance", "Microsoft Purview"],
     "type": "single",
     "difficulty": 2,
     "question": "A quale scopo servono principalmente le etichette di riservatezza (sensitivity labels) di Microsoft Purview?",
@@ -378,7 +378,7 @@
   {
     "id": "ms-013",
     "cert": ["Microsoft SC-900"],
-    "topics": ["Compliance", "Purview"],
+    "topics": ["Compliance", "Microsoft Purview"],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti sono funzionalità offerte da Microsoft Purview per la conformità e la protezione dei dati? (Seleziona due)",

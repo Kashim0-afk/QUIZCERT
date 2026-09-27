@@ -212,7 +212,7 @@
   {
     "id": "g3-007",
     "cert": ["Google Cybersecurity"],
-    "topics": ["Reti", "Firewall"],
+    "topics": ["Networking", "Firewall"],
     "type": "single",
     "difficulty": 2,
     "question": "Un firewall stateful si distingue da un firewall stateless perché:",
@@ -416,7 +416,7 @@
   {
     "id": "g3-013",
     "cert": ["Google Cybersecurity"],
-    "topics": ["Reti", "Threat e vulnerabilità"],
+    "topics": ["Networking", "Threat e vulnerabilità"],
     "type": "truefalse",
     "difficulty": 2,
     "question": "Un attacco DDoS di tipo SYN flood sfrutta il three-way handshake del TCP inviando numerose richieste SYN senza completare la connessione, esaurendo le risorse del server bersaglio.",

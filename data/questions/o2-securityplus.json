@@ -247,7 +247,7 @@
   {
     "id": "sec-008",
     "cert": ["CompTIA Security+"],
-    "topics": ["Zero Trust", "Security Architecture"],
+    "topics": ["Zero Trust", "Architettura di sicurezza"],
     "type": "single",
     "difficulty": 2,
     "question": "Quale affermazione descrive meglio il principio fondante di un'architettura Zero Trust?",
@@ -352,7 +352,7 @@
   {
     "id": "sec-011",
     "cert": ["CompTIA Security+"],
-    "topics": ["Cloud security", "Security Architecture"],
+    "topics": ["Cloud security", "Architettura di sicurezza"],
     "type": "single",
     "difficulty": 2,
     "question": "In un modello di servizio cloud IaaS (Infrastructure as a Service), chi è generalmente responsabile della sicurezza del sistema operativo e delle applicazioni installate sulle macchine virtuali?",
