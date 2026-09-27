@@ -1,6 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { optionOrder, toOriginal, correctDisplayPositions } from '../src/session.js';
+import {
+  optionOrder, toOriginal, correctDisplayPositions,
+  localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone,
+} from '../src/session.js';
+import { emptyStats, recordAttempt } from '../src/stats.js';
 import { grade } from '../src/engine.js';
 
 // Small deterministic LCG so the test is reproducible.
@@ -54,4 +58,38 @@ test('over many shuffles the correct answer lands in every position', () => {
   const seen = new Set();
   for (let k = 0; k < 40; k++) seen.add(correctDisplayPositions(optionOrder(single, rng), single.correct)[0]);
   assert.deepEqual([...seen].sort(), [0, 1, 2, 3]);
+});
+
+test('localDay uses the local calendar day, not UTC', () => {
+  // 00:30 local time: toISOString() would give the previous day east of UTC.
+  assert.equal(localDay(new Date(2026, 0, 5, 0, 30)), '2026-01-05');
+  assert.equal(localDay(new Date(2026, 11, 31, 23, 59)), '2026-12-31');
+  assert.equal(localDay(new Date(2026, 2, 9, 12)), '2026-03-09');
+});
+
+test('dateBack crosses month and year boundaries', () => {
+  assert.equal(dateBack('2026-03-01', 1), '2026-02-28');
+  assert.equal(dateBack('2026-01-01', 1), '2025-12-31');
+  assert.equal(dateBack('2026-08-21', 0), '2026-08-21');
+});
+
+test('daily seed is deterministic per day', () => {
+  const a = mulberry32(seedFromDate('2026-09-27'));
+  const b = mulberry32(seedFromDate('2026-09-27'));
+  const c = mulberry32(seedFromDate('2026-09-28'));
+  const va = [a(), a(), a()];
+  assert.deepEqual(va, [b(), b(), b()]);
+  assert.notDeepEqual(va, [c(), c(), c()]);
+  for (const v of va) assert.ok(v >= 0 && v < 1);
+});
+
+test('daily challenge counts once per day', () => {
+  const s = emptyStats();
+  assert.equal(dailyCounts(s, '2026-09-27'), true);
+  recordAttempt(s, { id: 'a', isCorrect: true, date: '2026-09-27' });
+  assert.equal(dailyCounts(s, '2026-09-27'), true, 'answering alone does not complete it');
+  markDailyDone(s, '2026-09-27');
+  assert.equal(dailyCounts(s, '2026-09-27'), false);
+  assert.equal(s.days['2026-09-27'].answered, 1, 'existing day counters are kept');
+  assert.equal(dailyCounts(s, '2026-09-28'), true, 'a new day counts again');
 });

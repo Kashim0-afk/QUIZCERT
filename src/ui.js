@@ -3,7 +3,7 @@ import { filterQuestions, pickSet, listCerts, listTopics } from './select.js';
 import { recordAttempt, streak, globalAccuracy, byField } from './stats.js';
 import { exportStats, importStats } from './storage.js';
 import { getLang, toggleLang, t, qText, qOptions, qExplanation, qWhyWrong } from './i18n.js';
-import { optionOrder, toOriginal } from './session.js';
+import { optionOrder, toOriginal, localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone } from './session.js';
 
 // ---------- tiny DOM helper ----------
 function el(tag, props = {}, ...children) {
@@ -21,27 +21,6 @@ function el(tag, props = {}, ...children) {
   return n;
 }
 
-// ---------- date + rng helpers ----------
-function dateBack(dateStr, n) {
-  const [y, m, d] = dateStr.split('-').map(Number);
-  const dt = new Date(Date.UTC(y, m - 1, d));
-  dt.setUTCDate(dt.getUTCDate() - n);
-  return dt.toISOString().slice(0, 10);
-}
-function seedFromDate(d) {
-  let s = 0;
-  for (const ch of d) s = (s * 31 + ch.charCodeAt(0)) >>> 0;
-  return s;
-}
-function mulberry32(a) {
-  return function () {
-    a |= 0; a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
 const PASS_THRESHOLD = 70;
 const DAILY_SIZE = 15;
 
@@ -52,9 +31,14 @@ export function startApp(root, ctx) {
     questions: ctx.questions,
     store: ctx.store,
     stats: ctx.stats,
-    today: ctx.today,
     scope: { cert: '', topic: '' },
+    screen: '',
+    homeDay: '',
   };
+  // An installed PWA can be resumed after midnight: refresh the home (streak, daily).
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && app.screen === 'home' && app.homeDay !== localDay()) renderHome(app);
+  });
   renderHome(app);
 }
 
@@ -79,7 +63,9 @@ function renderHome(app) {
   certSel.addEventListener('change', () => { app.scope.cert = certSel.value; });
   topicSel.addEventListener('change', () => { app.scope.topic = topicSel.value; });
 
-  const doneToday = app.stats.days[app.today]?.challengeDone;
+  const today = localDay();
+  app.homeDay = today;
+  const doneToday = !dailyCounts(app.stats, today);
 
   const langBtn = el('button', { class: 'lang-btn', 'aria-label': 'Language', onClick: () => { toggleLang(); renderHome(app); } },
     getLang() === 'it' ? 'IT | en' : 'it | EN');
@@ -88,7 +74,7 @@ function renderHome(app) {
     el('div', { class: 'home-top' },
       el('h1', { class: 'title' }, 'QuizCert'),
       langBtn),
-    el('p', { class: 'subtitle' }, t('subtitle', app.questions.length, streak(app.stats.days, app.today))),
+    el('p', { class: 'subtitle' }, t('subtitle', app.questions.length, streak(app.stats.days, today))),
 
     el('div', { class: 'card' },
       el('h2', {}, t('studyScope')),
@@ -105,7 +91,7 @@ function renderHome(app) {
 
     el('button', { class: 'link-btn', onClick: () => renderStats(app) }, t('statistics')),
   );
-  app.root.replaceChildren(screen);
+  show(app, 'home', screen);
 }
 
 function modeBtn(title, desc, onClick) {
@@ -134,12 +120,15 @@ function startPractice(app, mode) {
 }
 
 function startDaily(app) {
+  const day = localDay();
   const pool = filterQuestions(app.questions, { history: app.stats.history });
-  const rng = mulberry32(seedFromDate(app.today));
+  const rng = mulberry32(seedFromDate(day));
   const order = pickSet(pool, DAILY_SIZE, rng);
+  // Already completed today: it can be replayed, but it is not recorded again.
+  const counted = dailyCounts(app.stats, day);
   runQuiz(app, {
     order, index: 0, correct: 0, wrong: 0,
-    label: t('mDaily'), daily: true,
+    label: counted ? t('mDaily') : t('mDailyReplay'), daily: true, day, counted,
   });
 }
 
@@ -180,8 +169,10 @@ function runQuiz(app, session) {
     submitBtn.classList.add('hidden');
     nextBtn.classList.remove('hidden');
 
-    recordAttempt(app.stats, { id: q.id, isCorrect: res.isCorrect, date: app.today });
-    await persist(app);
+    if (!session.daily || session.counted) {
+      recordAttempt(app.stats, { id: q.id, isCorrect: res.isCorrect, date: localDay() });
+      await persist(app);
+    }
   });
 
   nextBtn.addEventListener('click', () => { session.index++; runQuiz(app, session); });
@@ -195,20 +186,19 @@ function runQuiz(app, session) {
       el('div', { class: 'options' }, ...optionEls),
       feedback, submitBtn, nextBtn),
   );
-  app.root.replaceChildren(screen);
+  show(app, 'quiz', screen);
 }
 
 async function finishQuiz(app, session) {
-  if (session.daily) {
-    const d = (app.stats.days[app.today] ??= { answered: 0, correct: 0, wrong: 0 });
-    d.challengeDone = true;
+  if (session.daily && session.counted) {
+    markDailyDone(app.stats, session.day);
     await persist(app);
   }
   const total = session.correct + session.wrong;
   const pct = total ? Math.round((session.correct / total) * 100) : 0;
   renderMessage(app,
     t('quizDone', session.label, session.correct, total, pct) +
-    (session.daily ? t('streakSuffix', streak(app.stats.days, app.today)) : ''));
+    (session.daily ? t('streakSuffix', streak(app.stats.days, localDay())) : ''));
 }
 
 // ---------- EXAM (no feedback until end) ----------
@@ -233,7 +223,7 @@ function renderExamConfig(app) {
     runExam(app, { order, index: 0, answers: [], seconds: Number(timeSel.value) * 60 });
   });
 
-  app.root.replaceChildren(el('div', { class: 'screen' },
+  show(app, 'examConfig', el('div', { class: 'screen' },
     topBar(app, t('mExam'), '', ''),
     el('div', { class: 'card' },
       el('h2', {}, t('examConfigTitle')),
@@ -273,7 +263,7 @@ function runExam(app, session) {
     runExam(app, session);
   });
 
-  app.root.replaceChildren(el('div', { class: 'screen' },
+  show(app, 'exam', el('div', { class: 'screen' },
     topBar(app, t('mExam'), (session.index + 1) + '/' + session.order.length, el('span', { id: 'examTimer', class: 'timer' }, fmtTime(session.remaining))),
     el('div', { class: 'card question-card' },
       el('div', { class: 'meta' }, q.cert.join(', ') + ' · ' + q.topics.join(', ')),
@@ -295,7 +285,7 @@ async function finishExam(app, session) {
     const ans = session.answers[i]?.selected ?? [];
     const res = grade(q, ans);
     if (res.isCorrect) correct++;
-    recordAttempt(app.stats, { id: q.id, isCorrect: res.isCorrect, date: app.today });
+    recordAttempt(app.stats, { id: q.id, isCorrect: res.isCorrect, date: localDay() });
     review.push({ q, res, ans });
   }
   await persist(app);
@@ -313,7 +303,7 @@ async function finishExam(app, session) {
       el('p', { class: 'explain' }, t('correctAns', res.correct.map(i => opts[i]).join(', '), qExplanation(q))));
   });
 
-  app.root.replaceChildren(el('div', { class: 'screen' },
+  show(app, 'examResult', el('div', { class: 'screen' },
     topBar(app, t('result'), '', ''),
     el('div', { class: 'card' },
       el('h2', { class: passed ? 'verdict ok' : 'verdict ko' }, (passed ? t('passed') : t('notPassed')) + ' — ' + correct + '/' + total + ' (' + pct + '%)'),
@@ -369,7 +359,7 @@ function renderStudy(app) {
   moreBtn.addEventListener('click', renderMore);
   if (pool.length) renderMore();
 
-  app.root.replaceChildren(el('div', { class: 'screen' },
+  show(app, 'study', el('div', { class: 'screen' },
     topBar(app, t('mStudy'), '', t('nQuestionsShort', pool.length)),
     el('div', { class: 'card' },
       el('h2', {}, t('studyMaterial')),
@@ -386,9 +376,10 @@ function renderStats(app) {
   const byCert = byField(app.questions, app.stats.history, 'cert');
   const byTopic = byField(app.questions, app.stats.history, 'topics');
 
+  const today = localDay();
   const cal = [];
   for (let i = 29; i >= 0; i--) {
-    const day = dateBack(app.today, i);
+    const day = dateBack(today, i);
     const n = app.stats.days[day]?.answered ?? 0;
     const lvl = n === 0 ? 0 : n < 5 ? 1 : n < 15 ? 2 : 3;
     cal.push(el('div', { class: 'cal-cell lvl' + lvl, title: day + ': ' + n }));
@@ -435,10 +426,10 @@ function renderStats(app) {
   else topicCard.append(el('p', { class: 'hint' }, t('noData')));
   topicCard.append(weakBtn);
 
-  app.root.replaceChildren(el('div', { class: 'screen' },
+  show(app, 'stats', el('div', { class: 'screen' },
     topBar(app, t('statistics'), '', ''),
     el('div', { class: 'card' },
-      el('h2', {}, t('streakTitle', streak(app.stats.days, app.today))),
+      el('h2', {}, t('streakTitle', streak(app.stats.days, today))),
       el('div', { class: 'calendar' }, ...cal),
       el('div', { class: 'cal-legend' },
         el('span', {}, el('span', { class: 'dot lvl1' }), '1-4'),
@@ -454,6 +445,12 @@ function renderStats(app) {
 }
 
 // ---------- shared bits ----------
+// Swap the visible screen (single place for screen bookkeeping).
+function show(app, name, screen) {
+  app.screen = name;
+  app.root.replaceChildren(screen);
+}
+
 // Build the (shuffled) option inputs for a question. Inputs carry their DISPLAY
 // position; selectedOriginal() maps the selection back to original indices.
 function buildOptions(q, opts, name) {
@@ -480,7 +477,7 @@ function topBar(app, title, center, right) {
 }
 
 function renderMessage(app, msg) {
-  app.root.replaceChildren(el('div', { class: 'screen' },
+  show(app, 'message', el('div', { class: 'screen' },
     topBar(app, 'QuizCert', '', ''),
     el('div', { class: 'card' }, el('p', { class: 'big-msg' }, msg),
       el('button', { class: 'primary-btn', onClick: () => renderHome(app) }, t('backHome')))));

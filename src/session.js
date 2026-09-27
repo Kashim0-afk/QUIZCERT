@@ -27,3 +27,45 @@ export function toOriginal(order, displayed) {
 export function correctDisplayPositions(order, correct) {
   return order.map((orig, pos) => (correct.includes(orig) ? pos : -1)).filter((p) => p >= 0);
 }
+
+// ---------- dates ----------
+// Calendar day in the user's LOCAL time zone (YYYY-MM-DD). Never cache it: an
+// installed PWA can stay open across midnight, so call it when you need it.
+export function localDay(d = new Date()) {
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+// YYYY-MM-DD minus n days (pure calendar arithmetic, time-zone independent).
+export function dateBack(dateStr, n) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() - n);
+  return dt.toISOString().slice(0, 10);
+}
+
+// ---------- daily challenge ----------
+export function seedFromDate(d) {
+  let s = 0;
+  for (const ch of d) s = (s * 31 + ch.charCodeAt(0)) >>> 0;
+  return s;
+}
+
+export function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// The daily challenge counts (attempts recorded, streak, "done" flag) only once per day.
+export function dailyCounts(stats, day) {
+  return !stats.days?.[day]?.challengeDone;
+}
+
+export function markDailyDone(stats, day) {
+  const d = (stats.days[day] ??= { answered: 0, correct: 0, wrong: 0 });
+  d.challengeDone = true;
+  return stats;
+}

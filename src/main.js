@@ -15,8 +15,7 @@ async function boot() {
       store = createMemoryStore(emptyStats()); // fallback if IndexedDB unavailable
     }
     const stats = (await store.load()) ?? emptyStats();
-    const today = new Date().toISOString().slice(0, 10);
-    startApp(root, { questions, store, stats, today, skipped });
+    startApp(root, { questions, store, stats, skipped });
   } catch (err) {
     root.textContent = t('loadError', err.message);
   }
