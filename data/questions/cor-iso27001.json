@@ -317,7 +317,7 @@
     "explanation": "Il controllo A.5.18 \"Diritti di accesso\" appartiene al tema dei Controlli organizzativi (A.5), che riguarda governance, politiche e gestione degli accessi. Copre provisioning, revisione periodica e revoca dei diritti di accesso.",
     "why_wrong": {
       "0": "I Controlli tecnologici (A.8) includono misure tecniche come A.8.3 restrizione dell accesso alle informazioni, ma il controllo A.5.18 sulla gestione dei diritti e classificato come organizzativo.",
-      "1": "I Controlli sulle persone (A.6) riguardano screening, consapevolezza e responsabilita del personale, non la gestione dei diritti di accesso.",
+      "1": "I Controlli sulle persone (A.6) riguardano screening, consapevolezza e responsabilità del personale, non la gestione dei diritti di accesso.",
       "2": "I Controlli fisici (A.7) riguardano la sicurezza di locali e dispositivi, non i diritti di accesso logici."
     },
     "source": "ISO/IEC 27001",

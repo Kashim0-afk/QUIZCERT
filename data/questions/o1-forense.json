@@ -5,11 +5,11 @@
     "topics": ["Catena di custodia"],
     "type": "single",
     "difficulty": 1,
-    "question": "Qual e lo scopo principale della catena di custodia (chain of custody) in un'indagine forense?",
+    "question": "Qual è lo scopo principale della catena di custodia (chain of custody) in un'indagine forense?",
     "question_en": "What is the main purpose of the chain of custody in a forensic investigation?",
     "options": [
       "Accelerare l'acquisizione dell'immagine disco riducendo i tempi di copia",
-      "Documentare chi ha maneggiato la prova, quando e per quale motivo, garantendone l'integrita e l'ammissibilita",
+      "Documentare chi ha maneggiato la prova, quando e per quale motivo, garantendone l'integrità e l'ammissibilità",
       "Cifrare i reperti in modo che solo l'analista possa aprirli",
       "Comprimere le prove digitali per risparmiare spazio di archiviazione"
     ],
@@ -20,12 +20,12 @@
       "Compress digital evidence to save storage space"
     ],
     "correct": [1],
-    "explanation": "La catena di custodia e la documentazione cronologica e continua che traccia ogni passaggio di mano, spostamento e accesso a un reperto. Serve a dimostrare in tribunale che la prova non e stata alterata e a garantirne l'ammissibilita legale.",
+    "explanation": "La catena di custodia e la documentazione cronologica e continua che traccia ogni passaggio di mano, spostamento e accesso a un reperto. Serve a dimostrare in tribunale che la prova non è stata alterata e a garantirne l'ammissibilità legale.",
     "explanation_en": "The chain of custody is the chronological and continuous documentation that tracks every handover, movement and access to an item of evidence. It serves to prove in court that the evidence has not been altered and to ensure its legal admissibility.",
     "why_wrong": {
-      "0": "La catena di custodia non ha nulla a che vedere con la velocita di copia: e un documento di tracciamento, non una procedura tecnica di acquisizione.",
-      "2": "La cifratura protegge la riservatezza, ma non e lo scopo della catena di custodia, che riguarda la tracciabilita e l'integrita documentata del reperto.",
-      "3": "La compressione altererebbe potenzialmente i dati e non c'entra con la finalita legale della catena di custodia."
+      "0": "La catena di custodia non ha nulla a che vedere con la velocità di copia: e un documento di tracciamento, non una procedura tecnica di acquisizione.",
+      "2": "La cifratura protegge la riservatezza, ma non è lo scopo della catena di custodia, che riguarda la tracciabilità e l'integrità documentata del reperto.",
+      "3": "La compressione altererebbe potenzialmente i dati e non c'entra con la finalità legale della catena di custodia."
     },
     "why_wrong_en": {
       "0": "The chain of custody has nothing to do with copy speed: it is a tracking record, not a technical acquisition procedure.",
@@ -40,7 +40,7 @@
     "topics": ["Analisi forense", "Memory forensics"],
     "type": "single",
     "difficulty": 2,
-    "question": "Secondo l'ordine di volatilita (RFC 3227), quale tra le seguenti fonti di prova deve essere acquisita per prima?",
+    "question": "Secondo l'ordine di volatilità (RFC 3227), quale tra le seguenti fonti di prova deve essere acquisita per prima?",
     "question_en": "According to the order of volatility (RFC 3227), which of the following evidence sources must be acquired first?",
     "options": [
       "I file di log archiviati su un disco rigido",
@@ -55,10 +55,10 @@
       "The physical configuration and network topology"
     ],
     "correct": [1],
-    "explanation": "L'ordine di volatilita impone di raccogliere prima cio che si perde piu rapidamente. Registri e cache della CPU sono gli elementi piu volatili in assoluto e vanno acquisiti per primi, prima di RAM, tabelle di routing, dischi e backup.",
+    "explanation": "L'ordine di volatilità impone di raccogliere prima ciò che si perde più rapidamente. Registri e cache della CPU sono gli elementi più volatili in assoluto e vanno acquisiti per primi, prima di RAM, tabelle di routing, dischi e backup.",
     "explanation_en": "The order of volatility requires collecting first what is lost most quickly. CPU registers and cache are the most volatile elements of all and must be acquired first, before RAM, routing tables, disks and backups.",
     "why_wrong": {
-      "0": "I log su disco sono relativamente persistenti e si collocano piu in basso nell'ordine di volatilita rispetto ai registri di CPU.",
+      "0": "I log su disco sono relativamente persistenti e si collocano più in basso nell'ordine di volatilità rispetto ai registri di CPU.",
       "2": "I backup off-line sono tra i dati meno volatili: si acquisiscono per ultimi, non per primi.",
       "3": "La topologia e la configurazione fisica sono considerate tra le informazioni meno volatili nell'RFC 3227."
     },
@@ -75,13 +75,13 @@
     "topics": ["Analisi forense", "Crittografia"],
     "type": "single",
     "difficulty": 2,
-    "question": "Perche durante l'acquisizione di un'immagine disco si calcola un hash (MD5/SHA-256) prima e dopo la copia?",
+    "question": "Perché durante l'acquisizione di un'immagine disco si calcola un hash (MD5/SHA-256) prima e dopo la copia?",
     "question_en": "Why is a hash (MD5/SHA-256) computed before and after the copy during disk image acquisition?",
     "options": [
       "Per cifrare l'immagine e impedire l'accesso a personale non autorizzato",
       "Per comprimere l'immagine e ridurne le dimensioni sul supporto di destinazione",
-      "Per dimostrare l'integrita, verificando che l'immagine copiata sia identica bit per bit all'originale",
-      "Per recuperare i file cancellati non piu presenti nella tabella dei file"
+      "Per dimostrare l'integrità, verificando che l'immagine copiata sia identica bit per bit all'originale",
+      "Per recuperare i file cancellati non più presenti nella tabella dei file"
     ],
     "options_en": [
       "To encrypt the image and prevent access by unauthorized personnel",
@@ -90,12 +90,12 @@
       "To recover deleted files no longer present in the file table"
     ],
     "correct": [2],
-    "explanation": "L'hash e un'impronta digitale del contenuto. Calcolarlo sull'originale e sulla copia e confrontarlo dimostra che l'immagine e una duplicazione fedele bit per bit e che non e stata alterata durante o dopo l'acquisizione.",
+    "explanation": "L'hash e un'impronta digitale del contenuto. Calcolarlo sull'originale e sulla copia e confrontarlo dimostra che l'immagine e una duplicazione fedele bit per bit e che non è stata alterata durante o dopo l'acquisizione.",
     "explanation_en": "The hash is a digital fingerprint of the content. Computing it on the original and on the copy and comparing them proves that the image is a faithful bit-for-bit duplicate and that it has not been altered during or after acquisition.",
     "why_wrong": {
       "0": "Una funzione di hash non cifra nulla: e a senso unico e non permette di risalire ai dati; la riservatezza si ottiene con la cifratura, non con l'hashing.",
       "1": "L'hashing non comprime i dati; produce un valore di lunghezza fissa che non contiene i dati originali.",
-      "3": "Il recupero di file cancellati e un'attivita di analisi separata e non dipende dal calcolo dell'hash di integrita."
+      "3": "Il recupero di file cancellati e un'attività di analisi separata e non dipende dal calcolo dell'hash di integrità."
     },
     "why_wrong_en": {
       "0": "A hash function does not encrypt anything: it is one-way and does not allow the data to be recovered; confidentiality is achieved through encryption, not hashing.",
@@ -110,11 +110,11 @@
     "topics": ["Incident Response"],
     "type": "single",
     "difficulty": 2,
-    "question": "Secondo il ciclo di vita dell'incident response del NIST SP 800-61, qual e la corretta sequenza delle fasi principali?",
+    "question": "Secondo il ciclo di vita dell'incident response del NIST SP 800-61, qual è la corretta sequenza delle fasi principali?",
     "question_en": "According to the NIST SP 800-61 incident response lifecycle, what is the correct sequence of the main phases?",
     "options": [
-      "Contenimento, Preparazione, Rilevamento, Attivita post-incidente",
-      "Preparazione; Rilevamento e Analisi; Contenimento, Eradicazione e Ripristino; Attivita post-incidente",
+      "Contenimento, Preparazione, Rilevamento, Attività post-incidente",
+      "Preparazione; Rilevamento e Analisi; Contenimento, Eradicazione e Ripristino; Attività post-incidente",
       "Rilevamento, Eradicazione, Preparazione, Contenimento",
       "Preparazione, Ripristino, Contenimento, Rilevamento"
     ],
@@ -125,11 +125,11 @@
       "Preparation, Recovery, Containment, Detection"
     ],
     "correct": [1],
-    "explanation": "Il NIST SP 800-61 definisce quattro fasi in sequenza: Preparazione; Rilevamento e Analisi; Contenimento, Eradicazione e Ripristino; Attivita post-incidente (lessons learned). Le fasi centrali possono iterare, ma la preparazione precede sempre e la lezione appresa chiude il ciclo.",
+    "explanation": "Il NIST SP 800-61 definisce quattro fasi in sequenza: Preparazione; Rilevamento e Analisi; Contenimento, Eradicazione e Ripristino; Attività post-incidente (lessons learned). Le fasi centrali possono iterare, ma la preparazione precede sempre e la lezione appresa chiude il ciclo.",
     "explanation_en": "NIST SP 800-61 defines four phases in sequence: Preparation; Detection and Analysis; Containment, Eradication and Recovery; Post-Incident Activity (lessons learned). The central phases can iterate, but preparation always comes first and lessons learned close the cycle.",
     "why_wrong": {
-      "0": "La preparazione deve precedere il rilevamento e il contenimento: non si puo contenere un incidente prima di essersi preparati e averlo rilevato.",
-      "2": "L'eradicazione non puo avvenire prima della preparazione e del contenimento; l'ordine e tecnicamente scorretto.",
+      "0": "La preparazione deve precedere il rilevamento e il contenimento: non si può contenere un incidente prima di essersi preparati e averlo rilevato.",
+      "2": "L'eradicazione non può avvenire prima della preparazione e del contenimento; l'ordine e tecnicamente scorretto.",
       "3": "Il ripristino e il contenimento non possono precedere il rilevamento dell'incidente."
     },
     "why_wrong_en": {
@@ -148,7 +148,7 @@
     "question": "A cosa serve un write blocker (bloccante di scrittura) durante l'acquisizione forense di un disco?",
     "question_en": "What is a write blocker used for during the forensic acquisition of a disk?",
     "options": [
-      "A impedire qualsiasi scrittura sul dispositivo sorgente, preservandone l'integrita",
+      "A impedire qualsiasi scrittura sul dispositivo sorgente, preservandone l'integrità",
       "A velocizzare la lettura del disco raddoppiando la banda del bus",
       "A cifrare automaticamente il disco sorgente durante la copia",
       "A cancellare in modo sicuro il disco di destinazione prima della copia"
@@ -160,12 +160,12 @@
       "To securely wipe the destination disk before the copy"
     ],
     "correct": [0],
-    "explanation": "Il write blocker e un dispositivo hardware o software che consente la sola lettura del supporto sorgente, bloccando ogni comando di scrittura. Cosi si evita di modificare timestamp o dati e si preserva l'integrita della prova originale.",
+    "explanation": "Il write blocker e un dispositivo hardware o software che consente la sola lettura del supporto sorgente, bloccando ogni comando di scrittura. Così si evita di modificare timestamp o dati e si preserva l'integrità della prova originale.",
     "explanation_en": "The write blocker is a hardware or software device that allows read-only access to the source media, blocking every write command. This avoids modifying timestamps or data and preserves the integrity of the original evidence.",
     "why_wrong": {
-      "1": "Il write blocker non ha la funzione di aumentare le prestazioni: il suo scopo e la protezione dalle scritture, non la velocita.",
+      "1": "Il write blocker non ha la funzione di aumentare le prestazioni: il suo scopo e la protezione dalle scritture, non la velocità.",
       "2": "Non cifra nulla; si limita a intercettare e bloccare i comandi di scrittura verso la sorgente.",
-      "3": "La cancellazione sicura del disco di destinazione (wiping) e un'operazione separata e non e cio che fa un write blocker."
+      "3": "La cancellazione sicura del disco di destinazione (wiping) e un'operazione separata e non è ciò che fa un write blocker."
     },
     "why_wrong_en": {
       "1": "The write blocker is not meant to boost performance: its purpose is protection against writes, not speed.",
@@ -215,7 +215,7 @@
     "topics": ["Analisi forense"],
     "type": "single",
     "difficulty": 3,
-    "question": "In ambito Windows, quale artefatto e piu utile per dimostrare l'esecuzione passata di un programma, incluso il numero di volte e l'ultimo avvio?",
+    "question": "In ambito Windows, quale artefatto e più utile per dimostrare l'esecuzione passata di un programma, incluso il numero di volte e l'ultimo avvio?",
     "question_en": "In Windows environments, which artifact is most useful to prove the past execution of a program, including the number of times and the last launch?",
     "options": [
       "I file di Prefetch nella cartella C:\\Windows\\Prefetch",
@@ -234,8 +234,8 @@
     "explanation_en": "Prefetch files (.pf) are created by Windows to optimize program startup and record the executable name, the run count and the last execution timestamps, making them key evidence of execution.",
     "why_wrong": {
       "1": "Il file hosts mappa nomi a indirizzi IP e non registra l'esecuzione dei programmi.",
-      "2": "La cartella Temp puo contenere residui, ma non traccia in modo strutturato conteggi ed esecuzioni come il Prefetch.",
-      "3": "Il pagefile puo contenere frammenti di memoria, ma non fornisce un registro strutturato di quante volte un programma e stato eseguito."
+      "2": "La cartella Temp può contenere residui, ma non traccia in modo strutturato conteggi ed esecuzioni come il Prefetch.",
+      "3": "Il pagefile può contenere frammenti di memoria, ma non fornisce un registro strutturato di quante volte un programma e stato eseguito."
     },
     "why_wrong_en": {
       "1": "The hosts file maps names to IP addresses and does not record program execution.",
@@ -339,7 +339,7 @@
     "explanation_en": "Static analysis inspects the file without executing it (strings, hashes, PE header, disassembly), while dynamic analysis detonates the sample in an isolated sandbox to observe the processes, filesystem changes, registry keys and network traffic it generates.",
     "why_wrong": {
       "1": "E il contrario: la statica NON esegue il codice; l'esecuzione e propria dell'analisi dinamica.",
-      "2": "Entrambe le tecniche sono applicabili a piu piattaforme; la distinzione non e legata al sistema operativo.",
+      "2": "Entrambe le tecniche sono applicabili a più piattaforme; la distinzione non è legata al sistema operativo.",
       "3": "Non sono sinonimi: forniscono informazioni complementari e possono dare risultati diversi, specie con malware che rileva la sandbox."
     },
     "why_wrong_en": {
@@ -355,7 +355,7 @@
     "topics": ["Incident Response"],
     "type": "multi",
     "difficulty": 2,
-    "question": "Quali delle seguenti attivita appartengono alla fase di Contenimento, Eradicazione e Ripristino del NIST SP 800-61? (seleziona 2)",
+    "question": "Quali delle seguenti attività appartengono alla fase di Contenimento, Eradicazione e Ripristino del NIST SP 800-61? (seleziona 2)",
     "question_en": "Which of the following activities belong to the Containment, Eradication and Recovery phase of NIST SP 800-61? (select 2)",
     "options": [
       "Isolare dalla rete i sistemi compromessi per limitare la propagazione",
@@ -373,8 +373,8 @@
     "explanation": "Il contenimento include l'isolamento dei sistemi colpiti per fermare la diffusione; l'eradicazione e il ripristino comprendono la rimozione del malware e il ritorno a uno stato operativo sicuro da backup verificati. Entrambe rientrano nella terza fase del ciclo.",
     "explanation_en": "Containment includes isolating the affected systems to stop the spread; eradication and recovery involve removing the malware and returning to a secure operational state from verified backups. Both fall within the third phase of the cycle.",
     "why_wrong": {
-      "1": "La stesura delle lezioni apprese appartiene alla fase di Attivita post-incidente, non a Contenimento/Eradicazione/Ripristino.",
-      "3": "La definizione delle procedure e la formazione del team sono attivita della fase di Preparazione, che precede l'incidente."
+      "1": "La stesura delle lezioni apprese appartiene alla fase di Attività post-incidente, non a Contenimento/Eradicazione/Ripristino.",
+      "3": "La definizione delle procedure e la formazione del team sono attività della fase di Preparazione, che precede l'incidente."
     },
     "why_wrong_en": {
       "1": "Writing the lessons learned belongs to the Post-Incident Activity phase, not to Containment/Eradication/Recovery.",
@@ -393,7 +393,7 @@
     "options": [
       "Una modifica anche di un solo bit del file produce un valore di hash completamente diverso (effetto valanga)",
       "MD5 e SHA-1 sono considerati robusti contro le collisioni e sono raccomandati come uniche garanzie per nuovi progetti critici",
-      "Se due file hanno lo stesso valore hash forte, si considerano con altissima probabilita identici bit per bit",
+      "Se due file hanno lo stesso valore hash forte, si considerano con altissima probabilità identici bit per bit",
       "L'hash permette di risalire e ricostruire il contenuto originale del file a partire dal digest"
     ],
     "options_en": [
@@ -403,11 +403,11 @@
       "The hash allows the original content of the file to be recovered and reconstructed from the digest"
     ],
     "correct": [0, 2],
-    "explanation": "Le funzioni di hash crittografico presentano l'effetto valanga: un minimo cambiamento nell'input stravolge l'output. Inoltre, con un algoritmo forte, l'uguaglianza dei digest implica con probabilita altissima l'identita dei contenuti, per questo si usano a verifica dell'integrita.",
+    "explanation": "Le funzioni di hash crittografico presentano l'effetto valanga: un minimo cambiamento nell'input stravolge l'output. Inoltre, con un algoritmo forte, l'uguaglianza dei digest implica con probabilità altissima l'identità dei contenuti, per questo si usano a verifica dell'integrità.",
     "explanation_en": "Cryptographic hash functions exhibit the avalanche effect: a minimal change in the input upends the output. Moreover, with a strong algorithm, equality of the digests implies, with very high probability, identity of the contents, which is why they are used to verify integrity.",
     "why_wrong": {
-      "1": "MD5 e SHA-1 sono ormai vulnerabili ad attacchi di collisione dimostrati; per nuovi progetti si preferisce SHA-256. In forense MD5/SHA-1 si usano ancora per compatibilita, ma non come unica garanzia in contesti critici.",
-      "3": "L'hash e una funzione a senso unico: dal digest non e possibile ricostruire l'input originale."
+      "1": "MD5 e SHA-1 sono ormai vulnerabili ad attacchi di collisione dimostrati; per nuovi progetti si preferisce SHA-256. In forense MD5/SHA-1 si usano ancora per compatibilità, ma non come unica garanzia in contesti critici.",
+      "3": "L'hash e una funzione a senso unico: dal digest non è possibile ricostruire l'input originale."
     },
     "why_wrong_en": {
       "1": "MD5 and SHA-1 are by now vulnerable to demonstrated collision attacks; for new projects SHA-256 is preferred. In forensics MD5/SHA-1 are still used for compatibility, but not as the sole guarantee in critical contexts.",
@@ -421,7 +421,7 @@
     "topics": ["Analisi forense", "Memory forensics"],
     "type": "multi",
     "difficulty": 2,
-    "question": "Applicando l'ordine di volatilita, quali fonti vanno acquisite PRIMA del contenuto di un disco rigido? (seleziona 2)",
+    "question": "Applicando l'ordine di volatilità, quali fonti vanno acquisite PRIMA del contenuto di un disco rigido? (seleziona 2)",
     "question_en": "Applying the order of volatility, which sources must be acquired BEFORE the contents of a hard drive? (select 2)",
     "options": [
       "Il contenuto della memoria RAM del sistema attivo",
@@ -439,7 +439,7 @@
     "explanation": "Secondo l'RFC 3227, RAM e stato di rete (tabelle di routing, cache ARP, connessioni attive) sono altamente volatili e vanno raccolti prima dei dati su disco, che sono relativamente persistenti.",
     "explanation_en": "According to RFC 3227, RAM and network state (routing tables, ARP cache, active connections) are highly volatile and must be collected before data on disk, which is relatively persistent.",
     "why_wrong": {
-      "2": "I file su disco USB sono dati persistenti allo stesso livello di volatilita dei dischi: non precedono il disco rigido nell'ordine.",
+      "2": "I file su disco USB sono dati persistenti allo stesso livello di volatilità dei dischi: non precedono il disco rigido nell'ordine.",
       "3": "I nastri di backup off-line sono tra le fonti meno volatili in assoluto e si acquisiscono per ultimi."
     },
     "why_wrong_en": {
@@ -459,7 +459,7 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [1],
-    "explanation": "Falso. Il principio cardine e lavorare su una copia forense (immagine bit-a-bit) verificata tramite hash, preservando l'originale intatto. Analizzare l'originale rischia di alterarlo e ne compromette l'ammissibilita come prova.",
+    "explanation": "Falso. Il principio cardine e lavorare su una copia forense (immagine bit-a-bit) verificata tramite hash, preservando l'originale intatto. Analizzare l'originale rischia di alterarlo e ne compromette l'ammissibilità come prova.",
     "explanation_en": "False. The core principle is to work on a forensic copy (bit-for-bit image) verified via hash, keeping the original intact. Analyzing the original risks altering it and compromises its admissibility as evidence.",
     "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
   },
@@ -469,12 +469,12 @@
     "topics": ["Catena di custodia"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Vero o Falso: un'interruzione o una lacuna nella catena di custodia puo portare all'inammissibilita della prova digitale in tribunale.",
+    "question": "Vero o Falso: un'interruzione o una lacuna nella catena di custodia può portare all'inammissibilità della prova digitale in tribunale.",
     "question_en": "True or False: a break or gap in the chain of custody can lead to the inadmissibility of digital evidence in court.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. Se non si puo dimostrare in modo continuo chi ha avuto accesso alla prova e che non e stata alterata, la difesa puo contestarne l'integrita e il giudice puo dichiararla inammissibile. La continuita della catena di custodia e essenziale.",
+    "explanation": "Vero. Se non si può dimostrare in modo continuo chi ha avuto accesso alla prova e che non è stata alterata, la difesa può contestarne l'integrità e il giudice può dichiararla inammissibile. La continuità della catena di custodia e essenziale.",
     "explanation_en": "True. If it cannot be continuously demonstrated who had access to the evidence and that it was not altered, the defense can challenge its integrity and the judge may declare it inadmissible. The continuity of the chain of custody is essential.",
     "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
   },
@@ -489,7 +489,7 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [1],
-    "explanation": "Falso. Proprio perche il malware fileless vive in memoria, l'acquisizione della RAM del sistema ancora acceso e il modo migliore per catturarne le tracce (processi iniettati, codice, connessioni). Le tracce vanno perse spegnendo il sistema, non acquisendo la memoria.",
+    "explanation": "Falso. Proprio perché il malware fileless vive in memoria, l'acquisizione della RAM del sistema ancora acceso e il modo migliore per catturarne le tracce (processi iniettati, codice, connessioni). Le tracce vanno perse spegnendo il sistema, non acquisendo la memoria.",
     "explanation_en": "False. Precisely because fileless malware lives in memory, acquiring the RAM of the still-running system is the best way to capture its traces (injected processes, code, connections). The traces are lost by shutting down the system, not by acquiring the memory.",
     "source": "HACK/Analisi Forense e Sicurezza Informatica.rtf"
   }

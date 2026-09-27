@@ -5,17 +5,17 @@
     "topics": ["Crittografia", "Hashing"],
     "type": "single",
     "difficulty": 2,
-    "question": "Quale proprieta di una funzione di hash crittografica garantisce che sia computazionalmente impraticabile trovare due input diversi che producono lo stesso digest?",
+    "question": "Quale proprietà di una funzione di hash crittografica garantisce che sia computazionalmente impraticabile trovare due input diversi che producono lo stesso digest?",
     "question_en": "Which property of a cryptographic hash function ensures that it is computationally infeasible to find two different inputs producing the same digest?",
     "options": ["Resistenza alla preimmagine", "Resistenza alla seconda preimmagine", "Resistenza alle collisioni", "Effetto valanga"],
     "options_en": ["Preimage resistance", "Second preimage resistance", "Collision resistance", "Avalanche effect"],
     "correct": [2],
-    "explanation": "La resistenza alle collisioni impedisce di trovare due input qualsiasi x e y (con x diverso da y) tali che hash(x)=hash(y). E' proprio l'esistenza di collisioni che ha decretato la fine di MD5 e SHA-1.",
+    "explanation": "La resistenza alle collisioni impedisce di trovare due input qualsiasi x e y (con x diverso da y) tali che hash(x)=hash(y). È proprio l'esistenza di collisioni che ha decretato la fine di MD5 e SHA-1.",
     "explanation_en": "Collision resistance prevents finding any two inputs x and y (with x different from y) such that hash(x)=hash(y). It is precisely the existence of collisions that spelled the end of MD5 and SHA-1.",
     "why_wrong": {
       "0": "La resistenza alla preimmagine riguarda il non poter risalire a un input a partire da un dato digest, non la ricerca di due input collidenti.",
       "1": "La seconda preimmagine fissa un input specifico e cerca un secondo input con lo stesso hash; la collisione invece lascia liberi entrambi gli input.",
-      "3": "L'effetto valanga descrive come un piccolo cambiamento nell'input cambi drasticamente l'output, ma non e la definizione di resistenza alle collisioni."
+      "3": "L'effetto valanga descrive come un piccolo cambiamento nell'input cambi drasticamente l'output, ma non è la definizione di resistenza alle collisioni."
     },
     "why_wrong_en": {
       "0": "Preimage resistance concerns being unable to recover an input from a given digest, not finding two colliding inputs.",
@@ -30,7 +30,7 @@
     "topics": ["Crittografia"],
     "type": "single",
     "difficulty": 2,
-    "question": "In uno scambio di chiavi Diffie-Hellman, qual e l'obiettivo principale del protocollo?",
+    "question": "In uno scambio di chiavi Diffie-Hellman, qual è l'obiettivo principale del protocollo?",
     "question_en": "In a Diffie-Hellman key exchange, what is the main objective of the protocol?",
     "options": ["Cifrare direttamente i messaggi con chiave pubblica", "Concordare un segreto condiviso su un canale insicuro senza trasmetterlo", "Firmare digitalmente i messaggi", "Generare un hash resistente alle collisioni"],
     "options_en": ["Directly encrypting messages with a public key", "Agreeing on a shared secret over an insecure channel without transmitting it", "Digitally signing messages", "Generating a collision-resistant hash"],
@@ -40,7 +40,7 @@
     "why_wrong": {
       "0": "DH non cifra messaggi: stabilisce solo una chiave, poi si usa un cifrario simmetrico separato.",
       "2": "La firma digitale e uno scopo diverso, tipicamente affidato ad algoritmi come RSA, DSA o ECDSA.",
-      "3": "Diffie-Hellman non e una funzione di hash e non produce digest."
+      "3": "Diffie-Hellman non è una funzione di hash e non produce digest."
     },
     "why_wrong_en": {
       "0": "DH does not encrypt messages: it only establishes a key, then a separate symmetric cipher is used.",
@@ -60,10 +60,10 @@
     "options": ["Si firma con la chiave pubblica e si verifica con la privata", "Si firma con la chiave privata e si verifica con la pubblica", "Si firma e si verifica con la stessa chiave segreta condivisa", "Si firma con la privata e si verifica con una seconda chiave privata"],
     "options_en": ["Sign with the public key and verify with the private key", "Sign with the private key and verify with the public key", "Sign and verify with the same shared secret key", "Sign with the private key and verify with a second private key"],
     "correct": [1],
-    "explanation": "Il firmatario usa la propria chiave privata per generare la firma; chiunque possieda la chiave pubblica corrispondente puo verificarla, ottenendo autenticita e non ripudio.",
+    "explanation": "Il firmatario usa la propria chiave privata per generare la firma; chiunque possieda la chiave pubblica corrispondente può verificarla, ottenendo autenticità e non ripudio.",
     "explanation_en": "The signer uses their own private key to generate the signature; anyone holding the corresponding public key can verify it, achieving authenticity and non-repudiation.",
     "why_wrong": {
-      "0": "E' l'inverso: se si firmasse con la pubblica, chiunque potrebbe firmare, annullando l'autenticita.",
+      "0": "È l'inverso: se si firmasse con la pubblica, chiunque potrebbe firmare, annullando l'autenticità.",
       "2": "Una chiave condivisa e tipica della crittografia simmetrica e non garantisce il non ripudio.",
       "3": "La verifica avviene con la chiave pubblica, non con un'altra chiave privata."
     },
@@ -88,8 +88,8 @@
     "explanation": "La Merkle proof fornisce solo gli hash dei nodi lungo il percorso dalla foglia alla radice, permettendo di dimostrare l'inclusione di una transazione confrontando la Merkle root nell'header, senza scaricare tutte le transazioni.",
     "explanation_en": "The Merkle proof provides only the hashes of the nodes along the path from the leaf to the root, allowing proof of a transaction's inclusion by comparing against the Merkle root in the header, without downloading all transactions.",
     "why_wrong": {
-      "1": "L'albero di Merkle serve a verificare l'integrita tramite hash, non a cifrare i dati.",
-      "2": "L'ordinamento temporale non e la funzione dell'albero di Merkle.",
+      "1": "L'albero di Merkle serve a verificare l'integrità tramite hash, non a cifrare i dati.",
+      "2": "L'ordinamento temporale non è la funzione dell'albero di Merkle.",
       "3": "La prova di inclusione non sostituisce le firme, che restano necessarie per autorizzare la spesa."
     },
     "why_wrong_en": {
@@ -105,12 +105,12 @@
     "topics": ["Blockchain", "Consenso"],
     "type": "single",
     "difficulty": 2,
-    "question": "Qual e la differenza fondamentale tra Proof of Work (PoW) e Proof of Stake (PoS) nella selezione di chi crea il blocco?",
+    "question": "Qual è la differenza fondamentale tra Proof of Work (PoW) e Proof of Stake (PoS) nella selezione di chi crea il blocco?",
     "question_en": "What is the fundamental difference between Proof of Work (PoW) and Proof of Stake (PoS) in selecting who creates the block?",
-    "options": ["In PoW conta la quantita di moneta bloccata, in PoS la potenza di calcolo", "In PoW conta la potenza di calcolo spesa, in PoS la quantita di moneta messa in stake", "Entrambi si basano esclusivamente sul possesso di hardware ASIC", "Entrambi selezionano il validatore in modo puramente casuale senza costi"],
+    "options": ["In PoW conta la quantità di moneta bloccata, in PoS la potenza di calcolo", "In PoW conta la potenza di calcolo spesa, in PoS la quantità di moneta messa in stake", "Entrambi si basano esclusivamente sul possesso di hardware ASIC", "Entrambi selezionano il validatore in modo puramente casuale senza costi"],
     "options_en": ["In PoW the amount of locked coin matters, in PoS the computing power", "In PoW the computing power expended matters, in PoS the amount of coin put at stake", "Both rely exclusively on possession of ASIC hardware", "Both select the validator in a purely random way at no cost"],
     "correct": [1],
-    "explanation": "In PoW il diritto di proporre un blocco deriva dal lavoro computazionale (hashing) effettuato; in PoS deriva dalla quantita di criptovaluta vincolata (stake), riducendo drasticamente il consumo energetico.",
+    "explanation": "In PoW il diritto di proporre un blocco deriva dal lavoro computazionale (hashing) effettuato; in PoS deriva dalla quantità di criptovaluta vincolata (stake), riducendo drasticamente il consumo energetico.",
     "explanation_en": "In PoW the right to propose a block derives from the computational work (hashing) performed; in PoS it derives from the amount of cryptocurrency locked (stake), drastically reducing energy consumption.",
     "why_wrong": {
       "0": "La descrizione e invertita: lo stake e di PoS, la potenza di calcolo e di PoW.",
@@ -130,17 +130,17 @@
     "topics": ["Crittografia", "Controllo accessi"],
     "type": "single",
     "difficulty": 2,
-    "question": "Perche nelle architetture ibride si usa la crittografia asimmetrica per scambiare una chiave e poi quella simmetrica per i dati?",
+    "question": "Perché nelle architetture ibride si usa la crittografia asimmetrica per scambiare una chiave e poi quella simmetrica per i dati?",
     "question_en": "Why do hybrid architectures use asymmetric cryptography to exchange a key and then symmetric cryptography for the data?",
-    "options": ["Perche la simmetrica e piu sicura ma piu lenta della asimmetrica", "Perche la asimmetrica risolve lo scambio di chiavi ma e lenta, mentre la simmetrica cifra i dati velocemente", "Perche la asimmetrica non richiede alcuna chiave", "Perche la simmetrica non puo cifrare grandi volumi di dati"],
+    "options": ["Perché la simmetrica e più sicura ma più lenta della asimmetrica", "Perché la asimmetrica risolve lo scambio di chiavi ma e lenta, mentre la simmetrica cifra i dati velocemente", "Perché la asimmetrica non richiede alcuna chiave", "Perché la simmetrica non può cifrare grandi volumi di dati"],
     "options_en": ["Because symmetric cryptography is more secure but slower than asymmetric", "Because asymmetric cryptography solves key exchange but is slow, while symmetric cryptography encrypts data quickly", "Because asymmetric cryptography requires no key at all", "Because symmetric cryptography cannot encrypt large volumes of data"],
     "correct": [1],
-    "explanation": "La crittografia asimmetrica gestisce elegantemente la distribuzione della chiave ma e computazionalmente costosa; per questo si cifra solo la chiave di sessione e poi si usa la simmetrica, molto piu veloce, per il grosso dei dati.",
+    "explanation": "La crittografia asimmetrica gestisce elegantemente la distribuzione della chiave ma e computazionalmente costosa; per questo si cifra solo la chiave di sessione e poi si usa la simmetrica, molto più veloce, per il grosso dei dati.",
     "explanation_en": "Asymmetric cryptography elegantly handles key distribution but is computationally expensive; for this reason only the session key is encrypted with it, and then the much faster symmetric cryptography is used for the bulk of the data.",
     "why_wrong": {
-      "0": "E' l'opposto: la simmetrica e piu veloce, non piu lenta, della asimmetrica.",
+      "0": "È l'opposto: la simmetrica e più veloce, non più lenta, della asimmetrica.",
       "2": "La asimmetrica usa una coppia di chiavi (pubblica e privata), quindi richiede chiavi.",
-      "3": "La simmetrica e proprio l'algoritmo ideale per grandi volumi di dati grazie alla sua velocita."
+      "3": "La simmetrica e proprio l'algoritmo ideale per grandi volumi di dati grazie alla sua velocità."
     },
     "why_wrong_en": {
       "0": "It is the opposite: symmetric cryptography is faster, not slower, than asymmetric.",
@@ -157,13 +157,13 @@
     "difficulty": 3,
     "question": "In una PKI, a cosa serve una Certificate Revocation List (CRL)?",
     "question_en": "In a PKI, what is a Certificate Revocation List (CRL) used for?",
-    "options": ["A elencare i certificati non piu validi prima della loro naturale scadenza", "A generare nuove coppie di chiavi per gli utenti", "A cifrare il traffico tra client e server", "A memorizzare le chiavi private degli utenti"],
+    "options": ["A elencare i certificati non più validi prima della loro naturale scadenza", "A generare nuove coppie di chiavi per gli utenti", "A cifrare il traffico tra client e server", "A memorizzare le chiavi private degli utenti"],
     "options_en": ["To list certificates that are no longer valid before their natural expiration", "To generate new key pairs for users", "To encrypt traffic between client and server", "To store users' private keys"],
     "correct": [0],
     "explanation": "La CRL e una lista firmata dalla CA che contiene i numeri seriali dei certificati revocati (per compromissione della chiave, cessazione, ecc.) prima della scadenza; OCSP ne e l'alternativa in tempo reale.",
     "explanation_en": "The CRL is a list signed by the CA containing the serial numbers of certificates revoked (due to key compromise, termination, etc.) before their expiration; OCSP is its real-time alternative.",
     "why_wrong": {
-      "1": "La generazione delle chiavi non e compito della CRL, ma dell'utente o della RA/CA.",
+      "1": "La generazione delle chiavi non è compito della CRL, ma dell'utente o della RA/CA.",
       "2": "La CRL non cifra traffico: gestisce lo stato di revoca dei certificati.",
       "3": "Le chiavi private non vengono mai memorizzate nella CRL; restano segrete presso il titolare."
     },
@@ -205,9 +205,9 @@
     "topics": ["Crittografia"],
     "type": "single",
     "difficulty": 3,
-    "question": "Perche in un cifrario a blocchi la modalita ECB e considerata insicura per dati strutturati?",
+    "question": "Perché in un cifrario a blocchi la modalità ECB e considerata insicura per dati strutturati?",
     "question_en": "Why is the ECB mode of a block cipher considered insecure for structured data?",
-    "options": ["Perche usa un vettore di inizializzazione troppo lungo", "Perche blocchi di testo in chiaro identici producono blocchi cifrati identici, rivelando pattern", "Perche non permette la decifratura", "Perche richiede una chiave diversa per ogni blocco"],
+    "options": ["Perché usa un vettore di inizializzazione troppo lungo", "Perché blocchi di testo in chiaro identici producono blocchi cifrati identici, rivelando pattern", "Perché non permette la decifratura", "Perché richiede una chiave diversa per ogni blocco"],
     "options_en": ["Because it uses an initialization vector that is too long", "Because identical plaintext blocks produce identical ciphertext blocks, revealing patterns", "Because it does not allow decryption", "Because it requires a different key for each block"],
     "correct": [1],
     "explanation": "In ECB ogni blocco viene cifrato indipendentemente con la stessa chiave: blocchi di plaintext uguali generano ciphertext uguali, esponendo pattern e struttura dei dati (il classico esempio dell'immagine 'pinguino' ancora riconoscibile).",
@@ -239,7 +239,7 @@
     "explanation_en": "A cryptographic hash maps inputs of any length to a fixed-size digest (e.g. 256 bits for SHA-256) and exhibits the avalanche effect, whereby minimal changes to the input radically alter the output.",
     "why_wrong": {
       "1": "Le funzioni di hash sono unidirezionali: sono progettate per NON essere invertibili (resistenza alla preimmagine).",
-      "3": "L'hashing non e cifratura e non garantisce riservatezza: non e reversibile e non protegge il contenuto per una successiva lettura."
+      "3": "L'hashing non è cifratura e non garantisce riservatezza: non è reversibile e non protegge il contenuto per una successiva lettura."
     },
     "why_wrong_en": {
       "1": "Hash functions are one-way: they are designed NOT to be invertible (preimage resistance).",
@@ -255,14 +255,14 @@
     "difficulty": 3,
     "question": "Quali delle seguenti sono caratteristiche o rischi tipici degli smart contract su blockchain? (seleziona 2)",
     "question_en": "Which of the following are typical characteristics or risks of smart contracts on a blockchain? (select 2)",
-    "options": ["Una volta distribuiti sono generalmente immutabili e i bug non sono facilmente correggibili", "Vengono eseguiti automaticamente al verificarsi delle condizioni programmate", "Possono essere modificati liberamente da chiunque dopo il deploy", "Non possono mai contenere vulnerabilita di sicurezza"],
+    "options": ["Una volta distribuiti sono generalmente immutabili e i bug non sono facilmente correggibili", "Vengono eseguiti automaticamente al verificarsi delle condizioni programmate", "Possono essere modificati liberamente da chiunque dopo il deploy", "Non possono mai contenere vulnerabilità di sicurezza"],
     "options_en": ["Once deployed they are generally immutable and bugs are not easily fixable", "They execute automatically when the programmed conditions occur", "They can be freely modified by anyone after deployment", "They can never contain security vulnerabilities"],
     "correct": [0, 1],
-    "explanation": "Gli smart contract si autoeseguono quando le condizioni codificate sono soddisfatte e, una volta pubblicati on-chain, sono tipicamente immutabili: un bug (come nel caso The DAO) puo diventare permanente e sfruttabile.",
+    "explanation": "Gli smart contract si autoeseguono quando le condizioni codificate sono soddisfatte e, una volta pubblicati on-chain, sono tipicamente immutabili: un bug (come nel caso The DAO) può diventare permanente e sfruttabile.",
     "explanation_en": "Smart contracts self-execute when the coded conditions are met and, once published on-chain, are typically immutable: a bug (as in the case of The DAO) can become permanent and exploitable.",
     "why_wrong": {
-      "2": "L'immutabilita impedisce modifiche arbitrarie dopo il deploy; servono pattern come i proxy upgradabili per aggiornarli.",
-      "3": "Gli smart contract possono contenere gravi vulnerabilita, ad esempio reentrancy o overflow aritmetici."
+      "2": "L'immutabilità impedisce modifiche arbitrarie dopo il deploy; servono pattern come i proxy upgradabili per aggiornarli.",
+      "3": "Gli smart contract possono contenere gravi vulnerabilità, ad esempio reentrancy o overflow aritmetici."
     },
     "why_wrong_en": {
       "2": "Immutability prevents arbitrary changes after deployment; patterns such as upgradeable proxies are needed to update them.",
@@ -284,7 +284,7 @@
     "explanation": "AES e un cifrario a blocchi simmetrico (stessa chiave per cifrare e decifrare); RSA e asimmetrico e si basa su una coppia di chiavi pubblica/privata.",
     "explanation_en": "AES is a symmetric block cipher (same key to encrypt and decrypt); RSA is asymmetric and relies on a public/private key pair.",
     "why_wrong": {
-      "2": "SHA-256 e una funzione di hash, non un algoritmo di cifratura: non usa chiavi e non e reversibile.",
+      "2": "SHA-256 e una funzione di hash, non un algoritmo di cifratura: non usa chiavi e non è reversibile.",
       "3": "Diffie-Hellman e un protocollo di scambio di chiavi, non una funzione di hash."
     },
     "why_wrong_en": {
@@ -299,15 +299,15 @@
     "topics": ["Blockchain", "Consenso"],
     "type": "truefalse",
     "difficulty": 3,
-    "question": "In una blockchain PoW un attacco del 51% consente a chi controlla la maggioranza dell'hash rate di modificare arbitrariamente le transazioni gia confermate di altri utenti, incluse quelle non proprie, rubando fondi da qualsiasi indirizzo.",
+    "question": "In una blockchain PoW un attacco del 51% consente a chi controlla la maggioranza dell'hash rate di modificare arbitrariamente le transazioni già confermate di altri utenti, incluse quelle non proprie, rubando fondi da qualsiasi indirizzo.",
     "question_en": "In a PoW blockchain, a 51% attack allows whoever controls the majority of the hash rate to arbitrarily modify already-confirmed transactions of other users, including ones that are not their own, stealing funds from any address.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [1],
-    "explanation": "Falso. Con la maggioranza dell'hash rate un attaccante puo riorganizzare la catena, censurare transazioni e soprattutto effettuare double-spending dei propri fondi, ma non puo forgiare firme altrui: non puo spendere monete da indirizzi di cui non possiede la chiave privata.",
+    "explanation": "Falso. Con la maggioranza dell'hash rate un attaccante può riorganizzare la catena, censurare transazioni e soprattutto effettuare double-spending dei propri fondi, ma non può forgiare firme altrui: non può spendere monete da indirizzi di cui non possiede la chiave privata.",
     "explanation_en": "False. With the majority of the hash rate an attacker can reorganize the chain, censor transactions and above all perform double-spending of their own funds, but cannot forge others' signatures: they cannot spend coins from addresses whose private key they do not possess.",
     "why_wrong": {
-      "0": "L'attacco 51% non rompe la crittografia a chiave pubblica: senza le chiavi private altrui non e possibile spostare i fondi di indirizzi non controllati."
+      "0": "L'attacco 51% non rompe la crittografia a chiave pubblica: senza le chiavi private altrui non è possibile spostare i fondi di indirizzi non controllati."
     },
     "why_wrong_en": {
       "0": "A 51% attack does not break public-key cryptography: without others' private keys it is not possible to move funds from addresses that are not controlled."
@@ -328,7 +328,7 @@
     "explanation": "Vero. Il salt, unico per ogni utente, garantisce che due password uguali producano digest diversi e vanifica le rainbow table precalcolate, costringendo l'attaccante a un attacco mirato per ciascun hash.",
     "explanation_en": "True. The salt, unique for each user, ensures that two equal passwords produce different digests and defeats precomputed rainbow tables, forcing the attacker into a targeted attack for each hash.",
     "why_wrong": {
-      "1": "Negare l'utilita del salt e errato: e una misura standard proprio contro le tabelle precalcolate e la deduplicazione degli hash."
+      "1": "Negare l'utilità del salt è errato: e una misura standard proprio contro le tabelle precalcolate e la deduplicazione degli hash."
     },
     "why_wrong_en": {
       "1": "Denying the usefulness of the salt is wrong: it is a standard measure precisely against precomputed tables and hash deduplication."
@@ -346,10 +346,10 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. In un wallet HD (standard BIP-32/BIP-39) la seed phrase e la radice da cui si derivano deterministicamente tutte le chiavi: chi la conosce controlla l'intero wallet, percio va protetta come e piu di una singola chiave privata.",
+    "explanation": "Vero. In un wallet HD (standard BIP-32/BIP-39) la seed phrase e la radice da cui si derivano deterministicamente tutte le chiavi: chi la conosce controlla l'intero wallet, perciò va protetta come e più di una singola chiave privata.",
     "explanation_en": "True. In an HD wallet (BIP-32/BIP-39 standard) the seed phrase is the root from which all keys are deterministically derived: whoever knows it controls the entire wallet, so it must be protected as much as, and more than, a single private key.",
     "why_wrong": {
-      "1": "E' errato considerarla poco sensibile: la seed phrase e il segreto master del wallet e la sua esposizione compromette tutti i fondi."
+      "1": "È errato considerarla poco sensibile: la seed phrase e il segreto master del wallet e la sua esposizione compromette tutti i fondi."
     },
     "why_wrong_en": {
       "1": "It is wrong to consider it not sensitive: the seed phrase is the wallet's master secret and its exposure compromises all funds."

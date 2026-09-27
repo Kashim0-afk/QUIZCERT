@@ -52,7 +52,7 @@
   {
     "id": "cld-003",
     "cert": ["IT Generale - Cloud"],
-    "topics": ["Scalabilita"],
+    "topics": ["Scalabilità"],
     "type": "single",
     "difficulty": 1,
     "question": "Quale caratteristica essenziale del cloud permette a un utente di attivare risorse di calcolo (es. una nuova macchina virtuale) autonomamente, tramite un portale o API, senza dover interagire con un operatore del provider?",
@@ -77,7 +77,7 @@
   {
     "id": "cld-004",
     "cert": ["IT Generale - Cloud"],
-    "topics": ["Responsabilita condivisa"],
+    "topics": ["Responsabilità condivisa"],
     "type": "single",
     "difficulty": 2,
     "question": "Nel modello di responsabilità condivisa, utilizzando un servizio IaaS, chi è responsabile dell'applicazione delle patch di sicurezza al sistema operativo della macchina virtuale?",
@@ -102,7 +102,7 @@
   {
     "id": "cld-005",
     "cert": ["IT Generale - Cloud"],
-    "topics": ["Scalabilita"],
+    "topics": ["Scalabilità"],
     "type": "single",
     "difficulty": 2,
     "question": "Un servizio web viene potenziato aggiungendo più istanze identiche dietro un bilanciatore di carico per distribuire le richieste. Quale tipo di scalabilità è stato applicato?",
@@ -127,7 +127,7 @@
   {
     "id": "cld-006",
     "cert": ["IT Generale - Cloud"],
-    "topics": ["Scalabilita"],
+    "topics": ["Scalabilità"],
     "type": "single",
     "difficulty": 2,
     "question": "Per proteggere un'applicazione dal guasto di un intero data center pur restando in un'area geografica, come è consigliabile distribuire i carichi di lavoro?",
@@ -252,7 +252,7 @@
   {
     "id": "cld-011",
     "cert": ["IT Generale - Cloud"],
-    "topics": ["IaaS/PaaS/SaaS", "Responsabilita condivisa"],
+    "topics": ["IaaS/PaaS/SaaS", "Responsabilità condivisa"],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti affermazioni sul modello SaaS (Software as a Service) sono corrette? (Seleziona 2)",
@@ -275,7 +275,7 @@
   {
     "id": "cld-012",
     "cert": ["IT Generale - Cloud"],
-    "topics": ["Scalabilita"],
+    "topics": ["Scalabilità"],
     "type": "multi",
     "difficulty": 2,
     "question": "Quali delle seguenti sono caratteristiche essenziali del cloud computing secondo la definizione NIST? (Seleziona 2)",
@@ -321,7 +321,7 @@
   {
     "id": "cld-014",
     "cert": ["IT Generale - Cloud"],
-    "topics": ["Responsabilita condivisa"],
+    "topics": ["Responsabilità condivisa"],
     "type": "truefalse",
     "difficulty": 1,
     "question": "Nel modello di responsabilità condivisa, la sicurezza fisica dei data center (edifici, hardware, accesso fisico) è responsabilità del provider cloud.",
@@ -342,7 +342,7 @@
   {
     "id": "cld-015",
     "cert": ["IT Generale - Cloud"],
-    "topics": ["Scalabilita"],
+    "topics": ["Scalabilità"],
     "type": "truefalse",
     "difficulty": 2,
     "question": "La scalabilità verticale consiste nell'aggiungere più macchine identiche al sistema per distribuire il carico.",

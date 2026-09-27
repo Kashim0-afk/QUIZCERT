@@ -20,11 +20,11 @@
     "correct": [
       1
     ],
-    "explanation": "Una Performance SLA invia pacchetti probe (ICMP, HTTP, DNS, TCP-echo, ecc.) verso un server e misura latenza, jitter e packet loss del membro. Queste metriche vengono confrontate con le soglie (SLA target) per determinare se il link e' in-SLA o out-of-SLA, guidando lo steering.",
+    "explanation": "Una Performance SLA invia pacchetti probe (ICMP, HTTP, DNS, TCP-echo, ecc.) verso un server e misura latenza, jitter e packet loss del membro. Queste metriche vengono confrontate con le soglie (SLA target) per determinare se il link è in-SLA o out-of-SLA, guidando lo steering.",
     "why_wrong": {
-      "0": "La banda residua non e' cio' che l'health-check misura; SD-WAN valuta latenza/jitter/loss, non la capacita' disponibile del link.",
+      "0": "La banda residua non è ciò che l'health-check misura; SD-WAN valuta latenza/jitter/loss, non la capacità disponibile del link.",
       "2": "CPU e memoria sono metriche di sistema del FortiGate, non parametri della Performance SLA di un membro SD-WAN.",
-      "3": "Il conteggio delle sessioni non fa parte delle metriche di qualita' misurate dall'health-check SLA."
+      "3": "Il conteggio delle sessioni non fa parte delle metriche di qualità misurate dall'health-check SLA."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
     "question_en": "What does an SD-WAN Performance SLA (health-check) on FortiGate measure to evaluate the quality of a member?",
@@ -62,9 +62,9 @@
     "correct": [
       1
     ],
-    "explanation": "ADVPN (Auto-Discovery VPN) consente agli spoke di stabilire tunnel shortcut dinamici e diretti tra loro. Il primo pacchetto passa dall'hub, che invia messaggi di shortcut-offer/forward (basati su IKE) affinche' gli spoke negozino un tunnel IPsec diretto, alleggerendo l'hub ed evitando la full-mesh statica.",
+    "explanation": "ADVPN (Auto-Discovery VPN) consente agli spoke di stabilire tunnel shortcut dinamici e diretti tra loro. Il primo pacchetto passa dall'hub, che invia messaggi di shortcut-offer/forward (basati su IKE) affinché gli spoke negozino un tunnel IPsec diretto, alleggerendo l'hub ed evitando la full-mesh statica.",
     "why_wrong": {
-      "0": "L'intero scopo di ADVPN e' evitare di far transitare permanentemente il traffico dall'hub creando shortcut diretti.",
+      "0": "L'intero scopo di ADVPN è evitare di far transitare permanentemente il traffico dall'hub creando shortcut diretti.",
       "2": "I tunnel shortcut sono negoziati dinamicamente dagli spoke, non configurati manualmente sull'hub per ogni coppia.",
       "3": "I tunnel ADVPN sono IPsec cifrati negoziati via IKE, non tunnel GRE in chiaro."
     },
@@ -94,7 +94,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "In una rete iBGP di grandi dimensioni su FortiGate, quale funzione elimina la necessita' di una full-mesh tra tutti i peer iBGP?",
+    "question": "In una rete iBGP di grandi dimensioni su FortiGate, quale funzione elimina la necessità di una full-mesh tra tutti i peer iBGP?",
     "options": [
       "Route Reflector",
       "Aumentare il valore di local-preference su tutti i peer",
@@ -104,7 +104,7 @@
     "correct": [
       0
     ],
-    "explanation": "Un Route Reflector (RR) ridistribuisce (reflect) le rotte iBGP apprese da un client verso gli altri client, superando la regola split-horizon iBGP che impedirebbe la propagazione. Cosi' non serve una full-mesh iBGP (n*(n-1)/2 sessioni), migliorando la scalabilita'.",
+    "explanation": "Un Route Reflector (RR) ridistribuisce (reflect) le rotte iBGP apprese da un client verso gli altri client, superando la regola split-horizon iBGP che impedirebbe la propagazione. Così non serve una full-mesh iBGP (n*(n-1)/2 sessioni), migliorando la scalabilità.",
     "why_wrong": {
       "1": "Local-preference influenza la selezione del best path in uscita, non risolve il requisito di full-mesh iBGP.",
       "2": "Graceful-restart preserva il forwarding durante il restart del control-plane, non riguarda la topologia dei peer iBGP.",
@@ -136,21 +136,21 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "Dopo una modifica alle firewall policy, quale meccanismo fa si' che FortiGate rivaluti le sessioni gia' stabilite?",
+    "question": "Dopo una modifica alle firewall policy, quale meccanismo fa sì che FortiGate rivaluti le sessioni già stabilite?",
     "options": [
       "Tutte le sessioni vengono immediatamente terminate e ricreate da zero",
       "Il flag 'dirty' viene impostato sulla sessione, forzando una nuova valutazione contro le policy al pacchetto successivo",
-      "Le sessioni esistenti restano invariate finche' non scadono per timeout",
+      "Le sessioni esistenti restano invariate finché non scadono per timeout",
       "Il FortiGate riavvia il processo IPS per applicare le nuove policy"
     ],
     "correct": [
       1
     ],
-    "explanation": "Quando le policy cambiano, FortiGate marca le sessioni interessate con il flag 'dirty' (visibile in 'diagnose sys session list'). Al pacchetto successivo la sessione viene rivalutata contro il policy set aggiornato; se ancora consentita prosegue, altrimenti viene scartata. Cio' evita di azzerare inutilmente tutte le sessioni.",
+    "explanation": "Quando le policy cambiano, FortiGate marca le sessioni interessate con il flag 'dirty' (visibile in 'diagnose sys session list'). Al pacchetto successivo la sessione viene rivalutata contro il policy set aggiornato; se ancora consentita prosegue, altrimenti viene scartata. Ciò evita di azzerare inutilmente tutte le sessioni.",
     "why_wrong": {
       "0": "FortiGate non termina indiscriminatamente tutte le sessioni: le marca dirty e le rivaluta selettivamente.",
       "2": "Le sessioni non restano ignorate fino al timeout; il flag dirty ne forza la rivalutazione al pacchetto successivo.",
-      "3": "Il riavvio del processo IPS non e' il meccanismo con cui vengono riapplicate le policy alle sessioni esistenti."
+      "3": "Il riavvio del processo IPS non è il meccanismo con cui vengono riapplicate le policy alle sessioni esistenti."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
     "question_en": "After a change to the firewall policies, which mechanism makes FortiGate re-evaluate already established sessions?",
@@ -177,7 +177,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Nel comando 'diagnose sniffer packet', quale e' il livello di verbosita' minimo che aggiunge il nome dell'interfaccia all'output?",
+    "question": "Nel comando 'diagnose sniffer packet', quale è il livello di verbosità minimo che aggiunge il nome dell'interfaccia all'output?",
     "options": [
       "1",
       "2",
@@ -187,11 +187,11 @@
     "correct": [
       2
     ],
-    "explanation": "I livelli di verbosita' 4, 5 e 6 includono il nome dell'interfaccia nell'output: il 4 e' il minimo che lo fa (header + interface name). I livelli 1-3 mostrano rispettivamente header, header+payload IP e header+payload Ethernet, ma senza il nome interfaccia. Conoscere l'interfaccia e' cruciale per capire ingresso/uscita del pacchetto.",
+    "explanation": "I livelli di verbosità 4, 5 e 6 includono il nome dell'interfaccia nell'output: il 4 è il minimo che lo fa (header + interface name). I livelli 1-3 mostrano rispettivamente header, header+payload IP e header+payload Ethernet, ma senza il nome interfaccia. Conoscere l'interfaccia è cruciale per capire ingresso/uscita del pacchetto.",
     "why_wrong": {
-      "0": "Il livello 1 stampa solo l'header dei pacchetti, senza payload ne' nome interfaccia.",
+      "0": "Il livello 1 stampa solo l'header dei pacchetti, senza payload né nome interfaccia.",
       "1": "Il livello 2 stampa header e payload dal livello IP, ma non il nome dell'interfaccia.",
-      "3": "Il livello 6 mostra il nome interfaccia ma include anche header+payload Ethernet: non e' il livello minimo richiesto."
+      "3": "Il livello 6 mostra il nome interfaccia ma include anche header+payload Ethernet: non è il livello minimo richiesto."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
     "question_en": "In the 'diagnose sniffer packet' command, what is the minimum verbosity level that adds the interface name to the output?",
@@ -220,7 +220,7 @@
     "difficulty": 3,
     "question": "In un cluster HA FortiGate, quale impostazione consente la sincronizzazione delle sessioni connectionless (UDP/ICMP) tra i membri?",
     "options": [
-      "set session-pickup enable (da solo e' sufficiente per UDP/ICMP)",
+      "set session-pickup enable (da solo è sufficiente per UDP/ICMP)",
       "set session-pickup-connectionless enable",
       "set override enable",
       "set ha-direct enable"
@@ -228,10 +228,10 @@
     "correct": [
       1
     ],
-    "explanation": "'session-pickup enable' sincronizza le sessioni TCP. Per estendere la sincronizzazione alle sessioni connectionless come UDP e ICMP occorre abilitare esplicitamente 'set session-pickup-connectionless enable' (prerequisito: session-pickup attivo). Cosi' anche questi flussi sopravvivono a un failover senza rinegoziazione.",
+    "explanation": "'session-pickup enable' sincronizza le sessioni TCP. Per estendere la sincronizzazione alle sessioni connectionless come UDP e ICMP occorre abilitare esplicitamente 'set session-pickup-connectionless enable' (prerequisito: session-pickup attivo). Così anche questi flussi sopravvivono a un failover senza rinegoziazione.",
     "why_wrong": {
       "0": "session-pickup da solo copre le sessioni TCP; le connectionless richiedono l'opzione dedicata session-pickup-connectionless.",
-      "2": "override riguarda la stabilita' del ruolo primario nel cluster, non la sincronizzazione delle sessioni UDP/ICMP.",
+      "2": "override riguarda la stabilità del ruolo primario nel cluster, non la sincronizzazione delle sessioni UDP/ICMP.",
       "3": "ha-direct configura la gestione dedicata dell'heartbeat/mgmt, non abilita il pickup delle sessioni connectionless."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
@@ -259,7 +259,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "Quale strategia di una SD-WAN rule seleziona, tra i membri conformi alla SLA, quello con la priorita'/costo piu' basso?",
+    "question": "Quale strategia di una SD-WAN rule seleziona, tra i membri conformi alla SLA, quello con la priorità/costo più basso?",
     "options": [
       "Manual",
       "Best Quality",
@@ -269,11 +269,11 @@
     "correct": [
       2
     ],
-    "explanation": "La strategia 'Lowest Cost (SLA)' considera solo i membri che rispettano la SLA e tra questi sceglie quello con il valore di cost/priorita' piu' basso, garantendo il percorso piu' economico ma comunque in-SLA. Se il membro preferito esce dalla SLA, lo steering passa al successivo conforme.",
+    "explanation": "La strategia 'Lowest Cost (SLA)' considera solo i membri che rispettano la SLA e tra questi sceglie quello con il valore di cost/priorità più basso, garantendo il percorso più economico ma comunque in-SLA. Se il membro preferito esce dalla SLA, lo steering passa al successivo conforme.",
     "why_wrong": {
-      "0": "'Manual' assegna i membri secondo un ordine di priorita' fisso definito dall'amministratore, senza logica di costo minimo automatica basata su SLA.",
-      "1": "'Best Quality' seleziona il membro con la migliore metrica di qualita' misurata (es. latenza minima), non quello a costo minimo.",
-      "3": "'Maximize Bandwidth (SLA)' distribuisce il traffico (load balancing) tra tutti i membri in-SLA per massimizzare la banda, non sceglie il costo piu' basso."
+      "0": "'Manual' assegna i membri secondo un ordine di priorità fisso definito dall'amministratore, senza logica di costo minimo automatica basata su SLA.",
+      "1": "'Best Quality' seleziona il membro con la migliore metrica di qualità misurata (es. latenza minima), non quello a costo minimo.",
+      "3": "'Maximize Bandwidth (SLA)' distribuisce il traffico (load balancing) tra tutti i membri in-SLA per massimizzare la banda, non sceglie il costo più basso."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
     "question_en": "Which SD-WAN rule strategy selects, among the SLA-compliant members, the one with the lowest priority/cost?",
@@ -352,11 +352,11 @@
     "correct": [
       0
     ],
-    "explanation": "IKE Mode Config permette all'hub dial-up di distribuire dinamicamente indirizzi IP, DNS e altri parametri ai client remoti durante la negoziazione IKE, in modo analogo a un DHCP-over-IPsec. E' tipico degli scenari dial-up dove i peer hanno IP dinamici.",
+    "explanation": "IKE Mode Config permette all'hub dial-up di distribuire dinamicamente indirizzi IP, DNS e altri parametri ai client remoti durante la negoziazione IKE, in modo analogo a un DHCP-over-IPsec. È tipico degli scenari dial-up dove i peer hanno IP dinamici.",
     "why_wrong": {
       "1": "DPD rileva la perdita del peer per rimuovere SA inattive; non assegna parametri IP ai client.",
       "2": "PFS garantisce chiavi di sessione indipendenti tramite nuovo scambio DH; non ha ruolo nell'assegnazione di indirizzi.",
-      "3": "XAuth aggiunge un'autenticazione utente extra sopra IKE, ma non e' il meccanismo che assegna IP/DNS (quello e' Mode Config)."
+      "3": "XAuth aggiunge un'autenticazione utente extra sopra IKE, ma non è il meccanismo che assegna IP/DNS (quello è Mode Config)."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
     "question_en": "In a dial-up IPsec configuration on FortiGate, which function dynamically assigns IP parameters (address, DNS) to remote clients?",
@@ -387,7 +387,7 @@
     "question": "Quali due elementi fanno parte della configurazione di una Performance SLA (health-check) SD-WAN? (seleziona 2)",
     "options": [
       "Il server/target da monitorare (detect server) e le interfacce membro partecipanti",
-      "Le soglie di qualita' (latency/jitter/packet-loss threshold) che definiscono lo stato in-SLA",
+      "Le soglie di qualità (latency/jitter/packet-loss threshold) che definiscono lo stato in-SLA",
       "La chiave pre-shared del tunnel IPsec sottostante",
       "Il numero massimo di prefissi BGP accettati dal neighbor"
     ],
@@ -395,10 +395,10 @@
       0,
       1
     ],
-    "explanation": "Una Performance SLA definisce quale server/target sondare, su quali membri, con quale protocollo probe, e le soglie di latenza/jitter/packet-loss (piu' link-cost-factor) che stabiliscono quando un membro e' in-SLA o out-of-SLA. Questi due elementi sono il cuore della configurazione dell'health-check.",
+    "explanation": "Una Performance SLA definisce quale server/target sondare, su quali membri, con quale protocollo probe, e le soglie di latenza/jitter/packet-loss (più link-cost-factor) che stabiliscono quando un membro è in-SLA o out-of-SLA. Questi due elementi sono il cuore della configurazione dell'health-check.",
     "why_wrong": {
-      "2": "La PSK e' un parametro della fase1 IPsec, non della configurazione dell'health-check SLA.",
-      "3": "Il limite di prefissi (maximum-prefix) e' un parametro BGP, estraneo alla Performance SLA di SD-WAN."
+      "2": "La PSK è un parametro della fase1 IPsec, non della configurazione dell'health-check SLA.",
+      "3": "Il limite di prefissi (maximum-prefix) è un parametro BGP, estraneo alla Performance SLA di SD-WAN."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
     "question_en": "Which two elements are part of the configuration of an SD-WAN Performance SLA (health-check)? (select 2)",
@@ -437,10 +437,10 @@
       0,
       1
     ],
-    "explanation": "ADVPN richiede che l'hub e gli spoke abbiano i parametri di auto-discovery abilitati sulle fasi 1 (auto-discovery-forwarder sull'hub, sender/receiver sugli spoke) e un protocollo di routing dinamico (tipicamente BGP, spesso con net-device enable) per propagare le reti dietro gli spoke, cosi' i shortcut dinamici possano essere risolti e usati.",
+    "explanation": "ADVPN richiede che l'hub e gli spoke abbiano i parametri di auto-discovery abilitati sulle fasi 1 (auto-discovery-forwarder sull'hub, sender/receiver sugli spoke) e un protocollo di routing dinamico (tipicamente BGP, spesso con net-device enable) per propagare le reti dietro gli spoke, così i shortcut dinamici possano essere risolti e usati.",
     "why_wrong": {
-      "2": "ADVPN funziona anche attraverso NAT; non e' richiesto disabilitare il NAT su tutte le WAN degli spoke.",
-      "3": "Web Filter e' una funzione UTM di FortiGuard e non ha alcun ruolo nel funzionamento di ADVPN."
+      "2": "ADVPN funziona anche attraverso NAT; non è richiesto disabilitare il NAT su tutte le WAN degli spoke.",
+      "3": "Web Filter è una funzione UTM di FortiGuard e non ha alcun ruolo nel funzionamento di ADVPN."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
     "question_en": "Which two elements are required to make ADVPN work correctly on FortiGate? (select 2)",
@@ -469,18 +469,18 @@
     "question": "Riguardo a sincronizzazione e failover in un cluster HA FortiGate, quali due affermazioni sono corrette? (seleziona 2)",
     "options": [
       "L'heartbeat monitora lo stato dei membri e innesca il failover se il primario diventa irraggiungibile",
-      "Il port monitoring puo' innescare un failover se un'interfaccia monitorata perde il collegamento",
+      "Il port monitoring può innescare un failover se un'interfaccia monitorata perde il collegamento",
       "Le configurazioni non vengono mai sincronizzate automaticamente tra i membri del cluster",
-      "Con override abilitato il primario e' sempre scelto in base al numero di seriale piu' basso"
+      "Con override abilitato il primario è sempre scelto in base al numero di seriale più basso"
     ],
     "correct": [
       0,
       1
     ],
-    "explanation": "L'heartbeat (su interfacce dedicate) verifica costantemente la presenza dei membri e avvia il failover se il primario non risponde. Il monitoring delle interfacce (port monitor) fa scattare un failover quando un link monitorato cade, anche se il resto del dispositivo e' operativo. Insieme garantiscono alta disponibilita'.",
+    "explanation": "L'heartbeat (su interfacce dedicate) verifica costantemente la presenza dei membri e avvia il failover se il primario non risponde. Il monitoring delle interfacce (port monitor) fa scattare un failover quando un link monitorato cade, anche se il resto del dispositivo è operativo. Insieme garantiscono alta disponibilità.",
     "why_wrong": {
-      "2": "In HA le configurazioni SONO sincronizzate automaticamente tra i membri (config sync); l'affermazione e' errata.",
-      "3": "Con override abilitato prevale la priorita' HA configurata (e poi altri criteri come uptime/seriale), non necessariamente il seriale piu' basso; inoltre e' la priorita', non il seriale, a essere valutata per prima."
+      "2": "In HA le configurazioni SONO sincronizzate automaticamente tra i membri (config sync); l'affermazione è errata.",
+      "3": "Con override abilitato prevale la priorità HA configurata (e poi altri criteri come uptime/seriale), non necessariamente il seriale più basso; inoltre è la priorità, non il seriale, a essere valutata per prima."
     },
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
     "question_en": "Regarding synchronization and failover in a FortiGate HA cluster, which two statements are correct? (select 2)",
@@ -514,7 +514,7 @@
     "correct": [
       0
     ],
-    "explanation": "Vero. Il debug flow mostra passo-passo come il FortiGate processa un pacchetto: consultazione della routing table, selezione della policy, decisioni di NAT e invio ai motori UTM. E' uno strumento chiave per capire perche' un flusso viene consentito, scartato o instradato in un certo modo, complementare al packet sniffer.",
+    "explanation": "Vero. Il debug flow mostra passo-passo come il FortiGate processa un pacchetto: consultazione della routing table, selezione della policy, decisioni di NAT e invio ai motori UTM. È uno strumento chiave per capire perché un flusso viene consentito, scartato o instradato in un certo modo, complementare al packet sniffer.",
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
     "question_en": "The 'diagnose debug flow' command allows you to trace the path of a packet through the FortiGate's processing stages (route lookup, policy lookup, UTM/NAT application). True or False?",
     "options_en": [
@@ -542,7 +542,7 @@
     "correct": [
       1
     ],
-    "explanation": "Falso. BGP effettua la risoluzione ricorsiva del next-hop: se il next-hop annunciato non e' raggiungibile secondo la routing table, la rotta e' considerata non valida e non viene installata nella FIB. Occorre quindi assicurarsi che il next-hop sia risolvibile (spesso tramite IGP o 'set next-hop-self' su un RR/border), altrimenti il best path non viene selezionato.",
+    "explanation": "Falso. BGP effettua la risoluzione ricorsiva del next-hop: se il next-hop annunciato non è raggiungibile secondo la routing table, la rotta è considerata non valida e non viene installata nella FIB. Occorre quindi assicurarsi che il next-hop sia risolvibile (spesso tramite IGP o 'set next-hop-self' su un RR/border), altrimenti il best path non viene selezionato.",
     "source": "Fortinet NSE7 (Enterprise Firewall/SD-WAN)",
     "question_en": "In BGP on FortiGate, a route whose next-hop is unreachable in the routing table is still installed in the FIB and used to forward traffic. True or False?",
     "options_en": [

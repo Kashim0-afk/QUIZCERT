@@ -55,11 +55,11 @@
       "Utility is guaranteed by the customer, warranty is guaranteed by external providers"
     ],
     "correct": [1],
-    "explanation": "L'utility (fitness for purpose) è cio che il servizio fa, ossia le funzionalità offerte per soddisfare una specifica esigenza. La warranty (fitness for use) è la garanzia che il servizio soddisfi requisiti concordati come disponibilità, capacità, sicurezza e continuità. Il valore richiede sia utility sia warranty.",
+    "explanation": "L'utility (fitness for purpose) è ciò che il servizio fa, ossia le funzionalità offerte per soddisfare una specifica esigenza. La warranty (fitness for use) è la garanzia che il servizio soddisfi requisiti concordati come disponibilità, capacità, sicurezza e continuità. Il valore richiede sia utility sia warranty.",
     "explanation_en": "Utility (fitness for purpose) is what the service does, that is the functionality offered to meet a specific need. Warranty (fitness for use) is the assurance that the service meets agreed requirements such as availability, capacity, security and continuity. Value requires both utility and warranty.",
     "why_wrong": {
-      "0": "Ne utility ne warranty riguardano costo o prezzo; descrivono rispettivamente funzionalita e livelli di prestazione garantiti.",
-      "2": "Invertite: la sicurezza e la continuita appartengono alla warranty, mentre le funzionalita appartengono all'utility.",
+      "0": "Ne utility ne warranty riguardano costo o prezzo; descrivono rispettivamente funzionalità e livelli di prestazione garantiti.",
+      "2": "Invertite: la sicurezza e la continuità appartengono alla warranty, mentre le funzionalità appartengono all'utility.",
       "3": "Utility e warranty non sono definite in base a chi le garantisce; entrambe sono attributi del servizio che concorrono al valore."
     },
     "why_wrong_en": {
@@ -80,7 +80,7 @@
     "options": [
       "Il costo totale sostenuto dal fornitore per erogare un servizio",
       "Il numero di incidenti risolti entro i tempi concordati",
-      "I benefici, l'utilita e l'importanza percepiti di qualcosa, co-creati dal fornitore e dal consumatore",
+      "I benefici, l'utilità e l'importanza percepiti di qualcosa, co-creati dal fornitore e dal consumatore",
       "La somma delle risorse tecnologiche disponibili nell'organizzazione"
     ],
     "options_en": [
@@ -116,7 +116,7 @@
       "Organizzazioni e persone",
       "Informazioni e tecnologia",
       "Partner e fornitori",
-      "Governance e conformita"
+      "Governance e conformità"
     ],
     "options_en": [
       "Organizations and people",
@@ -125,7 +125,7 @@
       "Governance and compliance"
     ],
     "correct": [3],
-    "explanation": "Le quattro dimensioni del service management sono: Organizzazioni e persone, Informazioni e tecnologia, Partner e fornitori, Flussi di valore e processi. 'Governance e conformita' non è una delle quattro dimensioni (la governance è invece un componente del Service Value System).",
+    "explanation": "Le quattro dimensioni del service management sono: Organizzazioni e persone, Informazioni e tecnologia, Partner e fornitori, Flussi di valore e processi. 'Governance e conformità non è una delle quattro dimensioni (la governance è invece un componente del Service Value System).",
     "explanation_en": "The four dimensions of service management are: Organizations and people, Information and technology, Partners and suppliers, Value streams and processes. 'Governance and compliance' is not one of the four dimensions (governance is instead a component of the Service Value System).",
     "why_wrong": {
       "0": "È una delle quattro dimensioni: riguarda struttura organizzativa, ruoli, cultura e competenze.",
@@ -148,7 +148,7 @@
     "question": "Qual è lo scopo del Service Value System (SVS) di ITIL 4?",
     "question_en": "What is the purpose of the ITIL 4 Service Value System (SVS)?",
     "options": [
-      "Descrivere come tutti i componenti e le attivita di un'organizzazione lavorano insieme per abilitare la creazione di valore",
+      "Descrivere come tutti i componenti e le attività di un'organizzazione lavorano insieme per abilitare la creazione di valore",
       "Definire l'elenco completo di tutti i server e le applicazioni gestite",
       "Sostituire completamente qualsiasi altro framework di gestione utilizzato dall'organizzazione",
       "Fornire un contratto legale tra fornitore di servizi e cliente"
@@ -180,7 +180,7 @@
     "topics": ["Service Value Chain"],
     "type": "single",
     "difficulty": 2,
-    "question": "Quale attivita della Service Value Chain ha lo scopo di garantire una buona comprensione dei bisogni degli stakeholder, la trasparenza e relazioni continue con essi?",
+    "question": "Quale attività della Service Value Chain ha lo scopo di garantire una buona comprensione dei bisogni degli stakeholder, la trasparenza e relazioni continue con essi?",
     "question_en": "Which Service Value Chain activity has the purpose of ensuring a good understanding of stakeholder needs, transparency and ongoing relationships with them?",
     "options": [
       "Deliver and support (Eroga e supporta)",
@@ -215,7 +215,7 @@
     "topics": ["Principi guida"],
     "type": "single",
     "difficulty": 1,
-    "question": "Quale principio guida raccomanda di comprendere lo stato attuale e riutilizzare cio che gia esiste, invece di ricominciare da zero senza valutare cosa è disponibile?",
+    "question": "Quale principio guida raccomanda di comprendere lo stato attuale e riutilizzare ciò che già esiste, invece di ricominciare da zero senza valutare cosa è disponibile?",
     "question_en": "Which guiding principle recommends understanding the current state and reusing what already exists, instead of starting from scratch without assessing what is available?",
     "options": [
       "Focus on value (Concentrarsi sul valore)",
@@ -230,10 +230,10 @@
       "Optimize and automate"
     ],
     "correct": [2],
-    "explanation": "Il principio 'Start where you are' (Partire da dove ci si trova) invita a non ripartire da zero senza aver prima valutato cio che è gia disponibile: si osserva direttamente lo stato attuale e si riutilizza il piu possibile cio che esiste gia.",
+    "explanation": "Il principio 'Start where you are' (Partire da dove ci si trova) invita a non ripartire da zero senza aver prima valutato ciò che è già disponibile: si osserva direttamente lo stato attuale e si riutilizza il più possibile ciò che esiste già.",
     "explanation_en": "The 'Start where you are' principle advises not to start again from scratch without first assessing what is already available: you directly observe the current state and reuse as much as possible of what already exists.",
     "why_wrong": {
-      "0": "'Focus on value' riguarda il concentrarsi su cio che crea valore per i consumatori e gli stakeholder, non sul riuso dell'esistente.",
+      "0": "'Focus on value' riguarda il concentrarsi su ciò che crea valore per i consumatori e gli stakeholder, non sul riuso dell'esistente.",
       "1": "'Keep it simple and practical' invita a eliminare passaggi che non aggiungono valore, non specificamente a partire dallo stato attuale.",
       "3": "'Optimize and automate' riguarda l'ottimizzazione delle risorse e l'automazione dove possibile, non la valutazione dello stato di partenza."
     },
@@ -253,7 +253,7 @@
     "question": "Qual è lo scopo della pratica di Incident Management?",
     "question_en": "What is the purpose of the Incident Management practice?",
     "options": [
-      "Ridurre al minimo l'impatto negativo degli incidenti ripristinando il normale funzionamento del servizio il piu rapidamente possibile",
+      "Ridurre al minimo l'impatto negativo degli incidenti ripristinando il normale funzionamento del servizio il più rapidamente possibile",
       "Identificare ed eliminare le cause profonde degli incidenti nel tempo",
       "Assicurare che i cambiamenti siano valutati e autorizzati correttamente",
       "Registrare e soddisfare le richieste di servizio predefinite degli utenti"
@@ -265,7 +265,7 @@
       "To record and fulfill users' predefined service requests"
     ],
     "correct": [0],
-    "explanation": "Lo scopo dell'Incident Management è minimizzare l'impatto negativo degli incidenti ripristinando il normale funzionamento del servizio il piu rapidamente possibile. Un incidente è un'interruzione non pianificata di un servizio o una riduzione della sua qualita.",
+    "explanation": "Lo scopo dell'Incident Management è minimizzare l'impatto negativo degli incidenti ripristinando il normale funzionamento del servizio il più rapidamente possibile. Un incidente è un'interruzione non pianificata di un servizio o una riduzione della sua qualità.",
     "explanation_en": "The purpose of Incident Management is to minimize the negative impact of incidents by restoring normal service operation as quickly as possible. An incident is an unplanned interruption of a service or a reduction in its quality.",
     "why_wrong": {
       "1": "Identificare ed eliminare le cause profonde è lo scopo del Problem Management, non dell'Incident Management, che punta al ripristino rapido.",
@@ -288,8 +288,8 @@
     "question": "Qual è lo scopo della pratica di Problem Management?",
     "question_en": "What is the purpose of the Problem Management practice?",
     "options": [
-      "Ripristinare il servizio il piu rapidamente possibile dopo un'interruzione",
-      "Ridurre la probabilita e l'impatto degli incidenti identificando cause effettive e potenziali e gestendo workaround ed errori noti",
+      "Ripristinare il servizio il più rapidamente possibile dopo un'interruzione",
+      "Ridurre la probabilità e l'impatto degli incidenti identificando cause effettive e potenziali e gestendo workaround ed errori noti",
       "Massimizzare il numero di cambiamenti andati a buon fine",
       "Fornire un unico punto di contatto tra il fornitore e gli utenti"
     ],
@@ -300,7 +300,7 @@
       "To provide a single point of contact between the provider and the users"
     ],
     "correct": [1],
-    "explanation": "Il Problem Management ha lo scopo di ridurre la probabilita e l'impatto degli incidenti identificando le cause effettive e potenziali degli incidenti e gestendo workaround ed errori noti. Un problem è una causa, o potenziale causa, di uno o piu incidenti.",
+    "explanation": "Il Problem Management ha lo scopo di ridurre la probabilità e l'impatto degli incidenti identificando le cause effettive e potenziali degli incidenti e gestendo workaround ed errori noti. Un problem è una causa, o potenziale causa, di uno o più incidenti.",
     "explanation_en": "Problem Management has the purpose of reducing the likelihood and impact of incidents by identifying the actual and potential causes of incidents and managing workarounds and known errors. A problem is a cause, or potential cause, of one or more incidents.",
     "why_wrong": {
       "0": "Il ripristino rapido del servizio è lo scopo dell'Incident Management, non del Problem Management.",
@@ -323,7 +323,7 @@
     "question": "Qual è lo scopo della pratica di Change Enablement (Abilitazione dei cambiamenti)?",
     "question_en": "What is the purpose of the Change Enablement practice?",
     "options": [
-      "Impedire qualsiasi modifica ai servizi per garantire la massima stabilita",
+      "Impedire qualsiasi modifica ai servizi per garantire la massima stabilità",
       "Massimizzare il numero di cambiamenti di servizio e di prodotto andati a buon fine, assicurando che i rischi siano valutati correttamente, autorizzando i cambiamenti e gestendo il change schedule",
       "Rispondere alle richieste di servizio standard degli utenti",
       "Analizzare le tendenze degli incidenti per individuare i problem sottostanti"
@@ -338,7 +338,7 @@
     "explanation": "Lo scopo del Change Enablement è massimizzare il numero di cambiamenti di servizio e prodotto riusciti, garantendo che i rischi siano stati valutati adeguatamente, autorizzando i cambiamenti e gestendo il programma dei cambiamenti (change schedule).",
     "explanation_en": "The purpose of Change Enablement is to maximize the number of successful service and product changes, ensuring that risks have been properly assessed, authorizing changes and managing the change schedule.",
     "why_wrong": {
-      "0": "Il Change Enablement non blocca i cambiamenti: li abilita bilanciando la necessita di cambiare con la protezione dei clienti dagli impatti negativi.",
+      "0": "Il Change Enablement non blocca i cambiamenti: li abilita bilanciando la necessità di cambiare con la protezione dei clienti dagli impatti negativi.",
       "2": "Rispondere alle richieste standard è compito del Service Request Management.",
       "3": "L'analisi delle tendenze per individuare cause è propria del Problem Management."
     },
@@ -388,7 +388,7 @@
     "question": "Quali DUE delle seguenti sono principi guida di ITIL 4? (Seleziona due)",
     "question_en": "Which TWO of the following are ITIL 4 guiding principles? (Select two)",
     "options": [
-      "Collaborate and promote visibility (Collaborare e promuovere la visibilita)",
+      "Collaborate and promote visibility (Collaborare e promuovere la visibilità)",
       "Maximize profit at all costs (Massimizzare il profitto a ogni costo)",
       "Progress iteratively with feedback (Progredire iterativamente con feedback)",
       "Centralize all decision making (Centralizzare tutte le decisioni)"
@@ -404,7 +404,7 @@
     "explanation_en": "The seven ITIL 4 guiding principles are: Focus on value, Start where you are, Progress iteratively with feedback, Collaborate and promote visibility, Think and work holistically, Keep it simple and practical, Optimize and automate. 'Collaborate and promote visibility' and 'Progress iteratively with feedback' are two of them.",
     "why_wrong": {
       "1": "'Massimizzare il profitto a ogni costo' non è un principio guida ITIL; ITIL si concentra sulla co-creazione di valore, non sul profitto a ogni costo.",
-      "3": "'Centralizzare tutte le decisioni' non è un principio guida; ITIL promuove collaborazione e visibilita, in contrasto con la centralizzazione forzata."
+      "3": "'Centralizzare tutte le decisioni' non è un principio guida; ITIL promuove collaborazione e visibilità, in contrasto con la centralizzazione forzata."
     },
     "why_wrong_en": {
       "1": "'Maximize profit at all costs' is not an ITIL guiding principle; ITIL focuses on value co-creation, not on profit at all costs.",
@@ -422,7 +422,7 @@
     "question_en": "Which TWO of the following are dimensions of ITIL 4 service management? (Select two)",
     "options": [
       "Flussi di valore e processi",
-      "Rischi e conformita",
+      "Rischi e conformità",
       "Partner e fornitori",
       "Domanda e offerta"
     ],
@@ -436,7 +436,7 @@
     "explanation": "Le quattro dimensioni sono: Organizzazioni e persone, Informazioni e tecnologia, Partner e fornitori, Flussi di valore e processi. 'Flussi di valore e processi' e 'Partner e fornitori' rientrano tra queste quattro.",
     "explanation_en": "The four dimensions are: Organizations and people, Information and technology, Partners and suppliers, Value streams and processes. 'Value streams and processes' and 'Partners and suppliers' are among these four.",
     "why_wrong": {
-      "1": "'Rischi e conformita' non è una delle quattro dimensioni; i rischi sono gestiti attraverso pratiche e governance.",
+      "1": "'Rischi e conformità non è una delle quattro dimensioni; i rischi sono gestiti attraverso pratiche e governance.",
       "3": "'Domanda e offerta' non è una dimensione; sono concetti collegati al valore ma non figurano tra le quattro dimensioni."
     },
     "why_wrong_en": {
@@ -451,7 +451,7 @@
     "topics": ["Service Value Chain"],
     "type": "multi",
     "difficulty": 3,
-    "question": "Quali DUE delle seguenti sono attivita della Service Value Chain? (Seleziona due)",
+    "question": "Quali DUE delle seguenti sono attività della Service Value Chain? (Seleziona due)",
     "question_en": "Which TWO of the following are Service Value Chain activities? (Select two)",
     "options": [
       "Plan (Pianifica)",
@@ -466,11 +466,11 @@
       "Negotiate"
     ],
     "correct": [0, 2],
-    "explanation": "Le sei attivita della Service Value Chain sono: Plan, Improve, Engage, Design and transition, Obtain/build, Deliver and support. 'Plan' e 'Design and transition' sono due di esse.",
+    "explanation": "Le sei attività della Service Value Chain sono: Plan, Improve, Engage, Design and transition, Obtain/build, Deliver and support. 'Plan' e 'Design and transition' sono due di esse.",
     "explanation_en": "The six Service Value Chain activities are: Plan, Improve, Engage, Design and transition, Obtain/build, Deliver and support. 'Plan' and 'Design and transition' are two of them.",
     "why_wrong": {
-      "1": "'Authorize' non è un'attivita della value chain; l'autorizzazione è un'azione della pratica di Change Enablement.",
-      "3": "'Negotiate' non è un'attivita della value chain; il coinvolgimento degli stakeholder è coperto dall'attivita 'Engage'."
+      "1": "'Authorize' non è un'attività della value chain; l'autorizzazione è un'azione della pratica di Change Enablement.",
+      "3": "'Negotiate' non è un'attività della value chain; il coinvolgimento degli stakeholder è coperto dall'attività 'Engage'."
     },
     "why_wrong_en": {
       "1": "'Authorize' is not a value chain activity; authorization is an action of the Change Enablement practice.",

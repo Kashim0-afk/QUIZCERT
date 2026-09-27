@@ -13,9 +13,9 @@
     "explanation": "La Perfect Forward Secrecy si ottiene con scambi di chiavi effimeri (es. ECDHE): per ogni sessione viene generata una chiave di sessione temporanea non derivabile dalla chiave privata a lungo termine. Anche se in futuro quella chiave privata viene rubata, il traffico catturato in precedenza resta protetto.",
     "explanation_en": "Perfect Forward Secrecy is achieved with ephemeral key exchanges (e.g. ECDHE): for each session a temporary session key is generated that cannot be derived from the long-term private key. Even if that private key is later stolen, previously captured traffic remains protected.",
     "why_wrong": {
-      "1": "Il key stretching (es. PBKDF2, bcrypt) rende piu lenta la derivazione di chiavi da password deboli, ma non protegge le sessioni passate dalla compromissione della chiave privata.",
+      "1": "Il key stretching (es. PBKDF2, bcrypt) rende più lenta la derivazione di chiavi da password deboli, ma non protegge le sessioni passate dalla compromissione della chiave privata.",
       "2": "La cifratura ibrida combina algoritmi asimmetrici e simmetrici per efficienza, ma da sola non garantisce che le chiavi di sessione siano indipendenti dalla chiave privata a lungo termine.",
-      "3": "Il certificate pinning lega un client a un certificato o chiave specifici per prevenire attacchi MITM, ma non ha effetto sulla decifrabilita del traffico registrato."
+      "3": "Il certificate pinning lega un client a un certificato o chiave specifici per prevenire attacchi MITM, ma non ha effetto sulla decifrabilità del traffico registrato."
     },
     "why_wrong_en": {
       "1": "Key stretching (e.g. PBKDF2, bcrypt) slows down deriving keys from weak passwords, but it does not protect past sessions from a private-key compromise.",
@@ -30,17 +30,17 @@
     "topics": ["PKI"],
     "type": "single",
     "difficulty": 2,
-    "question": "In una PKI, quale meccanismo consente al server web di allegare esso stesso una risposta di validita del proprio certificato, riducendo il carico sul responder e migliorando la privacy del client?",
+    "question": "In una PKI, quale meccanismo consente al server web di allegare esso stesso una risposta di validità del proprio certificato, riducendo il carico sul responder e migliorando la privacy del client?",
     "question_en": "In a PKI, which mechanism allows the web server to itself attach a validity response for its own certificate, reducing the load on the responder and improving client privacy?",
     "options": ["OCSP stapling", "CRL distribution point", "Key escrow", "Certificate signing request (CSR)"],
     "options_en": ["OCSP stapling", "CRL distribution point", "Key escrow", "Certificate signing request (CSR)"],
     "correct": [0],
-    "explanation": "Con l'OCSP stapling e il server (non il client) a interrogare periodicamente il responder OCSP e ad allegare (staple) la risposta firmata e con timestamp durante l'handshake TLS. Cosi il client non deve contattare la CA, migliorando prestazioni e privacy.",
+    "explanation": "Con l'OCSP stapling e il server (non il client) a interrogare periodicamente il responder OCSP e ad allegare (staple) la risposta firmata e con timestamp durante l'handshake TLS. Così il client non deve contattare la CA, migliorando prestazioni e privacy.",
     "explanation_en": "With OCSP stapling it is the server (not the client) that periodically queries the OCSP responder and attaches (staples) the signed, timestamped response during the TLS handshake. This way the client does not need to contact the CA, improving performance and privacy.",
     "why_wrong": {
-      "1": "La CRL e una lista di certificati revocati scaricata dal client; e piu pesante e meno tempestiva dell'OCSP stapling e non sposta il lavoro sul server.",
+      "1": "La CRL e una lista di certificati revocati scaricata dal client; e più pesante e meno tempestiva dell'OCSP stapling e non sposta il lavoro sul server.",
       "2": "Il key escrow e la custodia di copie delle chiavi presso terze parti per recupero, non riguarda la verifica dello stato di revoca.",
-      "3": "Il CSR e la richiesta che si invia alla CA per ottenere un certificato; non ha alcun ruolo nella verifica di validita durante l'handshake."
+      "3": "Il CSR e la richiesta che si invia alla CA per ottenere un certificato; non ha alcun ruolo nella verifica di validità durante l'handshake."
     },
     "why_wrong_en": {
       "1": "A CRL is a list of revoked certificates downloaded by the client; it is heavier and less timely than OCSP stapling and does not shift the work to the server.",
@@ -60,7 +60,7 @@
     "options": ["ABAC (Attribute-Based Access Control)", "DAC (Discretionary Access Control)", "MAC (Mandatory Access Control)", "Rule-Based Access Control con sole ACL statiche"],
     "options_en": ["ABAC (Attribute-Based Access Control)", "DAC (Discretionary Access Control)", "MAC (Mandatory Access Control)", "Rule-Based Access Control with static ACLs only"],
     "correct": [0],
-    "explanation": "L'ABAC prende decisioni valutando dinamicamente attributi del soggetto, della risorsa, dell'azione e del contesto (orario, posizione, ecc.). La combinazione di piu attributi contestuali e la caratteristica distintiva di questo modello.",
+    "explanation": "L'ABAC prende decisioni valutando dinamicamente attributi del soggetto, della risorsa, dell'azione e del contesto (orario, posizione, ecc.). La combinazione di più attributi contestuali e la caratteristica distintiva di questo modello.",
     "explanation_en": "ABAC makes decisions by dynamically evaluating attributes of the subject, the resource, the action and the context (time, location, etc.). The combination of multiple contextual attributes is the distinctive feature of this model.",
     "why_wrong": {
       "1": "Nel DAC e il proprietario della risorsa a decidere i permessi in modo discrezionale, senza policy che valutano attributi contestuali multipli.",
@@ -80,7 +80,7 @@
     "topics": ["Threat e vulnerabilità"],
     "type": "single",
     "difficulty": 3,
-    "question": "Un'applicazione verifica i permessi di un file e, solo successivamente, lo apre per l'uso; un attaccante sostituisce il file tra i due momenti. Come si chiama questa classe di vulnerabilita?",
+    "question": "Un'applicazione verifica i permessi di un file e, solo successivamente, lo apre per l'uso; un attaccante sostituisce il file tra i due momenti. Come si chiama questa classe di vulnerabilità?",
     "question_en": "An application checks a file's permissions and only afterwards opens it for use; an attacker swaps the file between the two moments. What is this class of vulnerability called?",
     "options": ["Race condition di tipo TOCTOU (Time-of-Check to Time-of-Use)", "Buffer overflow", "SQL injection", "Cross-site request forgery (CSRF)"],
     "options_en": ["A TOCTOU (Time-of-Check to Time-of-Use) race condition", "Buffer overflow", "SQL injection", "Cross-site request forgery (CSRF)"],
@@ -90,7 +90,7 @@
     "why_wrong": {
       "1": "Il buffer overflow deriva dalla scrittura oltre i limiti di un buffer in memoria, non dal cambiamento di stato di una risorsa tra controllo e uso.",
       "2": "La SQL injection inietta comandi SQL tramite input non validato; non riguarda una finestra temporale tra verifica e utilizzo.",
-      "3": "Il CSRF induce il browser della vittima a inviare richieste autenticate non volute; non e una race condition sullo stato di una risorsa."
+      "3": "Il CSRF induce il browser della vittima a inviare richieste autenticate non volute; non è una race condition sullo stato di una risorsa."
     },
     "why_wrong_en": {
       "1": "A buffer overflow results from writing beyond the bounds of a buffer in memory, not from a change in a resource's state between check and use.",
@@ -114,8 +114,8 @@
     "explanation_en": "Buying insurance shifts the financial impact of the risk to a third party (the insurer): this is the definition of risk transfer. The technical residual risk remains, but the financial losses are covered.",
     "why_wrong": {
       "1": "L'accettazione consiste nel non intraprendere azioni e assorbire l'impatto internamente; qui invece si ricorre a un terzo tramite polizza.",
-      "2": "L'evitamento eliminerebbe l'attivita o la tecnologia che genera il rischio; l'azienda continua invece a operare acquistando una copertura.",
-      "3": "La mitigazione riduce probabilita o impatto tramite controlli (es. backup, EDR); la polizza non riduce la probabilita dell'attacco ma ne copre le perdite."
+      "2": "L'evitamento eliminerebbe l'attività o la tecnologia che genera il rischio; l'azienda continua invece a operare acquistando una copertura.",
+      "3": "La mitigazione riduce probabilità o impatto tramite controlli (es. backup, EDR); la polizza non riduce la probabilità dell'attacco ma ne copre le perdite."
     },
     "why_wrong_en": {
       "1": "Acceptance means taking no action and absorbing the impact internally; here instead a third party is used through a policy.",
@@ -135,11 +135,11 @@
     "options": ["Logic bomb", "Worm", "Rootkit", "Ransomware"],
     "options_en": ["Logic bomb", "Worm", "Rootkit", "Ransomware"],
     "correct": [0],
-    "explanation": "Una logic bomb e codice malevolo che rimane dormiente finche non si verifica una condizione specifica (una data, un evento o, come qui, la rimozione dell'account dal libro paga). Al verificarsi del trigger esegue il payload distruttivo.",
+    "explanation": "Una logic bomb e codice malevolo che rimane dormiente finché non si verifica una condizione specifica (una data, un evento o, come qui, la rimozione dell'account dal libro paga). Al verificarsi del trigger esegue il payload distruttivo.",
     "explanation_en": "A logic bomb is malicious code that stays dormant until a specific condition occurs (a date, an event or, as here, removal of the account from the payroll). When the trigger occurs it executes the destructive payload.",
     "why_wrong": {
       "1": "Un worm si autoreplica e si propaga autonomamente in rete; qui il codice non si diffonde ma attende una condizione precisa.",
-      "2": "Un rootkit nasconde la presenza dell'attaccante e mantiene accesso privilegiato; non e definito da un trigger condizionale distruttivo.",
+      "2": "Un rootkit nasconde la presenza dell'attaccante e mantiene accesso privilegiato; non è definito da un trigger condizionale distruttivo.",
       "3": "Il ransomware cifra i dati e chiede un riscatto; nel caso descritto il payload cancella i file al verificarsi di una condizione, senza richiesta di pagamento."
     },
     "why_wrong_en": {
@@ -185,12 +185,12 @@
     "options": ["Rilevamento basato su anomalie (behavior/anomaly-based)", "Rilevamento basato su firme (signature-based)", "Rilevamento basato su liste di blocco statiche", "Rilevamento basato su reputazione IP"],
     "options_en": ["Anomaly-based detection (behavior/anomaly-based)", "Signature-based detection", "Detection based on static block lists", "IP-reputation-based detection"],
     "correct": [0],
-    "explanation": "Il rilevamento basato su anomalie definisce un profilo (baseline) di comportamento normale e genera alert quando il traffico se ne discosta. E efficace anche contro minacce sconosciute o zero-day, al costo di piu falsi positivi.",
+    "explanation": "Il rilevamento basato su anomalie definisce un profilo (baseline) di comportamento normale e genera alert quando il traffico se ne discosta. E efficace anche contro minacce sconosciute o zero-day, al costo di più falsi positivi.",
     "explanation_en": "Anomaly-based detection defines a baseline profile of normal behavior and generates alerts when traffic deviates from it. It is effective even against unknown or zero-day threats, at the cost of more false positives.",
     "why_wrong": {
       "1": "Il rilevamento basato su firme confronta il traffico con pattern noti di attacchi: non usa una baseline e non individua minacce prive di firma.",
       "2": "Le liste di blocco statiche fermano indicatori predefiniti, ma non modellano il comportamento normale ne rilevano deviazioni.",
-      "3": "La reputazione IP valuta l'affidabilita nota di un indirizzo; non costruisce un profilo di comportamento della rete."
+      "3": "La reputazione IP valuta l'affidabilità nota di un indirizzo; non costruisce un profilo di comportamento della rete."
     },
     "why_wrong_en": {
       "1": "Signature-based detection compares traffic against known attack patterns: it does not use a baseline and does not detect signatureless threats.",
@@ -213,9 +213,9 @@
     "explanation": "Nel modello NIST Zero Trust il Policy Engine, insieme al Policy Administrator, forma il Policy Decision Point: e il PE che valuta policy, attributi e segnali (trust algorithm) per decidere se concedere l'accesso. Il PEP poi applica materialmente la decisione.",
     "explanation_en": "In the NIST Zero Trust model the Policy Engine, together with the Policy Administrator, forms the Policy Decision Point: it is the PE that evaluates policies, attributes and signals (the trust algorithm) to decide whether to grant access. The PEP then physically enforces the decision.",
     "why_wrong": {
-      "1": "Il Policy Enforcement Point esegue e applica la decisione (apre o chiude la connessione) ma non e il componente che la prende.",
+      "1": "Il Policy Enforcement Point esegue e applica la decisione (apre o chiude la connessione) ma non è il componente che la prende.",
       "2": "Il data plane e dove avviene il traffico applicativo effettivo dopo la concessione, non dove si decide l'accesso.",
-      "3": "Il TPM e un chip hardware per operazioni crittografiche e attestazione; puo fornire segnali di fiducia ma non prende decisioni di policy."
+      "3": "Il TPM e un chip hardware per operazioni crittografiche e attestazione; può fornire segnali di fiducia ma non prende decisioni di policy."
     },
     "why_wrong_en": {
       "1": "The Policy Enforcement Point executes and enforces the decision (opens or closes the connection) but is not the component that makes it.",
@@ -235,10 +235,10 @@
     "options": ["Impedire che password identiche producano lo stesso hash e vanificare rainbow table precalcolate", "Cifrare la password in modo reversibile per poterla recuperare in seguito", "Comprimere l'hash per risparmiare spazio nel database", "Sostituire la necessità di una funzione di hashing"],
     "options_en": ["Prevent identical passwords from producing the same hash and defeat precomputed rainbow tables", "Encrypt the password reversibly so it can be recovered later", "Compress the hash to save space in the database", "Replace the need for a hashing function"],
     "correct": [0],
-    "explanation": "Un salt casuale e unico per utente fa si che due password uguali generino hash differenti e rende inutilizzabili le rainbow table precalcolate, poiche l'attaccante dovrebbe ricalcolare le tabelle per ogni singolo salt.",
+    "explanation": "Un salt casuale e unico per utente fa si che due password uguali generino hash differenti e rende inutilizzabili le rainbow table precalcolate, poiché l'attaccante dovrebbe ricalcolare le tabelle per ogni singolo salt.",
     "explanation_en": "A random, per-user salt makes two identical passwords generate different hashes and renders precomputed rainbow tables useless, since the attacker would have to recompute the tables for each individual salt.",
     "why_wrong": {
-      "1": "L'hashing non e reversibile: il salt non serve a recuperare la password in chiaro, obiettivo che sarebbe anzi contrario alla sicurezza.",
+      "1": "L'hashing non è reversibile: il salt non serve a recuperare la password in chiaro, obiettivo che sarebbe anzi contrario alla sicurezza.",
       "2": "Il salt non ha alcuna funzione di compressione; anzi aggiunge dati da memorizzare insieme all'hash.",
       "3": "Il salt integra la funzione di hashing, non la sostituisce: senza hashing la password non sarebbe comunque protetta."
     },
@@ -260,10 +260,10 @@
     "options": ["Applicare le patch al sistema operativo guest delle proprie VM", "Configurare correttamente i gruppi di sicurezza e le regole firewall delle proprie istanze", "Garantire la sicurezza fisica dei data center del provider", "Manutenere l'hypervisor sottostante e l'infrastruttura di virtualizzazione"],
     "options_en": ["Patching the guest operating system of their own VMs", "Correctly configuring the security groups and firewall rules of their own instances", "Ensuring the physical security of the provider's data centers", "Maintaining the underlying hypervisor and virtualization infrastructure"],
     "correct": [0, 1],
-    "explanation": "In IaaS il provider gestisce l'infrastruttura fisica, l'hypervisor e la sicurezza dei data center. Il cliente resta responsabile di tutto cio che sta sopra: patching del sistema operativo guest, configurazione di rete/firewall, applicazioni e dati.",
+    "explanation": "In IaaS il provider gestisce l'infrastruttura fisica, l'hypervisor e la sicurezza dei data center. Il cliente resta responsabile di tutto ciò che sta sopra: patching del sistema operativo guest, configurazione di rete/firewall, applicazioni e dati.",
     "explanation_en": "In IaaS the provider manages the physical infrastructure, the hypervisor and data center security. The customer remains responsible for everything above that: patching the guest operating system, network/firewall configuration, applications and data.",
     "why_wrong": {
-      "2": "La sicurezza fisica dei data center e sempre responsabilita del cloud provider, non del cliente.",
+      "2": "La sicurezza fisica dei data center e sempre responsabilità del cloud provider, non del cliente.",
       "3": "La manutenzione dell'hypervisor e dell'infrastruttura di virtualizzazione e a carico del provider in IaaS."
     },
     "why_wrong_en": {
@@ -283,11 +283,11 @@
     "options": ["Preparazione (Preparation)", "Contenimento, eradicazione e recupero (Containment, Eradication & Recovery)", "Attribuzione pubblica all'attaccante (Public Attribution)", "Pagamento del riscatto (Ransom Payment)"],
     "options_en": ["Preparation", "Containment, Eradication & Recovery", "Public attribution to the attacker (Public Attribution)", "Ransom payment (Ransom Payment)"],
     "correct": [0, 1],
-    "explanation": "Le quattro fasi del framework NIST sono: Preparazione; Rilevamento e analisi; Contenimento, eradicazione e recupero; Attivita post-incidente (lessons learned). Preparazione e Contenimento/Eradicazione/Recupero sono quindi fasi ufficiali.",
+    "explanation": "Le quattro fasi del framework NIST sono: Preparazione; Rilevamento e analisi; Contenimento, eradicazione e recupero; Attività post-incidente (lessons learned). Preparazione e Contenimento/Eradicazione/Recupero sono quindi fasi ufficiali.",
     "explanation_en": "The four phases of the NIST framework are: Preparation; Detection and Analysis; Containment, Eradication & Recovery; Post-Incident Activity (lessons learned). Preparation and Containment/Eradication/Recovery are therefore official phases.",
     "why_wrong": {
-      "2": "L'attribuzione pubblica all'attaccante non e una fase del ciclo NIST di incident response; l'attribuzione e attivita di threat intelligence, non parte del processo.",
-      "3": "Il pagamento del riscatto non e una fase del processo di risposta agli incidenti ed e generalmente sconsigliato dalle autorita."
+      "2": "L'attribuzione pubblica all'attaccante non è una fase del ciclo NIST di incident response; l'attribuzione e attività di threat intelligence, non parte del processo.",
+      "3": "Il pagamento del riscatto non è una fase del processo di risposta agli incidenti ed e generalmente sconsigliato dalle autorità."
     },
     "why_wrong_en": {
       "2": "Public attribution to the attacker is not a phase of the NIST incident response cycle; attribution is a threat intelligence activity, not part of the process.",
@@ -306,11 +306,11 @@
     "options": ["Qualcosa che sai (something you know)", "Qualcosa che sei (something you are)", "Qualcosa che hai (something you have)", "Da qualche parte dove ti trovi (somewhere you are)"],
     "options_en": ["Something you know", "Something you are", "Something you have", "Somewhere you are"],
     "correct": [0, 1],
-    "explanation": "La password rientra nel fattore 'qualcosa che sai' (conoscenza), mentre l'impronta digitale e un tratto biometrico, quindi 'qualcosa che sei' (inerenza). La combinazione di due fattori diversi realizza un'autenticazione a piu fattori.",
+    "explanation": "La password rientra nel fattore 'qualcosa che sai' (conoscenza), mentre l'impronta digitale e un tratto biometrico, quindi 'qualcosa che sei' (inerenza). La combinazione di due fattori diversi realizza un'autenticazione a più fattori.",
     "explanation_en": "The password falls under the 'something you know' factor (knowledge), while the fingerprint is a biometric trait, hence 'something you are' (inherence). Combining two different factors achieves multi-factor authentication.",
     "why_wrong": {
       "2": "'Qualcosa che hai' e un fattore di possesso, come un token hardware o uno smartphone; ne password ne impronta rientrano in questa categoria.",
-      "3": "'Da qualche parte dove ti trovi' e un fattore di localizzazione (es. geolocalizzazione o rete); non e coinvolto in password e impronta."
+      "3": "'Da qualche parte dove ti trovi' e un fattore di localizzazione (es. geolocalizzazione o rete); non è coinvolto in password e impronta."
     },
     "why_wrong_en": {
       "2": "'Something you have' is a possession factor, such as a hardware token or a smartphone; neither the password nor the fingerprint falls into this category.",
@@ -329,7 +329,7 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. La firma digitale si crea cifrando (firmando) l'hash del messaggio con la chiave privata del mittente. Chiunque possieda la chiave pubblica del mittente puo decifrare/verificare la firma, ottenendo autenticita, integrita e non ripudio.",
+    "explanation": "Vero. La firma digitale si crea cifrando (firmando) l'hash del messaggio con la chiave privata del mittente. Chiunque possieda la chiave pubblica del mittente può decifrare/verificare la firma, ottenendo autenticità, integrità e non ripudio.",
     "explanation_en": "True. A digital signature is created by encrypting (signing) the hash of the message with the sender's private key. Anyone who holds the sender's public key can decrypt/verify the signature, providing authenticity, integrity and non-repudiation.",
     "source": "CompTIA Security+ SY0-701"
   },
@@ -339,12 +339,12 @@
     "topics": ["Threat e vulnerabilità"],
     "type": "truefalse",
     "difficulty": 1,
-    "question": "Una vulnerabilita zero-day e una falla per la quale, al momento del suo sfruttamento, non esiste ancora una patch o correzione ufficiale disponibile dal fornitore.",
+    "question": "Una vulnerabilità zero-day e una falla per la quale, al momento del suo sfruttamento, non esiste ancora una patch o correzione ufficiale disponibile dal fornitore.",
     "question_en": "A zero-day vulnerability is a flaw for which, at the time it is exploited, there is not yet an official patch or fix available from the vendor.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. Il termine zero-day indica che gli sviluppatori hanno avuto zero giorni per correggere la vulnerabilita: viene sfruttata (o resa nota) prima che sia disponibile una patch ufficiale, rendendo difficile la difesa con i soli controlli tradizionali.",
+    "explanation": "Vero. Il termine zero-day indica che gli sviluppatori hanno avuto zero giorni per correggere la vulnerabilità: viene sfruttata (o resa nota) prima che sia disponibile una patch ufficiale, rendendo difficile la difesa con i soli controlli tradizionali.",
     "explanation_en": "True. The term zero-day means that developers have had zero days to fix the vulnerability: it is exploited (or disclosed) before an official patch is available, making defense with traditional controls alone difficult.",
     "source": "CompTIA Security+ SY0-701"
   },

@@ -9,12 +9,12 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "In una foresta Active Directory, qual e il confine di sicurezza piu ampio, ovvero l'unita che contiene uno o piu domini che condividono lo stesso schema e la stessa configuration partition?",
+    "question": "In una foresta Active Directory, qual è il confine di sicurezza più ampio, ovvero l'unità che contiene uno o più domini che condividono lo stesso schema e la stessa configuration partition?",
     "question_en": "In an Active Directory forest, what is the widest security boundary, that is, the unit containing one or more domains that share the same schema and the same configuration partition?",
     "options": [
       "Il dominio",
       "La foresta",
-      "L'unita organizzativa (OU)",
+      "L'unità organizzativa (OU)",
       "Il sito"
     ],
     "options_en": [
@@ -26,12 +26,12 @@
     "correct": [
       1
     ],
-    "explanation": "La foresta e il vero confine di sicurezza in Active Directory: contiene uno o piu alberi di domini che condividono lo stesso schema, la stessa partizione di configurazione e un catalogo globale comune. Un amministratore che compromette un dominio puo potenzialmente raggiungere l'intera foresta, per questo la foresta e considerata l'unita di isolamento della sicurezza.",
+    "explanation": "La foresta e il vero confine di sicurezza in Active Directory: contiene uno o più alberi di domini che condividono lo stesso schema, la stessa partizione di configurazione e un catalogo globale comune. Un amministratore che compromette un dominio può potenzialmente raggiungere l'intera foresta, per questo la foresta e considerata l'unità di isolamento della sicurezza.",
     "explanation_en": "The forest is the true security boundary in Active Directory: it contains one or more domain trees that share the same schema, the same configuration partition, and a common global catalog. An administrator who compromises one domain can potentially reach the entire forest, which is why the forest is considered the unit of security isolation.",
     "why_wrong": {
-      "0": "Il dominio e un confine amministrativo e di replica, ma non e il confine di sicurezza definitivo: piu domini della stessa foresta condividono schema e trust automatici.",
+      "0": "Il dominio e un confine amministrativo e di replica, ma non è il confine di sicurezza definitivo: più domini della stessa foresta condividono schema e trust automatici.",
       "2": "L'OU e un contenitore usato per organizzare oggetti e delegare l'amministrazione o applicare GPO, non un confine di sicurezza della foresta.",
-      "3": "Il sito rappresenta la topologia fisica di rete e serve a ottimizzare la replica e l'autenticazione, non e un confine di sicurezza."
+      "3": "Il sito rappresenta la topologia fisica di rete e serve a ottimizzare la replica e l'autenticazione, non è un confine di sicurezza."
     },
     "why_wrong_en": {
       "0": "The domain is an administrative and replication boundary, but not the definitive security boundary: multiple domains in the same forest share the schema and automatic trusts.",
@@ -54,7 +54,7 @@
     "question_en": "A systems administrator must group users, groups, and computers of a specific branch office to delegate administration and apply targeted Group Policy, without creating a new domain. Which AD DS object should be used?",
     "options": [
       "Un gruppo di sicurezza universale",
-      "Un'unita organizzativa (OU)",
+      "Un'unità organizzativa (OU)",
       "Un nuovo albero di dominio",
       "Un contatto"
     ],
@@ -67,10 +67,10 @@
     "correct": [
       1
     ],
-    "explanation": "L'unita organizzativa (OU) e un contenitore progettato proprio per organizzare gli oggetti in modo gerarchico, delegare l'amministrazione tramite ACL e collegare oggetti Group Policy (GPO). E la soluzione corretta per gestire una filiale senza aggiungere domini alla struttura.",
+    "explanation": "L'unità organizzativa (OU) e un contenitore progettato proprio per organizzare gli oggetti in modo gerarchico, delegare l'amministrazione tramite ACL e collegare oggetti Group Policy (GPO). E la soluzione corretta per gestire una filiale senza aggiungere domini alla struttura.",
     "explanation_en": "The organizational unit (OU) is a container designed precisely to organize objects hierarchically, delegate administration through ACLs, and link Group Policy objects (GPOs). It is the correct solution to manage a branch office without adding domains to the structure.",
     "why_wrong": {
-      "0": "Un gruppo di sicurezza serve ad assegnare permessi e non e un contenitore: non e possibile collegarvi una GPO ne delegarvi l'amministrazione in modo gerarchico.",
+      "0": "Un gruppo di sicurezza serve ad assegnare permessi e non è un contenitore: non è possibile collegarvi una GPO ne delegarvi l'amministrazione in modo gerarchico.",
       "2": "Creare un nuovo albero di dominio e sproporzionato e introduce overhead di replica e gestione non necessario per una semplice esigenza organizzativa.",
       "3": "Il contatto e un oggetto che rappresenta un riferimento a una persona esterna (tipicamente per la posta), non un contenitore per organizzare oggetti."
     },
@@ -92,7 +92,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "Secondo la strategia AGDLP raccomandata da Microsoft per l'assegnazione dei permessi in un dominio, qual e la sequenza corretta di annidamento?",
+    "question": "Secondo la strategia AGDLP raccomandata da Microsoft per l'assegnazione dei permessi in un dominio, qual è la sequenza corretta di annidamento?",
     "question_en": "According to the AGDLP strategy recommended by Microsoft for assigning permissions in a domain, what is the correct nesting sequence?",
     "options": [
       "Gli account (A) vanno in gruppi Globali (G), inseriti in gruppi Domain Local (DL), a cui si assegnano i Permessi (P)",
@@ -113,7 +113,7 @@
     "explanation_en": "AGDLP means: Account -> Global group -> Domain Local group -> Permission. Users are placed into Global groups (which collect users by role/department), Global groups are nested into Domain Local groups (which represent access to a resource), and permissions are assigned to the Domain Local group. This separates 'who the users are' from 'what they have access to', simplifying management.",
     "why_wrong": {
       "1": "La sequenza e invertita: i gruppi Globali contengono gli account e vanno annidati nei Domain Local, non viceversa.",
-      "2": "L'uso diretto di gruppi Universali per assegnare permessi non e la strategia raccomandata; gli Universali (AGUDLP) si usano in scenari multi-dominio come livello intermedio.",
+      "2": "L'uso diretto di gruppi Universali per assegnare permessi non è la strategia raccomandata; gli Universali (AGUDLP) si usano in scenari multi-dominio come livello intermedio.",
       "3": "Assegnare permessi direttamente agli account e una cattiva pratica: rende ingestibile la manutenzione e vanifica lo scopo dei gruppi."
     },
     "why_wrong_en": {
@@ -134,13 +134,13 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "Un gruppo di sicurezza con scope Global puo contenere membri provenienti solo dal proprio dominio, ma puo essere utilizzato per assegnare permessi in qualsiasi dominio della foresta. Quale altra caratteristica lo distingue da un gruppo Universal?",
+    "question": "Un gruppo di sicurezza con scope Global può contenere membri provenienti solo dal proprio dominio, ma può essere utilizzato per assegnare permessi in qualsiasi dominio della foresta. Quale altra caratteristica lo distingue da un gruppo Universal?",
     "question_en": "A security group with Global scope can contain members only from its own domain, but can be used to assign permissions in any domain of the forest. Which other characteristic distinguishes it from a Universal group?",
     "options": [
       "Il gruppo Global viene replicato nel catalogo globale con tutta la sua appartenenza, a differenza dello Universal",
       "Il gruppo Global non replica la propria appartenenza nel catalogo globale, riducendo il traffico di replica",
-      "Il gruppo Global puo contenere membri da qualsiasi dominio della foresta",
-      "Il gruppo Global puo essere convertito solo in Domain Local e mai in Universal"
+      "Il gruppo Global può contenere membri da qualsiasi dominio della foresta",
+      "Il gruppo Global può essere convertito solo in Domain Local e mai in Universal"
     ],
     "options_en": [
       "The Global group is replicated to the global catalog with all its membership, unlike the Universal group",
@@ -151,12 +151,12 @@
     "correct": [
       1
     ],
-    "explanation": "L'appartenenza dei gruppi Global NON viene replicata nel catalogo globale (viene pubblicata l'esistenza del gruppo ma non l'elenco dei membri), mentre l'appartenenza dei gruppi Universal SI. Per questo i gruppi Universal, se cambiano spesso membri, generano piu traffico di replica inter-sito: una best practice e annidare gruppi Global stabili dentro gli Universal.",
+    "explanation": "L'appartenenza dei gruppi Global NON viene replicata nel catalogo globale (viene pubblicata l'esistenza del gruppo ma non l'elenco dei membri), mentre l'appartenenza dei gruppi Universal SI. Per questo i gruppi Universal, se cambiano spesso membri, generano più traffico di replica inter-sito: una best practice e annidare gruppi Global stabili dentro gli Universal.",
     "explanation_en": "The membership of Global groups is NOT replicated to the global catalog (the existence of the group is published but not the member list), whereas the membership of Universal groups IS. For this reason Universal groups, if their members change often, generate more inter-site replication traffic: a best practice is to nest stable Global groups inside Universal groups.",
     "why_wrong": {
       "0": "E l'opposto: e lo Universal a replicare la propria appartenenza completa nel catalogo globale, non il Global.",
-      "2": "Un gruppo Global puo contenere membri solo dal proprio dominio; sono gli Universal a poter contenere membri da qualsiasi dominio della foresta.",
-      "3": "Un gruppo Global puo essere convertito in Universal (se non e membro di un altro Global), quindi l'affermazione e falsa."
+      "2": "Un gruppo Global può contenere membri solo dal proprio dominio; sono gli Universal a poter contenere membri da qualsiasi dominio della foresta.",
+      "3": "Un gruppo Global può essere convertito in Universal (se non è membro di un altro Global), quindi l'affermazione è falsa."
     },
     "why_wrong_en": {
       "0": "It is the opposite: it is the Universal group that replicates its full membership to the global catalog, not the Global group.",
@@ -192,12 +192,12 @@
     "correct": [
       1
     ],
-    "explanation": "LSDOU indica l'ordine di elaborazione: Local (criteri locali della macchina), poi Site, poi Domain, poi OU (dalla piu esterna alla piu interna). Le GPO elaborate per ultime sovrascrivono quelle precedenti in caso di conflitto, quindi le GPO a livello di OU hanno di norma la precedenza piu alta, seguite dal dominio, dal sito e infine dai criteri locali.",
+    "explanation": "LSDOU indica l'ordine di elaborazione: Local (criteri locali della macchina), poi Site, poi Domain, poi OU (dalla più esterna alla più interna). Le GPO elaborate per ultime sovrascrivono quelle precedenti in caso di conflitto, quindi le GPO a livello di OU hanno di norma la precedenza più alta, seguite dal dominio, dal sito e infine dai criteri locali.",
     "explanation_en": "LSDOU indicates the processing order: Local (the machine's local policies), then Site, then Domain, then OU (from the outermost to the innermost). The GPOs processed last override the earlier ones in case of conflict, so OU-level GPOs normally have the highest precedence, followed by the domain, the site, and finally the local policies.",
     "why_wrong": {
       "0": "L'ordine e invertito: si parte dai criteri Local e si termina con le OU, non il contrario.",
-      "2": "L'ordine e errato: il Local e il primo a essere elaborato e le OU sono le ultime; inoltre il dominio non precede il sito.",
-      "3": "I criteri Local sono elaborati per primi e quindi hanno la precedenza piu bassa, non la piu alta; l'ordine complessivo e comunque errato."
+      "2": "L'ordine è errato: il Local e il primo a essere elaborato e le OU sono le ultime; inoltre il dominio non precede il sito.",
+      "3": "I criteri Local sono elaborati per primi e quindi hanno la precedenza più bassa, non la più alta; l'ordine complessivo e comunque errato."
     },
     "why_wrong_en": {
       "0": "The order is reversed: it starts from the Local policies and ends with the OUs, not the other way around.",
@@ -221,7 +221,7 @@
     "options": [
       "Impostare l'opzione 'Enforced' (No Override) sul link della GPO di sicurezza",
       "Rimuovere il Block Inheritance dall'OU, non esistono alternative",
-      "Aumentare la priorita della GPO nell'elenco dei link dell'OU",
+      "Aumentare la priorità della GPO nell'elenco dei link dell'OU",
       "Applicare un filtro WMI alla GPO di sicurezza"
     ],
     "options_en": [
@@ -233,11 +233,11 @@
     "correct": [
       0
     ],
-    "explanation": "L'opzione 'Enforced' (in passato 'No Override') impostata sul collegamento di una GPO forza l'applicazione di quella GPO anche verso le OU che hanno abilitato 'Block Inheritance'. Enforced ha la precedenza assoluta: scavalca sia il blocco dell'ereditarieta sia eventuali GPO in conflitto ai livelli inferiori.",
+    "explanation": "L'opzione 'Enforced' (in passato 'No Override') impostata sul collegamento di una GPO forza l'applicazione di quella GPO anche verso le OU che hanno abilitato 'Block Inheritance'. Enforced ha la precedenza assoluta: scavalca sia il blocco dell'ereditarietà sia eventuali GPO in conflitto ai livelli inferiori.",
     "explanation_en": "The 'Enforced' option (formerly 'No Override') set on a GPO link forces that GPO to apply even to OUs that have enabled 'Block Inheritance'. Enforced has absolute precedence: it overrides both the inheritance block and any conflicting GPOs at lower levels.",
     "why_wrong": {
-      "1": "Non e necessario rimuovere il Block Inheritance: Enforced e proprio il meccanismo pensato per superarlo mantenendo il blocco per le altre GPO.",
-      "2": "La priorita nell'elenco dei link agisce solo tra GPO collegate allo stesso container e non supera un Block Inheritance ereditato dai livelli superiori.",
+      "1": "Non è necessario rimuovere il Block Inheritance: Enforced e proprio il meccanismo pensato per superarlo mantenendo il blocco per le altre GPO.",
+      "2": "La priorità nell'elenco dei link agisce solo tra GPO collegate allo stesso container e non supera un Block Inheritance ereditato dai livelli superiori.",
       "3": "Un filtro WMI limita a quali macchine si applica la GPO in base a condizioni, ma non forza il superamento del Block Inheritance."
     },
     "why_wrong_en": {
@@ -257,11 +257,11 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "In un ambiente con server Terminal/RDS, si vuole che le impostazioni utente di una GPO siano applicate in base al COMPUTER a cui l'utente accede, ignorando le GPO utente normali della sua OU. Quale funzionalita si deve configurare?",
+    "question": "In un ambiente con server Terminal/RDS, si vuole che le impostazioni utente di una GPO siano applicate in base al COMPUTER a cui l'utente accede, ignorando le GPO utente normali della sua OU. Quale funzionalità si deve configurare?",
     "question_en": "In an environment with Terminal/RDS servers, you want the user settings of a GPO to be applied based on the COMPUTER the user logs into, ignoring the normal user GPOs of their OU. Which feature must be configured?",
     "options": [
       "Il filtro di sicurezza (Security Filtering) sulla GPO",
-      "La modalita Loopback Processing (elaborazione loopback)",
+      "La modalità Loopback Processing (elaborazione loopback)",
       "L'opzione Enforced sulla GPO utente",
       "Un filtro WMI basato sul sistema operativo"
     ],
@@ -274,7 +274,7 @@
     "correct": [
       1
     ],
-    "explanation": "Il Loopback Processing (Group Policy Loopback) fa si che la sezione User Configuration venga applicata in funzione dell'oggetto computer anziche dell'utente. E la funzionalita tipica di ambienti condivisi (RDS, chioschi, laboratori) dove serve un'esperienza utente uniforme indipendente dalla OU di provenienza dell'utente. Puo operare in modalita Merge o Replace.",
+    "explanation": "Il Loopback Processing (Group Policy Loopback) fa si che la sezione User Configuration venga applicata in funzione dell'oggetto computer anziché dell'utente. E la funzionalità tipica di ambienti condivisi (RDS, chioschi, laboratori) dove serve un'esperienza utente uniforme indipendente dalla OU di provenienza dell'utente. Può operare in modalità Merge o Replace.",
     "explanation_en": "Loopback Processing (Group Policy Loopback) causes the User Configuration section to be applied based on the computer object rather than the user. It is the typical feature of shared environments (RDS, kiosks, labs) where a uniform user experience is needed regardless of the user's originating OU. It can operate in Merge or Replace mode.",
     "why_wrong": {
       "0": "Il Security Filtering limita a quali utenti/gruppi si applica una GPO, ma non cambia il fatto che le impostazioni utente seguano l'oggetto utente invece del computer.",
@@ -316,7 +316,7 @@
     "correct": [
       2
     ],
-    "explanation": "I record SRV (Service Location) pubblicano quali server offrono un determinato servizio, la porta e la priorita. Active Directory registra numerosi record SRV (ad esempio _ldap._tcp.dc._msdcs.dominio e _kerberos._tcp.dominio) che permettono ai client di localizzare i domain controller e i servizi Kerberos/LDAP. Senza SRV corretti, il logon al dominio fallisce.",
+    "explanation": "I record SRV (Service Location) pubblicano quali server offrono un determinato servizio, la porta e la priorità. Active Directory registra numerosi record SRV (ad esempio _ldap._tcp.dc._msdcs.dominio e _kerberos._tcp.dominio) che permettono ai client di localizzare i domain controller e i servizi Kerberos/LDAP. Senza SRV corretti, il logon al dominio fallisce.",
     "explanation_en": "SRV (Service Location) records publish which servers offer a given service, the port, and the priority. Active Directory registers numerous SRV records (for example _ldap._tcp.dc._msdcs.domain and _kerberos._tcp.domain) that allow clients to locate domain controllers and Kerberos/LDAP services. Without correct SRV records, domain logon fails.",
     "why_wrong": {
       "0": "Il record A risolve un nome host in un indirizzo IPv4 ma non descrive quale servizio offre l'host; da solo non consente il DC locator.",
@@ -399,7 +399,7 @@
     "correct": [
       0
     ],
-    "explanation": "I ruoli FSMO (Flexible Single Master Operations) sono cinque. Due sono unici per l'intera foresta: Schema Master (gestisce le modifiche allo schema) e Domain Naming Master (gestisce l'aggiunta/rimozione di domini). Tre esistono in ogni dominio: RID Master (assegna pool di RID), PDC Emulator (sincronizzazione ora, cambi password, compatibilita) e Infrastructure Master (aggiorna i riferimenti cross-dominio).",
+    "explanation": "I ruoli FSMO (Flexible Single Master Operations) sono cinque. Due sono unici per l'intera foresta: Schema Master (gestisce le modifiche allo schema) e Domain Naming Master (gestisce l'aggiunta/rimozione di domini). Tre esistono in ogni dominio: RID Master (assegna pool di RID), PDC Emulator (sincronizzazione ora, cambi password, compatibilità) e Infrastructure Master (aggiorna i riferimenti cross-dominio).",
     "explanation_en": "The FSMO (Flexible Single Master Operations) roles are five. Two are unique for the entire forest: Schema Master (manages schema changes) and Domain Naming Master (manages the addition/removal of domains). Three exist in every domain: RID Master (allocates RID pools), PDC Emulator (time synchronization, password changes, compatibility), and Infrastructure Master (updates cross-domain references).",
     "why_wrong": {
       "1": "Non tutti i ruoli sono di dominio: Schema Master e Domain Naming Master sono unici per l'intera foresta.",
@@ -444,9 +444,9 @@
     "explanation": "Il KCC (Knowledge Consistency Checker) e il processo che gira su ogni domain controller e calcola automaticamente la topologia di replica, creando gli oggetti connection ottimali intra-sito e, tramite l'ISTG, inter-sito. La replica di AD e multi-master e usa i numeri USN (Update Sequence Number) per tracciare le modifiche ed evitare loop.",
     "explanation_en": "The KCC (Knowledge Consistency Checker) is the process that runs on every domain controller and automatically calculates the replication topology, creating the optimal intra-site connection objects and, through the ISTG, the inter-site ones. AD replication is multi-master and uses USN (Update Sequence Number) values to track changes and avoid loops.",
     "why_wrong": {
-      "1": "Il PDC Emulator e un ruolo FSMO che gestisce ora, cambi password e compatibilita, ma non calcola la topologia di replica.",
+      "1": "Il PDC Emulator e un ruolo FSMO che gestisce ora, cambi password e compatibilità, ma non calcola la topologia di replica.",
       "2": "DFS Replication replica il contenuto di SYSVOL (nei domini moderni) ma non genera la topologia di replica del database AD tra i DC.",
-      "3": "Il catalogo globale e una copia parziale di tutti gli oggetti della foresta per ricerche e logon, non l'entita che costruisce la topologia di replica."
+      "3": "Il catalogo globale e una copia parziale di tutti gli oggetti della foresta per ricerche e logon, non l'entità che costruisce la topologia di replica."
     },
     "why_wrong_en": {
       "1": "The PDC Emulator is an FSMO role that handles time, password changes, and compatibility, but does not calculate the replication topology.",
@@ -483,10 +483,10 @@
     "correct": [
       0
     ],
-    "explanation": "Entra ID e un servizio di identita cloud che si basa su protocolli web moderni (SAML, OAuth 2.0, OpenID Connect, SCIM) per autenticare app SaaS e web. Non e una copia di AD DS: non ha la struttura gerarchica di OU con Group Policy ne usa Kerberos/LDAP come meccanismi primari (la gestione dei dispositivi avviene tramite MDM/Intune e i criteri tramite Conditional Access).",
+    "explanation": "Entra ID e un servizio di identità cloud che si basa su protocolli web moderni (SAML, OAuth 2.0, OpenID Connect, SCIM) per autenticare app SaaS e web. Non è una copia di AD DS: non ha la struttura gerarchica di OU con Group Policy ne usa Kerberos/LDAP come meccanismi primari (la gestione dei dispositivi avviene tramite MDM/Intune e i criteri tramite Conditional Access).",
     "explanation_en": "Entra ID is a cloud identity service based on modern web protocols (SAML, OAuth 2.0, OpenID Connect, SCIM) to authenticate SaaS and web apps. It is not a copy of AD DS: it does not have the hierarchical OU structure with Group Policy, nor does it use Kerberos/LDAP as primary mechanisms (device management is done via MDM/Intune and policies via Conditional Access).",
     "why_wrong": {
-      "1": "Entra ID non e AD DS su una VM: e un servizio PaaS di identita con architettura e protocolli differenti, senza OU e GPO tradizionali.",
+      "1": "Entra ID non è AD DS su una VM: e un servizio PaaS di identità con architettura e protocolli differenti, senza OU e GPO tradizionali.",
       "2": "Entra ID non usa Kerberos e LDAP come protocolli primari; si affida a SAML, OAuth e OIDC. AD DS invece si basa su Kerberos e LDAP.",
       "3": "Falso: AD DS on-premise usa proprio Kerberos come protocollo di autenticazione predefinito."
     },
@@ -514,7 +514,7 @@
       "Un RODC mantiene una copia in sola lettura del database AD e non permette scritture dirette che vengono inoltrate a un DC scrivibile",
       "Un RODC memorizza per impostazione predefinita le password di tutti gli utenti del dominio",
       "Tramite la Password Replication Policy si controlla quali credenziali possono essere memorizzate nella cache dell'RODC",
-      "Un RODC puo ospitare i ruoli FSMO Schema Master e PDC Emulator"
+      "Un RODC può ospitare i ruoli FSMO Schema Master e PDC Emulator"
     ],
     "options_en": [
       "An RODC keeps a read-only copy of the AD database and does not allow direct writes, which are forwarded to a writable DC",
@@ -530,7 +530,7 @@
     "explanation_en": "The RODC is designed for remote/less secure sites: it hosts a read-only replica of the AD database and forwards write requests to a writable DC. By default it does NOT keep users' passwords; only the credentials authorized by the Password Replication Policy (PRP) can be cached, limiting exposure if the server is stolen.",
     "why_wrong": {
       "1": "Per impostazione predefinita l'RODC non memorizza alcuna password utente; la cache e regolata esplicitamente dalla Password Replication Policy.",
-      "3": "I ruoli FSMO richiedono un DC scrivibile: un RODC, essendo in sola lettura, non puo ospitare ruoli come Schema Master o PDC Emulator."
+      "3": "I ruoli FSMO richiedono un DC scrivibile: un RODC, essendo in sola lettura, non può ospitare ruoli come Schema Master o PDC Emulator."
     },
     "why_wrong_en": {
       "1": "By default the RODC does not store any user password; the cache is explicitly governed by the Password Replication Policy.",
@@ -566,11 +566,11 @@
       0,
       2
     ],
-    "explanation": "Nella stessa foresta, i domini sono legati da trust automatici, bidirezionali e transitivi (parent-child e tree-root). La direzione del trust stabilisce il verso dell'accesso: in un trust unidirezionale, gli utenti del dominio trusted possono accedere alle risorse del dominio trusting, ma non il contrario. La transitivita determina se il trust si propaga ad altri domini collegati.",
+    "explanation": "Nella stessa foresta, i domini sono legati da trust automatici, bidirezionali e transitivi (parent-child e tree-root). La direzione del trust stabilisce il verso dell'accesso: in un trust unidirezionale, gli utenti del dominio trusted possono accedere alle risorse del dominio trusting, ma non il contrario. La transitività determina se il trust si propaga ad altri domini collegati.",
     "explanation_en": "In the same forest, domains are linked by automatic, two-way, and transitive trusts (parent-child and tree-root). The direction of the trust establishes the way of access: in a one-way trust, users of the trusted domain can access the resources of the trusting domain, but not vice versa. Transitivity determines whether the trust propagates to other linked domains.",
     "why_wrong": {
       "1": "Un external trust e per definizione non transitivo: collega puntualmente due domini e non si estende all'intera foresta remota.",
-      "3": "Un forest trust si stabilisce proprio TRA due foreste distinte (con schemi separati) per collegarle; non e un trust interno alla stessa foresta."
+      "3": "Un forest trust si stabilisce proprio TRA due foreste distinte (con schemi separati) per collegarle; non è un trust interno alla stessa foresta."
     },
     "why_wrong_en": {
       "1": "An external trust is by definition non-transitive: it links two domains specifically and does not extend to the entire remote forest.",
@@ -610,7 +610,7 @@
     "explanation": "Il database AD (ntds.dit) e suddiviso in partizioni/naming context: la Schema Partition (definizioni di classi e attributi, unica per foresta), la Configuration Partition (topologia di siti, servizi e struttura, replicata a tutta la foresta) e la Domain Partition (oggetti del singolo dominio). Esistono anche partizioni applicative (es. DNS integrato).",
     "explanation_en": "The AD database (ntds.dit) is divided into partitions/naming contexts: the Schema Partition (class and attribute definitions, unique per forest), the Configuration Partition (topology of sites, services, and structure, replicated to the entire forest), and the Domain Partition (objects of the individual domain). There are also application partitions (e.g. integrated DNS).",
     "why_wrong": {
-      "2": "Non esiste una 'Registry Partition' in AD: il registro dei client e locale a ciascuna macchina e non e un naming context replicato.",
+      "2": "Non esiste una 'Registry Partition' in AD: il registro dei client e locale a ciascuna macchina e non è un naming context replicato.",
       "3": "SYSVOL e una cartella condivisa replicata (script e GPO) tramite DFS-R/FRS, non un naming context LDAP, e non contiene le password degli utenti."
     },
     "why_wrong_en": {
@@ -646,7 +646,7 @@
     "explanation": "Vero. Lo Service Principal Name (SPN) e un identificatore univoco di un'istanza di servizio (ad esempio HTTP/webserver.dominio.local) registrato su un account. Quando un client richiede l'accesso a quel servizio, il KDC usa lo SPN per individuare l'account corretto e cifrare il Service Ticket con la chiave di quell'account. SPN duplicati o mancanti sono una causa tipica di fallimenti di autenticazione Kerberos.",
     "explanation_en": "True. The Service Principal Name (SPN) is a unique identifier of a service instance (for example HTTP/webserver.domain.local) registered on an account. When a client requests access to that service, the KDC uses the SPN to locate the correct account and encrypt the Service Ticket with that account's key. Duplicate or missing SPNs are a typical cause of Kerberos authentication failures.",
     "why_wrong": {
-      "1": "Falso e sbagliato: lo SPN associa davvero un servizio a un account e Kerberos lo usa per individuare il servizio e rilasciare il Service Ticket (TGS)."
+      "1": "Falso è sbagliato: lo SPN associa davvero un servizio a un account e Kerberos lo usa per individuare il servizio e rilasciare il Service Ticket (TGS)."
     },
     "why_wrong_en": {
       "1": "False is incorrect: the SPN really does associate a service with an account, and Kerberos uses it to locate the service and issue the Service Ticket (TGS)."

@@ -9,7 +9,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un'azienda sta adottando il modello Zero Trust. Un architetto afferma che ogni richiesta di accesso deve essere autenticata e autorizzata usando tutti i dati disponibili (identita, dispositivo, posizione, servizio) prima di concedere l'accesso. A quale principio guida di Zero Trust corrisponde questa affermazione?",
+    "question": "Un'azienda sta adottando il modello Zero Trust. Un architetto afferma che ogni richiesta di accesso deve essere autenticata e autorizzata usando tutti i dati disponibili (identità, dispositivo, posizione, servizio) prima di concedere l'accesso. A quale principio guida di Zero Trust corrisponde questa affermazione?",
     "options": [
       "Verifica esplicita",
       "Presuppone la violazione (assume breach)",
@@ -19,11 +19,11 @@
     "correct": [
       0
     ],
-    "explanation": "Zero Trust si basa su tre principi: 'Verifica esplicita' (autenticare e autorizzare sempre in base a tutti i punti dati disponibili), 'Usa l'accesso con privilegi minimi' e 'Presuppone la violazione'. Autenticare e autorizzare ogni richiesta usando identita, dispositivo, posizione e servizio e' la definizione di verifica esplicita.",
+    "explanation": "Zero Trust si basa su tre principi: 'Verifica esplicita' (autenticare e autorizzare sempre in base a tutti i punti dati disponibili), 'Usa l'accesso con privilegi minimi' e 'Presuppone la violazione'. Autenticare e autorizzare ogni richiesta usando identità, dispositivo, posizione e servizio è la definizione di verifica esplicita.",
     "why_wrong": {
       "1": "'Presuppone la violazione' significa segmentare l'accesso, minimizzare il raggio d'azione e usare crittografia e analisi, non descrivere il processo di autenticazione di ogni richiesta.",
       "2": "'Privilegi minimi' riguarda il limitare l'accesso con JIT/JEA e criteri basati sul rischio, non la verifica di ogni singola richiesta con tutti i dati disponibili.",
-      "3": "'Fidati ma verifica' e' l'approccio tradizionale che Zero Trust sostituisce; non e' un principio di Zero Trust."
+      "3": "'Fidati ma verifica' è l'approccio tradizionale che Zero Trust sostituisce; non è un principio di Zero Trust."
     },
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "A company is adopting the Zero Trust model. An architect states that every access request must be authenticated and authorized using all available data (identity, device, location, service) before granting access. Which Zero Trust guiding principle does this statement correspond to?",
@@ -46,12 +46,12 @@
       "Microsoft SC-900"
     ],
     "topics": [
-      "Difesa in profondita",
+      "Difesa in profondità",
       "Crittografia"
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "In un approccio di difesa in profondita, un responsabile della sicurezza vuole proteggere i dati sensibili in modo che, anche se un attaccante superasse i livelli perimetrale, di rete e di calcolo, i dati restino illeggibili. Quale livello del modello di difesa in profondita affronta direttamente questo requisito?",
+    "question": "In un approccio di difesa in profondità, un responsabile della sicurezza vuole proteggere i dati sensibili in modo che, anche se un attaccante superasse i livelli perimetrale, di rete e di calcolo, i dati restino illeggibili. Quale livello del modello di difesa in profondità affronta direttamente questo requisito?",
     "options": [
       "Livello dei dati, tramite crittografia",
       "Livello perimetrale, tramite protezione DDoS",
@@ -61,7 +61,7 @@
     "correct": [
       0
     ],
-    "explanation": "Il modello di difesa in profondita prevede piu' livelli (fisico, identita/accesso, perimetro, rete, calcolo, applicazione, dati). Il livello dei dati protegge le informazioni a riposo e in transito principalmente tramite crittografia, garantendo che restino illeggibili anche se altri livelli vengono compromessi.",
+    "explanation": "Il modello di difesa in profondità prevede più livelli (fisico, identità/accesso, perimetro, rete, calcolo, applicazione, dati). Il livello dei dati protegge le informazioni a riposo e in transito principalmente tramite crittografia, garantendo che restino illeggibili anche se altri livelli vengono compromessi.",
     "why_wrong": {
       "1": "La protezione DDoS al livello perimetrale filtra il traffico volumetrico dannoso, ma non rende illeggibili i dati.",
       "2": "La segmentazione di rete limita il movimento laterale ma non protegge il contenuto dei dati se vi si accede.",
@@ -93,7 +93,7 @@
     ],
     "type": "truefalse",
     "difficulty": 1,
-    "question": "Nel modello di responsabilita condivisa, quando un'organizzazione utilizza servizi SaaS (Software as a Service), la responsabilita della classificazione dei dati e della gestione degli account e delle identita rimane sempre a carico del cliente.",
+    "question": "Nel modello di responsabilità condivisa, quando un'organizzazione utilizza servizi SaaS (Software as a Service), la responsabilità della classificazione dei dati e della gestione degli account e delle identità rimane sempre a carico del cliente.",
     "options": [
       "Vero",
       "Falso"
@@ -101,7 +101,7 @@
     "correct": [
       0
     ],
-    "explanation": "Vero. Nel modello di responsabilita condivisa, indipendentemente dal tipo di servizio cloud (IaaS, PaaS o SaaS), la classificazione dei dati, la gestione degli account/identita e la protezione degli endpoint restano sempre responsabilita del cliente. Il provider si occupa dell'infrastruttura fisica sottostante.",
+    "explanation": "Vero. Nel modello di responsabilità condivisa, indipendentemente dal tipo di servizio cloud (IaaS, PaaS o SaaS), la classificazione dei dati, la gestione degli account/identità e la protezione degli endpoint restano sempre responsabilità del cliente. Il provider si occupa dell'infrastruttura fisica sottostante.",
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "In the shared responsibility model, when an organization uses SaaS (Software as a Service) services, the responsibility for data classification and for account and identity management always remains with the customer.",
     "options_en": [
@@ -121,7 +121,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un utente di Microsoft Entra ID deve completare l'autenticazione a piu' fattori. Dopo aver inserito la password, gli viene chiesto di approvare una notifica push tramite l'app Microsoft Authenticator. La password e la notifica push rappresentano rispettivamente quali categorie di fattori di autenticazione?",
+    "question": "Un utente di Microsoft Entra ID deve completare l'autenticazione a più fattori. Dopo aver inserito la password, gli viene chiesto di approvare una notifica push tramite l'app Microsoft Authenticator. La password e la notifica push rappresentano rispettivamente quali categorie di fattori di autenticazione?",
     "options": [
       "Qualcosa che conosci e qualcosa che possiedi",
       "Qualcosa che possiedi e qualcosa che sei",
@@ -131,11 +131,11 @@
     "correct": [
       0
     ],
-    "explanation": "L'MFA richiede fattori di categorie diverse: qualcosa che conosci (password/PIN), qualcosa che possiedi (telefono con app Authenticator, token) e qualcosa che sei (biometria). La password e' 'qualcosa che conosci' e l'approvazione push sul telefono e' 'qualcosa che possiedi'.",
+    "explanation": "L'MFA richiede fattori di categorie diverse: qualcosa che conosci (password/PIN), qualcosa che possiedi (telefono con app Authenticator, token) e qualcosa che sei (biometria). La password è 'qualcosa che conosci' e l'approvazione push sul telefono è 'qualcosa che possiedi'.",
     "why_wrong": {
-      "1": "La password non e' 'qualcosa che possiedi' e la notifica push non e' un fattore biometrico ('qualcosa che sei').",
+      "1": "La password non è 'qualcosa che possiedi' e la notifica push non è un fattore biometrico ('qualcosa che sei').",
       "2": "La password appartiene a 'qualcosa che conosci', non a 'qualcosa che sei'; l'ordine e le categorie sono errati.",
-      "3": "La notifica push sul dispositivo e' 'qualcosa che possiedi', non un fattore biometrico."
+      "3": "La notifica push sul dispositivo è 'qualcosa che possiedi', non un fattore biometrico."
     },
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "A Microsoft Entra ID user must complete multi-factor authentication. After entering the password, they are asked to approve a push notification via the Microsoft Authenticator app. What categories of authentication factor do the password and the push notification represent, respectively?",
@@ -163,7 +163,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "Un amministratore vuole che gli utenti che accedono a Microsoft 365 da un percorso di rete non attendibile debbano completare l'MFA, mentre chi accede dalla rete aziendale attendibile ne sia esentato. Quale funzionalita di Microsoft Entra ID consente di applicare questa logica basata su segnali come posizione e rischio?",
+    "question": "Un amministratore vuole che gli utenti che accedono a Microsoft 365 da un percorso di rete non attendibile debbano completare l'MFA, mentre chi accede dalla rete aziendale attendibile ne sia esentato. Quale funzionalità di Microsoft Entra ID consente di applicare questa logica basata su segnali come posizione e rischio?",
     "options": [
       "Criteri di accesso condizionale (Conditional Access)",
       "Reimpostazione self-service della password (SSPR)",
@@ -173,7 +173,7 @@
     "correct": [
       0
     ],
-    "explanation": "L'accesso condizionale valuta segnali (utente, dispositivo, posizione, applicazione, rischio) e applica decisioni come richiedere l'MFA, bloccare l'accesso o richiedere un dispositivo conforme. E' lo strumento corretto per imporre l'MFA solo dalle posizioni non attendibili.",
+    "explanation": "L'accesso condizionale valuta segnali (utente, dispositivo, posizione, applicazione, rischio) e applica decisioni come richiedere l'MFA, bloccare l'accesso o richiedere un dispositivo conforme. È lo strumento corretto per imporre l'MFA solo dalle posizioni non attendibili.",
     "why_wrong": {
       "1": "SSPR permette agli utenti di reimpostare la propria password autonomamente, non di applicare criteri di accesso basati sulla posizione.",
       "2": "La protezione con password blocca password deboli o vietate, ma non valuta la posizione di rete per richiedere l'MFA.",
@@ -205,21 +205,21 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un'azienda partner deve collaborare a un progetto accedendo ad alcune risorse condivise nel tenant di Microsoft Entra ID dell'organizzazione, ma i suoi dipendenti usano gia' account gestiti dalla loro azienda. Quale capacita di Entra ID consente di invitare questi utenti esterni mantenendo le loro credenziali di origine?",
+    "question": "Un'azienda partner deve collaborare a un progetto accedendo ad alcune risorse condivise nel tenant di Microsoft Entra ID dell'organizzazione, ma i suoi dipendenti usano già account gestiti dalla loro azienda. Quale capacità di Entra ID consente di invitare questi utenti esterni mantenendo le loro credenziali di origine?",
     "options": [
       "Entra ID B2B (collaborazione business-to-business)",
       "Entra ID B2C (business-to-consumer)",
-      "Identita gestite (managed identities)",
-      "Entita servizio (service principal) dedicate"
+      "Identità gestite (managed identities)",
+      "Entità servizio (service principal) dedicate"
     ],
     "correct": [
       0
     ],
-    "explanation": "La collaborazione B2B di Entra ID consente di invitare utenti guest esterni (partner, fornitori) che si autenticano con le proprie identita di origine, senza dover creare e gestire nuove credenziali. E' pensata per la collaborazione tra organizzazioni.",
+    "explanation": "La collaborazione B2B di Entra ID consente di invitare utenti guest esterni (partner, fornitori) che si autenticano con le proprie identità di origine, senza dover creare e gestire nuove credenziali. È pensata per la collaborazione tra organizzazioni.",
     "why_wrong": {
-      "1": "Entra ID B2C e' una soluzione di gestione delle identita per clienti/consumatori di applicazioni rivolte al pubblico, non per la collaborazione con aziende partner.",
-      "2": "Le identita gestite forniscono un'identita automatica alle risorse di Azure per accedere ad altri servizi, non riguardano utenti esterni umani.",
-      "3": "Le entita servizio rappresentano le identita delle applicazioni nel tenant, non gli utenti guest di aziende partner."
+      "1": "Entra ID B2C è una soluzione di gestione delle identità per clienti/consumatori di applicazioni rivolte al pubblico, non per la collaborazione con aziende partner.",
+      "2": "Le identità gestite forniscono un'identità automatica alle risorse di Azure per accedere ad altri servizi, non riguardano utenti esterni umani.",
+      "3": "Le entità servizio rappresentano le identità delle applicazioni nel tenant, non gli utenti guest di aziende partner."
     },
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "A partner company must collaborate on a project by accessing some shared resources in the organization's Microsoft Entra ID tenant, but its employees already use accounts managed by their own company. Which Entra ID capability allows these external users to be invited while keeping their original credentials?",
@@ -247,7 +247,7 @@
     ],
     "type": "multi",
     "difficulty": 3,
-    "question": "Un'organizzazione vuole ridurre i rischi legati agli account con privilegi elevati in Microsoft Entra ID, garantendo che i ruoli amministrativi vengano assegnati solo quando necessario e certificati periodicamente. Quali DUE funzionalita di Entra ID rispondono direttamente a questi requisiti? (Seleziona due risposte.)",
+    "question": "Un'organizzazione vuole ridurre i rischi legati agli account con privilegi elevati in Microsoft Entra ID, garantendo che i ruoli amministrativi vengano assegnati solo quando necessario e certificati periodicamente. Quali DUE funzionalità di Entra ID rispondono direttamente a questi requisiti? (Seleziona due risposte.)",
     "options": [
       "Privileged Identity Management (PIM) per l'attivazione dei ruoli just-in-time",
       "Revisioni degli accessi (Access Reviews) per certificare periodicamente le assegnazioni",
@@ -326,11 +326,11 @@
     "correct": [
       0
     ],
-    "explanation": "Microsoft Defender per Office 365 protegge e-mail e strumenti di collaborazione (Teams, SharePoint, OneDrive) da minacce come phishing e malware, offrendo funzionalita come Collegamenti sicuri (verifica URL al clic) e Allegati sicuri (detonazione in sandbox).",
+    "explanation": "Microsoft Defender per Office 365 protegge e-mail e strumenti di collaborazione (Teams, SharePoint, OneDrive) da minacce come phishing e malware, offrendo funzionalità come Collegamenti sicuri (verifica URL al clic) e Allegati sicuri (detonazione in sandbox).",
     "why_wrong": {
       "1": "Defender per Endpoint protegge i dispositivi/endpoint da minacce a livello di sistema operativo, non le caselle di posta di Office 365.",
-      "2": "Defender per Identity rileva minacce basate sull'identita nell'Active Directory locale, non analizza e-mail e allegati.",
-      "3": "Defender for Cloud Apps e' un CASB che monitora e controlla l'uso delle app SaaS, non protegge specificamente la posta con Collegamenti/Allegati sicuri."
+      "2": "Defender per Identity rileva minacce basate sull'identità nell'Active Directory locale, non analizza e-mail e allegati.",
+      "3": "Defender for Cloud Apps è un CASB che monitora e controlla l'uso delle app SaaS, non protegge specificamente la posta con Collegamenti/Allegati sicuri."
     },
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "A security team wants to protect Microsoft 365 mailboxes from malicious links and attachments containing malware, analyzing the URLs at the moment of the click (time-of-click) and detonating the attachments in a sandbox environment. Which Microsoft Defender solution addresses this need?",
@@ -368,11 +368,11 @@
     "correct": [
       0
     ],
-    "explanation": "Microsoft Sentinel e' una soluzione SIEM e SOAR cloud-native e scalabile: raccoglie dati da molte fonti tramite connettori, usa analisi e regole per rilevare minacce, indaga con la caccia alle minacce e automatizza la risposta tramite playbook basati su Azure Logic Apps.",
+    "explanation": "Microsoft Sentinel è una soluzione SIEM e SOAR cloud-native e scalabile: raccoglie dati da molte fonti tramite connettori, usa analisi e regole per rilevare minacce, indaga con la caccia alle minacce e automatizza la risposta tramite playbook basati su Azure Logic Apps.",
     "why_wrong": {
-      "1": "Defender per Endpoint e' una soluzione EDR focalizzata sugli endpoint, non un SIEM/SOAR centralizzato multi-sorgente.",
-      "2": "Compliance Manager valuta e gestisce la conformita', non raccoglie e correla log di sicurezza ne' automatizza la risposta agli incidenti.",
-      "3": "Entra ID Protection rileva rischi legati alle identita, ma non e' una piattaforma SIEM/SOAR generale."
+      "1": "Defender per Endpoint è una soluzione EDR focalizzata sugli endpoint, non un SIEM/SOAR centralizzato multi-sorgente.",
+      "2": "Compliance Manager valuta e gestisce la conformità, non raccoglie e correla log di sicurezza né automatizza la risposta agli incidenti.",
+      "3": "Entra ID Protection rileva rischi legati alle identità, ma non è una piattaforma SIEM/SOAR generale."
     },
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "An organization wants a scalable cloud-native solution that collects security logs from sources in Azure, in other clouds and on-premises, correlates the events to detect threats and automates the response with playbooks. Which Microsoft product meets these requirements?",
@@ -400,7 +400,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "Un'azienda esegue macchine virtuali in Azure, istanze in AWS e alcuni server on-premises. Vuole una soluzione che valuti continuamente la postura di sicurezza tramite un punteggio (Secure Score), fornisca raccomandazioni di hardening e protegga i carichi di lavoro multicloud. Quale soluzione e' piu' adatta?",
+    "question": "Un'azienda esegue macchine virtuali in Azure, istanze in AWS e alcuni server on-premises. Vuole una soluzione che valuti continuamente la postura di sicurezza tramite un punteggio (Secure Score), fornisca raccomandazioni di hardening e protegga i carichi di lavoro multicloud. Quale soluzione è più adatta?",
     "options": [
       "Microsoft Defender for Cloud",
       "Microsoft Defender per Office 365",
@@ -410,10 +410,10 @@
     "correct": [
       0
     ],
-    "explanation": "Microsoft Defender for Cloud e' una piattaforma CSPM e CWP che valuta la postura di sicurezza con il Secure Score, fornisce raccomandazioni e protegge carichi di lavoro su Azure, altri cloud (AWS, GCP) e ambienti ibridi on-premises.",
+    "explanation": "Microsoft Defender for Cloud è una piattaforma CSPM e CWP che valuta la postura di sicurezza con il Secure Score, fornisce raccomandazioni e protegge carichi di lavoro su Azure, altri cloud (AWS, GCP) e ambienti ibridi on-premises.",
     "why_wrong": {
       "1": "Defender per Office 365 protegge posta e collaborazione, non valuta la postura di sicurezza dei carichi di lavoro multicloud.",
-      "2": "Sentinel e' un SIEM/SOAR per rilevamento e risposta; la valutazione della postura con Secure Score e le raccomandazioni sui carichi di lavoro sono proprie di Defender for Cloud.",
+      "2": "Sentinel è un SIEM/SOAR per rilevamento e risposta; la valutazione della postura con Secure Score e le raccomandazioni sui carichi di lavoro sono proprie di Defender for Cloud.",
       "3": "Purview Data Map cataloga e mappa gli asset di dati per la governance, non valuta la sicurezza dei carichi di lavoro."
     },
     "source": "HACK/Microsoft Cybersecurity",
@@ -442,7 +442,7 @@
     ],
     "type": "multi",
     "difficulty": 3,
-    "question": "Un analista SOC deve spiegare le capacita di Microsoft Sentinel a un nuovo collega. Quali DUE delle seguenti affermazioni descrivono correttamente funzionalita di Microsoft Sentinel? (Seleziona due risposte.)",
+    "question": "Un analista SOC deve spiegare le capacità di Microsoft Sentinel a un nuovo collega. Quali DUE delle seguenti affermazioni descrivono correttamente funzionalità di Microsoft Sentinel? (Seleziona due risposte.)",
     "options": [
       "Usa connettori dati per importare i log da servizi Microsoft e di terze parti",
       "Consente la caccia proattiva alle minacce (threat hunting) con query personalizzate",
@@ -453,10 +453,10 @@
       0,
       1
     ],
-    "explanation": "Microsoft Sentinel utilizza numerosi connettori dati per raccogliere log da fonti Microsoft e di terze parti e offre la caccia alle minacce proattiva tramite query (basate su Kusto) per cercare indicatori sospetti prima che generino avvisi. Entrambe sono capacita chiave di Sentinel.",
+    "explanation": "Microsoft Sentinel utilizza numerosi connettori dati per raccogliere log da fonti Microsoft e di terze parti e offre la caccia alle minacce proattiva tramite query (basate su Kusto) per cercare indicatori sospetti prima che generino avvisi. Entrambe sono capacità chiave di Sentinel.",
     "why_wrong": {
-      "2": "L'applicazione delle etichette di riservatezza ai documenti e' una funzionalita di Microsoft Purview Information Protection, non di Sentinel.",
-      "3": "La crittografia dei dischi delle VM (es. Azure Disk Encryption) e' una funzionalita della piattaforma Azure, non una capacita di Sentinel."
+      "2": "L'applicazione delle etichette di riservatezza ai documenti è una funzionalità di Microsoft Purview Information Protection, non di Sentinel.",
+      "3": "La crittografia dei dischi delle VM (es. Azure Disk Encryption) è una funzionalità della piattaforma Azure, non una capacità di Sentinel."
     },
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "A SOC analyst must explain the capabilities of Microsoft Sentinel to a new colleague. Which TWO of the following statements correctly describe features of Microsoft Sentinel? (Select two answers.)",
@@ -483,7 +483,7 @@
     ],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Microsoft Sentinel combina funzionalita SIEM (raccolta e correlazione dei log per il rilevamento delle minacce) e SOAR (orchestrazione e risposta automatizzata tramite playbook) in un'unica soluzione.",
+    "question": "Microsoft Sentinel combina funzionalità SIEM (raccolta e correlazione dei log per il rilevamento delle minacce) e SOAR (orchestrazione e risposta automatizzata tramite playbook) in un'unica soluzione.",
     "options": [
       "Vero",
       "Falso"
@@ -491,7 +491,7 @@
     "correct": [
       0
     ],
-    "explanation": "Vero. Microsoft Sentinel e' sia un SIEM (Security Information and Event Management), che raccoglie e correla i dati per rilevare minacce, sia un SOAR (Security Orchestration, Automation and Response), che automatizza la risposta tramite playbook basati su Azure Logic Apps.",
+    "explanation": "Vero. Microsoft Sentinel è sia un SIEM (Security Information and Event Management), che raccoglie e correla i dati per rilevare minacce, sia un SOAR (Security Orchestration, Automation and Response), che automatizza la risposta tramite playbook basati su Azure Logic Apps.",
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "Microsoft Sentinel combines SIEM capabilities (log collection and correlation for threat detection) and SOAR capabilities (orchestration and automated response through playbooks) in a single solution.",
     "options_en": [
@@ -511,7 +511,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un'organizzazione vuole classificare automaticamente i documenti contenenti dati riservati e applicare crittografia e restrizioni d'uso (ad esempio impedire la stampa o l'inoltro) che seguano il file ovunque venga condiviso. Quale funzionalita di Microsoft Purview soddisfa questo requisito?",
+    "question": "Un'organizzazione vuole classificare automaticamente i documenti contenenti dati riservati e applicare crittografia e restrizioni d'uso (ad esempio impedire la stampa o l'inoltro) che seguano il file ovunque venga condiviso. Quale funzionalità di Microsoft Purview soddisfa questo requisito?",
     "options": [
       "Etichette di riservatezza (sensitivity labels)",
       "Etichette di conservazione (retention labels)",
@@ -553,7 +553,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un responsabile della conformita vuole impedire che gli utenti condividano accidentalmente numeri di carta di credito tramite e-mail di Exchange Online o file in SharePoint e OneDrive, bloccando o avvisando in base al contenuto. Quale funzionalita di Microsoft Purview e' progettata per questo scopo?",
+    "question": "Un responsabile della conformità vuole impedire che gli utenti condividano accidentalmente numeri di carta di credito tramite e-mail di Exchange Online o file in SharePoint e OneDrive, bloccando o avvisando in base al contenuto. Quale funzionalità di Microsoft Purview è progettata per questo scopo?",
     "options": [
       "Prevenzione della perdita dei dati (Data Loss Prevention, DLP)",
       "Compliance Manager",
@@ -565,7 +565,7 @@
     ],
     "explanation": "La prevenzione della perdita dei dati (DLP) di Microsoft Purview identifica informazioni sensibili (come numeri di carta di credito tramite tipi di informazioni sensibili) in e-mail e documenti nei servizi Microsoft 365 e applica azioni come avvisare o bloccare la condivisione per prevenire fughe di dati.",
     "why_wrong": {
-      "1": "Compliance Manager misura e gestisce la postura di conformita' con valutazioni e punteggi, non applica controlli in tempo reale sulla condivisione dei contenuti.",
+      "1": "Compliance Manager misura e gestisce la postura di conformità con valutazioni e punteggi, non applica controlli in tempo reale sulla condivisione dei contenuti.",
       "2": "La gestione dei record dichiara e conserva contenuti come record per requisiti normativi, non blocca la condivisione di dati sensibili.",
       "3": "Le barriere informative impediscono la comunicazione tra gruppi specifici di utenti, non ispezionano il contenuto per dati sensibili come le carte di credito."
     },
@@ -595,7 +595,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "Un'azienda deve dimostrare i propri progressi verso vari standard normativi (come ISO 27001 e GDPR) e ottenere un punteggio di conformita basato sulle azioni di miglioramento implementate. Quale strumento di Microsoft Purview fornisce valutazioni predefinite, un punteggio di conformita e indicazioni sulle azioni da intraprendere?",
+    "question": "Un'azienda deve dimostrare i propri progressi verso vari standard normativi (come ISO 27001 e GDPR) e ottenere un punteggio di conformità basato sulle azioni di miglioramento implementate. Quale strumento di Microsoft Purview fornisce valutazioni predefinite, un punteggio di conformità e indicazioni sulle azioni da intraprendere?",
     "options": [
       "Compliance Manager",
       "Gestore delle etichette di riservatezza",
@@ -605,11 +605,11 @@
     "correct": [
       0
     ],
-    "explanation": "Microsoft Purview Compliance Manager aiuta a gestire i requisiti di conformita' con valutazioni predefinite per normative e standard, calcola un punteggio di conformita' e fornisce indicazioni sulle azioni di miglioramento (controlli gestiti da Microsoft e dal cliente) da implementare.",
+    "explanation": "Microsoft Purview Compliance Manager aiuta a gestire i requisiti di conformità con valutazioni predefinite per normative e standard, calcola un punteggio di conformità e fornisce indicazioni sulle azioni di miglioramento (controlli gestiti da Microsoft e dal cliente) da implementare.",
     "why_wrong": {
-      "1": "La gestione delle etichette di riservatezza classifica e protegge i contenuti, ma non fornisce un punteggio di conformita' rispetto agli standard normativi.",
-      "2": "La soluzione Audit registra le attivita' degli utenti e degli amministratori per indagini, ma non calcola un punteggio di conformita' rispetto alle normative.",
-      "3": "Data Lifecycle Management gestisce conservazione ed eliminazione dei dati, non valuta la conformita' rispetto a standard come ISO 27001 o GDPR."
+      "1": "La gestione delle etichette di riservatezza classifica e protegge i contenuti, ma non fornisce un punteggio di conformità rispetto agli standard normativi.",
+      "2": "La soluzione Audit registra le attività degli utenti e degli amministratori per indagini, ma non calcola un punteggio di conformità rispetto alle normative.",
+      "3": "Data Lifecycle Management gestisce conservazione ed eliminazione dei dati, non valuta la conformità rispetto a standard come ISO 27001 o GDPR."
     },
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "A company must demonstrate its progress toward various regulatory standards (such as ISO 27001 and GDPR) and obtain a compliance score based on the improvement actions implemented. Which Microsoft Purview tool provides pre-built assessments, a compliance score and guidance on the actions to take?",
@@ -640,7 +640,7 @@
     "question": "Un'organizzazione soggetta a indagini legali deve individuare, conservare (legal hold) ed esportare contenuti rilevanti da Microsoft 365, e allo stesso tempo rilevare rischi da parte di utenti interni come l'esfiltrazione di dati prima delle dimissioni. Quali DUE soluzioni di Microsoft Purview coprono questi scenari? (Seleziona due risposte.)",
     "options": [
       "eDiscovery per individuare, conservare ed esportare contenuti per indagini legali",
-      "Gestione dei rischi Insider (Insider Risk Management) per rilevare attivita a rischio degli utenti interni",
+      "Gestione dei rischi Insider (Insider Risk Management) per rilevare attività a rischio degli utenti interni",
       "Prevenzione della perdita dei dati (DLP) per applicare etichette di riservatezza automatiche",
       "Accesso condizionale per bloccare l'accesso dai dispositivi non conformi"
     ],
@@ -648,10 +648,10 @@
       0,
       1
     ],
-    "explanation": "eDiscovery consente di individuare, mettere in conservazione a fini legali (hold) ed esportare i contenuti rilevanti in Microsoft 365 per indagini e cause legali. Insider Risk Management usa segnali e criteri per rilevare e gestire attivita' a rischio degli utenti interni, come l'esfiltrazione di dati. Insieme coprono i due scenari.",
+    "explanation": "eDiscovery consente di individuare, mettere in conservazione a fini legali (hold) ed esportare i contenuti rilevanti in Microsoft 365 per indagini e cause legali. Insider Risk Management usa segnali e criteri per rilevare e gestire attività a rischio degli utenti interni, come l'esfiltrazione di dati. Insieme coprono i due scenari.",
     "why_wrong": {
-      "2": "La DLP previene la condivisione non autorizzata di dati sensibili; non e' lo strumento per la conservazione legale ne' per applicare le etichette di riservatezza (compito dell'Information Protection).",
-      "3": "L'accesso condizionale e' una funzionalita' di Entra ID per il controllo degli accessi, non una soluzione di conformita' di Purview per indagini legali o rischi insider."
+      "2": "La DLP previene la condivisione non autorizzata di dati sensibili; non è lo strumento per la conservazione legale né per applicare le etichette di riservatezza (compito dell'Information Protection).",
+      "3": "L'accesso condizionale è una funzionalità di Entra ID per il controllo degli accessi, non una soluzione di conformità di Purview per indagini legali o rischi insider."
     },
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "An organization subject to legal investigations must locate, preserve (legal hold) and export relevant content from Microsoft 365, and at the same time detect risks from internal users such as data exfiltration before resignation. Which TWO Microsoft Purview solutions cover these scenarios? (Select two answers.)",
@@ -678,21 +678,21 @@
     ],
     "type": "multi",
     "difficulty": 2,
-    "question": "Un amministratore sta esaminando le capacita di governance dei dati di Microsoft Purview. Quali DUE delle seguenti affermazioni descrivono correttamente funzionalita di Microsoft Purview relative alla gestione e conformita dei dati? (Seleziona due risposte.)",
+    "question": "Un amministratore sta esaminando le capacità di governance dei dati di Microsoft Purview. Quali DUE delle seguenti affermazioni descrivono correttamente funzionalità di Microsoft Purview relative alla gestione e conformità dei dati? (Seleziona due risposte.)",
     "options": [
       "Data Lifecycle Management applica criteri di conservazione ed eliminazione ai dati",
-      "Il Data Map analizza e cataloga le origini dati per fornire visibilita sugli asset di dati",
-      "Microsoft Purview esegue automaticamente il patching delle vulnerabilita dei server",
+      "Il Data Map analizza e cataloga le origini dati per fornire visibilità sugli asset di dati",
+      "Microsoft Purview esegue automaticamente il patching delle vulnerabilità dei server",
       "Microsoft Purview fornisce protezione antivirus in tempo reale per gli endpoint"
     ],
     "correct": [
       0,
       1
     ],
-    "explanation": "Data Lifecycle Management (gestione del ciclo di vita dei dati) applica criteri di conservazione ed eliminazione per mantenere o rimuovere i contenuti in base a esigenze normative. Il Data Map di Purview analizza e cataloga automaticamente le origini dati, fornendo una mappa e visibilita' sugli asset di dati per la governance. Entrambe sono capacita' di Purview.",
+    "explanation": "Data Lifecycle Management (gestione del ciclo di vita dei dati) applica criteri di conservazione ed eliminazione per mantenere o rimuovere i contenuti in base a esigenze normative. Il Data Map di Purview analizza e cataloga automaticamente le origini dati, fornendo una mappa e visibilità sugli asset di dati per la governance. Entrambe sono capacità di Purview.",
     "why_wrong": {
-      "2": "Il patching delle vulnerabilita' dei server riguarda la gestione delle minacce/vulnerabilita' (es. Defender), non le funzionalita' di governance e conformita' di Purview.",
-      "3": "La protezione antivirus in tempo reale degli endpoint e' fornita da Microsoft Defender, non da Microsoft Purview."
+      "2": "Il patching delle vulnerabilità dei server riguarda la gestione delle minacce/vulnerabilità (es. Defender), non le funzionalità di governance e conformità di Purview.",
+      "3": "La protezione antivirus in tempo reale degli endpoint è fornita da Microsoft Defender, non da Microsoft Purview."
     },
     "source": "HACK/Microsoft Cybersecurity",
     "question_en": "An administrator is examining the data governance capabilities of Microsoft Purview. Which TWO of the following statements correctly describe features of Microsoft Purview related to data management and compliance? (Select two answers.)",

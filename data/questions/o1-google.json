@@ -23,9 +23,9 @@
     "explanation": "L'integrità (Integrity) garantisce che i dati siano corretti, autentici e affidabili e che non vengano modificati in modo non autorizzato durante archiviazione o trasmissione.",
     "explanation_en": "Integrity ensures that the data is correct, authentic and reliable and that it is not modified in an unauthorized way during storage or transmission.",
     "why_wrong": {
-      "0": "Questa e' la riservatezza (Confidentiality), non l'integrita'.",
-      "2": "Questa e' la disponibilita' (Availability), non l'integrita'.",
-      "3": "La cifratura e' un controllo che supporta la riservatezza; non definisce l'integrita'."
+      "0": "Questa è la riservatezza (Confidentiality), non l'integrità.",
+      "2": "Questa è la disponibilità (Availability), non l'integrità.",
+      "3": "La cifratura è un controllo che supporta la riservatezza; non definisce l'integrità."
     },
     "why_wrong_en": {
       "0": "This is Confidentiality, not Integrity.",
@@ -116,7 +116,7 @@
       "Un firewall stateful tiene traccia dello stato delle connessioni di rete attive",
       "Un firewall filtra il traffico in base a regole definite su porte, protocolli e indirizzi",
       "Un firewall cifra automaticamente tutto il traffico che lo attraversa",
-      "Un firewall sostituisce completamente la necessita' di un antivirus sugli endpoint"
+      "Un firewall sostituisce completamente la necessità di un antivirus sugli endpoint"
     ],
     "options_en": [
       "A stateful firewall keeps track of the state of active network connections",
@@ -128,8 +128,8 @@
     "explanation": "Un firewall stateful mantiene una tabella dello stato delle connessioni per decidere quali pacchetti ammettere, e in generale i firewall filtrano il traffico applicando regole su porte, protocolli e indirizzi IP.",
     "explanation_en": "A stateful firewall maintains a connection state table to decide which packets to admit, and in general firewalls filter traffic by applying rules on ports, protocols and IP addresses.",
     "why_wrong": {
-      "2": "Un firewall non cifra il traffico; la cifratura e' compito di protocolli come TLS o di una VPN.",
-      "3": "Il firewall e' un livello di difesa perimetrale/di rete e non sostituisce la protezione antivirus sugli endpoint."
+      "2": "Un firewall non cifra il traffico; la cifratura è compito di protocolli come TLS o di una VPN.",
+      "3": "Il firewall è un livello di difesa perimetrale/di rete e non sostituisce la protezione antivirus sugli endpoint."
     },
     "why_wrong_en": {
       "2": "A firewall does not encrypt traffic; encryption is the job of protocols such as TLS or of a VPN.",
@@ -158,7 +158,7 @@
       "grep"
     ],
     "correct": [1],
-    "explanation": "Il comando 'cat' concatena e stampa il contenuto di uno o piu' file di testo sullo standard output, quindi e' usato per visualizzare rapidamente un file.",
+    "explanation": "Il comando 'cat' concatena e stampa il contenuto di uno o più file di testo sullo standard output, quindi è usato per visualizzare rapidamente un file.",
     "explanation_en": "The 'cat' command concatenates and prints the contents of one or more text files to standard output, so it is used to quickly display a file.",
     "why_wrong": {
       "0": "'chmod' modifica i permessi di file e directory, non ne mostra il contenuto.",
@@ -178,7 +178,7 @@
     "topics": ["Linux", "Controllo accessi"],
     "type": "single",
     "difficulty": 3,
-    "question": "In Linux, i permessi di un file sono 'rwxr-x---'. Cosa puo' fare il gruppo proprietario del file?",
+    "question": "In Linux, i permessi di un file sono 'rwxr-x---'. Cosa può fare il gruppo proprietario del file?",
     "question_en": "In Linux, a file's permissions are 'rwxr-x---'. What can the file's owning group do?",
     "options": [
       "Leggere, scrivere ed eseguire il file",
@@ -193,12 +193,12 @@
       "No access to the file"
     ],
     "correct": [1],
-    "explanation": "I permessi sono divisi in tre gruppi da tre: proprietario (rwx), gruppo (r-x) e altri (---). Il gruppo ha 'r-x', quindi puo' leggere ed eseguire il file ma non scriverlo.",
+    "explanation": "I permessi sono divisi in tre gruppi da tre: proprietario (rwx), gruppo (r-x) e altri (---). Il gruppo ha 'r-x', quindi può leggere ed eseguire il file ma non scriverlo.",
     "explanation_en": "The permissions are divided into three groups of three: owner (rwx), group (r-x) and others (---). The group has 'r-x', so it can read and execute the file but not write to it.",
     "why_wrong": {
-      "0": "'rwx' (lettura, scrittura, esecuzione) e' il permesso del proprietario, non del gruppo.",
+      "0": "'rwx' (lettura, scrittura, esecuzione) è il permesso del proprietario, non del gruppo.",
       "2": "'r--' sarebbe sola lettura; il gruppo ha invece anche il permesso di esecuzione (x).",
-      "3": "Nessun accesso ('---') e' il permesso assegnato agli 'altri', non al gruppo."
+      "3": "Nessun accesso ('---') è il permesso assegnato agli 'altri', non al gruppo."
     },
     "why_wrong_en": {
       "0": "'rwx' (read, write, execute) is the owner's permission, not the group's.",
@@ -213,7 +213,7 @@
     "topics": ["Python"],
     "type": "truefalse",
     "difficulty": 1,
-    "question": "In Python, l'indentazione (i rientri) e' significativa e serve a definire i blocchi di codice, ad esempio il corpo di un ciclo o di una funzione.",
+    "question": "In Python, l'indentazione (i rientri) è significativa e serve a definire i blocchi di codice, ad esempio il corpo di un ciclo o di una funzione.",
     "question_en": "In Python, indentation is significant and is used to define code blocks, for example the body of a loop or a function.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
@@ -263,11 +263,11 @@
     "topics": ["SIEM"],
     "type": "single",
     "difficulty": 2,
-    "question": "Qual e' la funzione principale di uno strumento SIEM in un SOC?",
+    "question": "Qual è la funzione principale di uno strumento SIEM in un SOC?",
     "question_en": "What is the main function of a SIEM tool in a SOC?",
     "options": [
       "Cifrare i dati sui dischi degli endpoint",
-      "Raccogliere, aggregare e analizzare log ed eventi di sicurezza da piu' fonti per generare avvisi",
+      "Raccogliere, aggregare e analizzare log ed eventi di sicurezza da più fonti per generare avvisi",
       "Assegnare automaticamente gli indirizzi IP ai dispositivi della rete",
       "Bloccare fisicamente le porte USB dei computer"
     ],
@@ -278,12 +278,12 @@
       "Physically block the computers' USB ports"
     ],
     "correct": [1],
-    "explanation": "Un SIEM (Security Information and Event Management) centralizza la raccolta e l'aggregazione di log ed eventi da fonti diverse, li correla e genera avvisi, dando agli analisti visibilita' sulle minacce.",
+    "explanation": "Un SIEM (Security Information and Event Management) centralizza la raccolta e l'aggregazione di log ed eventi da fonti diverse, li correla e genera avvisi, dando agli analisti visibilità sulle minacce.",
     "explanation_en": "A SIEM (Security Information and Event Management) centralizes the collection and aggregation of logs and events from different sources, correlates them and generates alerts, giving analysts visibility into threats.",
     "why_wrong": {
-      "0": "La cifratura dei dischi e' compito di strumenti come BitLocker o LUKS, non di un SIEM.",
-      "2": "L'assegnazione automatica degli IP e' compito del DHCP.",
-      "3": "Il controllo delle porte USB e' una funzione di device control/endpoint, non del SIEM."
+      "0": "La cifratura dei dischi è compito di strumenti come BitLocker o LUKS, non di un SIEM.",
+      "2": "L'assegnazione automatica degli IP è compito del DHCP.",
+      "3": "Il controllo delle porte USB è una funzione di device control/endpoint, non del SIEM."
     },
     "why_wrong_en": {
       "0": "Disk encryption is the job of tools such as BitLocker or LUKS, not of a SIEM.",
@@ -316,9 +316,9 @@
     "explanation": "Il ciclo NIST prevede: Preparation, Detection and Analysis, Containment/Eradication/Recovery e infine Post-Incident Activity. Dopo aver rilevato e analizzato l'incidente si passa a contenerlo, eradicarlo e ripristinare i sistemi.",
     "explanation_en": "The NIST cycle consists of: Preparation, Detection and Analysis, Containment/Eradication/Recovery and finally Post-Incident Activity. After detecting and analyzing the incident, you move on to containing it, eradicating it and restoring the systems.",
     "why_wrong": {
-      "0": "Preparation e' la prima fase, precede Detection and Analysis.",
-      "2": "Post-Incident Activity e' l'ultima fase, non segue immediatamente Detection and Analysis.",
-      "3": "Risk Assessment non e' una fase del ciclo di incident response del NIST."
+      "0": "Preparation è la prima fase, precede Detection and Analysis.",
+      "2": "Post-Incident Activity è l'ultima fase, non segue immediatamente Detection and Analysis.",
+      "3": "Risk Assessment non è una fase del ciclo di incident response del NIST."
     },
     "why_wrong_en": {
       "0": "Preparation is the first phase, it precedes Detection and Analysis.",
@@ -333,11 +333,11 @@
     "topics": ["TCP/IP", "NAT"],
     "type": "single",
     "difficulty": 2,
-    "question": "Qual e' lo scopo principale della NAT (Network Address Translation) su un router domestico?",
+    "question": "Qual è lo scopo principale della NAT (Network Address Translation) su un router domestico?",
     "question_en": "What is the main purpose of NAT (Network Address Translation) on a home router?",
     "options": [
       "Tradurre i nomi di dominio in indirizzi IP",
-      "Consentire a piu' dispositivi con IP privati di condividere un unico IP pubblico verso Internet",
+      "Consentire a più dispositivi con IP privati di condividere un unico IP pubblico verso Internet",
       "Cifrare il traffico tra il router e i dispositivi interni",
       "Assegnare dinamicamente gli indirizzi IP ai dispositivi della LAN"
     ],
@@ -348,12 +348,12 @@
       "Dynamically assign IP addresses to the devices on the LAN"
     ],
     "correct": [1],
-    "explanation": "La NAT traduce gli indirizzi IP privati della rete interna in un unico (o pochi) IP pubblico, permettendo a piu' dispositivi di condividere lo stesso indirizzo pubblico per accedere a Internet.",
+    "explanation": "La NAT traduce gli indirizzi IP privati della rete interna in un unico (o pochi) IP pubblico, permettendo a più dispositivi di condividere lo stesso indirizzo pubblico per accedere a Internet.",
     "explanation_en": "NAT translates the private IP addresses of the internal network into a single (or a few) public IP, allowing multiple devices to share the same public address to access the Internet.",
     "why_wrong": {
-      "0": "La traduzione nome-IP e' compito del DNS, non della NAT.",
-      "2": "La NAT non cifra il traffico; la cifratura e' compito di protocolli come TLS o IPsec.",
-      "3": "L'assegnazione dinamica degli IP interni e' compito del DHCP, non della NAT."
+      "0": "La traduzione nome-IP è compito del DNS, non della NAT.",
+      "2": "La NAT non cifra il traffico; la cifratura è compito di protocolli come TLS o IPsec.",
+      "3": "L'assegnazione dinamica degli IP interni è compito del DHCP, non della NAT."
     },
     "why_wrong_en": {
       "0": "Name-to-IP translation is the job of DNS, not of NAT.",
@@ -368,7 +368,7 @@
     "topics": ["Gestione del rischio"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Trasferire il rischio (ad esempio stipulando una polizza assicurativa cyber) e' una delle strategie valide di trattamento del rischio.",
+    "question": "Trasferire il rischio (ad esempio stipulando una polizza assicurativa cyber) è una delle strategie valide di trattamento del rischio.",
     "question_en": "Transferring risk (for example by taking out a cyber insurance policy) is one of the valid risk treatment strategies.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
@@ -403,7 +403,7 @@
     "why_wrong": {
       "0": "Lo spyware raccoglie di nascosto informazioni sulla vittima, non cifra i file per estorsione.",
       "2": "L'adware mostra pubblicita' indesiderata, non cifra i file.",
-      "3": "Un rootkit nasconde la presenza dell'attaccante e mantiene l'accesso, non e' definito dalla cifratura a scopo di riscatto."
+      "3": "Un rootkit nasconde la presenza dell'attaccante e mantiene l'accesso, non è definito dalla cifratura a scopo di riscatto."
     },
     "why_wrong_en": {
       "0": "Spyware secretly collects information about the victim, it does not encrypt files for extortion.",
@@ -433,10 +433,10 @@
       "Granting maximum permanent permissions to avoid future requests"
     ],
     "correct": [0, 1],
-    "explanation": "Il privilegio minimo assegna a ciascun utente solo i permessi strettamente necessari, mentre la separazione dei compiti divide le responsabilita' critiche tra piu' persone per ridurre frodi ed errori: entrambi sono principi cardine del controllo degli accessi.",
+    "explanation": "Il privilegio minimo assegna a ciascun utente solo i permessi strettamente necessari, mentre la separazione dei compiti divide le responsabilità critiche tra più persone per ridurre frodi ed errori: entrambi sono principi cardine del controllo degli accessi.",
     "explanation_en": "Least privilege assigns each user only the strictly necessary permissions, while separation of duties splits critical responsibilities among several people to reduce fraud and errors: both are cornerstone principles of access control.",
     "why_wrong": {
-      "2": "Condividere un unico account amministrativo elimina la tracciabilita' e viola i principi di accountability e least privilege.",
+      "2": "Condividere un unico account amministrativo elimina la tracciabilità e viola i principi di accountability e least privilege.",
       "3": "Concedere permessi massimi permanenti viola il privilegio minimo e amplia inutilmente la superficie di attacco."
     },
     "why_wrong_en": {
@@ -451,12 +451,12 @@
     "topics": ["VPN", "Crittografia"],
     "type": "single",
     "difficulty": 2,
-    "question": "Qual e' il beneficio principale di una VPN quando ci si collega a una rete Wi-Fi pubblica non affidabile?",
+    "question": "Qual è il beneficio principale di una VPN quando ci si collega a una rete Wi-Fi pubblica non affidabile?",
     "question_en": "What is the main benefit of a VPN when connecting to an untrusted public Wi-Fi network?",
     "options": [
-      "Aumenta la velocita' della connessione Internet",
+      "Aumenta la velocità della connessione Internet",
       "Crea un tunnel cifrato che protegge la riservatezza del traffico dell'utente",
-      "Elimina la necessita' di autenticarsi ai servizi online",
+      "Elimina la necessità di autenticarsi ai servizi online",
       "Blocca automaticamente tutto il malware in arrivo"
     ],
     "options_en": [
@@ -469,9 +469,9 @@
     "explanation": "Una VPN incapsula il traffico dell'utente in un tunnel cifrato: anche su una rete pubblica non affidabile, chi intercetta il traffico non riesce a leggerne il contenuto, proteggendo la riservatezza.",
     "explanation_en": "A VPN encapsulates the user's traffic in an encrypted tunnel: even on an untrusted public network, anyone intercepting the traffic cannot read its content, protecting confidentiality.",
     "why_wrong": {
-      "0": "Una VPN in genere non aumenta la velocita'; puo' anzi introdurre un lieve overhead.",
+      "0": "Una VPN in genere non aumenta la velocità; può anzi introdurre un lieve overhead.",
       "2": "La VPN non sostituisce l'autenticazione ai singoli servizi online.",
-      "3": "Una VPN cifra il traffico ma non e' un antimalware e non blocca da sola tutte le minacce."
+      "3": "Una VPN cifra il traffico ma non è un antimalware e non blocca da sola tutte le minacce."
     },
     "why_wrong_en": {
       "0": "A VPN generally does not increase speed; it may even introduce a slight overhead.",
@@ -489,8 +489,8 @@
     "question": "Riguardo a IDS e IPS, quali affermazioni sono corrette? (Seleziona due)",
     "question_en": "Regarding IDS and IPS, which statements are correct? (Select two)",
     "options": [
-      "Un IDS monitora il traffico e genera avvisi sulle attivita' sospette, ma non le blocca",
-      "Un IPS e' posizionato in linea e puo' bloccare attivamente il traffico malevolo",
+      "Un IDS monitora il traffico e genera avvisi sulle attività sospette, ma non le blocca",
+      "Un IPS è posizionato in linea e può bloccare attivamente il traffico malevolo",
       "Sia IDS sia IPS hanno come funzione principale la cifratura del traffico",
       "Un IDS assegna gli indirizzi IP mentre un IPS li traduce con la NAT"
     ],
@@ -501,11 +501,11 @@
       "An IDS assigns IP addresses while an IPS translates them with NAT"
     ],
     "correct": [0, 1],
-    "explanation": "Un IDS (Intrusion Detection System) rileva le attivita' sospette e genera avvisi senza intervenire, mentre un IPS (Intrusion Prevention System) e' in linea e puo' bloccare o scartare attivamente il traffico malevolo.",
+    "explanation": "Un IDS (Intrusion Detection System) rileva le attività sospette e genera avvisi senza intervenire, mentre un IPS (Intrusion Prevention System) è in linea e può bloccare o scartare attivamente il traffico malevolo.",
     "explanation_en": "An IDS (Intrusion Detection System) detects suspicious activity and generates alerts without intervening, while an IPS (Intrusion Prevention System) is inline and can actively block or drop malicious traffic.",
     "why_wrong": {
-      "2": "Ne' IDS ne' IPS hanno come funzione la cifratura del traffico.",
-      "3": "L'assegnazione degli IP e' del DHCP e la traduzione della NAT, non di IDS/IPS."
+      "2": "Né IDS né IPS hanno come funzione la cifratura del traffico.",
+      "3": "L'assegnazione degli IP è del DHCP e la traduzione della NAT, non di IDS/IPS."
     },
     "why_wrong_en": {
       "2": "Neither IDS nor IPS has traffic encryption as a function.",
@@ -519,12 +519,12 @@
     "topics": ["Difesa in profondità"],
     "type": "truefalse",
     "difficulty": 1,
-    "question": "La difesa in profondita' (defense in depth) consiste nell'affidarsi a un unico controllo di sicurezza molto robusto per proteggere l'intera organizzazione.",
+    "question": "La difesa in profondità (defense in depth) consiste nell'affidarsi a un unico controllo di sicurezza molto robusto per proteggere l'intera organizzazione.",
     "question_en": "Defense in depth consists of relying on a single very robust security control to protect the entire organization.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [1],
-    "explanation": "Falso. La difesa in profondita' prevede piu' livelli di controlli di sicurezza sovrapposti (fisici, tecnici, amministrativi), cosi' che se un livello viene superato gli altri continuino a proteggere: non si basa su un solo controllo.",
+    "explanation": "Falso. La difesa in profondità prevede più livelli di controlli di sicurezza sovrapposti (fisici, tecnici, amministrativi), così che se un livello viene superato gli altri continuino a proteggere: non si basa su un solo controllo.",
     "explanation_en": "False. Defense in depth involves multiple overlapping layers of security controls (physical, technical, administrative), so that if one layer is bypassed the others keep protecting: it does not rely on a single control.",
     "source": "HACK/Google Cybersecurity"
   },
@@ -537,7 +537,7 @@
     "question": "Riguardo alle funzioni di hash crittografiche (come SHA-256), quali affermazioni sono corrette? (Seleziona due)",
     "question_en": "Regarding cryptographic hash functions (such as SHA-256), which statements are correct? (Select two)",
     "options": [
-      "Sono progettate per essere unidirezionali: dall'hash e' computazionalmente difficile risalire all'input",
+      "Sono progettate per essere unidirezionali: dall'hash è computazionalmente difficile risalire all'input",
       "Producono un output di lunghezza fissa indipendentemente dalla dimensione dell'input",
       "Permettono di recuperare facilmente il testo originale invertendo l'hash",
       "Sono usate principalmente per cifrare i dati in modo che possano poi essere decifrati con una chiave"
@@ -549,11 +549,11 @@
       "They are used mainly to encrypt data so that it can later be decrypted with a key"
     ],
     "correct": [0, 1],
-    "explanation": "Una funzione di hash crittografica e' unidirezionale (dall'hash non si risale praticamente all'input) e produce un digest di lunghezza fissa qualunque sia la dimensione dell'input, proprieta' utili per verificare l'integrita' e memorizzare le password.",
+    "explanation": "Una funzione di hash crittografica è unidirezionale (dall'hash non si risale praticamente all'input) e produce un digest di lunghezza fissa qualunque sia la dimensione dell'input, proprietà utili per verificare l'integrità e memorizzare le password.",
     "explanation_en": "A cryptographic hash function is one-way (the input cannot practically be derived from the hash) and produces a fixed-length digest whatever the size of the input, properties useful for verifying integrity and storing passwords.",
     "why_wrong": {
-      "2": "L'hashing e' unidirezionale: non e' progettato per recuperare il testo originale.",
-      "3": "L'hashing non e' cifratura reversibile; non prevede una chiave per 'decifrare' e ottenere di nuovo il dato in chiaro."
+      "2": "L'hashing è unidirezionale: non è progettato per recuperare il testo originale.",
+      "3": "L'hashing non è cifratura reversibile; non prevede una chiave per 'decifrare' e ottenere di nuovo il dato in chiaro."
     },
     "why_wrong_en": {
       "2": "Hashing is one-way: it is not designed to recover the original text.",

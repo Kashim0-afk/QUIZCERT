@@ -5,15 +5,15 @@
     "topics": ["Controllo accessi", "Azure"],
     "type": "single",
     "difficulty": 2,
-    "question": "Una Function App deve leggere segreti da Azure Key Vault senza che vengano memorizzate credenziali nel codice o nelle impostazioni dell'app. Qual e l'approccio consigliato da Microsoft?",
+    "question": "Una Function App deve leggere segreti da Azure Key Vault senza che vengano memorizzate credenziali nel codice o nelle impostazioni dell'app. Qual è l'approccio consigliato da Microsoft?",
     "options": [
-      "Assegnare una managed identity (identita gestita) alla Function App e concederle l'accesso al Key Vault",
+      "Assegnare una managed identity (identità gestita) alla Function App e concederle l'accesso al Key Vault",
       "Salvare un service principal con client secret nelle application settings della Function App",
       "Inserire la connection string del Key Vault direttamente nel codice sorgente",
       "Configurare una chiave di accesso condivisa e distribuirla agli sviluppatori"
     ],
     "correct": [0],
-    "explanation": "Le managed identities eliminano la necessita di gestire credenziali: Entra ID gestisce automaticamente le identita e la rotazione. Si assegna l'identita alla Function App e le si concede l'accesso al Key Vault (policy o RBAC), cosi l'app ottiene token senza segreti memorizzati.",
+    "explanation": "Le managed identities eliminano la necessità di gestire credenziali: Entra ID gestisce automaticamente le identità e la rotazione. Si assegna l'identità alla Function App e le si concede l'accesso al Key Vault (policy o RBAC), così l'app ottiene token senza segreti memorizzati.",
     "why_wrong": {
       "1": "Un service principal con client secret reintroduce proprio il segreto da gestire e ruotare che si vuole evitare.",
       "2": "Inserire credenziali nel codice sorgente e una pessima pratica: espone i segreti in repository e cronologia.",
@@ -40,7 +40,7 @@
     "topics": ["Conditional Access", "Controllo accessi"],
     "type": "single",
     "difficulty": 3,
-    "question": "Vuoi imporre l'autenticazione a piu fattori (MFA) solo quando un utente accede da una posizione non attendibile, senza richiederla dalla rete aziendale. Quale funzionalita di Microsoft Entra usi?",
+    "question": "Vuoi imporre l'autenticazione a più fattori (MFA) solo quando un utente accede da una posizione non attendibile, senza richiederla dalla rete aziendale. Quale funzionalità di Microsoft Entra usi?",
     "options": [
       "Una policy di Conditional Access con condizione basata sulle named locations",
       "Un ruolo RBAC personalizzato applicato alla subscription",
@@ -83,11 +83,11 @@
       "Applicare una policy di Azure Policy per limitare le azioni del ruolo"
     ],
     "correct": [0],
-    "explanation": "PIM consente assegnazioni eleggibili anziche permanenti: l'utente attiva il ruolo just-in-time per una durata limitata, potendo richiedere approvazione, MFA e giustificazione. Questo riduce l'esposizione dei privilegi permanenti (standing access).",
+    "explanation": "PIM consente assegnazioni eleggibili anziché permanenti: l'utente attiva il ruolo just-in-time per una durata limitata, potendo richiedere approvazione, MFA e giustificazione. Questo riduce l'esposizione dei privilegi permanenti (standing access).",
     "why_wrong": {
-      "1": "Un'assegnazione permanente mantiene privilegi elevati sempre attivi, esattamente cio che si vuole evitare.",
+      "1": "Un'assegnazione permanente mantiene privilegi elevati sempre attivi, esattamente ciò che si vuole evitare.",
       "2": "Un gruppo con appartenenza permanente non fornisce attivazione temporanea ne flusso di approvazione.",
-      "3": "Azure Policy governa la conformita delle risorse, non l'attivazione temporanea dei ruoli di directory."
+      "3": "Azure Policy governa la conformità delle risorse, non l'attivazione temporanea dei ruoli di directory."
     },
     "source": "Microsoft AZ-500",
     "question_en": "An administrator must hold the Global Administrator role only when it is actually needed, activating it for a limited period with approval. Which solution meets this requirement?",
@@ -118,10 +118,10 @@
       "Reader sul resource group"
     ],
     "correct": [0],
-    "explanation": "Virtual Machine Contributor consente di gestire le VM (incluso avvio/riavvio) ma non concede accesso alla rete virtuale ne la possibilita di gestire altre risorse. Assegnato allo scope del resource group rispetta il privilegio minimo.",
+    "explanation": "Virtual Machine Contributor consente di gestire le VM (incluso avvio/riavvio) ma non concede accesso alla rete virtuale ne la possibilità di gestire altre risorse. Assegnato allo scope del resource group rispetta il privilegio minimo.",
     "why_wrong": {
       "1": "Contributor sulla subscription e troppo ampio: permette di gestire quasi tutte le risorse, incluse eliminazione e rete.",
-      "2": "Owner aggiunge anche la gestione degli accessi (RBAC) ed e ancora piu permissivo del necessario.",
+      "2": "Owner aggiunge anche la gestione degli accessi (RBAC) ed e ancora più permissivo del necessario.",
       "3": "Reader consente solo la visualizzazione: non permetterebbe di riavviare le VM."
     },
     "source": "Microsoft AZ-500",
@@ -192,7 +192,7 @@
     "why_wrong": {
       "1": "Un Service Endpoint instrada il traffico sulla dorsale Microsoft ma la risorsa continua a usare il suo IP pubblico: non fornisce un IP privato ne rimuove l'endpoint pubblico.",
       "2": "Una regola NSG sull'IP pubblico non crea un accesso privato e lascia comunque attivo l'endpoint pubblico.",
-      "3": "Azure Bastion fornisce accesso RDP/SSH sicuro alle VM, non connettivita privata verso servizi PaaS come lo storage."
+      "3": "Azure Bastion fornisce accesso RDP/SSH sicuro alle VM, non connettività privata verso servizi PaaS come lo storage."
     },
     "source": "Microsoft AZ-500",
     "question_en": "You want an Azure Storage Account to be reachable from a VNet through a private IP address, completely avoiding exposure on the public endpoint. Which solution do you use?",
@@ -223,11 +223,11 @@
       "Azure Firewall con una DNAT rule sulla porta 3389"
     ],
     "correct": [0],
-    "explanation": "Azure Bastion fornisce connettivita RDP/SSH direttamente dal portale tramite TLS, senza necessita di IP pubblici sulle VM ne di esporre le porte 3389/22 su Internet, riducendo la superficie di attacco.",
+    "explanation": "Azure Bastion fornisce connettività RDP/SSH direttamente dal portale tramite TLS, senza necessità di IP pubblici sulle VM ne di esporre le porte 3389/22 su Internet, riducendo la superficie di attacco.",
     "why_wrong": {
       "1": "Aprire la 3389 anche solo da alcuni IP espone comunque la porta RDP su Internet, superficie di attacco per brute force.",
       "2": "I private endpoint sono per servizi PaaS, non forniscono l'accesso interattivo RDP alle macchine virtuali.",
-      "3": "Una DNAT su Azure Firewall pubblica comunque la porta RDP verso l'esterno, cio che si vuole evitare."
+      "3": "Una DNAT su Azure Firewall pubblica comunque la porta RDP verso l'esterno, ciò che si vuole evitare."
     },
     "source": "Microsoft AZ-500",
     "question_en": "Administrators need to connect via RDP to Windows VMs without exposing port 3389 to the Internet and without public IPs on the VMs. Which Azure service meets this requirement?",
@@ -250,7 +250,7 @@
     "topics": ["Key Vault", "Crittografia"],
     "type": "single",
     "difficulty": 3,
-    "question": "Per proteggere un Key Vault da eliminazioni accidentali o malevole che renderebbero irrecuperabili chiavi e segreti, quale coppia di funzionalita dovresti abilitare?",
+    "question": "Per proteggere un Key Vault da eliminazioni accidentali o malevole che renderebbero irrecuperabili chiavi e segreti, quale coppia di funzionalità dovresti abilitare?",
     "options": [
       "Soft delete e purge protection",
       "Managed identity e RBAC",
@@ -258,9 +258,9 @@
       "Rotazione automatica delle chiavi e versioning"
     ],
     "correct": [0],
-    "explanation": "Soft delete conserva vault e oggetti eliminati per un periodo di retention, mentre purge protection impedisce lo svuotamento definitivo (purge) prima della scadenza della retention, anche a un attaccante con privilegi. Insieme garantiscono la recuperabilita.",
+    "explanation": "Soft delete conserva vault e oggetti eliminati per un periodo di retention, mentre purge protection impedisce lo svuotamento definitivo (purge) prima della scadenza della retention, anche a un attaccante con privilegi. Insieme garantiscono la recuperabilità.",
     "why_wrong": {
-      "1": "Managed identity e RBAC gestiscono l'autenticazione e le autorizzazioni, non la recuperabilita degli oggetti eliminati.",
+      "1": "Managed identity e RBAC gestiscono l'autenticazione e le autorizzazioni, non la recuperabilità degli oggetti eliminati.",
       "2": "Private endpoint e firewall proteggono l'accesso di rete al vault, ma non impediscono l'eliminazione permanente del contenuto.",
       "3": "Rotazione e versioning gestiscono il ciclo di vita delle chiavi ma non proteggono dalla cancellazione definitiva del vault."
     },
@@ -285,7 +285,7 @@
     "topics": ["Cloud security", "Controllo accessi"],
     "type": "single",
     "difficulty": 3,
-    "question": "Devi concedere a un partner esterno accesso temporaneo in sola lettura a un singolo container di un blob storage, con scadenza tra 24 ore e senza condividere le chiavi dell'account. Qual e l'opzione migliore?",
+    "question": "Devi concedere a un partner esterno accesso temporaneo in sola lettura a un singolo container di un blob storage, con scadenza tra 24 ore e senza condividere le chiavi dell'account. Qual è l'opzione migliore?",
     "options": [
       "Generare una Shared Access Signature (SAS) con permessi di lettura e scadenza limitata",
       "Fornire al partner la chiave di accesso primaria dell'account di storage",
@@ -295,8 +295,8 @@
     "correct": [0],
     "explanation": "Una SAS consente di delegare l'accesso granulare (servizio, permessi, intervallo temporale, indirizzi IP) senza esporre le chiavi dell'account. Una SAS di sola lettura con scadenza a 24 ore soddisfa esattamente il requisito.",
     "why_wrong": {
-      "1": "Condividere la chiave primaria da accesso completo all'intero account e non e revocabile senza rigenerare la chiave.",
-      "2": "Rendere il container pubblico esporrebbe i dati a chiunque, senza controllo su scadenza o identita.",
+      "1": "Condividere la chiave primaria da accesso completo all'intero account e non è revocabile senza rigenerare la chiave.",
+      "2": "Rendere il container pubblico esporrebbe i dati a chiunque, senza controllo su scadenza o identità.",
       "3": "Storage Account Contributor concede permessi ampi di gestione, molto oltre la sola lettura di un container."
     },
     "source": "Microsoft AZ-500",
@@ -328,11 +328,11 @@
       "Microsoft Entra ID Protection"
     ],
     "correct": [0],
-    "explanation": "Microsoft Defender for Cloud e la piattaforma CSPM/CWPP di Azure: fornisce il Secure Score, raccomandazioni di hardening prioritizzate e valutazione continua della conformita rispetto a benchmark di sicurezza.",
+    "explanation": "Microsoft Defender for Cloud e la piattaforma CSPM/CWPP di Azure: fornisce il Secure Score, raccomandazioni di hardening prioritizzate e valutazione continua della conformità rispetto a benchmark di sicurezza.",
     "why_wrong": {
       "1": "Microsoft Sentinel e la soluzione SIEM/SOAR per raccolta log, correlazione e risposta agli incidenti, non fornisce il Secure Score CSPM.",
-      "2": "Azure Monitor raccoglie metriche e log di piattaforma per osservabilita, non valuta la postura di sicurezza con Secure Score.",
-      "3": "Entra ID Protection valuta i rischi legati alle identita e agli accessi, non la postura di sicurezza complessiva delle risorse."
+      "2": "Azure Monitor raccoglie metriche e log di piattaforma per osservabilità, non valuta la postura di sicurezza con Secure Score.",
+      "3": "Entra ID Protection valuta i rischi legati alle identità e agli accessi, non la postura di sicurezza complessiva delle risorse."
     },
     "source": "Microsoft AZ-500",
     "question_en": "Your manager asks for a security posture assessment (CSPM) with prioritized recommendations and an overall score for the Azure resources. Which tool provides Secure Score and these recommendations?",
@@ -355,7 +355,7 @@
     "topics": ["SIEM", "Cloud security"],
     "type": "multi",
     "difficulty": 3,
-    "question": "Quali delle seguenti sono capacita native di Microsoft Sentinel? (Seleziona due)",
+    "question": "Quali delle seguenti sono capacità native di Microsoft Sentinel? (Seleziona due)",
     "options": [
       "Correlare i log tramite regole di analytics per generare incidenti",
       "Automatizzare la risposta con playbook basati su Logic Apps",
@@ -399,7 +399,7 @@
     "explanation": "Azure Disk Encryption sfrutta BitLocker o dm-crypt nella VM per cifrare i volumi. Con le customer-managed keys (CMK) le chiavi risiedono in Azure Key Vault sotto controllo del cliente, per la server-side encryption dei managed disk.",
     "why_wrong": {
       "2": "I managed disk sono cifrati a riposo per impostazione predefinita con Storage Service Encryption (chiavi gestite da Microsoft), senza software di terze parti.",
-      "3": "Il Key Vault puo (e dovrebbe) essere protetto con private endpoint e firewall: non e richiesta alcuna esposizione pubblica per la cifratura."
+      "3": "Il Key Vault può (e dovrebbe) essere protetto con private endpoint e firewall: non è richiesta alcuna esposizione pubblica per la cifratura."
     },
     "source": "Microsoft AZ-500",
     "question_en": "Regarding data-at-rest protection for Azure virtual machines, which statements are correct? (Select two)",
@@ -459,7 +459,7 @@
     "correct": [0],
     "explanation": "Corretto. Microsoft Sentinel combina le funzioni di SIEM (raccolta, correlazione, rilevamento) e di SOAR (orchestrazione e automazione della risposta tramite playbook), operando come servizio cloud-native su Azure.",
     "why_wrong": {
-      "1": "L'affermazione e vera: Sentinel e effettivamente il SIEM/SOAR cloud-native di Microsoft, quindi Falso non e corretto."
+      "1": "L'affermazione è vera: Sentinel e effettivamente il SIEM/SOAR cloud-native di Microsoft, quindi Falso non è corretto."
     },
     "source": "Microsoft AZ-500",
     "question_en": "Microsoft Sentinel is a cloud-native SIEM and SOAR solution that centralizes log collection and enables automation of incident response.",
@@ -475,12 +475,12 @@
     "topics": ["Firewall", "Cloud security"],
     "type": "truefalse",
     "difficulty": 3,
-    "question": "Un Network Security Group (NSG) puo ispezionare il contenuto applicativo (livello 7) e bloccare selettivamente URL o FQDN specifici nel traffico HTTP.",
+    "question": "Un Network Security Group (NSG) può ispezionare il contenuto applicativo (livello 7) e bloccare selettivamente URL o FQDN specifici nel traffico HTTP.",
     "options": ["Vero", "Falso"],
     "correct": [1],
     "explanation": "Falso. Gli NSG operano a livello 3/4 filtrando in base a indirizzi IP, porte e protocolli. Non ispezionano il payload applicativo ne comprendono URL o FQDN: per questo servono Azure Firewall (application rules) o un WAF.",
     "why_wrong": {
-      "0": "E errato: gli NSG non lavorano a livello applicativo e non possono filtrare per URL o FQDN, quindi l'affermazione non e Vera."
+      "0": "E errato: gli NSG non lavorano a livello applicativo e non possono filtrare per URL o FQDN, quindi l'affermazione non è Vera."
     },
     "source": "Microsoft AZ-500",
     "question_en": "A Network Security Group (NSG) can inspect application content (layer 7) and selectively block specific URLs or FQDNs in HTTP traffic.",
@@ -499,9 +499,9 @@
     "question": "Azure Key Vault Managed HSM consente di gestire chiavi crittografiche in moduli di sicurezza hardware validati FIPS 140-2 Level 3 dedicati a un singolo tenant.",
     "options": ["Vero", "Falso"],
     "correct": [0],
-    "explanation": "Corretto. Azure Key Vault Managed HSM offre un pool di HSM single-tenant, completamente gestito e altamente disponibile, con validazione FIPS 140-2 Level 3, adatto ai carichi che richiedono il piu alto livello di protezione delle chiavi.",
+    "explanation": "Corretto. Azure Key Vault Managed HSM offre un pool di HSM single-tenant, completamente gestito e altamente disponibile, con validazione FIPS 140-2 Level 3, adatto ai carichi che richiedono il più alto livello di protezione delle chiavi.",
     "why_wrong": {
-      "1": "L'affermazione e vera: Managed HSM e effettivamente single-tenant e validato FIPS 140-2 Level 3, quindi Falso non e corretto."
+      "1": "L'affermazione è vera: Managed HSM e effettivamente single-tenant e validato FIPS 140-2 Level 3, quindi Falso non è corretto."
     },
     "source": "Microsoft AZ-500",
     "question_en": "Azure Key Vault Managed HSM allows managing cryptographic keys in FIPS 140-2 Level 3 validated hardware security modules dedicated to a single tenant.",

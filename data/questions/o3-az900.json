@@ -5,12 +5,12 @@
     "topics": ["Azure", "SLA"],
     "type": "single",
     "difficulty": 2,
-    "question": "In una singola regione di Azure, qual e' lo scopo principale delle Availability Zones (zone di disponibilita')?",
+    "question": "In una singola regione di Azure, qual è lo scopo principale delle Availability Zones (zone di disponibilità)?",
     "question_en": "Within a single Azure region, what is the main purpose of Availability Zones?",
     "options": [
-      "Replicare i dati automaticamente in un continente diverso per la sovranita' del dato",
+      "Replicare i dati automaticamente in un continente diverso per la sovranità del dato",
       "Proteggere le applicazioni dal guasto di un intero datacenter fisico all'interno della stessa regione",
-      "Ridurre i costi distribuendo il carico su datacenter piu' economici",
+      "Ridurre i costi distribuendo il carico su datacenter più economici",
       "Fornire una connessione VPN dedicata tra la sede on-premises e Azure"
     ],
     "options_en": [
@@ -20,12 +20,12 @@
       "Provide a dedicated VPN connection between the on-premises site and Azure"
     ],
     "correct": [1],
-    "explanation": "Le Availability Zones sono ubicazioni fisicamente separate (datacenter con alimentazione, raffreddamento e rete indipendenti) all'interno della stessa regione. Distribuendo le risorse su piu' zone si sopravvive al guasto di un intero datacenter, ottenendo SLA piu' elevati (es. 99,99% per le VM su piu' zone).",
+    "explanation": "Le Availability Zones sono ubicazioni fisicamente separate (datacenter con alimentazione, raffreddamento e rete indipendenti) all'interno della stessa regione. Distribuendo le risorse su più zone si sopravvive al guasto di un intero datacenter, ottenendo SLA più elevati (es. 99,99% per le VM su più zone).",
     "explanation_en": "Availability Zones are physically separate locations (datacenters with independent power, cooling, and networking) within the same region. By distributing resources across multiple zones, you survive the failure of an entire datacenter, achieving higher SLAs (e.g. 99.99% for VMs spread across multiple zones).",
     "why_wrong": {
       "0": "La replica geografica tra regioni diverse riguarda le region pair, non le Availability Zones che restano nella stessa regione.",
-      "2": "Le zone non nascono per ridurre i costi ma per aumentare la resilienza; anzi distribuire su piu' zone puo' aggiungere costi di traffico.",
-      "3": "La connessione dedicata on-premises e' fornita da ExpressRoute o VPN Gateway, non dalle Availability Zones."
+      "2": "Le zone non nascono per ridurre i costi ma per aumentare la resilienza; anzi distribuire su più zone può aggiungere costi di traffico.",
+      "3": "La connessione dedicata on-premises è fornita da ExpressRoute o VPN Gateway, non dalle Availability Zones."
     },
     "why_wrong_en": {
       "0": "Geographic replication across different regions relates to region pairs, not Availability Zones, which stay within the same region.",
@@ -40,10 +40,10 @@
     "topics": ["Azure", "RBAC", "Controllo accessi"],
     "type": "single",
     "difficulty": 2,
-    "question": "Qual e' la differenza fondamentale tra Azure RBAC e Azure Policy?",
+    "question": "Qual è la differenza fondamentale tra Azure RBAC e Azure Policy?",
     "question_en": "What is the fundamental difference between Azure RBAC and Azure Policy?",
     "options": [
-      "RBAC definisce COSA puo' fare un utente (chi accede a cosa), mentre Azure Policy definisce COME devono essere configurate le risorse",
+      "RBAC definisce COSA può fare un utente (chi accede a cosa), mentre Azure Policy definisce COME devono essere configurate le risorse",
       "RBAC e Azure Policy sono lo stesso servizio con due nomi diversi",
       "Azure Policy gestisce le password degli utenti, mentre RBAC gestisce le regole di rete",
       "RBAC si applica solo alle VM, mentre Azure Policy si applica solo agli storage account"
@@ -55,11 +55,11 @@
       "RBAC applies only to VMs, while Azure Policy applies only to storage accounts"
     ],
     "correct": [0],
-    "explanation": "Azure RBAC (Role-Based Access Control) governa le autorizzazioni: quali identita' possono eseguire quali azioni su quali risorse. Azure Policy governa invece la conformita' e le proprieta' delle risorse (es. imporre una regione consentita o l'uso di tag), a prescindere da chi le crea. Sono complementari.",
+    "explanation": "Azure RBAC (Role-Based Access Control) governa le autorizzazioni: quali identità possono eseguire quali azioni su quali risorse. Azure Policy governa invece la conformità e le proprietà delle risorse (es. imporre una regione consentita o l'uso di tag), a prescindere da chi le crea. Sono complementari.",
     "explanation_en": "Azure RBAC (Role-Based Access Control) governs permissions: which identities can perform which actions on which resources. Azure Policy, on the other hand, governs the compliance and properties of resources (e.g. enforcing an allowed region or the use of tags), regardless of who creates them. They are complementary.",
     "why_wrong": {
-      "1": "Sono due servizi distinti con scopi diversi: accesso vs conformita'.",
-      "2": "Azure Policy non gestisce password; la gestione delle identita' e' compito di Microsoft Entra ID.",
+      "1": "Sono due servizi distinti con scopi diversi: accesso vs conformità.",
+      "2": "Azure Policy non gestisce password; la gestione delle identità è compito di Microsoft Entra ID.",
       "3": "Entrambi si applicano trasversalmente a molti tipi di risorsa, non a un solo tipo."
     },
     "why_wrong_en": {
@@ -110,7 +110,7 @@
     "topics": ["Azure"],
     "type": "single",
     "difficulty": 2,
-    "question": "Un'azienda deve conservare backup normativi consultati raramente al costo di archiviazione piu' basso possibile, accettando tempi di recupero di diverse ore. Quale livello (tier) di Azure Blob Storage e' piu' adatto?",
+    "question": "Un'azienda deve conservare backup normativi consultati raramente al costo di archiviazione più basso possibile, accettando tempi di recupero di diverse ore. Quale livello (tier) di Azure Blob Storage è più adatto?",
     "question_en": "A company must store rarely accessed regulatory backups at the lowest possible storage cost, accepting retrieval times of several hours. Which Azure Blob Storage tier is most suitable?",
     "options": [
       "Hot (frequente)",
@@ -125,11 +125,11 @@
       "Premium"
     ],
     "correct": [2],
-    "explanation": "Il livello Archive offre il costo di archiviazione piu' basso ed e' pensato per dati raramente acceduti che tollerano una latenza di recupero (rehydration) di ore. E' l'ideale per backup normativi a lungo termine.",
+    "explanation": "Il livello Archive offre il costo di archiviazione più basso ed è pensato per dati raramente acceduti che tollerano una latenza di recupero (rehydration) di ore. È l'ideale per backup normativi a lungo termine.",
     "explanation_en": "The Archive tier offers the lowest storage cost and is designed for rarely accessed data that can tolerate a retrieval (rehydration) latency of hours. It is ideal for long-term regulatory backups.",
     "why_wrong": {
-      "0": "Hot ha il costo di archiviazione piu' alto ed e' ottimizzato per accessi frequenti, non economico per dati statici.",
-      "1": "Cool costa meno di Hot ma resta piu' caro di Archive per dati praticamente mai letti.",
+      "0": "Hot ha il costo di archiviazione più alto ed è ottimizzato per accessi frequenti, non economico per dati statici.",
+      "1": "Cool costa meno di Hot ma resta più caro di Archive per dati praticamente mai letti.",
       "3": "Premium usa SSD per bassissima latenza ad alto costo, l'opposto del requisito di massimo risparmio."
     },
     "why_wrong_en": {
@@ -145,7 +145,7 @@
     "topics": ["Azure", "Gestione del rischio"],
     "type": "single",
     "difficulty": 2,
-    "question": "Quale servizio di Azure fornisce raccomandazioni personalizzate su cinque aree (affidabilita', sicurezza, eccellenza operativa, prestazioni e ottimizzazione dei costi) per le tue risorse?",
+    "question": "Quale servizio di Azure fornisce raccomandazioni personalizzate su cinque aree (affidabilità, sicurezza, eccellenza operativa, prestazioni e ottimizzazione dei costi) per le tue risorse?",
     "question_en": "Which Azure service provides personalized recommendations across five areas (reliability, security, operational excellence, performance, and cost optimization) for your resources?",
     "options": [
       "Azure Monitor",
@@ -160,11 +160,11 @@
       "Azure Blueprints"
     ],
     "correct": [1],
-    "explanation": "Azure Advisor analizza la configurazione e la telemetria delle risorse e fornisce consigli attuabili nelle categorie del Well-Architected Framework: affidabilita', sicurezza, eccellenza operativa, prestazioni e costi.",
+    "explanation": "Azure Advisor analizza la configurazione e la telemetria delle risorse e fornisce consigli attuabili nelle categorie del Well-Architected Framework: affidabilità, sicurezza, eccellenza operativa, prestazioni e costi.",
     "explanation_en": "Azure Advisor analyzes the configuration and telemetry of resources and provides actionable recommendations across the Well-Architected Framework categories: reliability, security, operational excellence, performance, and cost.",
     "why_wrong": {
       "0": "Azure Monitor raccoglie metriche e log ma non produce raccomandazioni su queste cinque categorie come fa Advisor.",
-      "2": "Azure Service Health informa sullo stato dei servizi Azure e sugli incidenti, non da' consigli di ottimizzazione.",
+      "2": "Azure Service Health informa sullo stato dei servizi Azure e sugli incidenti, non dà consigli di ottimizzazione.",
       "3": "Azure Blueprints serve a distribuire ambienti conformi in modo ripetibile, non a fornire raccomandazioni."
     },
     "why_wrong_en": {
@@ -195,12 +195,12 @@
       "Create geographically redundant backup copies of data"
     ],
     "correct": [0],
-    "explanation": "L'Accesso Condizionale valuta segnali (identita' dell'utente, stato/conformita' del dispositivo, posizione di rete, livello di rischio del sign-in) e applica decisioni come consentire, bloccare o richiedere l'MFA. E' un pilastro dell'approccio Zero Trust.",
+    "explanation": "L'Accesso Condizionale valuta segnali (identità dell'utente, stato/conformità del dispositivo, posizione di rete, livello di rischio del sign-in) e applica decisioni come consentire, bloccare o richiedere l'MFA. È un pilastro dell'approccio Zero Trust.",
     "explanation_en": "Conditional Access evaluates signals (user identity, device state/compliance, network location, sign-in risk level) and enforces decisions such as allow, block, or require MFA. It is a pillar of the Zero Trust approach.",
     "why_wrong": {
-      "1": "La crittografia dei dischi e' compito di Azure Disk Encryption, non dell'Accesso Condizionale.",
+      "1": "La crittografia dei dischi è compito di Azure Disk Encryption, non dell'Accesso Condizionale.",
       "2": "L'Accesso Condizionale riguarda la sicurezza degli accessi, non la fatturazione.",
-      "3": "La ridondanza dei backup e' una funzione dei servizi di storage, non dell'identita'."
+      "3": "La ridondanza dei backup è una funzione dei servizi di storage, non dell'identità."
     },
     "why_wrong_en": {
       "1": "Disk encryption is the job of Azure Disk Encryption, not of Conditional Access.",
@@ -230,7 +230,7 @@
       "Azure Virtual Desktop"
     ],
     "correct": [0],
-    "explanation": "Azure Arc estende il piano di gestione di Azure (Resource Manager, Azure Policy, RBAC, tag) a risorse esterne ad Azure, come server on-premises, VM su altri cloud e cluster Kubernetes, consentendo governance e conformita' centralizzate.",
+    "explanation": "Azure Arc estende il piano di gestione di Azure (Resource Manager, Azure Policy, RBAC, tag) a risorse esterne ad Azure, come server on-premises, VM su altri cloud e cluster Kubernetes, consentendo governance e conformità centralizzate.",
     "explanation_en": "Azure Arc extends the Azure management plane (Resource Manager, Azure Policy, RBAC, tags) to resources outside Azure, such as on-premises servers, VMs on other clouds, and Kubernetes clusters, enabling centralized governance and compliance.",
     "why_wrong": {
       "1": "Azure Bastion fornisce accesso RDP/SSH sicuro alle VM tramite browser, non governance ibrida.",
@@ -253,7 +253,7 @@
     "question": "Un'applicazione usa in serie due servizi Azure, ciascuno con SLA del 99,9%. Come si calcola lo SLA composito (composite) dell'applicazione?",
     "question_en": "An application uses two Azure services in series, each with a 99.9% SLA. How is the application's composite SLA calculated?",
     "options": [
-      "Si prende lo SLA piu' alto dei due, quindi 99,9%",
+      "Si prende lo SLA più alto dei due, quindi 99,9%",
       "Si moltiplicano i due valori (0,999 x 0,999), ottenendo circa 99,8%",
       "Si sommano i due valori, ottenendo 199,8%",
       "Si fa la media dei due valori, ottenendo 99,9%"
@@ -265,12 +265,12 @@
       "Average the two values, obtaining 99.9%"
     ],
     "correct": [1],
-    "explanation": "Quando piu' servizi sono in serie (l'applicazione dipende da tutti), gli SLA si moltiplicano: 0,999 x 0,999 = 0,998001, cioe' circa 99,8%. Aggiungere dipendenze in serie abbassa quindi lo SLA complessivo.",
+    "explanation": "Quando più servizi sono in serie (l'applicazione dipende da tutti), gli SLA si moltiplicano: 0,999 x 0,999 = 0,998001, cioè circa 99,8%. Aggiungere dipendenze in serie abbassa quindi lo SLA complessivo.",
     "explanation_en": "When multiple services are in series (the application depends on all of them), the SLAs multiply: 0.999 x 0.999 = 0.998001, that is about 99.8%. Adding dependencies in series therefore lowers the overall SLA.",
     "why_wrong": {
-      "0": "Prendere solo il valore piu' alto ignora che il guasto di un qualsiasi componente in serie interrompe il servizio.",
-      "2": "Sommare le percentuali produce un valore superiore al 100%, privo di senso per una disponibilita'.",
-      "3": "La media non riflette il fatto che la dipendenza da entrambi riduce la disponibilita' totale."
+      "0": "Prendere solo il valore più alto ignora che il guasto di un qualsiasi componente in serie interrompe il servizio.",
+      "2": "Sommare le percentuali produce un valore superiore al 100%, privo di senso per una disponibilità.",
+      "3": "La media non riflette il fatto che la dipendenza da entrambi riduce la disponibilità totale."
     },
     "why_wrong_en": {
       "0": "Taking only the higher value ignores that the failure of any component in series interrupts the service.",
@@ -285,7 +285,7 @@
     "topics": ["Azure", "Controllo accessi"],
     "type": "single",
     "difficulty": 2,
-    "question": "Qual e' l'ordine corretto della gerarchia di gestione delle risorse in Azure, dal livello piu' alto al piu' basso?",
+    "question": "Qual è l'ordine corretto della gerarchia di gestione delle risorse in Azure, dal livello più alto al più basso?",
     "question_en": "What is the correct order of the Azure resource management hierarchy, from the highest level to the lowest?",
     "options": [
       "Gruppi di risorse > Sottoscrizioni > Gruppi di gestione > Risorse",
@@ -300,12 +300,12 @@
       "Resources > Resource groups > Management groups > Subscriptions"
     ],
     "correct": [1],
-    "explanation": "La gerarchia va da Gruppi di gestione (management groups) che raggruppano piu' sottoscrizioni, poi Sottoscrizioni, poi Gruppi di risorse e infine le singole Risorse. Criteri e RBAC applicati a un livello superiore vengono ereditati dai livelli inferiori.",
+    "explanation": "La gerarchia va da Gruppi di gestione (management groups) che raggruppano più sottoscrizioni, poi Sottoscrizioni, poi Gruppi di risorse e infine le singole Risorse. Criteri e RBAC applicati a un livello superiore vengono ereditati dai livelli inferiori.",
     "explanation_en": "The hierarchy goes from Management groups, which group multiple subscriptions, then Subscriptions, then Resource groups, and finally the individual Resources. Policies and RBAC applied at a higher level are inherited by the lower levels.",
     "why_wrong": {
       "0": "Inverte i livelli: i gruppi di risorse stanno sotto le sottoscrizioni, non sopra.",
       "2": "Le sottoscrizioni stanno sotto i gruppi di gestione, non sopra, e le risorse sono l'ultimo livello.",
-      "3": "E' l'ordine esattamente rovesciato: parte dal livello piu' basso."
+      "3": "È l'ordine esattamente rovesciato: parte dal livello più basso."
     },
     "why_wrong_en": {
       "0": "It reverses the levels: resource groups sit below subscriptions, not above.",
@@ -317,10 +317,10 @@
   {
     "id": "az3-010",
     "cert": ["Microsoft AZ-900"],
-    "topics": ["IaaS/PaaS/SaaS", "Responsabilita' condivisa"],
+    "topics": ["IaaS/PaaS/SaaS", "Responsabilità condivisa"],
     "type": "multi",
     "difficulty": 2,
-    "question": "Nel modello IaaS (Infrastructure as a Service), quali DUE responsabilita' ricadono tipicamente sul CLIENTE?",
+    "question": "Nel modello IaaS (Infrastructure as a Service), quali DUE responsabilità ricadono tipicamente sul CLIENTE?",
     "question_en": "In the IaaS (Infrastructure as a Service) model, which TWO responsibilities typically fall on the CUSTOMER?",
     "options": [
       "La sicurezza fisica dei datacenter",
@@ -335,10 +335,10 @@
       "The configuration of the guest operating system and the installed applications"
     ],
     "correct": [1, 3],
-    "explanation": "In IaaS il provider gestisce hardware fisico, datacenter, rete fisica e hypervisor. Il cliente e' responsabile del sistema operativo guest (patching e configurazione), del middleware, delle applicazioni e dei dati. Quindi patching del SO e configurazione di SO/app sono del cliente.",
+    "explanation": "In IaaS il provider gestisce hardware fisico, datacenter, rete fisica e hypervisor. Il cliente è responsabile del sistema operativo guest (patching e configurazione), del middleware, delle applicazioni e dei dati. Quindi patching del SO e configurazione di SO/app sono del cliente.",
     "explanation_en": "In IaaS the provider manages physical hardware, datacenters, physical network, and the hypervisor. The customer is responsible for the guest operating system (patching and configuration), middleware, applications, and data. So OS patching and OS/app configuration belong to the customer.",
     "why_wrong": {
-      "0": "La sicurezza fisica dei datacenter e' sempre responsabilita' del provider cloud.",
+      "0": "La sicurezza fisica dei datacenter è sempre responsabilità del provider cloud.",
       "2": "L'hardware host e l'hypervisor sono gestiti dal provider in tutti i modelli di servizio."
     },
     "why_wrong_en": {
@@ -357,9 +357,9 @@
     "question_en": "Which TWO statements correctly describe Microsoft Defender for Cloud?",
     "options": [
       "Fornisce un Secure Score che misura la postura di sicurezza e suggerisce azioni di miglioramento",
-      "E' un servizio di editing di documenti di Office online",
+      "È un servizio di editing di documenti di Office online",
       "Offre protezione dei carichi di lavoro (CWP) e rilevamento delle minacce per risorse Azure, ibride e multicloud",
-      "Sostituisce completamente la necessita' di gestire le identita' con Entra ID"
+      "Sostituisce completamente la necessità di gestire le identità con Entra ID"
     ],
     "options_en": [
       "It provides a Secure Score that measures the security posture and suggests improvement actions",
@@ -368,11 +368,11 @@
       "It completely removes the need to manage identities with Entra ID"
     ],
     "correct": [0, 2],
-    "explanation": "Defender for Cloud e' una soluzione di Cloud Security Posture Management (CSPM) e Cloud Workload Protection (CWP): calcola il Secure Score con raccomandazioni e protegge/monitora le minacce su risorse Azure, on-premises e su altri cloud.",
+    "explanation": "Defender for Cloud è una soluzione di Cloud Security Posture Management (CSPM) e Cloud Workload Protection (CWP): calcola il Secure Score con raccomandazioni e protegge/monitora le minacce su risorse Azure, on-premises e su altri cloud.",
     "explanation_en": "Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection (CWP) solution: it calculates the Secure Score with recommendations and protects/monitors threats across Azure, on-premises, and other-cloud resources.",
     "why_wrong": {
-      "1": "L'editing di documenti online e' Office/Microsoft 365, non Defender for Cloud.",
-      "3": "Defender for Cloud non sostituisce Entra ID; la gestione delle identita' resta compito di Entra ID e i due si integrano."
+      "1": "L'editing di documenti online è Office/Microsoft 365, non Defender for Cloud.",
+      "3": "Defender for Cloud non sostituisce Entra ID; la gestione delle identità resta compito di Entra ID e i due si integrano."
     },
     "why_wrong_en": {
       "1": "Editing documents online is Office/Microsoft 365, not Defender for Cloud.",
@@ -404,7 +404,7 @@
     "explanation": "Il Pricing Calculator stima i costi previsti prima di distribuire le risorse; i budget e gli alert in Cost Management monitorano la spesa effettiva e notificano al superamento delle soglie. Insieme coprono pianificazione e controllo dei costi.",
     "explanation_en": "The Pricing Calculator estimates expected costs before deploying resources; budgets and alerts in Cost Management monitor actual spending and notify when thresholds are exceeded. Together they cover cost planning and control.",
     "why_wrong": {
-      "1": "Azure Bastion e' un servizio di accesso sicuro alle VM, non uno strumento di gestione dei costi.",
+      "1": "Azure Bastion è un servizio di accesso sicuro alle VM, non uno strumento di gestione dei costi.",
       "3": "Azure Load Balancer distribuisce il traffico di rete e non serve a stimare o controllare la spesa."
     },
     "why_wrong_en": {
@@ -424,10 +424,10 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. Con il serverless il provider gestisce automaticamente il provisioning e lo scaling dell'infrastruttura; nel piano a consumo di Azure Functions si paga in base al numero di esecuzioni e alle risorse consumate, senza costi per capacita' inattiva.",
+    "explanation": "Vero. Con il serverless il provider gestisce automaticamente il provisioning e lo scaling dell'infrastruttura; nel piano a consumo di Azure Functions si paga in base al numero di esecuzioni e alle risorse consumate, senza costi per capacità inattiva.",
     "explanation_en": "True. With serverless, the provider automatically manages the provisioning and scaling of the infrastructure; on the Azure Functions consumption plan you pay based on the number of executions and the resources consumed, with no cost for idle capacity.",
     "why_wrong": {
-      "1": "E' errato: il serverless astrae proprio la gestione dei server e adotta un modello di pagamento a consumo, non una tariffa fissa per infrastruttura sempre attiva."
+      "1": "È errato: il serverless astrae proprio la gestione dei server e adotta un modello di pagamento a consumo, non una tariffa fissa per infrastruttura sempre attiva."
     },
     "why_wrong_en": {
       "1": "This is incorrect: serverless specifically abstracts away server management and adopts a pay-per-use model, not a fixed fee for always-on infrastructure."
@@ -445,10 +445,10 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. Microsoft non fornisce SLA con garanzia finanziaria per i livelli gratuiti (Free/Basic in alcuni casi) e per i servizi in anteprima. Lo SLA formale si applica ai servizi a pagamento in disponibilita' generale (GA).",
+    "explanation": "Vero. Microsoft non fornisce SLA con garanzia finanziaria per i livelli gratuiti (Free/Basic in alcuni casi) e per i servizi in anteprima. Lo SLA formale si applica ai servizi a pagamento in disponibilità generale (GA).",
     "explanation_en": "True. Microsoft does not provide a financially backed SLA for free tiers (Free/Basic in some cases) and for preview services. The formal SLA applies to paid services in general availability (GA).",
     "why_wrong": {
-      "1": "E' errato: i servizi gratuiti e in preview sono esplicitamente esclusi dagli impegni SLA garantiti."
+      "1": "È errato: i servizi gratuiti e in preview sono esplicitamente esclusi dagli impegni SLA garantiti."
     },
     "why_wrong_en": {
       "1": "This is incorrect: free and preview services are explicitly excluded from guaranteed SLA commitments."
@@ -461,15 +461,15 @@
     "topics": ["Azure", "Compliance"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Il Microsoft Purview Compliance Manager (nel Service Trust Portal / portale di conformita') aiuta le organizzazioni a valutare e gestire la conformita' normativa fornendo un punteggio di conformita' (compliance score).",
+    "question": "Il Microsoft Purview Compliance Manager (nel Service Trust Portal / portale di conformità) aiuta le organizzazioni a valutare e gestire la conformità normativa fornendo un punteggio di conformità (compliance score).",
     "question_en": "The Microsoft Purview Compliance Manager (in the Service Trust Portal / compliance portal) helps organizations assess and manage regulatory compliance by providing a compliance score.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. Compliance Manager offre valutazioni predefinite rispetto a standard e regolamenti (es. ISO 27001, GDPR), traccia le azioni di miglioramento e calcola un compliance score che riflette la postura di conformita' dell'organizzazione.",
+    "explanation": "Vero. Compliance Manager offre valutazioni predefinite rispetto a standard e regolamenti (es. ISO 27001, GDPR), traccia le azioni di miglioramento e calcola un compliance score che riflette la postura di conformità dell'organizzazione.",
     "explanation_en": "True. Compliance Manager offers prebuilt assessments against standards and regulations (e.g. ISO 27001, GDPR), tracks improvement actions, and calculates a compliance score that reflects the organization's compliance posture.",
     "why_wrong": {
-      "1": "E' errato: Compliance Manager esiste proprio per valutare la conformita' e fornire un punteggio con azioni consigliate."
+      "1": "È errato: Compliance Manager esiste proprio per valutare la conformità e fornire un punteggio con azioni consigliate."
     },
     "why_wrong_en": {
       "1": "This is incorrect: Compliance Manager exists specifically to assess compliance and provide a score with recommended actions."

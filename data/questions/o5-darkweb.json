@@ -5,13 +5,13 @@
     "topics": ["Tor", "Anonimato"],
     "type": "single",
     "difficulty": 3,
-    "question": "A cosa serve il 'guard node' (entry guard) in un circuito Tor e perche resta lo stesso per settimane?",
+    "question": "A cosa serve il 'guard node' (entry guard) in un circuito Tor e perché resta lo stesso per settimane?",
     "question_en": "What is the purpose of the 'guard node' (entry guard) in a Tor circuit and why does it stay the same for weeks?",
     "options": [
       "E il nodo di uscita che comunica con il sito finale in chiaro, cambiato a ogni richiesta per confondere le tracce",
-      "E il primo nodo del circuito, scelto da un piccolo insieme stabile per settimane, per ridurre la probabilita che nel tempo un attaccante controlli sia il primo sia l'ultimo nodo",
+      "E il primo nodo del circuito, scelto da un piccolo insieme stabile per settimane, per ridurre la probabilità che nel tempo un attaccante controlli sia il primo sia l'ultimo nodo",
       "E un nodo aggiuntivo opzionale che cifra i DNS del sistema operativo",
-      "E il nodo centrale (middle) che ha il compito di verificare l'identita reale dell'utente"
+      "E il nodo centrale (middle) che ha il compito di verificare l'identità reale dell'utente"
     ],
     "options_en": [
       "It is the exit node that communicates with the final site in the clear, changed on every request to confuse the trail",
@@ -20,12 +20,12 @@
       "It is the middle node whose task is to verify the user's real identity"
     ],
     "correct": [1],
-    "explanation": "Il guard (o entry guard) e il primo hop del circuito. Se Tor scegliesse un primo nodo diverso a ogni circuito, prima o poi l'utente ne userebbe uno controllato dall'attaccante proprio mentre viene usato anche un exit ostile, favorendo attacchi di correlazione. Mantenendo un piccolo insieme di guard stabili nel tempo, la probabilita che l'utente 'incontri' un guard malevolo resta bassa e costante.",
+    "explanation": "Il guard (o entry guard) e il primo hop del circuito. Se Tor scegliesse un primo nodo diverso a ogni circuito, prima o poi l'utente ne userebbe uno controllato dall'attaccante proprio mentre viene usato anche un exit ostile, favorendo attacchi di correlazione. Mantenendo un piccolo insieme di guard stabili nel tempo, la probabilità che l'utente 'incontri' un guard malevolo resta bassa e costante.",
     "explanation_en": "The guard (or entry guard) is the first hop of the circuit. If Tor chose a different first node for every circuit, sooner or later the user would use one controlled by the attacker exactly while a hostile exit is also in use, favoring correlation attacks. By keeping a small set of guards stable over time, the probability that the user 'encounters' a malicious guard stays low and constant.",
     "why_wrong": {
-      "0": "Quello descritto e l'exit node, non il guard; inoltre il guard non e il punto che parla in chiaro con la destinazione.",
-      "2": "Il guard non e un componente opzionale per il DNS: e strutturalmente il primo hop del circuito.",
-      "3": "Nessun nodo Tor verifica l'identita reale dell'utente; il modello e progettato proprio perche nessun singolo nodo la conosca."
+      "0": "Quello descritto e l'exit node, non il guard; inoltre il guard non è il punto che parla in chiaro con la destinazione.",
+      "2": "Il guard non è un componente opzionale per il DNS: e strutturalmente il primo hop del circuito.",
+      "3": "Nessun nodo Tor verifica l'identità reale dell'utente; il modello e progettato proprio perché nessun singolo nodo la conosca."
     },
     "why_wrong_en": {
       "0": "What is described is the exit node, not the guard; moreover the guard is not the point that talks in the clear with the destination.",
@@ -43,8 +43,8 @@
     "question": "In un contesto di censura di rete, a cosa servono i 'bridge' e i 'pluggable transport' (es. obfs4) di Tor?",
     "question_en": "In a network censorship context, what are Tor's 'bridges' and 'pluggable transports' (e.g. obfs4) for?",
     "options": [
-      "Ad aumentare la velocita del circuito aggiungendo un quarto nodo dedicato",
-      "A far sembrare il traffico Tor un normale traffico e a usare nodi d'ingresso non pubblici, cosi che un censore non possa bloccarli facilmente ne riconoscerli",
+      "Ad aumentare la velocità del circuito aggiungendo un quarto nodo dedicato",
+      "A far sembrare il traffico Tor un normale traffico e a usare nodi d'ingresso non pubblici, così che un censore non possa bloccarli facilmente ne riconoscerli",
       "A cifrare due volte il payload per resistere ai computer quantistici",
       "A pubblicare l'elenco completo dei relay per facilitarne il blocco"
     ],
@@ -55,10 +55,10 @@
       "To publish the full list of relays to make them easier to block"
     ],
     "correct": [1],
-    "explanation": "I bridge sono relay d'ingresso non elencati nella directory pubblica, quindi difficili da inserire in una blocklist. I pluggable transport come obfs4 offuscano l'aspetto del traffico Tor facendolo somigliare a dati casuali o ad altri protocolli, cosi la Deep Packet Inspection di un censore non lo riconosce. Insieme aiutano a eludere la censura, non a velocizzare la rete.",
+    "explanation": "I bridge sono relay d'ingresso non elencati nella directory pubblica, quindi difficili da inserire in una blocklist. I pluggable transport come obfs4 offuscano l'aspetto del traffico Tor facendolo somigliare a dati casuali o ad altri protocolli, così la Deep Packet Inspection di un censore non lo riconosce. Insieme aiutano a eludere la censura, non a velocizzare la rete.",
     "explanation_en": "Bridges are entry relays not listed in the public directory, hence hard to put on a blocklist. Pluggable transports like obfs4 obfuscate the appearance of Tor traffic, making it resemble random data or other protocols, so a censor's Deep Packet Inspection does not recognize it. Together they help evade censorship, not speed up the network.",
     "why_wrong": {
-      "0": "I bridge non aggiungono un hop per la velocita; anzi tipicamente il percorso e piu lento, non piu veloce.",
+      "0": "I bridge non aggiungono un hop per la velocità; anzi tipicamente il percorso e più lento, non più veloce.",
       "2": "L'obiettivo e l'anti-censura e l'offuscamento, non la resistenza quantistica.",
       "3": "E l'opposto: i bridge NON sono pubblicati proprio per non essere bloccati."
     },
@@ -90,11 +90,11 @@
       "Compromising a single middle node to read the content in the clear"
     ],
     "correct": [1],
-    "explanation": "La correlazione end-to-end non attacca la crittografia: un avversario che osserva sia il traffico che entra nella rete (vicino all'utente) sia quello che ne esce (vicino alla destinazione) puo confrontare pattern temporali e dimensioni dei pacchetti e dedurre che i due flussi appartengono alla stessa sessione. E la principale limitazione teorica di Tor contro un avversario globale che vede molti punti della rete.",
+    "explanation": "La correlazione end-to-end non attacca la crittografia: un avversario che osserva sia il traffico che entra nella rete (vicino all'utente) sia quello che ne esce (vicino alla destinazione) può confrontare pattern temporali e dimensioni dei pacchetti e dedurre che i due flussi appartengono alla stessa sessione. E la principale limitazione teorica di Tor contro un avversario globale che vede molti punti della rete.",
     "explanation_en": "End-to-end correlation does not attack the cryptography: an adversary who observes both the traffic entering the network (near the user) and the traffic leaving it (near the destination) can compare timing patterns and packet sizes and infer that the two flows belong to the same session. This is Tor's main theoretical limitation against a global adversary that sees many points of the network.",
     "why_wrong": {
       "0": "L'attacco non rompe AES ne gli strati di cifratura: lavora sui metadati di temporizzazione e volume.",
-      "2": "Non e un attacco alle password dei servizi nascosti.",
+      "2": "Non è un attacco alle password dei servizi nascosti.",
       "3": "Un singolo middle non vede i contenuti in chiaro; la correlazione richiede osservazione ai due estremi, non un middle corrotto."
     },
     "why_wrong_en": {
@@ -114,7 +114,7 @@
     "question_en": "What does a 'v3' onion address represent (the 56-character one, e.g. abcd...xyz.onion)?",
     "options": [
       "Un dominio clearnet registrato presso ICANN con estensione speciale",
-      "Una stringa derivata dalla chiave pubblica del servizio nascosto, che funge sia da indirizzo sia da elemento per verificarne l'autenticita crittografica",
+      "Una stringa derivata dalla chiave pubblica del servizio nascosto, che funge sia da indirizzo sia da elemento per verificarne l'autenticità crittografica",
       "Un indirizzo IP privato mascherato dietro NAT",
       "Un semplice hash MD5 del nome scelto dal gestore del sito"
     ],
@@ -125,12 +125,12 @@
       "A simple MD5 hash of the name chosen by the site operator"
     ],
     "correct": [1],
-    "explanation": "Negli hidden service v3 l'indirizzo .onion e ricavato dalla chiave pubblica Ed25519 del servizio. Questo lega l'indirizzo all'identita crittografica: chi si connette puo verificare di parlare davvero con il possessore della chiave corrispondente, senza bisogno di un'autorita di certificazione esterna. I v3 (56 caratteri) hanno sostituito i vecchi v2 (16 caratteri) proprio per crittografia piu robusta.",
+    "explanation": "Negli hidden service v3 l'indirizzo .onion e ricavato dalla chiave pubblica Ed25519 del servizio. Questo lega l'indirizzo all'identità crittografica: chi si connette può verificare di parlare davvero con il possessore della chiave corrispondente, senza bisogno di un'autorità di certificazione esterna. I v3 (56 caratteri) hanno sostituito i vecchi v2 (16 caratteri) proprio per crittografia più robusta.",
     "explanation_en": "In v3 hidden services the .onion address is derived from the service's Ed25519 public key. This ties the address to the cryptographic identity: whoever connects can verify they are truly talking to the holder of the corresponding key, without needing an external certificate authority. The v3 addresses (56 characters) replaced the old v2 ones (16 characters) precisely for stronger cryptography.",
     "why_wrong": {
       "0": "I .onion non sono domini ICANN e non esistono nel DNS pubblico; sono risolti solo dentro la rete Tor.",
-      "2": "Non e un IP privato dietro NAT: e una stringa derivata da una chiave pubblica.",
-      "3": "Non e un hash MD5 di un nome arbitrario; deriva dalla chiave pubblica del servizio (Ed25519)."
+      "2": "Non è un IP privato dietro NAT: e una stringa derivata da una chiave pubblica.",
+      "3": "Non è un hash MD5 di un nome arbitrario; deriva dalla chiave pubblica del servizio (Ed25519)."
     },
     "why_wrong_en": {
       "0": ".onion addresses are not ICANN domains and do not exist in the public DNS; they are resolved only inside the Tor network.",
@@ -148,9 +148,9 @@
     "question": "Quale affermazione descrive correttamente una differenza tra i protocolli VPN WireGuard, OpenVPN e IPsec?",
     "question_en": "Which statement correctly describes a difference between the VPN protocols WireGuard, OpenVPN and IPsec?",
     "options": [
-      "WireGuard tende ad avere una base di codice molto piu piccola e usa un set fisso di primitive crittografiche moderne, mentre OpenVPN e piu configurabile ma piu pesante",
+      "WireGuard tende ad avere una base di codice molto più piccola e usa un set fisso di primitive crittografiche moderne, mentre OpenVPN e più configurabile ma più pesante",
       "OpenVPN e l'unico che non usa alcuna cifratura, mentre WireGuard e IPsec sono cifrati",
-      "IPsec funziona solo su HTTP e non puo attraversare Internet",
+      "IPsec funziona solo su HTTP e non può attraversare Internet",
       "WireGuard richiede obbligatoriamente un certificato X.509 per ogni pacchetto trasmesso"
     ],
     "options_en": [
@@ -160,11 +160,11 @@
       "WireGuard mandatorily requires an X.509 certificate for every transmitted packet"
     ],
     "correct": [0],
-    "explanation": "WireGuard e progettato per essere minimale: poche migliaia di righe di codice e un insieme fisso di primitive (es. Curve25519, ChaCha20-Poly1305), il che riduce la superficie di attacco e facilita l'audit. OpenVPN e molto flessibile (gira spesso su OpenSSL, TCP/UDP, molte opzioni) ma piu complesso e talvolta piu lento. IPsec e uno standard maturo integrato nei sistemi operativi, spesso usato per tunnel site-to-site.",
+    "explanation": "WireGuard e progettato per essere minimale: poche migliaia di righe di codice e un insieme fisso di primitive (es. Curve25519, ChaCha20-Poly1305), il che riduce la superficie di attacco e facilita l'audit. OpenVPN e molto flessibile (gira spesso su OpenSSL, TCP/UDP, molte opzioni) ma più complesso e talvolta più lento. IPsec e uno standard maturo integrato nei sistemi operativi, spesso usato per tunnel site-to-site.",
     "explanation_en": "WireGuard is designed to be minimal: a few thousand lines of code and a fixed set of primitives (e.g. Curve25519, ChaCha20-Poly1305), which reduces the attack surface and eases auditing. OpenVPN is very flexible (often running over OpenSSL, TCP/UDP, many options) but more complex and sometimes slower. IPsec is a mature standard integrated into operating systems, often used for site-to-site tunnels.",
     "why_wrong": {
       "1": "Falso: OpenVPN e cifrato quanto gli altri; nessuno dei tre trasmette in chiaro.",
-      "2": "IPsec opera a livello di rete (IP) e attraversa normalmente Internet; non e legato a HTTP.",
+      "2": "IPsec opera a livello di rete (IP) e attraversa normalmente Internet; non è legato a HTTP.",
       "3": "WireGuard usa chiavi pubbliche/private in stile Noise, non certificati X.509 per pacchetto."
     },
     "why_wrong_en": {
@@ -184,7 +184,7 @@
     "question_en": "What does 'Perfect Forward Secrecy' (PFS) guarantee in an encrypted channel such as a VPN or TLS?",
     "options": [
       "Che la chiave privata del server non scada mai, restando valida per sempre",
-      "Che, anche se in futuro un attaccante ottenesse la chiave privata a lungo termine, non potrebbe decifrare le sessioni passate registrate, perche ognuna usa chiavi di sessione effimere e indipendenti",
+      "Che, anche se in futuro un attaccante ottenesse la chiave privata a lungo termine, non potrebbe decifrare le sessioni passate registrate, perché ognuna usa chiavi di sessione effimere e indipendenti",
       "Che il traffico venga compresso prima di essere cifrato per risparmiare banda",
       "Che l'utente non debba mai reinserire la password durante la connessione"
     ],
@@ -195,12 +195,12 @@
       "That the user never has to re-enter the password during the connection"
     ],
     "correct": [1],
-    "explanation": "La PFS si ottiene generando chiavi di sessione effimere (tipicamente tramite scambio Diffie-Hellman effimero, ECDHE) che non derivano direttamente dalla chiave privata a lungo termine e vengono scartate al termine della sessione. Cosi la compromissione futura della chiave del server non permette di decifrare a ritroso il traffico intercettato e archiviato in passato: ogni sessione e protetta in modo indipendente.",
+    "explanation": "La PFS si ottiene generando chiavi di sessione effimere (tipicamente tramite scambio Diffie-Hellman effimero, ECDHE) che non derivano direttamente dalla chiave privata a lungo termine e vengono scartate al termine della sessione. Così la compromissione futura della chiave del server non permette di decifrare a ritroso il traffico intercettato e archiviato in passato: ogni sessione e protetta in modo indipendente.",
     "explanation_en": "PFS is achieved by generating ephemeral session keys (typically via ephemeral Diffie-Hellman exchange, ECDHE) that are not derived directly from the long-term private key and are discarded at the end of the session. Thus a future compromise of the server's key does not allow retroactively decrypting traffic intercepted and stored in the past: each session is protected independently.",
     "why_wrong": {
       "0": "La PFS non riguarda la durata della chiave del server; anzi punta a limitare i danni se quella chiave viene compromessa.",
       "2": "La compressione non c'entra con la PFS ed e anzi rischiosa in ambito TLS (attacchi tipo CRIME).",
-      "3": "La PFS e una proprieta crittografica delle chiavi di sessione, non una comodita di autenticazione."
+      "3": "La PFS e una proprietà crittografica delle chiavi di sessione, non una comodità di autenticazione."
     },
     "why_wrong_en": {
       "0": "PFS is not about the lifetime of the server's key; on the contrary it aims to limit damage if that key is compromised.",
@@ -220,7 +220,7 @@
     "options": [
       "Quando ci si collega da una rete Wi-Fi pubblica non fidata per proteggere il traffico locale",
       "Quando si vuole nascondere il proprio IP di origine al sito di destinazione",
-      "Quando si accede a un sito gia in HTTPS e con login personale: il contenuto e gia cifrato e il sito conosce comunque la nostra identita, mentre la fiducia si sposta solo dal provider Internet al provider VPN",
+      "Quando si accede a un sito già in HTTPS e con login personale: il contenuto e già cifrato e il sito conosce comunque la nostra identità, mentre la fiducia si sposta solo dal provider Internet al provider VPN",
       "Quando si vuole aggirare un blocco geografico basato sull'IP"
     ],
     "options_en": [
@@ -230,7 +230,7 @@
       "When wanting to bypass an IP-based geographic block"
     ],
     "correct": [2],
-    "explanation": "Una VPN sposta la fiducia dal proprio ISP al fornitore VPN: non rende anonimi. Se si accede a un servizio in HTTPS dove si e loggati col proprio nome, il contenuto e gia cifrato end-to-end e il servizio sa comunque chi siamo; la VPN cambia solo l'IP visto dal sito e chi puo osservare i metadati. In quel caso il beneficio di privacy reale e marginale, e conta molto la politica no-log e l'affidabilita del provider.",
+    "explanation": "Una VPN sposta la fiducia dal proprio ISP al fornitore VPN: non rende anonimi. Se si accede a un servizio in HTTPS dove si e loggati col proprio nome, il contenuto e già cifrato end-to-end e il servizio sa comunque chi siamo; la VPN cambia solo l'IP visto dal sito e chi può osservare i metadati. In quel caso il beneficio di privacy reale e marginale, e conta molto la politica no-log e l'affidabilità del provider.",
     "explanation_en": "A VPN shifts trust from your ISP to the VPN provider: it does not make you anonymous. If you access an HTTPS service where you are logged in under your own name, the content is already encrypted end-to-end and the service knows who we are anyway; the VPN only changes the IP seen by the site and who can observe the metadata. In that case the real privacy benefit is marginal, and the no-log policy and the provider's trustworthiness matter greatly.",
     "why_wrong": {
       "0": "Su Wi-Fi pubblico non fidato la VPN e utile: protegge il traffico locale da chi e sulla stessa rete.",
@@ -250,13 +250,13 @@
     "topics": ["Anonimato", "OPSEC"],
     "type": "single",
     "difficulty": 3,
-    "question": "Perche si dice che Bitcoin offre 'pseudonimato' e non anonimato, e come si collega alla chain analysis?",
+    "question": "Perché si dice che Bitcoin offre 'pseudonimato' e non anonimato, e come si collega alla chain analysis?",
     "question_en": "Why is it said that Bitcoin offers 'pseudonymity' and not anonymity, and how does this relate to chain analysis?",
     "options": [
-      "Perche le transazioni sono cifrate e nessuno puo vederle sulla blockchain",
-      "Perche gli indirizzi non contengono un nome, ma tutte le transazioni sono pubbliche e permanenti: analizzando i flussi (chain analysis) si possono raggruppare indirizzi e, se uno viene collegato a un'identita, ricostruire l'attivita a ritroso",
-      "Perche ogni utente deve registrare la propria identita presso la rete Bitcoin",
-      "Perche le transazioni scompaiono dopo 24 ore rendendo impossibile ogni tracciamento"
+      "Perché le transazioni sono cifrate e nessuno può vederle sulla blockchain",
+      "Perché gli indirizzi non contengono un nome, ma tutte le transazioni sono pubbliche e permanenti: analizzando i flussi (chain analysis) si possono raggruppare indirizzi e, se uno viene collegato a un'identità, ricostruire l'attività a ritroso",
+      "Perché ogni utente deve registrare la propria identità presso la rete Bitcoin",
+      "Perché le transazioni scompaiono dopo 24 ore rendendo impossibile ogni tracciamento"
     ],
     "options_en": [
       "Because the transactions are encrypted and no one can see them on the blockchain",
@@ -265,11 +265,11 @@
       "Because the transactions disappear after 24 hours, making any tracking impossible"
     ],
     "correct": [1],
-    "explanation": "Sulla blockchain pubblica ogni transazione e visibile e immutabile; gli indirizzi sono pseudonimi (non riportano il nome reale). Le tecniche di chain analysis clusterizzano gli indirizzi in base a euristiche (es. input spesi insieme) e li collegano a punti di de-anonimizzazione come un exchange che applica il KYC. Un solo aggancio a un'identita reale puo esporre l'intera storia delle transazioni collegate.",
+    "explanation": "Sulla blockchain pubblica ogni transazione e visibile e immutabile; gli indirizzi sono pseudonimi (non riportano il nome reale). Le tecniche di chain analysis clusterizzano gli indirizzi in base a euristiche (es. input spesi insieme) e li collegano a punti di de-anonimizzazione come un exchange che applica il KYC. Un solo aggancio a un'identità reale può esporre l'intera storia delle transazioni collegate.",
     "explanation_en": "On the public blockchain every transaction is visible and immutable; the addresses are pseudonyms (they do not carry the real name). Chain analysis techniques cluster addresses based on heuristics (e.g. inputs spent together) and link them to de-anonymization points such as an exchange that applies KYC. A single link to a real identity can expose the entire history of the connected transactions.",
     "why_wrong": {
       "0": "Le transazioni Bitcoin non sono cifrate ne segrete: sono pubbliche e consultabili da chiunque.",
-      "2": "Non c'e alcuna registrazione d'identita a livello di protocollo Bitcoin; il KYC avviene solo presso gli exchange.",
+      "2": "Non c'è alcuna registrazione d'identità a livello di protocollo Bitcoin; il KYC avviene solo presso gli exchange.",
       "3": "Le transazioni sono permanenti, non spariscono: e proprio la loro persistenza a permettere la chain analysis."
     },
     "why_wrong_en": {
@@ -285,13 +285,13 @@
     "topics": ["OPSEC", "Anonimato"],
     "type": "single",
     "difficulty": 2,
-    "question": "Dal punto di vista dell'OPSEC, perche i metadati (come i dati EXIF di una foto o gli orari di pubblicazione) sono un rischio di de-anonimizzazione?",
+    "question": "Dal punto di vista dell'OPSEC, perché i metadati (come i dati EXIF di una foto o gli orari di pubblicazione) sono un rischio di de-anonimizzazione?",
     "question_en": "From an OPSEC standpoint, why are metadata (such as the EXIF data of a photo or posting times) a de-anonymization risk?",
     "options": [
-      "Perche cifrano il contenuto rendendolo illeggibile agli investigatori",
-      "Perche possono contenere o rivelare informazioni collaterali (posizione GPS, modello del dispositivo, fuso orario, abitudini) che, correlate tra loro, permettono di risalire a una persona anche senza vederne il nome",
-      "Perche rallentano il caricamento dei file e basta",
-      "Perche sono visibili solo al proprietario del file e a nessun altro"
+      "Perché cifrano il contenuto rendendolo illeggibile agli investigatori",
+      "Perché possono contenere o rivelare informazioni collaterali (posizione GPS, modello del dispositivo, fuso orario, abitudini) che, correlate tra loro, permettono di risalire a una persona anche senza vederne il nome",
+      "Perché rallentano il caricamento dei file e basta",
+      "Perché sono visibili solo al proprietario del file e a nessun altro"
     ],
     "options_en": [
       "Because they encrypt the content, making it unreadable to investigators",
@@ -304,7 +304,7 @@
     "explanation_en": "Anonymity is often lost not because of a single data point, but because of the correlation of many clues. EXIF metadata can include GPS coordinates, camera/phone model and timestamps; cross-referenced with others (time zone of posts, writing style, recurring times) they enable profiling and attribution. Good OPSEC involves stripping metadata and keeping the pseudonym consistent.",
     "why_wrong": {
       "0": "I metadati non cifrano nulla: al contrario, espongono informazioni aggiuntive.",
-      "2": "Il problema non e la velocita di caricamento ma l'informazione che rivelano.",
+      "2": "Il problema non è la velocità di caricamento ma l'informazione che rivelano.",
       "3": "I metadati viaggiano col file e sono leggibili da chi lo riceve, non solo dal proprietario."
     },
     "why_wrong_en": {
@@ -320,11 +320,11 @@
     "topics": ["Social Engineering"],
     "type": "single",
     "difficulty": 2,
-    "question": "In Mr Robot compaiono spesso telefonate ingannevoli. Cos'e il 'vishing' e qual e la difesa concettuale piu efficace?",
+    "question": "In Mr Robot compaiono spesso telefonate ingannevoli. Cos'e il 'vishing' e qual è la difesa concettuale più efficace?",
     "question_en": "In Mr Robot, deceptive phone calls often appear. What is 'vishing' and what is the most effective conceptual defense?",
     "options": [
       "E un malware che infetta i telefoni via Bluetooth; la difesa e spegnere il Bluetooth",
-      "E il phishing vocale: l'attaccante telefona fingendosi banca, IT o help desk per farsi dare credenziali o codici; la difesa e verificare l'identita richiamando un numero ufficiale noto e non fornire mai codici a chi chiama",
+      "E il phishing vocale: l'attaccante telefona fingendosi banca, IT o help desk per farsi dare credenziali o codici; la difesa e verificare l'identità richiamando un numero ufficiale noto e non fornire mai codici a chi chiama",
       "E l'invio massivo di SMS pubblicitari; la difesa e un filtro antispam",
       "E l'intercettazione fisica del cavo telefonico; la difesa e cifrare il doppino"
     ],
@@ -335,12 +335,12 @@
       "It is the physical interception of the telephone cable; the defense is to encrypt the twisted pair"
     ],
     "correct": [1],
-    "explanation": "Il vishing (voice phishing) sfrutta la voce e l'autorevolezza percepita: l'attaccante crea urgenza e si finge un ente fidato per estorcere password, OTP o dati. La difesa non e tecnica ma procedurale: non fidarsi del numero mostrato (falsificabile con spoofing), riagganciare e richiamare il numero ufficiale verificato, e sapere che enti legittimi non chiedono OTP o password complete al telefono.",
+    "explanation": "Il vishing (voice phishing) sfrutta la voce e l'autorevolezza percepita: l'attaccante crea urgenza e si finge un ente fidato per estorcere password, OTP o dati. La difesa non è tecnica ma procedurale: non fidarsi del numero mostrato (falsificabile con spoofing), riagganciare e richiamare il numero ufficiale verificato, e sapere che enti legittimi non chiedono OTP o password complete al telefono.",
     "explanation_en": "Vishing (voice phishing) exploits the voice and perceived authority: the attacker creates urgency and pretends to be a trusted entity to extract passwords, OTPs or data. The defense is not technical but procedural: do not trust the displayed number (falsifiable with spoofing), hang up and call back the verified official number, and know that legitimate entities do not ask for OTPs or full passwords over the phone.",
     "why_wrong": {
-      "0": "Il vishing non e un malware Bluetooth; e ingegneria sociale telefonica.",
+      "0": "Il vishing non è un malware Bluetooth; e ingegneria sociale telefonica.",
       "2": "Gli SMS ingannevoli sono lo 'smishing'; il vishing e via chiamata vocale.",
-      "3": "Non e intercettazione del cavo: sfrutta la persuasione della persona, non un attacco fisico alla linea."
+      "3": "Non è intercettazione del cavo: sfrutta la persuasione della persona, non un attacco fisico alla linea."
     },
     "why_wrong_en": {
       "0": "Vishing is not a Bluetooth malware; it is telephone social engineering.",
@@ -361,7 +361,7 @@
       "Applicare policy di controllo dei dispositivi USB / device control che consentano solo periferiche autorizzate e blocchino nuove HID non approvate",
       "Coprire fisicamente il monitor durante l'uso del PC",
       "Educare gli utenti a non collegare chiavette trovate o di provenienza ignota e bloccare porte USB non necessarie",
-      "Aumentare la luminosita dello schermo per notare i comandi digitati"
+      "Aumentare la luminosità dello schermo per notare i comandi digitati"
     ],
     "options_en": [
       "Apply USB device control policies that allow only authorized peripherals and block new unapproved HIDs",
@@ -374,7 +374,7 @@
     "explanation_en": "BadUSB abuses the fact that the system blindly trusts keyboards: the device declares itself an HID and injects very fast key sequences. The effective defenses are organizational and technical: device control/USB allowlisting (allowing only known peripherals, requiring approval for new HIDs), disabling unnecessary ports and training users not to plug in unknown devices. Some systems can also flag the sudden addition of a new keyboard.",
     "why_wrong": {
       "1": "Coprire il monitor non impedisce l'iniezione automatica di comandi da parte del dispositivo.",
-      "3": "La luminosita e irrilevante: gli attacchi HID digitano in millisecondi, non c'e tempo per notarli a occhio."
+      "3": "La luminosità e irrilevante: gli attacchi HID digitano in millisecondi, non c'è tempo per notarli a occhio."
     },
     "why_wrong_en": {
       "1": "Covering the monitor does not prevent the automatic injection of commands by the device.",
@@ -388,10 +388,10 @@
     "topics": ["VPN", "Anonimato"],
     "type": "multi",
     "difficulty": 3,
-    "question": "Nel valutare l'affidabilita di una VPN 'no-log', quali DUE elementi sono concettualmente rilevanti?",
+    "question": "Nel valutare l'affidabilità di una VPN 'no-log', quali DUE elementi sono concettualmente rilevanti?",
     "question_en": "When assessing the trustworthiness of a 'no-log' VPN, which TWO elements are conceptually relevant?",
     "options": [
-      "La giurisdizione in cui opera il provider, perche determina a quali obblighi legali di conservazione o consegna dati e soggetto",
+      "La giurisdizione in cui opera il provider, perché determina a quali obblighi legali di conservazione o consegna dati e soggetto",
       "Il colore del logo e la grafica del sito ufficiale del provider",
       "L'esistenza di audit indipendenti che verifichino la reale politica di non registrazione dei log",
       "Il numero di emoji usate nelle recensioni sui social"
@@ -403,7 +403,7 @@
       "The number of emojis used in reviews on social media"
     ],
     "correct": [0, 2],
-    "explanation": "Una promessa 'no-log' vale quanto la fiducia che si puo riporre nel provider. Due fattori oggettivi contano davvero: la giurisdizione (quali leggi su data retention e richieste delle autorita si applicano, e se il paese fa parte di alleanze di intelligence) e la presenza di audit indipendenti da parte di terze parti che ispezionino infrastruttura e pratiche. Senza verifica esterna, 'no-log' resta solo un'affermazione di marketing.",
+    "explanation": "Una promessa 'no-log' vale quanto la fiducia che si può riporre nel provider. Due fattori oggettivi contano davvero: la giurisdizione (quali leggi su data retention e richieste delle autorità si applicano, e se il paese fa parte di alleanze di intelligence) e la presenza di audit indipendenti da parte di terze parti che ispezionino infrastruttura e pratiche. Senza verifica esterna, 'no-log' resta solo un'affermazione di marketing.",
     "explanation_en": "A 'no-log' promise is worth as much as the trust one can place in the provider. Two objective factors truly matter: the jurisdiction (which data retention laws and authority requests apply, and whether the country is part of intelligence alliances) and the presence of independent third-party audits that inspect infrastructure and practices. Without external verification, 'no-log' remains just a marketing claim.",
     "why_wrong": {
       "1": "L'aspetto grafico del sito non dice nulla sulle pratiche di logging o sulla sicurezza.",
@@ -426,8 +426,8 @@
     "options": [
       "Un RAT da all'attaccante controllo remoto persistente sull'host infetto e comunica con un server C2 per ricevere comandi ed esfiltrare dati",
       "Il traffico C2 spesso imita protocolli legittimi (HTTPS, DNS) e usa 'beaconing' periodico, quindi analizzare pattern e frequenze anomale delle connessioni in uscita aiuta a rilevarlo",
-      "Un RAT e innocuo perche opera solo in RAM e non puo mai stabilire persistenza al riavvio",
-      "Bloccare tutto il traffico in ingresso col firewall elimina con certezza qualsiasi canale C2, perche il C2 usa solo connessioni entranti"
+      "Un RAT e innocuo perché opera solo in RAM e non può mai stabilire persistenza al riavvio",
+      "Bloccare tutto il traffico in ingresso col firewall elimina con certezza qualsiasi canale C2, perché il C2 usa solo connessioni entranti"
     ],
     "options_en": [
       "A RAT gives the attacker persistent remote control over the infected host and communicates with a C2 server to receive commands and exfiltrate data",
@@ -439,7 +439,7 @@
     "explanation": "Un RAT fornisce accesso remoto persistente e dialoga con un server C2. Sul piano del rilevamento, molte campagne mascherano il C2 dentro protocolli comuni (HTTPS, DNS tunneling) e usano beaconing regolare: il monitoraggio del traffico in uscita per periodicita e destinazioni anomale (analisi comportamentale) e una difesa chiave, insieme a segmentazione ed egress filtering.",
     "explanation_en": "A RAT provides persistent remote access and communicates with a C2 server. On the detection side, many campaigns disguise the C2 inside common protocols (HTTPS, DNS tunneling) and use regular beaconing: monitoring outbound traffic for periodicity and anomalous destinations (behavioral analysis) is a key defense, together with segmentation and egress filtering.",
     "why_wrong": {
-      "2": "Molti RAT stabiliscono persistenza (chiavi di registro, task pianificati, servizi) e sopravvivono al riavvio; non e vero che restano solo in RAM.",
+      "2": "Molti RAT stabiliscono persistenza (chiavi di registro, task pianificati, servizi) e sopravvivono al riavvio; non è vero che restano solo in RAM.",
       "3": "Il C2 e tipicamente avviato dall'host infetto verso l'esterno (connessioni in uscita), proprio per aggirare i firewall che bloccano l'ingresso; serve controllare anche il traffico in uscita."
     },
     "why_wrong_en": {
@@ -454,7 +454,7 @@
     "topics": ["OPSEC", "Anonimato"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Vero o falso: Tails e un sistema operativo 'amnesico' pensato per non lasciare tracce, perche gira in genere da chiavetta live, instrada il traffico attraverso Tor e per impostazione predefinita non scrive dati in modo permanente sul disco della macchina.",
+    "question": "Vero o falso: Tails e un sistema operativo 'amnesico' pensato per non lasciare tracce, perché gira in genere da chiavetta live, instrada il traffico attraverso Tor e per impostazione predefinita non scrive dati in modo permanente sul disco della macchina.",
     "question_en": "True or false: Tails is an 'amnesic' operating system designed to leave no traces, because it generally runs from a live USB stick, routes traffic through Tor and by default does not write data permanently to the machine's disk.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
@@ -480,7 +480,7 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. La crittografia rende un messaggio illeggibile ma ne lascia evidente l'esistenza; la steganografia invece occulta il fatto stesso che ci sia un messaggio, immergendolo in un contenitore apparentemente innocuo (immagine, audio). I volumi nascosti con 'plausible deniability' spingono oltre l'idea: dentro un volume cifrato puo esisterne un altro non rilevabile, cosi non si puo provare che vi siano ulteriori dati, offrendo una via di negazione plausibile.",
+    "explanation": "Vero. La crittografia rende un messaggio illeggibile ma ne lascia evidente l'esistenza; la steganografia invece occulta il fatto stesso che ci sia un messaggio, immergendolo in un contenitore apparentemente innocuo (immagine, audio). I volumi nascosti con 'plausible deniability' spingono oltre l'idea: dentro un volume cifrato può esisterne un altro non rilevabile, così non si può provare che vi siano ulteriori dati, offrendo una via di negazione plausibile.",
     "explanation_en": "True. Cryptography makes a message unreadable but leaves its existence evident; steganography instead hides the very fact that there is a message, embedding it in an apparently innocuous container (image, audio). Hidden volumes with 'plausible deniability' push the idea further: within an encrypted volume there can exist another undetectable one, so it cannot be proven that further data exists, offering a route to plausible denial.",
     "why_wrong": {
       "1": "E falso negarlo: la distinzione tra nascondere l'esistenza (steganografia/volumi nascosti) e solo rendere illeggibile (crittografia) e corretta."
@@ -504,7 +504,7 @@
     "explanation": "Vero. Una botnet e un insieme di dispositivi infetti (PC, IoT) controllati da un attaccante tramite C2. In un DDoS distribuito, la sorgente e frammentata su moltissimi host in tutto il mondo: non esiste un unico IP da bloccare e il traffico malevolo si mescola a quello legittimo, complicando il filtraggio. Le difese includono mitigazione a monte, rate limiting, scrubbing e reti di distribuzione dei contenuti.",
     "explanation_en": "True. A botnet is a set of infected devices (PCs, IoT) controlled by an attacker via C2. In a distributed DDoS, the source is fragmented across a great many hosts around the world: there is no single IP to block and the malicious traffic mixes with the legitimate, complicating filtering. Defenses include upstream mitigation, rate limiting, scrubbing and content delivery networks.",
     "why_wrong": {
-      "1": "E falso negarlo: la natura distribuita del traffico e proprio cio che caratterizza un DDoS via botnet e ne complica il blocco."
+      "1": "E falso negarlo: la natura distribuita del traffico e proprio ciò che caratterizza un DDoS via botnet e ne complica il blocco."
     },
     "why_wrong_en": {
       "1": "It is false to deny it: the distributed nature of the traffic is precisely what characterizes a botnet DDoS and complicates blocking it."

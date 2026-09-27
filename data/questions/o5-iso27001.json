@@ -22,7 +22,7 @@
     "explanation": "Nella struttura HLS le clausole 0-3 sono introduttive (scopo, riferimenti normativi, termini e definizioni), mentre i requisiti obbligatori e verificabili in audit si trovano nelle clausole 4 (Contesto), 5 (Leadership), 6 (Pianificazione), 7 (Supporto), 8 (Operativita), 9 (Valutazione prestazioni) e 10 (Miglioramento).",
     "why_wrong": {
       "0": "Le clausole 0-3 sono introduttive e non contengono requisiti verificabili: definiscono scopo, riferimenti e terminologia.",
-      "2": "L'Annex A elenca i controlli di riferimento, ma i requisiti del sistema di gestione risiedono nelle clausole 4-10; l'Annex A e applicato tramite la Dichiarazione di Applicabilita.",
+      "2": "L'Annex A elenca i controlli di riferimento, ma i requisiti del sistema di gestione risiedono nelle clausole 4-10; l'Annex A e applicato tramite la Dichiarazione di Applicabilità.",
       "3": "Le clausole 1-3 non sono requisiti; inoltre ometterebbero le clausole 6-10 che sono il cuore auditabile della norma."
     },
     "question_en": "The ISO/IEC 27001:2022 standard adopts the Harmonized Structure (HLS) common to all management system standards. Which clauses contain the requirements that are actually auditable and certifiable?",
@@ -55,16 +55,16 @@
     "options": [
       "Soddisfare integralmente ogni richiesta di qualsiasi parte interessata",
       "Determinare le parti interessate rilevanti per l'ISMS e i loro requisiti pertinenti",
-      "Ignorare le parti esterne perche fuori dal perimetro di certificazione",
+      "Ignorare le parti esterne perché fuori dal perimetro di certificazione",
       "Certificare tutte le parti interessate secondo la stessa norma"
     ],
     "correct": [
       1
     ],
-    "explanation": "La clausola 4.2 richiede di identificare le parti interessate rilevanti ai fini dell'ISMS (es. clienti, autorita, dipendenti, fornitori) e di determinare quali dei loro requisiti sono pertinenti alla sicurezza delle informazioni, includendo requisiti legali, regolamentari e contrattuali.",
+    "explanation": "La clausola 4.2 richiede di identificare le parti interessate rilevanti ai fini dell'ISMS (es. clienti, autorità, dipendenti, fornitori) e di determinare quali dei loro requisiti sono pertinenti alla sicurezza delle informazioni, includendo requisiti legali, regolamentari e contrattuali.",
     "why_wrong": {
       "0": "La norma richiede di determinare quali requisiti sono pertinenti e devono essere affrontati, non di soddisfare integralmente ogni richiesta di chiunque.",
-      "2": "Le parti interessate esterne (regolatori, clienti, fornitori) sono spesso quelle piu rilevanti e non vanno ignorate.",
+      "2": "Le parti interessate esterne (regolatori, clienti, fornitori) sono spesso quelle più rilevanti e non vanno ignorate.",
       "3": "L'organizzazione non certifica le parti interessate; ne identifica e considera i requisiti."
     },
     "question_en": "Clause 4 requires understanding the organization and its context. What must the organization do regarding interested parties?",
@@ -93,7 +93,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Secondo la clausola 5 (Leadership), quale responsabilita e attribuita specificamente all'alta direzione riguardo alla politica per la sicurezza delle informazioni?",
+    "question": "Secondo la clausola 5 (Leadership), quale responsabilità e attribuita specificamente all'alta direzione riguardo alla politica per la sicurezza delle informazioni?",
     "options": [
       "Delegare completamente la politica al responsabile IT senza ulteriore coinvolgimento",
       "Stabilire una politica appropriata allo scopo dell'organizzazione e assicurare l'integrazione dell'ISMS nei processi",
@@ -145,7 +145,7 @@
     "correct": [
       1
     ],
-    "explanation": "La clausola 6.1.2 richiede che il processo di risk assessment sia definito e applicato in modo da produrre risultati coerenti, validi e comparabili. Deve includere criteri di accettazione del rischio, identificazione dei rischi, analisi (probabilita e conseguenze) e ponderazione/valutazione rispetto ai criteri.",
+    "explanation": "La clausola 6.1.2 richiede che il processo di risk assessment sia definito e applicato in modo da produrre risultati coerenti, validi e comparabili. Deve includere criteri di accettazione del rischio, identificazione dei rischi, analisi (probabilità e conseguenze) e ponderazione/valutazione rispetto ai criteri.",
     "why_wrong": {
       "0": "La norma richiede risultati ripetibili e comparabili nel tempo, non variabilita: la coerenza e un requisito esplicito.",
       "2": "Un processo dipendente da un singolo giudizio soggettivo non garantisce coerenza e comparabilita richieste dalla norma.",
@@ -177,10 +177,10 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Cos'e la Dichiarazione di Applicabilita (Statement of Applicability, SoA) richiesta dalla clausola 6.1.3?",
+    "question": "Cos'e la Dichiarazione di Applicabilità (Statement of Applicability, SoA) richiesta dalla clausola 6.1.3?",
     "options": [
       "Un elenco dei soli controlli tecnici implementati",
-      "Un documento che indica i controlli necessari, la loro applicabilita/esclusione con giustificazione e lo stato di attuazione",
+      "Un documento che indica i controlli necessari, la loro applicabilità/esclusione con giustificazione e lo stato di attuazione",
       "La politica generale di sicurezza firmata dall'alta direzione",
       "Il rapporto finale dell'audit di certificazione"
     ],
@@ -190,8 +190,8 @@
     "explanation": "La SoA e un documento obbligatorio che elenca i controlli necessari (tipicamente confrontati con l'Annex A), indica se ciascun controllo e applicabile o escluso con la relativa giustificazione, e riporta lo stato di implementazione. E il collegamento tracciabile tra i rischi individuati e i controlli scelti.",
     "why_wrong": {
       "0": "La SoA copre tutti i controlli necessari (organizzativi, persone, fisici, tecnologici), non solo quelli tecnici.",
-      "2": "La politica di sicurezza e un documento distinto della clausola 5.2; la SoA riguarda i controlli e la loro applicabilita.",
-      "3": "Il rapporto di audit e prodotto dall'organismo di certificazione o dall'auditor, non e la SoA."
+      "2": "La politica di sicurezza e un documento distinto della clausola 5.2; la SoA riguarda i controlli e la loro applicabilità.",
+      "3": "Il rapporto di audit e prodotto dall'organismo di certificazione o dall'auditor, non è la SoA."
     },
     "question_en": "What is the Statement of Applicability (SoA) required by clause 6.1.3?",
     "options_en": [
@@ -259,19 +259,19 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Nella clausola 7 (Supporto), qual e la differenza tra 'competenza' e 'consapevolezza' (awareness)?",
+    "question": "Nella clausola 7 (Supporto), qual è la differenza tra 'competenza' e 'consapevolezza' (awareness)?",
     "options": [
       "Sono sinonimi e la norma li tratta come un unico requisito",
-      "La competenza riguarda capacita ed esperienza per svolgere un compito; la consapevolezza riguarda la comprensione della politica e del proprio contributo all'ISMS",
+      "La competenza riguarda capacità ed esperienza per svolgere un compito; la consapevolezza riguarda la comprensione della politica e del proprio contributo all'ISMS",
       "La competenza riguarda solo i vertici, la consapevolezza solo i tecnici",
       "La consapevolezza si applica solo ai fornitori esterni"
     ],
     "correct": [
       1
     ],
-    "explanation": "La clausola 7.2 (Competenza) richiede che le persone che influenzano le prestazioni dell'ISMS abbiano competenza adeguata basata su istruzione, formazione o esperienza. La clausola 7.3 (Consapevolezza) richiede che tutte le persone siano consapevoli della politica, del proprio contributo all'efficacia dell'ISMS e delle implicazioni della non conformita.",
+    "explanation": "La clausola 7.2 (Competenza) richiede che le persone che influenzano le prestazioni dell'ISMS abbiano competenza adeguata basata su istruzione, formazione o esperienza. La clausola 7.3 (Consapevolezza) richiede che tutte le persone siano consapevoli della politica, del proprio contributo all'efficacia dell'ISMS e delle implicazioni della non conformità.",
     "why_wrong": {
-      "0": "Sono requisiti distinti in clausole separate (7.2 e 7.3) con finalita diverse.",
+      "0": "Sono requisiti distinti in clausole separate (7.2 e 7.3) con finalità diverse.",
       "2": "Entrambi i requisiti si applicano trasversalmente al personale rilevante, non a livelli separati.",
       "3": "La consapevolezza riguarda le persone che lavorano sotto il controllo dell'organizzazione, non solo i fornitori esterni."
     },
@@ -311,10 +311,10 @@
     "correct": [
       1
     ],
-    "explanation": "La clausola 7.5.3 richiede che le informazioni documentate siano disponibili e idonee all'uso dove e quando necessario e adeguatamente protette (es. da perdita di riservatezza o integrita). Il controllo include distribuzione, accesso, recupero, conservazione, controllo delle modifiche e delle versioni, e conservazione/eliminazione.",
+    "explanation": "La clausola 7.5.3 richiede che le informazioni documentate siano disponibili e idonee all'uso dove e quando necessario e adeguatamente protette (es. da perdita di riservatezza o integrità). Il controllo include distribuzione, accesso, recupero, conservazione, controllo delle modifiche e delle versioni, e conservazione/eliminazione.",
     "why_wrong": {
       "0": "La norma e neutrale rispetto al supporto: le informazioni documentate possono essere digitali o cartacee.",
-      "2": "Le informazioni documentate possono e devono essere aggiornate; e richiesto il controllo delle modifiche, non l'immutabilita.",
+      "2": "Le informazioni documentate possono e devono essere aggiornate; e richiesto il controllo delle modifiche, non l'immutabilità.",
       "3": "Le informazioni documentate riguardano l'intero ISMS (clausole 4-10 e controlli applicabili), non solo i controlli tecnologici."
     },
     "question_en": "Clause 7.5 deals with 'documented information'. Which requirement concerns its control?",
@@ -353,11 +353,11 @@
     "correct": [
       1
     ],
-    "explanation": "La clausola 9.2 richiede audit interni a intervalli pianificati per verificare che l'ISMS sia conforme ai requisiti dell'organizzazione e della norma e sia efficacemente attuato. La selezione degli auditor e la conduzione devono assicurare obiettivita e imparzialita: un auditor non deve verificare il proprio lavoro.",
+    "explanation": "La clausola 9.2 richiede audit interni a intervalli pianificati per verificare che l'ISMS sia conforme ai requisiti dell'organizzazione e della norma e sia efficacemente attuato. La selezione degli auditor e la conduzione devono assicurare obiettivita e imparzialità: un auditor non deve verificare il proprio lavoro.",
     "why_wrong": {
-      "0": "Verificare il proprio lavoro compromette l'imparzialita richiesta dalla norma.",
+      "0": "Verificare il proprio lavoro compromette l'imparzialità richiesta dalla norma.",
       "2": "Gli audit interni non sostituiscono l'audit di terza parte dell'organismo di certificazione; sono complementari.",
-      "3": "Gli audit interni sono un'attivita ricorrente a intervalli pianificati, parte del ciclo di miglioramento continuo."
+      "3": "Gli audit interni sono un'attività ricorrente a intervalli pianificati, parte del ciclo di miglioramento continuo."
     },
     "question_en": "Clause 9.2 requires internal audits of the ISMS. Which principle must be ensured in carrying them out?",
     "options_en": [
@@ -395,11 +395,11 @@
     "correct": [
       1
     ],
-    "explanation": "La clausola 9.3.2 elenca gli input del riesame di direzione: stato delle azioni dei riesami precedenti, cambiamenti nelle questioni interne/esterne rilevanti, feedback sulle prestazioni (non conformita, monitoraggio, audit, obiettivi), feedback delle parti interessate, risultati del risk assessment e stato del piano di trattamento, opportunita di miglioramento continuo.",
+    "explanation": "La clausola 9.3.2 elenca gli input del riesame di direzione: stato delle azioni dei riesami precedenti, cambiamenti nelle questioni interne/esterne rilevanti, feedback sulle prestazioni (non conformità, monitoraggio, audit, obiettivi), feedback delle parti interessate, risultati del risk assessment e stato del piano di trattamento, opportunita di miglioramento continuo.",
     "why_wrong": {
-      "0": "Il fatturato per cliente non e un input previsto dalla clausola 9.3 sul riesame dell'ISMS.",
-      "2": "La valutazione economica del marketing non e un input del riesame dell'efficacia dell'ISMS.",
-      "3": "L'elenco delle ferie non e tra gli input previsti per valutare adeguatezza ed efficacia dell'ISMS."
+      "0": "Il fatturato per cliente non è un input previsto dalla clausola 9.3 sul riesame dell'ISMS.",
+      "2": "La valutazione economica del marketing non è un input del riesame dell'efficacia dell'ISMS.",
+      "3": "L'elenco delle ferie non è tra gli input previsti per valutare adeguatezza ed efficacia dell'ISMS."
     },
     "question_en": "Clause 9.3 requires the management review. Which of the following is a mandatory input of the review?",
     "options_en": [
@@ -427,21 +427,21 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "La clausola 10 (Miglioramento) tratta le non conformita e le azioni correttive. Cosa deve fare l'organizzazione quando si verifica una non conformita?",
+    "question": "La clausola 10 (Miglioramento) tratta le non conformità e le azioni correttive. Cosa deve fare l'organizzazione quando si verifica una non conformità?",
     "options": [
       "Registrarla e attendere l'audit successivo senza intervenire",
-      "Reagire alla non conformita, valutare la necessita di eliminarne le cause per evitare che si ripeta e attuare le azioni necessarie",
+      "Reagire alla non conformità, valutare la necessità di eliminarne le cause per evitare che si ripeta e attuare le azioni necessarie",
       "Eliminare immediatamente l'ISMS e ricominciare da zero",
       "Ignorarla se non ha causato un incidente registrato"
     ],
     "correct": [
       1
     ],
-    "explanation": "La clausola 10.2 richiede di reagire alla non conformita (correzione e gestione delle conseguenze), valutare la necessita di azioni per eliminarne le cause radice affinche non si ripresenti, attuare le azioni, riesaminarne l'efficacia e aggiornare l'ISMS se necessario. Tutto va documentato (natura della NC, azioni, risultati).",
+    "explanation": "La clausola 10.2 richiede di reagire alla non conformità (correzione e gestione delle conseguenze), valutare la necessità di azioni per eliminarne le cause radice affinché non si ripresenti, attuare le azioni, riesaminarne l'efficacia e aggiornare l'ISMS se necessario. Tutto va documentato (natura della NC, azioni, risultati).",
     "why_wrong": {
       "0": "La norma richiede di reagire e agire sulle cause, non di rimandare passivamente all'audit successivo.",
-      "2": "Non e richiesto smantellare l'ISMS: l'approccio e correttivo e di miglioramento continuo.",
-      "3": "Una non conformita va gestita indipendentemente dal fatto che abbia gia causato un incidente."
+      "2": "Non è richiesto smantellare l'ISMS: l'approccio e correttivo e di miglioramento continuo.",
+      "3": "Una non conformità va gestita indipendentemente dal fatto che abbia già causato un incidente."
     },
     "question_en": "Clause 10 (Improvement) deals with nonconformities and corrective actions. What must the organization do when a nonconformity occurs?",
     "options_en": [
@@ -473,7 +473,7 @@
     "options": [
       "Preventivi, Investigativi, Correttivi, Direttivi",
       "Organizzativi (A.5), Persone (A.6), Fisici (A.7), Tecnologici (A.8)",
-      "Riservatezza, Integrita, Disponibilita, Autenticita",
+      "Riservatezza, Integrità, Disponibilità, Autenticità",
       "Strategici, Tattici, Operativi, Amministrativi"
     ],
     "correct": [
@@ -482,8 +482,8 @@
     "explanation": "La revisione 2022 ha ristrutturato i controlli in 93 controlli raggruppati in 4 temi: Organizzativi (A.5, 37 controlli), Persone (A.6, 8 controlli), Fisici (A.7, 14 controlli) e Tecnologici (A.8, 34 controlli), rispetto ai 114 controlli in 14 domini della versione 2013.",
     "why_wrong": {
       "0": "Preventivo/investigativo/correttivo sono attributi (tipi di controllo) usati nella ISO 27002:2022, non i quattro temi di raggruppamento dell'Annex A.",
-      "2": "Riservatezza, integrita e disponibilita sono le proprieta della sicurezza delle informazioni, non i temi dei controlli.",
-      "3": "Strategico/tattico/operativo non e la classificazione dei controlli dell'Annex A 2022."
+      "2": "Riservatezza, integrità e disponibilità sono le proprietà della sicurezza delle informazioni, non i temi dei controlli.",
+      "3": "Strategico/tattico/operativo non è la classificazione dei controlli dell'Annex A 2022."
     },
     "question_en": "Annex A of ISO/IEC 27001:2022 organizes the 93 controls into four themes. What are they?",
     "options_en": [
@@ -524,8 +524,8 @@
     ],
     "explanation": "La ISO/IEC 27001 e l'unica norma certificabile della serie e specifica i requisiti per stabilire e mantenere un ISMS. La ISO/IEC 27002 e una guida di implementazione che fornisce linee guida e dettagli sui controlli. La ISO/IEC 27005 fornisce linee guida per il processo di gestione del rischio, ma il suo uso e volontario: la 27001 non impone una metodologia specifica.",
     "why_wrong": {
-      "1": "La ISO/IEC 27002 non e certificabile e non sostituisce la 27001: e una guida di supporto ai controlli.",
-      "3": "La ISO/IEC 27005 e una linea guida non obbligatoria; l'organizzazione puo scegliere qualsiasi metodo di risk management coerente con i requisiti della 27001."
+      "1": "La ISO/IEC 27002 non è certificabile e non sostituisce la 27001: e una guida di supporto ai controlli.",
+      "3": "La ISO/IEC 27005 e una linea guida non obbligatoria; l'organizzazione può scegliere qualsiasi metodo di risk management coerente con i requisiti della 27001."
     },
     "question_en": "Which of the following statements about the differences between ISO/IEC 27001, ISO/IEC 27002 and ISO/IEC 27005 are correct? (select two)",
     "options_en": [
@@ -556,7 +556,7 @@
     "options": [
       "Lo Stage 1 e un riesame documentale e di prontezza (readiness) dell'ISMS",
       "Lo Stage 2 verifica l'attuazione e l'efficacia dell'ISMS sul campo",
-      "Dopo la certificazione non e previsto alcun controllo fino al rinnovo triennale",
+      "Dopo la certificazione non è previsto alcun controllo fino al rinnovo triennale",
       "Il certificato viene rilasciato prima dello Stage 1"
     ],
     "correct": [
@@ -565,7 +565,7 @@
     ],
     "explanation": "L'audit di certificazione si articola in due fasi: lo Stage 1 valuta la documentazione e la prontezza dell'organizzazione (scope, politica, SoA, risk assessment, audit interni, riesame di direzione), mentre lo Stage 2 verifica sul campo l'effettiva attuazione ed efficacia dell'ISMS. Il ciclo di certificazione dura tipicamente tre anni con audit di sorveglianza annuali.",
     "why_wrong": {
-      "2": "Dopo la certificazione sono previsti audit di sorveglianza periodici (di norma annuali) per verificare il mantenimento della conformita.",
+      "2": "Dopo la certificazione sono previsti audit di sorveglianza periodici (di norma annuali) per verificare il mantenimento della conformità.",
       "3": "Il certificato e rilasciato solo dopo il superamento con esito positivo dello Stage 2, non prima dello Stage 1."
     },
     "question_en": "Regarding the ISO 27001 certification process carried out by an accredited body, which statements are correct? (select two)",
@@ -604,10 +604,10 @@
       0,
       1
     ],
-    "explanation": "Le opzioni di trattamento del rischio includono: modificare/ridurre il rischio applicando controlli, accettare (ritenere) il rischio secondo i criteri di accettazione, evitare il rischio eliminando la fonte o l'attivita, e condividere/trasferire il rischio (es. assicurazione, outsourcing). La scelta deve essere documentata e coerente con i criteri definiti.",
+    "explanation": "Le opzioni di trattamento del rischio includono: modificare/ridurre il rischio applicando controlli, accettare (ritenere) il rischio secondo i criteri di accettazione, evitare il rischio eliminando la fonte o l'attività, e condividere/trasferire il rischio (es. assicurazione, outsourcing). La scelta deve essere documentata e coerente con i criteri definiti.",
     "why_wrong": {
       "2": "Nascondere il rischio contraddice i principi di governance e il coinvolgimento della direzione richiesto dalla norma.",
-      "3": "Cancellare un rischio dal registro senza trattarlo non e un'opzione di trattamento: il rischio deve essere gestito e tracciato."
+      "3": "Cancellare un rischio dal registro senza trattarlo non è un'opzione di trattamento: il rischio deve essere gestito e tracciato."
     },
     "question_en": "In risk treatment (clause 6.1.3), which of the following are valid options for managing an information security risk? (select two)",
     "options_en": [
@@ -639,15 +639,15 @@
       "Lo scopo deve tenere conto delle questioni interne ed esterne e dei requisiti delle parti interessate",
       "Lo scopo deve essere disponibile come informazione documentata",
       "Lo scopo deve necessariamente coprire l'intera organizzazione senza eccezioni",
-      "Lo scopo non puo includere interfacce e dipendenze con terze parti"
+      "Lo scopo non può includere interfacce e dipendenze con terze parti"
     ],
     "correct": [
       0,
       1
     ],
-    "explanation": "La clausola 4.3 richiede di determinare i confini e l'applicabilita dell'ISMS considerando le questioni interne/esterne (4.1), i requisiti delle parti interessate (4.2) e le interfacce e dipendenze con attivita svolte da altre organizzazioni. Lo scopo deve essere mantenuto come informazione documentata.",
+    "explanation": "La clausola 4.3 richiede di determinare i confini e l'applicabilità dell'ISMS considerando le questioni interne/esterne (4.1), i requisiti delle parti interessate (4.2) e le interfacce e dipendenze con attività svolte da altre organizzazioni. Lo scopo deve essere mantenuto come informazione documentata.",
     "why_wrong": {
-      "2": "Lo scopo puo essere limitato a determinati siti, servizi o unita organizzative, purche i confini siano definiti e giustificati; non deve necessariamente coprire tutta l'organizzazione.",
+      "2": "Lo scopo può essere limitato a determinati siti, servizi o unità organizzative, purché i confini siano definiti e giustificati; non deve necessariamente coprire tutta l'organizzazione.",
       "3": "Al contrario, la norma richiede esplicitamente di considerare le interfacce e le dipendenze con terze parti nel definire lo scopo."
     },
     "question_en": "Regarding the determination of the scope (perimeter) of the ISMS according to clause 4.3, which statements are correct? (select two)",
@@ -675,7 +675,7 @@
     ],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Vero o Falso: nella ISO/IEC 27001:2022 la Dichiarazione di Applicabilita (SoA) puo includere controlli aggiuntivi rispetto a quelli elencati nell'Annex A se ritenuti necessari a fronte del risk assessment.",
+    "question": "Vero o Falso: nella ISO/IEC 27001:2022 la Dichiarazione di Applicabilità (SoA) può includere controlli aggiuntivi rispetto a quelli elencati nell'Annex A se ritenuti necessari a fronte del risk assessment.",
     "options": [
       "Vero",
       "Falso"
@@ -683,7 +683,7 @@
     "correct": [
       0
     ],
-    "explanation": "Vero. L'Annex A rappresenta un insieme di controlli di riferimento, ma non e esaustivo. L'organizzazione deve determinare i controlli necessari per il trattamento del rischio e puo aggiungerne di ulteriori (da altre fonti o definiti internamente) oltre a quelli dell'Annex A, documentandoli nella SoA.",
+    "explanation": "Vero. L'Annex A rappresenta un insieme di controlli di riferimento, ma non è esaustivo. L'organizzazione deve determinare i controlli necessari per il trattamento del rischio e può aggiungerne di ulteriori (da altre fonti o definiti internamente) oltre a quelli dell'Annex A, documentandoli nella SoA.",
     "why_wrong": {
       "1": "E errato affermare il contrario: la norma consente e talvolta richiede controlli aggiuntivi oltre l'Annex A quando il risk assessment li rende necessari."
     },

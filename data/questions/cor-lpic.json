@@ -9,7 +9,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un server deve avviarsi in modalita multi-utente con supporto di rete ma SENZA interfaccia grafica. Con systemd, quale target corrisponde a questo stato (equivalente al runlevel 3 di SysVinit) e come lo si imposta come predefinito?",
+    "question": "Un server deve avviarsi in modalità multi-utente con supporto di rete ma SENZA interfaccia grafica. Con systemd, quale target corrisponde a questo stato (equivalente al runlevel 3 di SysVinit) e come lo si imposta come predefinito?",
     "options": [
       "systemctl set-default graphical.target",
       "systemctl set-default multi-user.target",
@@ -23,7 +23,7 @@
     "why_wrong": {
       "0": "graphical.target corrisponde al runlevel 5 e avvia anche il display manager grafico, che qui va evitato.",
       "2": "rescue.target e uno stato di manutenzione mono-utente (simile al runlevel 1), non adatto a un server in produzione; inoltre 'isolate' cambia lo stato corrente, non il default.",
-      "3": "runlevel3.target esiste solo come alias/symlink verso multi-user.target e non e la forma canonica usata da set-default; il target corretto da specificare e multi-user.target."
+      "3": "runlevel3.target esiste solo come alias/symlink verso multi-user.target e non è la forma canonica usata da set-default; il target corretto da specificare e multi-user.target."
     },
     "source": "LPIC-1",
     "question_en": "A server must boot into multi-user mode with network support but WITHOUT a graphical interface. With systemd, which target corresponds to this state (equivalent to SysVinit runlevel 3) and how do you set it as the default?",
@@ -52,19 +52,19 @@
     "difficulty": 2,
     "question": "Consideri questa riga di /etc/fstab: 'UUID=abc123 /data ext4 defaults,noatime 0 2'. Cosa indicano rispettivamente i due ultimi campi numerici (0 e 2)?",
     "options": [
-      "Priorita di mount e ordine nella tabella dei processi",
+      "Priorità di mount e ordine nella tabella dei processi",
       "Dump (backup) e ordine di controllo con fsck all'avvio",
       "Numero di inode riservati e dimensione del blocco",
-      "Timeout di mount e livello di verbosita dei log"
+      "Timeout di mount e livello di verbosità dei log"
     ],
     "correct": [
       1
     ],
     "explanation": "In /etc/fstab i sei campi sono: device, mount point, tipo di filesystem, opzioni, dump e pass. Il quinto campo (dump) indica se l'utility dump deve includere il filesystem nei backup (0 = no). Il sesto campo (pass/fsck) definisce l'ordine di controllo con fsck all'avvio: 0 = non controllare, 1 riservato alla root, 2 per gli altri filesystem controllati dopo la root.",
     "why_wrong": {
-      "0": "Non esiste un campo di priorita di mount ne un riferimento alla tabella dei processi in fstab.",
+      "0": "Non esiste un campo di priorità di mount ne un riferimento alla tabella dei processi in fstab.",
       "2": "Numero di inode e dimensione del blocco si definiscono alla creazione del filesystem (mkfs), non in fstab.",
-      "3": "Non esistono campi di timeout o verbosita dei log tra i sei campi standard di fstab."
+      "3": "Non esistono campi di timeout o verbosità dei log tra i sei campi standard di fstab."
     },
     "source": "LPIC-1",
     "question_en": "Consider this line of /etc/fstab: 'UUID=abc123 /data ext4 defaults,noatime 0 2'. What do the last two numeric fields (0 and 2) respectively indicate?",
@@ -145,9 +145,9 @@
     ],
     "explanation": "L'ancora '^' vincola la corrispondenza all'inizio riga. I punti vanno preceduti da backslash per essere interpretati come punto letterale e non come 'qualsiasi carattere'. Con -E (regex estese) l'espressione '^192\\.168\\.' individua correttamente le righe che iniziano con '192.168.'.",
     "why_wrong": {
-      "0": "Senza '^' la corrispondenza puo avvenire ovunque nella riga, e senza escape i punti sono metacaratteri che indicano un carattere qualsiasi, generando falsi positivi (es. '1928168x').",
+      "0": "Senza '^' la corrispondenza può avvenire ovunque nella riga, e senza escape i punti sono metacaratteri che indicano un carattere qualsiasi, generando falsi positivi (es. '1928168x').",
       "2": "L'opzione -v INVERTE la selezione mostrando le righe che NON corrispondono, l'opposto di quanto richiesto.",
-      "3": "L'ancora '$' vincola la fine riga, quindi cercherebbe righe che TERMINANO con '192.168.', non che iniziano cosi."
+      "3": "L'ancora '$' vincola la fine riga, quindi cercherebbe righe che TERMINANO con '192.168.', non che iniziano così."
     },
     "source": "LPIC-1",
     "question_en": "You want to extract from 'access.log' all the lines that start with an IP address in the 192.168. network (at the beginning of the line). Which grep command with a regular expression is correct?",
@@ -186,7 +186,7 @@
     ],
     "explanation": "'dpkg -S' (search) interroga il database di dpkg per identificare quale pacchetto ha installato un determinato file, restituendo la riga 'pacchetto: /percorso/file'.",
     "why_wrong": {
-      "0": "'dpkg -L pacchetto' fa l'operazione inversa: elenca i file APPARTENENTI a un pacchetto gia noto, ma qui il pacchetto e proprio l'incognita.",
+      "0": "'dpkg -L pacchetto' fa l'operazione inversa: elenca i file APPARTENENTI a un pacchetto già noto, ma qui il pacchetto e proprio l'incognita.",
       "2": "'apt-cache search' cerca pacchetti per parola chiave nella descrizione, non associa un percorso file a un pacchetto.",
       "3": "'dpkg -l' elenca lo stato dei pacchetti installati filtrando per nome/pattern, non accetta un percorso file per risalire al pacchetto proprietario."
     },
@@ -218,17 +218,17 @@
     "difficulty": 3,
     "question": "Ha creato un hard link con 'ln fileA fileB'. Successivamente esegue 'rm fileA'. Cosa accade al contenuto originariamente accessibile tramite fileA?",
     "options": [
-      "Il contenuto viene perso perche fileB era solo un puntatore a fileA",
-      "Il contenuto resta accessibile tramite fileB: i dati esistono finche il link count dell'inode e maggiore di zero",
+      "Il contenuto viene perso perché fileB era solo un puntatore a fileA",
+      "Il contenuto resta accessibile tramite fileB: i dati esistono finché il link count dell'inode e maggiore di zero",
       "fileB diventa un link simbolico rotto (dangling)",
-      "Il sistema impedisce la rimozione finche esistono altri hard link"
+      "Il sistema impedisce la rimozione finché esistono altri hard link"
     ],
     "correct": [
       1
     ],
-    "explanation": "Un hard link e una voce di directory che punta allo stesso inode. fileA e fileB condividono lo stesso inode e lo stesso link count. Rimuovendo fileA il link count scende da 2 a 1, ma i blocchi dati vengono liberati solo quando il conteggio raggiunge zero; percio il contenuto resta pienamente accessibile tramite fileB.",
+    "explanation": "Un hard link e una voce di directory che punta allo stesso inode. fileA e fileB condividono lo stesso inode e lo stesso link count. Rimuovendo fileA il link count scende da 2 a 1, ma i blocchi dati vengono liberati solo quando il conteggio raggiunge zero; perciò il contenuto resta pienamente accessibile tramite fileB.",
     "why_wrong": {
-      "0": "Con gli hard link non esiste una gerarchia originale/copia: entrambi i nomi hanno pari dignita e puntano allo stesso inode, quindi rimuoverne uno non distrugge i dati.",
+      "0": "Con gli hard link non esiste una gerarchia originale/copia: entrambi i nomi hanno pari dignità e puntano allo stesso inode, quindi rimuoverne uno non distrugge i dati.",
       "2": "Un link rotto si verifica con i link SIMBOLICI quando sparisce il target; qui si tratta di un hard link, che non dipende dal nome del percorso.",
       "3": "rm non blocca la rimozione in presenza di altri hard link: semplicemente decrementa il link count dell'inode."
     },
@@ -257,7 +257,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "Un processo con PID 4210 e in esecuzione con priorita (nice) di default 0. Vuole ABBASSARNE la priorita di schedulazione portando il valore nice a 10. Quale comando e corretto?",
+    "question": "Un processo con PID 4210 e in esecuzione con priorità (nice) di default 0. Vuole ABBASSARNE la priorità di schedulazione portando il valore nice a 10. Quale comando è corretto?",
     "options": [
       "renice 10 -p 4210",
       "nice 10 -p 4210",
@@ -267,10 +267,10 @@
     "correct": [
       0
     ],
-    "explanation": "'renice' modifica la priorita di un processo GIA in esecuzione. 'renice 10 -p 4210' imposta il valore nice a 10: valori nice piu alti significano priorita di schedulazione piu bassa (il processo cede piu CPU agli altri). Un utente non privilegiato puo solo aumentare il nice (ridurre la priorita).",
+    "explanation": "'renice' modifica la priorità di un processo GIÀ in esecuzione. 'renice 10 -p 4210' imposta il valore nice a 10: valori nice più alti significano priorità di schedulazione più bassa (il processo cede più CPU agli altri). Un utente non privilegiato può solo aumentare il nice (ridurre la priorità).",
     "why_wrong": {
       "1": "'nice' serve ad AVVIARE un nuovo comando con un dato nice, non a modificare un processo esistente tramite PID; inoltre non accetta l'opzione -p.",
-      "2": "'renice -10' imposterebbe il nice a -10, cioe ALZEREBBE la priorita (richiedendo anche privilegi di root), l'opposto di quanto richiesto.",
+      "2": "'renice -10' imposterebbe il nice a -10, cioè ALZEREBBE la priorità (richiedendo anche privilegi di root), l'opposto di quanto richiesto.",
       "3": "'nice -n 10 4210' tenterebbe di eseguire un comando chiamato '4210', non di agire sul processo con quel PID."
     },
     "source": "LPIC-1",
@@ -311,7 +311,7 @@
     "explanation": "Per l'autenticazione a chiave pubblica, la chiave PUBBLICA del client va aggiunta al file '~/.ssh/authorized_keys' dell'utente remoto. Il server confronta la firma prodotta dalla chiave privata del client con le chiavi pubbliche elencate in quel file. Il comando 'ssh-copy-id' automatizza questa operazione.",
     "why_wrong": {
       "0": "'id_rsa' e la chiave PRIVATA e resta sul client: non va mai copiata sul server ne condivisa.",
-      "2": "'known_hosts' memorizza le chiavi pubbliche degli HOST gia contattati per prevenire attacchi MITM, non le chiavi degli utenti autorizzati.",
+      "2": "'known_hosts' memorizza le chiavi pubbliche degli HOST già contattati per prevenire attacchi MITM, non le chiavi degli utenti autorizzati.",
       "3": "'~/.ssh/config' contiene impostazioni del client SSH (alias host, opzioni), non le chiavi pubbliche autorizzate lato server."
     },
     "source": "LPIC-1",
@@ -349,7 +349,7 @@
     "correct": [
       1
     ],
-    "explanation": "Su Debian/Ubuntu 'update-grub' (wrapper di 'grub-mkconfig -o /boot/grub/grub.cfg') rilegge /etc/default/grub e gli script in /etc/grub.d/ per rigenerare /boot/grub/grub.cfg. Le modifiche a /etc/default/grub non hanno effetto finche non si rigenera questo file.",
+    "explanation": "Su Debian/Ubuntu 'update-grub' (wrapper di 'grub-mkconfig -o /boot/grub/grub.cfg') rilegge /etc/default/grub e gli script in /etc/grub.d/ per rigenerare /boot/grub/grub.cfg. Le modifiche a /etc/default/grub non hanno effetto finché non si rigenera questo file.",
     "why_wrong": {
       "0": "'grub-install' scrive il bootloader nel settore di boot/EFI del disco, ma NON rigenera grub.cfg a partire da /etc/default/grub.",
       "2": "'grub-set-default' cambia solo la voce di menu predefinita salvata, non ricostruisce l'intera configurazione dopo la modifica di GRUB_TIMEOUT.",
@@ -394,7 +394,7 @@
     "why_wrong": {
       "0": "Il flag 'g' (global) sostituisce TUTTE le occorrenze in ciascuna riga, non solo la prima come richiesto.",
       "2": "L'opzione -i (in-place) MODIFICA il file originale, mentre la richiesta e di lasciare il file inalterato e scrivere su stdout.",
-      "3": "'/enable/disable/' non e una sintassi di sostituzione valida (manca il comando 's'): sed la interpreterebbe come indirizzo/comando errato e darebbe errore."
+      "3": "'/enable/disable/' non è una sintassi di sostituzione valida (manca il comando 's'): sed la interpreterebbe come indirizzo/comando errato e darebbe errore."
     },
     "source": "LPIC-1",
     "question_en": "You want to replace, in 'config.txt', ONLY the first occurrence per line of the word 'enable' with 'disable', writing the result to stdout without modifying the file. Which sed command is correct?",
@@ -435,7 +435,7 @@
     "explanation": "'ip route show' (dalla suite iproute2, il comando moderno raccomandato) e 'route -n' (dai net-tools, ormai deprecato ma ancora usato, con -n per non risolvere i nomi) mostrano entrambi la tabella di routing del kernel, comprese la default gateway e le rotte verso le reti direttamente connesse.",
     "why_wrong": {
       "2": "'ifconfig -a' mostra la configurazione delle INTERFACCE di rete (indirizzi, MAC, statistiche), non la tabella di routing.",
-      "3": "'nslookup' interroga il DNS per risolvere nomi in indirizzi IP e viceversa; non ha nulla a che vedere con le rotte, e 'nslookup default' non e nemmeno una query valida."
+      "3": "'nslookup' interroga il DNS per risolvere nomi in indirizzi IP e viceversa; non ha nulla a che vedere con le rotte, e 'nslookup default' non è nemmeno una query valida."
     },
     "source": "LPIC-1",
     "question_en": "You must view the IP routing table of the Linux system. Which TWO of the following commands correctly show the configured routes? (Select 2)",
@@ -475,7 +475,7 @@
     ],
     "explanation": "'lsmod' legge /proc/modules e mostra i moduli caricati con dimensione e conteggio d'uso. 'modprobe' carica (o rimuove con -r) un modulo consultando i file di dipendenza generati da depmod, caricando automaticamente anche i moduli richiesti; a differenza di insmod che non gestisce le dipendenze.",
     "why_wrong": {
-      "2": "'rmmod' SCARICA un modulo gia caricato dal kernel; non compila nulla (la compilazione avviene con strumenti come make/gcc).",
+      "2": "'rmmod' SCARICA un modulo già caricato dal kernel; non compila nulla (la compilazione avviene con strumenti come make/gcc).",
       "3": "'depmod' genera il database delle dipendenze tra moduli (modules.dep); non rimuove file dal disco."
     },
     "source": "LPIC-1",
@@ -543,7 +543,7 @@
     ],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Un hard link puo attraversare i confini tra filesystem diversi, ad esempio collegando un file su /home (una partizione) a un nome su /var (un'altra partizione).",
+    "question": "Un hard link può attraversare i confini tra filesystem diversi, ad esempio collegando un file su /home (una partizione) a un nome su /var (un'altra partizione).",
     "options": [
       "Vero",
       "Falso"
@@ -551,7 +551,7 @@
     "correct": [
       1
     ],
-    "explanation": "Falso. Un hard link e una voce di directory che punta a un inode, e i numeri di inode sono univoci solo all'interno del medesimo filesystem. Percio un hard link NON puo attraversare filesystem/partizioni differenti. Per collegare percorsi su filesystem diversi si usa un link simbolico (ln -s), che memorizza un percorso testuale anziche riferirsi a un inode.",
+    "explanation": "Falso. Un hard link e una voce di directory che punta a un inode, e i numeri di inode sono univoci solo all'interno del medesimo filesystem. Perciò un hard link NON può attraversare filesystem/partizioni differenti. Per collegare percorsi su filesystem diversi si usa un link simbolico (ln -s), che memorizza un percorso testuale anziché riferirsi a un inode.",
     "source": "LPIC-1",
     "question_en": "A hard link can cross the boundaries between different filesystems, for example linking a file on /home (one partition) to a name on /var (another partition).",
     "options_en": [
@@ -578,7 +578,7 @@
     "correct": [
       1
     ],
-    "explanation": "Falso. 'systemctl enable' crea i symlink necessari (tipicamente nella directory del target voluto, es. multi-user.target.wants) affinche il servizio parta automaticamente ai boot successivi, ma NON lo avvia nella sessione corrente. Per avviarlo subito serve 'systemctl start', oppure 'systemctl enable --now nginx.service' per fare entrambe le cose in un solo comando.",
+    "explanation": "Falso. 'systemctl enable' crea i symlink necessari (tipicamente nella directory del target voluto, es. multi-user.target.wants) affinché il servizio parta automaticamente ai boot successivi, ma NON lo avvia nella sessione corrente. Per avviarlo subito serve 'systemctl start', oppure 'systemctl enable --now nginx.service' per fare entrambe le cose in un solo comando.",
     "source": "LPIC-1",
     "question_en": "The command 'systemctl enable nginx.service' immediately starts the nginx service in the current session, in addition to configuring it for automatic start at boot.",
     "options_en": [

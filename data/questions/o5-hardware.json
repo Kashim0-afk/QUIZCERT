@@ -5,14 +5,14 @@
     "topics": ["CPU"],
     "type": "single",
     "difficulty": 2,
-    "question": "Un cliente vuole una CPU per rendering video che sfrutti al massimo software multi-thread. Tra queste specifiche, quale caratteristica indica la maggiore capacita di elaborazione parallela?",
+    "question": "Un cliente vuole una CPU per rendering video che sfrutti al massimo software multi-thread. Tra queste specifiche, quale caratteristica indica la maggiore capacità di elaborazione parallela?",
     "options": ["Frequenza di clock di 5,2 GHz", "16 core e 32 thread", "Cache L3 da 32 MB", "Socket LGA1700"],
     "correct": [1],
     "explanation": "Il parallelismo dipende dal numero di core e thread: 16 core / 32 thread permettono di eseguire molte operazioni contemporaneamente, ideale per software multi-thread come il rendering.",
     "why_wrong": {
       "0": "Una frequenza alta migliora le prestazioni per singolo thread, ma non indica quanti compiti possono essere eseguiti in parallelo.",
       "2": "La cache L3 riduce la latenza degli accessi ai dati, ma non definisce il grado di parallelismo del processore.",
-      "3": "Il socket indica solo la compatibilita fisica con la scheda madre, non la potenza di calcolo parallelo."
+      "3": "Il socket indica solo la compatibilità fisica con la scheda madre, non la potenza di calcolo parallelo."
     },
     "question_en": "A customer wants a CPU for video rendering that maximizes multi-threaded software. Among these specifications, which characteristic indicates the greatest parallel processing capacity?",
     "options_en": ["Clock frequency of 5.2 GHz", "16 cores and 32 threads", "32 MB L3 cache", "LGA1700 socket"],
@@ -35,9 +35,9 @@
     "correct": [1],
     "explanation": "Il dual channel richiede un modulo per ciascun canale (A e B). Le schede madri colorano gli slot per canale, quindi si popolano gli slot dello stesso colore (es. A2 e B2) come indicato dal manuale.",
     "why_wrong": {
-      "0": "A1 e A2 appartengono spesso allo stesso canale: cosi si resta in single channel.",
-      "2": "Il dual channel non e automatico: dipende dal corretto abbinamento degli slot dei due canali.",
-      "3": "Riempire due slot vicini senza rispettare i canali puo lasciare la RAM in single channel; occorre seguire lo schema di colori del manuale."
+      "0": "A1 e A2 appartengono spesso allo stesso canale: così si resta in single channel.",
+      "2": "Il dual channel non è automatico: dipende dal corretto abbinamento degli slot dei due canali.",
+      "3": "Riempire due slot vicini senza rispettare i canali può lasciare la RAM in single channel; occorre seguire lo schema di colori del manuale."
     },
     "question_en": "You are assembling a desktop PC and want to enable dual channel with two DDR4 modules. On a motherboard with four slots (often colored A1, A2, B1, B2), how should they be installed to ensure dual channel?",
     "options_en": ["In the two physically adjacent slots, A1 and A2", "In the slots of the same color, typically A2 and B2", "Any of them, dual channel is always automatic", "Both in the first two slots near the CPU"],
@@ -55,14 +55,14 @@
     "topics": ["Storage"],
     "type": "single",
     "difficulty": 2,
-    "question": "Un utente lamenta lentezza nell'avvio del sistema e nell'apertura dei programmi. Ha un budget limitato e un solo slot M.2 NVMe libero. Quale upgrade offre il miglioramento piu evidente sui tempi di caricamento?",
+    "question": "Un utente lamenta lentezza nell'avvio del sistema e nell'apertura dei programmi. Ha un budget limitato e un solo slot M.2 NVMe libero. Quale upgrade offre il miglioramento più evidente sui tempi di caricamento?",
     "options": ["Installare un SSD NVMe M.2 come disco di sistema", "Aggiungere un HDD da 7200 RPM", "Sostituire l'HDD con uno da 10000 RPM", "Aumentare la RAM da 16 a 32 GB"],
     "correct": [0],
     "explanation": "Un SSD NVMe M.2 offre latenze bassissime e transfer rate molto superiori a qualsiasi disco meccanico, riducendo drasticamente i tempi di boot e di apertura dei programmi.",
     "why_wrong": {
-      "1": "Un HDD a 7200 RPM resta un disco meccanico, molto piu lento di un SSD nei tempi di accesso.",
-      "2": "Anche un HDD a 10000 RPM e ordini di grandezza piu lento di un SSD NVMe in accesso casuale.",
-      "3": "Con 16 GB gia presenti, aumentare la RAM raramente migliora i tempi di caricamento se il collo di bottiglia e il disco."
+      "1": "Un HDD a 7200 RPM resta un disco meccanico, molto più lento di un SSD nei tempi di accesso.",
+      "2": "Anche un HDD a 10000 RPM e ordini di grandezza più lento di un SSD NVMe in accesso casuale.",
+      "3": "Con 16 GB già presenti, aumentare la RAM raramente migliora i tempi di caricamento se il collo di bottiglia e il disco."
     },
     "question_en": "A user complains of slowness at system startup and when opening programs. They have a limited budget and only one free M.2 NVMe slot. Which upgrade offers the most noticeable improvement in load times?",
     "options_en": ["Install an NVMe M.2 SSD as the system drive", "Add a 7200 RPM HDD", "Replace the HDD with a 10000 RPM one", "Increase the RAM from 16 to 32 GB"],
@@ -86,8 +86,8 @@
     "explanation": "RAID 1 esegue il mirroring: i dati sono duplicati su due dischi, quindi il guasto di uno non causa perdita di dati ed e realizzabile con soli due dischi.",
     "why_wrong": {
       "0": "RAID 0 (striping) non offre alcuna ridondanza: il guasto di un disco fa perdere tutti i dati.",
-      "2": "RAID 5 richiede almeno tre dischi per la parita distribuita, quindi non e realizzabile con due soli dischi.",
-      "3": "JBOD unisce i dischi senza ridondanza: un guasto puo causare perdita di dati."
+      "2": "RAID 5 richiede almeno tre dischi per la parità distribuita, quindi non è realizzabile con due soli dischi.",
+      "3": "JBOD unisce i dischi senza ridondanza: un guasto può causare perdita di dati."
     },
     "question_en": "A small server must tolerate the failure of a single disk without losing data and maintain good read performance, with only two disks available. Which RAID level is suitable?",
     "options_en": ["RAID 0", "RAID 1", "RAID 5", "JBOD"],
@@ -105,14 +105,14 @@
     "topics": ["Hardware"],
     "type": "single",
     "difficulty": 1,
-    "question": "Devi montare una scheda madre in un case Mini-ITX molto compatto per un HTPC. Quale form factor di scheda madre e il piu adatto per dimensioni ridotte?",
+    "question": "Devi montare una scheda madre in un case Mini-ITX molto compatto per un HTPC. Quale form factor di scheda madre e il più adatto per dimensioni ridotte?",
     "options": ["ATX", "Micro-ATX", "Mini-ITX", "E-ATX"],
     "correct": [2],
-    "explanation": "Mini-ITX (17x17 cm) e il form factor piu piccolo tra quelli comuni ed e progettato proprio per build compatte come gli HTPC.",
+    "explanation": "Mini-ITX (17x17 cm) e il form factor più piccolo tra quelli comuni ed e progettato proprio per build compatte come gli HTPC.",
     "why_wrong": {
       "0": "ATX (30,5x24,4 cm) e un formato full-size, troppo grande per un case Mini-ITX.",
-      "1": "Micro-ATX e piu piccolo dell'ATX ma comunque piu grande del Mini-ITX e spesso non entra nei case Mini-ITX.",
-      "3": "E-ATX e ancora piu grande dell'ATX, destinato a workstation e server."
+      "1": "Micro-ATX e più piccolo dell'ATX ma comunque più grande del Mini-ITX e spesso non entra nei case Mini-ITX.",
+      "3": "E-ATX e ancora più grande dell'ATX, destinato a workstation e server."
     },
     "question_en": "You need to fit a motherboard into a very compact Mini-ITX case for an HTPC. Which motherboard form factor is best suited for small dimensions?",
     "options_en": ["ATX", "Micro-ATX", "Mini-ITX", "E-ATX"],
@@ -130,7 +130,7 @@
     "topics": ["Porte"],
     "type": "single",
     "difficulty": 2,
-    "question": "Un utente deve collegare un monitor esterno a un laptop moderno tramite un cavo che trasporta contemporaneamente video, dati ad alta velocita e alimentazione su un connettore USB-C. Quale interfaccia offre questa combinazione fino a 40 Gbps?",
+    "question": "Un utente deve collegare un monitor esterno a un laptop moderno tramite un cavo che trasporta contemporaneamente video, dati ad alta velocità e alimentazione su un connettore USB-C. Quale interfaccia offre questa combinazione fino a 40 Gbps?",
     "options": ["USB 2.0", "Thunderbolt 3/4", "HDMI 1.4", "VGA"],
     "correct": [1],
     "explanation": "Thunderbolt 3/4 usa il connettore USB-C e integra video (DisplayPort), dati fino a 40 Gbps e Power Delivery su un unico cavo.",
@@ -205,14 +205,14 @@
     "topics": ["Troubleshooting"],
     "type": "single",
     "difficulty": 3,
-    "question": "Accendi un PC: le ventole girano ma non appare nulla a video e la scheda madre emette una sequenza di beep code. Qual e l'approccio corretto per diagnosticare il problema?",
+    "question": "Accendi un PC: le ventole girano ma non appare nulla a video e la scheda madre emette una sequenza di beep code. Qual è l'approccio corretto per diagnosticare il problema?",
     "options": ["Sostituire subito l'alimentatore", "Consultare il manuale della scheda madre per interpretare la sequenza di beep", "Reinstallare il sistema operativo", "Aggiornare i driver della GPU"],
     "correct": [1],
     "explanation": "I beep code sono generati dal POST e la loro sequenza indica il componente in errore (spesso RAM o GPU). Il significato varia per produttore/BIOS, quindi va interpretato con il manuale o la documentazione del vendor.",
     "why_wrong": {
       "0": "Se le ventole girano l'alimentatore fornisce corrente; sostituirlo alla cieca ignora l'informazione dei beep.",
       "2": "Senza output video il sistema non arriva nemmeno al caricamento dell'OS: reinstallarlo non ha senso.",
-      "3": "Senza POST completato non si puo caricare il sistema per aggiornare i driver; il problema e a livello hardware/POST."
+      "3": "Senza POST completato non si può caricare il sistema per aggiornare i driver; il problema e a livello hardware/POST."
     },
     "question_en": "You turn on a PC: the fans spin but nothing appears on screen and the motherboard emits a sequence of beep codes. What is the correct approach to diagnose the problem?",
     "options_en": ["Immediately replace the power supply", "Consult the motherboard manual to interpret the beep sequence", "Reinstall the operating system", "Update the GPU drivers"],
@@ -230,13 +230,13 @@
     "topics": ["Hardware"],
     "type": "single",
     "difficulty": 2,
-    "question": "Stai per sostituire una scheda RAM su una workstation. Qual e la pratica corretta per prevenire danni da scariche elettrostatiche (ESD)?",
+    "question": "Stai per sostituire una scheda RAM su una workstation. Qual è la pratica corretta per prevenire danni da scariche elettrostatiche (ESD)?",
     "options": ["Lavorare su un tappeto di moquette per isolarsi", "Indossare un bracciale antistatico collegato a massa", "Tenere l'alimentatore acceso per la messa a terra", "Toccare il componente solo sui contatti dorati"],
     "correct": [1],
     "explanation": "Il bracciale antistatico collegato a un punto di massa mantiene tecnico e apparato allo stesso potenziale, scaricando in sicurezza le cariche ed evitando ESD sui componenti.",
     "why_wrong": {
       "0": "La moquette genera cariche statiche: aumenta il rischio di ESD invece di ridurlo.",
-      "2": "Si lavora con il sistema spento e scollegato; tenere l'alimentatore acceso e pericoloso e non e una corretta messa a terra.",
+      "2": "Si lavora con il sistema spento e scollegato; tenere l'alimentatore acceso e pericoloso e non è una corretta messa a terra.",
       "3": "Toccare i contatti dorati (pin) e proprio da evitare: si lasciano residui e si rischia di scaricarvi ESD; si maneggia il modulo dai bordi."
     },
     "question_en": "You are about to replace a RAM stick on a workstation. What is the correct practice to prevent damage from electrostatic discharge (ESD)?",
@@ -258,11 +258,11 @@
     "question": "Un cliente vuole un alimentatore efficiente per ridurre calore e consumi. Cosa indica la certificazione 80 PLUS su un PSU?",
     "options": ["Che eroga almeno 80 watt di potenza", "Un livello minimo di efficienza energetica a determinati carichi", "Che supporta connettori a 80 pin", "Che ha una garanzia di 80 mesi"],
     "correct": [1],
-    "explanation": "Le certificazioni 80 PLUS (Bronze, Silver, Gold, Platinum, Titanium) garantiscono un'efficienza minima (es. almeno 80% o piu) a vari livelli di carico (20%, 50%, 100%), riducendo energia dispersa in calore.",
+    "explanation": "Le certificazioni 80 PLUS (Bronze, Silver, Gold, Platinum, Titanium) garantiscono un'efficienza minima (es. almeno 80% o più) a vari livelli di carico (20%, 50%, 100%), riducendo energia dispersa in calore.",
     "why_wrong": {
       "0": "80 PLUS non si riferisce al wattaggio erogato ma all'efficienza di conversione.",
       "2": "Non ha nulla a che vedere con il numero di pin dei connettori.",
-      "3": "Non e un indicatore di durata della garanzia."
+      "3": "Non è un indicatore di durata della garanzia."
     },
     "question_en": "A customer wants an efficient power supply to reduce heat and consumption. What does the 80 PLUS certification on a PSU indicate?",
     "options_en": ["That it delivers at least 80 watts of power", "A minimum level of energy efficiency at certain loads", "That it supports 80-pin connectors", "That it has an 80-month warranty"],
@@ -280,12 +280,12 @@
     "topics": ["RAM", "Troubleshooting"],
     "type": "multi",
     "difficulty": 3,
-    "question": "Un server deve garantire integrita dei dati in memoria e correggere errori a singolo bit. Quali due affermazioni sulla RAM ECC sono corrette? (seleziona 2)",
-    "options": ["La RAM ECC puo rilevare e correggere errori a singolo bit", "La RAM ECC richiede il supporto di CPU e scheda madre compatibili", "La RAM ECC e piu veloce della normale RAM non-ECC a parita di frequenza", "La RAM ECC funziona in qualsiasi PC desktop consumer senza requisiti"],
+    "question": "Un server deve garantire integrità dei dati in memoria e correggere errori a singolo bit. Quali due affermazioni sulla RAM ECC sono corrette? (seleziona 2)",
+    "options": ["La RAM ECC può rilevare e correggere errori a singolo bit", "La RAM ECC richiede il supporto di CPU e scheda madre compatibili", "La RAM ECC e più veloce della normale RAM non-ECC a parità di frequenza", "La RAM ECC funziona in qualsiasi PC desktop consumer senza requisiti"],
     "correct": [0, 1],
-    "explanation": "La memoria ECC (Error Correcting Code) usa bit aggiuntivi per rilevare e correggere errori a singolo bit ed e usata nei server. Richiede pero CPU e chipset/scheda madre che la supportino esplicitamente.",
+    "explanation": "La memoria ECC (Error Correcting Code) usa bit aggiuntivi per rilevare e correggere errori a singolo bit ed e usata nei server. Richiede però CPU e chipset/scheda madre che la supportino esplicitamente.",
     "why_wrong": {
-      "2": "L'ECC non e piu veloce; anzi introduce un leggero overhead per il controllo, quindi tende a essere marginalmente piu lenta a parita di frequenza.",
+      "2": "L'ECC non è più veloce; anzi introduce un leggero overhead per il controllo, quindi tende a essere marginalmente più lenta a parità di frequenza.",
       "3": "L'ECC non funziona ovunque: serve una piattaforma (CPU e scheda madre) che la supporti, tipica di workstation e server."
     },
     "question_en": "A server must ensure data integrity in memory and correct single-bit errors. Which two statements about ECC RAM are correct? (select 2)",
@@ -304,12 +304,12 @@
     "type": "multi",
     "difficulty": 3,
     "question": "Un tecnico deve scegliere un SSD M.2. Quali due affermazioni sono corrette riguardo agli SSD M.2 e alle loro interfacce? (seleziona 2)",
-    "options": ["Un SSD M.2 puo usare l'interfaccia SATA oppure NVMe (PCIe)", "Gli SSD M.2 NVMe sfruttano il bus PCIe per prestazioni superiori al SATA", "Tutti gli slot M.2 supportano automaticamente sia SATA sia NVMe", "La chiave (key) B o M del connettore non influisce sulla compatibilita"],
+    "options": ["Un SSD M.2 può usare l'interfaccia SATA oppure NVMe (PCIe)", "Gli SSD M.2 NVMe sfruttano il bus PCIe per prestazioni superiori al SATA", "Tutti gli slot M.2 supportano automaticamente sia SATA sia NVMe", "La chiave (key) B o M del connettore non influisce sulla compatibilità"],
     "correct": [0, 1],
-    "explanation": "Il fattore di forma M.2 puo ospitare SSD con interfaccia SATA o NVMe su bus PCIe; gli NVMe sfruttano PCIe raggiungendo velocita molto superiori al SATA (limitato a circa 6 Gbps).",
+    "explanation": "Il fattore di forma M.2 può ospitare SSD con interfaccia SATA o NVMe su bus PCIe; gli NVMe sfruttano PCIe raggiungendo velocità molto superiori al SATA (limitato a circa 6 Gbps).",
     "why_wrong": {
       "2": "Non tutti gli slot M.2 supportano entrambe le interfacce: alcuni sono solo SATA, altri solo NVMe; va verificato sul manuale.",
-      "3": "La chiave (key B, M o B+M) determina la compatibilita fisica ed elettrica dello slot con il modulo, quindi influisce eccome."
+      "3": "La chiave (key B, M o B+M) determina la compatibilità fisica ed elettrica dello slot con il modulo, quindi influisce eccome."
     },
     "question_en": "A technician must choose an M.2 SSD. Which two statements are correct regarding M.2 SSDs and their interfaces? (select 2)",
     "options_en": ["An M.2 SSD can use the SATA or NVMe (PCIe) interface", "NVMe M.2 SSDs use the PCIe bus for performance superior to SATA", "All M.2 slots automatically support both SATA and NVMe", "The B or M key of the connector does not affect compatibility"],
@@ -326,7 +326,7 @@
     "topics": ["Troubleshooting", "Hardware"],
     "type": "multi",
     "difficulty": 3,
-    "question": "Un PC si spegne improvvisamente sotto carico dopo alcuni minuti di gioco. Quali due cause di surriscaldamento sono le piu probabili da controllare? (seleziona 2)",
+    "question": "Un PC si spegne improvvisamente sotto carico dopo alcuni minuti di gioco. Quali due cause di surriscaldamento sono le più probabili da controllare? (seleziona 2)",
     "options": ["Ventole ostruite dalla polvere o non funzionanti", "Pasta termica degradata o mal applicata sulla CPU/GPU", "Un cavo di rete Ethernet difettoso", "Una password del BIOS dimenticata"],
     "correct": [0, 1],
     "explanation": "Lo spegnimento sotto carico e tipico della protezione termica: ventole ostruite/guaste riducono il flusso d'aria e la pasta termica degradata peggiora la dissipazione tra chip e dissipatore, facendo salire le temperature fino allo shutdown.",
@@ -349,7 +349,7 @@
     "topics": ["CPU"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Le architetture ARM sono generalmente piu efficienti dal punto di vista energetico rispetto alle tradizionali x86/x64, motivo per cui sono molto diffuse in smartphone e tablet.",
+    "question": "Le architetture ARM sono generalmente più efficienti dal punto di vista energetico rispetto alle tradizionali x86/x64, motivo per cui sono molto diffuse in smartphone e tablet.",
     "options": ["Vero", "Falso"],
     "correct": [0],
     "explanation": "ARM adotta un approccio RISC ottimizzato per basso consumo e buon rapporto prestazioni/watt, per questo domina nei dispositivi mobili alimentati a batteria. Le architetture x86/x64 (CISC) privilegiano prestazioni assolute con consumi tipicamente superiori.",

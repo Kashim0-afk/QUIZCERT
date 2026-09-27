@@ -62,11 +62,11 @@
     "correct": [
       1
     ],
-    "explanation": "L Authentication Administrator e il ruolo a privilegio minimo che copre entrambi i requisiti: puo reimpostare le password degli utenti non amministratori e gestire/forzare la registrazione dei metodi MFA, senza poter modificare licenze, gruppi o configurazioni del tenant.",
+    "explanation": "L Authentication Administrator e il ruolo a privilegio minimo che copre entrambi i requisiti: può reimpostare le password degli utenti non amministratori e gestire/forzare la registrazione dei metodi MFA, senza poter modificare licenze, gruppi o configurazioni del tenant.",
     "why_wrong": {
-      "0": "User Administrator puo gestire utenti e gruppi ed e piu ampio del necessario, ma non e il ruolo dedicato alla gestione dei metodi di autenticazione/MFA.",
+      "0": "User Administrator può gestire utenti e gruppi ed e più ampio del necessario, ma non è il ruolo dedicato alla gestione dei metodi di autenticazione/MFA.",
       "2": "Global Administrator ha controllo totale sul tenant: viola nettamente il principio del privilegio minimo.",
-      "3": "Helpdesk Administrator puo reimpostare le password dei non amministratori ma NON puo gestire o forzare la registrazione dei metodi MFA, quindi non soddisfa il requisito."
+      "3": "Helpdesk Administrator può reimpostare le password dei non amministratori ma NON può gestire o forzare la registrazione dei metodi MFA, quindi non soddisfa il requisito."
     },
     "source": "Microsoft MS-102",
     "question_en": "A help desk colleague must be able to reset the passwords of non-administrator users and force MFA registration, but company policy requires least privilege: they must not be able to modify licenses, groups, or tenant configurations. Which Entra ID role is most appropriate to assign them?",

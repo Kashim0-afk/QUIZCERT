@@ -5,7 +5,7 @@
     "topics": ["Reconnaissance"],
     "type": "single",
     "difficulty": 1,
-    "question": "Nel footprinting, quale attivita e classificata come ricognizione PASSIVA perche non genera traffico diretto verso i sistemi del bersaglio?",
+    "question": "Nel footprinting, quale attività e classificata come ricognizione PASSIVA perché non genera traffico diretto verso i sistemi del bersaglio?",
     "question_en": "In footprinting, which activity is classified as PASSIVE reconnaissance because it does not generate traffic directed at the target's systems?",
     "options": [
       "Interrogare i record WHOIS e i risultati dei motori di ricerca sull'organizzazione",
@@ -20,7 +20,7 @@
       "Performing banner grabbing on the exposed services"
     ],
     "correct": [0],
-    "explanation": "La ricognizione passiva raccoglie informazioni da fonti pubbliche di terze parti (OSINT) come WHOIS, motori di ricerca, social media e archivi, senza interagire direttamente con l'infrastruttura del bersaglio, riducendo cosi il rischio di essere rilevati.",
+    "explanation": "La ricognizione passiva raccoglie informazioni da fonti pubbliche di terze parti (OSINT) come WHOIS, motori di ricerca, social media e archivi, senza interagire direttamente con l'infrastruttura del bersaglio, riducendo così il rischio di essere rilevati.",
     "explanation_en": "Passive reconnaissance gathers information from public third-party sources (OSINT) such as WHOIS, search engines, social media and archives, without directly interacting with the target's infrastructure, thereby reducing the risk of being detected.",
     "why_wrong": {
       "1": "La scansione delle porte invia pacchetti direttamente ai sistemi del target: e ricognizione attiva.",
@@ -75,13 +75,13 @@
     "topics": ["Scanning", "Port Scanning"],
     "type": "single",
     "difficulty": 2,
-    "question": "Perche una scansione TCP SYN (half-open) e spesso preferita in fase di scanning rispetto a una scansione TCP connect completa?",
+    "question": "Perché una scansione TCP SYN (half-open) e spesso preferita in fase di scanning rispetto a una scansione TCP connect completa?",
     "question_en": "Why is a TCP SYN (half-open) scan often preferred during the scanning phase over a full TCP connect scan?",
     "options": [
-      "Perche completa sempre il three-way handshake garantendo risultati piu accurati",
-      "Perche non porta a termine il handshake, risultando piu veloce e meno probabile da registrare nei log applicativi",
-      "Perche utilizza esclusivamente il protocollo UDP evitando i firewall",
-      "Perche cifra i pacchetti rendendo impossibile il rilevamento"
+      "Perché completa sempre il three-way handshake garantendo risultati più accurati",
+      "Perché non porta a termine il handshake, risultando più veloce e meno probabile da registrare nei log applicativi",
+      "Perché utilizza esclusivamente il protocollo UDP evitando i firewall",
+      "Perché cifra i pacchetti rendendo impossibile il rilevamento"
     ],
     "options_en": [
       "Because it always completes the three-way handshake, ensuring more accurate results",
@@ -90,7 +90,7 @@
       "Because it encrypts the packets, making detection impossible"
     ],
     "correct": [1],
-    "explanation": "La scansione SYN invia un SYN e, alla ricezione del SYN/ACK, risponde con un RST senza completare il handshake. Cosi la connessione non viene stabilita del tutto, risultando piu rapida e meno probabile da registrare nei log delle applicazioni rispetto alla connect completa.",
+    "explanation": "La scansione SYN invia un SYN e, alla ricezione del SYN/ACK, risponde con un RST senza completare il handshake. Così la connessione non viene stabilita del tutto, risultando più rapida e meno probabile da registrare nei log delle applicazioni rispetto alla connect completa.",
     "explanation_en": "The SYN scan sends a SYN and, upon receiving the SYN/ACK, replies with an RST without completing the handshake. This way the connection is never fully established, making it faster and less likely to be recorded in application logs than a full connect scan.",
     "why_wrong": {
       "0": "La caratteristica della SYN e proprio NON completare il handshake; e la connect a completarlo.",
@@ -129,7 +129,7 @@
     "explanation_en": "SNMP with weak or default community strings (public/private) allows enumeration of interfaces, routing tables, processes and accounts, exposing a great deal of sensitive information about devices. The countermeasure is to disable it if not needed, use SNMPv3 and change the community strings.",
     "why_wrong": {
       "1": "ICMP serve per diagnostica (ping/traceroute) e non usa community string.",
-      "2": "NTP sincronizza l'orario e puo rivelare host, ma non usa il meccanismo delle community string.",
+      "2": "NTP sincronizza l'orario e può rivelare host, ma non usa il meccanismo delle community string.",
       "3": "TFTP e un trasferimento file senza autenticazione, non basato su community string SNMP."
     },
     "why_wrong_en": {
@@ -160,7 +160,7 @@
       "Quid pro quo"
     ],
     "correct": [1],
-    "explanation": "Il baiting (esca) sfrutta la curiosita della vittima offrendo qualcosa di allettante, come una USB abbandonata contenente malware, per indurla a compromettere il proprio sistema. La contromisura chiave e la formazione e il blocco delle porte USB.",
+    "explanation": "Il baiting (esca) sfrutta la curiosità della vittima offrendo qualcosa di allettante, come una USB abbandonata contenente malware, per indurla a compromettere il proprio sistema. La contromisura chiave e la formazione e il blocco delle porte USB.",
     "explanation_en": "Baiting exploits the victim's curiosity by offering something enticing, such as an abandoned USB drive containing malware, to induce them to compromise their own system. The key countermeasure is user training and blocking USB ports.",
     "why_wrong": {
       "0": "Il tailgating consiste nel seguire fisicamente una persona autorizzata per entrare in un'area protetta.",
@@ -186,7 +186,7 @@
       "L'uso del cifrario RC4 al posto di AES",
       "Il Simultaneous Authentication of Equals (SAE), noto anche come Dragonfly handshake",
       "La disabilitazione completa della cifratura del traffico",
-      "L'impiego esclusivo del protocollo WEP con chiavi piu lunghe"
+      "L'impiego esclusivo del protocollo WEP con chiavi più lunghe"
     ],
     "options_en": [
       "The use of the RC4 cipher instead of AES",
@@ -195,12 +195,12 @@
       "The exclusive use of the WEP protocol with longer keys"
     ],
     "correct": [1],
-    "explanation": "WPA3 sostituisce il PSK a 4 vie di WPA2 con SAE (Dragonfly), che offre Forward Secrecy e resistenza agli attacchi offline al dizionario: catturare l'handshake non consente piu di provare offline password arbitrarie come avveniva con WPA2.",
+    "explanation": "WPA3 sostituisce il PSK a 4 vie di WPA2 con SAE (Dragonfly), che offre Forward Secrecy e resistenza agli attacchi offline al dizionario: catturare l'handshake non consente più di provare offline password arbitrarie come avveniva con WPA2.",
     "explanation_en": "WPA3 replaces WPA2's 4-way PSK handshake with SAE (Dragonfly), which provides Forward Secrecy and resistance to offline dictionary attacks: capturing the handshake no longer allows attackers to test arbitrary passwords offline as was possible with WPA2.",
     "why_wrong": {
       "0": "RC4 e un cifrario obsoleto e debole (usato in WEP), non introdotto da WPA3.",
       "2": "WPA3 rafforza la cifratura, non la disabilita.",
-      "3": "WEP e il protocollo piu debole e deprecato, l'opposto di cio che WPA3 adotta."
+      "3": "WEP e il protocollo più debole e deprecato, l'opposto di ciò che WPA3 adotta."
     },
     "why_wrong_en": {
       "0": "RC4 is an obsolete and weak cipher (used in WEP), not introduced by WPA3.",
@@ -230,7 +230,7 @@
       "A wireless deauthentication attack"
     ],
     "correct": [0],
-    "explanation": "Con insertion ed evasion tramite frammentazione (e session splicing) l'attaccante sfrutta le differenze nel modo in cui l'IDS e l'host di destinazione riassemblano i pacchetti frammentati, cosi la firma malevola sfugge all'IDS ma viene comunque ricostruita dal target. La contromisura e la normalizzazione del traffico.",
+    "explanation": "Con insertion ed evasion tramite frammentazione (e session splicing) l'attaccante sfrutta le differenze nel modo in cui l'IDS e l'host di destinazione riassemblano i pacchetti frammentati, così la firma malevola sfugge all'IDS ma viene comunque ricostruita dal target. La contromisura e la normalizzazione del traffico.",
     "explanation_en": "With insertion and evasion via fragmentation (and session splicing) the attacker exploits differences in how the IDS and the destination host reassemble fragmented packets, so the malicious signature evades the IDS but is still reconstructed by the target. The countermeasure is traffic normalization.",
     "why_wrong": {
       "1": "La forza bruta prova credenziali multiple e non riguarda il riassemblaggio dei pacchetti.",
@@ -250,7 +250,7 @@
     "topics": ["SQL Injection"],
     "type": "single",
     "difficulty": 2,
-    "question": "Dal punto di vista difensivo, qual e la contromisura piu efficace e raccomandata contro le vulnerabilita di SQL Injection?",
+    "question": "Dal punto di vista difensivo, qual è la contromisura più efficace e raccomandata contro le vulnerabilità di SQL Injection?",
     "question_en": "From a defensive standpoint, what is the most effective and recommended countermeasure against SQL Injection vulnerabilities?",
     "options": [
       "Nascondere i messaggi di errore del database mantenendo query concatenate dinamicamente",
@@ -285,11 +285,11 @@
     "topics": ["Malware"],
     "type": "single",
     "difficulty": 2,
-    "question": "In fase di system hacking, quale attivita descrive concettualmente il 'covering tracks' (copertura delle tracce) dopo una compromissione?",
+    "question": "In fase di system hacking, quale attività descrive concettualmente il 'covering tracks' (copertura delle tracce) dopo una compromissione?",
     "question_en": "During system hacking, which activity conceptually describes 'covering tracks' after a compromise?",
     "options": [
       "Installare backdoor per garantirsi accessi futuri",
-      "Manipolare o cancellare i log e disabilitare l'auditing per nascondere le attivita svolte",
+      "Manipolare o cancellare i log e disabilitare l'auditing per nascondere le attività svolte",
       "Effettuare la scansione delle porte per individuare servizi vulnerabili",
       "Raccogliere indirizzi email dai social media del bersaglio"
     ],
@@ -320,11 +320,11 @@
     "topics": ["Crittografia"],
     "type": "single",
     "difficulty": 2,
-    "question": "Quale proprieta della crittografia garantisce che un mittente non possa negare in seguito di aver inviato un messaggio firmato digitalmente?",
+    "question": "Quale proprietà della crittografia garantisce che un mittente non possa negare in seguito di aver inviato un messaggio firmato digitalmente?",
     "question_en": "Which cryptographic property ensures that a sender cannot later deny having sent a digitally signed message?",
     "options": [
       "Riservatezza (confidentiality)",
-      "Disponibilita (availability)",
+      "Disponibilità (availability)",
       "Non ripudio (non-repudiation)",
       "Ridondanza (redundancy)"
     ],
@@ -335,12 +335,12 @@
       "Redundancy"
     ],
     "correct": [2],
-    "explanation": "Il non ripudio, ottenuto tramite firma digitale con la chiave privata del mittente, impedisce a quest'ultimo di negare l'invio del messaggio, poiche solo lui possiede la chiave privata usata per firmarlo.",
+    "explanation": "Il non ripudio, ottenuto tramite firma digitale con la chiave privata del mittente, impedisce a quest'ultimo di negare l'invio del messaggio, poiché solo lui possiede la chiave privata usata per firmarlo.",
     "explanation_en": "Non-repudiation, achieved through a digital signature made with the sender's private key, prevents the sender from denying that they sent the message, since only they possess the private key used to sign it.",
     "why_wrong": {
       "0": "La riservatezza protegge il contenuto dalla lettura non autorizzata, non l'origine.",
-      "1": "La disponibilita riguarda l'accessibilita del servizio, non l'attribuzione del messaggio.",
-      "3": "La ridondanza non e un obiettivo crittografico di attribuzione dell'origine."
+      "1": "La disponibilità riguarda l'accessibilità del servizio, non l'attribuzione del messaggio.",
+      "3": "La ridondanza non è un obiettivo crittografico di attribuzione dell'origine."
     },
     "why_wrong_en": {
       "0": "Confidentiality protects the content from unauthorized reading, not the origin.",
@@ -370,7 +370,7 @@
       "Publicly sharing the internal IP addresses of critical servers"
     ],
     "correct": [0, 2],
-    "explanation": "Il rate limiting, il filtraggio del traffico anomalo, l'uso di servizi cloud di mitigazione DDoS, la ridondanza e il bilanciamento del carico riducono l'impatto degli attacchi volumetrici e applicativi, mantenendo la disponibilita dei servizi.",
+    "explanation": "Il rate limiting, il filtraggio del traffico anomalo, l'uso di servizi cloud di mitigazione DDoS, la ridondanza e il bilanciamento del carico riducono l'impatto degli attacchi volumetrici e applicativi, mantenendo la disponibilità dei servizi.",
     "explanation_en": "Rate limiting, filtering of anomalous traffic, the use of cloud DDoS mitigation services, redundancy and load balancing reduce the impact of volumetric and application-layer attacks, maintaining service availability.",
     "why_wrong": {
       "1": "Disabilitare la cifratura non contrasta un DoS e riduce la sicurezza complessiva.",
@@ -392,7 +392,7 @@
     "question_en": "Which TWO statements correctly distinguish passive footprinting from active footprinting? (Select two)",
     "options": [
       "Il footprinting passivo raccoglie dati da fonti pubbliche senza interagire direttamente con il target",
-      "Il footprinting attivo interagisce direttamente con i sistemi del bersaglio ed e piu rilevabile",
+      "Il footprinting attivo interagisce direttamente con i sistemi del bersaglio ed e più rilevabile",
       "Il footprinting passivo richiede sempre l'invio di pacchetti ai server del target",
       "Il footprinting attivo e per definizione impossibile da rilevare tramite i log"
     ],
@@ -403,11 +403,11 @@
       "Active footprinting is by definition impossible to detect through logs"
     ],
     "correct": [0, 1],
-    "explanation": "Il footprinting passivo (OSINT) usa fonti pubbliche di terze parti senza toccare il bersaglio, riducendo il rischio di rilevamento; quello attivo interroga direttamente i sistemi (DNS, banner, scansioni) ed e piu facilmente registrabile nei log del target.",
+    "explanation": "Il footprinting passivo (OSINT) usa fonti pubbliche di terze parti senza toccare il bersaglio, riducendo il rischio di rilevamento; quello attivo interroga direttamente i sistemi (DNS, banner, scansioni) ed e più facilmente registrabile nei log del target.",
     "explanation_en": "Passive footprinting (OSINT) uses public third-party sources without touching the target, reducing the risk of detection; active footprinting directly queries the systems (DNS, banners, scans) and is more easily recorded in the target's logs.",
     "why_wrong": {
       "2": "L'invio di pacchetti ai server del target caratterizza il footprinting attivo, non quello passivo.",
-      "3": "Il footprinting attivo e spesso rilevabile proprio perche lascia tracce nei log dei sistemi interrogati."
+      "3": "Il footprinting attivo e spesso rilevabile proprio perché lascia tracce nei log dei sistemi interrogati."
     },
     "why_wrong_en": {
       "2": "Sending packets to the target's servers characterizes active footprinting, not passive.",
@@ -424,10 +424,10 @@
     "question": "Riguardo agli attacchi di Cross-Site Scripting (XSS), quali DUE affermazioni sono corrette? (Seleziona due)",
     "question_en": "Regarding Cross-Site Scripting (XSS) attacks, which TWO statements are correct? (Select two)",
     "options": [
-      "L'XSS stored (persistente) memorizza lo script malevolo sul server e colpisce piu utenti che visualizzano la pagina",
+      "L'XSS stored (persistente) memorizza lo script malevolo sul server e colpisce più utenti che visualizzano la pagina",
       "L'output encoding e la validazione dell'input sono contromisure efficaci contro l'XSS",
       "L'XSS consente sempre l'esecuzione di codice arbitrario direttamente sul database del server",
-      "L'XSS puo essere prevenuto unicamente aumentando la complessita delle password utente"
+      "L'XSS può essere prevenuto unicamente aumentando la complessità delle password utente"
     ],
     "options_en": [
       "Stored (persistent) XSS stores the malicious script on the server and affects multiple users who view the page",
@@ -440,7 +440,7 @@
     "explanation_en": "Stored XSS saves the payload on the server (for example in a comment) and it executes in the browser of every user who opens the page. The main defenses are output encoding, input validation/sanitization and headers such as the Content Security Policy.",
     "why_wrong": {
       "2": "L'XSS esegue script nel browser della vittima (lato client), non comandi arbitrari sul database del server.",
-      "3": "La complessita delle password non c'entra con la prevenzione dell'XSS, che dipende dalla gestione dell'input/output."
+      "3": "La complessità delle password non c'entra con la prevenzione dell'XSS, che dipende dalla gestione dell'input/output."
     },
     "why_wrong_en": {
       "2": "XSS executes scripts in the victim's browser (client-side), not arbitrary commands on the server's database.",
@@ -476,7 +476,7 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Il ciclo CEH prevede in ordine: ricognizione (raccolta informazioni), scanning (individuazione di host/porte/vulnerabilita), gaining access (sfruttamento), maintaining access (persistenza) e clearing tracks (copertura delle tracce). Conoscere questo ordine e fondamentale per l'approccio metodologico.",
+    "explanation": "Il ciclo CEH prevede in ordine: ricognizione (raccolta informazioni), scanning (individuazione di host/porte/vulnerabilità), gaining access (sfruttamento), maintaining access (persistenza) e clearing tracks (copertura delle tracce). Conoscere questo ordine e fondamentale per l'approccio metodologico.",
     "explanation_en": "The CEH cycle proceeds in order: reconnaissance (information gathering), scanning (identifying hosts/ports/vulnerabilities), gaining access (exploitation), maintaining access (persistence) and clearing tracks (covering tracks). Knowing this order is fundamental to the methodological approach.",
     "why_wrong": {},
     "why_wrong_en": {},
@@ -488,7 +488,7 @@
     "topics": ["Penetration Testing"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Il session hijacking consiste nel prendere il controllo di una sessione utente gia autenticata, spesso rubando o indovinando il token/cookie di sessione, e puo essere mitigato usando token casuali e imponendo HTTPS con l'attributo Secure sui cookie.",
+    "question": "Il session hijacking consiste nel prendere il controllo di una sessione utente già autenticata, spesso rubando o indovinando il token/cookie di sessione, e può essere mitigato usando token casuali e imponendo HTTPS con l'attributo Secure sui cookie.",
     "question_en": "Session hijacking consists of taking control of an already authenticated user session, often by stealing or guessing the session token/cookie, and can be mitigated by using random tokens and enforcing HTTPS with the Secure attribute on cookies.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],

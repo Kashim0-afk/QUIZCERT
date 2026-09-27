@@ -5,7 +5,7 @@
     "topics": ["Backup"],
     "type": "single",
     "difficulty": 1,
-    "question": "Un backup full viene eseguito ogni domenica. Dal lunedi al sabato viene copiato solo cio che e cambiato rispetto al backup full della domenica precedente. Di quale tipo di backup si tratta durante la settimana?",
+    "question": "Un backup full viene eseguito ogni domenica. Dal lunedì al sabato viene copiato solo ciò che e cambiato rispetto al backup full della domenica precedente. Di quale tipo di backup si tratta durante la settimana?",
     "question_en": "A full backup is run every Sunday. From Monday to Saturday, only what has changed since the previous Sunday's full backup is copied. What type of backup is this during the week?",
     "options": ["Backup incrementale", "Backup differenziale", "Backup sintetico", "Backup a specchio"],
     "options_en": ["Incremental backup", "Differential backup", "Synthetic backup", "Mirror backup"],
@@ -13,8 +13,8 @@
     "explanation": "Il backup differenziale copia tutti i dati modificati rispetto all'ultimo backup full, indipendentemente dai backup differenziali intermedi. Ogni differenziale cresce di dimensione fino al successivo full, ma per il ripristino bastano due elementi: l'ultimo full e l'ultimo differenziale.",
     "explanation_en": "A differential backup copies all data changed since the last full backup, regardless of any intermediate differential backups. Each differential grows in size until the next full, but a restore only needs two elements: the last full and the last differential.",
     "why_wrong": {
-      "0": "Il backup incrementale copierebbe solo cio che e cambiato rispetto all'ultimo backup di qualsiasi tipo (incluso l'incrementale precedente), non rispetto al full.",
-      "2": "Il backup sintetico e un full ricostruito combinando un vecchio full con gli incrementali successivi, senza rileggere i dati sorgente: non e questo lo scenario descritto.",
+      "0": "Il backup incrementale copierebbe solo ciò che e cambiato rispetto all'ultimo backup di qualsiasi tipo (incluso l'incrementale precedente), non rispetto al full.",
+      "2": "Il backup sintetico e un full ricostruito combinando un vecchio full con gli incrementali successivi, senza rileggere i dati sorgente: non è questo lo scenario descritto.",
       "3": "Il backup a specchio (mirror) mantiene una copia identica e aggiornata della sorgente, senza il concetto di 'cambiato rispetto al full settimanale'."
     },
     "why_wrong_en": {
@@ -30,13 +30,13 @@
     "topics": ["Backup"],
     "type": "single",
     "difficulty": 2,
-    "question": "Hai un full la domenica e backup incrementali ogni giorno. Il giovedi il disco si guasta. Quali elementi servono per un ripristino completo al mercoledi sera?",
+    "question": "Hai un full la domenica e backup incrementali ogni giorno. Il giovedì il disco si guasta. Quali elementi servono per un ripristino completo al mercoledì sera?",
     "question_en": "You have a full backup on Sunday and incremental backups every day. On Thursday the disk fails. Which elements are needed for a complete restore to Wednesday evening?",
     "options": [
       "Solo il full della domenica",
-      "Il full della domenica e l'incrementale di mercoledi",
-      "Il full della domenica e tutti gli incrementali da lunedi a mercoledi",
-      "Solo l'incrementale di mercoledi"
+      "Il full della domenica e l'incrementale di mercoledì",
+      "Il full della domenica e tutti gli incrementali da lunedì a mercoledì",
+      "Solo l'incrementale di mercoledì"
     ],
     "options_en": [
       "Only Sunday's full backup",
@@ -45,12 +45,12 @@
       "Only Wednesday's incremental"
     ],
     "correct": [2],
-    "explanation": "Con il backup incrementale ogni copia contiene solo le modifiche rispetto al backup precedente. Per ricostruire lo stato serve quindi la catena completa: il full di base piu ogni incrementale in ordine, da lunedi a mercoledi. Se manca un anello della catena il ripristino risulta incompleto.",
+    "explanation": "Con il backup incrementale ogni copia contiene solo le modifiche rispetto al backup precedente. Per ricostruire lo stato serve quindi la catena completa: il full di base più ogni incrementale in ordine, da lunedì a mercoledì. Se manca un anello della catena il ripristino risulta incompleto.",
     "explanation_en": "With incremental backups, each copy contains only the changes since the previous backup. To reconstruct the state you therefore need the complete chain: the base full plus every incremental in order, from Monday to Wednesday. If a link in the chain is missing, the restore is incomplete.",
     "why_wrong": {
-      "0": "Il solo full riporterebbe i dati alla domenica, perdendo tutte le modifiche di lunedi, martedi e mercoledi.",
-      "1": "Questo e vero per il differenziale, non per l'incrementale: l'incrementale di mercoledi contiene solo le modifiche di mercoledi.",
-      "3": "Il solo incrementale di mercoledi contiene solo le modifiche di quel giorno, senza la base dati completa."
+      "0": "Il solo full riporterebbe i dati alla domenica, perdendo tutte le modifiche di lunedì, martedì e mercoledì.",
+      "1": "Questo e vero per il differenziale, non per l'incrementale: l'incrementale di mercoledì contiene solo le modifiche di mercoledì.",
+      "3": "Il solo incrementale di mercoledì contiene solo le modifiche di quel giorno, senza la base dati completa."
     },
     "why_wrong_en": {
       "0": "The full alone would bring the data back to Sunday, losing all the changes from Monday, Tuesday, and Wednesday.",
@@ -80,7 +80,7 @@
       "3 full copies, 2 incrementals, 1 differential"
     ],
     "correct": [0],
-    "explanation": "La regola 3-2-1 e una linea guida classica: mantenere almeno 3 copie dei dati (l'originale piu 2 backup), conservarle su almeno 2 tipi di supporto differenti e tenere almeno 1 copia off-site, cioe in una posizione fisicamente separata. Riduce il rischio che un singolo evento distrugga tutte le copie.",
+    "explanation": "La regola 3-2-1 e una linea guida classica: mantenere almeno 3 copie dei dati (l'originale più 2 backup), conservarle su almeno 2 tipi di supporto differenti e tenere almeno 1 copia off-site, cioè in una posizione fisicamente separata. Riduce il rischio che un singolo evento distrugga tutte le copie.",
     "explanation_en": "The 3-2-1 rule is a classic guideline: keep at least 3 copies of the data (the original plus 2 backups), store them on at least 2 different types of media, and keep at least 1 copy off-site, that is, in a physically separate location. It reduces the risk that a single event destroys all copies.",
     "why_wrong": {
       "1": "La regola non riguarda la frequenza dei backup ma il numero di copie, i supporti e la posizione geografica.",
@@ -100,16 +100,16 @@
     "topics": ["RPO/RTO"],
     "type": "single",
     "difficulty": 2,
-    "question": "Un'azienda definisce che, dopo un guasto, puo permettersi di perdere al massimo 15 minuti di dati. Quale metrica sta specificando?",
+    "question": "Un'azienda definisce che, dopo un guasto, può permettersi di perdere al massimo 15 minuti di dati. Quale metrica sta specificando?",
     "question_en": "A company defines that, after a failure, it can afford to lose at most 15 minutes of data. Which metric is it specifying?",
     "options": ["RTO (Recovery Time Objective)", "RPO (Recovery Point Objective)", "MTBF (Mean Time Between Failures)", "MTTR (Mean Time To Repair)"],
     "options_en": ["RTO (Recovery Time Objective)", "RPO (Recovery Point Objective)", "MTBF (Mean Time Between Failures)", "MTTR (Mean Time To Repair)"],
     "correct": [1],
-    "explanation": "L'RPO (Recovery Point Objective) indica la massima quantita di DATI che si e disposti a perdere, espressa come intervallo di tempo tra l'ultimo backup utile e l'incidente. Un RPO di 15 minuti impone che i backup o le repliche avvengano almeno ogni 15 minuti.",
+    "explanation": "L'RPO (Recovery Point Objective) indica la massima quantità di DATI che si e disposti a perdere, espressa come intervallo di tempo tra l'ultimo backup utile e l'incidente. Un RPO di 15 minuti impone che i backup o le repliche avvengano almeno ogni 15 minuti.",
     "explanation_en": "The RPO (Recovery Point Objective) indicates the maximum amount of DATA one is willing to lose, expressed as the time interval between the last usable backup and the incident. An RPO of 15 minutes requires that backups or replicas occur at least every 15 minutes.",
     "why_wrong": {
-      "0": "L'RTO misura il TEMPO massimo per tornare operativi dopo un guasto, non la quantita di dati persi.",
-      "2": "L'MTBF e il tempo medio tra due guasti di un componente, un indicatore di affidabilita, non un obiettivo di recupero.",
+      "0": "L'RTO misura il TEMPO massimo per tornare operativi dopo un guasto, non la quantità di dati persi.",
+      "2": "L'MTBF e il tempo medio tra due guasti di un componente, un indicatore di affidabilità, non un obiettivo di recupero.",
       "3": "L'MTTR e il tempo medio per riparare un guasto, legato alla manutenzione, non alla perdita di dati."
     },
     "why_wrong_en": {
@@ -127,15 +127,15 @@
     "difficulty": 2,
     "question": "Il management dichiara: 'In caso di disastro il gestionale deve tornare operativo entro 4 ore'. Quale obiettivo e stato fissato?",
     "question_en": "Management states: 'In the event of a disaster the business management system must be operational again within 4 hours'. Which objective has been set?",
-    "options": ["RPO di 4 ore", "RTO di 4 ore", "MTTR di 4 ore garantito", "SLA di disponibilita del 99,99%"],
+    "options": ["RPO di 4 ore", "RTO di 4 ore", "MTTR di 4 ore garantito", "SLA di disponibilità del 99,99%"],
     "options_en": ["An RPO of 4 hours", "An RTO of 4 hours", "A guaranteed MTTR of 4 hours", "A 99.99% availability SLA"],
     "correct": [1],
-    "explanation": "L'RTO (Recovery Time Objective) definisce il tempo massimo entro cui un servizio deve essere ripristinato dopo un'interruzione. 'Operativo entro 4 ore' e per definizione un RTO di 4 ore. RPO=dati, RTO=tempo: sono le due metriche complementari della continuita.",
+    "explanation": "L'RTO (Recovery Time Objective) definisce il tempo massimo entro cui un servizio deve essere ripristinato dopo un'interruzione. 'Operativo entro 4 ore' e per definizione un RTO di 4 ore. RPO=dati, RTO=tempo: sono le due metriche complementari della continuità.",
     "explanation_en": "The RTO (Recovery Time Objective) defines the maximum time within which a service must be restored after an interruption. 'Operational within 4 hours' is by definition an RTO of 4 hours. RPO = data, RTO = time: they are the two complementary metrics of continuity.",
     "why_wrong": {
       "0": "L'RPO riguarda quanti dati si possono perdere, non quanto tempo serve per ripartire.",
       "2": "L'MTTR e una media statistica dei tempi di riparazione osservati, non un obiettivo contrattuale di ripristino del servizio dopo un disastro.",
-      "3": "Uno SLA di disponibilita esprime una percentuale di uptime nel tempo, non il tempo di recupero da un singolo evento."
+      "3": "Uno SLA di disponibilità esprime una percentuale di uptime nel tempo, non il tempo di recupero da un singolo evento."
     },
     "why_wrong_en": {
       "0": "The RPO concerns how much data can be lost, not how much time is needed to restart.",
@@ -150,12 +150,12 @@
     "topics": ["Backup"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Un backup immutabile realizzato con logica WORM (Write Once Read Many) non puo essere modificato ne cancellato per il periodo di ritenzione definito, nemmeno da un amministratore o da un ransomware con credenziali rubate.",
+    "question": "Un backup immutabile realizzato con logica WORM (Write Once Read Many) non può essere modificato ne cancellato per il periodo di ritenzione definito, nemmeno da un amministratore o da un ransomware con credenziali rubate.",
     "question_en": "An immutable backup implemented with WORM (Write Once Read Many) logic cannot be modified or deleted for the defined retention period, not even by an administrator or by ransomware with stolen credentials.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. Un backup immutabile (WORM o object lock) blocca qualsiasi modifica o cancellazione dei dati per tutto il periodo di ritenzione impostato. Anche se un attaccante ottiene credenziali amministrative, non puo alterare quella copia: e una difesa chiave anti-ransomware perche garantisce che esista sempre una copia pulita da cui ripristinare.",
+    "explanation": "Vero. Un backup immutabile (WORM o object lock) blocca qualsiasi modifica o cancellazione dei dati per tutto il periodo di ritenzione impostato. Anche se un attaccante ottiene credenziali amministrative, non può alterare quella copia: e una difesa chiave anti-ransomware perché garantisce che esista sempre una copia pulita da cui ripristinare.",
     "explanation_en": "True. An immutable backup (WORM or object lock) blocks any modification or deletion of the data for the entire configured retention period. Even if an attacker obtains administrative credentials, they cannot alter that copy: it is a key anti-ransomware defense because it guarantees that a clean copy to restore from always exists.",
     "source": "IT generale"
   },
@@ -165,13 +165,13 @@
     "topics": ["Backup", "Disaster Recovery"],
     "type": "single",
     "difficulty": 2,
-    "question": "Perche uno snapshot dello storage non e considerato un vero backup ai fini del disaster recovery?",
+    "question": "Perché uno snapshot dello storage non è considerato un vero backup ai fini del disaster recovery?",
     "question_en": "Why is a storage snapshot not considered a true backup for disaster recovery purposes?",
     "options": [
-      "Perche uno snapshot occupa piu spazio del dato originale",
-      "Perche uno snapshot dipende tipicamente dallo stesso sistema/storage dei dati originali e ne condivide i rischi",
-      "Perche uno snapshot non puo essere ripristinato",
-      "Perche uno snapshot cifra sempre i dati rendendoli inutilizzabili"
+      "Perché uno snapshot occupa più spazio del dato originale",
+      "Perché uno snapshot dipende tipicamente dallo stesso sistema/storage dei dati originali e ne condivide i rischi",
+      "Perché uno snapshot non può essere ripristinato",
+      "Perché uno snapshot cifra sempre i dati rendendoli inutilizzabili"
     ],
     "options_en": [
       "Because a snapshot takes up more space than the original data",
@@ -183,7 +183,7 @@
     "explanation": "Uno snapshot cattura lo stato dei dati in un istante ma risiede tipicamente sullo stesso sistema/array di storage dei dati originali e spesso dipende dai blocchi originali. Se lo storage si guasta, viene distrutto o compromesso da ransomware, snapshot e dati originali cadono insieme. Un vero backup e una copia indipendente e separata, idealmente off-site.",
     "explanation_en": "A snapshot captures the state of the data at a point in time but typically resides on the same system/storage array as the original data and often depends on the original blocks. If the storage fails, is destroyed, or is compromised by ransomware, the snapshot and the original data go down together. A true backup is an independent, separate copy, ideally off-site.",
     "why_wrong": {
-      "0": "Al contrario, gli snapshot iniziali sono molto efficienti in spazio perche registrano solo le variazioni rispetto allo stato originale.",
+      "0": "Al contrario, gli snapshot iniziali sono molto efficienti in spazio perché registrano solo le variazioni rispetto allo stato originale.",
       "2": "Gli snapshot sono progettati proprio per consentire ripristini rapidi a un punto nel tempo; il problema e la dipendenza dallo stesso storage.",
       "3": "Lo snapshot non cifra i dati; e semplicemente una fotografia dello stato in un istante."
     },
@@ -200,16 +200,16 @@
     "topics": ["RAID", "Ridondanza"],
     "type": "single",
     "difficulty": 2,
-    "question": "In un array RAID 5 con parita distribuita, quanti dischi possono guastarsi contemporaneamente senza perdere i dati?",
+    "question": "In un array RAID 5 con parità distribuita, quanti dischi possono guastarsi contemporaneamente senza perdere i dati?",
     "question_en": "In a RAID 5 array with distributed parity, how many disks can fail at the same time without losing data?",
     "options": ["Nessuno", "Un disco", "Due dischi", "Tutti tranne uno"],
     "options_en": ["None", "One disk", "Two disks", "All but one"],
     "correct": [1],
-    "explanation": "Il RAID 5 usa la parita distribuita su tutti i dischi e tollera il guasto di un solo disco: i dati mancanti vengono ricalcolati dalla parita. Se un secondo disco si guasta prima della ricostruzione dell'array, i dati vengono persi. Per tollerare due guasti simultanei serve il RAID 6 (doppia parita).",
+    "explanation": "Il RAID 5 usa la parità distribuita su tutti i dischi e tollera il guasto di un solo disco: i dati mancanti vengono ricalcolati dalla parità. Se un secondo disco si guasta prima della ricostruzione dell'array, i dati vengono persi. Per tollerare due guasti simultanei serve il RAID 6 (doppia parità).",
     "explanation_en": "RAID 5 uses parity distributed across all disks and tolerates the failure of a single disk: the missing data is recalculated from the parity. If a second disk fails before the array is rebuilt, the data is lost. To tolerate two simultaneous failures you need RAID 6 (double parity).",
     "why_wrong": {
-      "0": "Il RAID 0 non tollera guasti, ma il RAID 5 con parita ne tollera uno.",
-      "2": "Due guasti simultanei sono tollerati dal RAID 6 (doppia parita), non dal RAID 5.",
+      "0": "Il RAID 0 non tollera guasti, ma il RAID 5 con parità ne tollera uno.",
+      "2": "Due guasti simultanei sono tollerati dal RAID 6 (doppia parità), non dal RAID 5.",
       "3": "Tollerare il guasto di tutti i dischi tranne uno e caratteristico del mirroring esteso (es. RAID 1 con molte copie), non del RAID 5."
     },
     "why_wrong_en": {
@@ -225,13 +225,13 @@
     "topics": ["RAID", "Ridondanza"],
     "type": "single",
     "difficulty": 2,
-    "question": "Un tecnico configura due dischi in RAID 0 per massimizzare le prestazioni. Qual e la principale controindicazione di questa scelta in ottica di continuita?",
+    "question": "Un tecnico configura due dischi in RAID 0 per massimizzare le prestazioni. Qual è la principale controindicazione di questa scelta in ottica di continuità?",
     "question_en": "A technician configures two disks in RAID 0 to maximize performance. What is the main drawback of this choice from a continuity standpoint?",
     "options": [
       "Il RAID 0 dimezza lo spazio disponibile a causa del mirroring",
       "Il RAID 0 non offre alcuna ridondanza: il guasto di un solo disco causa la perdita di tutti i dati",
       "Il RAID 0 richiede almeno quattro dischi per funzionare",
-      "Il RAID 0 e piu lento di un singolo disco"
+      "Il RAID 0 e più lento di un singolo disco"
     ],
     "options_en": [
       "RAID 0 halves the available space because of mirroring",
@@ -240,12 +240,12 @@
       "RAID 0 is slower than a single disk"
     ],
     "correct": [1],
-    "explanation": "Il RAID 0 esegue lo striping dei dati su piu dischi per aumentare le prestazioni, ma non ha parita ne copie: nessuna ridondanza. Il guasto di un singolo disco rende illeggibile l'intero array. Aumenta le prestazioni ma peggiora l'affidabilita, quindi non e adatto da solo a proteggere dati critici.",
+    "explanation": "Il RAID 0 esegue lo striping dei dati su più dischi per aumentare le prestazioni, ma non ha parità ne copie: nessuna ridondanza. Il guasto di un singolo disco rende illeggibile l'intero array. Aumenta le prestazioni ma peggiora l'affidabilità, quindi non è adatto da solo a proteggere dati critici.",
     "explanation_en": "RAID 0 stripes data across multiple disks to increase performance, but it has no parity and no copies: no redundancy. The failure of a single disk makes the entire array unreadable. It increases performance but worsens reliability, so on its own it is not suitable for protecting critical data.",
     "why_wrong": {
-      "0": "E il RAID 1 (mirroring) a dimezzare la capacita utile; il RAID 0 somma la capacita dei dischi.",
-      "2": "Il RAID 0 funziona gia con due dischi, non ne richiede quattro.",
-      "3": "Il RAID 0 e tipicamente piu veloce di un singolo disco proprio grazie allo striping; il problema e la mancanza di ridondanza."
+      "0": "E il RAID 1 (mirroring) a dimezzare la capacità utile; il RAID 0 somma la capacità dei dischi.",
+      "2": "Il RAID 0 funziona già con due dischi, non ne richiede quattro.",
+      "3": "Il RAID 0 e tipicamente più veloce di un singolo disco proprio grazie allo striping; il problema e la mancanza di ridondanza."
     },
     "why_wrong_en": {
       "0": "It is RAID 1 (mirroring) that halves the usable capacity; RAID 0 sums the disks' capacity.",
@@ -260,17 +260,17 @@
     "topics": ["Disaster Recovery"],
     "type": "single",
     "difficulty": 3,
-    "question": "Un'azienda mantiene un sito DR con infrastruttura completa, dati replicati quasi in tempo reale e sistemi gia accesi, pronto a subentrare in pochi minuti. Di quale tipo di DR site si tratta?",
+    "question": "Un'azienda mantiene un sito DR con infrastruttura completa, dati replicati quasi in tempo reale e sistemi già accesi, pronto a subentrare in pochi minuti. Di quale tipo di DR site si tratta?",
     "question_en": "A company maintains a DR site with complete infrastructure, data replicated in near real time, and systems already powered on, ready to take over within minutes. What type of DR site is this?",
     "options": ["Cold site", "Warm site", "Hot site", "Backup site off-line"],
     "options_en": ["Cold site", "Warm site", "Hot site", "Off-line backup site"],
     "correct": [2],
-    "explanation": "Un hot site e un sito di disaster recovery pienamente operativo, con hardware attivo, software configurato e dati replicati in modo continuo o quasi. Consente un failover rapidissimo (RTO/RPO molto bassi) ma e la soluzione piu costosa. Warm e cold site offrono tempi di ripristino crescenti a costi decrescenti.",
+    "explanation": "Un hot site e un sito di disaster recovery pienamente operativo, con hardware attivo, software configurato e dati replicati in modo continuo o quasi. Consente un failover rapidissimo (RTO/RPO molto bassi) ma e la soluzione più costosa. Warm e cold site offrono tempi di ripristino crescenti a costi decrescenti.",
     "explanation_en": "A hot site is a fully operational disaster recovery site, with active hardware, configured software, and data replicated continuously or nearly so. It allows very fast failover (very low RTO/RPO) but is the most expensive solution. Warm and cold sites offer increasing recovery times at decreasing costs.",
     "why_wrong": {
       "0": "Un cold site fornisce solo spazio e infrastruttura di base (alimentazione, rete): hardware e dati vanno installati al momento del disastro, con tempi lunghi.",
       "1": "Un warm site ha hardware preinstallato ma dati non perfettamente aggiornati: richiede attivazione e sincronizzazione, quindi non subentra in pochi minuti.",
-      "3": "Un backup site off-line non e un sito operativo pronto al failover immediato descritto nello scenario."
+      "3": "Un backup site off-line non è un sito operativo pronto al failover immediato descritto nello scenario."
     },
     "why_wrong_en": {
       "0": "A cold site provides only space and basic infrastructure (power, network): hardware and data must be installed at the time of the disaster, with long lead times.",
@@ -288,9 +288,9 @@
     "question": "Quali delle seguenti affermazioni distinguono correttamente la REPLICA dal BACKUP? (seleziona le 2 corrette)",
     "question_en": "Which of the following statements correctly distinguish REPLICATION from BACKUP? (select the 2 correct ones)",
     "options": [
-      "La replica mantiene una copia costantemente aggiornata dei dati su un altro sistema, utile per l'alta disponibilita",
+      "La replica mantiene una copia costantemente aggiornata dei dati su un altro sistema, utile per l'alta disponibilità",
       "Il backup conserva versioni storiche a punti nel tempo, utili per recuperare dati da errori o cancellazioni avvenute in passato",
-      "La replica protegge intrinsecamente da cancellazioni logiche e ransomware perche mantiene le versioni precedenti",
+      "La replica protegge intrinsecamente da cancellazioni logiche e ransomware perché mantiene le versioni precedenti",
       "Il backup garantisce sempre un failover istantaneo con RTO prossimo allo zero"
     ],
     "options_en": [
@@ -300,11 +300,11 @@
       "Backup always guarantees instant failover with an RTO close to zero"
     ],
     "correct": [0, 1],
-    "explanation": "Replica e backup risolvono problemi diversi. La replica tiene una copia allineata quasi in tempo reale su un altro sistema, ideale per alta disponibilita e failover rapido. Il backup conserva versioni storiche a punti nel tempo, indispensabili per tornare indietro dopo una cancellazione, una corruzione o un ransomware. Sono complementari, non alternativi.",
+    "explanation": "Replica e backup risolvono problemi diversi. La replica tiene una copia allineata quasi in tempo reale su un altro sistema, ideale per alta disponibilità e failover rapido. Il backup conserva versioni storiche a punti nel tempo, indispensabili per tornare indietro dopo una cancellazione, una corruzione o un ransomware. Sono complementari, non alternativi.",
     "explanation_en": "Replication and backup solve different problems. Replication keeps a near-real-time aligned copy on another system, ideal for high availability and fast failover. Backup retains historical point-in-time versions, indispensable for going back after a deletion, a corruption, or ransomware. They are complementary, not alternatives.",
     "why_wrong": {
       "2": "La replica propaga anche gli errori: se un dato viene cancellato o cifrato dal ransomware, la modifica viene replicata istantaneamente sulla copia. Non conserva versioni storiche.",
-      "3": "Il backup non offre failover istantaneo; il ripristino da backup richiede tempo (RTO piu alto). Il failover rapido e proprio della replica/hot site."
+      "3": "Il backup non offre failover istantaneo; il ripristino da backup richiede tempo (RTO più alto). Il failover rapido e proprio della replica/hot site."
     },
     "why_wrong_en": {
       "2": "Replication also propagates errors: if data is deleted or encrypted by ransomware, the change is replicated instantly to the copy. It does not retain historical versions.",
@@ -318,13 +318,13 @@
     "topics": ["Backup", "Disaster Recovery"],
     "type": "multi",
     "difficulty": 2,
-    "question": "Perche e fondamentale eseguire periodicamente i restore test (test di ripristino dei backup)? (seleziona le 2 corrette)",
+    "question": "Perché e fondamentale eseguire periodicamente i restore test (test di ripristino dei backup)? (seleziona le 2 corrette)",
     "question_en": "Why is it essential to periodically perform restore tests (backup restore tests)? (select the 2 correct ones)",
     "options": [
       "Per verificare che i backup siano effettivamente ripristinabili e non corrotti o incompleti",
       "Per misurare i tempi reali di ripristino e validare il rispetto dell'RTO",
       "Per aumentare automaticamente lo spazio di archiviazione disponibile sui supporti",
-      "Per sostituire la necessita di conservare copie off-site"
+      "Per sostituire la necessità di conservare copie off-site"
     ],
     "options_en": [
       "To verify that the backups are actually restorable and not corrupted or incomplete",
@@ -336,8 +336,8 @@
     "explanation": "Un backup ha valore solo se e ripristinabile. Il restore test verifica che i dati siano davvero recuperabili (non corrotti, non incompleti, con la giusta catena) e misura quanto tempo serve, permettendo di validare l'RTO nella pratica. Molti scoprono che i loro backup non funzionano solo durante un disastro reale: il test lo evita.",
     "explanation_en": "A backup is valuable only if it is restorable. The restore test verifies that the data is truly recoverable (not corrupted, not incomplete, with the correct chain) and measures how much time it takes, allowing the RTO to be validated in practice. Many people discover that their backups don't work only during a real disaster: the test prevents that.",
     "why_wrong": {
-      "2": "Il restore test non modifica ne aumenta lo spazio di archiviazione; serve a validare la recuperabilita.",
-      "3": "Testare i ripristini non elimina la necessita di copie off-site (regola 3-2-1): sono controlli diversi e complementari."
+      "2": "Il restore test non modifica ne aumenta lo spazio di archiviazione; serve a validare la recuperabilità.",
+      "3": "Testare i ripristini non elimina la necessità di copie off-site (regola 3-2-1): sono controlli diversi e complementari."
     },
     "why_wrong_en": {
       "2": "The restore test does not modify or increase storage space; it serves to validate recoverability.",
@@ -351,11 +351,11 @@
     "topics": ["Business Continuity"],
     "type": "multi",
     "difficulty": 3,
-    "question": "Un Business Continuity Plan (BCP) e un Disaster Recovery Plan (DRP) hanno finalita diverse ma correlate. Quali affermazioni sono corrette? (seleziona le 2 corrette)",
+    "question": "Un Business Continuity Plan (BCP) e un Disaster Recovery Plan (DRP) hanno finalità diverse ma correlate. Quali affermazioni sono corrette? (seleziona le 2 corrette)",
     "question_en": "A Business Continuity Plan (BCP) and a Disaster Recovery Plan (DRP) have different but related purposes. Which statements are correct? (select the 2 correct ones)",
     "options": [
-      "Il BCP ha una portata ampia: garantire la continuita dell'intera attivita aziendale (processi, persone, sedi) durante e dopo un evento avverso",
-      "Il DRP e piu focalizzato sul ripristino di sistemi IT, dati e infrastruttura tecnologica dopo un disastro",
+      "Il BCP ha una portata ampia: garantire la continuità dell'intera attività aziendale (processi, persone, sedi) durante e dopo un evento avverso",
+      "Il DRP e più focalizzato sul ripristino di sistemi IT, dati e infrastruttura tecnologica dopo un disastro",
       "BCP e DRP sono sinonimi e si riferiscono esattamente allo stesso documento",
       "Il BCP riguarda solo il ripristino dei server, mentre il DRP riguarda l'intera azienda"
     ],
@@ -366,11 +366,11 @@
       "The BCP concerns only the restoration of servers, while the DRP concerns the entire company"
     ],
     "correct": [0, 1],
-    "explanation": "Il Business Continuity Plan ha una visione ampia: mantenere operativi i processi critici di business (personale, sedi alternative, comunicazioni, fornitori) durante un'emergenza. Il Disaster Recovery Plan e un sottoinsieme piu tecnico, focalizzato sul ripristino di IT, dati e infrastruttura. Il DRP contribuisce agli obiettivi del BCP.",
+    "explanation": "Il Business Continuity Plan ha una visione ampia: mantenere operativi i processi critici di business (personale, sedi alternative, comunicazioni, fornitori) durante un'emergenza. Il Disaster Recovery Plan e un sottoinsieme più tecnico, focalizzato sul ripristino di IT, dati e infrastruttura. Il DRP contribuisce agli obiettivi del BCP.",
     "explanation_en": "The Business Continuity Plan has a broad view: keeping critical business processes operational (personnel, alternate sites, communications, suppliers) during an emergency. The Disaster Recovery Plan is a more technical subset, focused on restoring IT, data, and infrastructure. The DRP contributes to the BCP's objectives.",
     "why_wrong": {
-      "2": "Non sono sinonimi: il DRP e tipicamente una componente IT del piu ampio BCP, con obiettivi e portata differenti.",
-      "3": "La descrizione e invertita: e il DRP a concentrarsi su server e IT, mentre il BCP copre l'intera attivita aziendale."
+      "2": "Non sono sinonimi: il DRP e tipicamente una componente IT del più ampio BCP, con obiettivi e portata differenti.",
+      "3": "La descrizione e invertita: e il DRP a concentrarsi su server e IT, mentre il BCP copre l'intera attività aziendale."
     },
     "why_wrong_en": {
       "2": "They are not synonyms: the DRP is typically an IT component of the broader BCP, with different objectives and scope.",
@@ -389,7 +389,7 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. L'air-gap consiste nel tenere una copia dei backup separata dalla rete (ad esempio nastri scollegati, storage disconnesso o repository accessibile solo in finestre controllate). Poiche non e raggiungibile online, un ransomware o un attaccante che si muove nella rete di produzione non puo cifrarla o eliminarla: e una difesa complementare all'immutabilita.",
+    "explanation": "Vero. L'air-gap consiste nel tenere una copia dei backup separata dalla rete (ad esempio nastri scollegati, storage disconnesso o repository accessibile solo in finestre controllate). Poiché non è raggiungibile online, un ransomware o un attaccante che si muove nella rete di produzione non può cifrarla o eliminarla: e una difesa complementare all'immutabilità.",
     "explanation_en": "True. An air-gap consists of keeping a copy of the backups separated from the network (for example disconnected tapes, disconnected storage, or a repository accessible only during controlled windows). Because it is not reachable online, ransomware or an attacker moving through the production network cannot encrypt or delete it: it is a defense complementary to immutability.",
     "source": "IT generale"
   },
@@ -399,12 +399,12 @@
     "topics": ["RAID", "Ridondanza"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Poiche il RAID 1 mantiene una copia speculare dei dati su un secondo disco, esso rende superfluo eseguire i backup.",
+    "question": "Poiché il RAID 1 mantiene una copia speculare dei dati su un secondo disco, esso rende superfluo eseguire i backup.",
     "question_en": "Because RAID 1 keeps a mirrored copy of the data on a second disk, it makes performing backups unnecessary.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [1],
-    "explanation": "Falso. Il RAID (incluso il RAID 1) protegge dal guasto hardware di un disco, ma non e un backup: una cancellazione accidentale, una corruzione dei dati, un ransomware o un errore applicativo vengono scritti immediatamente su entrambi i dischi speculari. Il RAID garantisce disponibilita, non il recupero di versioni storiche: i backup restano indispensabili.",
+    "explanation": "Falso. Il RAID (incluso il RAID 1) protegge dal guasto hardware di un disco, ma non è un backup: una cancellazione accidentale, una corruzione dei dati, un ransomware o un errore applicativo vengono scritti immediatamente su entrambi i dischi speculari. Il RAID garantisce disponibilità, non il recupero di versioni storiche: i backup restano indispensabili.",
     "explanation_en": "False. RAID (including RAID 1) protects against the hardware failure of a disk, but it is not a backup: an accidental deletion, data corruption, ransomware, or an application error is written immediately to both mirrored disks. RAID guarantees availability, not the recovery of historical versions: backups remain indispensable.",
     "source": "IT generale"
   }

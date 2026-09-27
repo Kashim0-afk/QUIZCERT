@@ -8,10 +8,10 @@
     "question": "In una tabella relazionale, quale caratteristica deve sempre avere una chiave primaria?",
     "question_en": "In a relational table, which characteristic must a primary key always have?",
     "options": [
-      "Puo contenere valori duplicati purche non nulli",
-      "Identifica in modo univoco ogni riga e non puo essere nulla",
+      "Può contenere valori duplicati purché non nulli",
+      "Identifica in modo univoco ogni riga e non può essere nulla",
       "Deve essere sempre di tipo numerico intero",
-      "Puo assumere valore NULL se la riga e incompleta"
+      "Può assumere valore NULL se la riga e incompleta"
     ],
     "options_en": [
       "It can contain duplicate values as long as they are not null",
@@ -23,9 +23,9 @@
     "explanation": "La chiave primaria identifica univocamente ogni riga della tabella: i suoi valori devono essere unici e non possono mai essere NULL. Questo garantisce che ogni record sia distinguibile dagli altri.",
     "explanation_en": "The primary key uniquely identifies each row of the table: its values must be unique and can never be NULL. This ensures that every record is distinguishable from the others.",
     "why_wrong": {
-      "0": "I valori duplicati non sono ammessi in una chiave primaria: l'unicita e un requisito fondamentale.",
-      "2": "Una chiave primaria puo essere di qualsiasi tipo (testo, GUID, ecc.), non necessariamente numerica intera.",
-      "3": "Il valore NULL non e mai ammesso in una chiave primaria, proprio perche non permetterebbe di identificare la riga."
+      "0": "I valori duplicati non sono ammessi in una chiave primaria: l'unicità e un requisito fondamentale.",
+      "2": "Una chiave primaria può essere di qualsiasi tipo (testo, GUID, ecc.), non necessariamente numerica intera.",
+      "3": "Il valore NULL non è mai ammesso in una chiave primaria, proprio perché non permetterebbe di identificare la riga."
     },
     "why_wrong_en": {
       "0": "Duplicate values are not allowed in a primary key: uniqueness is a fundamental requirement.",
@@ -55,12 +55,12 @@
       "Check constraint (CHECK)"
     ],
     "correct": [1],
-    "explanation": "Una chiave esterna (foreign key) e una colonna che fa riferimento alla chiave primaria di un'altra tabella, stabilendo una relazione tra le due e garantendo l'integrita referenziale.",
+    "explanation": "Una chiave esterna (foreign key) e una colonna che fa riferimento alla chiave primaria di un'altra tabella, stabilendo una relazione tra le due e garantendo l'integrità referenziale.",
     "explanation_en": "A foreign key is a column that references the primary key of another table, establishing a relationship between the two and enforcing referential integrity.",
     "why_wrong": {
       "0": "La chiave primaria identifica le righe della propria tabella, non stabilisce un riferimento verso un'altra tabella.",
       "2": "Un indice univoco impedisce valori duplicati in una colonna ma non crea un collegamento tra tabelle.",
-      "3": "Un vincolo CHECK limita i valori ammessi in una colonna (es. eta > 0), ma non collega due tabelle."
+      "3": "Un vincolo CHECK limita i valori ammessi in una colonna (es. età > 0), ma non collega due tabelle."
     },
     "why_wrong_en": {
       "0": "The primary key identifies the rows of its own table; it does not establish a reference to another table.",
@@ -75,13 +75,13 @@
     "topics": ["JOIN", "SQL"],
     "type": "single",
     "difficulty": 2,
-    "question": "Qual e la differenza principale tra INNER JOIN e LEFT JOIN?",
+    "question": "Qual è la differenza principale tra INNER JOIN e LEFT JOIN?",
     "question_en": "What is the main difference between INNER JOIN and LEFT JOIN?",
     "options": [
-      "INNER JOIN e piu veloce ma restituisce gli stessi risultati di LEFT JOIN",
+      "INNER JOIN e più veloce ma restituisce gli stessi risultati di LEFT JOIN",
       "LEFT JOIN restituisce tutte le righe della tabella di sinistra anche senza corrispondenza, INNER JOIN solo quelle con corrispondenza in entrambe",
       "INNER JOIN include le righe senza corrispondenza, LEFT JOIN le esclude",
-      "LEFT JOIN puo essere usato solo su una singola tabella"
+      "LEFT JOIN può essere usato solo su una singola tabella"
     ],
     "options_en": [
       "INNER JOIN is faster but returns the same results as LEFT JOIN",
@@ -93,7 +93,7 @@
     "explanation": "INNER JOIN restituisce solo le righe che hanno una corrispondenza in entrambe le tabelle. LEFT JOIN restituisce tutte le righe della tabella di sinistra e, dove manca la corrispondenza a destra, riempie con NULL.",
     "explanation_en": "INNER JOIN returns only the rows that have a match in both tables. LEFT JOIN returns all rows of the left table and, where the match on the right is missing, fills with NULL.",
     "why_wrong": {
-      "0": "Non restituiscono gli stessi risultati: LEFT JOIN puo includere righe che INNER JOIN scarta.",
+      "0": "Non restituiscono gli stessi risultati: LEFT JOIN può includere righe che INNER JOIN scarta.",
       "2": "E il contrario: e il LEFT JOIN a includere le righe di sinistra senza corrispondenza, non l'INNER JOIN.",
       "3": "Un JOIN per definizione combina almeno due tabelle; non ha senso applicarlo a una sola tabella."
     },
@@ -130,7 +130,7 @@
     "why_wrong": {
       "0": "ORDER BY serve a ordinare i risultati, non a filtrarli; non accetta una condizione di filtro come quella.",
       "2": "Questa sintassi selezionerebbe il risultato booleano del confronto come colonna, senza filtrare le righe.",
-      "3": "HAVING filtra su risultati di aggregazioni (GROUP BY) e non e appropriato per un semplice filtro di riga senza raggruppamento."
+      "3": "HAVING filtra su risultati di aggregazioni (GROUP BY) e non è appropriato per un semplice filtro di riga senza raggruppamento."
     },
     "why_wrong_en": {
       "0": "ORDER BY is used to sort results, not to filter them; it does not accept a filter condition like that.",
@@ -180,7 +180,7 @@
     "topics": ["SQL"],
     "type": "single",
     "difficulty": 1,
-    "question": "Quale clausola usi per ordinare i risultati di una SELECT dal prezzo piu alto al piu basso?",
+    "question": "Quale clausola usi per ordinare i risultati di una SELECT dal prezzo più alto al più basso?",
     "question_en": "Which clause do you use to sort the results of a SELECT from the highest price to the lowest?",
     "options": [
       "ORDER BY prezzo ASC",
@@ -195,10 +195,10 @@
       "GROUP BY prezzo DESC"
     ],
     "correct": [1],
-    "explanation": "ORDER BY prezzo DESC ordina i risultati in modo decrescente, dal valore piu alto al piu basso. DESC sta per descending (discendente).",
+    "explanation": "ORDER BY prezzo DESC ordina i risultati in modo decrescente, dal valore più alto al più basso. DESC sta per descending (discendente).",
     "explanation_en": "ORDER BY prezzo DESC sorts the results in descending order, from the highest value to the lowest. DESC stands for descending.",
     "why_wrong": {
-      "0": "ASC ordina in modo crescente, dal prezzo piu basso al piu alto: l'opposto di quanto richiesto.",
+      "0": "ASC ordina in modo crescente, dal prezzo più basso al più alto: l'opposto di quanto richiesto.",
       "2": "SORT BY non esiste nella sintassi SQL standard; la clausola corretta e ORDER BY.",
       "3": "GROUP BY raggruppa le righe per aggregazioni, non serve a ordinare i risultati."
     },
@@ -215,7 +215,7 @@
     "topics": ["SQL", "Database"],
     "type": "single",
     "difficulty": 2,
-    "question": "Devi aggiungere una nuova colonna a una tabella gia esistente. Quale comando DDL usi?",
+    "question": "Devi aggiungere una nuova colonna a una tabella già esistente. Quale comando DDL usi?",
     "question_en": "You need to add a new column to an already existing table. Which DDL command do you use?",
     "options": [
       "UPDATE tabella ADD COLUMN ...",
@@ -265,7 +265,7 @@
       "To always reduce the disk space occupied by the table"
     ],
     "correct": [1],
-    "explanation": "Un indice e una struttura ausiliaria che accelera la ricerca e il filtraggio dei dati su una o piu colonne, evitando la scansione completa della tabella. Migliora le letture ma puo rallentare leggermente le scritture.",
+    "explanation": "Un indice e una struttura ausiliaria che accelera la ricerca e il filtraggio dei dati su una o più colonne, evitando la scansione completa della tabella. Migliora le letture ma può rallentare leggermente le scritture.",
     "explanation_en": "An index is an auxiliary structure that speeds up searching and filtering of data on one or more columns, avoiding a full table scan. It improves reads but can slightly slow down writes.",
     "why_wrong": {
       "0": "Un indice non crittografa i dati; serve solo a ottimizzare l'accesso alle righe.",
@@ -285,7 +285,7 @@
     "topics": ["ACID", "Database"],
     "type": "single",
     "difficulty": 2,
-    "question": "Nell'acronimo ACID delle transazioni, cosa garantisce la proprieta di Atomicita?",
+    "question": "Nell'acronimo ACID delle transazioni, cosa garantisce la proprietà di Atomicità?",
     "question_en": "In the ACID acronym for transactions, what does the Atomicity property guarantee?",
     "options": [
       "Che i dati restino sempre criptati durante la transazione",
@@ -300,12 +300,12 @@
       "That the data is automatically replicated to a second server"
     ],
     "correct": [1],
-    "explanation": "L'Atomicita garantisce che una transazione sia trattata come un'unita indivisibile: o tutte le sue operazioni vanno a buon fine (commit), oppure nessuna viene applicata (rollback), evitando stati intermedi incoerenti.",
+    "explanation": "L'Atomicità garantisce che una transazione sia trattata come un'unità indivisibile: o tutte le sue operazioni vanno a buon fine (commit), oppure nessuna viene applicata (rollback), evitando stati intermedi incoerenti.",
     "explanation_en": "Atomicity guarantees that a transaction is treated as an indivisible unit: either all of its operations succeed (commit), or none is applied (rollback), avoiding inconsistent intermediate states.",
     "why_wrong": {
-      "0": "La crittografia dei dati non fa parte delle proprieta ACID; l'atomicita riguarda il completamento o l'annullamento delle operazioni.",
-      "2": "La gestione dell'esecuzione simultanea riguarda l'Isolamento, non l'Atomicita.",
-      "3": "La replica dei dati e una funzione di alta disponibilita, non e cio che definisce l'atomicita."
+      "0": "La crittografia dei dati non fa parte delle proprietà ACID; l'atomicità riguarda il completamento o l'annullamento delle operazioni.",
+      "2": "La gestione dell'esecuzione simultanea riguarda l'Isolamento, non l'Atomicità.",
+      "3": "La replica dei dati e una funzione di alta disponibilità, non è ciò che definisce l'atomicità."
     },
     "why_wrong_en": {
       "0": "Data encryption is not part of the ACID properties; atomicity concerns the completion or cancellation of operations.",
@@ -324,7 +324,7 @@
     "question_en": "Which statement correctly describes a difference between SQL (relational) and NoSQL databases?",
     "options": [
       "I database NoSQL usano sempre tabelle con schema rigido e prefissato",
-      "I database SQL usano uno schema strutturato con tabelle e relazioni, i NoSQL sono spesso senza schema fisso e piu flessibili",
+      "I database SQL usano uno schema strutturato con tabelle e relazioni, i NoSQL sono spesso senza schema fisso e più flessibili",
       "I database SQL non possono gestire relazioni tra dati",
       "I database NoSQL non permettono in alcun modo di memorizzare dati"
     ],
@@ -360,8 +360,8 @@
     "options": [
       "Ridurre la ridondanza dei dati suddividendoli in tabelle correlate",
       "Prevenire le anomalie di inserimento, aggiornamento e cancellazione",
-      "Eliminare completamente la necessita di chiavi primarie",
-      "Unire tutti i dati in un'unica grande tabella per semplicita"
+      "Eliminare completamente la necessità di chiavi primarie",
+      "Unire tutti i dati in un'unica grande tabella per semplicità"
     ],
     "options_en": [
       "Reduce data redundancy by splitting it into related tables",
@@ -370,10 +370,10 @@
       "Merge all data into a single large table for simplicity"
     ],
     "correct": [0, 1],
-    "explanation": "La normalizzazione organizza i dati in piu tabelle correlate per ridurre la ridondanza e prevenire le anomalie che si verificano quando gli stessi dati sono duplicati (anomalie di inserimento, aggiornamento e cancellazione).",
+    "explanation": "La normalizzazione organizza i dati in più tabelle correlate per ridurre la ridondanza e prevenire le anomalie che si verificano quando gli stessi dati sono duplicati (anomalie di inserimento, aggiornamento e cancellazione).",
     "explanation_en": "Normalization organizes data into multiple related tables to reduce redundancy and prevent the anomalies that occur when the same data is duplicated (insertion, update, and deletion anomalies).",
     "why_wrong": {
-      "2": "La normalizzazione non elimina le chiavi primarie: al contrario le usa per definire relazioni e integrita tra le tabelle.",
+      "2": "La normalizzazione non elimina le chiavi primarie: al contrario le usa per definire relazioni e integrità tra le tabelle.",
       "3": "Concentrare tutto in un'unica tabella e l'opposto della normalizzazione e aumenta la ridondanza e le anomalie."
     },
     "why_wrong_en": {
@@ -403,7 +403,7 @@
       "DROP"
     ],
     "correct": [0, 1],
-    "explanation": "INSERT e UPDATE sono comandi DML perche manipolano i dati contenuti nelle tabelle: INSERT aggiunge righe, UPDATE modifica i valori esistenti (insieme a DELETE e SELECT).",
+    "explanation": "INSERT e UPDATE sono comandi DML perché manipolano i dati contenuti nelle tabelle: INSERT aggiunge righe, UPDATE modifica i valori esistenti (insieme a DELETE e SELECT).",
     "explanation_en": "INSERT and UPDATE are DML commands because they manipulate the data contained in tables: INSERT adds rows, UPDATE modifies existing values (together with DELETE and SELECT).",
     "why_wrong": {
       "2": "CREATE e un comando DDL (Data Definition Language): definisce la struttura degli oggetti, ad esempio crea tabelle, non manipola i dati.",
@@ -421,12 +421,12 @@
     "topics": ["ACID"],
     "type": "multi",
     "difficulty": 3,
-    "question": "Quali delle seguenti sono proprieta ACID delle transazioni di un database? (seleziona 2)",
+    "question": "Quali delle seguenti sono proprietà ACID delle transazioni di un database? (seleziona 2)",
     "question_en": "Which of the following are ACID properties of database transactions? (select 2)",
     "options": [
       "Consistenza (Consistency)",
-      "Durabilita (Durability)",
-      "Scalabilita (Scalability)",
+      "Durabilità (Durability)",
+      "Scalabilità (Scalability)",
       "Ridondanza (Redundancy)"
     ],
     "options_en": [
@@ -436,10 +436,10 @@
       "Redundancy"
     ],
     "correct": [0, 1],
-    "explanation": "ACID sta per Atomicita, Consistenza (Consistency), Isolamento e Durabilita (Durability). La consistenza garantisce che il database passi da uno stato valido a un altro; la durabilita che i dati confermati (commit) restino salvati anche dopo un guasto.",
+    "explanation": "ACID sta per Atomicità, Consistenza (Consistency), Isolamento e Durabilità (Durability). La consistenza garantisce che il database passi da uno stato valido a un altro; la durabilità che i dati confermati (commit) restino salvati anche dopo un guasto.",
     "explanation_en": "ACID stands for Atomicity, Consistency, Isolation, and Durability. Consistency guarantees that the database moves from one valid state to another; durability guarantees that committed data remains saved even after a failure.",
     "why_wrong": {
-      "2": "La scalabilita e una caratteristica di progettazione dei sistemi, non una delle quattro proprieta ACID.",
+      "2": "La scalabilità e una caratteristica di progettazione dei sistemi, non una delle quattro proprietà ACID.",
       "3": "La ridondanza non fa parte di ACID; anzi, si tende a ridurla con la normalizzazione."
     },
     "why_wrong_en": {
@@ -454,7 +454,7 @@
     "topics": ["JOIN", "SQL"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Un LEFT JOIN puo restituire righe della tabella di sinistra a cui non corrisponde alcuna riga nella tabella di destra, riempiendo con NULL le colonne mancanti.",
+    "question": "Un LEFT JOIN può restituire righe della tabella di sinistra a cui non corrisponde alcuna riga nella tabella di destra, riempiendo con NULL le colonne mancanti.",
     "question_en": "A LEFT JOIN can return rows of the left table that have no corresponding row in the right table, filling the missing columns with NULL.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
@@ -462,7 +462,7 @@
     "explanation": "Vero. Il LEFT JOIN mantiene tutte le righe della tabella di sinistra: quando non trova corrispondenza a destra, le colonne della tabella destra vengono valorizzate a NULL.",
     "explanation_en": "True. The LEFT JOIN keeps all rows of the left table: when it finds no match on the right, the columns of the right table are set to NULL.",
     "why_wrong": {
-      "1": "Affermare che sia falso e errato: proprio questo comportamento (righe di sinistra senza corrispondenza con NULL a destra) distingue il LEFT JOIN dall'INNER JOIN."
+      "1": "Affermare che sia falso è errato: proprio questo comportamento (righe di sinistra senza corrispondenza con NULL a destra) distingue il LEFT JOIN dall'INNER JOIN."
     },
     "why_wrong_en": {
       "1": "Claiming it is false is wrong: it is precisely this behavior (left rows without a match, with NULL on the right) that distinguishes the LEFT JOIN from the INNER JOIN."
@@ -475,15 +475,15 @@
     "topics": ["Chiavi", "Database"],
     "type": "truefalse",
     "difficulty": 1,
-    "question": "Una tabella relazionale puo avere piu chiavi primarie contemporaneamente, una per ogni colonna importante.",
+    "question": "Una tabella relazionale può avere più chiavi primarie contemporaneamente, una per ogni colonna importante.",
     "question_en": "A relational table can have multiple primary keys at the same time, one for each important column.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [1],
-    "explanation": "Falso. Una tabella puo avere una sola chiave primaria (che eventualmente puo essere composta da piu colonne). Le altre colonne con valori univoci si definiscono chiavi candidate o si gestiscono con vincoli UNIQUE.",
+    "explanation": "Falso. Una tabella può avere una sola chiave primaria (che eventualmente può essere composta da più colonne). Le altre colonne con valori univoci si definiscono chiavi candidate o si gestiscono con vincoli UNIQUE.",
     "explanation_en": "False. A table can have only one primary key (which may possibly be composed of multiple columns). Other columns with unique values are defined as candidate keys or managed with UNIQUE constraints.",
     "why_wrong": {
-      "0": "Considerarlo vero e sbagliato: esiste al massimo una chiave primaria per tabella; per garantire l'unicita su altre colonne si usano vincoli UNIQUE."
+      "0": "Considerarlo vero è sbagliato: esiste al massimo una chiave primaria per tabella; per garantire l'unicità su altre colonne si usano vincoli UNIQUE."
     },
     "why_wrong_en": {
       "0": "Considering it true is wrong: there is at most one primary key per table; to enforce uniqueness on other columns, UNIQUE constraints are used."
@@ -496,7 +496,7 @@
     "topics": ["Database"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Eseguire backup regolari di un database e importante perche permette di ripristinare i dati in caso di guasto hardware, errore umano o attacco informatico.",
+    "question": "Eseguire backup regolari di un database e importante perché permette di ripristinare i dati in caso di guasto hardware, errore umano o attacco informatico.",
     "question_en": "Performing regular backups of a database is important because it allows data to be restored in the event of hardware failure, human error, or a cyberattack.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
@@ -504,7 +504,7 @@
     "explanation": "Vero. Il backup crea una copia dei dati che consente il ripristino a seguito di guasti dei dischi, cancellazioni accidentali, corruzioni o attacchi (come i ransomware), riducendo il rischio di perdita definitiva dei dati.",
     "explanation_en": "True. A backup creates a copy of the data that enables recovery following disk failures, accidental deletions, corruption, or attacks (such as ransomware), reducing the risk of permanent data loss.",
     "why_wrong": {
-      "1": "Ritenerlo falso e errato: senza backup un guasto o un errore potrebbe causare la perdita irreversibile dei dati, per questo i backup sono una pratica essenziale."
+      "1": "Ritenerlo falso è errato: senza backup un guasto o un errore potrebbe causare la perdita irreversibile dei dati, per questo i backup sono una pratica essenziale."
     },
     "why_wrong_en": {
       "1": "Considering it false is wrong: without backups, a failure or error could cause irreversible data loss, which is why backups are an essential practice."

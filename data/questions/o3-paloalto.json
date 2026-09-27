@@ -20,10 +20,10 @@
       "Based on the operating system detected on the client"
     ],
     "correct": [1],
-    "explanation": "App-ID usa piu meccanismi (signature, decodifica protocollo, decrittazione ed euristica) per identificare l'applicazione reale a prescindere dalla porta usata, superando il modello classico basato solo sulle porte.",
+    "explanation": "App-ID usa più meccanismi (signature, decodifica protocollo, decrittazione ed euristica) per identificare l'applicazione reale a prescindere dalla porta usata, superando il modello classico basato solo sulle porte.",
     "explanation_en": "App-ID uses multiple mechanisms (signatures, protocol decoding, decryption and heuristics) to identify the actual application regardless of the port used, going beyond the classic port-only model.",
     "why_wrong": {
-      "0": "Questo e il modello dei firewall stateful tradizionali basato su porte, proprio cio che App-ID supera.",
+      "0": "Questo e il modello dei firewall stateful tradizionali basato su porte, proprio ciò che App-ID supera.",
       "2": "L'IP di destinazione da solo non identifica l'applicazione applicativa.",
       "3": "App-ID identifica l'applicazione, non il sistema operativo del client (compito semmai di funzioni di profiling separate)."
     },
@@ -75,13 +75,13 @@
     "topics": ["Content-ID", "IDS/IPS"],
     "type": "single",
     "difficulty": 1,
-    "question": "Quali funzionalita fornisce principalmente Content-ID su un NGFW Palo Alto?",
+    "question": "Quali funzionalità fornisce principalmente Content-ID su un NGFW Palo Alto?",
     "question_en": "What capabilities does Content-ID primarily provide on a Palo Alto NGFW?",
     "options": [
       "Solo la traduzione degli indirizzi (NAT) del traffico in uscita",
       "Prevenzione delle minacce (IPS), antivirus, filtraggio URL e protezione da fughe di file e dati",
       "Esclusivamente l'autenticazione multifattore degli utenti",
-      "Il bilanciamento del carico tra piu server interni"
+      "Il bilanciamento del carico tra più server interni"
     ],
     "options_en": [
       "Only address translation (NAT) of outbound traffic",
@@ -95,7 +95,7 @@
     "why_wrong": {
       "0": "La NAT e una funzione di rete distinta, non fa parte di Content-ID.",
       "2": "L'autenticazione MFA e gestita da altri componenti (es. GlobalProtect/Authentication Policy), non da Content-ID.",
-      "3": "Il bilanciamento del carico non e una funzione di Content-ID."
+      "3": "Il bilanciamento del carico non è una funzione di Content-ID."
     },
     "why_wrong_en": {
       "0": "NAT is a distinct network function; it is not part of Content-ID.",
@@ -129,8 +129,8 @@
     "explanation_en": "PAN-OS includes two implicit rules: intrazone-default allows traffic within the same zone, while interzone-default blocks traffic between different zones that is not explicitly permitted.",
     "why_wrong": {
       "0": "E il traffico interzona a essere bloccato di default, non quello intrazona.",
-      "2": "La decrittazione SSL non e mai automatica: va configurata con apposite policy.",
-      "3": "La NAT non e obbligatoria per il traffico intrazona."
+      "2": "La decrittazione SSL non è mai automatica: va configurata con apposite policy.",
+      "3": "La NAT non è obbligatoria per il traffico intrazona."
     },
     "why_wrong_en": {
       "0": "It is interzone traffic that is blocked by default, not intrazone traffic.",
@@ -145,11 +145,11 @@
     "topics": ["WildFire"],
     "type": "single",
     "difficulty": 1,
-    "question": "Qual e la funzione principale del servizio WildFire?",
+    "question": "Qual è la funzione principale del servizio WildFire?",
     "question_en": "What is the primary function of the WildFire service?",
     "options": [
       "Eseguire l'analisi in sandbox cloud di file e link sconosciuti per rilevare malware zero-day",
-      "Gestire le identita e l'autenticazione degli utenti aziendali",
+      "Gestire le identità e l'autenticazione degli utenti aziendali",
       "Segmentare la rete tramite VLAN dedicate",
       "Comprimere il traffico dei tunnel VPN site-to-site"
     ],
@@ -163,7 +163,7 @@
     "explanation": "WildFire detona i campioni sconosciuti in un ambiente sandbox cloud, analizzandone il comportamento per identificare minacce mai viste prima e distribuire nuove firme a tutti i firewall.",
     "explanation_en": "WildFire detonates unknown samples in a cloud sandbox environment, analyzing their behavior to identify never-before-seen threats and distribute new signatures to all firewalls.",
     "why_wrong": {
-      "1": "La gestione delle identita e compito di User-ID e dei sistemi IAM, non di WildFire.",
+      "1": "La gestione delle identità e compito di User-ID e dei sistemi IAM, non di WildFire.",
       "2": "La segmentazione VLAN e una funzione di rete, non della sandbox.",
       "3": "WildFire non gestisce la compressione del traffico VPN."
     },
@@ -200,7 +200,7 @@
     "why_wrong": {
       "1": "La sandbox e WildFire, non Prisma Access.",
       "2": "Il SIEM/analytics e Cortex XSIAM/XDR; Prisma Access e una piattaforma SASE.",
-      "3": "Prisma Access non e uno strumento di code review."
+      "3": "Prisma Access non è uno strumento di code review."
     },
     "why_wrong_en": {
       "1": "The sandbox is WildFire, not Prisma Access.",
@@ -235,7 +235,7 @@
     "why_wrong": {
       "1": "L'ispezione applicativa e compito dell'NGFW (App-ID/Content-ID), non di XSOAR.",
       "2": "La sandbox e WildFire.",
-      "3": "La gestione dei dispositivi mobili (MDM) non e la funzione di XSOAR."
+      "3": "La gestione dei dispositivi mobili (MDM) non è la funzione di XSOAR."
     },
     "why_wrong_en": {
       "1": "Application inspection is a task for the NGFW (App-ID/Content-ID), not XSOAR.",
@@ -265,7 +265,7 @@
       "Base trust solely on the source network segment"
     ],
     "correct": [1],
-    "explanation": "Zero Trust elimina la fiducia implicita: ogni richiesta di accesso viene verificata esplicitamente in base a identita, dispositivo e contesto, applicando il minimo privilegio a prescindere dalla posizione di rete.",
+    "explanation": "Zero Trust elimina la fiducia implicita: ogni richiesta di accesso viene verificata esplicitamente in base a identità, dispositivo e contesto, applicando il minimo privilegio a prescindere dalla posizione di rete.",
     "explanation_en": "Zero Trust eliminates implicit trust: every access request is explicitly verified based on identity, device and context, applying least privilege regardless of network location.",
     "why_wrong": {
       "0": "Fidarsi del traffico interno e esattamente il modello perimetrale che Zero Trust rifiuta.",
@@ -291,7 +291,7 @@
       "Con indirizzo di destinazione pre-NAT (originale) e zona di destinazione post-NAT",
       "Con indirizzo e zona di destinazione entrambi post-NAT",
       "Con indirizzo e zona di destinazione entrambi pre-NAT",
-      "La regola di sicurezza non e necessaria quando e presente una regola NAT"
+      "La regola di sicurezza non è necessaria quando e presente una regola NAT"
     ],
     "options_en": [
       "With the pre-NAT (original) destination address and the post-NAT destination zone",
@@ -335,7 +335,7 @@
       "OSPF Profile"
     ],
     "correct": [0, 1],
-    "explanation": "I Security Profile (Antivirus, Anti-Spyware, Vulnerability Protection, URL Filtering, File Blocking, WildFire Analysis, Data Filtering) applicano l'ispezione Content-ID al traffico gia consentito da una regola.",
+    "explanation": "I Security Profile (Antivirus, Anti-Spyware, Vulnerability Protection, URL Filtering, File Blocking, WildFire Analysis, Data Filtering) applicano l'ispezione Content-ID al traffico già consentito da una regola.",
     "explanation_en": "Security Profiles (Antivirus, Anti-Spyware, Vulnerability Protection, URL Filtering, File Blocking, WildFire Analysis, Data Filtering) apply Content-ID inspection to traffic already allowed by a rule.",
     "why_wrong": {
       "2": "Lo Spanning Tree e un protocollo di livello 2 per switch, non un Security Profile.",
@@ -353,7 +353,7 @@
     "topics": ["Cloud security"],
     "type": "multi",
     "difficulty": 2,
-    "question": "Quali capacita fornisce la piattaforma Prisma Cloud? (Seleziona 2)",
+    "question": "Quali capacità fornisce la piattaforma Prisma Cloud? (Seleziona 2)",
     "question_en": "Which capabilities does the Prisma Cloud platform provide? (Select 2)",
     "options": [
       "Cloud Security Posture Management (CSPM) per rilevare configurazioni errate",
@@ -391,7 +391,7 @@
     "options": [
       "Identifica le applicazioni anche quando usano porte non standard o evasive",
       "Consente policy basate sull'applicazione reale invece che sul solo numero di porta",
-      "Elimina del tutto la necessita di decrittare il traffico SSL/TLS",
+      "Elimina del tutto la necessità di decrittare il traffico SSL/TLS",
       "Aumenta automaticamente la larghezza di banda disponibile"
     ],
     "options_en": [
@@ -434,7 +434,7 @@
     "topics": ["WildFire"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "WildFire puo assegnare a un campione il verdetto grayware, oltre ai verdetti benigno e dannoso.",
+    "question": "WildFire può assegnare a un campione il verdetto grayware, oltre ai verdetti benigno e dannoso.",
     "question_en": "WildFire can assign a sample the grayware verdict, in addition to the benign and malicious verdicts.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
@@ -449,12 +449,12 @@
     "topics": ["Zero Trust", "Cloud security"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "In un'architettura Zero Trust la microsegmentazione e irrilevante, perche la fiducia si basa comunque sul perimetro di rete.",
+    "question": "In un'architettura Zero Trust la microsegmentazione e irrilevante, perché la fiducia si basa comunque sul perimetro di rete.",
     "question_en": "In a Zero Trust architecture, microsegmentation is irrelevant, because trust is based on the network perimeter anyway.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [1],
-    "explanation": "E falso: la microsegmentazione e un pilastro dello Zero Trust perche limita il movimento laterale creando confini granulari; Zero Trust rifiuta esplicitamente il modello di fiducia basato sul perimetro.",
+    "explanation": "E falso: la microsegmentazione e un pilastro dello Zero Trust perché limita il movimento laterale creando confini granulari; Zero Trust rifiuta esplicitamente il modello di fiducia basato sul perimetro.",
     "explanation_en": "False: microsegmentation is a pillar of Zero Trust because it limits lateral movement by creating granular boundaries; Zero Trust explicitly rejects the perimeter-based trust model.",
     "source": "HACK/Palo Alto.rtf"
   }

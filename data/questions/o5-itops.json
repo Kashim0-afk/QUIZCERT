@@ -9,21 +9,21 @@
     ],
     "type": "single",
     "difficulty": 1,
-    "question": "Nella metodologia di troubleshooting CompTIA in 6 passi, qual e' il PRIMO passo da eseguire?",
+    "question": "Nella metodologia di troubleshooting CompTIA in 6 passi, qual è il PRIMO passo da eseguire?",
     "options": [
       "Stabilire una teoria della causa probabile",
       "Identificare il problema",
       "Testare la teoria per determinare la causa",
-      "Verificare la piena funzionalita' del sistema"
+      "Verificare la piena funzionalità del sistema"
     ],
     "correct": [
       1
     ],
-    "explanation": "Il primo passo e' sempre 'Identificare il problema': raccogliere informazioni dall'utente, interrogare sui cambiamenti recenti e riprodurre il sintomo. Senza aver definito con precisione il problema, ogni ipotesi successiva rischia di essere fuori bersaglio.",
+    "explanation": "Il primo passo è sempre 'Identificare il problema': raccogliere informazioni dall'utente, interrogare sui cambiamenti recenti e riprodurre il sintomo. Senza aver definito con precisione il problema, ogni ipotesi successiva rischia di essere fuori bersaglio.",
     "why_wrong": {
-      "0": "La teoria della causa probabile e' il secondo passo: si formula solo dopo aver identificato con chiarezza il problema.",
-      "2": "Testare la teoria e' il terzo passo e presuppone che una teoria sia gia' stata formulata.",
-      "3": "La verifica della funzionalita' e' uno degli ultimi passi, dopo aver implementato la soluzione."
+      "0": "La teoria della causa probabile è il secondo passo: si formula solo dopo aver identificato con chiarezza il problema.",
+      "2": "Testare la teoria è il terzo passo e presuppone che una teoria sia già stata formulata.",
+      "3": "La verifica della funzionalità è uno degli ultimi passi, dopo aver implementato la soluzione."
     },
     "source": "IT generale",
     "question_en": "In the 6-step CompTIA troubleshooting methodology, what is the FIRST step to perform?",
@@ -50,21 +50,21 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un tecnico ha appena confermato la causa di un problema testando la propria teoria. Secondo la metodologia CompTIA in 6 passi, qual e' il passo IMMEDIATAMENTE successivo?",
+    "question": "Un tecnico ha appena confermato la causa di un problema testando la propria teoria. Secondo la metodologia CompTIA in 6 passi, qual è il passo IMMEDIATAMENTE successivo?",
     "options": [
       "Documentare i risultati e le lezioni apprese",
       "Stabilire un piano d'azione per risolvere il problema e implementare la soluzione",
       "Riavviare l'identificazione del problema da capo",
-      "Verificare la piena funzionalita' del sistema"
+      "Verificare la piena funzionalità del sistema"
     ],
     "correct": [
       1
     ],
-    "explanation": "Una volta confermata la teoria (passo 3), si passa a 'Stabilire un piano d'azione per risolvere il problema e implementare la soluzione' (passo 4). Solo dopo l'implementazione si verifica la funzionalita' e infine si documenta.",
+    "explanation": "Una volta confermata la teoria (passo 3), si passa a 'Stabilire un piano d'azione per risolvere il problema e implementare la soluzione' (passo 4). Solo dopo l'implementazione si verifica la funzionalità e infine si documenta.",
     "why_wrong": {
-      "0": "La documentazione e' l'ultimo passo (passo 6), dopo aver implementato e verificato la soluzione.",
-      "2": "Si torna all'identificazione solo se il test smentisce la teoria; qui la teoria e' stata confermata.",
-      "3": "La verifica della funzionalita' e' il passo 5, successivo all'implementazione del piano d'azione."
+      "0": "La documentazione è l'ultimo passo (passo 6), dopo aver implementato e verificato la soluzione.",
+      "2": "Si torna all'identificazione solo se il test smentisce la teoria; qui la teoria è stata confermata.",
+      "3": "La verifica della funzionalità è il passo 5, successivo all'implementazione del piano d'azione."
     },
     "source": "IT generale",
     "question_en": "A technician has just confirmed the cause of a problem by testing their theory. According to the 6-step CompTIA methodology, what is the IMMEDIATELY following step?",
@@ -91,7 +91,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "In una matrice di prioritizzazione dei ticket, in che modo si determina tipicamente la PRIORITA' di un ticket?",
+    "question": "In una matrice di prioritizzazione dei ticket, in che modo si determina tipicamente la PRIORITÀ di un ticket?",
     "options": [
       "Esclusivamente in base all'ordine di arrivo del ticket (FIFO)",
       "Come combinazione di impatto e urgenza",
@@ -101,11 +101,11 @@
     "correct": [
       1
     ],
-    "explanation": "La priorita' si ricava dalla matrice impatto x urgenza: l'impatto misura quanti utenti o servizi sono coinvolti e la portata sul business, mentre l'urgenza misura la rapidita' con cui l'effetto negativo cresce. La loro combinazione posiziona il ticket nella scala di priorita'.",
+    "explanation": "La priorità si ricava dalla matrice impatto x urgenza: l'impatto misura quanti utenti o servizi sono coinvolti e la portata sul business, mentre l'urgenza misura la rapidita' con cui l'effetto negativo cresce. La loro combinazione posiziona il ticket nella scala di priorità.",
     "why_wrong": {
-      "0": "Il FIFO ignora la gravita': un incidente critico che arriva dopo uno banale deve comunque avere priorita' superiore.",
-      "2": "Il ruolo del richiedente puo' influenzare l'impatto, ma non e' da solo il criterio di priorita' in una matrice ITIL.",
-      "3": "Il tempo di risoluzione e' una stima di effort, non ne' l'impatto ne' l'urgenza che definiscono la priorita'."
+      "0": "Il FIFO ignora la gravità: un incidente critico che arriva dopo uno banale deve comunque avere priorità superiore.",
+      "2": "Il ruolo del richiedente può influenzare l'impatto, ma non è da solo il criterio di priorità in una matrice ITIL.",
+      "3": "Il tempo di risoluzione è una stima di effort, non né l'impatto né l'urgenza che definiscono la priorità."
     },
     "source": "IT generale",
     "question_en": "In a ticket prioritization matrix, how is the PRIORITY of a ticket typically determined?",
@@ -132,21 +132,21 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Qual e' la differenza corretta tra SLA, OLA e Underpinning Contract (UC)?",
+    "question": "Qual è la differenza corretta tra SLA, OLA e Underpinning Contract (UC)?",
     "options": [
-      "Lo SLA e' tra fornitore IT e cliente, l'OLA tra team interni allo stesso fornitore, l'UC con un fornitore terzo esterno",
-      "Lo SLA e' tra team interni, l'OLA con il cliente finale, l'UC tra due clienti",
+      "Lo SLA è tra fornitore IT e cliente, l'OLA tra team interni allo stesso fornitore, l'UC con un fornitore terzo esterno",
+      "Lo SLA è tra team interni, l'OLA con il cliente finale, l'UC tra due clienti",
       "Sono tre nomi diversi per lo stesso accordo di servizio",
-      "Lo SLA e' sempre informale, mentre OLA e UC sono contratti legali vincolanti con penali"
+      "Lo SLA è sempre informale, mentre OLA e UC sono contratti legali vincolanti con penali"
     ],
     "correct": [
       0
     ],
-    "explanation": "Lo SLA (Service Level Agreement) e' l'accordo tra l'organizzazione IT e il cliente/business. L'OLA (Operational Level Agreement) e' interno, tra i vari team IT che concorrono a erogare il servizio. L'UC (Underpinning Contract) e' il contratto con un fornitore terzo esterno che supporta lo SLA.",
+    "explanation": "Lo SLA (Service Level Agreement) è l'accordo tra l'organizzazione IT e il cliente/business. L'OLA (Operational Level Agreement) è interno, tra i vari team IT che concorrono a erogare il servizio. L'UC (Underpinning Contract) è il contratto con un fornitore terzo esterno che supporta lo SLA.",
     "why_wrong": {
-      "1": "I ruoli sono invertiti: lo SLA e' verso il cliente e l'OLA e' interno, non il contrario.",
+      "1": "I ruoli sono invertiti: lo SLA è verso il cliente e l'OLA è interno, non il contrario.",
       "2": "Sono tre accordi distinti per parti diverse, non sinonimi.",
-      "3": "Lo SLA e' un accordo formale e strutturato; la distinzione riguarda le parti coinvolte, non la formalita'."
+      "3": "Lo SLA è un accordo formale e strutturato; la distinzione riguarda le parti coinvolte, non la formalita'."
     },
     "source": "IT generale",
     "question_en": "What is the correct difference between SLA, OLA and Underpinning Contract (UC)?",
@@ -183,11 +183,11 @@
     "correct": [
       2
     ],
-    "explanation": "L'installazione di un software approvato e' una Service Request (richiesta di servizio): l'utente chiede qualcosa di standard e pianificato, non c'e' alcuna interruzione o degrado di un servizio esistente. Le richieste di servizio seguono un flusso di Request Fulfillment.",
+    "explanation": "L'installazione di un software approvato è una Service Request (richiesta di servizio): l'utente chiede qualcosa di standard e pianificato, non c'è alcuna interruzione o degrado di un servizio esistente. Le richieste di servizio seguono un flusso di Request Fulfillment.",
     "why_wrong": {
-      "0": "Un incident e' un'interruzione non pianificata o un degrado di un servizio; qui nulla e' guasto.",
-      "1": "Un problem e' la causa radice sottostante a uno o piu' incident, non una semplice richiesta dell'utente.",
-      "3": "Un major incident e' un incidente ad alto impatto e urgenza; qui non c'e' alcun disservizio."
+      "0": "Un incident è un'interruzione non pianificata o un degrado di un servizio; qui nulla è guasto.",
+      "1": "Un problem è la causa radice sottostante a uno o più incident, non una semplice richiesta dell'utente.",
+      "3": "Un major incident è un incidente ad alto impatto e urgenza; qui non c'è alcun disservizio."
     },
     "source": "IT generale",
     "question_en": "A user calls the service desk requesting the installation of a new approved software on their PC. According to ITIL, how should this request be classified?",
@@ -214,19 +214,19 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Qual e' la differenza fondamentale tra Incident Management e Problem Management in ITIL?",
+    "question": "Qual è la differenza fondamentale tra Incident Management e Problem Management in ITIL?",
     "options": [
       "L'Incident Management cerca la causa radice, il Problem Management ripristina il servizio",
-      "L'Incident Management ripristina il servizio il piu' rapidamente possibile, il Problem Management indaga e rimuove la causa radice",
+      "L'Incident Management ripristina il servizio il più rapidamente possibile, il Problem Management indaga e rimuove la causa radice",
       "Sono due nomi per lo stesso processo di risoluzione dei guasti",
       "L'Incident Management si applica solo all'hardware, il Problem Management solo al software"
     ],
     "correct": [
       1
     ],
-    "explanation": "L'Incident Management ha come obiettivo il ripristino rapido del servizio (anche con soluzioni temporanee o workaround), minimizzando l'impatto sul business. Il Problem Management, invece, ha un orizzonte piu' ampio: individua e rimuove la causa radice per prevenire il ripetersi degli incident.",
+    "explanation": "L'Incident Management ha come obiettivo il ripristino rapido del servizio (anche con soluzioni temporanee o workaround), minimizzando l'impatto sul business. Il Problem Management, invece, ha un orizzonte più ampio: individua e rimuove la causa radice per prevenire il ripetersi degli incident.",
     "why_wrong": {
-      "0": "I ruoli sono invertiti: e' il Problem Management a cercare la causa radice, non l'Incident Management.",
+      "0": "I ruoli sono invertiti: è il Problem Management a cercare la causa radice, non l'Incident Management.",
       "2": "Sono processi distinti con obiettivi diversi: ripristino rapido contro eliminazione della causa.",
       "3": "La distinzione non dipende da hardware o software, ma dall'obiettivo del processo."
     },
@@ -255,20 +255,20 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un tecnico di primo livello non riesce a risolvere un ticket perche' richiede competenze specialistiche di rete. Passa il ticket al team di networking di secondo livello. Che tipo di escalation e' questa?",
+    "question": "Un tecnico di primo livello non riesce a risolvere un ticket perché richiede competenze specialistiche di rete. Passa il ticket al team di networking di secondo livello. Che tipo di escalation è questa?",
     "options": [
       "Escalation gerarchica (verticale)",
       "Escalation funzionale (orizzontale)",
       "Escalation al management esecutivo",
-      "Chiusura per impossibilita' tecnica"
+      "Chiusura per impossibilità tecnica"
     ],
     "correct": [
       1
     ],
-    "explanation": "Questa e' un'escalation funzionale: il ticket viene inoltrato a un team con maggiori competenze tecniche specialistiche (dal primo al secondo livello). L'escalation gerarchica, invece, coinvolge livelli superiori di autorita' manageriale, tipicamente per decisioni o per violazioni di SLA.",
+    "explanation": "Questa è un'escalation funzionale: il ticket viene inoltrato a un team con maggiori competenze tecniche specialistiche (dal primo al secondo livello). L'escalation gerarchica, invece, coinvolge livelli superiori di autorità manageriale, tipicamente per decisioni o per violazioni di SLA.",
     "why_wrong": {
-      "0": "L'escalation gerarchica sale nella catena di comando manageriale, non verso un team piu' specializzato allo stesso livello operativo.",
-      "2": "Coinvolgere il management esecutivo e' una forma di escalation gerarchica, non cio' che accade passando a un team tecnico.",
+      "0": "L'escalation gerarchica sale nella catena di comando manageriale, non verso un team più specializzato allo stesso livello operativo.",
+      "2": "Coinvolgere il management esecutivo è una forma di escalation gerarchica, non ciò che accade passando a un team tecnico.",
       "3": "Il ticket non viene chiuso: viene trasferito a chi ha le competenze per risolverlo."
     },
     "source": "IT generale",
@@ -306,11 +306,11 @@
     "correct": [
       1
     ],
-    "explanation": "La First Call Resolution (FCR) misura la percentuale di richieste risolte gia' al primo contatto con l'utente, senza bisogno di escalation, follow-up o ulteriori chiamate. Un FCR elevato indica efficienza e migliora la soddisfazione dell'utente.",
+    "explanation": "La First Call Resolution (FCR) misura la percentuale di richieste risolte già al primo contatto con l'utente, senza bisogno di escalation, follow-up o ulteriori chiamate. Un FCR elevato indica efficienza e migliora la soddisfazione dell'utente.",
     "why_wrong": {
-      "0": "Il tempo medio di riparazione e' il MTTR (Mean Time To Repair/Resolve), un KPI diverso.",
-      "2": "Il volume di chiamate e' una metrica di carico, non misura la capacita' di risoluzione al primo contatto.",
-      "3": "La soddisfazione del cliente e' il CSAT, che e' correlato all'FCR ma ne e' distinto."
+      "0": "Il tempo medio di riparazione è il MTTR (Mean Time To Repair/Resolve), un KPI diverso.",
+      "2": "Il volume di chiamate è una metrica di carico, non misura la capacità di risoluzione al primo contatto.",
+      "3": "La soddisfazione del cliente è il CSAT, che è correlato all'FCR ma ne è distinto."
     },
     "source": "IT generale",
     "question_en": "What does the 'First Call Resolution' (FCR) KPI measure in a service desk?",
@@ -347,7 +347,7 @@
     "correct": [
       1
     ],
-    "explanation": "Un CMDB memorizza i Configuration Item (CI), cioe' gli elementi di configurazione dell'infrastruttura (server, applicazioni, dispositivi, servizi) insieme alle loro relazioni e dipendenze. Questo consente, per esempio, di valutare l'impatto di un cambiamento o di un guasto su altri componenti.",
+    "explanation": "Un CMDB memorizza i Configuration Item (CI), cioè gli elementi di configurazione dell'infrastruttura (server, applicazioni, dispositivi, servizi) insieme alle loro relazioni e dipendenze. Questo consente, per esempio, di valutare l'impatto di un cambiamento o di un guasto su altri componenti.",
     "why_wrong": {
       "0": "Il CMDB descrive la configurazione degli asset, non conserva i backup dei dati.",
       "2": "Le credenziali vanno in vault dedicati e cifrati, non nel CMDB.",
@@ -378,21 +378,21 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Durante la fase 'stabilire una teoria della causa probabile', quale principio guida e' consigliato dalla metodologia CompTIA?",
+    "question": "Durante la fase 'stabilire una teoria della causa probabile', quale principio guida è consigliato dalla metodologia CompTIA?",
     "options": [
-      "Applicare sempre la soluzione piu' complessa e completa possibile",
-      "Considerare prima le cause piu' ovvie e semplici (question the obvious)",
+      "Applicare sempre la soluzione più complessa e completa possibile",
+      "Considerare prima le cause più ovvie e semplici (question the obvious)",
       "Sostituire immediatamente l'hardware sospetto senza ulteriori verifiche",
       "Documentare la soluzione prima ancora di identificarla"
     ],
     "correct": [
       1
     ],
-    "explanation": "Nel formulare la teoria della causa probabile si parte dalle cause piu' ovvie e semplici ('question the obvious'): un cavo scollegato, un caps lock attivo, una password scaduta. Questo approccio evita di sprecare tempo su ipotesi complesse quando la causa e' banale.",
+    "explanation": "Nel formulare la teoria della causa probabile si parte dalle cause più ovvie e semplici ('question the obvious'): un cavo scollegato, un caps lock attivo, una password scaduta. Questo approccio evita di sprecare tempo su ipotesi complesse quando la causa è banale.",
     "why_wrong": {
-      "0": "Partire dalla soluzione piu' complessa contraddice il principio di semplicita' e allunga i tempi.",
-      "2": "Sostituire hardware senza verifica salta la fase di test della teoria e puo' mascherare la vera causa.",
-      "3": "La documentazione e' l'ultimo passo; non si documenta una soluzione non ancora individuata."
+      "0": "Partire dalla soluzione più complessa contraddice il principio di semplicità e allunga i tempi.",
+      "2": "Sostituire hardware senza verifica salta la fase di test della teoria e può mascherare la vera causa.",
+      "3": "La documentazione è l'ultimo passo; non si documenta una soluzione non ancora individuata."
     },
     "source": "IT generale",
     "question_en": "During the 'establish a theory of probable cause' phase, which guiding principle is recommended by the CompTIA methodology?",
@@ -425,7 +425,7 @@
       "Usare linguaggio tecnico e acronimi complessi per dimostrare competenza",
       "Praticare l'ascolto empatico e riconoscere il disagio dell'utente",
       "Fornire aggiornamenti proattivi sullo stato del ticket, anche se non ancora risolto",
-      "Chiudere il ticket senza confermare con l'utente che il problema e' risolto"
+      "Chiudere il ticket senza confermare con l'utente che il problema è risolto"
     ],
     "correct": [
       1,
@@ -472,9 +472,9 @@
       0,
       2
     ],
-    "explanation": "Un buon change/patch management prevede il test in un ambiente di staging prima della produzione e la predisposizione di un piano di rollback (back-out plan) per ripristinare lo stato precedente se la patch introduce problemi. Cosi' si riduce il rischio di disservizi.",
+    "explanation": "Un buon change/patch management prevede il test in un ambiente di staging prima della produzione e la predisposizione di un piano di rollback (back-out plan) per ripristinare lo stato precedente se la patch introduce problemi. Così si riduce il rischio di disservizi.",
     "why_wrong": {
-      "1": "Applicare patch direttamente in produzione senza finestra pianificata ne' test espone a interruzioni impreviste dei servizi.",
+      "1": "Applicare patch direttamente in produzione senza finestra pianificata né test espone a interruzioni impreviste dei servizi.",
       "3": "Ogni change deve essere tracciato con un record (RFC) per audit, ripristino e analisi d'impatto; saltarlo viola il processo."
     },
     "source": "IT generale",
@@ -515,8 +515,8 @@
     ],
     "explanation": "Il MTTR misura il tempo medio di risoluzione/riparazione degli incident, indicatore chiave di efficienza operativa. Il CSAT misura la soddisfazione dell'utente dopo l'assistenza. Insieme ad FCR e ticket backlog, formano il cruscotto tipico di un service desk.",
     "why_wrong": {
-      "1": "Il consumo di caffe' non ha alcuna relazione con le prestazioni del servizio e non e' una metrica ITSM.",
-      "3": "L'aspetto estetico dell'interfaccia non e' un indicatore di performance del service desk."
+      "1": "Il consumo di caffe' non ha alcuna relazione con le prestazioni del servizio e non è una metrica ITSM.",
+      "3": "L'aspetto estetico dell'interfaccia non è un indicatore di performance del service desk."
     },
     "source": "IT generale",
     "question_en": "Which of the following are typical metrics (KPIs) for measuring the performance of a service desk? (select 2)",
@@ -542,7 +542,7 @@
     ],
     "type": "truefalse",
     "difficulty": 1,
-    "question": "Nella metodologia CompTIA in 6 passi, la verifica della piena funzionalita' del sistema e l'implementazione di misure preventive avvengono PRIMA di implementare la soluzione.",
+    "question": "Nella metodologia CompTIA in 6 passi, la verifica della piena funzionalità del sistema e l'implementazione di misure preventive avvengono PRIMA di implementare la soluzione.",
     "options": [
       "Vero",
       "Falso"
@@ -550,7 +550,7 @@
     "correct": [
       1
     ],
-    "explanation": "Falso. L'ordine corretto prevede prima di implementare la soluzione (passo 4) e solo DOPO verificare la piena funzionalita' del sistema ed eventualmente applicare misure preventive (passo 5). Non si puo' verificare la funzionalita' di una soluzione non ancora implementata.",
+    "explanation": "Falso. L'ordine corretto prevede prima di implementare la soluzione (passo 4) e solo DOPO verificare la piena funzionalità del sistema ed eventualmente applicare misure preventive (passo 5). Non si può verificare la funzionalità di una soluzione non ancora implementata.",
     "source": "IT generale",
     "question_en": "In the 6-step CompTIA methodology, verifying full system functionality and implementing preventive measures occur BEFORE implementing the solution.",
     "options_en": [
@@ -570,7 +570,7 @@
     ],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Prima di eseguire un reset della password o comunicare informazioni sensibili, il tecnico del service desk deve verificare l'identita' dell'utente richiedente.",
+    "question": "Prima di eseguire un reset della password o comunicare informazioni sensibili, il tecnico del service desk deve verificare l'identità dell'utente richiedente.",
     "options": [
       "Vero",
       "Falso"
@@ -578,7 +578,7 @@
     "correct": [
       0
     ],
-    "explanation": "Vero. La verifica dell'identita' e' un controllo di sicurezza operativa fondamentale: un attaccante potrebbe fingersi un dipendente per ottenere un reset password (social engineering). Il tecnico deve autenticare l'utente tramite domande di sicurezza, codici o procedure aziendali prima di procedere.",
+    "explanation": "Vero. La verifica dell'identità è un controllo di sicurezza operativa fondamentale: un attaccante potrebbe fingersi un dipendente per ottenere un reset password (social engineering). Il tecnico deve autenticare l'utente tramite domande di sicurezza, codici o procedure aziendali prima di procedere.",
     "source": "IT generale",
     "question_en": "Before performing a password reset or communicating sensitive information, the service desk technician must verify the identity of the requesting user.",
     "options_en": [
@@ -606,7 +606,7 @@
     "correct": [
       0
     ],
-    "explanation": "Vero. Una knowledge base aggiornata permette ai tecnici (e agli utenti tramite self-service) di trovare rapidamente soluzioni gia' documentate, risolvendo piu' problemi al primo contatto senza escalation. Questo aumenta l'FCR, riduce il MTTR e migliora la coerenza delle risposte.",
+    "explanation": "Vero. Una knowledge base aggiornata permette ai tecnici (e agli utenti tramite self-service) di trovare rapidamente soluzioni già documentate, risolvendo più problemi al primo contatto senza escalation. Questo aumenta l'FCR, riduce il MTTR e migliora la coerenza delle risposte.",
     "source": "IT generale",
     "question_en": "A well-maintained knowledge base, with documented articles and solutions, helps increase the service desk's First Call Resolution rate.",
     "options_en": [

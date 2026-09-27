@@ -20,11 +20,11 @@
       "Only the make and model of the seized device"
     ],
     "correct": [1],
-    "explanation": "La catena di custodia deve tracciare in modo continuo e verificabile ogni passaggio del reperto: identita di chi lo detiene, data/ora, luogo e scopo del trasferimento. Qualsiasi interruzione compromette l'ammissibilita della prova.",
+    "explanation": "La catena di custodia deve tracciare in modo continuo e verificabile ogni passaggio del reperto: identità di chi lo detiene, data/ora, luogo e scopo del trasferimento. Qualsiasi interruzione compromette l'ammissibilità della prova.",
     "explanation_en": "The chain of custody must trace, in a continuous and verifiable way, every handover of the exhibit: the identity of whoever holds it, the date/time, the place and the purpose of the transfer. Any break compromises the admissibility of the evidence.",
     "why_wrong": {
-      "0": "L'hash e fondamentale per l'integrita ma non sostituisce la registrazione dei passaggi di responsabilita.",
-      "2": "Il proprietario e un dato accessorio; cio che conta e chi ha materialmente custodito il reperto.",
+      "0": "L'hash e fondamentale per l'integrità ma non sostituisce la registrazione dei passaggi di responsabilità.",
+      "2": "Il proprietario e un dato accessorio; ciò che conta e chi ha materialmente custodito il reperto.",
       "3": "Marca e modello identificano il reperto ma non documentano i trasferimenti di custodia."
     },
     "why_wrong_en": {
@@ -40,7 +40,7 @@
     "topics": ["Analisi forense", "Memory forensics"],
     "type": "single",
     "difficulty": 2,
-    "question": "Secondo il principio dell'ordine di volatilita (RFC 3227), quale tra questi elementi va acquisito per primo?",
+    "question": "Secondo il principio dell'ordine di volatilità (RFC 3227), quale tra questi elementi va acquisito per primo?",
     "question_en": "According to the order of volatility principle (RFC 3227), which of these elements must be acquired first?",
     "options": [
       "I file di log archiviati sul disco rigido",
@@ -55,7 +55,7 @@
       "The physical configuration and network topology"
     ],
     "correct": [1],
-    "explanation": "L'ordine di volatilita impone di raccogliere prima cio che si perde piu rapidamente. Registri e cache della CPU sono i dati piu volatili in assoluto, seguiti da tabella di routing/ARP, RAM, processi, e solo dopo dai dati su disco.",
+    "explanation": "L'ordine di volatilità impone di raccogliere prima ciò che si perde più rapidamente. Registri e cache della CPU sono i dati più volatili in assoluto, seguiti da tabella di routing/ARP, RAM, processi, e solo dopo dai dati su disco.",
     "explanation_en": "The order of volatility requires collecting first what is lost most rapidly. CPU registers and cache are the most volatile data of all, followed by the routing/ARP table, RAM, processes, and only afterward the data on disk.",
     "why_wrong": {
       "0": "I log su disco sono relativamente persistenti e si acquisiscono dopo i dati volatili.",
@@ -75,11 +75,11 @@
     "topics": ["Analisi forense", "Crittografia"],
     "type": "single",
     "difficulty": 2,
-    "question": "Perche in un'acquisizione forense si calcolano gli hash sia prima sia dopo la copia dell'immagine del disco?",
+    "question": "Perché in un'acquisizione forense si calcolano gli hash sia prima sia dopo la copia dell'immagine del disco?",
     "question_en": "Why, in a forensic acquisition, are hashes computed both before and after copying the disk image?",
     "options": [
       "Per comprimere l'immagine e ridurne le dimensioni su disco",
-      "Per dimostrare che la copia e identica all'originale e non e stata alterata",
+      "Per dimostrare che la copia e identica all'originale e non è stata alterata",
       "Per cifrare il contenuto dell'immagine acquisita",
       "Per accelerare la successiva indicizzazione dei file"
     ],
@@ -90,12 +90,12 @@
       "To speed up the subsequent indexing of the files"
     ],
     "correct": [1],
-    "explanation": "L'hash (es. SHA-256) calcolato sull'originale e sulla copia deve coincidere: questo prova l'integrita e la fedelta bit-a-bit dell'immagine, requisito essenziale per l'ammissibilita in giudizio.",
+    "explanation": "L'hash (es. SHA-256) calcolato sull'originale e sulla copia deve coincidere: questo prova l'integrità e la fedelta bit-a-bit dell'immagine, requisito essenziale per l'ammissibilità in giudizio.",
     "explanation_en": "The hash (e.g. SHA-256) computed on the original and on the copy must match: this proves the integrity and the bit-for-bit fidelity of the image, an essential requirement for admissibility in court.",
     "why_wrong": {
       "0": "L'hash e una funzione di verifica, non un algoritmo di compressione.",
-      "2": "L'hashing non cifra i dati; e una funzione unidirezionale di integrita.",
-      "3": "L'hash non ha alcun ruolo nell'indicizzazione o nella velocita di ricerca."
+      "2": "L'hashing non cifra i dati; e una funzione unidirezionale di integrità.",
+      "3": "L'hash non ha alcun ruolo nell'indicizzazione o nella velocità di ricerca."
     },
     "why_wrong_en": {
       "0": "The hash is a verification function, not a compression algorithm.",
@@ -130,7 +130,7 @@
     "why_wrong": {
       "0": "Preparation e la prima fase, non successiva al contenimento.",
       "1": "Detection and Analysis precede il contenimento.",
-      "3": "Non e una fase del modello NIST a quattro fasi."
+      "3": "Non è una fase del modello NIST a quattro fasi."
     },
     "why_wrong_en": {
       "0": "Preparation is the first phase, not one that follows containment.",
@@ -195,7 +195,7 @@
       "/proc/version"
     ],
     "correct": [0],
-    "explanation": "/var/log/wtmp contiene lo storico dei login/logout ed e letto in formato binario dal comando 'last'. E una fonte chiave per ricostruire l'attivita degli utenti su un host Linux.",
+    "explanation": "/var/log/wtmp contiene lo storico dei login/logout ed e letto in formato binario dal comando 'last'. E una fonte chiave per ricostruire l'attività degli utenti su un host Linux.",
     "explanation_en": "/var/log/wtmp contains the history of logins/logouts and is read in binary format by the 'last' command. It is a key source for reconstructing user activity on a Linux host.",
     "why_wrong": {
       "1": "/etc/passwd elenca gli account ma non registra gli accessi effettivi.",
@@ -215,12 +215,12 @@
     "topics": ["Analisi forense"],
     "type": "single",
     "difficulty": 3,
-    "question": "In un file system NTFS, quale differenza tra i timestamp $STANDARD_INFORMATION e $FILE_NAME puo rivelare un timestomping?",
+    "question": "In un file system NTFS, quale differenza tra i timestamp $STANDARD_INFORMATION e $FILE_NAME può rivelare un timestomping?",
     "question_en": "In an NTFS file system, which difference between the $STANDARD_INFORMATION and $FILE_NAME timestamps can reveal timestomping?",
     "options": [
-      "$FILE_NAME contiene solo la data di creazione, quindi non e confrontabile",
+      "$FILE_NAME contiene solo la data di creazione, quindi non è confrontabile",
       "$STANDARD_INFORMATION e facilmente modificabile dagli strumenti, mentre $FILE_NAME viene aggiornato solo dal kernel",
-      "$FILE_NAME e memorizzato sul disco cifrato e non e leggibile",
+      "$FILE_NAME e memorizzato sul disco cifrato e non è leggibile",
       "I due attributi devono sempre coincidere, quindi qualsiasi differenza e normale"
     ],
     "options_en": [
@@ -234,7 +234,7 @@
     "explanation_en": "Anti-forensics tools easily modify the $STANDARD_INFORMATION timestamps (visible to the user), but the $FILE_NAME ones in the MFT are updated by the kernel. Discrepancies between the two sets indicate manipulation (timestomping).",
     "why_wrong": {
       "0": "$FILE_NAME contiene i quattro timestamp MFT (creazione, modifica, accesso, modifica record), non solo la creazione.",
-      "2": "$FILE_NAME non e cifrato; risiede nella MFT ed e analizzabile con strumenti come MFTECmd.",
+      "2": "$FILE_NAME non è cifrato; risiede nella MFT ed e analizzabile con strumenti come MFTECmd.",
       "3": "In condizioni normali i valori possono differire per motivi legittimi, ma discrepanze marcate sono un indicatore di timestomping da investigare."
     },
     "why_wrong_en": {
@@ -255,10 +255,10 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. Il write blocker intercetta e blocca ogni comando di scrittura verso il supporto sorgente, consentendo la sola lettura: cosi l'immagine viene acquisita senza modificare l'originale, requisito imprescindibile per la validita della prova.",
+    "explanation": "Vero. Il write blocker intercetta e blocca ogni comando di scrittura verso il supporto sorgente, consentendo la sola lettura: così l'immagine viene acquisita senza modificare l'originale, requisito imprescindibile per la validità della prova.",
     "explanation_en": "True. The write blocker intercepts and blocks every write command toward the source medium, allowing read-only access: this way the image is acquired without modifying the original, an indispensable requirement for the validity of the evidence.",
     "why_wrong": {
-      "1": "E errato: proprio impedendo le scritture il write blocker garantisce l'integrita del reperto; non cifra ne comprime nulla."
+      "1": "E errato: proprio impedendo le scritture il write blocker garantisce l'integrità del reperto; non cifra ne comprime nulla."
     },
     "why_wrong_en": {
       "1": "It is wrong: precisely by preventing writes, the write blocker guarantees the integrity of the exhibit; it neither encrypts nor compresses anything."
@@ -289,7 +289,7 @@
     "explanation": "Il file carving individua i file cercando pattern di byte tipici di inizio (header) e fine (footer) dei formati noti (es. FF D8 / FF D9 per JPEG) direttamente nei dati grezzi, senza dipendere dai metadati del file system, utile su spazio non allocato o supporti danneggiati.",
     "explanation_en": "File carving identifies files by searching for byte patterns typical of the start (header) and end (footer) of known formats (e.g. FF D8 / FF D9 for JPEG) directly in the raw data, without depending on the file system metadata, useful on unallocated space or damaged media.",
     "why_wrong": {
-      "0": "L'uso di MFT/inode e proprio cio che il carving evita, operando indipendentemente dai metadati.",
+      "0": "L'uso di MFT/inode e proprio ciò che il carving evita, operando indipendentemente dai metadati.",
       "2": "Il carving non riguarda la decrittazione di chiavi.",
       "3": "I log possono citare nomi di file ma non permettono il recupero del contenuto tramite carving."
     },
@@ -341,7 +341,7 @@
     "topics": ["Analisi forense", "Malware"],
     "type": "multi",
     "difficulty": 3,
-    "question": "Quali tra le seguenti sono tecniche di anti-forensics che un investigatore puo incontrare? (seleziona 2)",
+    "question": "Quali tra le seguenti sono tecniche di anti-forensics che un investigatore può incontrare? (seleziona 2)",
     "question_en": "Which of the following are anti-forensics techniques that an investigator may encounter? (select 2)",
     "options": [
       "Calcolo dell'hash SHA-256 dell'immagine acquisita",
@@ -359,7 +359,7 @@
     "explanation": "Il wiping sicuro (sovrascrittura) elimina i dati residui rendendone impossibile il recupero, e la steganografia nasconde informazioni all'interno di altri file: entrambe sono tecniche anti-forensics volte a ostacolare l'indagine.",
     "explanation_en": "Secure wiping (overwriting) eliminates residual data making its recovery impossible, and steganography hides information inside other files: both are anti-forensics techniques aimed at hindering the investigation.",
     "why_wrong": {
-      "0": "Il calcolo dell'hash e una pratica forense di verifica dell'integrita, non anti-forense.",
+      "0": "Il calcolo dell'hash e una pratica forense di verifica dell'integrità, non anti-forense.",
       "3": "La redazione del verbale di catena di custodia e una procedura investigativa corretta, non una tecnica di occultamento."
     },
     "why_wrong_en": {
@@ -440,15 +440,15 @@
     "topics": ["Analisi forense", "Crittografia"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Una collisione di hash MD5 tra due file diversi puo minare l'affidabilita di MD5 come unico strumento di verifica dell'integrita in ambito forense.",
+    "question": "Una collisione di hash MD5 tra due file diversi può minare l'affidabilità di MD5 come unico strumento di verifica dell'integrità in ambito forense.",
     "question_en": "An MD5 hash collision between two different files can undermine the reliability of MD5 as the sole integrity verification tool in a forensic context.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. MD5 e vulnerabile a collisioni dimostrabili: due file diversi possono produrre lo stesso digest. Per questo in ambito forense si preferiscono SHA-256 o l'uso combinato di piu algoritmi per garantire l'integrita.",
+    "explanation": "Vero. MD5 e vulnerabile a collisioni dimostrabili: due file diversi possono produrre lo stesso digest. Per questo in ambito forense si preferiscono SHA-256 o l'uso combinato di più algoritmi per garantire l'integrità.",
     "explanation_en": "True. MD5 is vulnerable to demonstrable collisions: two different files can produce the same digest. For this reason, in a forensic context SHA-256 or the combined use of multiple algorithms is preferred to guarantee integrity.",
     "why_wrong": {
-      "1": "E errato: le collisioni MD5 sono note e riproducibili, motivo per cui MD5 da solo non e piu considerato robusto."
+      "1": "E errato: le collisioni MD5 sono note e riproducibili, motivo per cui MD5 da solo non è più considerato robusto."
     },
     "why_wrong_en": {
       "1": "It is wrong: MD5 collisions are known and reproducible, which is why MD5 alone is no longer considered robust."
@@ -461,12 +461,12 @@
     "topics": ["Analisi forense", "Linux"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Nella costruzione di una timeline forense, correlare i timestamp MAC (Modified, Accessed, Changed/Created) da piu fonti aiuta a ricostruire la sequenza degli eventi.",
+    "question": "Nella costruzione di una timeline forense, correlare i timestamp MAC (Modified, Accessed, Changed/Created) da più fonti aiuta a ricostruire la sequenza degli eventi.",
     "question_en": "In building a forensic timeline, correlating the MAC (Modified, Accessed, Changed/Created) timestamps from multiple sources helps to reconstruct the sequence of events.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. La super timeline aggrega i timestamp MAC di file system, log, registro e altri artefatti in un'unica linea temporale ordinata, permettendo di ricostruire con precisione la sequenza delle attivita dell'attaccante o dell'utente.",
+    "explanation": "Vero. La super timeline aggrega i timestamp MAC di file system, log, registro e altri artefatti in un'unica linea temporale ordinata, permettendo di ricostruire con precisione la sequenza delle attività dell'attaccante o dell'utente.",
     "explanation_en": "True. The super timeline aggregates the MAC timestamps from the file system, logs, registry and other artifacts into a single ordered timeline, allowing precise reconstruction of the sequence of the attacker's or user's activities.",
     "why_wrong": {
       "1": "E errato: la correlazione multi-sorgente dei timestamp e proprio il fondamento dell'analisi timeline (es. con strumenti come Plaso/log2timeline)."

@@ -10,12 +10,12 @@
     ],
     "type": "single",
     "difficulty": 1,
-    "question": "Qual e la funzione primaria di FortiWeb all'interno del Security Fabric?",
+    "question": "Qual è la funzione primaria di FortiWeb all'interno del Security Fabric?",
     "question_en": "What is the primary function of FortiWeb within the Security Fabric?",
     "options": [
       "Filtrare la posta elettronica in ingresso per bloccare spam e phishing",
       "Proteggere le applicazioni web come Web Application Firewall (WAF) contro attacchi OWASP Top 10",
-      "Gestire l'identita degli utenti e l'autenticazione a piu fattori",
+      "Gestire l'identità degli utenti e l'autenticazione a più fattori",
       "Detonare file sospetti in un ambiente sandbox isolato"
     ],
     "options_en": [
@@ -31,7 +31,7 @@
     "explanation_en": "FortiWeb is a dedicated Web Application Firewall (WAF) that protects web applications and APIs from attacks such as SQL injection, Cross-Site Scripting (XSS), and the other OWASP Top 10 threats, inspecting HTTP/HTTPS traffic at the application layer.",
     "why_wrong": {
       "0": "Il filtraggio di spam e phishing e compito di FortiMail, non di FortiWeb.",
-      "2": "La gestione dell'identita e dell'MFA e la funzione di FortiAuthenticator.",
+      "2": "La gestione dell'identità e dell'MFA e la funzione di FortiAuthenticator.",
       "3": "La detonazione di file sospetti in sandbox e la funzione di FortiSandbox."
     },
     "why_wrong_en": {
@@ -73,7 +73,7 @@
     "explanation_en": "FortiWeb detects XSS through its attack signature engine and input validation/normalization, blocking or sanitizing request parameters that contain script code before they reach the application or are reflected in the response.",
     "why_wrong": {
       "0": "TLS cifra il canale ma non impedisce l'iniezione di script: il payload malevolo viaggia comunque cifrato fino al server.",
-      "2": "Il riavvio del web server non e un meccanismo di difesa e degraderebbe il servizio.",
+      "2": "Il riavvio del web server non è un meccanismo di difesa e degraderebbe il servizio.",
       "3": "L'instradamento SD-WAN riguarda il routing di rete, non l'ispezione applicativa contro XSS."
     },
     "why_wrong_en": {
@@ -111,12 +111,12 @@
     "correct": [
       1
     ],
-    "explanation": "FortiMail e la soluzione dedicata alla sicurezza della posta elettronica: fornisce antispam, antivirus, antiphishing, protezione anti-malware e puo operare come gateway, server o in modalita trasparente.",
+    "explanation": "FortiMail e la soluzione dedicata alla sicurezza della posta elettronica: fornisce antispam, antivirus, antiphishing, protezione anti-malware e può operare come gateway, server o in modalità trasparente.",
     "explanation_en": "FortiMail is the solution dedicated to email security: it provides antispam, antivirus, antiphishing, and anti-malware protection, and can operate as a gateway, server, or in transparent mode.",
     "why_wrong": {
       "0": "FortiNAC gestisce il controllo dell'accesso alla rete (Network Access Control), non l'email.",
       "2": "FortiSwitch e uno switch di rete gestito integrato nel Security Fabric, non un prodotto email.",
-      "3": "FortiAuthenticator gestisce identita e autenticazione, non la sicurezza della posta."
+      "3": "FortiAuthenticator gestisce identità e autenticazione, non la sicurezza della posta."
     },
     "why_wrong_en": {
       "0": "FortiNAC handles Network Access Control, not email.",
@@ -136,7 +136,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Per contrastare email di phishing con URL malevoli che diventano attivi solo dopo la consegna, quale tecnica di FortiMail e piu efficace?",
+    "question": "Per contrastare email di phishing con URL malevoli che diventano attivi solo dopo la consegna, quale tecnica di FortiMail e più efficace?",
     "question_en": "To counter phishing emails with malicious URLs that become active only after delivery, which FortiMail technique is most effective?",
     "options": [
       "URL click protection (riscrittura e analisi dell'URL al momento del click)",
@@ -182,8 +182,8 @@
     "question_en": "What role does FortiAuthenticator primarily perform?",
     "options": [
       "Analisi comportamentale del malware in ambiente isolato",
-      "Gestione centralizzata dell'identita, autenticazione a piu fattori (MFA) e servizi RADIUS",
-      "Bilanciamento del carico tra piu tunnel SD-WAN",
+      "Gestione centralizzata dell'identità, autenticazione a più fattori (MFA) e servizi RADIUS",
+      "Bilanciamento del carico tra più tunnel SD-WAN",
       "Protezione delle applicazioni web da SQL injection"
     ],
     "options_en": [
@@ -195,7 +195,7 @@
     "correct": [
       1
     ],
-    "explanation": "FortiAuthenticator e il servizio di gestione delle identita di Fortinet: fornisce autenticazione a piu fattori (MFA), server RADIUS/LDAP, Single Sign-On, e puo agire come Certificate Authority per l'emissione di certificati digitali.",
+    "explanation": "FortiAuthenticator e il servizio di gestione delle identità di Fortinet: fornisce autenticazione a più fattori (MFA), server RADIUS/LDAP, Single Sign-On, e può agire come Certificate Authority per l'emissione di certificati digitali.",
     "explanation_en": "FortiAuthenticator is Fortinet's identity management service: it provides multi-factor authentication (MFA), RADIUS/LDAP server, Single Sign-On, and can act as a Certificate Authority to issue digital certificates.",
     "why_wrong": {
       "0": "L'analisi del malware in ambiente isolato e compito di FortiSandbox.",
@@ -219,7 +219,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "In un'infrastruttura PKI, quale funzione puo assumere FortiAuthenticator?",
+    "question": "In un'infrastruttura PKI, quale funzione può assumere FortiAuthenticator?",
     "question_en": "In a PKI infrastructure, which function can FortiAuthenticator take on?",
     "options": [
       "Agire come Certificate Authority (CA) per emettere e gestire certificati digitali",
@@ -236,10 +236,10 @@
     "correct": [
       0
     ],
-    "explanation": "FortiAuthenticator puo operare come Certificate Authority integrata, emettendo, distribuendo e revocando certificati digitali (X.509) per utenti e dispositivi, gestendo anche CRL/OCSP e il ciclo di vita dei certificati usati per VPN, EAP-TLS e autenticazione forte.",
+    "explanation": "FortiAuthenticator può operare come Certificate Authority integrata, emettendo, distribuendo e revocando certificati digitali (X.509) per utenti e dispositivi, gestendo anche CRL/OCSP e il ciclo di vita dei certificati usati per VPN, EAP-TLS e autenticazione forte.",
     "explanation_en": "FortiAuthenticator can operate as an integrated Certificate Authority, issuing, distributing, and revoking digital certificates (X.509) for users and devices, also managing CRL/OCSP and the lifecycle of certificates used for VPN, EAP-TLS, and strong authentication.",
     "why_wrong": {
-      "1": "La cifratura dei dischi endpoint non e una funzione di FortiAuthenticator.",
+      "1": "La cifratura dei dischi endpoint non è una funzione di FortiAuthenticator.",
       "2": "Il ruolo di access point wireless spetta a FortiAP, non a FortiAuthenticator.",
       "3": "Il deep packet inspection del traffico e svolto da FortiGate, non da FortiAuthenticator."
     },
@@ -302,7 +302,7 @@
     ],
     "type": "single",
     "difficulty": 1,
-    "question": "Qual e lo scopo principale di FortiSandbox?",
+    "question": "Qual è lo scopo principale di FortiSandbox?",
     "question_en": "What is the main purpose of FortiSandbox?",
     "options": [
       "Assegnare indirizzi IP dinamici ai nuovi dispositivi in rete",
@@ -360,7 +360,7 @@
     "correct": [
       1
     ],
-    "explanation": "FortiNAC (Network Access Control) offre visibilita e controllo sui dispositivi che si connettono alla rete: li individua, ne esegue il profiling (anche IoT/BYOD), applica policy di accesso e puo mettere in quarantena o segmentare dinamicamente i dispositivi non conformi.",
+    "explanation": "FortiNAC (Network Access Control) offre visibilità e controllo sui dispositivi che si connettono alla rete: li individua, ne esegue il profiling (anche IoT/BYOD), applica policy di accesso e può mettere in quarantena o segmentare dinamicamente i dispositivi non conformi.",
     "explanation_en": "FortiNAC (Network Access Control) provides visibility and control over the devices that connect to the network: it discovers them, profiles them (including IoT/BYOD), applies access policies, and can dynamically quarantine or segment non-compliant devices.",
     "why_wrong": {
       "0": "FortiMail protegge la posta elettronica, non controlla l'accesso alla rete.",
@@ -388,8 +388,8 @@
     "question_en": "Which core principle characterizes Fortinet's Secure SD-WAN compared to traditional WAN routing?",
     "options": [
       "Instrada tutto il traffico su un unico collegamento MPLS statico",
-      "Seleziona dinamicamente il percorso migliore per applicazione in base a metriche di qualita (SLA) integrando sicurezza e networking",
-      "Disabilita la cifratura per aumentare la velocita",
+      "Seleziona dinamicamente il percorso migliore per applicazione in base a metriche di qualità (SLA) integrando sicurezza e networking",
+      "Disabilita la cifratura per aumentare la velocità",
       "Richiede un dispositivo separato per ogni singola applicazione"
     ],
     "options_en": [
@@ -401,11 +401,11 @@
     "correct": [
       1
     ],
-    "explanation": "Secure SD-WAN sceglie dinamicamente il percorso ottimale per ciascuna applicazione basandosi su misure di qualita del collegamento (latenza, jitter, packet loss) rispetto a SLA definiti, e integra nel FortiGate le funzioni di sicurezza (firewall, IPS, ispezione) con il routing applicativo.",
+    "explanation": "Secure SD-WAN sceglie dinamicamente il percorso ottimale per ciascuna applicazione basandosi su misure di qualità del collegamento (latenza, jitter, packet loss) rispetto a SLA definiti, e integra nel FortiGate le funzioni di sicurezza (firewall, IPS, ispezione) con il routing applicativo.",
     "explanation_en": "Secure SD-WAN dynamically chooses the optimal path for each application based on link quality measurements (latency, jitter, packet loss) against defined SLAs, and integrates security functions (firewall, IPS, inspection) with application routing within the FortiGate.",
     "why_wrong": {
       "0": "L'uso di un unico MPLS statico e proprio il modello tradizionale che l'SD-WAN supera con path selection dinamica.",
-      "2": "L'SD-WAN mantiene la cifratura (tunnel IPsec) e non la disabilita per velocita.",
+      "2": "L'SD-WAN mantiene la cifratura (tunnel IPsec) e non la disabilita per velocità.",
       "3": "Non serve un dispositivo per applicazione: il FortiGate gestisce il routing applicativo in modo centralizzato."
     },
     "why_wrong_en": {
@@ -446,7 +446,7 @@
     "explanation": "FortiWeb usa un modello a machine learning a due livelli per costruire una baseline del comportamento applicativo e rilevare anomalie/attacchi zero-day, e offre bot mitigation e API security (validazione dello schema, protezione di endpoint REST/GraphQL) oltre alle firme classiche.",
     "explanation_en": "FortiWeb uses a two-layer machine learning model to build a baseline of application behavior and detect anomalies/zero-day attacks, and offers bot mitigation and API security (schema validation, protection of REST/GraphQL endpoints) in addition to the classic signatures.",
     "why_wrong": {
-      "1": "La rotazione delle chiavi di cifratura dei dischi endpoint non e una funzione WAF di FortiWeb.",
+      "1": "La rotazione delle chiavi di cifratura dei dischi endpoint non è una funzione WAF di FortiWeb.",
       "3": "L'assegnazione dinamica di VLAN e tipica di FortiNAC/FortiSwitch, non di un WAF."
     },
     "why_wrong_en": {
@@ -468,7 +468,7 @@
     "question": "Quali DUE affermazioni descrivono correttamente FortiSandbox nel Security Fabric? (seleziona 2)",
     "question_en": "Which TWO statements correctly describe FortiSandbox in the Security Fabric? (select 2)",
     "options": [
-      "Puo ricevere file da FortiGate, FortiMail e FortiClient per l'analisi",
+      "Può ricevere file da FortiGate, FortiMail e FortiClient per l'analisi",
       "Condivide gli IOC e i verdetti con gli altri componenti del Fabric per la risposta automatizzata",
       "Sostituisce il firewall perimetrale ispezionando tutto il traffico in linea",
       "Emette i certificati digitali per l'autenticazione MFA"
@@ -483,10 +483,10 @@
       0,
       1
     ],
-    "explanation": "FortiSandbox si integra nel Fabric ricevendo campioni sospetti da piu prodotti (FortiGate, FortiMail, FortiWeb, FortiClient) e, dopo la detonazione, distribuisce verdetti e indicatori di compromissione (IOC) agli altri componenti per bloccare automaticamente la minaccia (integrazione con AV/IPS e feed condivisi).",
+    "explanation": "FortiSandbox si integra nel Fabric ricevendo campioni sospetti da più prodotti (FortiGate, FortiMail, FortiWeb, FortiClient) e, dopo la detonazione, distribuisce verdetti e indicatori di compromissione (IOC) agli altri componenti per bloccare automaticamente la minaccia (integrazione con AV/IPS e feed condivisi).",
     "explanation_en": "FortiSandbox integrates into the Fabric by receiving suspicious samples from multiple products (FortiGate, FortiMail, FortiWeb, FortiClient) and, after detonation, distributes verdicts and indicators of compromise (IOCs) to the other components to automatically block the threat (integration with AV/IPS and shared feeds).",
     "why_wrong": {
-      "2": "FortiSandbox non e un firewall in linea: analizza campioni in modo asincrono e non sostituisce il FortiGate perimetrale.",
+      "2": "FortiSandbox non è un firewall in linea: analizza campioni in modo asincrono e non sostituisce il FortiGate perimetrale.",
       "3": "L'emissione di certificati per l'MFA e compito di FortiAuthenticator, non di FortiSandbox."
     },
     "why_wrong_en": {
@@ -523,7 +523,7 @@
       0,
       1
     ],
-    "explanation": "FortiSwitch e FortiAP si integrano nel Security Fabric e possono essere gestiti direttamente dal FortiGate (FortiLink per gli switch, gestione WiFi integrata per gli AP), estendendo cosi le policy di sicurezza e la visibilita del Fabric fino al bordo cablato e wireless della rete.",
+    "explanation": "FortiSwitch e FortiAP si integrano nel Security Fabric e possono essere gestiti direttamente dal FortiGate (FortiLink per gli switch, gestione WiFi integrata per gli AP), estendendo così le policy di sicurezza e la visibilità del Fabric fino al bordo cablato e wireless della rete.",
     "explanation_en": "FortiSwitch and FortiAP integrate into the Security Fabric and can be managed directly by the FortiGate (FortiLink for the switches, integrated WiFi management for the APs), thereby extending the Fabric's security policies and visibility to the wired and wireless edge of the network.",
     "why_wrong": {
       "2": "FortiSwitch e FortiAP non dipendono da FortiMail, che riguarda la sola sicurezza email.",
@@ -586,7 +586,7 @@
     "correct": [
       1
     ],
-    "explanation": "Falso. FortiAuthenticator gestisce identita, MFA, RADIUS/LDAP, SSO e certificati. Il Web Application Firewall che protegge dalle minacce OWASP e FortiWeb.",
+    "explanation": "Falso. FortiAuthenticator gestisce identità, MFA, RADIUS/LDAP, SSO e certificati. Il Web Application Firewall che protegge dalle minacce OWASP e FortiWeb.",
     "explanation_en": "False. FortiAuthenticator manages identity, MFA, RADIUS/LDAP, SSO, and certificates. The Web Application Firewall that protects against OWASP threats is FortiWeb.",
     "source": "Fortinet NSE6 (Fabric products)"
   },
@@ -601,7 +601,7 @@
     ],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Vero o Falso: FortiNAC puo mettere in quarantena o segmentare dinamicamente un dispositivo che risulta non conforme alle policy di sicurezza della rete.",
+    "question": "Vero o Falso: FortiNAC può mettere in quarantena o segmentare dinamicamente un dispositivo che risulta non conforme alle policy di sicurezza della rete.",
     "question_en": "True or False: FortiNAC can dynamically quarantine or segment a device that is found non-compliant with the network's security policies.",
     "options": [
       "Vero",
@@ -614,7 +614,7 @@
     "correct": [
       0
     ],
-    "explanation": "Vero. Oltre a rilevare e profilare i dispositivi, FortiNAC applica risposte automatizzate: puo isolare, mettere in quarantena o riassegnare a una VLAN ristretta i dispositivi non conformi, integrandosi con switch e access point per l'enforcement.",
+    "explanation": "Vero. Oltre a rilevare e profilare i dispositivi, FortiNAC applica risposte automatizzate: può isolare, mettere in quarantena o riassegnare a una VLAN ristretta i dispositivi non conformi, integrandosi con switch e access point per l'enforcement.",
     "explanation_en": "True. In addition to detecting and profiling devices, FortiNAC applies automated responses: it can isolate, quarantine, or reassign non-compliant devices to a restricted VLAN, integrating with switches and access points for enforcement.",
     "source": "Fortinet NSE6 (Fabric products)"
   }

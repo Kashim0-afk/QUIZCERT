@@ -5,9 +5,9 @@
     "topics": ["Machine Learning"],
     "type": "single",
     "difficulty": 1,
-    "question": "In un modello di machine learning, qual e' la differenza tra la fase di addestramento (training) e quella di inferenza (inference)?",
+    "question": "In un modello di machine learning, qual è la differenza tra la fase di addestramento (training) e quella di inferenza (inference)?",
     "options": [
-      "Nell'addestramento il modello apprende i pattern dai dati; nell'inferenza usa cio' che ha appreso per fare previsioni su dati nuovi",
+      "Nell'addestramento il modello apprende i pattern dai dati; nell'inferenza usa ciò che ha appreso per fare previsioni su dati nuovi",
       "Nell'addestramento il modello fa previsioni; nell'inferenza raccoglie i dati da zero",
       "Sono due nomi diversi per la stessa identica operazione",
       "L'inferenza avviene prima dell'addestramento per preparare i dati"
@@ -15,7 +15,7 @@
     "correct": [0],
     "explanation": "Durante il training il modello regola i propri parametri imparando dai dati; durante l'inferenza applica quanto appreso per generare previsioni o risposte su input mai visti prima.",
     "why_wrong": {
-      "1": "E' invertito: le previsioni avvengono in inferenza, non in addestramento, e i dati non si raccolgono in quella fase.",
+      "1": "È invertito: le previsioni avvengono in inferenza, non in addestramento, e i dati non si raccolgono in quella fase.",
       "2": "Sono due fasi distinte con scopi diversi: apprendere e poi applicare.",
       "3": "L'inferenza avviene dopo l'addestramento, non prima."
     },
@@ -43,15 +43,15 @@
     "question": "Un modello impara benissimo gli esempi di addestramento ma sbaglia molto su dati nuovi. Come si chiama questo problema?",
     "options": [
       "Overfitting: il modello ha memorizzato i dati di training invece di generalizzare",
-      "Underfitting: il modello e' troppo semplice per qualsiasi dato",
-      "Inferenza: il modello sta solo applicando cio' che sa",
+      "Underfitting: il modello è troppo semplice per qualsiasi dato",
+      "Inferenza: il modello sta solo applicando ciò che sa",
       "Etichettatura: mancano le etichette nei dati"
     ],
     "correct": [0],
-    "explanation": "L'overfitting si verifica quando il modello si adatta troppo ai dettagli e al rumore dei dati di addestramento, perdendo la capacita' di generalizzare su esempi nuovi.",
+    "explanation": "L'overfitting si verifica quando il modello si adatta troppo ai dettagli e al rumore dei dati di addestramento, perdendo la capacità di generalizzare su esempi nuovi.",
     "why_wrong": {
-      "1": "L'underfitting e' l'opposto: il modello sbaglia anche sui dati di training perche' troppo semplice.",
-      "2": "L'inferenza e' una fase d'uso, non un difetto di apprendimento.",
+      "1": "L'underfitting è l'opposto: il modello sbaglia anche sui dati di training perché troppo semplice.",
+      "2": "L'inferenza è una fase d'uso, non un difetto di apprendimento.",
       "3": "L'etichettatura riguarda la preparazione dei dati, non il divario tra training e dati nuovi."
     },
     "question_en": "A model learns the training examples very well but makes many mistakes on new data. What is this problem called?",
@@ -77,16 +77,16 @@
     "difficulty": 2,
     "question": "Come genera il testo, in modo semplificato, un modello linguistico di grandi dimensioni (LLM)?",
     "options": [
-      "Predice il token successivo piu' probabile, uno dopo l'altro, sulla base del contesto precedente",
-      "Cerca la frase esatta in un database di risposte gia' scritte e la copia",
+      "Predice il token successivo più probabile, uno dopo l'altro, sulla base del contesto precedente",
+      "Cerca la frase esatta in un database di risposte già scritte e la copia",
       "Consulta in tempo reale tutti i siti web per trovare la risposta ufficiale",
       "Segue una serie di regole grammaticali fisse scritte a mano dai programmatori"
     ],
     "correct": [0],
-    "explanation": "Un LLM funziona prevedendo il token (parola o pezzo di parola) successivo piu' probabile dato il testo gia' presente, ripetendo il processo per costruire la risposta.",
+    "explanation": "Un LLM funziona prevedendo il token (parola o pezzo di parola) successivo più probabile dato il testo già presente, ripetendo il processo per costruire la risposta.",
     "why_wrong": {
       "1": "L'LLM non copia frasi da un archivio: genera testo nuovo token per token.",
-      "2": "Un LLM di base non naviga il web in tempo reale; usa cio' che ha appreso durante l'addestramento.",
+      "2": "Un LLM di base non naviga il web in tempo reale; usa ciò che ha appreso durante l'addestramento.",
       "3": "Non si basa su regole grammaticali scritte a mano, ma su pattern statistici appresi dai dati."
     },
     "question_en": "In simplified terms, how does a large language model (LLM) generate text?",
@@ -113,16 +113,16 @@
     "question": "Cosa significa usare il 'few-shot prompting' quando si scrive un prompt?",
     "options": [
       "Includere nel prompt alcuni esempi di input e output desiderati per guidare la risposta del modello",
-      "Scrivere il prompt piu' breve possibile, con poche parole",
-      "Ripetere la stessa domanda piu' volte finche' la risposta non cambia",
+      "Scrivere il prompt più breve possibile, con poche parole",
+      "Ripetere la stessa domanda più volte finché la risposta non cambia",
       "Chiedere al modello di rispondere in pochi secondi"
     ],
     "correct": [0],
-    "explanation": "Il few-shot prompting consiste nel fornire nel prompt uno o piu' esempi del formato o dello stile atteso, cosi' il modello capisce meglio cosa produrre.",
+    "explanation": "Il few-shot prompting consiste nel fornire nel prompt uno o più esempi del formato o dello stile atteso, così il modello capisce meglio cosa produrre.",
     "why_wrong": {
       "1": "La brevita' del prompt non c'entra: few-shot si riferisce agli esempi forniti, non alla lunghezza.",
-      "2": "Ripetere la domanda e' un'altra tecnica (iterazione), non few-shot.",
-      "3": "Il termine non riguarda la velocita' di risposta ma il numero di esempi inclusi."
+      "2": "Ripetere la domanda è un'altra tecnica (iterazione), non few-shot.",
+      "3": "Il termine non riguarda la velocità di risposta ma il numero di esempi inclusi."
     },
     "question_en": "What does using 'few-shot prompting' mean when writing a prompt?",
     "options_en": [
@@ -145,15 +145,15 @@
     "topics": ["Prompt Engineering"],
     "type": "single",
     "difficulty": 2,
-    "question": "Chiedi a un assistente IA di aiutarti a scrivere una mail. Quale accorgimento migliora piu' probabilmente la qualita' della risposta?",
+    "question": "Chiedi a un assistente IA di aiutarti a scrivere una mail. Quale accorgimento migliora più probabilmente la qualità della risposta?",
     "options": [
       "Fornire contesto e istruzioni chiare: destinatario, tono desiderato, obiettivo e punti da includere",
       "Scrivere solo 'scrivi una mail' senza altri dettagli",
       "Usare abbreviazioni e frasi ambigue per essere rapidi",
-      "Non specificare il tono, cosi' il modello decide sempre meglio da solo"
+      "Non specificare il tono, così il modello decide sempre meglio da solo"
     ],
     "correct": [0],
-    "explanation": "Un prompt efficace fornisce contesto, obiettivo, tono e vincoli: piu' informazioni pertinenti dai, piu' la risposta sara' mirata e utile.",
+    "explanation": "Un prompt efficace fornisce contesto, obiettivo, tono e vincoli: più informazioni pertinenti dai, più la risposta sarà mirata e utile.",
     "why_wrong": {
       "1": "Un prompt troppo vago produce risposte generiche e spesso fuori bersaglio.",
       "2": "Ambiguita' e abbreviazioni aumentano il rischio di fraintendimenti.",
@@ -180,19 +180,19 @@
     "topics": ["IA responsabile", "Bias"],
     "type": "single",
     "difficulty": 2,
-    "question": "Perche' un sistema di IA puo' produrre risultati distorti o ingiusti (bias) verso alcuni gruppi di persone?",
+    "question": "Perché un sistema di IA può produrre risultati distorti o ingiusti (bias) verso alcuni gruppi di persone?",
     "options": [
-      "Perche' apprende da dati storici che possono contenere pregiudizi o rappresentare male alcuni gruppi",
-      "Perche' i computer provano emozioni negative verso certe persone",
-      "Perche' l'IA sceglie volontariamente di favorire alcuni utenti",
-      "Perche' i modelli piu' recenti sono immuni da qualsiasi distorsione"
+      "Perché apprende da dati storici che possono contenere pregiudizi o rappresentare male alcuni gruppi",
+      "Perché i computer provano emozioni negative verso certe persone",
+      "Perché l'IA sceglie volontariamente di favorire alcuni utenti",
+      "Perché i modelli più recenti sono immuni da qualsiasi distorsione"
     ],
     "correct": [0],
-    "explanation": "Il bias nasce spesso dai dati di addestramento: se questi riflettono pregiudizi o sottorappresentano alcuni gruppi, il modello puo' riprodurre e amplificare quelle distorsioni.",
+    "explanation": "Il bias nasce spesso dai dati di addestramento: se questi riflettono pregiudizi o sottorappresentano alcuni gruppi, il modello può riprodurre e amplificare quelle distorsioni.",
     "why_wrong": {
       "1": "Le macchine non provano emozioni; il bias deriva da dati e progettazione.",
       "2": "Il modello non 'sceglie' consapevolmente: riflette pattern presenti nei dati.",
-      "3": "Nessun modello e' automaticamente immune dal bias, indipendentemente dalla sua novita'."
+      "3": "Nessun modello è automaticamente immune dal bias, indipendentemente dalla sua novità."
     },
     "question_en": "Why can an AI system produce biased or unfair results toward some groups of people?",
     "options_en": [
@@ -215,19 +215,19 @@
     "topics": ["Privacy", "IA responsabile"],
     "type": "single",
     "difficulty": 2,
-    "question": "Stai usando uno strumento IA pubblico per lavoro. Quale comportamento e' piu' prudente riguardo ai dati inseriti?",
+    "question": "Stai usando uno strumento IA pubblico per lavoro. Quale comportamento è più prudente riguardo ai dati inseriti?",
     "options": [
-      "Evitare di inserire dati riservati o personali sensibili, perche' potrebbero essere conservati o usati per l'addestramento",
+      "Evitare di inserire dati riservati o personali sensibili, perché potrebbero essere conservati o usati per l'addestramento",
       "Inserire liberamente password e dati dei clienti, tanto vengono cancellati subito",
-      "Condividere documenti aziendali segreti per ottenere risposte piu' precise",
-      "Presumere che tutto cio' che scrivi resti sempre privato e non lasci mai il tuo dispositivo"
+      "Condividere documenti aziendali segreti per ottenere risposte più precise",
+      "Presumere che tutto ciò che scrivi resti sempre privato e non lasci mai il tuo dispositivo"
     ],
     "correct": [0],
-    "explanation": "I dati inseriti in strumenti IA pubblici possono essere conservati o utilizzati per migliorare i modelli: e' bene non condividere informazioni riservate, personali o confidenziali.",
+    "explanation": "I dati inseriti in strumenti IA pubblici possono essere conservati o utilizzati per migliorare i modelli: è bene non condividere informazioni riservate, personali o confidenziali.",
     "why_wrong": {
-      "1": "Password e dati dei clienti non vanno mai inseriti: non c'e' garanzia di cancellazione immediata.",
+      "1": "Password e dati dei clienti non vanno mai inseriti: non c'è garanzia di cancellazione immediata.",
       "2": "Condividere segreti aziendali espone l'organizzazione a rischi di riservatezza e sicurezza.",
-      "3": "I dati spesso vengono inviati a server esterni: non e' corretto presumere che restino privati."
+      "3": "I dati spesso vengono inviati a server esterni: non è corretto presumere che restino privati."
     },
     "question_en": "You are using a public AI tool for work. Which behavior is most prudent regarding the data you enter?",
     "options_en": [
@@ -250,19 +250,19 @@
     "topics": ["IA generativa", "IA responsabile"],
     "type": "single",
     "difficulty": 1,
-    "question": "In quale situazione lavorativa NON e' opportuno affidarsi ciecamente all'output di un'IA generativa?",
+    "question": "In quale situazione lavorativa NON è opportuno affidarsi ciecamente all'output di un'IA generativa?",
     "options": [
       "Quando serve una decisione importante basata su fatti: l'output va sempre verificato da una persona",
       "Quando si vogliono generare idee o bozze iniziali da rifinire",
-      "Quando si chiede di riformulare un testo gia' scritto",
+      "Quando si chiede di riformulare un testo già scritto",
       "Quando si usa per fare brainstorming di titoli possibili"
     ],
     "correct": [0],
-    "explanation": "Per decisioni importanti o informazioni fattuali l'output dell'IA va sempre controllato da una persona, perche' puo' contenere errori o allucinazioni. Per idee e bozze e' invece un ottimo supporto.",
+    "explanation": "Per decisioni importanti o informazioni fattuali l'output dell'IA va sempre controllato da una persona, perché può contenere errori o allucinazioni. Per idee e bozze è invece un ottimo supporto.",
     "why_wrong": {
-      "1": "Generare idee e bozze e' un uso appropriato: sono spunti da rifinire, non decisioni finali.",
-      "2": "Riformulare un testo esistente e' un compito adatto all'IA generativa.",
-      "3": "Il brainstorming di titoli e' un uso creativo tipico e a basso rischio."
+      "1": "Generare idee e bozze è un uso appropriato: sono spunti da rifinire, non decisioni finali.",
+      "2": "Riformulare un testo esistente è un compito adatto all'IA generativa.",
+      "3": "Il brainstorming di titoli è un uso creativo tipico e a basso rischio."
     },
     "question_en": "In which work situation is it NOT appropriate to rely blindly on the output of a generative AI?",
     "options_en": [
@@ -293,9 +293,9 @@
       "Usare sempre parole ambigue per lasciare liberta' al modello"
     ],
     "correct": [0, 1],
-    "explanation": "Assegnare un ruolo aiuta a orientare stile e prospettiva della risposta, mentre invitare il modello a ragionare passo dopo passo (chain-of-thought) migliora la qualita' su problemi complessi.",
+    "explanation": "Assegnare un ruolo aiuta a orientare stile e prospettiva della risposta, mentre invitare il modello a ragionare passo dopo passo (chain-of-thought) migliora la qualità su problemi complessi.",
     "why_wrong": {
-      "2": "Rimuovere il contesto peggiora le risposte: il contesto pertinente e' fondamentale.",
+      "2": "Rimuovere il contesto peggiora le risposte: il contesto pertinente è fondamentale.",
       "3": "L'ambiguita' aumenta i fraintendimenti; la chiarezza produce risultati migliori."
     },
     "question_en": "Which of the following are valid prompt engineering techniques for getting better answers? (Select 2)",
@@ -321,7 +321,7 @@
     "question": "Quali principi fanno parte di un uso responsabile dell'intelligenza artificiale? (Seleziona 2)",
     "options": [
       "Trasparenza: rendere chiaro quando e come viene usata l'IA e i suoi limiti",
-      "Supervisione umana (human-in-the-loop): mantenere una persona che controlla e puo' correggere le decisioni",
+      "Supervisione umana (human-in-the-loop): mantenere una persona che controlla e può correggere le decisioni",
       "Automatizzare ogni decisione critica senza alcun controllo umano",
       "Nascondere agli utenti che stanno interagendo con un sistema di IA"
     ],
@@ -351,12 +351,12 @@
     "topics": ["LLM", "IA generativa"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "La 'context window' di un modello linguistico indica la quantita' massima di testo (in token) che il modello puo' considerare contemporaneamente in una conversazione.",
+    "question": "La 'context window' di un modello linguistico indica la quantità massima di testo (in token) che il modello può considerare contemporaneamente in una conversazione.",
     "options": ["Vero", "Falso"],
     "correct": [0],
-    "explanation": "La finestra di contesto e' il limite di token che il modello puo' elaborare insieme: se la conversazione supera questo limite, le parti piu' vecchie possono uscire dal contesto ed essere 'dimenticate'.",
+    "explanation": "La finestra di contesto è il limite di token che il modello può elaborare insieme: se la conversazione supera questo limite, le parti più vecchie possono uscire dal contesto ed essere 'dimenticate'.",
     "why_wrong": {
-      "1": "E' vero: la context window definisce quanto testo il modello puo' tenere presente in una volta sola."
+      "1": "È vero: la context window definisce quanto testo il modello può tenere presente in una volta sola."
     },
     "question_en": "The 'context window' of a language model indicates the maximum amount of text (in tokens) that the model can consider at the same time in a conversation.",
     "options_en": ["True", "False"],
@@ -372,12 +372,12 @@
     "topics": ["IA generativa", "LLM"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Il parametro 'temperatura' di un modello generativo influenza quanto le risposte sono creative e varie: valori piu' alti tendono a produrre output piu' vari e imprevedibili.",
+    "question": "Il parametro 'temperatura' di un modello generativo influenza quanto le risposte sono creative e varie: valori più alti tendono a produrre output più vari e imprevedibili.",
     "options": ["Vero", "Falso"],
     "correct": [0],
-    "explanation": "La temperatura regola la casualita' nella scelta dei token: valori bassi rendono le risposte piu' prevedibili e deterministiche, valori alti le rendono piu' varie e creative.",
+    "explanation": "La temperatura regola la casualita' nella scelta dei token: valori bassi rendono le risposte più prevedibili e deterministiche, valori alti le rendono più varie e creative.",
     "why_wrong": {
-      "1": "E' vero: una temperatura piu' alta aumenta variabilita' e creativita' delle risposte."
+      "1": "È vero: una temperatura più alta aumenta variabilita' e creativita' delle risposte."
     },
     "question_en": "The 'temperature' parameter of a generative model affects how creative and varied the responses are: higher values tend to produce more varied and unpredictable output.",
     "options_en": ["True", "False"],

@@ -10,10 +10,10 @@
     "options": ["La chiave primaria", "Un indice non-clustered", "Il nome della colonna", "Il tipo di dato"],
     "options_en": ["The primary key", "A non-clustered index", "The column name", "The data type"],
     "correct": [0],
-    "explanation": "La chiave primaria (primary key) e' il vincolo che identifica univocamente ogni riga (tupla) di una tabella: non ammette valori duplicati ne valori NULL.",
+    "explanation": "La chiave primaria (primary key) è il vincolo che identifica univocamente ogni riga (tupla) di una tabella: non ammette valori duplicati ne valori NULL.",
     "explanation_en": "The primary key is the constraint that uniquely identifies each row (tuple) of a table: it allows neither duplicate values nor NULL values.",
     "why_wrong": {
-      "1": "Un indice non-clustered velocizza le ricerche ma non garantisce l'unicita ne identifica la riga; puo esistere su colonne con valori ripetuti.",
+      "1": "Un indice non-clustered velocizza le ricerche ma non garantisce l'unicità ne identifica la riga; può esistere su colonne con valori ripetuti.",
       "2": "Il nome della colonna identifica un attributo (una colonna), non una specifica riga.",
       "3": "Il tipo di dato definisce il dominio dei valori ammessi in una colonna, non identifica righe."
     },
@@ -32,15 +32,15 @@
     "difficulty": 2,
     "question": "Una chiave esterna (foreign key) definita nella tabella Ordini che punta alla tabella Clienti serve principalmente a:",
     "question_en": "A foreign key defined in the Orders table that points to the Customers table serves mainly to:",
-    "options": ["Ordinare automaticamente le righe di Ordini", "Garantire l'integrita referenziale tra le due tabelle", "Cifrare i dati dei clienti", "Creare un indice clustered su Ordini"],
+    "options": ["Ordinare automaticamente le righe di Ordini", "Garantire l'integrità referenziale tra le due tabelle", "Cifrare i dati dei clienti", "Creare un indice clustered su Ordini"],
     "options_en": ["Automatically sort the rows of Orders", "Guarantee referential integrity between the two tables", "Encrypt the customers' data", "Create a clustered index on Orders"],
     "correct": [1],
-    "explanation": "La chiave esterna crea un legame logico tra tabelle e impone l'integrita referenziale: un valore presente nella FK di Ordini deve corrispondere a una chiave esistente in Clienti (oppure essere NULL).",
+    "explanation": "La chiave esterna crea un legame logico tra tabelle e impone l'integrità referenziale: un valore presente nella FK di Ordini deve corrispondere a una chiave esistente in Clienti (oppure essere NULL).",
     "explanation_en": "The foreign key creates a logical link between tables and enforces referential integrity: a value present in the FK of Orders must correspond to an existing key in Customers (or be NULL).",
     "why_wrong": {
       "0": "La FK non ordina le righe; l'ordinamento si ottiene con ORDER BY o dall'indice fisico, non dal vincolo referenziale.",
-      "2": "La cifratura dei dati e' una funzione di sicurezza separata, non correlata alle foreign key.",
-      "3": "La FK e' un vincolo di integrita; l'eventuale indice associato non e' necessariamente clustered ne il suo scopo."
+      "2": "La cifratura dei dati è una funzione di sicurezza separata, non correlata alle foreign key.",
+      "3": "La FK è un vincolo di integrità; l'eventuale indice associato non è necessariamente clustered ne il suo scopo."
     },
     "why_wrong_en": {
       "0": "The FK does not sort the rows; sorting is achieved with ORDER BY or from the physical index, not from the referential constraint.",
@@ -55,7 +55,7 @@
     "topics": ["Normalizzazione", "Database"],
     "type": "single",
     "difficulty": 2,
-    "question": "Una tabella e' in Prima Forma Normale (1NF) quando:",
+    "question": "Una tabella è in Prima Forma Normale (1NF) quando:",
     "question_en": "A table is in First Normal Form (1NF) when:",
     "options": ["Ogni attributo non chiave dipende dalla chiave completa", "Ogni cella contiene un solo valore atomico e non ci sono gruppi ripetuti", "Non esistono dipendenze transitive", "Tutte le colonne hanno un indice"],
     "options_en": ["Every non-key attribute depends on the entire key", "Each cell contains a single atomic value and there are no repeating groups", "There are no transitive dependencies", "All columns have an index"],
@@ -63,8 +63,8 @@
     "explanation": "La 1NF richiede che ogni attributo contenga un valore atomico (indivisibile) e che non vi siano gruppi ripetuti o liste di valori in una singola cella.",
     "explanation_en": "1NF requires that each attribute contain an atomic (indivisible) value and that there be no repeating groups or lists of values in a single cell.",
     "why_wrong": {
-      "0": "La dipendenza dall'intera chiave (eliminazione delle dipendenze parziali) e' il requisito della 2NF, non della 1NF.",
-      "2": "L'assenza di dipendenze transitive e' il requisito della 3NF.",
+      "0": "La dipendenza dall'intera chiave (eliminazione delle dipendenze parziali) è il requisito della 2NF, non della 1NF.",
+      "2": "L'assenza di dipendenze transitive è il requisito della 3NF.",
       "3": "Gli indici riguardano le prestazioni, non hanno alcun ruolo nelle forme normali."
     },
     "why_wrong_en": {
@@ -105,17 +105,17 @@
     "topics": ["SQL", "Database"],
     "type": "single",
     "difficulty": 2,
-    "question": "In una query SQL, la clausola HAVING si distingue da WHERE perche':",
+    "question": "In una query SQL, la clausola HAVING si distingue da WHERE perché:",
     "question_en": "In an SQL query, the HAVING clause differs from WHERE because:",
-    "options": ["Filtra le righe prima del raggruppamento", "Filtra i gruppi dopo il GROUP BY, potendo usare funzioni aggregate", "E' obbligatoria in ogni SELECT", "Serve solo a ordinare i risultati"],
+    "options": ["Filtra le righe prima del raggruppamento", "Filtra i gruppi dopo il GROUP BY, potendo usare funzioni aggregate", "È obbligatoria in ogni SELECT", "Serve solo a ordinare i risultati"],
     "options_en": ["It filters the rows before grouping", "It filters the groups after the GROUP BY, and can use aggregate functions", "It is mandatory in every SELECT", "It only serves to sort the results"],
     "correct": [1],
-    "explanation": "WHERE filtra le singole righe prima dell'aggregazione; HAVING filtra i gruppi dopo il GROUP BY e puo utilizzare funzioni aggregate come COUNT(), SUM() o AVG().",
+    "explanation": "WHERE filtra le singole righe prima dell'aggregazione; HAVING filtra i gruppi dopo il GROUP BY e può utilizzare funzioni aggregate come COUNT(), SUM() o AVG().",
     "explanation_en": "WHERE filters the individual rows before aggregation; HAVING filters the groups after the GROUP BY and can use aggregate functions such as COUNT(), SUM() or AVG().",
     "why_wrong": {
-      "0": "Il filtro delle righe prima del raggruppamento e' compito di WHERE, non di HAVING.",
-      "2": "HAVING e' opzionale e ha senso solo in presenza di aggregazione/raggruppamento.",
-      "3": "L'ordinamento dei risultati e' compito della clausola ORDER BY, non di HAVING."
+      "0": "Il filtro delle righe prima del raggruppamento è compito di WHERE, non di HAVING.",
+      "2": "HAVING è opzionale e ha senso solo in presenza di aggregazione/raggruppamento.",
+      "3": "L'ordinamento dei risultati è compito della clausola ORDER BY, non di HAVING."
     },
     "why_wrong_en": {
       "0": "Filtering rows before grouping is the job of WHERE, not HAVING.",
@@ -155,17 +155,17 @@
     "topics": ["ACID", "Database"],
     "type": "single",
     "difficulty": 2,
-    "question": "Nelle proprieta ACID di una transazione, cosa garantisce la 'Atomicita' (Atomicity)?",
+    "question": "Nelle proprietà ACID di una transazione, cosa garantisce la 'Atomicità' (Atomicity)?",
     "question_en": "In the ACID properties of a transaction, what does 'Atomicity' guarantee?",
     "options": ["I dati restano coerenti rispetto ai vincoli", "La transazione viene eseguita completamente oppure per nulla", "Le transazioni concorrenti non si interferiscono", "I dati confermati sopravvivono a un guasto"],
     "options_en": ["The data remains consistent with respect to the constraints", "The transaction is executed completely or not at all", "Concurrent transactions do not interfere with each other", "Committed data survives a failure"],
     "correct": [1],
-    "explanation": "L'atomicita garantisce che una transazione sia trattata come un'unita indivisibile: o vengono applicate tutte le sue operazioni (COMMIT) o nessuna (ROLLBACK), senza stati intermedi.",
+    "explanation": "L'atomicità garantisce che una transazione sia trattata come un'unità indivisibile: o vengono applicate tutte le sue operazioni (COMMIT) o nessuna (ROLLBACK), senza stati intermedi.",
     "explanation_en": "Atomicity guarantees that a transaction is treated as an indivisible unit: either all its operations are applied (COMMIT) or none (ROLLBACK), with no intermediate states.",
     "why_wrong": {
-      "0": "Questa e' la Consistenza (Consistency): la transazione porta il database da uno stato valido a un altro rispettando i vincoli.",
-      "2": "Il non interferire delle transazioni concorrenti e' l'Isolamento (Isolation).",
-      "3": "La persistenza dei dati confermati dopo un guasto e' la Durabilita (Durability)."
+      "0": "Questa è la Consistenza (Consistency): la transazione porta il database da uno stato valido a un altro rispettando i vincoli.",
+      "2": "Il non interferire delle transazioni concorrenti è l'Isolamento (Isolation).",
+      "3": "La persistenza dei dati confermati dopo un guasto è la Durabilità (Durability)."
     },
     "why_wrong_en": {
       "0": "This is Consistency: the transaction brings the database from one valid state to another while respecting the constraints.",
@@ -180,17 +180,17 @@
     "topics": ["Indici", "Database"],
     "type": "single",
     "difficulty": 3,
-    "question": "Qual e' la caratteristica principale di un indice clustered?",
+    "question": "Qual è la caratteristica principale di un indice clustered?",
     "question_en": "What is the main characteristic of a clustered index?",
-    "options": ["Puo esistere in piu copie sulla stessa tabella", "Determina l'ordine fisico di memorizzazione delle righe nella tabella", "Non velocizza mai le ricerche", "Memorizza i dati in un file separato dalla tabella"],
+    "options": ["Può esistere in più copie sulla stessa tabella", "Determina l'ordine fisico di memorizzazione delle righe nella tabella", "Non velocizza mai le ricerche", "Memorizza i dati in un file separato dalla tabella"],
     "options_en": ["It can exist in multiple copies on the same table", "It determines the physical storage order of the rows in the table", "It never speeds up searches", "It stores the data in a file separate from the table"],
     "correct": [1],
-    "explanation": "L'indice clustered definisce l'ordine fisico con cui le righe sono memorizzate; per questo puo esistere un solo indice clustered per tabella (i dati stessi sono ordinati secondo la sua chiave).",
+    "explanation": "L'indice clustered definisce l'ordine fisico con cui le righe sono memorizzate; per questo può esistere un solo indice clustered per tabella (i dati stessi sono ordinati secondo la sua chiave).",
     "explanation_en": "The clustered index defines the physical order in which the rows are stored; for this reason there can be only one clustered index per table (the data itself is sorted according to its key).",
     "why_wrong": {
-      "0": "Poiche riordina fisicamente i dati, puo esistere un solo indice clustered per tabella; sono i non-clustered a poter essere multipli.",
+      "0": "Poiché riordina fisicamente i dati, può esistere un solo indice clustered per tabella; sono i non-clustered a poter essere multipli.",
       "2": "L'indice clustered velocizza notevolmente le ricerche e le scansioni per intervallo sulla sua chiave.",
-      "3": "E' l'indice non-clustered a mantenere una struttura separata con puntatori; il clustered coincide con l'ordinamento dei dati."
+      "3": "È l'indice non-clustered a mantenere una struttura separata con puntatori; il clustered coincide con l'ordinamento dei dati."
     },
     "why_wrong_en": {
       "0": "Since it physically reorders the data, there can be only one clustered index per table; it is the non-clustered ones that can be multiple.",
@@ -210,7 +210,7 @@
     "options": ["Chiave-valore", "Documentale", "A grafo", "Colonnare"],
     "options_en": ["Key-value", "Document", "Graph", "Column-family"],
     "correct": [1],
-    "explanation": "MongoDB e' un database documentale (document store): memorizza i dati come documenti (tipicamente JSON/BSON) con schema flessibile, raggruppati in collezioni.",
+    "explanation": "MongoDB è un database documentale (document store): memorizza i dati come documenti (tipicamente JSON/BSON) con schema flessibile, raggruppati in collezioni.",
     "explanation_en": "MongoDB is a document database (document store): it stores data as documents (typically JSON/BSON) with a flexible schema, grouped into collections.",
     "why_wrong": {
       "0": "I database chiave-valore (es. Redis) memorizzano coppie chiave-valore semplici, senza la struttura interrogabile di un documento.",
@@ -230,7 +230,7 @@
     "topics": ["SQL", "Database"],
     "type": "single",
     "difficulty": 3,
-    "question": "In un'applicazione web, la difesa piu efficace contro la SQL injection e':",
+    "question": "In un'applicazione web, la difesa più efficace contro la SQL injection è:",
     "question_en": "In a web application, the most effective defense against SQL injection is:",
     "options": ["Nascondere i messaggi di errore all'utente", "Usare query parametrizzate (prepared statement) che separano codice e dati", "Rinominare le tabelle con nomi complessi", "Aumentare la RAM del server database"],
     "options_en": ["Hiding error messages from the user", "Using parameterized queries (prepared statements) that separate code and data", "Renaming the tables with complex names", "Increasing the RAM of the database server"],
@@ -238,9 +238,9 @@
     "explanation": "Le query parametrizzate (prepared statement) trattano l'input utente esclusivamente come dato e mai come codice SQL eseguibile, neutralizzando alla radice la SQL injection.",
     "explanation_en": "Parameterized queries (prepared statements) treat user input exclusively as data and never as executable SQL code, neutralizing SQL injection at its root.",
     "why_wrong": {
-      "0": "Nascondere gli errori riduce le informazioni per l'attaccante ma non impedisce l'iniezione: e' solo una misura complementare.",
-      "2": "Rinominare le tabelle e' security through obscurity, inefficace: l'iniezione sfrutta la struttura della query, non i nomi.",
-      "3": "Aumentare la RAM riguarda le prestazioni e non ha alcun effetto sulla vulnerabilita di iniezione."
+      "0": "Nascondere gli errori riduce le informazioni per l'attaccante ma non impedisce l'iniezione: è solo una misura complementare.",
+      "2": "Rinominare le tabelle è security through obscurity, inefficace: l'iniezione sfrutta la struttura della query, non i nomi.",
+      "3": "Aumentare la RAM riguarda le prestazioni e non ha alcun effetto sulla vulnerabilità di iniezione."
     },
     "why_wrong_en": {
       "0": "Hiding errors reduces the information available to the attacker but does not prevent injection: it is only a complementary measure.",
@@ -263,7 +263,7 @@
     "explanation": "Il DDL definisce e modifica la struttura degli oggetti del database: CREATE TABLE crea una tabella e ALTER TABLE ne modifica la definizione. Fanno parte del DDL anche DROP e TRUNCATE.",
     "explanation_en": "DDL defines and modifies the structure of database objects: CREATE TABLE creates a table and ALTER TABLE modifies its definition. DROP and TRUNCATE are also part of DDL.",
     "why_wrong": {
-      "1": "UPDATE modifica i dati contenuti nelle righe: e' un'istruzione DML (Data Manipulation Language), non DDL.",
+      "1": "UPDATE modifica i dati contenuti nelle righe: è un'istruzione DML (Data Manipulation Language), non DDL.",
       "3": "SELECT interroga i dati (DML/DQL); non definisce ne modifica la struttura delle tabelle."
     },
     "why_wrong_en": {
@@ -280,14 +280,14 @@
     "difficulty": 3,
     "question": "Riguardo ai vincoli (constraint) di una colonna in SQL, quali affermazioni sono corrette? (seleziona 2)",
     "question_en": "Regarding column constraints in SQL, which statements are correct? (select 2)",
-    "options": ["Il vincolo UNIQUE impedisce valori duplicati nella colonna", "Il vincolo NOT NULL obbliga la colonna a contenere sempre un valore", "Il vincolo PRIMARY KEY ammette piu valori NULL", "Il vincolo CHECK ordina automaticamente le righe"],
+    "options": ["Il vincolo UNIQUE impedisce valori duplicati nella colonna", "Il vincolo NOT NULL obbliga la colonna a contenere sempre un valore", "Il vincolo PRIMARY KEY ammette più valori NULL", "Il vincolo CHECK ordina automaticamente le righe"],
     "options_en": ["The UNIQUE constraint prevents duplicate values in the column", "The NOT NULL constraint forces the column to always contain a value", "The PRIMARY KEY constraint allows multiple NULL values", "The CHECK constraint automatically sorts the rows"],
     "correct": [0, 1],
     "explanation": "UNIQUE garantisce che i valori di una colonna (o combinazione) siano tutti distinti; NOT NULL impone la presenza di un valore, vietando i NULL. Il vincolo CHECK impone invece una condizione logica sui valori ammessi.",
     "explanation_en": "UNIQUE guarantees that the values of a column (or combination) are all distinct; NOT NULL requires the presence of a value, forbidding NULLs. The CHECK constraint instead imposes a logical condition on the allowed values.",
     "why_wrong": {
       "2": "La PRIMARY KEY non ammette valori NULL (implica UNIQUE + NOT NULL) e deve essere univoca.",
-      "3": "CHECK verifica che i valori rispettino una condizione (es. eta > 0); non ha alcuna funzione di ordinamento."
+      "3": "CHECK verifica che i valori rispettino una condizione (es. età > 0); non ha alcuna funzione di ordinamento."
     },
     "why_wrong_en": {
       "2": "The PRIMARY KEY does not allow NULL values (it implies UNIQUE + NOT NULL) and must be unique.",
@@ -303,10 +303,10 @@
     "difficulty": 2,
     "question": "Quali affermazioni sull'operatore UNION in SQL sono corrette? (seleziona 2)",
     "question_en": "Which statements about the UNION operator in SQL are correct? (select 2)",
-    "options": ["Combina i risultati di due o piu SELECT in un unico insieme", "Di default rimuove le righe duplicate dal risultato", "Richiede che le SELECT abbiano numero di colonne diverso", "Esegue il prodotto cartesiano tra due tabelle"],
+    "options": ["Combina i risultati di due o più SELECT in un unico insieme", "Di default rimuove le righe duplicate dal risultato", "Richiede che le SELECT abbiano numero di colonne diverso", "Esegue il prodotto cartesiano tra due tabelle"],
     "options_en": ["It combines the results of two or more SELECTs into a single set", "By default it removes duplicate rows from the result", "It requires the SELECTs to have a different number of columns", "It performs the Cartesian product between two tables"],
     "correct": [0, 1],
-    "explanation": "UNION unisce verticalmente i risultati di piu SELECT e, per impostazione predefinita, elimina i duplicati; per mantenerli si usa UNION ALL. Le SELECT devono avere lo stesso numero di colonne con tipi compatibili.",
+    "explanation": "UNION unisce verticalmente i risultati di più SELECT e, per impostazione predefinita, elimina i duplicati; per mantenerli si usa UNION ALL. Le SELECT devono avere lo stesso numero di colonne con tipi compatibili.",
     "explanation_en": "UNION vertically merges the results of multiple SELECTs and, by default, eliminates duplicates; to keep them, UNION ALL is used. The SELECTs must have the same number of columns with compatible types.",
     "why_wrong": {
       "2": "Al contrario, UNION richiede che le SELECT abbiano lo stesso numero di colonne, con tipi di dato compatibili.",
@@ -329,10 +329,10 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. ROLLBACK annulla tutte le operazioni della transazione corrente non ancora sottoposte a COMMIT, ripristinando lo stato coerente precedente e garantendo l'atomicita.",
+    "explanation": "Vero. ROLLBACK annulla tutte le operazioni della transazione corrente non ancora sottoposte a COMMIT, ripristinando lo stato coerente precedente e garantendo l'atomicità.",
     "explanation_en": "True. ROLLBACK undoes all the operations of the current transaction not yet subjected to COMMIT, restoring the previous consistent state and guaranteeing atomicity.",
     "why_wrong": {
-      "1": "E' errato: proprio ROLLBACK e' il comando che disfa le modifiche pendenti; COMMIT invece le rende permanenti."
+      "1": "È errato: proprio ROLLBACK è il comando che disfa le modifiche pendenti; COMMIT invece le rende permanenti."
     },
     "why_wrong_en": {
       "1": "This is wrong: ROLLBACK is precisely the command that undoes pending changes; COMMIT instead makes them permanent."
@@ -345,15 +345,15 @@
     "topics": ["Database", "SQL"],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Una vista (view) e' una tabella virtuale definita da una query: non memorizza fisicamente i dati (in una vista standard) ma li ricalcola dalle tabelle sottostanti quando viene interrogata.",
+    "question": "Una vista (view) è una tabella virtuale definita da una query: non memorizza fisicamente i dati (in una vista standard) ma li ricalcola dalle tabelle sottostanti quando viene interrogata.",
     "question_en": "A view is a virtual table defined by a query: it does not physically store the data (in a standard view) but recomputes it from the underlying tables when it is queried.",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [0],
-    "explanation": "Vero. Una vista standard e' una query memorizzata che si comporta come una tabella virtuale: i dati vengono derivati dalle tabelle di base a ogni accesso. Solo le viste materializzate memorizzano fisicamente il risultato.",
+    "explanation": "Vero. Una vista standard è una query memorizzata che si comporta come una tabella virtuale: i dati vengono derivati dalle tabelle di base a ogni accesso. Solo le viste materializzate memorizzano fisicamente il risultato.",
     "explanation_en": "True. A standard view is a stored query that behaves like a virtual table: the data is derived from the base tables on each access. Only materialized views physically store the result.",
     "why_wrong": {
-      "1": "E' errato: la vista non contiene dati propri, ma espone il risultato di una query sulle tabelle reali (eccetto le viste materializzate)."
+      "1": "È errato: la vista non contiene dati propri, ma espone il risultato di una query sulle tabelle reali (eccetto le viste materializzate)."
     },
     "why_wrong_en": {
       "1": "This is wrong: the view does not contain its own data, but exposes the result of a query on the real tables (except for materialized views)."
@@ -366,15 +366,15 @@
     "topics": ["NoSQL", "Database"],
     "type": "truefalse",
     "difficulty": 3,
-    "question": "Secondo il teorema CAP, in presenza di una partizione di rete un sistema distribuito puo garantire contemporaneamente sia la piena consistenza (Consistency) sia la piena disponibilita (Availability).",
+    "question": "Secondo il teorema CAP, in presenza di una partizione di rete un sistema distribuito può garantire contemporaneamente sia la piena consistenza (Consistency) sia la piena disponibilità (Availability).",
     "question_en": "According to the CAP theorem, in the presence of a network partition a distributed system can simultaneously guarantee both full consistency (Consistency) and full availability (Availability).",
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [1],
-    "explanation": "Falso. Il teorema CAP afferma che in caso di partizione di rete (P) un sistema distribuito deve sacrificare almeno una tra Consistenza (C) e Disponibilita (A): non puo garantirle entrambe pienamente insieme.",
+    "explanation": "Falso. Il teorema CAP afferma che in caso di partizione di rete (P) un sistema distribuito deve sacrificare almeno una tra Consistenza (C) e Disponibilità (A): non può garantirle entrambe pienamente insieme.",
     "explanation_en": "False. The CAP theorem states that in the event of a network partition (P) a distributed system must sacrifice at least one of Consistency (C) and Availability (A): it cannot fully guarantee both together.",
     "why_wrong": {
-      "0": "E' errato: durante una partizione occorre scegliere tra rispondere sempre (AP) o restare consistenti anche rifiutando richieste (CP); non entrambe al massimo grado."
+      "0": "È errato: durante una partizione occorre scegliere tra rispondere sempre (AP) o restare consistenti anche rifiutando richieste (CP); non entrambe al massimo grado."
     },
     "why_wrong_en": {
       "0": "This is wrong: during a partition one must choose between always responding (AP) or staying consistent even by refusing requests (CP); not both at the maximum degree."

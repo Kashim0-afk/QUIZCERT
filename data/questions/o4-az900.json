@@ -27,10 +27,10 @@
     "correct": [
       1
     ],
-    "explanation": "Il cloud con modello a consumo sostituisce l'acquisto anticipato di hardware (CapEx) con costi ricorrenti proporzionali all'uso effettivo (OpEx), migliorando la flessibilita finanziaria.",
+    "explanation": "Il cloud con modello a consumo sostituisce l'acquisto anticipato di hardware (CapEx) con costi ricorrenti proporzionali all'uso effettivo (OpEx), migliorando la flessibilità finanziaria.",
     "explanation_en": "The cloud with a consumption-based model replaces the upfront purchase of hardware (CapEx) with recurring costs proportional to actual usage (OpEx), improving financial flexibility.",
     "why_wrong": {
-      "0": "E' l'inverso: il datacenter di proprieta rappresenta il CapEx, mentre il cloud a consumo genera OpEx.",
+      "0": "È l'inverso: il datacenter di proprietà rappresenta il CapEx, mentre il cloud a consumo genera OpEx.",
       "2": "Il cloud riduce l'investimento iniziale ma non elimina i costi, che diventano operativi e ricorrenti.",
       "3": "Gli ammortamenti pluriennali sono tipici dell'hardware acquistato (CapEx), non del modello a consumo."
     },
@@ -47,12 +47,12 @@
       "Microsoft AZ-900"
     ],
     "topics": [
-      "Responsabilita condivisa",
+      "Responsabilità condivisa",
       "IaaS/PaaS/SaaS"
     ],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Nel modello di responsabilita condivisa, quando si utilizza un servizio SaaS il cliente rimane sempre responsabile della gestione e del patching del sistema operativo sottostante.",
+    "question": "Nel modello di responsabilità condivisa, quando si utilizza un servizio SaaS il cliente rimane sempre responsabile della gestione e del patching del sistema operativo sottostante.",
     "question_en": "In the shared responsibility model, when using a SaaS service the customer always remains responsible for managing and patching the underlying operating system.",
     "options": [
       "Vero",
@@ -65,7 +65,7 @@
     "correct": [
       1
     ],
-    "explanation": "Falso. Nel SaaS il provider gestisce sistema operativo, runtime, patch e applicazione; al cliente restano solo i dati, gli account e la gestione degli accessi. La responsabilita del sistema operativo e del provider.",
+    "explanation": "Falso. Nel SaaS il provider gestisce sistema operativo, runtime, patch e applicazione; al cliente restano solo i dati, gli account e la gestione degli accessi. La responsabilità del sistema operativo e del provider.",
     "explanation_en": "False. In SaaS the provider manages the operating system, runtime, patches and application; the customer is left only with data, accounts and access management. Responsibility for the operating system lies with the provider.",
     "source": "Microsoft AZ-900"
   },
@@ -80,7 +80,7 @@
     ],
     "type": "single",
     "difficulty": 1,
-    "question": "Un team di sviluppo vuole distribuire le proprie applicazioni web mantenendo il controllo sul codice e sulla configurazione applicativa, ma senza dover gestire i server, il sistema operativo o le patch. Quale modello di servizio e piu adatto?",
+    "question": "Un team di sviluppo vuole distribuire le proprie applicazioni web mantenendo il controllo sul codice e sulla configurazione applicativa, ma senza dover gestire i server, il sistema operativo o le patch. Quale modello di servizio e più adatto?",
     "question_en": "A development team wants to deploy its web applications while keeping control over the code and the application configuration, but without having to manage the servers, the operating system or the patches. Which service model is most suitable?",
     "options": [
       "IaaS (Infrastructure as a Service)",
@@ -101,7 +101,7 @@
     "explanation_en": "PaaS provides a managed platform (operating system, runtime, patches) on which the team deploys only its own code, keeping control over the application without dealing with the infrastructure.",
     "why_wrong": {
       "0": "Con IaaS il team dovrebbe comunque installare e gestire il sistema operativo e il middleware delle macchine virtuali.",
-      "2": "Con SaaS si consuma un'applicazione gia pronta, senza distribuire codice proprio.",
+      "2": "Con SaaS si consuma un'applicazione già pronta, senza distribuire codice proprio.",
       "3": "L'on-premises richiede la gestione completa dell'infrastruttura fisica, contraria all'obiettivo indicato."
     },
     "why_wrong_en": {
@@ -125,10 +125,10 @@
     "question": "Quali dei seguenti sono benefici tipici del cloud computing? (Selezionane due)",
     "question_en": "Which of the following are typical benefits of cloud computing? (Select two)",
     "options": [
-      "Scalabilita elastica delle risorse in base alla domanda",
+      "Scalabilità elastica delle risorse in base alla domanda",
       "Eliminazione totale della latenza di rete tra utenti e servizi",
-      "Alta disponibilita garantita tramite ridondanza e SLA",
-      "Assenza completa di responsabilita del cliente sulla sicurezza dei dati"
+      "Alta disponibilità garantita tramite ridondanza e SLA",
+      "Assenza completa di responsabilità del cliente sulla sicurezza dei dati"
     ],
     "options_en": [
       "Elastic scalability of resources based on demand",
@@ -140,11 +140,11 @@
       0,
       2
     ],
-    "explanation": "Il cloud offre scalabilita elastica (aumentare o ridurre le risorse su richiesta) e alta disponibilita grazie alla ridondanza e agli SLA della piattaforma. La latenza e la responsabilita sui dati non vengono azzerate.",
+    "explanation": "Il cloud offre scalabilità elastica (aumentare o ridurre le risorse su richiesta) e alta disponibilità grazie alla ridondanza e agli SLA della piattaforma. La latenza e la responsabilità sui dati non vengono azzerate.",
     "explanation_en": "The cloud offers elastic scalability (increasing or reducing resources on demand) and high availability thanks to the platform's redundancy and SLAs. Latency and responsibility for data are not eliminated.",
     "why_wrong": {
-      "1": "La latenza di rete dipende dalla distanza fisica e dall'infrastruttura e non puo essere eliminata del tutto.",
-      "3": "Per il modello di responsabilita condivisa, la protezione dei dati resta sempre in parte a carico del cliente."
+      "1": "La latenza di rete dipende dalla distanza fisica e dall'infrastruttura e non può essere eliminata del tutto.",
+      "3": "Per il modello di responsabilità condivisa, la protezione dei dati resta sempre in parte a carico del cliente."
     },
     "why_wrong_en": {
       "1": "Network latency depends on physical distance and infrastructure and cannot be eliminated entirely.",
@@ -163,13 +163,13 @@
     ],
     "type": "single",
     "difficulty": 1,
-    "question": "Quale termine descrive la capacita di aumentare o diminuire automaticamente le risorse cloud in base al carico effettivo, pagando solo per cio che si utilizza?",
+    "question": "Quale termine descrive la capacità di aumentare o diminuire automaticamente le risorse cloud in base al carico effettivo, pagando solo per ciò che si utilizza?",
     "question_en": "Which term describes the ability to automatically increase or decrease cloud resources based on the actual load, paying only for what you use?",
     "options": [
-      "Elasticita",
+      "Elasticità",
       "Ridondanza geografica",
       "Disaster recovery",
-      "Sovranita dei dati"
+      "Sovranità dei dati"
     ],
     "options_en": [
       "Elasticity",
@@ -180,12 +180,12 @@
     "correct": [
       0
     ],
-    "explanation": "L'elasticita e la capacita di adattare dinamicamente le risorse alla domanda; combinata con il modello pay-as-you-go, permette di pagare solo l'effettivo consumo.",
+    "explanation": "L'elasticità e la capacità di adattare dinamicamente le risorse alla domanda; combinata con il modello pay-as-you-go, permette di pagare solo l'effettivo consumo.",
     "explanation_en": "Elasticity is the ability to dynamically adapt resources to demand; combined with the pay-as-you-go model, it allows you to pay only for actual consumption.",
     "why_wrong": {
       "1": "La ridondanza geografica replica i dati tra region per aumentare la resilienza, non regola il carico.",
       "2": "Il disaster recovery riguarda il ripristino dei servizi dopo un guasto, non lo scaling automatico.",
-      "3": "La sovranita dei dati riguarda la giurisdizione legale a cui i dati sono soggetti."
+      "3": "La sovranità dei dati riguarda la giurisdizione legale a cui i dati sono soggetti."
     },
     "why_wrong_en": {
       "1": "Geo-redundancy replicates data across regions to increase resilience; it does not regulate the load.",
@@ -227,7 +227,7 @@
     "why_wrong": {
       "0": "Le macchine virtuali richiedono la gestione del sistema operativo e vengono addebitate anche quando sono inattive.",
       "2": "Blob Storage e un servizio di archiviazione di oggetti, non di esecuzione di codice.",
-      "3": "Virtual Network fornisce connettivita di rete, non esecuzione di codice."
+      "3": "Virtual Network fornisce connettività di rete, non esecuzione di codice."
     },
     "why_wrong_en": {
       "0": "Virtual machines require operating system management and are billed even when they are idle.",
@@ -252,7 +252,7 @@
       "Azure Blob Storage e ottimizzato per l'archiviazione di dati oggetto non strutturati come immagini e backup",
       "Azure Files consente condivisioni file SMB accessibili sia dal cloud sia da client on-premises",
       "Azure Blob Storage e un database relazionale completamente gestito",
-      "Azure Files puo essere utilizzato esclusivamente da macchine on-premises"
+      "Azure Files può essere utilizzato esclusivamente da macchine on-premises"
     ],
     "options_en": [
       "Azure Blob Storage is optimized for storing unstructured object data such as images and backups",
@@ -303,12 +303,12 @@
     "correct": [
       1
     ],
-    "explanation": "ExpressRoute fornisce una connessione privata e dedicata tra la rete on-premises e Azure senza passare per Internet pubblica, offrendo maggiore affidabilita, sicurezza e minore latenza.",
+    "explanation": "ExpressRoute fornisce una connessione privata e dedicata tra la rete on-premises e Azure senza passare per Internet pubblica, offrendo maggiore affidabilità, sicurezza e minore latenza.",
     "explanation_en": "ExpressRoute provides a private, dedicated connection between the on-premises network and Azure without going over the public Internet, offering greater reliability, security and lower latency.",
     "why_wrong": {
       "0": "Il VPN Gateway site-to-site crea un tunnel cifrato ma il traffico attraversa comunque la rete Internet pubblica.",
-      "2": "Azure DNS gestisce la risoluzione dei nomi di dominio, non la connettivita tra reti.",
-      "3": "Il Load Balancer distribuisce il traffico tra piu istanze, non collega la rete on-premises ad Azure."
+      "2": "Azure DNS gestisce la risoluzione dei nomi di dominio, non la connettività tra reti.",
+      "3": "Il Load Balancer distribuisce il traffico tra più istanze, non collega la rete on-premises ad Azure."
     },
     "why_wrong_en": {
       "0": "The site-to-site VPN Gateway creates an encrypted tunnel but the traffic still traverses the public Internet.",
@@ -328,7 +328,7 @@
     ],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Le zone di disponibilita (Availability Zones) sono ubicazioni fisicamente separate all'interno di una stessa area di Azure (region), progettate per proteggere le applicazioni dai guasti a livello di singolo datacenter.",
+    "question": "Le zone di disponibilità (Availability Zones) sono ubicazioni fisicamente separate all'interno di una stessa area di Azure (region), progettate per proteggere le applicazioni dai guasti a livello di singolo datacenter.",
     "question_en": "Availability Zones are physically separate locations within the same Azure area (region), designed to protect applications from single-datacenter-level failures.",
     "options": [
       "Vero",
@@ -341,7 +341,7 @@
     "correct": [
       0
     ],
-    "explanation": "Vero. Le Availability Zones sono datacenter fisicamente distinti, con alimentazione, raffreddamento e rete indipendenti, all'interno di una region. Distribuire le risorse tra piu zone aumenta la resilienza ai guasti di un singolo datacenter.",
+    "explanation": "Vero. Le Availability Zones sono datacenter fisicamente distinti, con alimentazione, raffreddamento e rete indipendenti, all'interno di una region. Distribuire le risorse tra più zone aumenta la resilienza ai guasti di un singolo datacenter.",
     "explanation_en": "True. Availability Zones are physically distinct datacenters, with independent power, cooling and networking, within a region. Distributing resources across multiple zones increases resilience against the failure of a single datacenter.",
     "source": "Microsoft AZ-900"
   },
@@ -375,8 +375,8 @@
     "explanation": "Il gruppo di risorse e un contenitore logico in cui si raggruppano risorse correlate per distribuirle, gestirle, monitorarle ed eliminarle insieme.",
     "explanation_en": "The resource group is a logical container in which related resources are grouped to deploy, manage, monitor and delete them together.",
     "why_wrong": {
-      "1": "Il management group organizza e applica criteri a piu sottoscrizioni, non alle singole risorse.",
-      "2": "La sottoscrizione e un'unita di fatturazione e di gestione che contiene piu gruppi di risorse.",
+      "1": "Il management group organizza e applica criteri a più sottoscrizioni, non alle singole risorse.",
+      "2": "La sottoscrizione e un'unità di fatturazione e di gestione che contiene più gruppi di risorse.",
       "3": "I tag sono coppie nome-valore per la categorizzazione, non contenitori di risorse."
     },
     "why_wrong_en": {
@@ -397,7 +397,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un'applicazione web richiede un database relazionale completamente gestito, con backup automatici, patching e alta disponibilita a carico del provider. Quale servizio e piu adatto?",
+    "question": "Un'applicazione web richiede un database relazionale completamente gestito, con backup automatici, patching e alta disponibilità a carico del provider. Quale servizio e più adatto?",
     "question_en": "A web application requires a fully managed relational database, with automatic backups, patching and high availability handled by the provider. Which service is most suitable?",
     "options": [
       "SQL Server installato manualmente su una macchina virtuale Azure",
@@ -414,11 +414,11 @@
     "correct": [
       1
     ],
-    "explanation": "Azure SQL Database e un servizio PaaS di database relazionale gestito, con backup automatici, patching, scalabilita e alta disponibilita gestiti da Microsoft.",
+    "explanation": "Azure SQL Database e un servizio PaaS di database relazionale gestito, con backup automatici, patching, scalabilità e alta disponibilità gestiti da Microsoft.",
     "explanation_en": "Azure SQL Database is a PaaS managed relational database service, with automatic backups, patching, scalability and high availability managed by Microsoft.",
     "why_wrong": {
       "0": "SQL Server su VM (IaaS) richiede la gestione manuale di sistema operativo, patch e backup.",
-      "2": "Blob Storage archivia oggetti non strutturati e non e un database relazionale.",
+      "2": "Blob Storage archivia oggetti non strutturati e non è un database relazionale.",
       "3": "Cosmos DB e un database NoSQL distribuito, non un database relazionale."
     },
     "why_wrong_en": {
@@ -438,7 +438,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Quale servizio Azure consente di distribuire e gestire automaticamente un gruppo di macchine virtuali identiche, con bilanciamento del carico e scalabilita automatica in base alla domanda?",
+    "question": "Quale servizio Azure consente di distribuire e gestire automaticamente un gruppo di macchine virtuali identiche, con bilanciamento del carico e scalabilità automatica in base alla domanda?",
     "question_en": "Which Azure service allows you to automatically deploy and manage a group of identical virtual machines, with load balancing and automatic scalability based on demand?",
     "options": [
       "Azure Virtual Machine Scale Sets",
@@ -455,12 +455,12 @@
     "correct": [
       0
     ],
-    "explanation": "I Virtual Machine Scale Sets permettono di creare e gestire un insieme di VM identiche con bilanciamento del carico e scalabilita automatica in base al carico.",
+    "explanation": "I Virtual Machine Scale Sets permettono di creare e gestire un insieme di VM identiche con bilanciamento del carico e scalabilità automatica in base al carico.",
     "explanation_en": "Virtual Machine Scale Sets allow you to create and manage a set of identical VMs with load balancing and automatic scalability based on the load.",
     "why_wrong": {
       "1": "AKS orchestra container, non gruppi di macchine virtuali tradizionali identiche.",
       "2": "App Service ospita applicazioni web PaaS e non gestisce direttamente set di VM.",
-      "3": "Azure Bastion fornisce accesso RDP/SSH sicuro alle VM, non la scalabilita automatica."
+      "3": "Azure Bastion fornisce accesso RDP/SSH sicuro alle VM, non la scalabilità automatica."
     },
     "why_wrong_en": {
       "1": "AKS orchestrates containers, not groups of identical traditional virtual machines.",
@@ -480,7 +480,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un amministratore deve concedere a un utente la sola possibilita di visualizzare le risorse di un gruppo di risorse, senza poterle modificare. Quale approccio con Azure RBAC e corretto?",
+    "question": "Un amministratore deve concedere a un utente la sola possibilità di visualizzare le risorse di un gruppo di risorse, senza poterle modificare. Quale approccio con Azure RBAC e corretto?",
     "question_en": "An administrator must grant a user only the ability to view the resources of a resource group, without being able to modify them. Which approach with Azure RBAC is correct?",
     "options": [
       "Assegnare il ruolo Reader (Lettore) con ambito sul gruppo di risorse",
@@ -502,7 +502,7 @@
     "why_wrong": {
       "1": "Owner sulla sottoscrizione concede il pieno controllo su tutte le risorse, violando il privilegio minimo.",
       "2": "Contributor consente di creare e modificare le risorse, non solo di leggerle.",
-      "3": "Azure Policy governa la conformita delle risorse, non l'assegnazione dei permessi di lettura agli utenti."
+      "3": "Azure Policy governa la conformità delle risorse, non l'assegnazione dei permessi di lettura agli utenti."
     },
     "why_wrong_en": {
       "1": "Owner on the subscription grants full control over all resources, violating least privilege.",
@@ -525,8 +525,8 @@
     "question": "Quali delle seguenti sono funzioni di Azure Policy? (Selezionane due)",
     "question_en": "Which of the following are functions of Azure Policy? (Select two)",
     "options": [
-      "Applicare regole per garantire la conformita delle risorse, ad esempio imporre solo region consentite",
-      "Valutare le risorse esistenti e segnalarne lo stato di non conformita",
+      "Applicare regole per garantire la conformità delle risorse, ad esempio imporre solo region consentite",
+      "Valutare le risorse esistenti e segnalarne lo stato di non conformità",
       "Autenticare gli utenti e gestire le loro credenziali di accesso",
       "Cifrare automaticamente tutto il traffico di rete tra le macchine virtuali"
     ],
@@ -540,11 +540,11 @@
       0,
       1
     ],
-    "explanation": "Azure Policy definisce e applica regole di conformita (ad esempio limitare le region o gli SKU consentiti) e valuta continuamente le risorse esistenti segnalando quelle non conformi.",
+    "explanation": "Azure Policy definisce e applica regole di conformità (ad esempio limitare le region o gli SKU consentiti) e valuta continuamente le risorse esistenti segnalando quelle non conformi.",
     "explanation_en": "Azure Policy defines and enforces compliance rules (for example limiting the permitted regions or SKUs) and continuously evaluates existing resources, flagging non-compliant ones.",
     "why_wrong": {
       "2": "L'autenticazione degli utenti e la gestione delle credenziali sono compito di Microsoft Entra ID, non di Azure Policy.",
-      "3": "La cifratura del traffico di rete non e una funzione di Azure Policy."
+      "3": "La cifratura del traffico di rete non è una funzione di Azure Policy."
     },
     "why_wrong_en": {
       "2": "User authentication and credential management are the job of Microsoft Entra ID, not Azure Policy.",
@@ -633,7 +633,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un'organizzazione vuole ricevere raccomandazioni personalizzate su come migliorare sicurezza, affidabilita, prestazioni e ottimizzazione dei costi delle proprie risorse Azure. Quale servizio fornisce queste indicazioni?",
+    "question": "Un'organizzazione vuole ricevere raccomandazioni personalizzate su come migliorare sicurezza, affidabilità, prestazioni e ottimizzazione dei costi delle proprie risorse Azure. Quale servizio fornisce queste indicazioni?",
     "question_en": "An organization wants to receive personalized recommendations on how to improve the security, reliability, performance and cost optimization of its Azure resources. Which service provides this guidance?",
     "options": [
       "Azure Advisor",
@@ -650,12 +650,12 @@
     "correct": [
       0
     ],
-    "explanation": "Azure Advisor analizza la configurazione e l'utilizzo delle risorse e fornisce raccomandazioni personalizzate su affidabilita, sicurezza, eccellenza operativa, prestazioni e ottimizzazione dei costi.",
+    "explanation": "Azure Advisor analizza la configurazione e l'utilizzo delle risorse e fornisce raccomandazioni personalizzate su affidabilità, sicurezza, eccellenza operativa, prestazioni e ottimizzazione dei costi.",
     "explanation_en": "Azure Advisor analyzes the configuration and usage of resources and provides personalized recommendations on reliability, security, operational excellence, performance and cost optimization.",
     "why_wrong": {
-      "1": "Azure Policy applica regole di conformita alle risorse, non fornisce raccomandazioni di ottimizzazione.",
+      "1": "Azure Policy applica regole di conformità alle risorse, non fornisce raccomandazioni di ottimizzazione.",
       "2": "Azure Service Health informa su incidenti e manutenzioni della piattaforma, non offre raccomandazioni sulle risorse.",
-      "3": "Microsoft Entra ID gestisce identita e accessi, non fornisce raccomandazioni sulle risorse."
+      "3": "Microsoft Entra ID gestisce identità e accessi, non fornisce raccomandazioni sulle risorse."
     },
     "why_wrong_en": {
       "1": "Azure Policy enforces compliance rules on resources; it does not provide optimization recommendations.",
@@ -697,7 +697,7 @@
     "explanation_en": "Infrastructure as Code describes the infrastructure in declarative files (for example ARM, Bicep, Terraform), enabling repeatable, consistent deployments that can be controlled with code versioning.",
     "why_wrong": {
       "2": "L'IaC serve proprio a evitare la configurazione manuale nel portale, automatizzando le distribuzioni.",
-      "3": "L'IaC gestisce risorse Azure (IaaS e PaaS) e non e limitata alle applicazioni SaaS di terze parti."
+      "3": "L'IaC gestisce risorse Azure (IaaS e PaaS) e non è limitata alle applicazioni SaaS di terze parti."
     },
     "why_wrong_en": {
       "2": "IaC exists precisely to avoid manual configuration in the portal, automating deployments.",

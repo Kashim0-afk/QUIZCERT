@@ -5,11 +5,11 @@
     "topics": ["Entra ID", "Identity"],
     "type": "single",
     "difficulty": 2,
-    "question": "Un partner esterno deve collaborare a un progetto accedendo ad alcune app SharePoint della tua organizzazione, ma non deve avere una casella di posta ne una licenza interna. Qual e l'approccio corretto in Microsoft Entra ID?",
+    "question": "Un partner esterno deve collaborare a un progetto accedendo ad alcune app SharePoint della tua organizzazione, ma non deve avere una casella di posta ne una licenza interna. Qual è l'approccio corretto in Microsoft Entra ID?",
     "question_en": "An external partner needs to collaborate on a project by accessing some of your organization's SharePoint apps, but must not have a mailbox or an internal license. What is the correct approach in Microsoft Entra ID?",
     "options": [
       "Creare un account membro interno con licenza Microsoft 365",
-      "Invitare l'utente come identita esterna B2B (utente guest)",
+      "Invitare l'utente come identità esterna B2B (utente guest)",
       "Condividere le credenziali di un account di servizio esistente",
       "Creare un gruppo di sicurezza e aggiungervi l'indirizzo email del partner"
     ],
@@ -20,12 +20,12 @@
       "Create a security group and add the partner's email address to it"
     ],
     "correct": [1],
-    "explanation": "La collaborazione B2B permette di invitare utenti esterni come guest usando le loro identita di origine (il partner autentica sul proprio IdP). Il guest riceve un oggetto utente nel tenant con userType Guest e puo ricevere accesso alle risorse senza consumare licenze interne o richiedere una casella di posta.",
+    "explanation": "La collaborazione B2B permette di invitare utenti esterni come guest usando le loro identità di origine (il partner autentica sul proprio IdP). Il guest riceve un oggetto utente nel tenant con userType Guest e può ricevere accesso alle risorse senza consumare licenze interne o richiedere una casella di posta.",
     "explanation_en": "B2B collaboration lets you invite external users as guests using their home identities (the partner authenticates against their own IdP). The guest receives a user object in the tenant with userType Guest and can be granted access to resources without consuming internal licenses or requiring a mailbox.",
     "why_wrong": {
-      "0": "Un account membro interno con licenza e sprecato per un collaboratore esterno e crea un'identita separata da gestire, contrariamente al modello B2B.",
-      "2": "Condividere credenziali di account di servizio viola i principi di identita e tracciabilita e non e mai una pratica accettabile.",
-      "3": "Aggiungere un'email a un gruppo non crea un'identita ne concede accesso autenticato: serve un oggetto utente guest reale."
+      "0": "Un account membro interno con licenza e sprecato per un collaboratore esterno e crea un'identità separata da gestire, contrariamente al modello B2B.",
+      "2": "Condividere credenziali di account di servizio viola i principi di identità e tracciabilità e non è mai una pratica accettabile.",
+      "3": "Aggiungere un'email a un gruppo non crea un'identità ne concede accesso autenticato: serve un oggetto utente guest reale."
     },
     "why_wrong_en": {
       "0": "An internal member account with a license is wasteful for an external collaborator and creates a separate identity to manage, contrary to the B2B model.",
@@ -40,7 +40,7 @@
     "topics": ["Conditional Access", "Zero Trust"],
     "type": "single",
     "difficulty": 2,
-    "question": "Vuoi imporre l'autenticazione a piu fattori a tutti gli amministratori quando accedono al portale di Azure, indipendentemente dalla loro posizione. Quale strumento di Microsoft Entra ID usi?",
+    "question": "Vuoi imporre l'autenticazione a più fattori a tutti gli amministratori quando accedono al portale di Azure, indipendentemente dalla loro posizione. Quale strumento di Microsoft Entra ID usi?",
     "question_en": "You want to enforce multi-factor authentication for all administrators when they access the Azure portal, regardless of their location. Which Microsoft Entra ID tool do you use?",
     "options": [
       "Una policy di Accesso Condizionale (Conditional Access) con assegnazione ai ruoli di directory e controllo grant che richiede MFA",
@@ -75,7 +75,7 @@
     "topics": ["PIM", "Governance"],
     "type": "single",
     "difficulty": 2,
-    "question": "La tua organizzazione vuole che gli amministratori non abbiano permanentemente il ruolo Global Administrator, ma possano attivarlo solo quando necessario, per un periodo limitato e con giustificazione. Quale funzionalita implementi?",
+    "question": "La tua organizzazione vuole che gli amministratori non abbiano permanentemente il ruolo Global Administrator, ma possano attivarlo solo quando necessario, per un periodo limitato e con giustificazione. Quale funzionalità implementi?",
     "question_en": "Your organization wants administrators not to hold the Global Administrator role permanently, but to be able to activate it only when needed, for a limited period and with justification. Which feature do you implement?",
     "options": [
       "Assegnazione permanente attiva del ruolo tramite gruppi con ruolo assegnabile",
@@ -94,7 +94,7 @@
     "explanation_en": "Privileged Identity Management provides just-in-time privileged access: the administrator receives an eligible assignment and must activate the role on demand, for a limited duration, often with MFA, justification, and possible approval. This reduces the attack surface by eliminating standing access.",
     "why_wrong": {
       "0": "Un'assegnazione permanente attiva mantiene esattamente i privilegi sempre attivi che si vogliono eliminare.",
-      "2": "L'Accesso Condizionale puo aggiungere controlli sull'attivazione ma da solo non fornisce il modello eleggibile/just-in-time dei ruoli.",
+      "2": "L'Accesso Condizionale può aggiungere controlli sull'attivazione ma da solo non fornisce il modello eleggibile/just-in-time dei ruoli.",
       "3": "Una Access Review ricertifica periodicamente le assegnazioni ma non abilita l'attivazione temporanea on-demand del ruolo."
     },
     "why_wrong_en": {
@@ -110,7 +110,7 @@
     "topics": ["MFA", "Controllo accessi"],
     "type": "single",
     "difficulty": 1,
-    "question": "Gli utenti chiamano frequentemente l'help desk per reimpostare la propria password dimenticata. Quale funzionalita di Microsoft Entra ID riduce questo carico permettendo agli utenti di reimpostarla autonomamente?",
+    "question": "Gli utenti chiamano frequentemente l'help desk per reimpostare la propria password dimenticata. Quale funzionalità di Microsoft Entra ID riduce questo carico permettendo agli utenti di reimpostarla autonomamente?",
     "question_en": "Users frequently call the help desk to reset their forgotten password. Which Microsoft Entra ID feature reduces this load by letting users reset it themselves?",
     "options": [
       "Password Protection",
@@ -125,7 +125,7 @@
       "Conditional Access"
     ],
     "correct": [1],
-    "explanation": "Il Self-Service Password Reset (SSPR) consente agli utenti di reimpostare o sbloccare la propria password in autonomia dopo aver verificato la propria identita tramite metodi di autenticazione registrati (es. app Authenticator, telefono, email, domande di sicurezza), riducendo le chiamate all'help desk.",
+    "explanation": "Il Self-Service Password Reset (SSPR) consente agli utenti di reimpostare o sbloccare la propria password in autonomia dopo aver verificato la propria identità tramite metodi di autenticazione registrati (es. app Authenticator, telefono, email, domande di sicurezza), riducendo le chiamate all'help desk.",
     "explanation_en": "Self-Service Password Reset (SSPR) lets users reset or unlock their own password after verifying their identity via registered authentication methods (e.g. Authenticator app, phone, email, security questions), reducing help desk calls.",
     "why_wrong": {
       "0": "La Password Protection impedisce l'uso di password deboli o presenti in liste vietate, ma non consente all'utente di reimpostarle da solo.",
@@ -164,7 +164,7 @@
     "explanation_en": "For a SaaS enterprise app that supports SAML, in Entra ID you configure SAML SSO by setting the app's Identifier (Entity ID) and Reply URL (Assertion Consumer Service), plus the claims/attributes included in the SAML token. Entra ID acts as the Identity Provider, issuing the SAML assertion to the application.",
     "why_wrong": {
       "0": "Il flusso client credentials con solo secret e per l'autenticazione da servizio a servizio (daemon), non per l'SSO interattivo SAML di una SaaS.",
-      "2": "Application Proxy serve a pubblicare app on-premise; non e il meccanismo SSO per una SaaS cloud che parla SAML.",
+      "2": "Application Proxy serve a pubblicare app on-premise; non è il meccanismo SSO per una SaaS cloud che parla SAML.",
       "3": "La Password Protection non ha alcun ruolo nella configurazione dell'SSO di un'applicazione."
     },
     "why_wrong_en": {
@@ -180,7 +180,7 @@
     "topics": ["Governance", "Controllo accessi"],
     "type": "single",
     "difficulty": 2,
-    "question": "L'auditor richiede che, ogni tre mesi, i responsabili confermino se i membri di alcuni gruppi con accesso a dati sensibili debbano ancora mantenerlo. Quale funzionalita di Identity Governance usi?",
+    "question": "L'auditor richiede che, ogni tre mesi, i responsabili confermino se i membri di alcuni gruppi con accesso a dati sensibili debbano ancora mantenerlo. Quale funzionalità di Identity Governance usi?",
     "question_en": "The auditor requires that, every three months, managers confirm whether the members of certain groups with access to sensitive data should still retain it. Which Identity Governance feature do you use?",
     "options": [
       "Access Reviews (revisioni di accesso) per ricertificare periodicamente le appartenenze",
@@ -195,11 +195,11 @@
       "Conditional Access that blocks access to the groups"
     ],
     "correct": [0],
-    "explanation": "Le Access Reviews permettono di ricertificare periodicamente accessi e appartenenze: i revisori designati (es. i responsabili o gli utenti stessi) approvano o rimuovono l'accesso a intervalli definiti, con possibilita di applicare automaticamente i risultati. E il controllo di governance pensato per la ricertificazione ciclica.",
+    "explanation": "Le Access Reviews permettono di ricertificare periodicamente accessi e appartenenze: i revisori designati (es. i responsabili o gli utenti stessi) approvano o rimuovono l'accesso a intervalli definiti, con possibilità di applicare automaticamente i risultati. E il controllo di governance pensato per la ricertificazione ciclica.",
     "explanation_en": "Access Reviews let you periodically recertify access and memberships: designated reviewers (e.g. managers or the users themselves) approve or remove access at defined intervals, with the option to apply the results automatically. It is the governance control designed for cyclical recertification.",
     "why_wrong": {
       "1": "PIM abilita l'attivazione temporanea di ruoli/gruppi privilegiati, non la ricertificazione periodica delle appartenenze da parte dei responsabili.",
-      "2": "La Password Protection riguarda la qualita delle password, non la revisione degli accessi.",
+      "2": "La Password Protection riguarda la qualità delle password, non la revisione degli accessi.",
       "3": "L'Accesso Condizionale controlla le condizioni di sign-in, non esegue campagne di ricertificazione periodica delle appartenenze."
     },
     "why_wrong_en": {
@@ -215,7 +215,7 @@
     "topics": ["MFA", "Identity"],
     "type": "single",
     "difficulty": 2,
-    "question": "Vuoi impedire che gli utenti scelgano password contenenti il nome dell'azienda e le sue varianti prevedibili (es. Azienda123, Az1enda!). Quale funzionalita configuri in Microsoft Entra ID?",
+    "question": "Vuoi impedire che gli utenti scelgano password contenenti il nome dell'azienda e le sue varianti prevedibili (es. Azienda123, Az1enda!). Quale funzionalità configuri in Microsoft Entra ID?",
     "question_en": "You want to prevent users from choosing passwords containing the company name and its predictable variants (e.g. Company123, C0mpany!). Which feature do you configure in Microsoft Entra ID?",
     "options": [
       "Smart lockout con soglia bassa",
@@ -268,7 +268,7 @@
     "explanation": "Le impostazioni di consenso (Enterprise applications > Consent and permissions) permettono di limitare o negare il consenso utente alle app, riducendo il rischio di illicit consent grant. Abilitando l'admin consent workflow, le richieste degli utenti vengono inoltrate a revisori designati che approvano o rifiutano il consenso a livello di tenant.",
     "explanation_en": "The consent settings (Enterprise applications > Consent and permissions) let you restrict or deny user consent to apps, reducing the risk of illicit consent grants. By enabling the admin consent workflow, users' requests are forwarded to designated reviewers who approve or reject consent at the tenant level.",
     "why_wrong": {
-      "0": "Disabilitare tutte le app registrations impedirebbe agli sviluppatori legittimi di registrare app e non e il controllo mirato sul consenso utente.",
+      "0": "Disabilitare tutte le app registrations impedirebbe agli sviluppatori legittimi di registrare app e non è il controllo mirato sul consenso utente.",
       "2": "Assegnare Application Administrator a tutti aumenterebbe drasticamente i privilegi e il rischio, esattamente il contrario dell'obiettivo.",
       "3": "Una Access Review ricertifica accessi esistenti ma non intercetta ne instrada le richieste di consenso al momento in cui avvengono."
     },
@@ -285,7 +285,7 @@
     "topics": ["MFA", "Controllo accessi"],
     "type": "single",
     "difficulty": 2,
-    "question": "Vuoi promuovere il metodo di autenticazione piu sicuro e resistente al phishing per i tuoi utenti in Microsoft Entra ID. Quale metodo scegli?",
+    "question": "Vuoi promuovere il metodo di autenticazione più sicuro e resistente al phishing per i tuoi utenti in Microsoft Entra ID. Quale metodo scegli?",
     "question_en": "You want to promote the most secure, phishing-resistant authentication method for your users in Microsoft Entra ID. Which method do you choose?",
     "options": [
       "SMS come secondo fattore",
@@ -300,11 +300,11 @@
       "Security questions"
     ],
     "correct": [2],
-    "explanation": "Le chiavi di sicurezza FIDO2 e le passkey offrono autenticazione senza password resistente al phishing: la credenziale crittografica e legata al dominio dell'app e non puo essere intercettata o riutilizzata da siti fraudolenti. Microsoft la classifica tra i metodi piu forti, superiore a SMS/voce vulnerabili a intercettazione e SIM swap.",
+    "explanation": "Le chiavi di sicurezza FIDO2 e le passkey offrono autenticazione senza password resistente al phishing: la credenziale crittografica e legata al dominio dell'app e non può essere intercettata o riutilizzata da siti fraudolenti. Microsoft la classifica tra i metodi più forti, superiore a SMS/voce vulnerabili a intercettazione e SIM swap.",
     "explanation_en": "FIDO2 security keys and passkeys provide phishing-resistant passwordless authentication: the cryptographic credential is bound to the app's domain and cannot be intercepted or reused by fraudulent sites. Microsoft classifies it among the strongest methods, superior to SMS/voice, which are vulnerable to interception and SIM swap.",
     "why_wrong": {
       "0": "L'SMS e un metodo MFA debole, vulnerabile a SIM swapping e intercettazione, ed e sconsigliato come metodo forte.",
-      "1": "La chiamata vocale condivide le stesse debolezze dell'SMS e non e resistente al phishing.",
+      "1": "La chiamata vocale condivide le stesse debolezze dell'SMS e non è resistente al phishing.",
       "3": "Le domande di sicurezza sono un metodo debole, usato solo per SSPR e facilmente indovinabile o soggetto a social engineering."
     },
     "why_wrong_en": {
@@ -320,7 +320,7 @@
     "topics": ["Governance", "Identity"],
     "type": "single",
     "difficulty": 3,
-    "question": "Devi permettere ai dipendenti di richiedere in autonomia un pacchetto di accesso che raggruppa gruppi, app e siti SharePoint, con approvazione del manager e scadenza automatica dopo 90 giorni. Quale funzionalita di Identity Governance usi?",
+    "question": "Devi permettere ai dipendenti di richiedere in autonomia un pacchetto di accesso che raggruppa gruppi, app e siti SharePoint, con approvazione del manager e scadenza automatica dopo 90 giorni. Quale funzionalità di Identity Governance usi?",
     "question_en": "You need to let employees request, on their own, an access package that bundles groups, apps, and SharePoint sites, with manager approval and automatic expiration after 90 days. Which Identity Governance feature do you use?",
     "options": [
       "Entitlement Management con access package e policy di assegnazione",
@@ -335,7 +335,7 @@
       "Conditional Access with a limited session"
     ],
     "correct": [0],
-    "explanation": "L'Entitlement Management consente di creare access package che raggruppano risorse (gruppi, app, siti SharePoint) e di definire policy di assegnazione con richiesta self-service, flusso di approvazione (es. manager) e scadenza/lifecycle automatico. E la funzionalita pensata per la gestione del ciclo di vita degli accessi su larga scala, anche per utenti esterni.",
+    "explanation": "L'Entitlement Management consente di creare access package che raggruppano risorse (gruppi, app, siti SharePoint) e di definire policy di assegnazione con richiesta self-service, flusso di approvazione (es. manager) e scadenza/lifecycle automatico. E la funzionalità pensata per la gestione del ciclo di vita degli accessi su larga scala, anche per utenti esterni.",
     "explanation_en": "Entitlement Management lets you create access packages that bundle resources (groups, apps, SharePoint sites) and define assignment policies with self-service request, an approval flow (e.g. manager), and automatic expiration/lifecycle. It is the feature designed for large-scale access lifecycle management, including for external users.",
     "why_wrong": {
       "1": "PIM for Groups gestisce l'attivazione just-in-time di appartenenze privilegiate, non l'assegnazione self-service con approvazione di un pacchetto di risorse eterogenee.",
@@ -370,10 +370,10 @@
       "Rotation of the tenant's token signing keys"
     ],
     "correct": [0, 2],
-    "explanation": "L'Accesso Condizionale valuta segnali come il rischio di sign-in (integrato con Identity Protection) e puo imporre controlli grant come richiedere un dispositivo conforme o Hybrid Entra joined, MFA, o app approvate. Rischio e requisito dispositivo sono elementi centrali del modello if-then di Conditional Access.",
+    "explanation": "L'Accesso Condizionale valuta segnali come il rischio di sign-in (integrato con Identity Protection) e può imporre controlli grant come richiedere un dispositivo conforme o Hybrid Entra joined, MFA, o app approvate. Rischio e requisito dispositivo sono elementi centrali del modello if-then di Conditional Access.",
     "explanation_en": "Conditional Access evaluates signals such as sign-in risk (integrated with Identity Protection) and can enforce grant controls such as requiring a compliant or Hybrid Entra joined device, MFA, or approved apps. Risk and the device requirement are central elements of the Conditional Access if-then model.",
     "why_wrong": {
-      "1": "La reimpostazione automatica della password non e un controllo dell'Accesso Condizionale; il reset e gestito da SSPR o dagli amministratori.",
+      "1": "La reimpostazione automatica della password non è un controllo dell'Accesso Condizionale; il reset e gestito da SSPR o dagli amministratori.",
       "3": "La rotazione delle chiavi di firma dei token e un'operazione di piattaforma/sicurezza del tenant, non un'assegnazione o controllo configurabile in una policy CA."
     },
     "why_wrong_en": {
@@ -388,7 +388,7 @@
     "topics": ["PIM", "Governance"],
     "type": "multi",
     "difficulty": 2,
-    "question": "Quali delle seguenti sono caratteristiche o capacita di Privileged Identity Management (PIM) in Microsoft Entra ID? (Seleziona 2)",
+    "question": "Quali delle seguenti sono caratteristiche o capacità di Privileged Identity Management (PIM) in Microsoft Entra ID? (Seleziona 2)",
     "question_en": "Which of the following are features or capabilities of Privileged Identity Management (PIM) in Microsoft Entra ID? (Select 2)",
     "options": [
       "Richiedere approvazione e MFA all'attivazione di un ruolo eleggibile",
@@ -403,7 +403,7 @@
       "Synchronizing password hashes from on-premises Active Directory"
     ],
     "correct": [0, 1],
-    "explanation": "PIM fornisce assegnazioni eleggibili che l'utente attiva just-in-time per una durata limitata, e all'attivazione puo richiedere MFA, giustificazione e approvazione di un revisore. Include inoltre notifiche, audit e access review sui ruoli privilegiati, riducendo il rischio dei privilegi permanenti.",
+    "explanation": "PIM fornisce assegnazioni eleggibili che l'utente attiva just-in-time per una durata limitata, e all'attivazione può richiedere MFA, giustificazione e approvazione di un revisore. Include inoltre notifiche, audit e access review sui ruoli privilegiati, riducendo il rischio dei privilegi permanenti.",
     "explanation_en": "PIM provides eligible assignments that the user activates just-in-time for a limited duration, and at activation it can require MFA, justification, and reviewer approval. It also includes notifications, auditing, and access reviews on privileged roles, reducing the risk of standing privileges.",
     "why_wrong": {
       "2": "Il blocco delle password vietate e una funzione di Password Protection, non di PIM.",
@@ -436,11 +436,11 @@
       "The device's BitLocker encryption key"
     ],
     "correct": [0, 1],
-    "explanation": "Le Authentication methods policy di Entra ID permettono di abilitare metodi come Microsoft Authenticator (push e passwordless), chiavi di sicurezza FIDO2, Windows Hello for Business, Temporary Access Pass, OATH token, SMS e chiamata vocale. Authenticator e FIDO2 sono metodi validi e tra i piu raccomandati.",
+    "explanation": "Le Authentication methods policy di Entra ID permettono di abilitare metodi come Microsoft Authenticator (push e passwordless), chiavi di sicurezza FIDO2, Windows Hello for Business, Temporary Access Pass, OATH token, SMS e chiamata vocale. Authenticator e FIDO2 sono metodi validi e tra i più raccomandati.",
     "explanation_en": "Entra ID Authentication methods policies let you enable methods such as Microsoft Authenticator (push and passwordless), FIDO2 security keys, Windows Hello for Business, Temporary Access Pass, OATH tokens, SMS, and voice call. Authenticator and FIDO2 are valid and among the most recommended methods.",
     "why_wrong": {
-      "2": "Il certificato TLS del web server serve a proteggere il canale HTTPS dell'app, non e un metodo di autenticazione dell'utente in Entra ID.",
-      "3": "La chiave BitLocker protegge i dati a riposo sul disco del dispositivo e non e un metodo di autenticazione utente."
+      "2": "Il certificato TLS del web server serve a proteggere il canale HTTPS dell'app, non è un metodo di autenticazione dell'utente in Entra ID.",
+      "3": "La chiave BitLocker protegge i dati a riposo sul disco del dispositivo e non è un metodo di autenticazione utente."
     },
     "why_wrong_en": {
       "2": "The web server's TLS certificate protects the app's HTTPS channel; it is not a user authentication method in Entra ID.",
@@ -489,7 +489,7 @@
     "options": ["Vero", "Falso"],
     "options_en": ["True", "False"],
     "correct": [1],
-    "explanation": "Falso. L'app registration definisce l'applicazione e la sua identita nel tenant di origine (object nell'oggetto Application, con permessi, redirect URI, secret/certificati). L'enterprise application e il service principal, ovvero l'istanza/rappresentazione locale dell'app in un tenant, su cui si configurano SSO, assegnazione utenti, consenso e provisioning. Registrando un'app si crea l'Application e, nel tenant, un service principal corrispondente: sono oggetti distinti con scopi diversi.",
+    "explanation": "Falso. L'app registration definisce l'applicazione e la sua identità nel tenant di origine (object nell'oggetto Application, con permessi, redirect URI, secret/certificati). L'enterprise application e il service principal, ovvero l'istanza/rappresentazione locale dell'app in un tenant, su cui si configurano SSO, assegnazione utenti, consenso e provisioning. Registrando un'app si crea l'Application e, nel tenant, un service principal corrispondente: sono oggetti distinti con scopi diversi.",
     "explanation_en": "False. The app registration defines the application and its identity in the home tenant (the Application object, with permissions, redirect URIs, secrets/certificates). The enterprise application is the service principal, i.e. the local instance/representation of the app in a tenant, on which you configure SSO, user assignment, consent, and provisioning. Registering an app creates the Application and, in the tenant, a corresponding service principal: they are distinct objects with different purposes.",
     "source": "Microsoft SC-300"
   }

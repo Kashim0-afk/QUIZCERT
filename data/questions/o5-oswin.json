@@ -10,7 +10,7 @@
     ],
     "type": "single",
     "difficulty": 2,
-    "question": "Un utente accede via rete a una cartella condivisa. Sulla condivisione ha il permesso 'Lettura', mentre a livello NTFS ha 'Modifica'. Qual e il permesso effettivo con cui puo operare sui file?",
+    "question": "Un utente accede via rete a una cartella condivisa. Sulla condivisione ha il permesso 'Lettura', mentre a livello NTFS ha 'Modifica'. Qual è il permesso effettivo con cui può operare sui file?",
     "options": [
       "Lettura",
       "Modifica",
@@ -20,11 +20,11 @@
     "correct": [
       0
     ],
-    "explanation": "Quando si accede via rete, Windows applica sia i permessi di condivisione sia quelli NTFS e prende il piu restrittivo tra i due. La condivisione consente solo Lettura, quindi anche se NTFS concede Modifica il risultato effettivo e Lettura.",
+    "explanation": "Quando si accede via rete, Windows applica sia i permessi di condivisione sia quelli NTFS e prende il più restrittivo tra i due. La condivisione consente solo Lettura, quindi anche se NTFS concede Modifica il risultato effettivo e Lettura.",
     "why_wrong": {
-      "1": "Modifica e il permesso NTFS, ma via rete viene limitato dal permesso di condivisione piu restrittivo (Lettura).",
-      "2": "Controllo completo non e concesso ne dalla condivisione ne da NTFS in questo scenario.",
-      "3": "Entrambi i livelli concedono almeno la lettura, quindi l'accesso non e negato."
+      "1": "Modifica e il permesso NTFS, ma via rete viene limitato dal permesso di condivisione più restrittivo (Lettura).",
+      "2": "Controllo completo non è concesso ne dalla condivisione ne da NTFS in questo scenario.",
+      "3": "Entrambi i livelli concedono almeno la lettura, quindi l'accesso non è negato."
     },
     "source": "IT generale",
     "question_en": "A user accesses a shared folder over the network. On the share they have 'Read' permission, while at the NTFS level they have 'Modify'. What is the effective permission with which they can operate on the files?",
@@ -61,7 +61,7 @@
     "correct": [
       0
     ],
-    "explanation": "'Automatico (avvio ritardato)' avvia il servizio poco dopo l'avvio del sistema, dando priorita ai servizi essenziali e riducendo l'impatto sul tempo di boot.",
+    "explanation": "'Automatico (avvio ritardato)' avvia il servizio poco dopo l'avvio del sistema, dando priorità ai servizi essenziali e riducendo l'impatto sul tempo di boot.",
     "why_wrong": {
       "1": "'Automatico' avvia il servizio subito durante il boot, senza il ritardo richiesto.",
       "2": "'Manuale' non avvia il servizio automaticamente: parte solo su richiesta di un'applicazione o dell'utente.",
@@ -229,7 +229,7 @@
     ],
     "explanation": "System File Checker (sfc /scannow) analizza tutti i file di sistema protetti e sostituisce quelli danneggiati con copie integre dalla cache dei componenti.",
     "why_wrong": {
-      "1": "chkdsk /f verifica e corregge errori del file system e del disco, non l'integrita dei file di sistema di Windows.",
+      "1": "chkdsk /f verifica e corregge errori del file system e del disco, non l'integrità dei file di sistema di Windows.",
       "2": "ipconfig /all mostra la configurazione di rete, non ripara file di sistema.",
       "3": "tasklist elenca i processi in esecuzione, non esegue riparazioni."
     },
@@ -352,7 +352,7 @@
     "correct": [
       0
     ],
-    "explanation": "UAC limita i privilegi delle applicazioni finche non e necessaria l'elevazione: quando un'azione richiede diritti amministrativi mostra un prompt di conferma o richiede le credenziali, riducendo l'impatto del malware.",
+    "explanation": "UAC limita i privilegi delle applicazioni finché non è necessaria l'elevazione: quando un'azione richiede diritti amministrativi mostra un prompt di conferma o richiede le credenziali, riducendo l'impatto del malware.",
     "why_wrong": {
       "1": "La crittografia del disco e compito di BitLocker, non di UAC.",
       "2": "Il blocco dei siti pericolosi e gestito da SmartScreen o dal browser, non da UAC.",
@@ -395,7 +395,7 @@
     ],
     "explanation": "WSUS e il ruolo di Windows Server che permette a un amministratore di scaricare, approvare e distribuire centralmente gli aggiornamenti Microsoft ai client interni, controllando cosa e quando viene installato.",
     "why_wrong": {
-      "1": "Task Scheduler pianifica l'esecuzione di attivita e programmi, non gestisce la distribuzione degli aggiornamenti aziendali.",
+      "1": "Task Scheduler pianifica l'esecuzione di attività e programmi, non gestisce la distribuzione degli aggiornamenti aziendali.",
       "2": "Resource Monitor mostra l'uso di CPU, memoria, disco e rete, non gestisce gli aggiornamenti.",
       "3": "BitLocker cifra i volumi del disco, non ha funzioni di update management."
     },
@@ -430,7 +430,7 @@
       "Aggiungere un utente al gruppo 'Administrators' gli conferisce privilegi amministrativi completi sulla macchina",
       "Il gruppo 'Users' consente per impostazione predefinita di installare qualsiasi software di sistema",
       "La console lusrmgr.msc permette di gestire utenti e gruppi locali (nelle edizioni che la includono)",
-      "Un account disabilitato puo comunque effettuare l'accesso interattivo al sistema"
+      "Un account disabilitato può comunque effettuare l'accesso interattivo al sistema"
     ],
     "correct": [
       0,
@@ -438,8 +438,8 @@
     ],
     "explanation": "Appartenere al gruppo Administrators conferisce il controllo amministrativo completo del computer. La console lusrmgr.msc (Utenti e gruppi locali) e lo strumento grafico per crearli e gestirli nelle edizioni Pro/Enterprise.",
     "why_wrong": {
-      "1": "Il gruppo Users ha privilegi limitati: non puo installare software che modifica il sistema o scrive in aree protette senza elevazione.",
-      "3": "Un account disabilitato non puo accedere al sistema finche non viene riabilitato."
+      "1": "Il gruppo Users ha privilegi limitati: non può installare software che modifica il sistema o scrive in aree protette senza elevazione.",
+      "3": "Un account disabilitato non può accedere al sistema finché non viene riabilitato."
     },
     "source": "IT generale",
     "question_en": "Which of the following statements about managing local users and groups in Windows are correct? (select 2)",
@@ -470,7 +470,7 @@
     "options": [
       "Utilizza profili distinti (Dominio, Privato, Pubblico) con regole applicabili a seconda della rete connessa",
       "Permette di creare regole in ingresso (inbound) e in uscita (outbound)",
-      "Puo essere configurato solo tramite riga di comando, non ha interfaccia grafica",
+      "Può essere configurato solo tramite riga di comando, non ha interfaccia grafica",
       "Se attivo, blocca completamente qualsiasi traffico di rete rendendo il PC irraggiungibile"
     ],
     "correct": [
@@ -520,7 +520,7 @@
     ],
     "explanation": "Get-ExecutionPolicy visualizza il criterio corrente e la policy 'Restricted' (predefinita su molti client) blocca l'esecuzione dei file di script .ps1, consentendo solo comandi interattivi.",
     "why_wrong": {
-      "2": "La execution policy e una misura di sicurezza di base, non un controllo inviolabile: puo essere aggirata (ad esempio con -ExecutionPolicy Bypass), quindi non e una barriera assoluta.",
+      "2": "La execution policy e una misura di sicurezza di base, non un controllo inviolabile: può essere aggirata (ad esempio con -ExecutionPolicy Bypass), quindi non è una barriera assoluta.",
       "3": "Modificare l'ambito LocalMachine con Set-ExecutionPolicy richiede privilegi amministrativi."
     },
     "source": "IT generale",
@@ -547,7 +547,7 @@
     ],
     "type": "truefalse",
     "difficulty": 2,
-    "question": "Vero o Falso: quando su uno stesso volume NTFS piu permessi si applicano a un utente (diretti e tramite gruppi), tra i permessi 'Consenti' vale la somma cumulativa, ma un 'Nega' esplicito ha la precedenza e prevale.",
+    "question": "Vero o Falso: quando su uno stesso volume NTFS più permessi si applicano a un utente (diretti e tramite gruppi), tra i permessi 'Consenti' vale la somma cumulativa, ma un 'Nega' esplicito ha la precedenza e prevale.",
     "options": [
       "Vero",
       "Falso"
@@ -557,7 +557,7 @@
     ],
     "explanation": "I permessi NTFS 'Consenti' si accumulano (l'utente ottiene l'unione dei permessi ricevuti direttamente e tramite i gruppi), ma un permesso 'Nega' esplicito ha la precedenza su qualsiasi 'Consenti'.",
     "why_wrong": {
-      "1": "L'affermazione e corretta: il Nega esplicito prevale sempre sul Consenti, che invece e cumulativo."
+      "1": "L'affermazione è corretta: il Nega esplicito prevale sempre sul Consenti, che invece e cumulativo."
     },
     "source": "IT generale",
     "question_en": "True or False: when multiple permissions apply to a user on the same NTFS volume (directly and through groups), among the 'Allow' permissions the cumulative sum applies, but an explicit 'Deny' takes precedence and prevails.",
@@ -589,9 +589,9 @@
     "correct": [
       0
     ],
-    "explanation": "Il file hosts consente mappature statiche nome-IP e ha priorita sulla risoluzione DNS: se un nome e presente nel file, Windows usa quella voce senza interrogare il DNS.",
+    "explanation": "Il file hosts consente mappature statiche nome-IP e ha priorità sulla risoluzione DNS: se un nome e presente nel file, Windows usa quella voce senza interrogare il DNS.",
     "why_wrong": {
-      "1": "L'affermazione e corretta: il file hosts viene consultato prima del DNS per i nomi che contiene."
+      "1": "L'affermazione è corretta: il file hosts viene consultato prima del DNS per i nomi che contiene."
     },
     "source": "IT generale",
     "question_en": "True or False: the Windows hosts file (in C:\\Windows\\System32\\drivers\\etc) lets you manually map a host name to an IP address and, when an entry is present, it is consulted before querying the DNS server.",
@@ -624,7 +624,7 @@
     ],
     "explanation": "La scheda Avvio di Task Manager gestisce solo l'avvio automatico dei programmi al login: disabilitare una voce impedisce l'esecuzione all'accensione ma lascia il programma installato e utilizzabile manualmente.",
     "why_wrong": {
-      "1": "L'affermazione e corretta: disabilitare l'avvio automatico non equivale a disinstallare il programma."
+      "1": "L'affermazione è corretta: disabilitare l'avvio automatico non equivale a disinstallare il programma."
     },
     "source": "IT generale",
     "question_en": "True or False: in Task Manager the 'Startup' tab lets you disable the programs that start automatically at login, but disabling an entry does not uninstall the corresponding program.",
