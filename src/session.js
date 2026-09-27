@@ -92,3 +92,10 @@ export function fmtTime(s) {
   const m = Math.floor(s / 60), r = s % 60;
   return m + ':' + String(r).padStart(2, '0');
 }
+
+// ---------- load problems ----------
+// Summary of what the loader could not use, or null when everything loaded.
+export function loadProblems({ failedFiles = [], skipped = 0 } = {}) {
+  if (failedFiles.length === 0 && skipped === 0) return null;
+  return { files: failedFiles.map((f) => f.replace(/^.*\//, '')), skipped };
+}

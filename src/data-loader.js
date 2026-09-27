@@ -15,7 +15,9 @@ export async function loadQuestions(manifestUrl, fetchFn = fetch) {
     const url = resolveRelative(manifestUrl, file);
     let list;
     try {
-      list = await (await fetchFn(url)).json();
+      const res = await fetchFn(url);
+      if (res.ok === false) throw new Error('HTTP ' + res.status);
+      list = await res.json();
     } catch {
       // A single missing/malformed question file must not break the whole app:
       // skip it and keep loading the rest.

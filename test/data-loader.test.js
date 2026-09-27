@@ -47,3 +47,14 @@ test('a broken file is skipped, others still load', async () => {
   assert.equal(res.questions.length, 1);
   assert.deepEqual(res.failedFiles, ['questions/broken.json']);
 });
+
+test('an HTTP error (e.g. 404 page) counts as a failed file', async () => {
+  const fetchFn = async (url) => {
+    if (url === 'data/manifest.json') return { ok: true, json: async () => ({ files: ['questions/gone.json', 'questions/ok.json'] }) };
+    if (url === 'data/questions/gone.json') return { ok: false, status: 404, json: async () => [good] };
+    return { ok: true, json: async () => [good] };
+  };
+  const res = await loadQuestions('data/manifest.json', fetchFn);
+  assert.equal(res.questions.length, 1);
+  assert.deepEqual(res.failedFiles, ['questions/gone.json']);
+});

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   optionOrder, toOriginal, correctDisplayPositions,
   localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone,
-  remainingSeconds, commitPendingAnswer, fmtTime,
+  remainingSeconds, commitPendingAnswer, fmtTime, loadProblems,
 } from '../src/session.js';
 import { emptyStats, recordAttempt } from '../src/stats.js';
 import { grade } from '../src/engine.js';
@@ -130,4 +130,10 @@ test('fmtTime formats m:ss', () => {
   assert.equal(fmtTime(61), '1:01');
   assert.equal(fmtTime(0), '0:00');
   assert.equal(fmtTime(null), '');
+});
+
+test('loadProblems reports failed files and skipped questions', () => {
+  assert.equal(loadProblems({ failedFiles: [], skipped: 0 }), null);
+  assert.deepEqual(loadProblems({ failedFiles: ['questions/o1-ccna.json'], skipped: 0 }), { files: ['o1-ccna.json'], skipped: 0 });
+  assert.deepEqual(loadProblems({ failedFiles: [], skipped: 3 }), { files: [], skipped: 3 });
 });

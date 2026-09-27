@@ -4,7 +4,7 @@ import { recordAttempt, streak, globalAccuracy, byField } from './stats.js';
 import { exportStats, importStats, MAX_IMPORT_BYTES } from './storage.js';
 import { getLang, toggleLang, t, qText, qOptions, qExplanation, qWhyWrong } from './i18n.js';
 import { optionOrder, toOriginal, localDay, dateBack, seedFromDate, mulberry32, dailyCounts, markDailyDone,
-  remainingSeconds, commitPendingAnswer, fmtTime } from './session.js';
+  remainingSeconds, commitPendingAnswer, fmtTime, loadProblems } from './session.js';
 
 // ---------- tiny DOM helper ----------
 function el(tag, props = {}, ...children) {
@@ -32,6 +32,7 @@ export function startApp(root, ctx) {
     questions: ctx.questions,
     store: ctx.store,
     stats: ctx.stats,
+    problems: loadProblems(ctx),
     scope: { cert: '', topic: '' },
     screen: '',
     homeDay: '',
@@ -76,6 +77,11 @@ function renderHome(app) {
       el('h1', { class: 'title' }, 'QuizCert'),
       langBtn),
     el('p', { class: 'subtitle' }, t('subtitle', app.questions.length, streak(app.stats.days, today))),
+    app.problems ? el('div', { class: 'card warn-card', role: 'alert' },
+      el('p', { class: 'warn-title' }, t('loadWarnTitle')),
+      app.problems.files.length ? el('p', {}, t('loadWarnFiles', app.problems.files.length, app.problems.files.join(', '))) : null,
+      app.problems.skipped ? el('p', {}, t('loadWarnSkipped', app.problems.skipped)) : null,
+      el('p', { class: 'hint' }, t('loadWarnHint'))) : null,
 
     el('div', { class: 'card' },
       el('h2', {}, t('studyScope')),

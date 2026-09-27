@@ -273,3 +273,8 @@ select, input[type="file"] {
 .import-msg:empty { display: none; }
 .import-msg.ok { color: var(--ok); }
 .import-msg.ko { color: var(--ko); }
+
+/* avviso file domande non caricati */
+.warn-card { border-color: #f59e0b; background: #2a2414; }
+.warn-card p { margin: 4px 0; }
+.warn-title { font-weight: 700; color: #fbbf24; }

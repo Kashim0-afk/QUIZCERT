@@ -74,6 +74,10 @@ const DICT = {
     loadMore: (n, rest) => 'Carica altre ' + n + ' (' + rest + ' rimanenti)',
     loadError: (m) => 'Errore nel caricamento delle domande: ' + m,
     updateAvailable: 'Nuova versione disponibile', updateNow: 'Aggiorna',
+    loadWarnTitle: '⚠ Alcune domande non sono state caricate',
+    loadWarnFiles: (n, list) => (n === 1 ? '1 file non caricato: ' : n + ' file non caricati: ') + list + '.',
+    loadWarnSkipped: (n) => (n === 1 ? '1 domanda non valida scartata.' : n + ' domande non valide scartate.'),
+    loadWarnHint: 'Controlla la connessione e ricarica la pagina. Se il problema resta, il file delle domande è danneggiato.',
   },
   en: {
     subtitle: (n, s) => n + ' questions available · ' + s + '-day streak',
@@ -135,6 +139,10 @@ const DICT = {
     loadMore: (n, rest) => 'Load ' + n + ' more (' + rest + ' remaining)',
     loadError: (m) => 'Error loading questions: ' + m,
     updateAvailable: 'New version available', updateNow: 'Update',
+    loadWarnTitle: '⚠ Some questions could not be loaded',
+    loadWarnFiles: (n, list) => (n === 1 ? '1 file not loaded: ' : n + ' files not loaded: ') + list + '.',
+    loadWarnSkipped: (n) => (n === 1 ? '1 invalid question skipped.' : n + ' invalid questions skipped.'),
+    loadWarnHint: 'Check your connection and reload the page. If it persists, the question file is damaged.',
   },
 };
 

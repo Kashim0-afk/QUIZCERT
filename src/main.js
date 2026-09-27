@@ -7,7 +7,7 @@ import { t } from './i18n.js';
 async function boot() {
   const root = document.getElementById('app');
   try {
-    const { questions, skipped } = await loadQuestions('data/manifest.json');
+    const { questions, skipped, failedFiles } = await loadQuestions('data/manifest.json');
     let store;
     try {
       store = await createIndexedDbStore();
@@ -15,7 +15,7 @@ async function boot() {
       store = createMemoryStore(emptyStats()); // fallback if IndexedDB unavailable
     }
     const stats = (await store.load()) ?? emptyStats();
-    startApp(root, { questions, store, stats, skipped });
+    startApp(root, { questions, store, stats, skipped, failedFiles });
   } catch (err) {
     root.textContent = t('loadError', err.message);
   }
